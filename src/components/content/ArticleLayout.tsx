@@ -5,6 +5,7 @@ import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
 import { GlassCard } from "@/components/arcana/GlassCard";
+import { AuthorCard } from "@/components/AuthorCard";
 import { Breadcrumb, type Crumb } from "./Breadcrumb";
 import { ShareButtons } from "./ShareButtons";
 import { InArticleAd } from "@/components/ads/InArticleAd";
@@ -98,10 +99,13 @@ export function ArticleLayout({
 
         <InArticleAd />
 
-        <GlassCard className="mt-14 p-6">
-          <h2 className="font-display text-lg">About the author</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{AUTHOR.bio}</p>
-        </GlassCard>
+        <div className="mt-14">
+          <AuthorCard
+            lastUpdated={updated}
+            category={eyebrow}
+            readingTime={`${readingMinutes} min read`}
+          />
+        </div>
       </main>
       <div className="relative mx-auto w-full max-w-4xl px-4 sm:px-6">
         <DisplayAd />

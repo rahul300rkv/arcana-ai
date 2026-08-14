@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BookOpenText, BriefcaseBusiness, Compass, Flame, Hash, Heart, MoonStar, Sparkles, Wand2 } from "lucide-react";
+import { ArrowRight, BookOpenText, BriefcaseBusiness, Compass, Flame, Hash, Heart, MoonStar, ShieldCheck, Sparkles, Wand2 } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
 import { Spotlight } from "@/components/arcana/Spotlight";
@@ -17,9 +17,6 @@ import { SITE_URL, SITE_NAME } from "@/lib/site";
 // into their own chunks and only fetched once the browser is idle /
 // they're about to scroll into view (handled by Suspense's async boundary
 // — the import itself is what's deferred, not visibility tracking).
-const Testimonials = lazy(() =>
-  import("@/components/landing/Testimonials").then((m) => ({ default: m.Testimonials })),
-);
 const FAQ = lazy(() => import("@/components/landing/FAQ").then((m) => ({ default: m.FAQ })));
 const InArticleAd = lazy(() =>
   import("@/components/ads/InArticleAd").then((m) => ({ default: m.InArticleAd })),
@@ -38,8 +35,8 @@ const FAQ_ITEMS: Array<[string, string]> = [
     "No account required. Guest mode gives you full access instantly, for both tarot readings and the Mulank numerology calculator.",
   ],
   [
-    "How does the AI tarot reading work?",
-    "You pick a spread, set an intention, and shuffle. AstroFree draws cards and weaves a calm, personal interpretation from tarot symbolism and your question.",
+    "How do the interpretations work?",
+    "You choose a spread, set an intention, and draw cards. AstroFree uses the card symbolism, your question, and numerology context to create a reflective interpretation — not a guaranteed prediction.",
   ],
   [
     "What is my Mulank number and how is it calculated?",
@@ -81,7 +78,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Free tarot readings, numerology calculators, and educational guides for Mulank, Bhagyank, Namank, spreads, and card meanings. Learn and reflect with AstroFree.",
+          "Free tarot and numerology education with clear guides, reflective readings, and calculators for Mulank, Bhagyank, Namank, spreads, and card meanings.",
       },
       {
         name: "keywords",
@@ -95,7 +92,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Instant, free AI tarot readings plus Mulank, Bhagyank and Namank numerology calculators — Personal Year & Month forecasts, daily card, private journal. No signup.",
+          "Free tarot and numerology education with reflective interpretations, calculators, and personal journaling tools for learning and self-reflection.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -108,7 +105,31 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "Instant AI tarot readings + free Mulank, Bhagyank and Namank numerology calculators. Personal Year & Month forecasts, daily card, journal — always free.",
+          "Learn tarot and numerology through free guides, reflective readings, and calculators for Mulank, Bhagyank, Namank, spreads, and life-cycle forecasts.",
+      },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+          logo: `${SITE_URL}/logo.png.asset.json`,
+          sameAs: [],
+          description: "Free AI-powered tarot readings and numerology calculators for learning and self-reflection.",
+        },
+      },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          searchAction: {
+            "@type": "SearchAction",
+            target: `${SITE_URL}/tarot?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        },
       },
       {
         "script:ld+json": {
@@ -162,8 +183,29 @@ function LandingPage() {
               Tarot is a symbolic system used to explore questions, emotions, and patterns through imagery and archetypes. Each card acts like a mirror, inviting reflection rather than fixed prediction. Numerology is a traditional study of numbers and their meanings, often used to understand character, timing, and recurring life themes from a birth date or a name. AstroFree brings both traditions together in a free educational format designed for learning, journaling, and self-reflection.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Our AI tools assist interpretation by combining a card's symbolism, your question, and the context of your reading, but the goal is not to replace human judgment. AstroFree is a free platform for exploring tarot, numerology, and meaning-making in a calm, grounded way. We encourage responsible use: treat readings as prompts for insight, not as certainty, and let your own intuition, values, and lived experience guide the final takeaway.
+              Our interpretation layer combines card symbolism, your question, and the context of a reading, but the goal is not to replace human judgment. AstroFree is designed as a reflective learning space where the user brings their own intuition, values, and lived experience into the final meaning. We do not promise certainty, and we do not present tarot or numerology as a substitute for professional guidance in health, legal, or financial decisions.
             </p>
+          </div>
+        </section>
+
+        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">A careful framework</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl">What tarot and numerology are not</h2>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <GlassCard className="h-full p-6">
+              <h3 className="font-display text-xl text-foreground">Not a prediction engine</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Tarot and numerology help people notice patterns, themes, and emotional context. They are best used as reflective prompts rather than fixed forecasts. A reading can be insightful without being definitive.
+              </p>
+            </GlassCard>
+            <GlassCard className="h-full p-6">
+              <h3 className="font-display text-xl text-foreground">Not a substitute for professional guidance</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                These tools are designed for learning, journaling, and self-reflection. They are not a replacement for advice from a qualified professional when the decision involves health, money, legal matters, or emotional wellbeing.
+              </p>
+            </GlassCard>
           </div>
         </section>
 
@@ -263,8 +305,47 @@ function LandingPage() {
         <Features />
         <Numerology />
         <HowItWorks />
+
+        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">Why readers choose us</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl">Why choose AstroFree?</h2>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                icon: BookOpenText,
+                title: "Clear learning",
+                body: "Our guides explain the meaning behind the symbols, the maths behind the numbers, and the context behind each reading.",
+              },
+              {
+                icon: Compass,
+                title: "Reflective tools",
+                body: "Every reading is framed as a prompt for self-reflection, discussion, and journaling rather than a fixed certainty.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Transparent methods",
+                body: "We explain how card meanings and numerology calculations are derived, so readers know the framework behind the result.",
+              },
+              {
+                icon: Heart,
+                title: "Private and free",
+                body: "No account is required for the core experience. Your questions, journal notes, and birth data stay in your own flow.",
+              },
+            ].map((item) => (
+              <GlassCard key={item.title} className="h-full p-5">
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
+                  <item.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-4 font-display text-xl text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              </GlassCard>
+            ))}
+          </div>
+        </section>
+
         <Suspense fallback={null}>
-          <Testimonials />
           <FAQ />
           <div className="relative mx-auto w-full max-w-4xl px-4 sm:px-6">
             <InArticleAd />

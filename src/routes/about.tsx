@@ -72,11 +72,15 @@ function AboutPage() {
           </Section>
 
           <Section title="How AI is Used">
-            AI helps AstroFree speed up the organisation of educational material, generate accessible explanations, and surface relevant interpretations across tarot, spreads, and numerology. Our AI-assisted writing does not replace the editor's judgment; it supports a system where card meanings, numerology calculations, and article structure are reviewed for clarity and coherence. In practice, AI is used as a drafting and explanation tool rather than an authority that claims certainty.
+            AI helps AstroFree speed up the organisation of educational material, generate accessible explanations, and surface relevant interpretations across tarot, spreads, and numerology. Our AI-assisted writing does not replace the editor's judgment; it supports a system where card meanings, numerology calculations, and article structure are reviewed for clarity and coherence. In practice, AI is used as a drafting and explanation tool rather than an authority that claims certainty. The final responsibility remains editorial: explain clearly, stay honest about interpretation, and keep context grounded in reflection rather than hype.
+          </Section>
+
+          <Section title="What AstroFree Is Not">
+            AstroFree is not a magic-answer machine, a certainty engine, or a substitute for qualified advice. It is a learning environment for tarot and numerology, built around reflection, context, and personal meaning. We believe the value of a card or number lies not in mechanically telling you the future, but in helping you ask better questions and notice patterns in your own life.
           </Section>
 
           <Section title="Editorial Principles">
-            We write with clear intent: to explain, to educate, and to contextualise. Every guide should help a reader understand the meaning of a card, the logic behind a number, and the practical limits of the system. We avoid vague, inflated language and focus on plain explanations, historical context, and repeatable structure. We also keep the same standard across tarot, numerology, and calculator pages so readers can compare ideas consistently.
+            We write with clear intent: to explain, to educate, and to contextualise. Every guide should help a reader understand the meaning of a card, the logic behind a number, and the practical limits of the system. We avoid vague, inflated language and focus on plain explanations, historical context, and repeatable structure. We also keep the same standard across tarot, numerology, and calculator pages so readers can compare ideas consistently and reach conclusions with context rather than certainty.
           </Section>
 
           <Section title="Responsible Guidance">
