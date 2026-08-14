@@ -14,7 +14,6 @@ import {
   type BhagyankResult,
 } from "@/lib/numerology/bhagyank";
 import { BHAGYANK_MEANINGS } from "@/data/bhagyank";
-
 const todayIso = new Date().toISOString().slice(0, 10);
 
 interface Props {
