@@ -584,3 +584,47 @@ export const BHAGYANK_FAQS: BhagyankFaq[] = [
 ];
 
 export const BHAGYANK_UPDATED = "2026-08-09";
+
+/** FAQs shown on the `/numerology/bhagyank` hub page. */
+export const BHAGYANK_HUB_FAQS: BhagyankFaq[] = [
+  {
+    question: "What is Bhagyank in numerology?",
+    answer:
+      "Bhagyank — also called the Destiny Number or Life Path Number — is the single digit (or Master Number) derived from your complete date of birth: day + month + full year added together until one digit remains, unless the sum is 11, 22, or 33, which are preserved as Master Numbers. It describes your broader life direction and natural strengths.",
+  },
+  {
+    question: "How do I calculate my Bhagyank?",
+    answer:
+      "Add every digit of your birth date together. Born 23 August 1995? Calculate: 2 + 3 + 0 + 8 + 1 + 9 + 9 + 5 = 37, then 3 + 7 = 10, then 1 + 0 = 1. Your Bhagyank is 1. Use the free calculator on this site to generate it automatically.",
+  },
+  {
+    question: "What is the difference between Bhagyank and Mulank?",
+    answer:
+      "Mulank uses only your day of birth and reflects your everyday, instinctive personality. Bhagyank uses your complete date of birth and describes your longer life direction. Most practitioners read them together — your Mulank tells you how you naturally act; your Bhagyank tells you what your life path is asking of you.",
+  },
+  {
+    question: "What is a Master Number (11, 22, 33)?",
+    answer:
+      "Master Numbers are intermediate sums that are preserved unreduced in numerological tradition. An 11 carries elevated sensitivity and intuition; a 22 combines vision with structural capability; a 33 carries heightened compassion and teaching energy. They're generally read as more intense versions of their root numbers (2, 4, and 6 respectively).",
+  },
+  {
+    question: "Can two people born on the same date have different readings?",
+    answer:
+      "No — they would have the same Bhagyank. But they also have Personal Year numbers (recalculated each January 1st) and Personal Month numbers that shift with time. Additionally, Mulank (birth number) and Namank (name number) add other layers to the full numerology picture.",
+  },
+  {
+    question: "Is Bhagyank astrology?",
+    answer:
+      "No, though they complement each other. Bhagyank is calculated arithmetically from your birth date. Astrology is based on planetary positions at the moment you were born. Some numerologists pair both systems — the numbers describe your inner nature, while astrology describes the cosmic timing you were born into.",
+  },
+  {
+    question: "Does Bhagyank change if I change my name?",
+    answer:
+      "No. Bhagyank comes from your birth date, which never changes. Your Namank — derived from the letters of your name — would change if you legally changed your name, but your core birth numbers (Bhagyank and Mulank) stay the same for life.",
+  },
+  {
+    question: "What should I do if Bhagyank describes me poorly?",
+    answer:
+      "Remember that every number contains both shadow and light. A Bhagyank 8 might lean toward workaholism, but can also build institutions that outlast a lifetime. The descriptions are frameworks for reflection, not boxes you're locked into. Use the insight to make deliberate choices rather than assuming the number predicts your fate.",
+  },
+];

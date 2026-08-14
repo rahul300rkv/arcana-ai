@@ -501,3 +501,47 @@ export const NAMANK_FAQS: NamankFaq[] = [
 ];
 
 export const NAMANK_UPDATED = "2026-08-12";
+
+/** FAQs shown on the `/numerology/namank` hub page. */
+export const NAMANK_HUB_FAQS: NamankFaq[] = [
+  {
+    question: "What is Namank in numerology?",
+    answer:
+      "Namank — also called the Name Number — is a single digit derived from the letters of your full name using the Chaldean numerology system. Each letter has a value (A=1, B=2, etc.), and adding them together until one digit remains gives your Namank. It describes the energy your name carries and how it shapes how others perceive you.",
+  },
+  {
+    question: "How is Namank calculated?",
+    answer:
+      "Assign each letter a value: A-I=1-9, J-R=1-9, S-Z=1-8. Add all letters in your full name together. If the sum has more than one digit, add those digits together until one digit remains. Example: 'JANE' = 1+1+5+5 = 12, then 1+2 = 3. Use the free calculator on this site to generate yours automatically.",
+  },
+  {
+    question: "What is the difference between Namank, Mulank, and Bhagyank?",
+    answer:
+      "Mulank (day of birth) describes your instinctive personality. Bhagyank (full birth date) describes your life direction. Namank (your name) describes how your identity shapes how others see you. All three add layers to a complete numerology reading.",
+  },
+  {
+    question: "Can I change my Namank?",
+    answer:
+      "Yes. If you legally change your name, your Namank recalculates based on your new name. Some people use numerology to choose names — for a child, a business, or a pen name — that align with the energy they want to cultivate.",
+  },
+  {
+    question: "Is Namank the same as Chaldean numerology?",
+    answer:
+      "Chaldean is the system used to calculate Namank — it's the most common method for name number calculation. Pythagorean numerology assigns different values and is sometimes used for Namank instead, though Chaldean is more traditional for name-based calculations.",
+  },
+  {
+    question: "Does Namank affect my personality or just how others see me?",
+    answer:
+      "Tradition holds that your name carries a vibration that both reflects and shapes your personality — there's a feedback loop. Some people report that their Namank resonates with how they naturally express themselves, while others find their Namank describes how they're typically perceived, even if it differs from their inner nature.",
+  },
+  {
+    question: "What if my Namank is different from my Mulank and Bhagyank?",
+    answer:
+      "This is common and is often considered interesting: you might carry a public presentation (Namank) that differs from your core nature (Mulank) or your broader life direction (Bhagyank). This tension between outer and inner identity can explain why some people feel like different versions of themselves in different contexts.",
+  },
+  {
+    question: "Can I use numerology to choose a baby name?",
+    answer:
+      "Yes. Some parents research the Namank of prospective names and choose ones that align with their intentions for their child. You can also calculate what Namank you'd want and work backward to find names that add up to that number. The free Namank calculator on this site helps explore different options.",
+  },
+];

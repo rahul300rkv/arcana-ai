@@ -33,7 +33,9 @@ import { Route as ReadingShuffleRouteImport } from './routes/reading.shuffle'
 import { Route as ReadingRevealRouteImport } from './routes/reading.reveal'
 import { Route as ReadingResultRouteImport } from './routes/reading.result'
 import { Route as ReadingQuestionRouteImport } from './routes/reading.question'
+import { Route as NumerologyNamankRouteImport } from './routes/numerology.namank'
 import { Route as NumerologyMulankRouteImport } from './routes/numerology.mulank'
+import { Route as NumerologyBhagyankRouteImport } from './routes/numerology.bhagyank'
 import { Route as NumerologySlugRouteImport } from './routes/numerology.$slug'
 import { Route as GuideTarotSpreadsRouteImport } from './routes/guide.tarot-spreads'
 import { Route as GuideTarotCardMeaningsRouteImport } from './routes/guide.tarot-card-meanings'
@@ -159,9 +161,19 @@ const ReadingQuestionRoute = ReadingQuestionRouteImport.update({
   path: '/reading/question',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NumerologyNamankRoute = NumerologyNamankRouteImport.update({
+  id: '/numerology/namank',
+  path: '/numerology/namank',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NumerologyMulankRoute = NumerologyMulankRouteImport.update({
   id: '/numerology/mulank',
   path: '/numerology/mulank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NumerologyBhagyankRoute = NumerologyBhagyankRouteImport.update({
+  id: '/numerology/bhagyank',
+  path: '/numerology/bhagyank',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NumerologySlugRoute = NumerologySlugRouteImport.update({
@@ -205,7 +217,9 @@ export interface FileRoutesByFullPath {
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
+  '/numerology/bhagyank': typeof NumerologyBhagyankRoute
   '/numerology/mulank': typeof NumerologyMulankRoute
+  '/numerology/namank': typeof NumerologyNamankRoute
   '/reading/question': typeof ReadingQuestionRoute
   '/reading/result': typeof ReadingResultRoute
   '/reading/reveal': typeof ReadingRevealRoute
@@ -236,7 +250,9 @@ export interface FileRoutesByTo {
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
+  '/numerology/bhagyank': typeof NumerologyBhagyankRoute
   '/numerology/mulank': typeof NumerologyMulankRoute
+  '/numerology/namank': typeof NumerologyNamankRoute
   '/reading/question': typeof ReadingQuestionRoute
   '/reading/result': typeof ReadingResultRoute
   '/reading/reveal': typeof ReadingRevealRoute
@@ -268,7 +284,9 @@ export interface FileRoutesById {
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
+  '/numerology/bhagyank': typeof NumerologyBhagyankRoute
   '/numerology/mulank': typeof NumerologyMulankRoute
+  '/numerology/namank': typeof NumerologyNamankRoute
   '/reading/question': typeof ReadingQuestionRoute
   '/reading/result': typeof ReadingResultRoute
   '/reading/reveal': typeof ReadingRevealRoute
@@ -301,7 +319,9 @@ export interface FileRouteTypes {
     | '/guide/tarot-card-meanings'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
+    | '/numerology/bhagyank'
     | '/numerology/mulank'
+    | '/numerology/namank'
     | '/reading/question'
     | '/reading/result'
     | '/reading/reveal'
@@ -332,7 +352,9 @@ export interface FileRouteTypes {
     | '/guide/tarot-card-meanings'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
+    | '/numerology/bhagyank'
     | '/numerology/mulank'
+    | '/numerology/namank'
     | '/reading/question'
     | '/reading/result'
     | '/reading/reveal'
@@ -363,7 +385,9 @@ export interface FileRouteTypes {
     | '/guide/tarot-card-meanings'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
+    | '/numerology/bhagyank'
     | '/numerology/mulank'
+    | '/numerology/namank'
     | '/reading/question'
     | '/reading/result'
     | '/reading/reveal'
@@ -395,7 +419,9 @@ export interface RootRouteChildren {
   GuideTarotCardMeaningsRoute: typeof GuideTarotCardMeaningsRoute
   GuideTarotSpreadsRoute: typeof GuideTarotSpreadsRoute
   NumerologySlugRoute: typeof NumerologySlugRoute
+  NumerologyBhagyankRoute: typeof NumerologyBhagyankRoute
   NumerologyMulankRoute: typeof NumerologyMulankRoute
+  NumerologyNamankRoute: typeof NumerologyNamankRoute
   ReadingQuestionRoute: typeof ReadingQuestionRoute
   ReadingResultRoute: typeof ReadingResultRoute
   ReadingRevealRoute: typeof ReadingRevealRoute
@@ -577,11 +603,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReadingQuestionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/numerology/namank': {
+      id: '/numerology/namank'
+      path: '/numerology/namank'
+      fullPath: '/numerology/namank'
+      preLoaderRoute: typeof NumerologyNamankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/numerology/mulank': {
       id: '/numerology/mulank'
       path: '/numerology/mulank'
       fullPath: '/numerology/mulank'
       preLoaderRoute: typeof NumerologyMulankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/numerology/bhagyank': {
+      id: '/numerology/bhagyank'
+      path: '/numerology/bhagyank'
+      fullPath: '/numerology/bhagyank'
+      preLoaderRoute: typeof NumerologyBhagyankRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/numerology/$slug': {
@@ -635,7 +675,9 @@ const rootRouteChildren: RootRouteChildren = {
   GuideTarotCardMeaningsRoute: GuideTarotCardMeaningsRoute,
   GuideTarotSpreadsRoute: GuideTarotSpreadsRoute,
   NumerologySlugRoute: NumerologySlugRoute,
+  NumerologyBhagyankRoute: NumerologyBhagyankRoute,
   NumerologyMulankRoute: NumerologyMulankRoute,
+  NumerologyNamankRoute: NumerologyNamankRoute,
   ReadingQuestionRoute: ReadingQuestionRoute,
   ReadingResultRoute: ReadingResultRoute,
   ReadingRevealRoute: ReadingRevealRoute,
