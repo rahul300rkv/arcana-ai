@@ -32,14 +32,17 @@ export function Hero() {
   window.location.href = "/dashboard";
 };
 
-  // Slow, almost imperceptible cinematic "breathing" for the hero
-  // background only — scaled down further on mobile for a lighter touch.
+  // Slow, almost imperceptible cinematic drift for the hero background
+  // only — a gentle continuous zoom + pan (inspired by ambient video-hero
+  // treatments), scaled down further on mobile for a lighter touch.
+  // Starts pre-scaled (like a video overscanned to avoid edge bleed) and
+  // eases outward, never resetting sharply.
   const backgroundMotion = prefersReducedMotion
     ? undefined
     : {
-        scale: isNarrow ? [1, 1.008, 1.02, 1.008, 1] : [1, 1.025, 1.04, 1.025, 1],
-        x: isNarrow ? [0, -2, 2, -1, 0] : [0, -4, 5, -3, 0],
-        y: isNarrow ? [0, 1, -2, 1, 0] : [0, 3, -4, 2, 0],
+        scale: isNarrow ? [1.01, 1.022, 1.01] : [1.02, 1.045, 1.02],
+        x: isNarrow ? [0, -2, 0] : [0, -5, 0],
+        y: isNarrow ? [0, -1.5, 0] : [0, -3, 0],
       };
 
   return (
@@ -49,9 +52,9 @@ export function Hero() {
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 will-change-transform"
-        initial={{ scale: 1, x: 0, y: 0 }}
+        initial={{ scale: isNarrow ? 1.01 : 1.02, x: 0, y: 0 }}
         animate={backgroundMotion}
-        transition={{ duration: 24, ease: "easeInOut", repeat: Infinity }}
+        transition={{ duration: 26, ease: "easeInOut", repeat: Infinity }}
       >
         <div
           className="absolute inset-0"
