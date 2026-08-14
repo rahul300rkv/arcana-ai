@@ -7,6 +7,7 @@ import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
