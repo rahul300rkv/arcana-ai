@@ -1,0 +1,1521 @@
+[
+  {
+    "id": "major-00",
+    "name": "The Fool",
+    "arcana": "major",
+    "suit": null,
+    "number": 0,
+    "image": "/cards/major-00.webp",
+    "keywords": [
+      "New beginnings",
+      "innocence",
+      "spontaneity",
+      "a free spirit"
+    ],
+    "uprightMeaning": "New beginnings, innocence, spontaneity, a free spirit",
+    "reversedMeaning": "Recklessness, taken advantage of, inconsideration",
+    "loveMeaning": "A fresh romantic start; take a leap of faith",
+    "careerMeaning": "A bold new career direction; embrace risk",
+    "financeMeaning": "Impulsive spending; approach money with care",
+    "spiritualityMeaning": "Trusting the journey of the soul"
+  },
+  {
+    "id": "major-01",
+    "name": "The Magician",
+    "arcana": "major",
+    "suit": null,
+    "number": 1,
+    "image": "/cards/major-01.webp",
+    "keywords": [
+      "Manifestation",
+      "resourcefulness",
+      "power",
+      "inspired action"
+    ],
+    "uprightMeaning": "Manifestation, resourcefulness, power, inspired action",
+    "reversedMeaning": "Manipulation, poor planning, untapped talents",
+    "loveMeaning": "Charismatic connection; use words wisely",
+    "careerMeaning": "You have all the tools you need to succeed",
+    "financeMeaning": "Skilled resource management brings gains",
+    "spiritualityMeaning": "Aligning intention with divine will"
+  },
+  {
+    "id": "major-02",
+    "name": "The High Priestess",
+    "arcana": "major",
+    "suit": null,
+    "number": 2,
+    "image": "/cards/major-02.webp",
+    "keywords": [
+      "Intuition",
+      "sacred knowledge",
+      "divine feminine",
+      "subconscious"
+    ],
+    "uprightMeaning": "Intuition, sacred knowledge, divine feminine, subconscious",
+    "reversedMeaning": "Secrets, disconnected from intuition, withdrawal",
+    "loveMeaning": "A mysterious attraction; listen to your intuition",
+    "careerMeaning": "Trust your inner voice about a work matter",
+    "financeMeaning": "Hidden financial information may surface",
+    "spiritualityMeaning": "Deep inner knowing and mystical insight"
+  },
+  {
+    "id": "major-03",
+    "name": "The Empress",
+    "arcana": "major",
+    "suit": null,
+    "number": 3,
+    "image": "/cards/major-03.webp",
+    "keywords": [
+      "Femininity",
+      "beauty",
+      "nature",
+      "nurturing",
+      "abundance"
+    ],
+    "uprightMeaning": "Femininity, beauty, nature, nurturing, abundance",
+    "reversedMeaning": "Creative block, dependence, smothering",
+    "loveMeaning": "Sensual love and nurturing partnership",
+    "careerMeaning": "Creative and abundant career growth",
+    "financeMeaning": "Financial abundance and generosity",
+    "spiritualityMeaning": "Connection to Mother Earth and the sacred feminine"
+  },
+  {
+    "id": "major-04",
+    "name": "The Emperor",
+    "arcana": "major",
+    "suit": null,
+    "number": 4,
+    "image": "/cards/major-04.webp",
+    "keywords": [
+      "Authority",
+      "structure",
+      "control",
+      "fatherhood"
+    ],
+    "uprightMeaning": "Authority, structure, control, fatherhood",
+    "reversedMeaning": "Domination, excessive control, rigidity",
+    "loveMeaning": "A stable and protective partner",
+    "careerMeaning": "Leadership and structure at work",
+    "financeMeaning": "Solid financial planning and stability",
+    "spiritualityMeaning": "Discipline in your spiritual practice"
+  },
+  {
+    "id": "major-05",
+    "name": "The Hierophant",
+    "arcana": "major",
+    "suit": null,
+    "number": 5,
+    "image": "/cards/major-05.webp",
+    "keywords": [
+      "Tradition",
+      "conformity",
+      "morality",
+      "ethics",
+      "spirituality"
+    ],
+    "uprightMeaning": "Tradition, conformity, morality, ethics, spirituality",
+    "reversedMeaning": "Rebellion, subversiveness, new approaches",
+    "loveMeaning": "Traditional commitment; marriage",
+    "careerMeaning": "Mentorship and traditional paths",
+    "financeMeaning": "Trusted financial advisors and institutions",
+    "spiritualityMeaning": "Guidance from established teachings"
+  },
+  {
+    "id": "major-06",
+    "name": "The Lovers",
+    "arcana": "major",
+    "suit": null,
+    "number": 6,
+    "image": "/cards/major-06.webp",
+    "keywords": [
+      "Love",
+      "harmony",
+      "relationships",
+      "values alignment"
+    ],
+    "uprightMeaning": "Love, harmony, relationships, values alignment",
+    "reversedMeaning": "Disharmony, imbalance, misalignment of values",
+    "loveMeaning": "Deep love; an important choice in love",
+    "careerMeaning": "Choose work aligned with your values",
+    "financeMeaning": "Consider financial choices carefully",
+    "spiritualityMeaning": "Union of opposites within"
+  },
+  {
+    "id": "major-07",
+    "name": "The Chariot",
+    "arcana": "major",
+    "suit": null,
+    "number": 7,
+    "image": "/cards/major-07.webp",
+    "keywords": [
+      "Control",
+      "willpower",
+      "success",
+      "action",
+      "determination"
+    ],
+    "uprightMeaning": "Control, willpower, success, action, determination",
+    "reversedMeaning": "Lack of control, lack of direction, aggression",
+    "loveMeaning": "Overcoming obstacles as a couple",
+    "careerMeaning": "Focused ambition leads to promotion",
+    "financeMeaning": "Financial discipline pays off",
+    "spiritualityMeaning": "Directed spiritual will"
+  },
+  {
+    "id": "major-08",
+    "name": "Strength",
+    "arcana": "major",
+    "suit": null,
+    "number": 8,
+    "image": "/cards/major-08.webp",
+    "keywords": [
+      "Courage",
+      "persuasion",
+      "influence",
+      "compassion"
+    ],
+    "uprightMeaning": "Courage, persuasion, influence, compassion",
+    "reversedMeaning": "Self-doubt, weakness, insecurity",
+    "loveMeaning": "Gentle strength in your relationship",
+    "careerMeaning": "Quiet confidence at work",
+    "financeMeaning": "Steady patient growth of wealth",
+    "spiritualityMeaning": "Taming the inner beast with love"
+  },
+  {
+    "id": "major-09",
+    "name": "The Hermit",
+    "arcana": "major",
+    "suit": null,
+    "number": 9,
+    "image": "/cards/major-09.webp",
+    "keywords": [
+      "Soul-searching",
+      "introspection",
+      "being alone",
+      "inner guidance"
+    ],
+    "uprightMeaning": "Soul-searching, introspection, being alone, inner guidance",
+    "reversedMeaning": "Isolation, loneliness, withdrawal",
+    "loveMeaning": "Time apart may bring clarity",
+    "careerMeaning": "Reflect on your career path alone",
+    "financeMeaning": "Reassess your financial goals in solitude",
+    "spiritualityMeaning": "Retreat inward to find truth"
+  },
+  {
+    "id": "major-10",
+    "name": "Wheel of Fortune",
+    "arcana": "major",
+    "suit": null,
+    "number": 10,
+    "image": "/cards/major-10.webp",
+    "keywords": [
+      "Good luck",
+      "karma",
+      "life cycles",
+      "destiny",
+      "turning point"
+    ],
+    "uprightMeaning": "Good luck, karma, life cycles, destiny, turning point",
+    "reversedMeaning": "Bad luck, resistance to change, breaking cycles",
+    "loveMeaning": "A destined turn in love",
+    "careerMeaning": "A fortunate opportunity arrives",
+    "financeMeaning": "Unexpected financial shift",
+    "spiritualityMeaning": "Embrace the cycles of life"
+  },
+  {
+    "id": "major-11",
+    "name": "Justice",
+    "arcana": "major",
+    "suit": null,
+    "number": 11,
+    "image": "/cards/major-11.webp",
+    "keywords": [
+      "Justice",
+      "fairness",
+      "truth",
+      "cause and effect",
+      "law"
+    ],
+    "uprightMeaning": "Justice, fairness, truth, cause and effect, law",
+    "reversedMeaning": "Unfairness, lack of accountability, dishonesty",
+    "loveMeaning": "Honesty in relationship matters",
+    "careerMeaning": "Fair outcomes and legal matters",
+    "financeMeaning": "Balanced budgets and honest accounting",
+    "spiritualityMeaning": "Karmic balance and truth"
+  },
+  {
+    "id": "major-12",
+    "name": "The Hanged Man",
+    "arcana": "major",
+    "suit": null,
+    "number": 12,
+    "image": "/cards/major-12.webp",
+    "keywords": [
+      "Pause",
+      "surrender",
+      "letting go",
+      "new perspectives"
+    ],
+    "uprightMeaning": "Pause, surrender, letting go, new perspectives",
+    "reversedMeaning": "Delays, resistance, stalling, indecision",
+    "loveMeaning": "Pause to see love from a new angle",
+    "careerMeaning": "A useful pause before the next step",
+    "financeMeaning": "Delay large financial moves",
+    "spiritualityMeaning": "Surrender to gain insight"
+  },
+  {
+    "id": "major-13",
+    "name": "Death",
+    "arcana": "major",
+    "suit": null,
+    "number": 13,
+    "image": "/cards/major-13.webp",
+    "keywords": [
+      "Endings",
+      "change",
+      "transformation",
+      "transition"
+    ],
+    "uprightMeaning": "Endings, change, transformation, transition",
+    "reversedMeaning": "Resistance to change, personal transformation, inner purging",
+    "loveMeaning": "Transformation of a relationship",
+    "careerMeaning": "A career chapter ends; another begins",
+    "financeMeaning": "Old money patterns die away",
+    "spiritualityMeaning": "Ego death and rebirth"
+  },
+  {
+    "id": "major-14",
+    "name": "Temperance",
+    "arcana": "major",
+    "suit": null,
+    "number": 14,
+    "image": "/cards/major-14.webp",
+    "keywords": [
+      "Balance",
+      "moderation",
+      "patience",
+      "purpose"
+    ],
+    "uprightMeaning": "Balance, moderation, patience, purpose",
+    "reversedMeaning": "Imbalance, excess, self-healing, re-alignment",
+    "loveMeaning": "Patient, balanced love",
+    "careerMeaning": "Steady, measured progress at work",
+    "financeMeaning": "Balanced finances through moderation",
+    "spiritualityMeaning": "Alchemy of body, mind and spirit"
+  },
+  {
+    "id": "major-15",
+    "name": "The Devil",
+    "arcana": "major",
+    "suit": null,
+    "number": 15,
+    "image": "/cards/major-15.webp",
+    "keywords": [
+      "Shadow self",
+      "attachment",
+      "addiction",
+      "restriction"
+    ],
+    "uprightMeaning": "Shadow self, attachment, addiction, restriction",
+    "reversedMeaning": "Releasing limiting beliefs, exploring dark thoughts",
+    "loveMeaning": "Toxic attraction; break unhealthy patterns",
+    "careerMeaning": "Feeling trapped in a job; examine why",
+    "financeMeaning": "Debt or materialism binding you",
+    "spiritualityMeaning": "Confront shadow to reclaim power"
+  },
+  {
+    "id": "major-16",
+    "name": "The Tower",
+    "arcana": "major",
+    "suit": null,
+    "number": 16,
+    "image": "/cards/major-16.webp",
+    "keywords": [
+      "Sudden change",
+      "upheaval",
+      "chaos",
+      "revelation",
+      "awakening"
+    ],
+    "uprightMeaning": "Sudden change, upheaval, chaos, revelation, awakening",
+    "reversedMeaning": "Personal transformation, fear of change, averting disaster",
+    "loveMeaning": "Sudden shake-up in love reveals truth",
+    "careerMeaning": "Sudden change at work; foundations tested",
+    "financeMeaning": "Financial disruption; rebuild wisely",
+    "spiritualityMeaning": "Awakening through breakdown"
+  },
+  {
+    "id": "major-17",
+    "name": "The Star",
+    "arcana": "major",
+    "suit": null,
+    "number": 17,
+    "image": "/cards/major-17.webp",
+    "keywords": [
+      "Hope",
+      "faith",
+      "purpose",
+      "renewal",
+      "spirituality"
+    ],
+    "uprightMeaning": "Hope, faith, purpose, renewal, spirituality",
+    "reversedMeaning": "Lack of faith, despair, disconnection",
+    "loveMeaning": "Renewed hope in love",
+    "careerMeaning": "Inspiration returns to your work",
+    "financeMeaning": "A hopeful financial outlook",
+    "spiritualityMeaning": "Serene alignment with the divine"
+  },
+  {
+    "id": "major-18",
+    "name": "The Moon",
+    "arcana": "major",
+    "suit": null,
+    "number": 18,
+    "image": "/cards/major-18.webp",
+    "keywords": [
+      "Illusion",
+      "fear",
+      "anxiety",
+      "subconscious",
+      "intuition"
+    ],
+    "uprightMeaning": "Illusion, fear, anxiety, subconscious, intuition",
+    "reversedMeaning": "Release of fear, repressed emotion, inner confusion",
+    "loveMeaning": "Confusion in love; look beneath the surface",
+    "careerMeaning": "Hidden dynamics at work; trust intuition",
+    "financeMeaning": "Beware financial illusions",
+    "spiritualityMeaning": "Dreamwork and lunar wisdom"
+  },
+  {
+    "id": "major-19",
+    "name": "The Sun",
+    "arcana": "major",
+    "suit": null,
+    "number": 19,
+    "image": "/cards/major-19.webp",
+    "keywords": [
+      "Positivity",
+      "fun",
+      "warmth",
+      "success",
+      "vitality"
+    ],
+    "uprightMeaning": "Positivity, fun, warmth, success, vitality",
+    "reversedMeaning": "Inner child, feeling down, overly optimistic",
+    "loveMeaning": "Joyful and radiant love",
+    "careerMeaning": "Success and recognition",
+    "financeMeaning": "Financial success and warmth",
+    "spiritualityMeaning": "Radiant joy of the true Self"
+  },
+  {
+    "id": "major-20",
+    "name": "Judgement",
+    "arcana": "major",
+    "suit": null,
+    "number": 20,
+    "image": "/cards/major-20.webp",
+    "keywords": [
+      "Judgement",
+      "rebirth",
+      "inner calling",
+      "absolution"
+    ],
+    "uprightMeaning": "Judgement, rebirth, inner calling, absolution",
+    "reversedMeaning": "Self-doubt, inner critic, ignoring the call",
+    "loveMeaning": "A relationship revival or reckoning",
+    "careerMeaning": "A calling toward meaningful work",
+    "financeMeaning": "Financial reckoning and renewal",
+    "spiritualityMeaning": "Awakening to a higher purpose"
+  },
+  {
+    "id": "major-21",
+    "name": "The World",
+    "arcana": "major",
+    "suit": null,
+    "number": 21,
+    "image": "/cards/major-21.webp",
+    "keywords": [
+      "Completion",
+      "integration",
+      "accomplishment",
+      "travel"
+    ],
+    "uprightMeaning": "Completion, integration, accomplishment, travel",
+    "reversedMeaning": "Seeking closure, short-cuts, delays",
+    "loveMeaning": "A whole and fulfilled union",
+    "careerMeaning": "Completion of a major project",
+    "financeMeaning": "Achievement of a financial goal",
+    "spiritualityMeaning": "Integration and wholeness"
+  },
+  {
+    "id": "wands-ace",
+    "name": "Ace of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 1,
+    "image": "/cards/wands-ace.webp",
+    "keywords": [
+      "New passion",
+      "inspiration",
+      "potential"
+    ],
+    "uprightMeaning": "New passion, inspiration, potential",
+    "reversedMeaning": "Delays, weak creation, false starts",
+    "loveMeaning": "A spark of new love",
+    "careerMeaning": "Bold new venture",
+    "financeMeaning": "Seed money invested well",
+    "spiritualityMeaning": "Awakened spiritual fire"
+  },
+  {
+    "id": "wands-two",
+    "name": "Two of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 2,
+    "image": "/cards/wands-two.webp",
+    "keywords": [
+      "Planning",
+      "discovery",
+      "personal power"
+    ],
+    "uprightMeaning": "Planning, discovery, personal power",
+    "reversedMeaning": "Fear of change, playing it safe",
+    "loveMeaning": "Deciding on a future together",
+    "careerMeaning": "Choosing between career paths",
+    "financeMeaning": "Weigh long-term financial plans",
+    "spiritualityMeaning": "Envisioning the path"
+  },
+  {
+    "id": "wands-three",
+    "name": "Three of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 3,
+    "image": "/cards/wands-three.webp",
+    "keywords": [
+      "Expansion",
+      "foresight",
+      "overseas opportunities"
+    ],
+    "uprightMeaning": "Expansion, foresight, overseas opportunities",
+    "reversedMeaning": "Delays, obstacles, playing small",
+    "loveMeaning": "Long-distance connection blossoms",
+    "careerMeaning": "Business expansion abroad",
+    "financeMeaning": "Investments pay off in time",
+    "spiritualityMeaning": "Broader spiritual horizons"
+  },
+  {
+    "id": "wands-four",
+    "name": "Four of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 4,
+    "image": "/cards/wands-four.webp",
+    "keywords": [
+      "Celebration",
+      "harmony",
+      "home",
+      "community"
+    ],
+    "uprightMeaning": "Celebration, harmony, home, community",
+    "reversedMeaning": "Personal celebration, conflict at home",
+    "loveMeaning": "Joyful union, engagement",
+    "careerMeaning": "Team success worth celebrating",
+    "financeMeaning": "Home-related gains",
+    "spiritualityMeaning": "Sacred community"
+  },
+  {
+    "id": "wands-five",
+    "name": "Five of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 5,
+    "image": "/cards/wands-five.webp",
+    "keywords": [
+      "Conflict",
+      "disagreements",
+      "competition"
+    ],
+    "uprightMeaning": "Conflict, disagreements, competition",
+    "reversedMeaning": "Avoiding conflict, respecting differences",
+    "loveMeaning": "Petty arguments in love",
+    "careerMeaning": "Healthy competition at work",
+    "financeMeaning": "Small financial disputes",
+    "spiritualityMeaning": "Wrestling with ego"
+  },
+  {
+    "id": "wands-six",
+    "name": "Six of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 6,
+    "image": "/cards/wands-six.webp",
+    "keywords": [
+      "Success",
+      "public recognition",
+      "progress"
+    ],
+    "uprightMeaning": "Success, public recognition, progress",
+    "reversedMeaning": "Fall from grace, egotism",
+    "loveMeaning": "Publicly recognized love",
+    "careerMeaning": "Well-deserved promotion",
+    "financeMeaning": "Financial victory",
+    "spiritualityMeaning": "Recognition of the path"
+  },
+  {
+    "id": "wands-seven",
+    "name": "Seven of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 7,
+    "image": "/cards/wands-seven.webp",
+    "keywords": [
+      "Challenge",
+      "competition",
+      "protection"
+    ],
+    "uprightMeaning": "Challenge, competition, protection",
+    "reversedMeaning": "Exhaustion, giving up, overwhelmed",
+    "loveMeaning": "Defend your relationship",
+    "careerMeaning": "Defend your position at work",
+    "financeMeaning": "Protect your finances",
+    "spiritualityMeaning": "Standing firm in truth"
+  },
+  {
+    "id": "wands-eight",
+    "name": "Eight of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 8,
+    "image": "/cards/wands-eight.webp",
+    "keywords": [
+      "Movement",
+      "action",
+      "alignment",
+      "air travel"
+    ],
+    "uprightMeaning": "Movement, action, alignment, air travel",
+    "reversedMeaning": "Delays, frustration, resisting change",
+    "loveMeaning": "Swift developments in love",
+    "careerMeaning": "Rapid progress at work",
+    "financeMeaning": "Fast-moving finances",
+    "spiritualityMeaning": "Sudden inspiration"
+  },
+  {
+    "id": "wands-nine",
+    "name": "Nine of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 9,
+    "image": "/cards/wands-nine.webp",
+    "keywords": [
+      "Resilience",
+      "courage",
+      "persistence"
+    ],
+    "uprightMeaning": "Resilience, courage, persistence",
+    "reversedMeaning": "Exhaustion, giving up, overwhelmed",
+    "loveMeaning": "Nearly over the hurdle in love",
+    "careerMeaning": "One more push at work",
+    "financeMeaning": "Guard resources; nearly there",
+    "spiritualityMeaning": "Endurance strengthens spirit"
+  },
+  {
+    "id": "wands-ten",
+    "name": "Ten of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 10,
+    "image": "/cards/wands-ten.webp",
+    "keywords": [
+      "Burden",
+      "extra responsibility",
+      "hard work"
+    ],
+    "uprightMeaning": "Burden, extra responsibility, hard work",
+    "reversedMeaning": "Doing it all, stress, burnout",
+    "loveMeaning": "Overburdened by relationship duties",
+    "careerMeaning": "Take on too much at work",
+    "financeMeaning": "Debt or heavy responsibilities",
+    "spiritualityMeaning": "Release what is not yours"
+  },
+  {
+    "id": "wands-page",
+    "name": "Page of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 11,
+    "image": "/cards/wands-page.webp",
+    "keywords": [
+      "Inspiration",
+      "ideas",
+      "discovery",
+      "free spirit"
+    ],
+    "uprightMeaning": "Inspiration, ideas, discovery, free spirit",
+    "reversedMeaning": "Newly-formed ideas, lack of direction",
+    "loveMeaning": "Playful, flirtatious energy",
+    "careerMeaning": "Fresh creative opportunity",
+    "financeMeaning": "Small speculative gains",
+    "spiritualityMeaning": "A messenger of inspiration"
+  },
+  {
+    "id": "wands-knight",
+    "name": "Knight of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 12,
+    "image": "/cards/wands-knight.webp",
+    "keywords": [
+      "Energy",
+      "passion",
+      "adventure",
+      "impulsivity"
+    ],
+    "uprightMeaning": "Energy, passion, adventure, impulsivity",
+    "reversedMeaning": "Passion project, haste, scattered energy",
+    "loveMeaning": "Passionate, whirlwind romance",
+    "careerMeaning": "Bold career leap",
+    "financeMeaning": "Impulsive spending\u2014slow down",
+    "spiritualityMeaning": "Passionate spiritual pursuit"
+  },
+  {
+    "id": "wands-queen",
+    "name": "Queen of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 13,
+    "image": "/cards/wands-queen.webp",
+    "keywords": [
+      "Courage",
+      "confidence",
+      "determination"
+    ],
+    "uprightMeaning": "Courage, confidence, determination",
+    "reversedMeaning": "Selfishness, jealousy, insecurity",
+    "loveMeaning": "Warm and passionate partner",
+    "careerMeaning": "Confident leadership",
+    "financeMeaning": "Bold but wise investment",
+    "spiritualityMeaning": "Courageous spiritual path"
+  },
+  {
+    "id": "wands-king",
+    "name": "King of Wands",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 14,
+    "image": "/cards/wands-king.webp",
+    "keywords": [
+      "Vision",
+      "entrepreneur",
+      "honour",
+      "leadership"
+    ],
+    "uprightMeaning": "Vision, entrepreneur, honour, leadership",
+    "reversedMeaning": "Impulsiveness, haste, ruthlessness",
+    "loveMeaning": "Charismatic and loyal",
+    "careerMeaning": "Visionary leader",
+    "financeMeaning": "Wise entrepreneurial gains",
+    "spiritualityMeaning": "Purpose-driven mastery"
+  },
+  {
+    "id": "cups-ace",
+    "name": "Ace of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 1,
+    "image": "/cards/cups-ace.webp",
+    "keywords": [
+      "New feelings",
+      "intuition",
+      "love"
+    ],
+    "uprightMeaning": "New feelings, intuition, love",
+    "reversedMeaning": "Blocked emotions, emptiness",
+    "loveMeaning": "New love blossoms",
+    "careerMeaning": "Creative fulfillment",
+    "financeMeaning": "Emotional peace with money",
+    "spiritualityMeaning": "Overflowing spiritual love"
+  },
+  {
+    "id": "cups-two",
+    "name": "Two of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 2,
+    "image": "/cards/cups-two.webp",
+    "keywords": [
+      "Unity",
+      "partnership",
+      "connection"
+    ],
+    "uprightMeaning": "Unity, partnership, connection",
+    "reversedMeaning": "Break-ups, imbalance",
+    "loveMeaning": "Soulful partnership",
+    "careerMeaning": "Fruitful collaboration",
+    "financeMeaning": "Balanced shared finances",
+    "spiritualityMeaning": "Union of hearts"
+  },
+  {
+    "id": "cups-three",
+    "name": "Three of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 3,
+    "image": "/cards/cups-three.webp",
+    "keywords": [
+      "Celebration",
+      "friendship",
+      "community"
+    ],
+    "uprightMeaning": "Celebration, friendship, community",
+    "reversedMeaning": "Overindulgence, gossip",
+    "loveMeaning": "Joyful social love",
+    "careerMeaning": "Team celebration",
+    "financeMeaning": "Celebrate small wins wisely",
+    "spiritualityMeaning": "Joyful sisterhood/brotherhood"
+  },
+  {
+    "id": "cups-four",
+    "name": "Four of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 4,
+    "image": "/cards/cups-four.webp",
+    "keywords": [
+      "Contemplation",
+      "apathy",
+      "reevaluation"
+    ],
+    "uprightMeaning": "Contemplation, apathy, reevaluation",
+    "reversedMeaning": "Retreat, awareness",
+    "loveMeaning": "Boredom in love; look up",
+    "careerMeaning": "Missed opportunities at work",
+    "financeMeaning": "Overlooking financial gifts",
+    "spiritualityMeaning": "Sacred pause"
+  },
+  {
+    "id": "cups-five",
+    "name": "Five of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 5,
+    "image": "/cards/cups-five.webp",
+    "keywords": [
+      "Loss",
+      "grief",
+      "regret"
+    ],
+    "uprightMeaning": "Loss, grief, regret",
+    "reversedMeaning": "Acceptance, moving on",
+    "loveMeaning": "Grieve, then look to what remains",
+    "careerMeaning": "Setback teaches you",
+    "financeMeaning": "Small financial loss",
+    "spiritualityMeaning": "Grief transforms into wisdom"
+  },
+  {
+    "id": "cups-six",
+    "name": "Six of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 6,
+    "image": "/cards/cups-six.webp",
+    "keywords": [
+      "Nostalgia",
+      "childhood",
+      "innocence"
+    ],
+    "uprightMeaning": "Nostalgia, childhood, innocence",
+    "reversedMeaning": "Living in the past, unrealistic",
+    "loveMeaning": "Reunion with a past love",
+    "careerMeaning": "Old contacts return",
+    "financeMeaning": "Family financial gifts",
+    "spiritualityMeaning": "Innocent joy"
+  },
+  {
+    "id": "cups-seven",
+    "name": "Seven of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 7,
+    "image": "/cards/cups-seven.webp",
+    "keywords": [
+      "Choices",
+      "fantasy",
+      "illusion"
+    ],
+    "uprightMeaning": "Choices, fantasy, illusion",
+    "reversedMeaning": "Alignment, clarity",
+    "loveMeaning": "Idealizing a partner",
+    "careerMeaning": "Too many career choices",
+    "financeMeaning": "Beware get-rich schemes",
+    "spiritualityMeaning": "Discern the true from the illusory"
+  },
+  {
+    "id": "cups-eight",
+    "name": "Eight of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 8,
+    "image": "/cards/cups-eight.webp",
+    "keywords": [
+      "Walking away",
+      "disillusionment",
+      "seeking"
+    ],
+    "uprightMeaning": "Walking away, disillusionment, seeking",
+    "reversedMeaning": "Trying one more time, indecision",
+    "loveMeaning": "Leaving what no longer serves",
+    "careerMeaning": "Leaving a job for meaning",
+    "financeMeaning": "Moving on from a losing investment",
+    "spiritualityMeaning": "Sacred pilgrimage"
+  },
+  {
+    "id": "cups-nine",
+    "name": "Nine of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 9,
+    "image": "/cards/cups-nine.webp",
+    "keywords": [
+      "Contentment",
+      "satisfaction",
+      "wishes"
+    ],
+    "uprightMeaning": "Contentment, satisfaction, wishes",
+    "reversedMeaning": "Inner happiness, materialism",
+    "loveMeaning": "Wish fulfilled in love",
+    "careerMeaning": "Job satisfaction",
+    "financeMeaning": "Financial contentment",
+    "spiritualityMeaning": "Gratitude opens the heart"
+  },
+  {
+    "id": "cups-ten",
+    "name": "Ten of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 10,
+    "image": "/cards/cups-ten.webp",
+    "keywords": [
+      "Divine love",
+      "harmony",
+      "family"
+    ],
+    "uprightMeaning": "Divine love, harmony, family",
+    "reversedMeaning": "Broken family, misalignment",
+    "loveMeaning": "Family harmony and lasting love",
+    "careerMeaning": "Harmonious workplace",
+    "financeMeaning": "Family financial security",
+    "spiritualityMeaning": "Divine union"
+  },
+  {
+    "id": "cups-page",
+    "name": "Page of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 11,
+    "image": "/cards/cups-page.webp",
+    "keywords": [
+      "Creative opportunity",
+      "curiosity"
+    ],
+    "uprightMeaning": "Creative opportunity, curiosity",
+    "reversedMeaning": "Emotional immaturity, escapism",
+    "loveMeaning": "Sweet message about love",
+    "careerMeaning": "Creative offer arrives",
+    "financeMeaning": "Small unexpected gift",
+    "spiritualityMeaning": "Intuitive messages"
+  },
+  {
+    "id": "cups-knight",
+    "name": "Knight of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 12,
+    "image": "/cards/cups-knight.webp",
+    "keywords": [
+      "Romance",
+      "charm",
+      "imagination"
+    ],
+    "uprightMeaning": "Romance, charm, imagination",
+    "reversedMeaning": "Moodiness, jealousy",
+    "loveMeaning": "Romantic proposal",
+    "careerMeaning": "Idealistic career opportunity",
+    "financeMeaning": "Emotional spending\u2014pause",
+    "spiritualityMeaning": "Romantic devotion"
+  },
+  {
+    "id": "cups-queen",
+    "name": "Queen of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 13,
+    "image": "/cards/cups-queen.webp",
+    "keywords": [
+      "Compassion",
+      "calm",
+      "comfort"
+    ],
+    "uprightMeaning": "Compassion, calm, comfort",
+    "reversedMeaning": "Insecurity, dependence",
+    "loveMeaning": "Warm nurturing love",
+    "careerMeaning": "Compassionate leadership",
+    "financeMeaning": "Steady, caring finances",
+    "spiritualityMeaning": "Empathic wisdom"
+  },
+  {
+    "id": "cups-king",
+    "name": "King of Cups",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 14,
+    "image": "/cards/cups-king.webp",
+    "keywords": [
+      "Emotional balance",
+      "generosity",
+      "diplomacy"
+    ],
+    "uprightMeaning": "Emotional balance, generosity, diplomacy",
+    "reversedMeaning": "Moodiness, emotional manipulation",
+    "loveMeaning": "Devoted, mature partner",
+    "careerMeaning": "Compassionate leadership",
+    "financeMeaning": "Balanced generosity with money",
+    "spiritualityMeaning": "Master of the heart"
+  },
+  {
+    "id": "swords-ace",
+    "name": "Ace of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 1,
+    "image": "/cards/swords-ace.webp",
+    "keywords": [
+      "Breakthrough",
+      "clarity",
+      "mental force"
+    ],
+    "uprightMeaning": "Breakthrough, clarity, mental force",
+    "reversedMeaning": "Confusion, brutality, chaos",
+    "loveMeaning": "A truth revealed in love",
+    "careerMeaning": "A clear breakthrough",
+    "financeMeaning": "Clear financial decision",
+    "spiritualityMeaning": "Piercing spiritual insight"
+  },
+  {
+    "id": "swords-two",
+    "name": "Two of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 2,
+    "image": "/cards/swords-two.webp",
+    "keywords": [
+      "Difficult choices",
+      "stalemate",
+      "avoidance"
+    ],
+    "uprightMeaning": "Difficult choices, stalemate, avoidance",
+    "reversedMeaning": "Confusion, information overload",
+    "loveMeaning": "Avoiding a hard truth",
+    "careerMeaning": "Stalemate at work",
+    "financeMeaning": "Delayed financial decision",
+    "spiritualityMeaning": "Choose to see clearly"
+  },
+  {
+    "id": "swords-three",
+    "name": "Three of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 3,
+    "image": "/cards/swords-three.webp",
+    "keywords": [
+      "Heartbreak",
+      "sorrow",
+      "grief"
+    ],
+    "uprightMeaning": "Heartbreak, sorrow, grief",
+    "reversedMeaning": "Recovery, forgiveness",
+    "loveMeaning": "Painful truth in love",
+    "careerMeaning": "Painful setback",
+    "financeMeaning": "Financial loss to grieve",
+    "spiritualityMeaning": "Heart pierced open to wisdom"
+  },
+  {
+    "id": "swords-four",
+    "name": "Four of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 4,
+    "image": "/cards/swords-four.webp",
+    "keywords": [
+      "Rest",
+      "restoration",
+      "contemplation"
+    ],
+    "uprightMeaning": "Rest, restoration, contemplation",
+    "reversedMeaning": "Restlessness, burnout, exhaustion",
+    "loveMeaning": "Take a break from love",
+    "careerMeaning": "Time off restores you",
+    "financeMeaning": "Pause on financial moves",
+    "spiritualityMeaning": "Meditation heals"
+  },
+  {
+    "id": "swords-five",
+    "name": "Five of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 5,
+    "image": "/cards/swords-five.webp",
+    "keywords": [
+      "Conflict",
+      "defeat",
+      "winning at all costs"
+    ],
+    "uprightMeaning": "Conflict, defeat, winning at all costs",
+    "reversedMeaning": "Reconciliation, making amends",
+    "loveMeaning": "Painful conflict; choose peace",
+    "careerMeaning": "Workplace conflict\u2014choose wisely",
+    "financeMeaning": "Costly financial dispute",
+    "spiritualityMeaning": "Release the need to be right"
+  },
+  {
+    "id": "swords-six",
+    "name": "Six of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 6,
+    "image": "/cards/swords-six.webp",
+    "keywords": [
+      "Transition",
+      "moving on",
+      "calmer waters"
+    ],
+    "uprightMeaning": "Transition, moving on, calmer waters",
+    "reversedMeaning": "Emotional baggage, unresolved issues",
+    "loveMeaning": "Moving into calmer love",
+    "careerMeaning": "Job transition to smoother work",
+    "financeMeaning": "Financial transition",
+    "spiritualityMeaning": "Passage to peace"
+  },
+  {
+    "id": "swords-seven",
+    "name": "Seven of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 7,
+    "image": "/cards/swords-seven.webp",
+    "keywords": [
+      "Deception",
+      "strategy",
+      "getting away with something"
+    ],
+    "uprightMeaning": "Deception, strategy, getting away with something",
+    "reversedMeaning": "Coming clean, receiving deserved criticism",
+    "loveMeaning": "Beware dishonesty",
+    "careerMeaning": "Strategic move needed",
+    "financeMeaning": "Guard against financial deception",
+    "spiritualityMeaning": "Face what you hide from yourself"
+  },
+  {
+    "id": "swords-eight",
+    "name": "Eight of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 8,
+    "image": "/cards/swords-eight.webp",
+    "keywords": [
+      "Restriction",
+      "self-imposed limitation",
+      "victim mindset"
+    ],
+    "uprightMeaning": "Restriction, self-imposed limitation, victim mindset",
+    "reversedMeaning": "Self-acceptance, new perspective",
+    "loveMeaning": "Feeling trapped in love",
+    "careerMeaning": "Feeling stuck at work",
+    "financeMeaning": "Feeling limited financially",
+    "spiritualityMeaning": "Free yourself with truth"
+  },
+  {
+    "id": "swords-nine",
+    "name": "Nine of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 9,
+    "image": "/cards/swords-nine.webp",
+    "keywords": [
+      "Anxiety",
+      "worry",
+      "fear",
+      "nightmares"
+    ],
+    "uprightMeaning": "Anxiety, worry, fear, nightmares",
+    "reversedMeaning": "Inner turmoil, releasing worry",
+    "loveMeaning": "Anxiety in love",
+    "careerMeaning": "Work-related worry",
+    "financeMeaning": "Financial worry",
+    "spiritualityMeaning": "Face fears in the light"
+  },
+  {
+    "id": "swords-ten",
+    "name": "Ten of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 10,
+    "image": "/cards/swords-ten.webp",
+    "keywords": [
+      "Painful endings",
+      "deep wounds",
+      "crisis"
+    ],
+    "uprightMeaning": "Painful endings, deep wounds, crisis",
+    "reversedMeaning": "Recovery, regeneration, resisting the end",
+    "loveMeaning": "A painful chapter ends",
+    "careerMeaning": "A career chapter ends painfully",
+    "financeMeaning": "Bottom-out financially",
+    "spiritualityMeaning": "Ego death precedes rebirth"
+  },
+  {
+    "id": "swords-page",
+    "name": "Page of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 11,
+    "image": "/cards/swords-page.webp",
+    "keywords": [
+      "Curiosity",
+      "mental energy",
+      "new ideas"
+    ],
+    "uprightMeaning": "Curiosity, mental energy, new ideas",
+    "reversedMeaning": "Deception, manipulation, gossip",
+    "loveMeaning": "Curious new interest",
+    "careerMeaning": "Fresh strategic idea",
+    "financeMeaning": "Study before investing",
+    "spiritualityMeaning": "Question spiritual assumptions"
+  },
+  {
+    "id": "swords-knight",
+    "name": "Knight of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 12,
+    "image": "/cards/swords-knight.webp",
+    "keywords": [
+      "Ambitious",
+      "action-oriented",
+      "driven"
+    ],
+    "uprightMeaning": "Ambitious, action-oriented, driven",
+    "reversedMeaning": "Impulsiveness, restlessness",
+    "loveMeaning": "Direct and forthright",
+    "careerMeaning": "Aggressive career move",
+    "financeMeaning": "Bold financial decision",
+    "spiritualityMeaning": "Direct spiritual action"
+  },
+  {
+    "id": "swords-queen",
+    "name": "Queen of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 13,
+    "image": "/cards/swords-queen.webp",
+    "keywords": [
+      "Independent",
+      "unbiased judgment",
+      "clear boundaries"
+    ],
+    "uprightMeaning": "Independent, unbiased judgment, clear boundaries",
+    "reversedMeaning": "Cold-hearted, cruel, bitterness",
+    "loveMeaning": "Honest, clear love",
+    "careerMeaning": "Unbiased leadership",
+    "financeMeaning": "Clear financial boundaries",
+    "spiritualityMeaning": "Cutting through illusion"
+  },
+  {
+    "id": "swords-king",
+    "name": "King of Swords",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 14,
+    "image": "/cards/swords-king.webp",
+    "keywords": [
+      "Authority",
+      "truth",
+      "intellectual power"
+    ],
+    "uprightMeaning": "Authority, truth, intellectual power",
+    "reversedMeaning": "Manipulative, tyrannical, abuse of power",
+    "loveMeaning": "Truthful mature love",
+    "careerMeaning": "Wise authoritative leader",
+    "financeMeaning": "Sound intellectual finance",
+    "spiritualityMeaning": "Master of truth"
+  },
+  {
+    "id": "pentacles-ace",
+    "name": "Ace of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 1,
+    "image": "/cards/pentacles-ace.webp",
+    "keywords": [
+      "New opportunity",
+      "prosperity",
+      "manifestation"
+    ],
+    "uprightMeaning": "New opportunity, prosperity, manifestation",
+    "reversedMeaning": "Lost opportunity, lack of planning",
+    "loveMeaning": "New love with real promise",
+    "careerMeaning": "New job or business seed",
+    "financeMeaning": "New income stream",
+    "spiritualityMeaning": "Grounded spiritual seed"
+  },
+  {
+    "id": "pentacles-two",
+    "name": "Two of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 2,
+    "image": "/cards/pentacles-two.webp",
+    "keywords": [
+      "Balance",
+      "adaptability",
+      "time management"
+    ],
+    "uprightMeaning": "Balance, adaptability, time management",
+    "reversedMeaning": "Loss of balance, overwhelmed",
+    "loveMeaning": "Juggling love with life",
+    "careerMeaning": "Multi-tasking at work",
+    "financeMeaning": "Balancing budgets",
+    "spiritualityMeaning": "Balance the material and sacred"
+  },
+  {
+    "id": "pentacles-three",
+    "name": "Three of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 3,
+    "image": "/cards/pentacles-three.webp",
+    "keywords": [
+      "Teamwork",
+      "collaboration",
+      "learning"
+    ],
+    "uprightMeaning": "Teamwork, collaboration, learning",
+    "reversedMeaning": "Disharmony, lack of teamwork",
+    "loveMeaning": "Building love together",
+    "careerMeaning": "Collaborative work",
+    "financeMeaning": "Team financial success",
+    "spiritualityMeaning": "Sacred craft"
+  },
+  {
+    "id": "pentacles-four",
+    "name": "Four of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 4,
+    "image": "/cards/pentacles-four.webp",
+    "keywords": [
+      "Security",
+      "control",
+      "conservation"
+    ],
+    "uprightMeaning": "Security, control, conservation",
+    "reversedMeaning": "Greed, materialism, self-protection",
+    "loveMeaning": "Guarding your heart",
+    "careerMeaning": "Holding onto position",
+    "financeMeaning": "Save and secure",
+    "spiritualityMeaning": "Attachment binds the soul"
+  },
+  {
+    "id": "pentacles-five",
+    "name": "Five of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 5,
+    "image": "/cards/pentacles-five.webp",
+    "keywords": [
+      "Hardship",
+      "poverty",
+      "isolation"
+    ],
+    "uprightMeaning": "Hardship, poverty, isolation",
+    "reversedMeaning": "Recovery, spiritual poverty",
+    "loveMeaning": "Feeling alone in love",
+    "careerMeaning": "Hard times at work",
+    "financeMeaning": "Financial hardship",
+    "spiritualityMeaning": "Seek the light within hardship"
+  },
+  {
+    "id": "pentacles-six",
+    "name": "Six of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 6,
+    "image": "/cards/pentacles-six.webp",
+    "keywords": [
+      "Generosity",
+      "charity",
+      "sharing"
+    ],
+    "uprightMeaning": "Generosity, charity, sharing",
+    "reversedMeaning": "Debt, one-sided charity",
+    "loveMeaning": "Imbalanced giving in love",
+    "careerMeaning": "Fair exchange at work",
+    "financeMeaning": "Give and receive wisely",
+    "spiritualityMeaning": "Sacred exchange"
+  },
+  {
+    "id": "pentacles-seven",
+    "name": "Seven of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 7,
+    "image": "/cards/pentacles-seven.webp",
+    "keywords": [
+      "Assessment",
+      "patience",
+      "long-term view"
+    ],
+    "uprightMeaning": "Assessment, patience, long-term view",
+    "reversedMeaning": "Impatience, lack of long-term vision",
+    "loveMeaning": "Assess where love is going",
+    "careerMeaning": "Assess your career growth",
+    "financeMeaning": "Assess investments",
+    "spiritualityMeaning": "Cultivate patience"
+  },
+  {
+    "id": "pentacles-eight",
+    "name": "Eight of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 8,
+    "image": "/cards/pentacles-eight.webp",
+    "keywords": [
+      "Mastery",
+      "skill development",
+      "diligence"
+    ],
+    "uprightMeaning": "Mastery, skill development, diligence",
+    "reversedMeaning": "Perfectionism, lack of focus",
+    "loveMeaning": "Devoted, dedicated love",
+    "careerMeaning": "Skill mastery at work",
+    "financeMeaning": "Steady income through skill",
+    "spiritualityMeaning": "Devotion to the craft"
+  },
+  {
+    "id": "pentacles-nine",
+    "name": "Nine of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 9,
+    "image": "/cards/pentacles-nine.webp",
+    "keywords": [
+      "Abundance",
+      "luxury",
+      "self-sufficiency"
+    ],
+    "uprightMeaning": "Abundance, luxury, self-sufficiency",
+    "reversedMeaning": "Self-worth issues, over-investment in work",
+    "loveMeaning": "Independent and content in love",
+    "careerMeaning": "Rewards of hard work",
+    "financeMeaning": "Financial independence",
+    "spiritualityMeaning": "Fruits of spiritual work"
+  },
+  {
+    "id": "pentacles-ten",
+    "name": "Ten of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 10,
+    "image": "/cards/pentacles-ten.webp",
+    "keywords": [
+      "Wealth",
+      "legacy",
+      "family",
+      "retirement"
+    ],
+    "uprightMeaning": "Wealth, legacy, family, retirement",
+    "reversedMeaning": "Family disputes, financial failure",
+    "loveMeaning": "Long-term love and family",
+    "careerMeaning": "Long-term career reward",
+    "financeMeaning": "Generational wealth",
+    "spiritualityMeaning": "Lineage of wisdom"
+  },
+  {
+    "id": "pentacles-page",
+    "name": "Page of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 11,
+    "image": "/cards/pentacles-page.webp",
+    "keywords": [
+      "Manifestation",
+      "financial opportunity"
+    ],
+    "uprightMeaning": "Manifestation, financial opportunity",
+    "reversedMeaning": "Lack of progress, procrastination",
+    "loveMeaning": "Practical, loyal admirer",
+    "careerMeaning": "Studious new opportunity",
+    "financeMeaning": "Small financial opportunity",
+    "spiritualityMeaning": "Learning grounded practice"
+  },
+  {
+    "id": "pentacles-knight",
+    "name": "Knight of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 12,
+    "image": "/cards/pentacles-knight.webp",
+    "keywords": [
+      "Efficiency",
+      "hard work",
+      "responsibility"
+    ],
+    "uprightMeaning": "Efficiency, hard work, responsibility",
+    "reversedMeaning": "Laziness, obsessiveness",
+    "loveMeaning": "Reliable devoted partner",
+    "careerMeaning": "Reliable hard worker",
+    "financeMeaning": "Slow steady growth",
+    "spiritualityMeaning": "Steadfast on the path"
+  },
+  {
+    "id": "pentacles-queen",
+    "name": "Queen of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 13,
+    "image": "/cards/pentacles-queen.webp",
+    "keywords": [
+      "Practical",
+      "homely",
+      "financially independent"
+    ],
+    "uprightMeaning": "Practical, homely, financially independent",
+    "reversedMeaning": "Financial dependence, self-care neglect",
+    "loveMeaning": "Nurturing, grounded love",
+    "careerMeaning": "Nurturing manager",
+    "financeMeaning": "Prosperous stewardship",
+    "spiritualityMeaning": "Embodied wisdom"
+  },
+  {
+    "id": "pentacles-king",
+    "name": "King of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 14,
+    "image": "/cards/pentacles-king.webp",
+    "keywords": [
+      "Wealth",
+      "business",
+      "leadership",
+      "security"
+    ],
+    "uprightMeaning": "Wealth, business, leadership, security",
+    "reversedMeaning": "Financially inept, obsessed with wealth",
+    "loveMeaning": "Providing and generous",
+    "careerMeaning": "Successful business leader",
+    "financeMeaning": "Wealth mastery",
+    "spiritualityMeaning": "Master of the material path"
+  }
+]

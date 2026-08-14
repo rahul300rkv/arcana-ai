@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /journal
+Disallow: /profile
+Disallow: /settings
+Disallow: /reading
+
+Sitemap: https://astrofree.vercel.app/sitemap.xml
+Host: https://astrofree.vercel.app

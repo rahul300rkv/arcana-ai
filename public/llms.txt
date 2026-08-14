@@ -1,0 +1,33 @@
+# AstroFree
+
+> AstroFree is a free AI-powered tarot reading and Mulank numerology platform. It offers instant AI-guided tarot readings across 8 spreads (including the Celtic Cross), a daily tarot card ritual, a private journal, and a free numerology calculator for Mulank (root) number, Personal Year, and Personal Month forecasts — all with no signup required and support for 13 Indian languages.
+
+AstroFree is built for people seeking personal insight, spiritual reflection, and lightweight decision support through tarot and numerology. All core features are free: no paywall, no credit card, no account required.
+
+## Core Product
+
+- [Home](https://astrofree.vercel.app/): Overview of AstroFree's tarot and numerology features.
+- [Start a Reading](https://astrofree.vercel.app/reading): Draw a card, choose a spread, and get an AI-guided tarot interpretation.
+- [Mulank Numerology Calculator](https://astrofree.vercel.app/numerology/mulank): Free calculator for Mulank (root) number, Personal Year, and Personal Month forecasts.
+
+## Tarot Guides
+
+- [All 78 Tarot Cards](https://astrofree.vercel.app/tarot): Directory of every tarot card with meanings.
+- [Tarot Card Meanings Guide](https://astrofree.vercel.app/guide/tarot-card-meanings): Explanations of upright and reversed meanings across the deck.
+- [Tarot Spreads Explained](https://astrofree.vercel.app/guide/tarot-spreads): How to read single-card, three-card, Celtic Cross, and other spreads.
+
+## Numerology Guides
+
+- [Numerology Guide](https://astrofree.vercel.app/guide/numerology): How Mulank, Personal Year, and Personal Month numbers are calculated and interpreted.
+- [Numerology Number Directory](https://astrofree.vercel.app/numerology): Meanings for each Mulank/Life Path number.
+
+## Company
+
+- [About](https://astrofree.vercel.app/about): Background on AstroFree.
+- [Contact](https://astrofree.vercel.app/contact): How to reach the team.
+
+## Optional
+
+- [Privacy Policy](https://astrofree.vercel.app/privacy)
+- [Terms of Service](https://astrofree.vercel.app/terms)
+- [Disclaimer](https://astrofree.vercel.app/disclaimer): Tarot and numerology content is for reflection and entertainment purposes, not professional advice.
