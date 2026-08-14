@@ -77,13 +77,23 @@ export function FloatingCards() {
               animate={
                 reduce
                   ? undefined
-                  : { y: [`calc(${c.y} - 6px)`, `calc(${c.y} + 6px)`, `calc(${c.y} - 6px)`] }
+                  : {
+                      y: [`calc(${c.y} - 14px)`, `calc(${c.y} + 14px)`, `calc(${c.y} - 14px)`],
+                      // Small delta only — this button is nested inside the
+                      // outer motion.div, which already holds the card's
+                      // resting fan rotation (c.rotate), so this must be a
+                      // relative wobble, not another absolute c.rotate value.
+                      rotate: [-2, 2, -2],
+                    }
               }
               transition={{
-                duration: 7 + i * 0.8,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: deal,
+                y: { duration: 4.5 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: deal },
+                rotate: {
+                  duration: 5.5 + i * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: deal,
+                },
               }}
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.97 }}
