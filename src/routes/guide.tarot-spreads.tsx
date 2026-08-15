@@ -140,7 +140,17 @@ function TarotSpreadsPage() {
                     </li>
                   ))}
                 </ol>
-              ) : (
+              ) : null}
+              {spread.id === "celtic-cross" && (
+                <p className="mt-4 text-sm text-muted-foreground">
+                  Want the full walkthrough?{" "}
+                  <Link to="/guide/celtic-cross-guide" className="text-[var(--gold)] hover:underline">
+                    Read the step-by-step Celtic Cross guide
+                  </Link>
+                  , with worked detail on every position and how to read them together.
+                </p>
+              )}
+              {spread.count > 10 && (
                 <p className="mt-4 text-sm text-muted-foreground">
                   One card per month, January through December — a broad-strokes forecast rather
                   than a position-by-position breakdown.

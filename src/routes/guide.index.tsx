@@ -1,6 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { BookOpen, LayoutGrid, Hash, ArrowRight, Sparkles } from "lucide-react";
+import {
+  BookOpen,
+  LayoutGrid,
+  Hash,
+  ArrowRight,
+  Sparkles,
+  GraduationCap,
+  RotateCcw,
+  Star,
+  Cross,
+  Scale,
+} from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -70,6 +81,46 @@ const guides = [
     body: "How your Mulank (root number), Personal Year, and Personal Month are calculated from your birth date, what each of the nine numbers means, and how they map to tarot archetypes.",
     readingMinutes: 9,
     anchor: "numerology-guide",
+  },
+  {
+    to: "/guide/tarot-for-beginners",
+    icon: GraduationCap,
+    title: "Tarot for Beginners",
+    body: "The complete starting guide — deck structure, how to shuffle and draw, your first spreads, and a repeatable method for interpreting any card.",
+    readingMinutes: 14,
+    anchor: "tarot-for-beginners",
+  },
+  {
+    to: "/guide/reversed-tarot-cards",
+    icon: RotateCcw,
+    title: "Reversed Tarot Cards",
+    body: "What a reversed card actually changes, the four common interpretations, and worked examples across Major and Minor Arcana.",
+    readingMinutes: 9,
+    anchor: "reversed-tarot-cards",
+  },
+  {
+    to: "/guide/major-arcana-meanings",
+    icon: Star,
+    title: "22 Major Arcana Explained",
+    body: "Every Major Arcana card from The Fool to The World, with its core meaning and a real-life example of how it tends to show up in a reading.",
+    readingMinutes: 16,
+    anchor: "major-arcana-meanings",
+  },
+  {
+    to: "/guide/celtic-cross-guide",
+    icon: Cross,
+    title: "Celtic Cross Spread Guide",
+    body: "A step-by-step walkthrough of all ten Celtic Cross positions, how to lay them, and how to read them as one coherent answer.",
+    readingMinutes: 11,
+    anchor: "celtic-cross-guide",
+  },
+  {
+    to: "/guide/mulank-vs-bhagyank",
+    icon: Scale,
+    title: "Mulank vs Bhagyank",
+    body: "The difference between your birth number and destiny number in Indian numerology, how each is calculated, and how to read them together.",
+    readingMinutes: 11,
+    anchor: "mulank-vs-bhagyank",
   },
 ];
 

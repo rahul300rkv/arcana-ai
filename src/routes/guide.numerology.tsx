@@ -648,12 +648,18 @@ function NumerologyGuidePage() {
           </GlassCard>
         </motion.div>
 
-        <div className="mt-14">
+        <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2">
           <Link
             to="/"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
           >
             ← Back home
+          </Link>
+          <Link
+            to="/guide/mulank-vs-bhagyank"
+            className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+          >
+            Mulank vs Bhagyank: how the two numbers differ →
           </Link>
         </div>
         <InArticleAd />
