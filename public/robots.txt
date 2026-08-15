@@ -7,4 +7,4 @@ Disallow: /settings
 Disallow: /reading
 
 Sitemap: https://astrofree.vercel.app/sitemap.xml
-Host: https://astrofree.vercel.app
+
