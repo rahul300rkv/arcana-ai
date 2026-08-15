@@ -6,6 +6,13 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useThemePreference } from "@/lib/theme";
 import { useTranslate } from "@/lib/i18n";
 import { exportDataAsJson } from "@/lib/tarot/history";
