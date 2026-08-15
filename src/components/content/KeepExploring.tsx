@@ -10,7 +10,17 @@ type Hub =
   | "/guide"
   | "/guide/tarot-card-meanings"
   | "/guide/tarot-spreads"
-  | "/guide/numerology";
+  | "/guide/numerology"
+  | "/guide/tarot-for-beginners"
+  | "/guide/reversed-tarot-cards"
+  | "/guide/major-arcana-meanings"
+  | "/guide/celtic-cross-guide"
+  | "/guide/mulank-vs-bhagyank"
+  | "/bhagyank-calculator"
+  | "/numerology/mulank"
+  | "/tarot/the-fool"
+  | "/tarot"
+  | "/reading";
 
 export interface HubLink {
   to: Hub;
