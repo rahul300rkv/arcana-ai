@@ -232,15 +232,6 @@ gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
 
-        {/*
-          Monetag In-Page Push (zone 11590194) — renders as a small
-          notification-style card. Does NOT intercept clicks on the page.
-        */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(s){s.dataset.zone='11590194',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
-          }}
-        />
         <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26" />
       </head>
       <body>
@@ -255,6 +246,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => {
     initTheme();
+
+    // Monetag In-Page Push — injected after React hydration to avoid
+    // React error #418 (SSR/client DOM mismatch). The script appends its
+    // own <script> tag to <body>; doing this inside useEffect means React
+    // has already finished hydrating and won't notice the extra node.
+    const s = document.createElement("script");
+    s.dataset.zone = "11590194";
+    s.src = "https://nap5k.com/tag.min.js";
+    s.async = true;
+    document.body.appendChild(s);
   }, []);
   return (
     <QueryClientProvider client={queryClient}>
