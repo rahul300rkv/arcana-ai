@@ -231,10 +231,11 @@ gtag('js', new Date());
 gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
-        <script
-  dangerouslySetInnerHTML={{
-    __html: `(function(){var s=document.createElement('script');s.dataset.zone='11589094';s.src='https://zovidree.com/tag.min.js';document.head.appendChild(s);})();`,
-  }}
+       
+<script
+  src="https://zovidree.com/tag.min.js"
+  data-zone="11589094"
+  async
 />
         <script
   src="https://quge5.com/88/tag.min.js"
