@@ -231,6 +231,9 @@ gtag('js', new Date());
 gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
+        <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26">
+
+where can i put this
       </head>
       <body>
         {children}
