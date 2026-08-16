@@ -27,10 +27,16 @@ export function Hero() {
   const t = useTranslate();
   const prefersReducedMotion = useReducedMotion();
   const isNarrow = useIsNarrowViewport();
-  const handleAffiliateClick = () => {
-  window.open("https://www.effectivecpmnetwork.com/franjtjx9f?key=c686df12409a11ce8a1139d19544e414", "_blank", "noopener,noreferrer");
-  window.location.href = "/dashboard";
-};
+   const handleAffiliateClick = () => {
+    window.open(
+      "https://www.effectivecpmnetwork.com/franjtjx9f?key=c686df12409a11ce8a1139d19544e414",
+      "_blank",
+      "noopener,noreferrer"
+    );
+    setTimeout(() => {
+      window.open("/dashboard", "_blank", "noopener,noreferrer");
+    }, 100);
+  };
 
   // Slow, almost imperceptible cinematic drift for the hero background
   // only — a gentle continuous zoom + pan (inspired by ambient video-hero
