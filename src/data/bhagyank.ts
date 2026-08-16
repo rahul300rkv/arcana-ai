@@ -539,7 +539,7 @@ export const BHAGYANK_FAQS: BhagyankFaq[] = [
   {
     question: "What is Bhagyank?",
     answer:
-      "Bhagyank, also called the Destiny Number or Life Path Number, is a single digit (or Master Number) derived by adding together every digit of your complete date of birth. In numerological tradition, it's read as an indicator of your broader life direction, natural strengths, and the kind of challenges you're likely to encounter along the way.",
+      "Bhagyank, commonly known as the Destiny Number in Indian numerology and often compared to the Western Life Path Number, is a single digit (or Master Number) derived by adding together every digit of your complete date of birth. In numerological tradition, it's read as an indicator of your broader life direction, natural strengths, and the kind of challenges you're likely to encounter along the way.",
   },
   {
     question: "How is Bhagyank calculated?",
@@ -590,7 +590,7 @@ export const BHAGYANK_HUB_FAQS: BhagyankFaq[] = [
   {
     question: "What is Bhagyank in numerology?",
     answer:
-      "Bhagyank — also called the Destiny Number or Life Path Number — is the single digit (or Master Number) derived from your complete date of birth: day + month + full year added together until one digit remains, unless the sum is 11, 22, or 33, which are preserved as Master Numbers. It describes your broader life direction and natural strengths.",
+      "Bhagyank — commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number — is the single digit (or Master Number) derived from your complete date of birth: day + month + full year added together until one digit remains, unless the sum is 11, 22, or 33, which are preserved as Master Numbers. It describes your broader life direction and natural strengths.",
   },
   {
     question: "How do I calculate my Bhagyank?",
