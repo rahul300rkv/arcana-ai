@@ -232,11 +232,7 @@ gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
        
-<script
-  src="https://zovidree.com/tag.min.js"
-  data-zone="11589094"
-  async
-/>
+
         <script
   src="https://quge5.com/88/tag.min.js"
   data-zone="270524"
