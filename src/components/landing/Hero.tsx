@@ -28,7 +28,7 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
   const isNarrow = useIsNarrowViewport();
   const handleAffiliateClick = () => {
-  window.open("https://amzn.to/4xAfhe8", "_blank", "noopener,noreferrer");
+  window.open("https://www.effectivecpmnetwork.com/franjtjx9f?key=c686df12409a11ce8a1139d19544e414", "_blank", "noopener,noreferrer");
   window.location.href = "/dashboard";
 };
 
