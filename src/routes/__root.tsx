@@ -232,6 +232,7 @@ gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
        
+<script src="https://pl30877092.effectivecpmnetwork.com/80/05/6f/80056f649304b27f3b201f75be4ae7b6.js"></script>
 
         <script
   src="https://quge5.com/88/tag.min.js"
