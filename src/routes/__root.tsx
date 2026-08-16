@@ -231,12 +231,29 @@ gtag('js', new Date());
 gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
+
+        {/*
+          Third-party ad network tags. Marked async so they never block
+          HTML parsing / first paint (they weren't before — this was a
+          Core Web Vitals regression). See prior message for the AdSense
+          policy-risk flag on these two networks; recommend verifying
+          compliance before this ships to production.
+        */}
+        <script
+          async
+          src="https://pl30877092.effectivecpmnetwork.com/80/05/6f/80056f649304b27f3b201f75be4ae7b6.js"
+        />
+        <script
+          async
+          src="https://pl30877093.effectivecpmnetwork.com/83/ff/7d/83ff7d49469016f63d6a1f1d375fbdb6.js"
+        />
+
         <script
           src="https://quge5.com/88/tag.min.js"
           data-zone="270524"
           async
           data-cfasync="false"
-        ></script>
+        />
         <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26" />
       </head>
       <body>
