@@ -14,6 +14,7 @@ export function CardBack({
    * tarot card), so search engines and screen readers get meaningful
    * content instead of an empty alt on every occurrence.
    */
+  alt?: string;
 }) {
   return (
     <div
