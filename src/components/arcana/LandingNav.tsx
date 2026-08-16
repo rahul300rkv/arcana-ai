@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/select";
 
 const links = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Tarot", to: "/tarot" as const },
+  { label: "Numerology", to: "/numerology" as const },
+  { label: "Guides", to: "/guide" as const },
 ];
 
 export function LandingNav() {
@@ -30,15 +30,22 @@ export function LandingNav() {
           <Brand />
           <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              <Link
+                key={l.to}
+                to={l.to}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="hidden items-center gap-2 md:flex">
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-2 py-1.5">
               <Globe className="h-3.5 w-3.5 text-[color:var(--gold)]" aria-hidden="true" />
-              <Select value={language} onValueChange={(value) => setLanguage(value as typeof language)}>
+              <Select
+                value={language}
+                onValueChange={(value) => setLanguage(value as typeof language)}
+              >
                 <SelectTrigger className="h-8 w-[118px] border-0 bg-transparent px-1 text-xs shadow-none ring-0 focus:ring-0">
                   <SelectValue aria-label="Language" placeholder="Language" />
                 </SelectTrigger>
@@ -71,26 +78,37 @@ export function LandingNav() {
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-4 w-4" aria-hidden="true" /> : <Menu className="h-4 w-4" aria-hidden="true" />}
+            {open ? (
+              <X className="h-4 w-4" aria-hidden="true" />
+            ) : (
+              <Menu className="h-4 w-4" aria-hidden="true" />
+            )}
           </button>
         </div>
 
         {open && (
-          <nav id={menuId} aria-label="Mobile" className="glass mt-2 flex flex-col gap-1 rounded-2xl p-3 md:hidden">
+          <nav
+            id={menuId}
+            aria-label="Mobile"
+            className="glass mt-2 flex flex-col gap-1 rounded-2xl p-3 md:hidden"
+          >
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-2 text-sm text-muted-foreground hover:bg-white/5 hover:text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <div className="mt-2 space-y-2">
               <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2">
                 <Globe className="h-3.5 w-3.5 text-[color:var(--gold)]" aria-hidden="true" />
-                <Select value={language} onValueChange={(value) => setLanguage(value as typeof language)}>
+                <Select
+                  value={language}
+                  onValueChange={(value) => setLanguage(value as typeof language)}
+                >
                   <SelectTrigger className="h-9 flex-1 border-0 bg-transparent px-0 text-xs shadow-none ring-0 focus:ring-0">
                     <SelectValue aria-label="Language" placeholder="Language" />
                   </SelectTrigger>
@@ -111,7 +129,11 @@ export function LandingNav() {
                   </SelectContent>
                 </Select>
               </div>
-              <Link to="/dashboard" className="block"><GoldButton size="sm" className="w-full">Start</GoldButton></Link>
+              <Link to="/dashboard" className="block">
+                <GoldButton size="sm" className="w-full">
+                  Start
+                </GoldButton>
+              </Link>
             </div>
           </nav>
         )}
