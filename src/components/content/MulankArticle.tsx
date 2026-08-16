@@ -62,10 +62,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
       <ContentSection id="dates" title="Who has this Mulank" icon={CalendarDays}>
         <div className="flex flex-wrap gap-2">
           {page.dates.map((d) => (
-            <span
-              key={d}
-              className="rounded-full glass px-4 py-1.5 text-sm text-[var(--gold)]"
-            >
+            <span key={d} className="rounded-full glass px-4 py-1.5 text-sm text-[var(--gold)]">
               Born on the {d}
             </span>
           ))}
@@ -73,7 +70,11 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
           Your Mulank uses only the day of the month. Add its digits until one digit remains — the
           month and year belong to your{" "}
-          <Link to="/numerology/$slug" params={{ slug: page.lifePathSlug }} className="text-[var(--gold)] hover:underline">
+          <Link
+            to="/numerology/$slug"
+            params={{ slug: page.lifePathSlug }}
+            className="text-[var(--gold)] hover:underline"
+          >
             Life Path {page.number}
           </Link>{" "}
           calculation instead.
@@ -98,9 +99,19 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         />
       </ContentSection>
 
-      <ContentSection id="meaning" title={`${page.label} meaning`} icon={BookOpen} paragraphs={page.meaning} />
+      <ContentSection
+        id="meaning"
+        title={`${page.label} meaning`}
+        icon={BookOpen}
+        paragraphs={page.meaning}
+      />
 
-      <ContentSection id="personality" title="Personality traits" icon={Sparkles} paragraphs={page.personality}>
+      <ContentSection
+        id="personality"
+        title="Personality traits"
+        icon={Sparkles}
+        paragraphs={page.personality}
+      >
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
@@ -121,7 +132,12 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         </div>
       </ContentSection>
 
-      <ContentSection id="career" title="Career and business" icon={Briefcase} paragraphs={page.career}>
+      <ContentSection
+        id="career"
+        title="Career and business"
+        icon={Briefcase}
+        paragraphs={page.career}
+      >
         <div className="flex flex-wrap gap-2">
           {page.careerPaths.map((c) => (
             <span key={c} className="rounded-full glass px-3 py-1 text-xs text-muted-foreground">
@@ -131,7 +147,12 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         </div>
       </ContentSection>
 
-      <ContentSection id="love" title="Love and compatibility" icon={HeartHandshake} paragraphs={page.love}>
+      <ContentSection
+        id="love"
+        title="Love and compatibility"
+        icon={HeartHandshake}
+        paragraphs={page.love}
+      >
         <div className="grid gap-4 sm:grid-cols-2">
           {page.compatibility.map((c) => (
             <GlassCard key={`${c.verdict}-${c.number}`} className="p-5">
@@ -147,14 +168,22 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         </div>
       </ContentSection>
 
-      <ContentSection id="health" title="Health and wellbeing" icon={HeartPulse} paragraphs={page.health} />
+      <ContentSection
+        id="health"
+        title="Health and wellbeing"
+        icon={HeartPulse}
+        paragraphs={page.health}
+      />
       <ContentSection id="money" title="Money and finances" icon={Coins} paragraphs={page.money} />
 
       <ContentSection id="remedies" title="Remedies and practices" icon={Wand2}>
         <ul className="space-y-3">
           {page.remedies.map((r) => (
             <li key={r} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {r}
             </li>
           ))}
@@ -262,7 +291,8 @@ export function MulankArticle({ page }: { page: MulankPage }) {
           {
             to: "/numerology/mulank",
             label: "The complete Mulank guide",
-            blurb: "How the birth number is calculated, what it rules, and all nine numbers side by side.",
+            blurb:
+              "How the birth number is calculated, what it rules, and all nine numbers side by side.",
           },
           {
             to: "/numerology",

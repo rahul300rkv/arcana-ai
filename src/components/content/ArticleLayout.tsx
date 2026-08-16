@@ -80,8 +80,7 @@ export function ArticleLayout({
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-                Updated{" "}
-                <time dateTime={updated}>{formatDate(updated)}</time>
+                Updated <time dateTime={updated}>{formatDate(updated)}</time>
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" aria-hidden />

@@ -6,7 +6,21 @@ interface Props {
   title: string;
   body: string;
   ctaLabel: string;
-  to: "/reading" | "/numerology";
+  to:
+    | "/reading"
+    | "/numerology"
+    | "/numerology/mulank"
+    | "/numerology/bhagyank"
+    | "/numerology/namank"
+    | "/bhagyank-calculator"
+    | "/namank-calculator"
+    | "/tarot"
+    | "/tarot/one-card"
+    | "/tarot/three-card"
+    | "/tarot/love"
+    | "/tarot/yes-no"
+    | "/tarot/career"
+    | "/tarot/celtic-cross";
 }
 
 /** Shared conversion block at the end of every content page. */

@@ -4,9 +4,18 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 
 type Hub =
   | "/tarot"
+  | "/tarot/one-card"
+  | "/tarot/three-card"
+  | "/tarot/love"
+  | "/tarot/yes-no"
+  | "/tarot/career"
+  | "/tarot/celtic-cross"
   | "/numerology"
   | "/numerology/mulank"
+  | "/numerology/bhagyank"
+  | "/numerology/namank"
   | "/bhagyank-calculator"
+  | "/namank-calculator"
   | "/guide"
   | "/guide/tarot-card-meanings"
   | "/guide/tarot-spreads"
@@ -16,10 +25,6 @@ type Hub =
   | "/guide/major-arcana-meanings"
   | "/guide/celtic-cross-guide"
   | "/guide/mulank-vs-bhagyank"
-  | "/bhagyank-calculator"
-  | "/numerology/mulank"
-  | "/tarot/the-fool"
-  | "/tarot"
   | "/reading";
 
 export interface HubLink {
