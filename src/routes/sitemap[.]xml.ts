@@ -5,35 +5,45 @@ import { NUMEROLOGY_SLUGS } from "@/data/numerology";
 import { MULANK_SLUGS } from "@/data/mulank";
 import { SITE_URL } from "@/lib/site";
 
+// Google does not use <changefreq> or <priority> as ranking signals, so the
+// sitemap intentionally omits them. <lastmod> is included only where we
+// have a real, non-fabricated modification date to report.
 interface SitemapEntry {
   path: string;
-  changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
-  priority?: string;
+  lastmod?: string;
 }
 
 const STATIC_ENTRIES: SitemapEntry[] = [
-  { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/tarot", changefreq: "weekly", priority: "0.9" },
-  { path: "/numerology", changefreq: "weekly", priority: "0.9" },
-  { path: "/numerology/mulank", changefreq: "monthly", priority: "0.85" },
-  { path: "/bhagyank-calculator", changefreq: "monthly", priority: "0.85" },
-  { path: "/namank-calculator", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide", changefreq: "monthly", priority: "0.8" },
-  { path: "/guide/tarot-card-meanings", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/tarot-spreads", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/numerology", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/tarot-for-beginners", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/reversed-tarot-cards", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/major-arcana-meanings", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/celtic-cross-guide", changefreq: "monthly", priority: "0.85" },
-  { path: "/guide/mulank-vs-bhagyank", changefreq: "monthly", priority: "0.85" },
-  { path: "/about", changefreq: "monthly", priority: "0.6" },
-  { path: "/contact", changefreq: "monthly", priority: "0.5" },
-  { path: "/privacy", changefreq: "yearly", priority: "0.3" },
-  { path: "/terms", changefreq: "yearly", priority: "0.3" },
-  { path: "/disclaimer", changefreq: "yearly", priority: "0.3" },
-  { path: "/cookie-policy", changefreq: "yearly", priority: "0.3" },
-  { path: "/editorial-policy", changefreq: "yearly", priority: "0.4" },
+  { path: "/" },
+  { path: "/tarot" },
+  { path: "/tarot/one-card" },
+  { path: "/tarot/three-card" },
+  { path: "/tarot/love" },
+  { path: "/tarot/yes-no" },
+  { path: "/tarot/career" },
+  { path: "/tarot/celtic-cross" },
+  { path: "/numerology" },
+  { path: "/numerology/mulank" },
+  { path: "/numerology/bhagyank" },
+  { path: "/numerology/namank" },
+  { path: "/bhagyank-calculator" },
+  { path: "/namank-calculator" },
+  { path: "/guide" },
+  { path: "/guide/tarot-card-meanings" },
+  { path: "/guide/tarot-spreads" },
+  { path: "/guide/numerology" },
+  { path: "/guide/tarot-for-beginners" },
+  { path: "/guide/reversed-tarot-cards" },
+  { path: "/guide/major-arcana-meanings" },
+  { path: "/guide/celtic-cross-guide" },
+  { path: "/guide/mulank-vs-bhagyank" },
+  { path: "/about" },
+  { path: "/contact" },
+  { path: "/privacy" },
+  { path: "/terms" },
+  { path: "/disclaimer" },
+  { path: "/cookie-policy" },
+  { path: "/editorial-policy" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -42,29 +52,16 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           ...STATIC_ENTRIES,
-          ...TAROT_SLUGS.map((slug) => ({
-            path: `/tarot/${slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.8",
-          })),
-          ...MULANK_SLUGS.map((slug) => ({
-            path: `/numerology/${slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.8",
-          })),
-          ...NUMEROLOGY_SLUGS.map((slug) => ({
-            path: `/numerology/${slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.8",
-          })),
+          ...TAROT_SLUGS.map((slug) => ({ path: `/tarot/${slug}` })),
+          ...MULANK_SLUGS.map((slug) => ({ path: `/numerology/${slug}` })),
+          ...NUMEROLOGY_SLUGS.map((slug) => ({ path: `/numerology/${slug}` })),
         ];
 
         const urls = entries.map((e) =>
           [
             `  <url>`,
             `    <loc>${SITE_URL}${e.path}</loc>`,
-            e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
-            e.priority ? `    <priority>${e.priority}</priority>` : null,
+            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             `  </url>`,
           ]
             .filter(Boolean)
