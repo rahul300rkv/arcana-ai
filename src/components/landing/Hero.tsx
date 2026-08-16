@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { FloatingCards } from "@/components/arcana/FloatingCards";
 import { useTranslate } from "@/lib/i18n";
 
+// Tracks whether we're on a narrow viewport so the background "breathing"
+// motion can be toned down on mobile. Matches the pattern already used by
+// ParticleBackground for viewport-aware ambient effects.
 function useIsNarrowViewport() {
   const [isNarrow, setIsNarrow] = useState(false);
 
@@ -23,7 +27,20 @@ export function Hero() {
   const t = useTranslate();
   const prefersReducedMotion = useReducedMotion();
   const isNarrow = useIsNarrowViewport();
+const handleAffiliateClick = () => {
+  window.open(
+    "https://amzn.to/4gkhYJX",
+    "_blank",
+    "noopener,noreferrer"
+  );
+  window.location.href = "/dashboard";
+};
 
+  // Slow, almost imperceptible cinematic drift for the hero background
+  // only — a gentle continuous zoom + pan (inspired by ambient video-hero
+  // treatments), scaled down further on mobile for a lighter touch.
+  // Starts pre-scaled (like a video overscanned to avoid edge bleed) and
+  // eases outward, never resetting sharply.
   const backgroundMotion = prefersReducedMotion
     ? undefined
     : {
@@ -34,6 +51,8 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-36 pb-20 sm:pt-44">
+      {/* Cinematic background motion — decorative only, sits behind all
+          existing content and reuses the theme's aurora glow colors. */}
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 will-change-transform"
@@ -74,28 +93,23 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            
-              href="https://www.effectivecpmnetwork.com/franjtjx9f?key=c686df12409a11ce8a1139d19544e414"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => { window.location.href = "/dashboard"; }}
-            >
-              <GoldButton size="lg" className="min-w-[180px]">
-                {t("hero.startReading")} <ArrowRight className="h-4 w-4" />
-              </GoldButton>
-            </a>
+  <GoldButton
+    size="lg"
+    className="min-w-[180px]"
+    onClick={handleAffiliateClick}
+  >
+    {t("hero.startReading")} <ArrowRight className="h-4 w-4" />
+  </GoldButton>
 
-            
-              href="https://www.effectivecpmnetwork.com/franjtjx9f?key=c686df12409a11ce8a1139d19544e414"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => { window.location.href = "/dashboard"; }}
-            >
-              <GoldButton variant="secondary" size="lg" className="min-w-[180px]">
-                {t("hero.drawDailyCard")}
-              </GoldButton>
-            </a>
-          </div>
+  <GoldButton
+    variant="secondary"
+    size="lg"
+    className="min-w-[180px]"
+    onClick={handleAffiliateClick}
+  >
+    {t("hero.drawDailyCard")}
+  </GoldButton>
+</div>
         </motion.div>
 
         <motion.div
