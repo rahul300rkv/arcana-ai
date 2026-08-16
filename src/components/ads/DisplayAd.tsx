@@ -3,7 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 
 declare global {
   interface Window {
-    adsbygoogle?: unknown[];
+    adsbygoogle?: Record<string, unknown>[];
   }
 }
 
@@ -44,20 +44,10 @@ export function DisplayAd({
 
   if (!ADSENSE_CLIENT_ID) return null;
 
-  return (
-    <AdSlot key={pathname} client={ADSENSE_CLIENT_ID} slot={slot} className={className} />
-  );
+  return <AdSlot key={pathname} client={ADSENSE_CLIENT_ID} slot={slot} className={className} />;
 }
 
-function AdSlot({
-  client,
-  slot,
-  className,
-}: {
-  client: string;
-  slot: string;
-  className: string;
-}) {
+function AdSlot({ client, slot, className }: { client: string; slot: string; className: string }) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
