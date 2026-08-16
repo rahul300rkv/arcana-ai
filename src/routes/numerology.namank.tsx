@@ -99,9 +99,7 @@ function NamankHub() {
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
               <div>J=1, O=7, H=5, N=5 = 18</div>
               <div>S=3, M=4, I=1, T=4, H=5 = 17</div>
-              <div className="border-t border-[var(--gold)] pt-2">
-                18 + 17 = 35
-              </div>
+              <div className="border-t border-[var(--gold)] pt-2">18 + 17 = 35</div>
               <div>3 + 5 = 8</div>
               <p className="mt-3 font-display text-lg aurora-text">Namank: 8</p>
             </div>
@@ -114,9 +112,7 @@ function NamankHub() {
             <div className="mt-4 space-y-2 text-sm text-muted-foreground">
               <div>J=1, A=1, N=5, E=5 = 12</div>
               <div>D=4, O=7, E=5 = 16</div>
-              <div className="border-t border-[var(--gold)] pt-2">
-                12 + 16 = 28
-              </div>
+              <div className="border-t border-[var(--gold)] pt-2">12 + 16 = 28</div>
               <div>2 + 8 = 10 → 1 + 0 = 1</div>
               <p className="mt-3 font-display text-lg aurora-text">Namank: 1</p>
             </div>

@@ -20,7 +20,8 @@ export const Route = createFileRoute("/cookie-policy")({
       { property: "og:title", content: "Cookie Policy — AstroFree" },
       {
         property: "og:description",
-        content: "Details on the cookies and local storage AstroFree uses, and how to control them.",
+        content:
+          "Details on the cookies and local storage AstroFree uses, and how to control them.",
       },
       { property: "og:url", content: `${SITE_URL}/cookie-policy` },
     ],
@@ -28,21 +29,24 @@ export const Route = createFileRoute("/cookie-policy")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/cookie-policy",
-          "title": "Cookie Policy — AstroFree",
-          "description": "How AstroFree uses cookies and local storage, including advertising and analytics cookies, and how to control them.",
-          "crumbs": [
-                    {
-                              "name": "Cookie Policy",
-                              "path": "/cookie-policy"
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Legal"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/cookie-policy",
+            title: "Cookie Policy — AstroFree",
+            description:
+              "How AstroFree uses cookies and local storage, including advertising and analytics cookies, and how to control them.",
+            crumbs: [
+              {
+                name: "Cookie Policy",
+                path: "/cookie-policy",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Legal",
+            },
+          }),
+        ),
       },
     ],
   }),
@@ -71,8 +75,8 @@ function CookiePolicyPage() {
           <Section title="How AstroFree uses local storage">
             AstroFree stores your reading history, daily card streak, journal entries, theme, and
             language preference directly in your browser's local storage. This data stays on your
-            device, isn't sent to our servers unless you choose to sign in, and can be cleared at any
-            time from your browser settings.
+            device, isn't sent to our servers unless you choose to sign in, and can be cleared at
+            any time from your browser settings.
           </Section>
 
           <Section title="Advertising cookies (Google AdSense)">

@@ -123,7 +123,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "Wheel of Fortune",
     slug: "wheel-of-fortune",
     keywords: "Cycles, turning points, fate",
-    meaning: "A shift set in motion by forces outside your control — luck turning, for better or worse.",
+    meaning:
+      "A shift set in motion by forces outside your control — luck turning, for better or worse.",
     example:
       "An unexpected job offer, a sudden diagnosis, or a chance encounter that reroutes someone's plans all point to the Wheel — a turning point you didn't engineer yourself.",
   },
@@ -132,7 +133,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "Justice",
     slug: "justice",
     keywords: "Fairness, truth, cause and effect",
-    meaning: "A situation resolving according to what's actually true and earned, not what's convenient.",
+    meaning:
+      "A situation resolving according to what's actually true and earned, not what's convenient.",
     example:
       "A legal dispute, contract negotiation, or a moment of being held accountable for a past decision often draws Justice — consequences catching up with their cause.",
   },
@@ -141,7 +143,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Hanged Man",
     slug: "the-hanged-man",
     keywords: "Pause, surrender, new perspective",
-    meaning: "Willingly stalling forward motion in order to see a situation from a completely different angle.",
+    meaning:
+      "Willingly stalling forward motion in order to see a situation from a completely different angle.",
     example:
       "Someone stuck on a decision who finally stops forcing an answer and just waits — and gains clarity from the waiting itself — is living The Hanged Man.",
   },
@@ -168,7 +171,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Devil",
     slug: "the-devil",
     keywords: "Attachment, restriction, the shadow self",
-    meaning: "A pattern, habit, or relationship that feels binding, even though the way out usually exists.",
+    meaning:
+      "A pattern, habit, or relationship that feels binding, even though the way out usually exists.",
     example:
       "Staying in a draining job purely out of comfort, or a habit that's become hard to break, is the everyday face of The Devil — self-imposed limits mistaken for the only option.",
   },
@@ -177,7 +181,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Tower",
     slug: "the-tower",
     keywords: "Sudden upheaval, revelation, awakening",
-    meaning: "A fast, disruptive collapse of something built on a shaky foundation — jarring, but clarifying.",
+    meaning:
+      "A fast, disruptive collapse of something built on a shaky foundation — jarring, but clarifying.",
     example:
       "A sudden layoff, a relationship ending abruptly, or a plan falling apart overnight all fit The Tower — disruptive in the moment, but usually removing something that wasn't stable to begin with.",
   },
@@ -186,7 +191,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Star",
     slug: "the-star",
     keywords: "Hope, renewal, quiet faith",
-    meaning: "Calm optimism returning after a hard period — healing that's gentle rather than dramatic.",
+    meaning:
+      "Calm optimism returning after a hard period — healing that's gentle rather than dramatic.",
     example:
       "The first sense of relief after a difficult breakup or illness, when things finally start feeling manageable again, is the moment The Star describes.",
   },
@@ -195,7 +201,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Moon",
     slug: "the-moon",
     keywords: "Illusion, fear, the subconscious",
-    meaning: "Uncertainty and unclear information — things aren't fully visible yet, and anxiety can fill the gap.",
+    meaning:
+      "Uncertainty and unclear information — things aren't fully visible yet, and anxiety can fill the gap.",
     example:
       "Waiting on test results, a decision from someone else, or any situation where key facts are still hidden, often produces The Moon's foggy, anxious energy.",
   },
@@ -204,7 +211,8 @@ const MAJOR_ARCANA: MajorCard[] = [
     name: "The Sun",
     slug: "the-sun",
     keywords: "Joy, vitality, success",
-    meaning: "Clarity, confidence, and genuine good fortune — one of the most straightforwardly positive cards.",
+    meaning:
+      "Clarity, confidence, and genuine good fortune — one of the most straightforwardly positive cards.",
     example:
       "A wedding, a long-awaited achievement, or simply a stretch of life where things are finally going well is the plain, uncomplicated territory of The Sun.",
   },
@@ -273,7 +281,11 @@ function MajorArcanaPage() {
         </GlassCard>
       }
     >
-      <ContentSection id="what-is-major-arcana" title="What the Major Arcana represent" icon={BookOpen}>
+      <ContentSection
+        id="what-is-major-arcana"
+        title="What the Major Arcana represent"
+        icon={BookOpen}
+      >
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Of the 78 cards in a tarot deck, 22 belong to the Major Arcana — numbered 0 through 21,
           from The Fool to The World. Where the 56 Minor Arcana cards describe the practical texture
@@ -283,9 +295,9 @@ function MajorArcanaPage() {
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Many readers treat the sequence 0 to 21 as a symbolic story — often called{" "}
           <em>The Fool's Journey</em> — where an innocent, unformed Fool moves through experience,
-          structure, crisis, and reflection before arriving at The World, a card of completion.
-          You don't need to memorise the story to read the cards well, but knowing it helps explain
-          why the numbers matter: a low-numbered Major Arcana tends to describe something just
+          structure, crisis, and reflection before arriving at The World, a card of completion. You
+          don't need to memorise the story to read the cards well, but knowing it helps explain why
+          the numbers matter: a low-numbered Major Arcana tends to describe something just
           beginning, while a high-numbered one tends to describe something reaching resolution.
         </p>
       </ContentSection>
@@ -296,7 +308,11 @@ function MajorArcanaPage() {
             <GlassCard key={c.slug} id={c.slug} className="scroll-mt-24 p-5">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="font-display text-lg">
-                  <Link to="/tarot/$slug" params={{ slug: c.slug }} className="hover:text-[var(--gold)]">
+                  <Link
+                    to="/tarot/$slug"
+                    params={{ slug: c.slug }}
+                    className="hover:text-[var(--gold)]"
+                  >
                     {c.number}. {c.name}
                   </Link>
                 </h3>
@@ -326,9 +342,9 @@ function MajorArcanaPage() {
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           It also helps to check the card against its position in the spread. The same Tower card
-          means something different landing in a "past" slot (a disruption that already happened
-          and shaped where you are now) than in an "outcome" slot (a warning about what's coming if
-          the current path continues). For a full breakdown of spread positions, see AstroFree's{" "}
+          means something different landing in a "past" slot (a disruption that already happened and
+          shaped where you are now) than in an "outcome" slot (a warning about what's coming if the
+          current path continues). For a full breakdown of spread positions, see AstroFree's{" "}
           <Link to="/guide/tarot-spreads" className="text-[var(--gold)] hover:underline">
             tarot spreads guide
           </Link>

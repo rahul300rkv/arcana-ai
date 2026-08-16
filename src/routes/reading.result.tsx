@@ -73,7 +73,12 @@ function ResultPage() {
         // we land here the call never reached our code. Fall back locally.
         console.error("generateAiInterpretation call failed, using local synthesis:", err);
         return {
-          interpretation: interpretReading(reading.spreadId!, reading.question, reading.cards, language),
+          interpretation: interpretReading(
+            reading.spreadId!,
+            reading.question,
+            reading.cards,
+            language,
+          ),
           source: "local" as const,
         };
       })

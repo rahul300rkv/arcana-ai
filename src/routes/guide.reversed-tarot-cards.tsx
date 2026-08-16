@@ -37,10 +37,11 @@ const FAQS = [
   {
     question: "How do I decide if a card is reversed when shuffling?",
     answer:
-      "Shuffle so some cards naturally flip during the process — for example, by including a few reversed cuts, or using a \"riffle\" or \"overhand\" shuffle without straightening the deck. Whatever orientation a card lands in when drawn is read as-is.",
+      'Shuffle so some cards naturally flip during the process — for example, by including a few reversed cuts, or using a "riffle" or "overhand" shuffle without straightening the deck. Whatever orientation a card lands in when drawn is read as-is.',
   },
   {
-    question: "Is a reversed Major Arcana card interpreted differently than a reversed Minor Arcana card?",
+    question:
+      "Is a reversed Major Arcana card interpreted differently than a reversed Minor Arcana card?",
     answer:
       "The same four interpretive lenses apply to both, but Major Arcana reversals tend to describe a stalled or internalised life theme, while Minor Arcana reversals more often describe a practical delay, blockage, or an excess/deficiency in a specific area like money or communication.",
   },
@@ -94,8 +95,8 @@ function ReversedTarotPage() {
       <ContentSection id="what-changes" title="What a reversal actually changes" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           When a card is drawn upside down, its core theme doesn't disappear or flip into its exact
-          opposite — that's a common misconception that leads new readers to treat every reversal
-          as bad news. Instead, a reversal usually adjusts <em>how</em> the card's energy is showing
+          opposite — that's a common misconception that leads new readers to treat every reversal as
+          bad news. Instead, a reversal usually adjusts <em>how</em> the card's energy is showing
           up: turned inward instead of outward, delayed instead of active, or expressed as excess or
           deficiency rather than balance.
         </p>
@@ -128,12 +129,16 @@ function ReversedTarotPage() {
         </div>
       </ContentSection>
 
-      <ContentSection id="method" title="A repeatable method for reading a reversal" icon={ListChecks}>
+      <ContentSection
+        id="method"
+        title="A repeatable method for reading a reversal"
+        icon={ListChecks}
+      >
         <ol className="mt-2 space-y-3">
           {[
             "Recall the upright meaning first, in plain language, before anything else.",
             "Ask which of the four lenses (blocked, internal, shadow, unlearned lesson) fits the context of the question best — don't default to the same lens for every card.",
-            "Check the position it landed in. A reversed card in a \"past\" position often just describes something that has already resolved or faded, while the same reversal in an \"outcome\" position is more of a live warning.",
+            'Check the position it landed in. A reversed card in a "past" position often just describes something that has already resolved or faded, while the same reversal in an "outcome" position is more of a live warning.',
             "Weigh it against the surrounding cards. Several reversals clustered together often points to one root blockage affecting the whole spread, rather than several unrelated problems.",
             "Only after all of that, consider whether the situation is genuinely negative — most reversals describe friction or delay, not disaster.",
           ].map((step, i) => (

@@ -28,21 +28,24 @@ export const Route = createFileRoute("/disclaimer")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/disclaimer",
-          "title": "Disclaimer — AstroFree",
-          "description": "AstroFree's tarot and numerology readings are for entertainment and self-reflection only, and are not medical, legal, or financial advice.",
-          "crumbs": [
-                    {
-                              "name": "Disclaimer",
-                              "path": "/disclaimer"
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Legal"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/disclaimer",
+            title: "Disclaimer — AstroFree",
+            description:
+              "AstroFree's tarot and numerology readings are for entertainment and self-reflection only, and are not medical, legal, or financial advice.",
+            crumbs: [
+              {
+                name: "Disclaimer",
+                path: "/disclaimer",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Legal",
+            },
+          }),
+        ),
       },
     ],
   }),

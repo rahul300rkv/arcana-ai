@@ -29,17 +29,20 @@ export const Route = createFileRoute("/contact")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/contact",
-          "title": "Contact AstroFree — Get in Touch",
-          "description": "Contact the AstroFree team for support, feedback, bug reports, content corrections, or business enquiries.",
-          "crumbs": [
-                    {
-                              "name": "Contact",
-                              "path": "/contact"
-                    }
-          ]
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/contact",
+            title: "Contact AstroFree — Get in Touch",
+            description:
+              "Contact the AstroFree team for support, feedback, bug reports, content corrections, or business enquiries.",
+            crumbs: [
+              {
+                name: "Contact",
+                path: "/contact",
+              },
+            ],
+          }),
+        ),
       },
     ],
   }),

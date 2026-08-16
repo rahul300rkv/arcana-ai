@@ -28,7 +28,7 @@ const POSITIONS = [
     name: "Challenge",
     meaning: "What crosses you",
     detail:
-      "Laid across the first card. This is the main obstacle or tension in the situation — not necessarily a \"bad\" card, since sometimes the challenge is a positive force you haven't fully accepted yet.",
+      'Laid across the first card. This is the main obstacle or tension in the situation — not necessarily a "bad" card, since sometimes the challenge is a positive force you haven\'t fully accepted yet.',
   },
   {
     n: 3,
@@ -63,7 +63,7 @@ const POSITIONS = [
     name: "Self",
     meaning: "How you see yourself",
     detail:
-      "First of the four \"staff\" cards, placed in a vertical line beside the cross. Your current mindset and self-perception going into this situation.",
+      'First of the four "staff" cards, placed in a vertical line beside the cross. Your current mindset and self-perception going into this situation.',
   },
   {
     n: 8,
@@ -97,7 +97,7 @@ const FAQS = [
   {
     question: "What's the correct order to lay the ten cards in?",
     answer:
-      "Present, Challenge (crossed over it), Foundation (below), Recent Past (left), Crown (above), Near Future (right) completes the central cross. Then Self, Environment, Hopes & Fears, and Outcome are laid bottom to top in a vertical line beside it, forming the \"staff.\"",
+      'Present, Challenge (crossed over it), Foundation (below), Recent Past (left), Crown (above), Near Future (right) completes the central cross. Then Self, Environment, Hopes & Fears, and Outcome are laid bottom to top in a vertical line beside it, forming the "staff."',
   },
   {
     question: "Do I read the ten cards in the order they're laid, or some other order?",
@@ -136,17 +136,17 @@ function CelticCrossGuidePage() {
       <ContentSection id="what-is-it" title="What the Celtic Cross is for" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           The Celtic Cross is a ten-card spread built to cover a situation from every angle: what's
-          happening now, what's causing it, what's fading, what's approaching, how you see
-          yourself, what's happening around you, and where it's all likely headed. It's the spread
-          most readers reach for when a question is too layered for a Three Card pull — a career
+          happening now, what's causing it, what's fading, what's approaching, how you see yourself,
+          what's happening around you, and where it's all likely headed. It's the spread most
+          readers reach for when a question is too layered for a Three Card pull — a career
           crossroads, a complicated relationship, or any decision with a lot of moving parts.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Because it's detailed, it rewards preparation more than any other common spread. A vague
           question ("What does my future hold?") tends to produce a scattered, hard-to-interpret
           Celtic Cross, while a focused one ("What do I need to understand about this job
-          opportunity?") gives all ten positions something specific to answer. If you haven't laid
-          a spread before, AstroFree's{" "}
+          opportunity?") gives all ten positions something specific to answer. If you haven't laid a
+          spread before, AstroFree's{" "}
           <Link to="/guide/tarot-for-beginners" className="text-[var(--gold)] hover:underline">
             beginner's guide
           </Link>{" "}
@@ -156,9 +156,9 @@ function CelticCrossGuidePage() {
 
       <ContentSection id="layout" title="The layout: two halves" icon={ListChecks}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The ten cards split into two visual groups. The first six form a cross in the centre —
-          the situation itself, its challenge, its roots, and its immediate trajectory. The last
-          four are laid in a vertical line beside it, called the "staff" — your inner state, your
+          The ten cards split into two visual groups. The first six form a cross in the centre — the
+          situation itself, its challenge, its roots, and its immediate trajectory. The last four
+          are laid in a vertical line beside it, called the "staff" — your inner state, your
           environment, your hopes and fears, and the likely outcome.
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -170,7 +170,9 @@ function CelticCrossGuidePage() {
             </p>
           </GlassCard>
           <GlassCard className="p-5">
-            <h3 className="font-display text-base text-[var(--gold)]">The Staff (positions 7–10)</h3>
+            <h3 className="font-display text-base text-[var(--gold)]">
+              The Staff (positions 7–10)
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Self, Environment, Hopes & Fears, Outcome — the human side: how you're approaching
               this, what's around you, what you're emotionally invested in, and where it's heading.
@@ -227,7 +229,10 @@ function CelticCrossGuidePage() {
             "Rushing straight to reversed-card interpretations before understanding each card's upright meaning in its position first.",
           ].map((m) => (
             <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {m}
             </li>
           ))}

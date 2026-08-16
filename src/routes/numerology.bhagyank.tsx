@@ -11,9 +11,9 @@ import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
 
 const PATH = "/numerology/bhagyank";
-const TITLE = "Bhagyank (Destiny Number) in Numerology: Complete Guide to Life Path 1–33";
+const TITLE = "Bhagyank (Destiny Number) in Numerology: Complete Guide 1–33";
 const DESCRIPTION =
-  "What Bhagyank means, how to calculate your Destiny Number from your complete date of birth, and detailed guides to Life Path numbers 1-9 and Master Numbers 11, 22, 33.";
+  "What Bhagyank (Destiny Number) means in Indian numerology, how to calculate it from your complete date of birth, and detailed guides to numbers 1-9 and Master Numbers 11, 22, 33.";
 
 export const Route = createFileRoute("/numerology/bhagyank")({
   head: () => ({
@@ -59,8 +59,8 @@ function BhagyankHub() {
     <ArticleLayout
       crumbs={[{ label: "Numerology", to: "/numerology" }, { label: "Bhagyank" }]}
       eyebrow="Numerology Guide"
-      title="Bhagyank: your Life Path number, explained"
-      intro="Bhagyank — also called the Destiny Number or Life Path Number — comes from your complete date of birth. It describes your broader life direction, natural talents, and the kinds of challenges you're likely to encounter. This guide covers how to calculate it and what each number 1–9 and Master Number represents."
+      title="Bhagyank: your Destiny Number, explained"
+      intro="Bhagyank — commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number — comes from your complete date of birth. It describes your broader life direction, natural talents, and the kinds of challenges you're likely to encounter. This guide covers how to calculate it, what each number 1–9 and Master Number represents, and how the terminology compares across traditions."
       url={`${SITE_URL}${PATH}`}
       updated={BHAGYANK_UPDATED}
       readingMinutes={12}
@@ -127,7 +127,11 @@ function BhagyankHub() {
         </Link>
       </ContentSection>
 
-      <ContentSection id="all-numbers" title="All Bhagyank numbers 1–9 and Master Numbers" icon={Compass}>
+      <ContentSection
+        id="all-numbers"
+        title="All Bhagyank numbers 1–9 and Master Numbers"
+        icon={Compass}
+      >
         <ul className="grid gap-4 sm:grid-cols-2">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33].map((num) => {
             const meaning = BHAGYANK_MEANINGS[num];
@@ -182,7 +186,8 @@ function BhagyankHub() {
           {
             to: "/namank-calculator",
             label: "Free Namank calculator",
-            blurb: "Calculate your Name Number and discover how your name's letters shape your identity.",
+            blurb:
+              "Calculate your Name Number and discover how your name's letters shape your identity.",
           },
           {
             to: "/guide/numerology",

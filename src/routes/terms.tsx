@@ -22,21 +22,24 @@ export const Route = createFileRoute("/terms")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/terms",
-          "title": "Terms of Service — AstroFree",
-          "description": "The terms that govern your use of AstroFree's free tarot readings, numerology calculator, and journal.",
-          "crumbs": [
-                    {
-                              "name": "Terms of Service",
-                              "path": "/terms"
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Legal"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/terms",
+            title: "Terms of Service — AstroFree",
+            description:
+              "The terms that govern your use of AstroFree's free tarot readings, numerology calculator, and journal.",
+            crumbs: [
+              {
+                name: "Terms of Service",
+                path: "/terms",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Legal",
+            },
+          }),
+        ),
       },
     ],
   }),

@@ -1,13 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Hash,
-  Calculator,
-  Scale,
-  Compass,
-  Sparkles,
-  HelpCircle,
-  BookOpen,
-} from "lucide-react";
+import { Hash, Calculator, Scale, Compass, Sparkles, HelpCircle, BookOpen } from "lucide-react";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -52,10 +44,26 @@ const FAQS = [
 ];
 
 const COMPARE = [
-  { label: "Full name", mulank: "Mulank (Moolank) — Birth Number / Root Number", bhagyank: "Bhagyank — Destiny Number / Fate Number" },
-  { label: "Calculated from", mulank: "Day of birth only", bhagyank: "Full date of birth (day + month + year)" },
-  { label: "Governs", mulank: "Instinctive personality, natural temperament", bhagyank: "Life path, destiny, long-term direction" },
-  { label: "Changes over a lifetime?", mulank: "No — fixed for life", bhagyank: "No — fixed for life" },
+  {
+    label: "Full name",
+    mulank: "Mulank (Moolank) — Birth Number / Root Number",
+    bhagyank: "Bhagyank — Destiny Number / Fate Number",
+  },
+  {
+    label: "Calculated from",
+    mulank: "Day of birth only",
+    bhagyank: "Full date of birth (day + month + year)",
+  },
+  {
+    label: "Governs",
+    mulank: "Instinctive personality, natural temperament",
+    bhagyank: "Life path, destiny, long-term direction",
+  },
+  {
+    label: "Changes over a lifetime?",
+    mulank: "No — fixed for life",
+    bhagyank: "No — fixed for life",
+  },
   { label: "Western equivalent", mulank: "No exact match", bhagyank: "Life Path Number" },
 ];
 
@@ -79,43 +87,43 @@ function MulankVsBhagyankPage() {
       <ContentSection id="tradition" title="Numerology in the Indian tradition" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Indian numerology, rooted in Vedic and later Pythagorean-influenced systems popularised
-          across South Asia, treats a birth date as a compact code containing two distinct layers
-          of information: who you naturally are, and where your life is headed. Rather than
-          collapsing a birth date into a single number the way some Western systems do, Indian
-          numerology deliberately separates these into <strong className="text-foreground/90">
-            Mulank
-          </strong>{" "}
+          across South Asia, treats a birth date as a compact code containing two distinct layers of
+          information: who you naturally are, and where your life is headed. Rather than collapsing
+          a birth date into a single number the way some Western systems do, Indian numerology
+          deliberately separates these into <strong className="text-foreground/90">Mulank</strong>{" "}
           and <strong className="text-foreground/90">Bhagyank</strong> — and reads them as a pair,
           not a substitute for one another.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Both numbers are derived using the same underlying technique, digit reduction — repeatedly
           adding the digits of a number together until a single digit from 1 to 9 remains (with
-          master numbers 11 and 22 sometimes kept intact). Where they differ is which digits of
-          your birth date go into that calculation.
+          master numbers 11 and 22 sometimes kept intact). Where they differ is which digits of your
+          birth date go into that calculation.
         </p>
       </ContentSection>
 
       <ContentSection id="mulank" title="Mulank: the birth number" icon={Calculator}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Mulank, sometimes spelled Moolank, uses only your day of birth — nothing else. If you
-          were born on a single-digit day (1 through 9), that's already your Mulank. If you were
-          born on a double-digit day (10 through 31), you reduce it to one digit.
+          Mulank, sometimes spelled Moolank, uses only your day of birth — nothing else. If you were
+          born on a single-digit day (1 through 9), that's already your Mulank. If you were born on
+          a double-digit day (10 through 31), you reduce it to one digit.
         </p>
         <GlassCard className="mt-4 p-5">
           <h3 className="font-display text-base">Worked example</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born on the 28th: 2 + 8 = 10, then 1 + 0 = 1. Mulank = <strong className="text-foreground/90">1</strong>.
+            Born on the 28th: 2 + 8 = 10, then 1 + 0 = 1. Mulank ={" "}
+            <strong className="text-foreground/90">1</strong>.
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born on the 6th: no reduction needed. Mulank = <strong className="text-foreground/90">6</strong>.
+            Born on the 6th: no reduction needed. Mulank ={" "}
+            <strong className="text-foreground/90">6</strong>.
           </p>
         </GlassCard>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Because it draws only from the birth day, Mulank is considered the number closest to your
-          instinctive, unfiltered self — how you react before you've had time to think, your
-          natural strengths, and the traits people notice about you almost immediately. Every
-          number 1 through 9 has a detailed profile on AstroFree's{" "}
+          instinctive, unfiltered self — how you react before you've had time to think, your natural
+          strengths, and the traits people notice about you almost immediately. Every number 1
+          through 9 has a detailed profile on AstroFree's{" "}
           <Link to="/numerology/mulank" className="text-[var(--gold)] hover:underline">
             complete Mulank guide
           </Link>
@@ -127,9 +135,9 @@ function MulankVsBhagyankPage() {
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Bhagyank draws from your entire date of birth — day, month, and year together — and is
           reduced the same way, digit by digit, until one number remains. Because it incorporates
-          the full date, it's understood to describe something bigger than personality: the arc
-          your life tends to follow, the lessons that recur across decades, and the broad direction
-          your major decisions tend to push you toward.
+          the full date, it's understood to describe something bigger than personality: the arc your
+          life tends to follow, the lessons that recur across decades, and the broad direction your
+          major decisions tend to push you toward.
         </p>
         <GlassCard className="mt-4 p-5">
           <h3 className="font-display text-base">Worked example</h3>
@@ -172,10 +180,10 @@ function MulankVsBhagyankPage() {
 
       <ContentSection id="reading-together" title="Reading them together" icon={Sparkles}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A complete Indian numerology profile always considers Mulank and Bhagyank as a pair, not
-          a choice between them. Think of Mulank as your default operating mode and Bhagyank as the
-          terrain you're operating in — the two combine to explain both how you tend to act and
-          what you tend to end up doing with your life.
+          A complete Indian numerology profile always considers Mulank and Bhagyank as a pair, not a
+          choice between them. Think of Mulank as your default operating mode and Bhagyank as the
+          terrain you're operating in — the two combine to explain both how you tend to act and what
+          you tend to end up doing with your life.
         </p>
         <ul className="mt-4 space-y-3">
           {[
@@ -184,7 +192,10 @@ function MulankVsBhagyankPage() {
             "Some traditions also weigh a third figure, the Namank (name number), derived from the numerological value of your name, to see how it supports or conflicts with Mulank and Bhagyank.",
           ].map((p) => (
             <li key={p} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {p}
             </li>
           ))}

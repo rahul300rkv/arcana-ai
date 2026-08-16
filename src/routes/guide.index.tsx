@@ -31,7 +31,11 @@ export const Route = createFileRoute("/guide/")({
           "Free tarot and numerology guides covering 78 card meanings, tarot spreads, Mulank calculation, and Personal Year explanations.",
       },
       { property: "og:title", content: "Tarot & Numerology Guides — AstroFree" },
-      { property: "og:description", content: "Learn tarot spreads, card meanings, and Mulank numerology with clear educational guides from AstroFree." },
+      {
+        property: "og:description",
+        content:
+          "Learn tarot spreads, card meanings, and Mulank numerology with clear educational guides from AstroFree.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/guide` },
       { name: "twitter:card", content: "summary_large_image" },
@@ -40,17 +44,20 @@ export const Route = createFileRoute("/guide/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/guide",
-          "title": "Tarot & Numerology Guides — AstroFree",
-          "description": "Free tarot and numerology guides — 78 card meanings, spreads, and Mulank calculations.",
-          "crumbs": [
-                    {
-                              "name": "Guides",
-                              "path": "/guide"
-                    }
-          ]
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/guide",
+            title: "Tarot & Numerology Guides — AstroFree",
+            description:
+              "Free tarot and numerology guides — 78 card meanings, spreads, and Mulank calculations.",
+            crumbs: [
+              {
+                name: "Guides",
+                path: "/guide",
+              },
+            ],
+          }),
+        ),
       },
     ],
   }),
@@ -160,17 +167,24 @@ function GuideIndexPage() {
             Learn tarot <span className="aurora-text">& numerology</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            These reference guides go deeper than any single reading — a plain-language explanation of
-            what every tarot card means, how each spread is laid out, and the exact math behind Mulank
-            numerology. Everything here is free to read, no signup required.
+            These reference guides go deeper than any single reading — a plain-language explanation
+            of what every tarot card means, how each spread is laid out, and the exact math behind
+            Mulank numerology. Everything here is free to read, no signup required.
           </p>
         </motion.div>
 
-        <nav aria-label="Guide sections" className="mt-10 rounded-2xl border border-[color-mix(in_oklab,var(--gold)_25%,transparent)] bg-white/[0.02] p-4 sm:p-5">
+        <nav
+          aria-label="Guide sections"
+          className="mt-10 rounded-2xl border border-[color-mix(in_oklab,var(--gold)_25%,transparent)] bg-white/[0.02] p-4 sm:p-5"
+        >
           <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             <span className="mr-2 text-[color:var(--gold)]">Jump to</span>
             {guides.map((g) => (
-              <a key={g.anchor} href={`#${g.anchor}`} className="rounded-full border border-white/10 px-3 py-1.5 transition-colors hover:border-[color-mix(in_oklab,var(--gold)_35%,transparent)] hover:text-[color:var(--gold)]">
+              <a
+                key={g.anchor}
+                href={`#${g.anchor}`}
+                className="rounded-full border border-white/10 px-3 py-1.5 transition-colors hover:border-[color-mix(in_oklab,var(--gold)_35%,transparent)] hover:text-[color:var(--gold)]"
+              >
                 {g.title}
               </a>
             ))}
@@ -228,18 +242,54 @@ function GuideIndexPage() {
 
         <div className="mt-12 grid gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-2">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Related articles</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              Related articles
+            </p>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/numerology" className="underline underline-offset-4 hover:text-foreground">Mulank calculator</Link></li>
-              <li><Link to="/tarot/the-fool" className="underline underline-offset-4 hover:text-foreground">The Fool card meaning</Link></li>
-              <li><Link to="/bhagyank-calculator" className="underline underline-offset-4 hover:text-foreground">Bhagyank calculator</Link></li>
+              <li>
+                <Link
+                  to="/numerology"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  Mulank calculator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tarot/$slug"
+                  params={{ slug: "the-fool" }}
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  The Fool card meaning
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/bhagyank-calculator"
+                  className="underline underline-offset-4 hover:text-foreground"
+                >
+                  Bhagyank calculator
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Previous / Next</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              Previous / Next
+            </p>
             <div className="mt-3 flex flex-wrap gap-2 text-sm">
-              <Link to="/" className="rounded-full border border-white/10 px-3 py-1.5 text-muted-foreground hover:text-foreground">Previous: Home</Link>
-              <Link to="/numerology" className="rounded-full border border-[color-mix(in_oklab,var(--gold)_30%,transparent)] px-3 py-1.5 text-[color:var(--gold)]">Next: Numerology</Link>
+              <Link
+                to="/"
+                className="rounded-full border border-white/10 px-3 py-1.5 text-muted-foreground hover:text-foreground"
+              >
+                Previous: Home
+              </Link>
+              <Link
+                to="/numerology"
+                className="rounded-full border border-[color-mix(in_oklab,var(--gold)_30%,transparent)] px-3 py-1.5 text-[color:var(--gold)]"
+              >
+                Next: Numerology
+              </Link>
             </div>
           </div>
         </div>
@@ -264,4 +314,3 @@ function GuideIndexPage() {
     </div>
   );
 }
-

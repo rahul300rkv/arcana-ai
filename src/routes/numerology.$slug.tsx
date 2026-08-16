@@ -156,8 +156,18 @@ function NumerologyNumberPage() {
         />
       </ContentSection>
 
-      <ContentSection id="meaning" title={`${page.label} meaning`} icon={BookOpen} paragraphs={page.meaning} />
-      <ContentSection id="personality" title="Personality traits" icon={Sparkles} paragraphs={page.personality}>
+      <ContentSection
+        id="meaning"
+        title={`${page.label} meaning`}
+        icon={BookOpen}
+        paragraphs={page.meaning}
+      />
+      <ContentSection
+        id="personality"
+        title="Personality traits"
+        icon={Sparkles}
+        paragraphs={page.personality}
+      >
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
@@ -188,13 +198,37 @@ function NumerologyNumberPage() {
         </div>
       </ContentSection>
 
-      <ContentSection id="relationships" title="Love and relationships" icon={HeartHandshake} paragraphs={page.relationships} />
-      <ContentSection id="marriage" title="Marriage and family" icon={Users} paragraphs={page.marriage} />
+      <ContentSection
+        id="relationships"
+        title="Love and relationships"
+        icon={HeartHandshake}
+        paragraphs={page.relationships}
+      />
+      <ContentSection
+        id="marriage"
+        title="Marriage and family"
+        icon={Users}
+        paragraphs={page.marriage}
+      />
       <ContentSection id="money" title="Money and finances" icon={Coins} paragraphs={page.money} />
-      <ContentSection id="health" title="Health and wellbeing" icon={HeartPulse} paragraphs={page.health} />
-      <ContentSection id="spiritual" title="Spiritual path" icon={MoonStar} paragraphs={page.spiritual} />
+      <ContentSection
+        id="health"
+        title="Health and wellbeing"
+        icon={HeartPulse}
+        paragraphs={page.health}
+      />
+      <ContentSection
+        id="spiritual"
+        title="Spiritual path"
+        icon={MoonStar}
+        paragraphs={page.spiritual}
+      />
 
-      <ContentSection id="compatibility" title="Compatibility with other numbers" icon={HeartHandshake}>
+      <ContentSection
+        id="compatibility"
+        title="Compatibility with other numbers"
+        icon={HeartHandshake}
+      >
         <div className="grid gap-4 sm:grid-cols-2">
           {page.compatibility.map((c) => (
             <GlassCard key={c.number} className="p-5">
@@ -214,7 +248,10 @@ function NumerologyNumberPage() {
         <ul className="space-y-3">
           {page.lifeLessons.map((l, i) => (
             <li key={i} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {l}
             </li>
           ))}
@@ -287,7 +324,8 @@ function NumerologyNumberPage() {
           {
             to: "/guide/numerology",
             label: "How numerology is calculated",
-            blurb: "The digit-reduction method behind every number on this site, worked through step by step.",
+            blurb:
+              "The digit-reduction method behind every number on this site, worked through step by step.",
           },
           {
             to: "/tarot",

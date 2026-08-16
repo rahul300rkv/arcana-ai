@@ -185,8 +185,8 @@ function BhagyankCalculatorPage() {
         title="Bhagyank and Life Path"
         icon={RouteIcon}
         paragraphs={[
-          "'Life Path Number' is the term most Western numerologists use interchangeably with Bhagyank — both refer to the same calculation from a complete date of birth, and both are traditionally treated as the most significant single number in a person's numerological profile.",
-          "The stated limitation, even within numerological tradition itself, is that a Life Path number describes broad tendencies, not fixed outcomes. It doesn't account for upbringing, circumstance, personal choice, or the countless other factors that shape an actual life. Most thoughtful practitioners treat it as one lens among many, worth holding loosely rather than as a script to follow.",
+          "Bhagyank is the term used in Indian numerology; 'Life Path Number' is the term most Western numerologists use. They're commonly compared because both are typically derived by reducing a complete date of birth to a single digit, but the traditions developed separately, and calculation conventions (such as how and when Master Numbers are preserved) can differ between systems and even between individual practitioners. Treat the comparison as a useful reference point rather than a strict equivalence.",
+          "The stated limitation, even within numerological tradition itself, is that a Bhagyank or Life Path number describes broad tendencies, not fixed outcomes. It doesn't account for upbringing, circumstance, personal choice, or the countless other factors that shape an actual life. Most thoughtful practitioners treat it as one lens among many, worth holding loosely rather than as a script to follow.",
         ]}
       />
 

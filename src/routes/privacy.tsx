@@ -22,21 +22,24 @@ export const Route = createFileRoute("/privacy")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/privacy",
-          "title": "Privacy Policy — AstroFree",
-          "description": "How AstroFree handles your data: what we store on your device, what we never collect, and how cookies and advertising work.",
-          "crumbs": [
-                    {
-                              "name": "Privacy Policy",
-                              "path": "/privacy"
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Legal"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/privacy",
+            title: "Privacy Policy — AstroFree",
+            description:
+              "How AstroFree handles your data: what we store on your device, what we never collect, and how cookies and advertising work.",
+            crumbs: [
+              {
+                name: "Privacy Policy",
+                path: "/privacy",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Legal",
+            },
+          }),
+        ),
       },
     ],
   }),

@@ -144,11 +144,36 @@ function TarotCardPage() {
         </div>
       </ContentSection>
 
-      <ContentSection id="love" title="Love and relationships" icon={HeartHandshake} paragraphs={page.love} />
-      <ContentSection id="career" title="Career and work" icon={Briefcase} paragraphs={page.career} />
-      <ContentSection id="finance" title="Money and finances" icon={Coins} paragraphs={page.finance} />
-      <ContentSection id="health" title="Health and wellbeing" icon={HeartPulse} paragraphs={page.health} />
-      <ContentSection id="spiritual" title="Spiritual meaning" icon={MoonStar} paragraphs={page.spiritual} />
+      <ContentSection
+        id="love"
+        title="Love and relationships"
+        icon={HeartHandshake}
+        paragraphs={page.love}
+      />
+      <ContentSection
+        id="career"
+        title="Career and work"
+        icon={Briefcase}
+        paragraphs={page.career}
+      />
+      <ContentSection
+        id="finance"
+        title="Money and finances"
+        icon={Coins}
+        paragraphs={page.finance}
+      />
+      <ContentSection
+        id="health"
+        title="Health and wellbeing"
+        icon={HeartPulse}
+        paragraphs={page.health}
+      />
+      <ContentSection
+        id="spiritual"
+        title="Spiritual meaning"
+        icon={MoonStar}
+        paragraphs={page.spiritual}
+      />
 
       <ContentSection id="yes-no" title="Yes or no?" icon={HelpCircle}>
         <GlassCard className="p-6">
@@ -172,7 +197,10 @@ function TarotCardPage() {
         <ul className="space-y-3">
           {page.advice.map((a, i) => (
             <li key={i} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {a}
             </li>
           ))}
@@ -192,7 +220,9 @@ function TarotCardPage() {
           <div className="space-y-4">
             <GlassCard className="p-6">
               <h3 className="font-display text-lg">Meditation</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{page.meditation}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {page.meditation}
+              </p>
             </GlassCard>
             <GlassCard className="p-6">
               <h3 className="font-display text-lg">Affirmation</h3>

@@ -20,7 +20,8 @@ export const Route = createFileRoute("/editorial-policy")({
       { property: "og:title", content: "Editorial Policy — AstroFree" },
       {
         property: "og:description",
-        content: "Our approach to accuracy, sourcing, and AI-assisted writing across AstroFree's guides.",
+        content:
+          "Our approach to accuracy, sourcing, and AI-assisted writing across AstroFree's guides.",
       },
       { property: "og:url", content: `${SITE_URL}/editorial-policy` },
     ],
@@ -28,21 +29,24 @@ export const Route = createFileRoute("/editorial-policy")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/editorial-policy",
-          "title": "Editorial Policy — AstroFree",
-          "description": "How AstroFree writes, reviews, and corrects its tarot and numerology content, and the sources our interpretations follow.",
-          "crumbs": [
-                    {
-                              "name": "Editorial Policy",
-                              "path": "/editorial-policy"
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Editorial"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/editorial-policy",
+            title: "Editorial Policy — AstroFree",
+            description:
+              "How AstroFree writes, reviews, and corrects its tarot and numerology content, and the sources our interpretations follow.",
+            crumbs: [
+              {
+                name: "Editorial Policy",
+                path: "/editorial-policy",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Editorial",
+            },
+          }),
+        ),
       },
     ],
   }),
@@ -64,14 +68,14 @@ function EditorialPolicyPage() {
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="Our goal">
             Our guides on tarot card meanings, spreads, and numerology aim to reflect widely
-            recognized, traditional interpretations rather than any single author's invented
-            system. We want a reader new to tarot or numerology to come away with an accurate,
-            practical understanding of the topic.
+            recognized, traditional interpretations rather than any single author's invented system.
+            We want a reader new to tarot or numerology to come away with an accurate, practical
+            understanding of the topic.
           </Section>
 
           <Section title="How our guides are written">
-            Card meanings and numerology interpretations are grounded in long-established
-            traditions — the historical Rider-Waite-Smith card associations for tarot, and standard
+            Card meanings and numerology interpretations are grounded in long-established traditions
+            — the historical Rider-Waite-Smith card associations for tarot, and standard
             Pythagorean-style reduction methods for numerology. We use AI tools to help draft and
             structure this content efficiently, with meanings checked against traditional sources
             rather than generated freely. A human reviews structure and accuracy before publishing.

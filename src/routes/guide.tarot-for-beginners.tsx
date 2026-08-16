@@ -71,12 +71,12 @@ function TarotForBeginnersPage() {
     >
       <ContentSection id="what-is-tarot" title="What tarot actually is" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A tarot deck is a set of 78 illustrated cards split into two families: the 22 Major
-          Arcana and the 56 Minor Arcana. Each card carries a fixed core meaning — built from its
-          imagery, numerology, and elemental associations — but that meaning shifts depending on
-          the question asked, the position it lands in within a spread, and the cards drawn beside
-          it. Learning tarot is really learning two things at once: a vocabulary of 78 symbols, and
-          a method for reading them together as a sentence rather than in isolation.
+          A tarot deck is a set of 78 illustrated cards split into two families: the 22 Major Arcana
+          and the 56 Minor Arcana. Each card carries a fixed core meaning — built from its imagery,
+          numerology, and elemental associations — but that meaning shifts depending on the question
+          asked, the position it lands in within a spread, and the cards drawn beside it. Learning
+          tarot is really learning two things at once: a vocabulary of 78 symbols, and a method for
+          reading them together as a sentence rather than in isolation.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Historically, tarot began as a 15th-century Italian card game before its symbolism was
@@ -96,16 +96,20 @@ function TarotForBeginnersPage() {
           consequential rather than day-to-day.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The <strong className="text-foreground/90">Minor Arcana</strong> cover the everyday —
-          the texture of daily life, small decisions, and short-term influences. They're split into
-          four suits, each tied to an element and a life domain:
+          The <strong className="text-foreground/90">Minor Arcana</strong> cover the everyday — the
+          texture of daily life, small decisions, and short-term influences. They're split into four
+          suits, each tied to an element and a life domain:
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {[
             { suit: "Wands", element: "Fire", domain: "Ambition, action, creativity, passion" },
             { suit: "Cups", element: "Water", domain: "Emotion, relationships, intuition" },
             { suit: "Swords", element: "Air", domain: "Thought, conflict, communication, truth" },
-            { suit: "Pentacles", element: "Earth", domain: "Money, career, health, the material world" },
+            {
+              suit: "Pentacles",
+              element: "Earth",
+              domain: "Money, career, health, the material world",
+            },
           ].map((s) => (
             <div key={s.suit} className="rounded-lg border border-white/10 p-3 text-sm">
               <span className="font-display text-foreground">
@@ -130,14 +134,17 @@ function TarotForBeginnersPage() {
         </p>
         <ul className="mt-4 space-y-3">
           {[
-            "Write your question down before you shuffle, in specific rather than yes/no terms — \"What do I need to understand about this job offer?\" gives more to work with than \"Should I take the job?\"",
+            'Write your question down before you shuffle, in specific rather than yes/no terms — "What do I need to understand about this job offer?" gives more to work with than "Should I take the job?"',
             "Shuffle for as long as feels right, cutting the deck once or twice. There's no required number of shuffles.",
             "Draw with your non-dominant hand if that ritual helps you feel present, but it makes no difference to the outcome — pick what keeps you focused.",
             "Read cards in the order you laid them, not the order that feels most dramatic. Skipping around breaks the narrative a spread is built to tell.",
             "Keep a simple reading journal — the question, the cards, and what you thought at the time. Beginners improve fastest by comparing early interpretations to how things actually played out.",
           ].map((tip) => (
             <li key={tip} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {tip}
             </li>
           ))}
@@ -146,8 +153,8 @@ function TarotForBeginnersPage() {
 
       <ContentSection id="first-spreads" title="Your first three spreads" icon={ListChecks}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Start small. Complex spreads like the Celtic Cross are worth learning once the basics
-          feel automatic, but they overwhelm most beginners before that point.
+          Start small. Complex spreads like the Celtic Cross are worth learning once the basics feel
+          automatic, but they overwhelm most beginners before that point.
         </p>
         <div className="mt-4 space-y-4">
           <GlassCard className="p-5">
@@ -161,10 +168,9 @@ function TarotForBeginnersPage() {
           <GlassCard className="p-5">
             <h3 className="font-display text-lg">2. Three Card (Past · Present · Future)</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Draw three cards left to right. The first shows what led to the current situation,
-              the second the present energy, the third where things are heading if nothing
-              changes. This is where you start practicing how cards relate to each other, not just
-              individually.
+              Draw three cards left to right. The first shows what led to the current situation, the
+              second the present energy, the third where things are heading if nothing changes. This
+              is where you start practicing how cards relate to each other, not just individually.
             </p>
           </GlassCard>
           <GlassCard className="p-5">
@@ -194,12 +200,12 @@ function TarotForBeginnersPage() {
             {
               step: "Look before you label",
               detail:
-                "Notice what's actually happening in the image before recalling the \"official\" meaning — the number of figures, their posture, the weather, the objects in their hands. The Rider–Waite–Smith deck was designed so the picture alone carries most of the meaning.",
+                'Notice what\'s actually happening in the image before recalling the "official" meaning — the number of figures, their posture, the weather, the objects in their hands. The Rider–Waite–Smith deck was designed so the picture alone carries most of the meaning.',
             },
             {
               step: "Place it in position",
               detail:
-                "The same card means something different in a \"past\" slot than in an \"outcome\" slot. Always read the position's job first, then let the card answer that specific question.",
+                'The same card means something different in a "past" slot than in an "outcome" slot. Always read the position\'s job first, then let the card answer that specific question.',
             },
             {
               step: "Read it against its neighbours",
@@ -209,7 +215,7 @@ function TarotForBeginnersPage() {
             {
               step: "Connect it to the question",
               detail:
-                "Bring the interpretation back to the specific question you asked. A generic keyword like \"change\" only becomes useful once you ask: change in what, exactly, and starting when?",
+                'Bring the interpretation back to the specific question you asked. A generic keyword like "change" only becomes useful once you ask: change in what, exactly, and starting when?',
             },
           ].map((s, i) => (
             <li key={s.step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
@@ -239,7 +245,10 @@ function TarotForBeginnersPage() {
             "Reading for others before feeling settled reading for yourself. Confidence with your own spreads transfers directly to reading anyone else's.",
           ].map((m) => (
             <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+              <span
+                aria-hidden
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+              />
               {m}
             </li>
           ))}

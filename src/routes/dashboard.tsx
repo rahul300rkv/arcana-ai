@@ -41,7 +41,6 @@ function DashboardPage() {
     setGreeting(greetingKey());
   }, []);
 
-
   return (
     <AppShell>
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4">

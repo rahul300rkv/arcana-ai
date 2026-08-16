@@ -1,6 +1,18 @@
 import { lazy, Suspense } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BookOpenText, BriefcaseBusiness, Compass, Flame, Hash, Heart, MoonStar, ShieldCheck, Sparkles, Wand2 } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpenText,
+  BriefcaseBusiness,
+  Compass,
+  Flame,
+  Hash,
+  Heart,
+  MoonStar,
+  ShieldCheck,
+  Sparkles,
+  Wand2,
+} from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
 import { Spotlight } from "@/components/arcana/Spotlight";
@@ -74,11 +86,11 @@ const HOWTO_STEPS: Array<[string, string]> = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AstroFree — Tarot & Numerology Learning" },
+      { title: "Free AI Tarot Reading & Numerology Calculator | AstroFree" },
       {
         name: "description",
         content:
-          "Free tarot and numerology education with clear guides, reflective readings, and calculators for Mulank, Bhagyank, Namank, spreads, and card meanings.",
+          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
       },
       {
         name: "keywords",
@@ -87,12 +99,12 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "AstroFree — Free AI Tarot Reading & Numerology Calculator",
+        content: "Free AI Tarot Reading & Numerology Calculator | AstroFree",
       },
       {
         property: "og:description",
         content:
-          "Free tarot and numerology education with reflective interpretations, calculators, and personal journaling tools for learning and self-reflection.",
+          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -100,23 +112,12 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "AstroFree — Free AI Tarot Reading & Numerology Calculator",
+        content: "Free AI Tarot Reading & Numerology Calculator | AstroFree",
       },
       {
         name: "twitter:description",
         content:
-          "Learn tarot and numerology through free guides, reflective readings, and calculators for Mulank, Bhagyank, Namank, spreads, and life-cycle forecasts.",
-      },
-      {
-        "script:ld+json": {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: SITE_NAME,
-          url: SITE_URL,
-          logo: `${SITE_URL}/logo.png.asset.json`,
-          sameAs: [],
-          description: "Free AI-powered tarot readings and numerology calculators for learning and self-reflection.",
-        },
+          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
       },
       {
         "script:ld+json": {
@@ -175,35 +176,57 @@ function LandingPage() {
 
         <section className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">Learn with clarity</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              Learn with clarity
+            </p>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl">What is AstroFree?</h2>
           </div>
           <div className="mt-8 rounded-3xl border border-[color-mix(in_oklab,var(--gold)_30%,transparent)] bg-white/[0.02] p-6 sm:p-8 lg:p-10">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Tarot is a symbolic system used to explore questions, emotions, and patterns through imagery and archetypes. Each card acts like a mirror, inviting reflection rather than fixed prediction. Numerology is a traditional study of numbers and their meanings, often used to understand character, timing, and recurring life themes from a birth date or a name. AstroFree brings both traditions together in a free educational format designed for learning, journaling, and self-reflection.
+              Tarot is a symbolic system used to explore questions, emotions, and patterns through
+              imagery and archetypes. Each card acts like a mirror, inviting reflection rather than
+              fixed prediction. Numerology is a traditional study of numbers and their meanings,
+              often used to understand character, timing, and recurring life themes from a birth
+              date or a name. AstroFree brings both traditions together in a free educational format
+              designed for learning, journaling, and self-reflection.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Our interpretation layer combines card symbolism, your question, and the context of a reading, but the goal is not to replace human judgment. AstroFree is designed as a reflective learning space where the user brings their own intuition, values, and lived experience into the final meaning. We do not promise certainty, and we do not present tarot or numerology as a substitute for professional guidance in health, legal, or financial decisions.
+              Our interpretation layer combines card symbolism, your question, and the context of a
+              reading, but the goal is not to replace human judgment. AstroFree is designed as a
+              reflective learning space where the user brings their own intuition, values, and lived
+              experience into the final meaning. We do not promise certainty, and we do not present
+              tarot or numerology as a substitute for professional guidance in health, legal, or
+              financial decisions.
             </p>
           </div>
         </section>
 
         <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">A careful framework</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">What tarot and numerology are not</h2>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              A careful framework
+            </p>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl">
+              What tarot and numerology are not
+            </h2>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <GlassCard className="h-full p-6">
               <h3 className="font-display text-xl text-foreground">Not a prediction engine</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Tarot and numerology help people notice patterns, themes, and emotional context. They are best used as reflective prompts rather than fixed forecasts. A reading can be insightful without being definitive.
+                Tarot and numerology help people notice patterns, themes, and emotional context.
+                They are best used as reflective prompts rather than fixed forecasts. A reading can
+                be insightful without being definitive.
               </p>
             </GlassCard>
             <GlassCard className="h-full p-6">
-              <h3 className="font-display text-xl text-foreground">Not a substitute for professional guidance</h3>
+              <h3 className="font-display text-xl text-foreground">
+                Not a substitute for professional guidance
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                These tools are designed for learning, journaling, and self-reflection. They are not a replacement for advice from a qualified professional when the decision involves health, money, legal matters, or emotional wellbeing.
+                These tools are designed for learning, journaling, and self-reflection. They are not
+                a replacement for advice from a qualified professional when the decision involves
+                health, money, legal matters, or emotional wellbeing.
               </p>
             </GlassCard>
           </div>
@@ -211,16 +234,48 @@ function LandingPage() {
 
         <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">Explore the library</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              Explore the library
+            </p>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl">Learn Tarot</h2>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {[
-              { to: "/guide/tarot-card-meanings", icon: BookOpenText, title: "Tarot Guide", body: "Start with the foundations of tarot symbolism, card structure, and intuitive reading habits.", cta: "Read the guide" },
-              { to: "/tarot/the-magician", icon: Wand2, title: "Major Arcana", body: "Explore the archetypal journey of the 22 cards that define major turning points.", cta: "Browse major arcana" },
-              { to: "/tarot", icon: Compass, title: "Minor Arcana", body: "Learn how the four suits describe everyday situations, emotion, thought, and practical life.", cta: "See the suits" },
-              { to: "/guide/tarot-spreads", icon: Sparkles, title: "Tarot Spreads", body: "Understand common layouts from single-card pulls to full spread structures.", cta: "View spreads" },
-              { to: "/guide/tarot-card-meanings", icon: MoonStar, title: "78 Card Meanings", body: "Access the full library of upright and reversed meanings for every card.", cta: "Open meanings" },
+              {
+                to: "/guide/tarot-card-meanings",
+                icon: BookOpenText,
+                title: "Tarot Guide",
+                body: "Start with the foundations of tarot symbolism, card structure, and intuitive reading habits.",
+                cta: "Read the guide",
+              },
+              {
+                to: "/tarot/the-magician",
+                icon: Wand2,
+                title: "Major Arcana",
+                body: "Explore the archetypal journey of the 22 cards that define major turning points.",
+                cta: "Browse major arcana",
+              },
+              {
+                to: "/tarot",
+                icon: Compass,
+                title: "Minor Arcana",
+                body: "Learn how the four suits describe everyday situations, emotion, thought, and practical life.",
+                cta: "See the suits",
+              },
+              {
+                to: "/guide/tarot-spreads",
+                icon: Sparkles,
+                title: "Tarot Spreads",
+                body: "Understand common layouts from single-card pulls to full spread structures.",
+                cta: "View spreads",
+              },
+              {
+                to: "/guide/tarot-card-meanings",
+                icon: MoonStar,
+                title: "78 Card Meanings",
+                body: "Access the full library of upright and reversed meanings for every card.",
+                cta: "Open meanings",
+              },
             ].map((item) => (
               <Link key={item.title} to={item.to} className="group block h-full">
                 <GlassCard className="h-full p-5 transition-transform duration-300 group-hover:-translate-y-1">
@@ -240,16 +295,48 @@ function LandingPage() {
 
         <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">Read your numbers</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              Read your numbers
+            </p>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl">Learn Numerology</h2>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {[
-              { to: "/guide/numerology", icon: Hash, title: "Mulank Guide", body: "Understand your root number, birth date reduction, and the nine-number framework.", cta: "Learn Mulank" },
-              { to: "/bhagyank-calculator", icon: Flame, title: "Bhagyank", body: "See the date-of-birth calculation used for destiny and life-path themes.", cta: "Calculate Bhagyank" },
-              { to: "/namank-calculator", icon: BookOpenText, title: "Namank", body: "Learn how the letters of your name are translated into a name vibration.", cta: "Explore Namank" },
-              { to: "/numerology?period=2026", icon: Compass, title: "Personal Year", body: "Understand how timing cycles shape your year, month, and personal momentum.", cta: "Check your year" },
-              { to: "/numerology", icon: BriefcaseBusiness, title: "Numerology Calculator", body: "Use the free calculator to generate your Mulank, Personal Year, and Personal Month.", cta: "Try the calculator" },
+              {
+                to: "/guide/numerology",
+                icon: Hash,
+                title: "Mulank Guide",
+                body: "Understand your root number, birth date reduction, and the nine-number framework.",
+                cta: "Learn Mulank",
+              },
+              {
+                to: "/bhagyank-calculator",
+                icon: Flame,
+                title: "Bhagyank",
+                body: "See the date-of-birth calculation used for destiny and life-path themes.",
+                cta: "Calculate Bhagyank",
+              },
+              {
+                to: "/namank-calculator",
+                icon: BookOpenText,
+                title: "Namank",
+                body: "Learn how the letters of your name are translated into a name vibration.",
+                cta: "Explore Namank",
+              },
+              {
+                to: "/numerology?period=2026",
+                icon: Compass,
+                title: "Personal Year",
+                body: "Understand how timing cycles shape your year, month, and personal momentum.",
+                cta: "Check your year",
+              },
+              {
+                to: "/numerology",
+                icon: BriefcaseBusiness,
+                title: "Numerology Calculator",
+                body: "Use the free calculator to generate your Mulank, Personal Year, and Personal Month.",
+                cta: "Try the calculator",
+              },
             ].map((item) => (
               <Link key={item.title} to={item.to} className="group block h-full">
                 <GlassCard className="h-full p-5 transition-transform duration-300 group-hover:-translate-y-1">
@@ -269,22 +356,45 @@ function LandingPage() {
 
         <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">How it works</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              How it works
+            </p>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl">How Readings Work</h2>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-4">
             {[
-              { icon: Compass, title: "Choose spread", body: "Pick a reading style that matches your question, from a quick single card to a fuller spread." },
-              { icon: Sparkles, title: "Select cards", body: "Draw the cards and set an intention so the symbols speak to your context." },
-              { icon: Wand2, title: "AI interprets symbolism", body: "AstroFree angles the reading through tarot symbolism, numerology context, and card meaning." },
-              { icon: Heart, title: "Reflect & journal", body: "Write down what resonates and return to the card later as your story unfolds." },
+              {
+                icon: Compass,
+                title: "Choose spread",
+                body: "Pick a reading style that matches your question, from a quick single card to a fuller spread.",
+              },
+              {
+                icon: Sparkles,
+                title: "Select cards",
+                body: "Draw the cards and set an intention so the symbols speak to your context.",
+              },
+              {
+                icon: Wand2,
+                title: "AI interprets symbolism",
+                body: "AstroFree angles the reading through tarot symbolism, numerology context, and card meaning.",
+              },
+              {
+                icon: Heart,
+                title: "Reflect & journal",
+                body: "Write down what resonates and return to the card later as your story unfolds.",
+              },
             ].map((step, index) => (
-              <div key={step.title} className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+              <div
+                key={step.title}
+                className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+              >
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
                   <step.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Step {index + 1}</p>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                    Step {index + 1}
+                  </p>
                   <h3 className="mt-1 font-display text-xl text-foreground">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
                 </div>
@@ -297,7 +407,10 @@ function LandingPage() {
           <div className="rounded-2xl border border-[color-mix(in_oklab,var(--gold)_60%,transparent)] bg-[linear-gradient(135deg,color-mix(in_oklab,var(--gold)_8%,transparent),transparent_70%)] p-6 sm:p-8">
             <h2 className="font-display text-2xl sm:text-3xl">Responsible Use</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              AstroFree is not a fortune-telling service and it is not a substitute for medical, financial, or legal advice. It is a tool for reflection, pattern recognition, and personal journaling. Human intuition, context, and lived experience matter more than any single reading or number.
+              AstroFree is not a fortune-telling service and it is not a substitute for medical,
+              financial, or legal advice. It is a tool for reflection, pattern recognition, and
+              personal journaling. Human intuition, context, and lived experience matter more than
+              any single reading or number.
             </p>
           </div>
         </section>
@@ -308,7 +421,9 @@ function LandingPage() {
 
         <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">Why readers choose us</p>
+            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
+              Why readers choose us
+            </p>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl">Why choose AstroFree?</h2>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

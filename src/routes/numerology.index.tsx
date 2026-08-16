@@ -29,16 +29,17 @@ import { findCardSynergy } from "@/lib/numerology/synergy";
 import { SITE_URL } from "@/lib/site";
 import type { NumerologyResult, Pacing, RootNumber } from "@/lib/numerology/types";
 
-const PAGE_TITLE = "Mulank Calculator — Free Birth Number & Personal Year Forecast";
+const PAGE_TITLE = "Numerology Calculator — Free Mulank, Personal Year & Month";
 const PAGE_DESC =
-  "Free Mulank calculator: enter your date of birth to get your birth number (Mulank), Personal Year and Personal Month, each mapped to its tarot archetype with practical guidance.";
+  "Free numerology calculator: enter your date of birth to get your Mulank (birth number), Personal Year and Personal Month, each mapped to its tarot archetype with practical guidance.";
 const PAGE_URL = `${SITE_URL}/numerology`;
 
 export const Route = createFileRoute("/numerology/")({
   validateSearch: (search: Record<string, unknown>) => {
-    const dob = typeof search.dob === "string" && /^\d{4}-\d{2}-\d{2}$/.test(search.dob)
-      ? search.dob
-      : undefined;
+    const dob =
+      typeof search.dob === "string" && /^\d{4}-\d{2}-\d{2}$/.test(search.dob)
+        ? search.dob
+        : undefined;
     // A bare year (?period=2026) is parsed as a number — keep the original type so
     // the URL round-trips without the router rewriting it.
     const raw = search.period;
@@ -56,7 +57,7 @@ export const Route = createFileRoute("/numerology/")({
       {
         name: "keywords",
         content:
-          "mulank calculator, birth number calculator, numerology calculator, personal year number, personal month number, moolank",
+          "numerology calculator, free numerology calculator, indian numerology calculator, numerology calculator by date of birth, mulank calculator, birth number calculator, personal year number, personal month number, moolank",
       },
       { property: "og:title", content: PAGE_TITLE },
       { property: "og:description", content: PAGE_DESC },
@@ -73,7 +74,7 @@ export const Route = createFileRoute("/numerology/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: "Mulank Calculator",
+          name: "Numerology Calculator",
           url: PAGE_URL,
           applicationCategory: "LifestyleApplication",
           operatingSystem: "Any",
@@ -87,14 +88,70 @@ export const Route = createFileRoute("/numerology/")({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
-            { "@type": "Question", name: "What is Mulank?", acceptedAnswer: { "@type": "Answer", text: "Mulank is the birth number that comes from reducing the day of birth to a single digit, such as 24-08-1999 becoming 2 + 4 = 6." } },
-            { "@type": "Question", name: "Is Mulank different from zodiac?", acceptedAnswer: { "@type": "Answer", text: "Yes. Zodiac is based on sun sign and date range; Mulank is a numerology root number derived from the day of birth." } },
-            { "@type": "Question", name: "Can two people have the same Mulank?", acceptedAnswer: { "@type": "Answer", text: "Yes. Many people share the same day-of-birth reduction, but their full numerology chart and life experiences remain different." } },
-            { "@type": "Question", name: "Which Mulank is lucky?", acceptedAnswer: { "@type": "Answer", text: "No single Mulank is universally lucky. Each number carries different strengths, struggles, and timing patterns, so the value depends on context." } },
-            { "@type": "Question", name: "How is Personal Year calculated?", acceptedAnswer: { "@type": "Answer", text: "Personal Year is calculated by adding your birth day and birth month to the target year and reducing the total to a single digit." } },
-            { "@type": "Question", name: "Does name affect numerology?", acceptedAnswer: { "@type": "Answer", text: "Name numerology is a separate calculation called Namank, which uses letters and a different system than Mulank." } },
-            { "@type": "Question", name: "Is numerology scientific?", acceptedAnswer: { "@type": "Answer", text: "Numerology is a symbolic tradition and reflective framework rather than a scientifically validated predictive system." } },
-            { "@type": "Question", name: "Is AstroFree free?", acceptedAnswer: { "@type": "Answer", text: "Yes. AstroFree offers free educational numerology tools, tarot content, and calculators without a paywall." } },
+            {
+              "@type": "Question",
+              name: "What is Mulank?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Mulank is the birth number that comes from reducing the day of birth to a single digit, such as 24-08-1999 becoming 2 + 4 = 6.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is Mulank different from zodiac?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Zodiac is based on sun sign and date range; Mulank is a numerology root number derived from the day of birth.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can two people have the same Mulank?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Many people share the same day-of-birth reduction, but their full numerology chart and life experiences remain different.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which Mulank is lucky?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No single Mulank is universally lucky. Each number carries different strengths, struggles, and timing patterns, so the value depends on context.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How is Personal Year calculated?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Personal Year is calculated by adding your birth day and birth month to the target year and reducing the total to a single digit.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does name affect numerology?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Name numerology is a separate calculation called Namank, which uses letters and a different system than Mulank.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is numerology scientific?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Numerology is a symbolic tradition and reflective framework rather than a scientifically validated predictive system.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is AstroFree free?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. AstroFree offers free educational numerology tools, tarot content, and calculators without a paywall.",
+              },
+            },
           ],
         }),
       },
@@ -196,7 +253,6 @@ function lifePathHref(value: RootNumber) {
   return `/numerology/life-path-${value}`;
 }
 
-
 function NumberSigil({
   value,
   card,
@@ -218,7 +274,6 @@ function NumberSigil({
       whileHover={{ y: -3 }}
       className="group flex items-center gap-3"
     >
-
       <div className="relative">
         {/* pulsing halo */}
         <motion.div
@@ -263,7 +318,6 @@ function NumberSigil({
     </Wrapper>
   );
 }
-
 
 function PacingBadge({ pacing }: { pacing: Pacing }) {
   const t = useTranslate();
@@ -351,7 +405,6 @@ function NumerologyPage() {
   }, [dob]);
 
   const synergyMatches = useMemo(() => {
-
     const personalMonth = result?.calculations.personal_month;
     if (!personalMonth || !submittedPeriod) return null;
     return findCardSynergy(personalMonth.value, submittedPeriod.year, submittedPeriod.month);
@@ -425,14 +478,46 @@ function NumerologyPage() {
   }, [result, sharedPeriod, dob]);
 
   const mulankFaqs = [
-    { question: "What is Mulank?", answer: "Mulank is the birth number derived from the day you were born. In numerology it is treated as a root number, reflecting your natural style, instinctive patterns, and the way you show up in daily life." },
-    { question: "Is Mulank different from zodiac?", answer: "Yes. Zodiac is tied to your sun sign and date range, while Mulank is a calculated birth number derived from the day of birth. They are different systems used for different kinds of reflection." },
-    { question: "Can two people have the same Mulank?", answer: "Yes. People born on the same day of the month can share the same Mulank. The same number does not create identical lives, because environment, relationships, and choices shape the experience." },
-    { question: "Which Mulank is lucky?", answer: "No single Mulank is universally lucky or unlucky. Every number comes with unique strengths, challenges, and timing patterns. The more useful question is: which strengths and lessons does this number highlight for you?" },
-    { question: "How is Personal Year calculated?", answer: "Personal Year is computed by reducing the sum of your birth day, birth month, and target year. For example, a person born on the 24th with a target year of 2026 would calculate 2 + 4 + 2 + 0 + 2 + 6 = 16, then 1 + 6 = 7." },
-    { question: "Does name affect numerology?", answer: "Name numerology is a separate branch, usually called Namank. It uses the letters of your name and a different method than Mulank, which is based only on the day of birth." },
-    { question: "Is numerology scientific?", answer: "Numerology is a symbolic and interpretive framework, not a scientific method. AstroFree presents it as a reflective tool rather than a measurable prediction system." },
-    { question: "Is AstroFree free?", answer: "Yes. AstroFree is a free educational platform with tarot guides, numerology calculators, and reflection tools available at no cost." },
+    {
+      question: "What is Mulank?",
+      answer:
+        "Mulank is the birth number derived from the day you were born. In numerology it is treated as a root number, reflecting your natural style, instinctive patterns, and the way you show up in daily life.",
+    },
+    {
+      question: "Is Mulank different from zodiac?",
+      answer:
+        "Yes. Zodiac is tied to your sun sign and date range, while Mulank is a calculated birth number derived from the day of birth. They are different systems used for different kinds of reflection.",
+    },
+    {
+      question: "Can two people have the same Mulank?",
+      answer:
+        "Yes. People born on the same day of the month can share the same Mulank. The same number does not create identical lives, because environment, relationships, and choices shape the experience.",
+    },
+    {
+      question: "Which Mulank is lucky?",
+      answer:
+        "No single Mulank is universally lucky or unlucky. Every number comes with unique strengths, challenges, and timing patterns. The more useful question is: which strengths and lessons does this number highlight for you?",
+    },
+    {
+      question: "How is Personal Year calculated?",
+      answer:
+        "Personal Year is computed by reducing the sum of your birth day, birth month, and target year. For example, a person born on the 24th with a target year of 2026 would calculate 2 + 4 + 2 + 0 + 2 + 6 = 16, then 1 + 6 = 7.",
+    },
+    {
+      question: "Does name affect numerology?",
+      answer:
+        "Name numerology is a separate branch, usually called Namank. It uses the letters of your name and a different method than Mulank, which is based only on the day of birth.",
+    },
+    {
+      question: "Is numerology scientific?",
+      answer:
+        "Numerology is a symbolic and interpretive framework, not a scientific method. AstroFree presents it as a reflective tool rather than a measurable prediction system.",
+    },
+    {
+      question: "Is AstroFree free?",
+      answer:
+        "Yes. AstroFree is a free educational platform with tarot guides, numerology calculators, and reflection tools available at no cost.",
+    },
   ];
 
   const mulankOverview = [
@@ -530,7 +615,6 @@ function NumerologyPage() {
                 <LivePreview dob={dob} />
               </div>
 
-
               <div>
                 <Label className="text-sm">{t("numerology.forecastTypeLabel")}</Label>
                 <RadioGroup
@@ -612,7 +696,6 @@ function NumerologyPage() {
                       </div>
                     </>
                   ) : (
-
                     <>
                       <Label htmlFor="target-month" className="text-sm">
                         {t("numerology.monthLabel")}
@@ -753,7 +836,11 @@ function NumerologyPage() {
                             Personal Year = day + month + year reduced
                           </p>
                           <MathTrail
-                            value={dobParts.day + dobParts.month + (submittedPeriod?.year ?? Number(targetYear))}
+                            value={
+                              dobParts.day +
+                              dobParts.month +
+                              (submittedPeriod?.year ?? Number(targetYear))
+                            }
                             className="mt-1"
                           />
                         </div>
@@ -773,7 +860,6 @@ function NumerologyPage() {
                       </div>
                     </div>
                   )}
-
                 </GlassCard>
               </motion.div>
 
@@ -817,12 +903,11 @@ function NumerologyPage() {
                       </p>
                     </motion.div>
                   ))}
-                  {result.energetic_layers.monthly_focus &&
-                    result.energetic_layers.pacing && (
-                      <div>
-                        <PacingBadge pacing={result.energetic_layers.pacing} />
-                      </div>
-                    )}
+                  {result.energetic_layers.monthly_focus && result.energetic_layers.pacing && (
+                    <div>
+                      <PacingBadge pacing={result.energetic_layers.pacing} />
+                    </div>
+                  )}
                 </GlassCard>
               </motion.div>
             </div>
@@ -967,21 +1052,37 @@ function NumerologyPage() {
         <div>
           <h2 className="font-display text-3xl sm:text-4xl">What is Mulank?</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Mulank is the numerology number derived from the day of your birth. In many traditions it is called the birth number, root number, or psychic number, and it is usually read as your natural way of responding to life. The calculation is simple: take the number of the day you were born, add its digits together, and reduce until you reach a single digit from 1 to 9. A person born on the 24th reduces as 2 + 4 = 6, so the Mulank is 6. This is a useful lens because it describes how you act instinctively, what kind of energy you carry, and what you tend to notice first when life becomes noisy or uncertain.
+            Mulank is the numerology number derived from the day of your birth. In many traditions
+            it is called the birth number, root number, or psychic number, and it is usually read as
+            your natural way of responding to life. The calculation is simple: take the number of
+            the day you were born, add its digits together, and reduce until you reach a single
+            digit from 1 to 9. A person born on the 24th reduces as 2 + 4 = 6, so the Mulank is 6.
+            This is a useful lens because it describes how you act instinctively, what kind of
+            energy you carry, and what you tend to notice first when life becomes noisy or
+            uncertain.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Two people can share the same date of birth day but still live very different lives; numerology does not remove free will or personal history. What Mulank adds is context. It offers a mirror for your habitual style, tendencies, and recurring themes. That is why many readers pair it with Bhagyank, Namank, and the Personal Year cycle to build a more nuanced understanding of timing, identity, and direction.
+            Two people can share the same date of birth day but still live very different lives;
+            numerology does not remove free will or personal history. What Mulank adds is context.
+            It offers a mirror for your habitual style, tendencies, and recurring themes. That is
+            why many readers pair it with Bhagyank, Namank, and the Personal Year cycle to build a
+            more nuanced understanding of timing, identity, and direction.
           </p>
         </div>
 
         <div>
           <h2 className="font-display text-3xl sm:text-4xl">How to Calculate Mulank</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            To calculate your Mulank, reduce the day of birth to a single digit. If the day is already one digit, the number stays the same. If the day is double-digit, add the digits together. If the total is still double-digit, add again until you arrive at a value between 1 and 9.
+            To calculate your Mulank, reduce the day of birth to a single digit. If the day is
+            already one digit, the number stays the same. If the day is double-digit, add the digits
+            together. If the total is still double-digit, add again until you arrive at a value
+            between 1 and 9.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Example A</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Example A
+              </p>
               <div className="mt-3 font-mono text-base text-foreground">
                 <p>24-08-1999</p>
                 <p className="mt-2">2 + 4 = 6</p>
@@ -989,7 +1090,9 @@ function NumerologyPage() {
               </div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Example B</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Example B
+              </p>
               <div className="mt-3 font-mono text-base text-foreground">
                 <p>17-11-1987</p>
                 <p className="mt-2">1 + 7 = 8</p>
@@ -1003,12 +1106,28 @@ function NumerologyPage() {
           <h2 className="font-display text-3xl sm:text-4xl">Mulank 1–9 Overview</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {mulankOverview.map((item) => (
-              <div key={item.number} className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Number</p>
-                <h3 className="mt-2 font-display text-3xl text-[color:var(--gold)]">{item.number}</h3>
-                <p className="mt-3 text-sm text-muted-foreground"><span className="font-medium text-foreground">Planet:</span> {item.planet}</p>
-                <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium text-foreground">Personality:</span> {item.personality}</p>
-                <Link to={`/numerology/mulank-${item.number}`} className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[color:var(--gold)] hover:text-[color:var(--gold)]">
+              <div
+                key={item.number}
+                className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+              >
+                <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  Number
+                </p>
+                <h3 className="mt-2 font-display text-3xl text-[color:var(--gold)]">
+                  {item.number}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Planet:</span> {item.planet}
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Personality:</span>{" "}
+                  {item.personality}
+                </p>
+                <Link
+                  to="/numerology/$slug"
+                  params={{ slug: `mulank-${item.number}` }}
+                  className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[color:var(--gold)] hover:text-[color:var(--gold)]"
+                >
                   Read Mulank {item.number} <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
@@ -1030,9 +1149,17 @@ function NumerologyPage() {
               <tbody>
                 {[
                   ["Based on", "Day of birth", "Full date of birth"],
-                  ["Meaning", "Instinctive style and root energy", "Life direction and broader path"],
+                  [
+                    "Meaning",
+                    "Instinctive style and root energy",
+                    "Life direction and broader path",
+                  ],
                   ["Changes?", "No", "No"],
-                  ["Purpose", "How you show up in daily life", "What long-term themes may shape your journey"],
+                  [
+                    "Purpose",
+                    "How you show up in daily life",
+                    "What long-term themes may shape your journey",
+                  ],
                 ].map(([label, mulankValue, bhagyankValue]) => (
                   <tr key={label} className="border-t border-white/10">
                     <td className="px-4 py-3 font-medium text-foreground">{label}</td>
@@ -1048,7 +1175,13 @@ function NumerologyPage() {
         <div>
           <h2 className="font-display text-3xl sm:text-4xl">Personal Year Explained</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            The Personal Year explains the theme of a specific year in your life. The formula is usually calculated by adding your birth day and birth month to the target year, then reducing the sum to a single digit. If you were born on 24 August and you want the Personal Year for 2026, the formula is 2 + 4 + 2 + 0 + 2 + 6 = 16, then 1 + 6 = 7. A Personal Year of 7 often points to reflection, inner work, and deeper learning, while a 3 tends to emphasize creativity and expression. The Personal Year is different from Mulank because it changes over time and describes the energy of a specific cycle.
+            The Personal Year explains the theme of a specific year in your life. The formula is
+            usually calculated by adding your birth day and birth month to the target year, then
+            reducing the sum to a single digit. If you were born on 24 August and you want the
+            Personal Year for 2026, the formula is 2 + 4 + 2 + 0 + 2 + 6 = 16, then 1 + 6 = 7. A
+            Personal Year of 7 often points to reflection, inner work, and deeper learning, while a
+            3 tends to emphasize creativity and expression. The Personal Year is different from
+            Mulank because it changes over time and describes the energy of a specific cycle.
           </p>
         </div>
 
@@ -1063,11 +1196,45 @@ function NumerologyPage() {
           <h2 className="font-display text-3xl sm:text-4xl">Related Guides</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
-              { to: "/guide/numerology", title: "Mulank Numerology Guide", body: "Learn the calculation logic, number meanings, and timing formulas in one place." },
-              { to: "/bhagyank-calculator", title: "Bhagyank Calculator", body: "See how your full birth date creates a broader life path number." },
-              { to: "/namank-calculator", title: "Namank Calculator", body: "Explore the vibration created by the letters in your name." },
+              {
+                to: "/guide/numerology" as const,
+                title: "Mulank Numerology Guide",
+                body: "Learn the calculation logic, number meanings, and timing formulas in one place.",
+              },
+              {
+                to: "/bhagyank-calculator" as const,
+                title: "Bhagyank Calculator",
+                body: "See how your full birth date creates a broader destiny number.",
+              },
+              {
+                to: "/namank-calculator" as const,
+                title: "Namank Calculator",
+                body: "Explore the vibration created by the letters in your name.",
+              },
+              {
+                to: "/guide/mulank-vs-bhagyank" as const,
+                title: "Mulank vs Bhagyank",
+                body: "Understand how these two Indian numerology numbers differ and work together.",
+              },
+              {
+                to: "/numerology/$slug" as const,
+                params: { slug: "life-path-1" },
+                title: "Life Path Numbers",
+                body: "Compare the Western Life Path system with Mulank and Bhagyank.",
+              },
+              {
+                to: "/numerology/$slug" as const,
+                params: { slug: "master-number-11" },
+                title: "Master Numbers 11 & 22",
+                body: "What it means to carry an unreduced Master Number in your chart.",
+              },
             ].map((item) => (
-              <Link key={item.title} to={item.to} className="block rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-[color-mix(in_oklab,var(--gold)_35%,transparent)]">
+              <Link
+                key={item.title}
+                to={item.to}
+                {...("params" in item ? { params: item.params } : {})}
+                className="block rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-[color-mix(in_oklab,var(--gold)_35%,transparent)]"
+              >
                 <h3 className="font-display text-xl text-foreground">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
               </Link>

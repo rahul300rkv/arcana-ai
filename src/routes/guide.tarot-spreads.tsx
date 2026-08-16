@@ -31,39 +31,45 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/guide/tarot-spreads",
-          "title": "Tarot Spreads Explained — Single Card to Celtic Cross",
-          "description": "A free guide to tarot spreads: what each position means in the Single Card, Three Card, Love, Career, Money, Decision, Celtic Cross, and Year Ahead spreads.",
-          "crumbs": [
-                    {
-                              "name": "Guides",
-                              "path": "/guide"
-                    },
-                    {
-                              "name": "Tarot Spreads",
-                              "path": "/guide/tarot-spreads"
-                    }
-          ],
-          "faqs": [
-                    {
-                              "question": "Which tarot spread should a beginner use?",
-                              "answer": "Start with the Single Card or Three Card spread — few positions, clear structure, and easy to interpret."
-                    },
-                    {
-                              "question": "What is the Celtic Cross spread?",
-                              "answer": "The Celtic Cross is a ten-card spread covering the situation, the challenge, the past, the near future, hopes, external influences, and the likely outcome."
-                    },
-                    {
-                              "question": "Can I use any spread for any question?",
-                              "answer": "Yes, but spreads are designed around question types — love spreads compare two people's energy, decision spreads weigh two options."
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Tarot"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/guide/tarot-spreads",
+            title: "Tarot Spreads Explained — Single Card to Celtic Cross",
+            description:
+              "A free guide to tarot spreads: what each position means in the Single Card, Three Card, Love, Career, Money, Decision, Celtic Cross, and Year Ahead spreads.",
+            crumbs: [
+              {
+                name: "Guides",
+                path: "/guide",
+              },
+              {
+                name: "Tarot Spreads",
+                path: "/guide/tarot-spreads",
+              },
+            ],
+            faqs: [
+              {
+                question: "Which tarot spread should a beginner use?",
+                answer:
+                  "Start with the Single Card or Three Card spread — few positions, clear structure, and easy to interpret.",
+              },
+              {
+                question: "What is the Celtic Cross spread?",
+                answer:
+                  "The Celtic Cross is a ten-card spread covering the situation, the challenge, the past, the near future, hopes, external influences, and the likely outcome.",
+              },
+              {
+                question: "Can I use any spread for any question?",
+                answer:
+                  "Yes, but spreads are designed around question types — love spreads compare two people's energy, decision spreads weigh two options.",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Tarot",
+            },
+          }),
+        ),
       },
     ],
   }),
@@ -144,7 +150,10 @@ function TarotSpreadsPage() {
               {spread.id === "celtic-cross" && (
                 <p className="mt-4 text-sm text-muted-foreground">
                   Want the full walkthrough?{" "}
-                  <Link to="/guide/celtic-cross-guide" className="text-[var(--gold)] hover:underline">
+                  <Link
+                    to="/guide/celtic-cross-guide"
+                    className="text-[var(--gold)] hover:underline"
+                  >
                     Read the step-by-step Celtic Cross guide
                   </Link>
                   , with worked detail on every position and how to read them together.

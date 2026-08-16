@@ -49,43 +49,50 @@ export const Route = createFileRoute("/guide/numerology")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildPageJsonLd({
-          "path": "/guide/numerology",
-          "title": "Mulank Numerology Guide — How Personal Year & Month Are Calculated",
-          "description": "A free guide to Mulank (root number) numerology: how your Mulank, Personal Year, and Personal Month numbers are calculated, with worked examples.",
-          "crumbs": [
-                    {
-                              "name": "Guides",
-                              "path": "/guide"
-                    },
-                    {
-                              "name": "Mulank Numerology Guide",
-                              "path": "/guide/numerology"
-                    }
-          ],
-          "faqs": [
-                    {
-                              "question": "What is a Mulank number?",
-                              "answer": "Your Mulank, or root number, is the single digit you get by reducing your day of birth. Born on the 28th? 2+8=10, then 1+0=1, so your Mulank is 1."
-                    },
-                    {
-                              "question": "How is a Personal Year number calculated?",
-                              "answer": "Add your birth day and birth month to the target year, then reduce the total to a single digit. That number describes the theme of that year for you."
-                    },
-                    {
-                              "question": "How is a Personal Month number calculated?",
-                              "answer": "Add your Personal Year number to the calendar month number and reduce the result to a single digit."
-                    },
-                    {
-                              "question": "Are master numbers 11 and 22 reduced?",
-                              "answer": "In this guide the final Mulank is reduced to 1-9, while 11 and 22 are treated as master life path numbers with their own dedicated pages."
-                    }
-          ],
-          "article": {
-                    "updated": "2026-08-07",
-                    "section": "Numerology"
-          }
-        })),
+        children: JSON.stringify(
+          buildPageJsonLd({
+            path: "/guide/numerology",
+            title: "Mulank Numerology Guide — How Personal Year & Month Are Calculated",
+            description:
+              "A free guide to Mulank (root number) numerology: how your Mulank, Personal Year, and Personal Month numbers are calculated, with worked examples.",
+            crumbs: [
+              {
+                name: "Guides",
+                path: "/guide",
+              },
+              {
+                name: "Mulank Numerology Guide",
+                path: "/guide/numerology",
+              },
+            ],
+            faqs: [
+              {
+                question: "What is a Mulank number?",
+                answer:
+                  "Your Mulank, or root number, is the single digit you get by reducing your day of birth. Born on the 28th? 2+8=10, then 1+0=1, so your Mulank is 1.",
+              },
+              {
+                question: "How is a Personal Year number calculated?",
+                answer:
+                  "Add your birth day and birth month to the target year, then reduce the total to a single digit. That number describes the theme of that year for you.",
+              },
+              {
+                question: "How is a Personal Month number calculated?",
+                answer:
+                  "Add your Personal Year number to the calendar month number and reduce the result to a single digit.",
+              },
+              {
+                question: "Are master numbers 11 and 22 reduced?",
+                answer:
+                  "In this guide the final Mulank is reduced to 1-9, while 11 and 22 are treated as master life path numbers with their own dedicated pages.",
+              },
+            ],
+            article: {
+              updated: "2026-08-07",
+              section: "Numerology",
+            },
+          }),
+        ),
       },
     ],
   }),
@@ -164,7 +171,9 @@ function MathStep({
   return (
     <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-4">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{label}</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+          {label}
+        </span>
         {meta && (
           <span
             className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[10px] uppercase tracking-widest"
@@ -195,23 +204,24 @@ function InteractiveExample() {
   const [targetYear, setTargetYear] = useState(today.getFullYear() + 1);
   const [targetMonth, setTargetMonth] = useState(today.getMonth() + 1);
 
-  const { mulank, personalYear, personalMonth, mulankSum, personalYearSum, personalMonthSum } = useMemo(() => {
-    const safeDay = Math.max(1, Math.min(31, day));
-    const safeMonth = Math.max(1, Math.min(12, month));
-    const mulank = reduceToSingleDigit(safeDay);
-    const personalYearSum = safeDay + safeMonth + targetYear;
-    const personalYear = reduceToSingleDigit(personalYearSum);
-    const personalMonthSum = personalYear + targetMonth;
-    const personalMonth = reduceToSingleDigit(personalMonthSum);
-    return {
-      mulank,
-      personalYear,
-      personalMonth,
-      mulankSum: safeDay,
-      personalYearSum,
-      personalMonthSum,
-    };
-  }, [day, month, targetYear, targetMonth]);
+  const { mulank, personalYear, personalMonth, mulankSum, personalYearSum, personalMonthSum } =
+    useMemo(() => {
+      const safeDay = Math.max(1, Math.min(31, day));
+      const safeMonth = Math.max(1, Math.min(12, month));
+      const mulank = reduceToSingleDigit(safeDay);
+      const personalYearSum = safeDay + safeMonth + targetYear;
+      const personalYear = reduceToSingleDigit(personalYearSum);
+      const personalMonthSum = personalYear + targetMonth;
+      const personalMonth = reduceToSingleDigit(personalMonthSum);
+      return {
+        mulank,
+        personalYear,
+        personalMonth,
+        mulankSum: safeDay,
+        personalYearSum,
+        personalMonthSum,
+      };
+    }, [day, month, targetYear, targetMonth]);
 
   return (
     <motion.div
@@ -251,15 +261,27 @@ function InteractiveExample() {
             </button>
           </div>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Pick a birth day and month, plus a target year and month. Watch how the numbers reduce and
-            which archetypes appear.
+            Pick a birth day and month, plus a target year and month. Watch how the numbers reduce
+            and which archetypes appear.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
             <NumberInput label="Birth day" value={day} min={1} max={31} onChange={setDay} />
             <NumberInput label="Birth month" value={month} min={1} max={12} onChange={setMonth} />
-            <NumberInput label="Target year" value={targetYear} min={1900} max={2100} onChange={setTargetYear} />
-            <NumberInput label="Target month" value={targetMonth} min={1} max={12} onChange={setTargetMonth} />
+            <NumberInput
+              label="Target year"
+              value={targetYear}
+              min={1900}
+              max={2100}
+              onChange={setTargetYear}
+            />
+            <NumberInput
+              label="Target month"
+              value={targetMonth}
+              min={1}
+              max={12}
+              onChange={setTargetMonth}
+            />
           </div>
 
           <div className="mt-6 grid gap-3">
@@ -346,7 +368,10 @@ function StepCard({
         />
         <div className="relative flex items-start gap-4">
           <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.03]">
-            <Icon className="h-5 w-5 text-[color-mix(in_oklab,var(--gold)_85%,white)]" strokeWidth={1.5} />
+            <Icon
+              className="h-5 w-5 text-[color-mix(in_oklab,var(--gold)_85%,white)]"
+              strokeWidth={1.5}
+            />
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
@@ -367,14 +392,15 @@ function StepCard({
   );
 }
 
-
 function NumerologyGuidePage() {
   return (
     <div className="relative min-h-dvh overflow-hidden">
       <AuroraBackground />
       <LandingNav />
       <main className="relative mx-auto max-w-4xl px-4 pb-24 pt-36">
-        <Breadcrumb items={[{ label: "Guides", to: "/guide" }, { label: "Mulank Numerology Guide" }]} />
+        <Breadcrumb
+          items={[{ label: "Guides", to: "/guide" }, { label: "Mulank Numerology Guide" }]}
+        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -385,11 +411,11 @@ function NumerologyGuidePage() {
             Mulank numerology, <span className="aurora-text">explained</span>
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Mulank numerology reduces your birth date to a set of single-digit numbers — 1 through
-            9 — each mapped to a Major Arcana tarot archetype. Unlike sun-sign astrology, it
-            doesn't need your birth time or location, just the date. This guide walks through
-            exactly how each number is calculated, with worked examples, so you can check the math
-            yourself or just understand what AstroFree's{" "}
+            Mulank numerology reduces your birth date to a set of single-digit numbers — 1 through 9
+            — each mapped to a Major Arcana tarot archetype. Unlike sun-sign astrology, it doesn't
+            need your birth time or location, just the date. This guide walks through exactly how
+            each number is calculated, with worked examples, so you can check the math yourself or
+            just understand what AstroFree's{" "}
             <Link to="/numerology" className="underline underline-offset-4 hover:text-foreground">
               free Mulank calculator
             </Link>{" "}
@@ -421,11 +447,13 @@ function NumerologyGuidePage() {
               <h2 className="mt-1 font-display text-2xl sm:text-3xl">The reduction rule</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Every calculation below comes down to the same operation: add up the digits, and if
-                the result is more than one digit, add those digits again — repeat until you're
-                left with a single digit from 1 to 9.
+                the result is more than one digit, add those digits again — repeat until you're left
+                with a single digit from 1 to 9.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3 font-mono text-sm">
-                <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">28</span>
+                <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
+                  28
+                </span>
                 <span className="text-muted-foreground">→</span>
                 <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
                   2 + 8 = 10
@@ -632,9 +660,7 @@ function NumerologyGuidePage() {
               }}
             />
             <div className="relative py-6">
-              <h3 className="font-display text-2xl sm:text-3xl">
-                Skip the manual math
-              </h3>
+              <h3 className="font-display text-2xl sm:text-3xl">Skip the manual math</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
                 Enter your birth date and get your full Mulank, Personal Year, and Personal Month —
                 free, no signup.
