@@ -231,7 +231,7 @@ gtag('js', new Date());
 gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
-        <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26">
+       <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26" />
       </head>
       <body>
         {children}
