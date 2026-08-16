@@ -8,37 +8,27 @@ export function Footer() {
         <div className="sm:col-span-2">
           <Brand />
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-             AstroFree — India’s first free AI Tarot card reading app, offering free Tarot
-  readings, Mulank numerology tools, Tarot card meanings, spreads and astrology guides.
+            AstroFree — India’s first free AI Tarot card reading app, offering free Tarot readings,
+            Mulank numerology tools, Tarot card meanings, spreads and astrology guides.
           </p>
         </div>
         <FooterCol
-          title="Product"
+          title="Tarot"
           items={[
-            { label: "Features", to: "/#features" },
-            { label: "Mulank Numerology", to: "/#numerology" },
-            { label: "How it works", to: "/#how" },
-            { label: "100% Free", to: "/#faq" },
-          ]}
-        />
-        <FooterCol
-          title="Guides"
-          items={[
-            { label: "All 78 Tarot Cards", to: "/tarot" },
+            { label: "Free Tarot Reading", to: "/tarot" },
+            { label: "Tarot Card Meanings", to: "/guide/tarot-card-meanings" },
             { label: "Tarot Spreads", to: "/guide/tarot-spreads" },
-            { label: "Numerology Guide", to: "/guide/numerology" },
-            { label: "All Guides", to: "/guide" },
+            { label: "Tarot Guides", to: "/guide" },
           ]}
         />
         <FooterCol
           title="Numerology"
           items={[
-            { label: "Mulank Calculator", to: "/numerology" },
-             { label: "Bhagyank Calculator", to: "/bhagyank-calculator" },
-             { label: "Namank Calculator", to: "/namank-calculator" },
-            { label: "Life Path 1", to: "/numerology/life-path-1" },
-            { label: "Life Path 7", to: "/numerology/life-path-7" },
-            { label: "Master Number 11", to: "/numerology/master-number-11" },
+            { label: "Numerology Calculator", to: "/numerology" },
+            { label: "Mulank Calculator", to: "/numerology/mulank" },
+            { label: "Bhagyank Calculator", to: "/bhagyank-calculator" },
+            { label: "Namank Calculator", to: "/namank-calculator" },
+            { label: "Numerology Guide", to: "/guide/numerology" },
           ]}
         />
         <FooterCol
@@ -51,13 +41,14 @@ export function Footer() {
           ]}
         />
         <FooterCol
-  title="Company"
-  items={[
-    { label: "About", to: "/about" },
-    { label: "Contact", to: "/contact" },
-    { label: "AI & LLM Information", to: "/llms.txt", external: true },
-  ]}
-/>
+          title="Company"
+          items={[
+            { label: "About", to: "/about" },
+            { label: "Contact", to: "/contact" },
+            { label: "Editorial Policy", to: "/editorial-policy" },
+            { label: "AI & LLM Information", to: "/llms.txt", external: true },
+          ]}
+        />
         <FooterCol
           title="Legal"
           items={[
@@ -65,7 +56,6 @@ export function Footer() {
             { label: "Terms", to: "/terms" },
             { label: "Disclaimer", to: "/disclaimer" },
             { label: "Cookie Policy", to: "/cookie-policy" },
-            { label: "Editorial Policy", to: "/editorial-policy" },
           ]}
         />
       </div>
@@ -76,7 +66,13 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, items }: { title: string; items: { label: string; to: string }[] }) {
+function FooterCol({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; to: string; external?: boolean }[];
+}) {
   return (
     <div>
       <div className="text-xs uppercase tracking-widest text-[color-mix(in_oklab,var(--gold)_75%,white)]">
@@ -92,16 +88,16 @@ function FooterCol({ title, items }: { title: string; items: { label: string; to
             </li>
           ) : (
             <li key={i.label}>
-  {i.to === "/llms.txt" ? (
-    <a href={i.to} className="hover:text-foreground">
-      {i.label}
-    </a>
-  ) : (
-    <Link to={i.to} className="hover:text-foreground">
-      {i.label}
-    </Link>
-  )}
-</li>
+              {i.to === "/llms.txt" ? (
+                <a href={i.to} className="hover:text-foreground">
+                  {i.label}
+                </a>
+              ) : (
+                <Link to={i.to} className="hover:text-foreground">
+                  {i.label}
+                </Link>
+              )}
+            </li>
           ),
         )}
       </ul>
