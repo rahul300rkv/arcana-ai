@@ -231,13 +231,18 @@ gtag('js', new Date());
 gtag('config', 'G-16H3MC6MNV');`,
           }}
         />
-<!-- Clarity tracking code for https://astrofree.vercel.app/ -->
+{/* Microsoft Clarity */}
 <script
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y3rt714jsf");
+  dangerouslySetInnerHTML={{
+    __html: `(function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);
+      t.async=1;
+      t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+      y=l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y3rt714jsf");`,
+  }}
 />
         <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26" />
       </head>
