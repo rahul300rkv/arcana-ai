@@ -27,9 +27,10 @@ export function CosmicIntro({ onComplete, forcePlay, onClose }: CosmicIntroProps
     if (!show) return;
 
     // Smooth 2.2s total presentation time
+    // Smooth hold before luxurious dissolve
     const timer = setTimeout(() => {
       dismiss();
-    }, 2200);
+    }, 2800);
 
     return () => clearTimeout(timer);
   }, [show]);
@@ -43,7 +44,9 @@ export function CosmicIntro({ onComplete, forcePlay, onClose }: CosmicIntroProps
           animate={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+            scale: 1.03,
+            filter: "blur(10px)",
+            transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] },
           }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#070712] overflow-hidden select-none cursor-pointer"
           onClick={dismiss}
