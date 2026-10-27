@@ -1,4 +1,3 @@
-import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getCardById } from "./engine";
 import { getSpread } from "./spreads";
@@ -95,62 +94,31 @@ function parseAiResponse(
   return { perCard, summary };
 }
 
-/** Server-only: calls Groq if GROQ_API_KEY is configured, otherwise falls back to local synthesis. */
-export const generateAiInterpretation = createServerFn({ method: "POST" })
-  .validator(inputSchema)
-  .handler(
-    async ({
-      data,
-    }): Promise<{ interpretation: ReadingInterpretation; source: "ai" | "local" }> => {
-      const { spreadId, question, cards, language } = data;
-      const apiKey = process.env.GROQ_API_KEY;
+export const generateAiInterpretation = async ({
+  data,
+}: {
+  data: z.infer<typeof inputSchema>;
+}): Promise<{ interpretation: ReadingInterpretation; source: "ai" | "local" }> => {
+  const { spreadId, question, cards, language } = data;
 
-      if (!apiKey) {
-        return {
-          interpretation: interpretReading(spreadId, question, cards, language),
-          source: "local",
-        };
+  try {
+    const res = await fetch("/api/ai/tarot", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ spreadId, question, cards, language }),
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json?.interpretation) {
+        return json;
       }
+    }
+  } catch (err) {
+    console.warn("AI interpretation request failed, falling back to local synthesis:", err);
+  }
 
-      try {
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            authorization: `Bearer ${apiKey}`,
-          },
-          // Bounded well under typical serverless function limits so a slow
-          // upstream call fails fast into the local fallback instead of the
-          // whole function getting killed by a platform-level timeout.
-          signal: AbortSignal.timeout(8000),
-          body: JSON.stringify({
-            model: "openai/gpt-oss-120b",
-            max_completion_tokens: 1500,
-            reasoning_effort: "low",
-            include_reasoning: false,
-            messages: [
-              { role: "system", content: "You are a warm, insightful tarot reader." },
-              { role: "user", content: buildPrompt(spreadId, question, cards, language) },
-            ],
-          }),
-        });
-
-        if (!response.ok) throw new Error(`Groq API error: ${response.status}`);
-
-        const json = (await response.json()) as {
-          choices?: { message?: { content?: string } }[];
-        };
-        const text = json.choices?.[0]?.message?.content;
-        if (!text) throw new Error("Empty AI response");
-
-        const interpretation = parseAiResponse(text, spreadId, cards);
-        return { interpretation, source: "ai" };
-      } catch (err) {
-        console.error("AI interpretation failed, falling back to local synthesis:", err);
-        return {
-          interpretation: interpretReading(spreadId, question, cards, language),
-          source: "local",
-        };
-      }
-    },
-  );
+  return {
+    interpretation: interpretReading(spreadId, question, cards, language),
+    source: "local",
+  };
+};

@@ -162,3 +162,11 @@
   background-clip: text;
   color: transparent;
 }
+
+@utility shadow-glow-gold {
+  box-shadow: 0 0 30px -4px oklch(0.84 0.15 85 / 0.35), 0 0 12px -2px oklch(0.84 0.15 85 / 0.25);
+}
+
+@utility shadow-glow-purple {
+  box-shadow: 0 0 35px -6px oklch(0.55 0.22 295 / 0.35), 0 0 15px -3px oklch(0.55 0.22 295 / 0.2);
+}

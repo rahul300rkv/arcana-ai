@@ -1,17 +1,22 @@
-import { lazy, Suspense } from "react";
+import { useState } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowRight,
   BookOpenText,
   BriefcaseBusiness,
   Compass,
-  Flame,
-  Hash,
   Heart,
-  MoonStar,
+  Moon,
   ShieldCheck,
   Sparkles,
+  Sun,
   Wand2,
+  ArrowRight,
+  Flame,
+  Droplets,
+  Wind,
+  Coins,
+  CheckCircle2,
+  ChevronDown,
 } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
@@ -22,452 +27,529 @@ import { Features } from "@/components/landing/Features";
 import { Numerology } from "@/components/landing/Numerology";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Footer } from "@/components/landing/Footer";
-import { GlassCard } from "@/components/arcana/GlassCard";
+import { AuthorCard } from "@/components/AuthorCard";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
-// Below-the-fold sections: not needed for first paint, so they're split
-// into their own chunks and only fetched once the browser is idle /
-// they're about to scroll into view (handled by Suspense's async boundary
-// — the import itself is what's deferred, not visibility tracking).
-const FAQ = lazy(() => import("@/components/landing/FAQ").then((m) => ({ default: m.FAQ })));
-const InArticleAd = lazy(() =>
-  import("@/components/ads/InArticleAd").then((m) => ({ default: m.InArticleAd })),
-);
-const DisplayAd = lazy(() =>
-  import("@/components/ads/DisplayAd").then((m) => ({ default: m.DisplayAd })),
-);
-
-const FAQ_ITEMS: Array<[string, string]> = [
-  [
-    "Is AstroFree really free?",
-    "Yes — every reading, spread, numerology calculation, and journal entry is free forever. No credit card, no paywall.",
-  ],
-  [
-    "Do I need to sign up?",
-    "No account required. Guest mode gives you full access instantly, for both tarot readings and the Mulank numerology calculator.",
-  ],
-  [
-    "How do the interpretations work?",
-    "You choose a spread, set an intention, and draw cards. AstroFree uses the card symbolism, your question, and numerology context to create a reflective interpretation — not a guaranteed prediction.",
-  ],
-  [
-    "What is my Mulank number and how is it calculated?",
-    "Your Mulank (root number) comes from reducing the digits of your birth date to a single digit from 1 to 9 — born on the 28th? 2+8=10, 1+0=1, so your Mulank is 1. AstroFree's free numerology calculator does this instantly and maps it to a Major Arcana tarot archetype.",
-  ],
-  [
-    "Can I get a free Personal Year and Personal Month forecast?",
-    "Yes. Enter your date of birth and a target year or month, and AstroFree calculates your Personal Year and Personal Month numbers, pairs them with tarot archetypes, and gives you actionable guidance — completely free, no signup required.",
-  ],
-  [
-    "Is my data private?",
-    "Your questions, birth date, and journal stay on your device. We don't sell or mine your data.",
-  ],
-  [
-    "Which languages are supported?",
-    "English, Hindi, Hinglish, Bengali, Telugu, Marathi, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia, and Assamese — for both tarot readings and numerology forecasts.",
-  ],
+const SPREADS = [
+  {
+    to: "/tarot/celtic-cross",
+    title: "Celtic Cross",
+    cards: "10 Cards",
+    description: "The premier traditional spread revealing conscious focus, subconscious roots, past foundation, immediate challenge, and destiny outcome.",
+    icon: Compass,
+    badge: "Most Comprehensive",
+  },
+  {
+    to: "/tarot/three-card",
+    title: "Past · Present · Future",
+    cards: "3 Cards",
+    description: "A classical timeline mapping the formative energies behind you, where you stand today, and the trajectory unfolding ahead.",
+    icon: Wand2,
+    badge: "Quick Clarity",
+  },
+  {
+    to: "/tarot/love",
+    title: "Love & Relationships",
+    cards: "5 Cards",
+    description: "Explore emotional dynamics, unspoken desires, mutual obstacles, and the spiritual potential between you and another soul.",
+    icon: Heart,
+    badge: "Deep Connection",
+  },
+  {
+    to: "/tarot/career",
+    title: "Career & Abundance",
+    cards: "5 Cards",
+    description: "Incisive guidance on vocational decisions, leadership opportunities, financial timing, and practical professional momentum.",
+    icon: BriefcaseBusiness,
+    badge: "Strategic Vision",
+  },
 ];
 
-const HOWTO_STEPS: Array<[string, string]> = [
-  [
-    "Enter your date of birth",
-    "Provide your birth date so AstroFree can calculate your Mulank (root) number.",
-  ],
-  [
-    "Choose a target year or month",
-    "Pick the year or month you want a free Personal Year or Personal Month numerology forecast for.",
-  ],
-  [
-    "Get your reading",
-    "AstroFree instantly calculates your Personal Year and Personal Month numbers, maps them to Major Arcana tarot archetypes, and shows guidance and cautions.",
-  ],
+const MAJOR_CARDS = [
+  { name: "The Fool", slug: "the-fool", number: 0, theme: "New Beginnings & Spontaneity" },
+  { name: "The Magician", slug: "the-magician", number: 1, theme: "Willpower & Manifestation" },
+  { name: "The High Priestess", slug: "the-high-priestess", number: 2, theme: "Intuition & Inner Mysteries" },
+  { name: "The Empress", slug: "the-empress", number: 3, theme: "Abundance & Creative Nurturing" },
+  { name: "The Emperor", slug: "the-emperor", number: 4, theme: "Structure, Logic & Authority" },
+  { name: "The Hierophant", slug: "the-hierophant", number: 5, theme: "Spiritual Tradition & Wisdom" },
+  { name: "The Lovers", slug: "the-lovers", number: 6, theme: "Harmony, Values & Alignment" },
+  { name: "The Chariot", slug: "the-chariot", number: 7, theme: "Determination & Triumph" },
+  { name: "Strength", slug: "strength", number: 8, theme: "Patience, Courage & Grace" },
+  { name: "The Hermit", slug: "the-hermit", number: 9, theme: "Soul Searching & Solitude" },
+  { name: "Wheel of Fortune", slug: "wheel-of-fortune", number: 10, theme: "Karmic Turning Points" },
+  { name: "The Star", slug: "the-star", number: 17, theme: "Hope, Healing & Inspiration" },
+];
+
+const COMPREHENSIVE_FAQS = [
+  {
+    question: "Is AstroFree genuinely 100% free with no hidden charges?",
+    answer:
+      "Yes. AstroFree was created on the core philosophy that foundational esoteric wisdom, reflective tarot divination, and Vedic numerology should be accessible to all seekers without financial barriers. Every spread (including the full 10-card Celtic Cross), daily single-card draws, Mulank and Bhagyank calculations, personal year forecasts, and journal logs are completely free to use. You will never be asked for a credit card, payment gateway authorization, or subscription tier.",
+  },
+  {
+    question: "How do AstroFree's AI tarot interpretations work, and are they accurate?",
+    answer:
+      "AstroFree's interpretation engine combines classical esoteric symbolism with modern artificial intelligence. When you shuffle and draw cards, the deck maintains the authentic mathematical probabilities of traditional 78-card physical tarot decks, including reversed orientations. Our interpretation models analyze the drawn card archetypes, their specific positions within the chosen spread (e.g., roots, challenges, conscious intentions, outcome), and any specific question you share. The resulting guidance is synthesized into grounded, empathetic narrative paragraphs designed for contemplation and clarity, rather than fatalistic or superstitious predictions.",
+  },
+  {
+    question: "What is the difference between Mulank (Root Number) and Bhagyank (Destiny Number)?",
+    answer:
+      "In Vedic Numerology (Ank Shastra), Mulank and Bhagyank represent the two most vital planetary forces in human life. Your Mulank (Root Number) is calculated strictly from the date of the month you were born (reduced to a single digit between 1 and 9). It dictates your inner temperament, conscious thoughts, emotional wiring, and instinctive desires. Your Bhagyank (Destiny Number) is calculated from the complete sum of your birth day, month, and year. It governs your outer life trajectory, karmic lessons, life purpose, and maturity path after age 28-32. While Mulank represents 'who you are,' Bhagyank reflects 'what life demands you become.'",
+  },
+  {
+    question: "Can tarot predict the future with 100% certainty?",
+    answer:
+      "No ethical tarot reader or reputable system claims that tarot predicts an unchangeable future. Tarot works through symbolic archetypes and psychological synchronicity (a concept extensively documented by Swiss psychoanalyst Carl Jung). The cards reflect current subconscious patterns, emotional trajectories, and energetic crossroads based on where you stand today. Because human beings possess free will, your conscious choices, actions, and boundaries continually reshape tomorrow. Tarot serves as an illuminating mirror to help you make wiser, more grounded decisions.",
+  },
+  {
+    question: "Is my personal data, birth date, and question history kept private?",
+    answer:
+      "Your privacy is fundamental to our sanctuary design. Your journal entries, reading history, and entered dates of birth are preserved directly in your browser's local storage. AstroFree does not sell or trade user query logs or personal identity details to third-party data brokers. You can clear your journal and saved sessions at any time with a single click in your browser settings.",
+  },
+  {
+    question: "Which Indian languages and scripts does AstroFree support?",
+    answer:
+      "AstroFree is built to serve seekers across the globe and India with support for 13 languages: English, Hindi (हिन्दी), Hinglish (conversational Hindi in Roman script), Bengali (বাংলা), Telugu (తెలుగు), Marathi (मराठी), Tamil (தமிழ்), Gujarati (ગુજરાતી), Kannada (ಕನ್ನಡ), Malayalam (മലയാളം), Punjabi (ਪੰਜਾਬੀ), Odia (ଓଡ଼ିଆ), and Assamese (অসমীয়া). Both tarot spread interpretations and Vedic numerology readings can be viewed in your native tongue.",
+  },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Free AI Tarot Reading & Numerology Calculator | AstroFree" },
+      { title: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators" },
       {
         name: "description",
         content:
-          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
+          "AstroFree is India's premier free tarot and Vedic numerology platform. Experience 8 traditional tarot spreads, instant Mulank and Bhagyank calculations, 78 card meanings, and multi-language AI guidance.",
       },
       {
         name: "keywords",
         content:
-          "free tarot reading, AI tarot, online tarot, daily tarot card, tarot spreads, celtic cross, love tarot, career tarot, mulank calculator, mulank number by date of birth, bhagyank calculator, bhagyank number, namank calculator, name number calculator, numerology calculator, personal year number calculator, personal month numerology, free numerology calculator, root number calculator, numerology 2026, tarot numerology, AstroFree, tarot India",
+          "free tarot reading, AI tarot, online tarot reading, celtic cross spread, tarot card meanings, love tarot, career tarot, mulank calculator, bhagyank calculator, namank name numerology, personal year numerology, tarot reading India, Vedic numerology",
       },
       {
         property: "og:title",
-        content: "Free AI Tarot Reading & Numerology Calculator | AstroFree",
+        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology",
       },
       {
         property: "og:description",
         content:
-          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
+          "Explore free tarot card readings, 78 card archetype meanings, Vedic Mulank and Bhagyank calculators, and personal astrology guides.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
-      { property: "og:site_name", content: SITE_NAME },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Free AI Tarot Reading & Numerology Calculator | AstroFree",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Explore free AI Tarot readings, all 78 Tarot card meanings, Tarot spreads, and Indian numerology calculators for Mulank, Bhagyank and Namank.",
-      },
       {
         "script:ld+json": {
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: SITE_NAME,
-          url: SITE_URL,
-          searchAction: {
-            "@type": "SearchAction",
-            target: `${SITE_URL}/tarot?q={search_term_string}`,
-            "query-input": "required name=search_term_string",
-          },
-        },
-      },
-      {
-        "script:ld+json": {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-            "@type": "Question",
-            name: q,
-            acceptedAnswer: { "@type": "Answer", text: a },
-          })),
-        },
-      },
-      {
-        "script:ld+json": {
-          "@context": "https://schema.org",
-          "@type": "HowTo",
-          name: "How to calculate your free Mulank (root) number, Personal Year, and Personal Month",
-          description:
-            "Calculate your numerology Mulank, Personal Year, and Personal Month number for free with AstroFree, mapped to tarot archetypes.",
-          totalTime: "PT1M",
-          step: HOWTO_STEPS.map(([name, text]) => ({
-            "@type": "HowToStep",
-            name,
-            text,
-          })),
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              url: SITE_URL,
+              name: SITE_NAME,
+              description: "Free AI Tarot Card Readings & Vedic Numerology Calculators",
+              inLanguage: "en",
+            },
+            {
+              "@type": "WebApplication",
+              name: SITE_NAME,
+              url: SITE_URL,
+              applicationCategory: "LifestyleApplication",
+              operatingSystem: "All",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: COMPREHENSIVE_FAQS.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ],
         },
       },
     ],
-    links: [{ rel: "canonical", href: SITE_URL }],
   }),
   component: LandingPage,
 });
 
 function LandingPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
-    <div className="relative min-h-dvh overflow-hidden">
+    <div className="relative min-h-dvh overflow-x-hidden bg-background text-foreground antialiased selection:bg-amber-400/30 selection:text-foreground">
       <AuroraBackground />
-      <ParticleBackground count={50} />
+      <ParticleBackground count={45} />
       <Spotlight />
       <LandingNav />
+
       <main>
+        {/* 1. Hero with Interactive 3D Card Fan */}
         <Hero />
 
-        <section className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              Learn with clarity
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">What is AstroFree?</h2>
-          </div>
-          <div className="mt-8 rounded-3xl border border-[color-mix(in_oklab,var(--gold)_30%,transparent)] bg-white/[0.02] p-6 sm:p-8 lg:p-10">
-            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Tarot is a symbolic system used to explore questions, emotions, and patterns through
-              imagery and archetypes. Each card acts like a mirror, inviting reflection rather than
-              fixed prediction. Numerology is a traditional study of numbers and their meanings,
-              often used to understand character, timing, and recurring life themes from a birth
-              date or a name. AstroFree brings both traditions together in a free educational format
-              designed for learning, journaling, and self-reflection.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Our interpretation layer combines card symbolism, your question, and the context of a
-              reading, but the goal is not to replace human judgment. AstroFree is designed as a
-              reflective learning space where the user brings their own intuition, values, and lived
-              experience into the final meaning. We do not promise certainty, and we do not present
-              tarot or numerology as a substitute for professional guidance in health, legal, or
-              financial decisions.
-            </p>
-          </div>
-        </section>
-
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              A careful framework
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">
-              What tarot and numerology are not
-            </h2>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <GlassCard className="h-full p-6">
-              <h3 className="font-display text-xl text-foreground">Not a prediction engine</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Tarot and numerology help people notice patterns, themes, and emotional context.
-                They are best used as reflective prompts rather than fixed forecasts. A reading can
-                be insightful without being definitive.
-              </p>
-            </GlassCard>
-            <GlassCard className="h-full p-6">
-              <h3 className="font-display text-xl text-foreground">
-                Not a substitute for professional guidance
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                These tools are designed for learning, journaling, and self-reflection. They are not
-                a replacement for advice from a qualified professional when the decision involves
-                health, money, legal matters, or emotional wellbeing.
-              </p>
-            </GlassCard>
-          </div>
-        </section>
-
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              Explore the library
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">Learn Tarot</h2>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-            {[
-              {
-                to: "/guide/tarot-card-meanings",
-                icon: BookOpenText,
-                title: "Tarot Guide",
-                body: "Start with the foundations of tarot symbolism, card structure, and intuitive reading habits.",
-                cta: "Read the guide",
-              },
-              {
-                to: "/tarot/the-magician",
-                icon: Wand2,
-                title: "Major Arcana",
-                body: "Explore the archetypal journey of the 22 cards that define major turning points.",
-                cta: "Browse major arcana",
-              },
-              {
-                to: "/tarot",
-                icon: Compass,
-                title: "Minor Arcana",
-                body: "Learn how the four suits describe everyday situations, emotion, thought, and practical life.",
-                cta: "See the suits",
-              },
-              {
-                to: "/guide/tarot-spreads",
-                icon: Sparkles,
-                title: "Tarot Spreads",
-                body: "Understand common layouts from single-card pulls to full spread structures.",
-                cta: "View spreads",
-              },
-              {
-                to: "/guide/tarot-card-meanings",
-                icon: MoonStar,
-                title: "78 Card Meanings",
-                body: "Access the full library of upright and reversed meanings for every card.",
-                cta: "Open meanings",
-              },
-            ].map((item) => (
-              <Link key={item.title} to={item.to} className="group block h-full">
-                <GlassCard className="h-full p-5 transition-transform duration-300 group-hover:-translate-y-1">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
-                    <item.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-4 font-display text-xl text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[color:var(--gold)]">
-                    {item.cta} <ArrowRight className="h-3 w-3" />
-                  </div>
-                </GlassCard>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              Read your numbers
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">Learn Numerology</h2>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-            {[
-              {
-                to: "/guide/numerology",
-                icon: Hash,
-                title: "Mulank Guide",
-                body: "Understand your root number, birth date reduction, and the nine-number framework.",
-                cta: "Learn Mulank",
-              },
-              {
-                to: "/bhagyank-calculator",
-                icon: Flame,
-                title: "Bhagyank",
-                body: "See the date-of-birth calculation used for destiny and life-path themes.",
-                cta: "Calculate Bhagyank",
-              },
-              {
-                to: "/namank-calculator",
-                icon: BookOpenText,
-                title: "Namank",
-                body: "Learn how the letters of your name are translated into a name vibration.",
-                cta: "Explore Namank",
-              },
-              {
-                to: "/numerology?period=2026",
-                icon: Compass,
-                title: "Personal Year",
-                body: "Understand how timing cycles shape your year, month, and personal momentum.",
-                cta: "Check your year",
-              },
-              {
-                to: "/numerology",
-                icon: BriefcaseBusiness,
-                title: "Numerology Calculator",
-                body: "Use the free calculator to generate your Mulank, Personal Year, and Personal Month.",
-                cta: "Try the calculator",
-              },
-            ].map((item) => (
-              <Link key={item.title} to={item.to} className="group block h-full">
-                <GlassCard className="h-full p-5 transition-transform duration-300 group-hover:-translate-y-1">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
-                    <item.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-4 font-display text-xl text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[color:var(--gold)]">
-                    {item.cta} <ArrowRight className="h-3 w-3" />
-                  </div>
-                </GlassCard>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              How it works
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">How Readings Work</h2>
-          </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-4">
-            {[
-              {
-                icon: Compass,
-                title: "Choose spread",
-                body: "Pick a reading style that matches your question, from a quick single card to a fuller spread.",
-              },
-              {
-                icon: Sparkles,
-                title: "Select cards",
-                body: "Draw the cards and set an intention so the symbols speak to your context.",
-              },
-              {
-                icon: Wand2,
-                title: "AI interprets symbolism",
-                body: "AstroFree angles the reading through tarot symbolism, numerology context, and card meaning.",
-              },
-              {
-                icon: Heart,
-                title: "Reflect & journal",
-                body: "Write down what resonates and return to the card later as your story unfolds.",
-              },
-            ].map((step, index) => (
-              <div
-                key={step.title}
-                className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
-              >
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
-                  <step.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    Step {index + 1}
-                  </p>
-                  <h3 className="mt-1 font-display text-xl text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="relative mx-auto max-w-5xl px-4 pb-16 sm:pb-24">
-          <div className="rounded-2xl border border-[color-mix(in_oklab,var(--gold)_60%,transparent)] bg-[linear-gradient(135deg,color-mix(in_oklab,var(--gold)_8%,transparent),transparent_70%)] p-6 sm:p-8">
-            <h2 className="font-display text-2xl sm:text-3xl">Responsible Use</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              AstroFree is not a fortune-telling service and it is not a substitute for medical,
-              financial, or legal advice. It is a tool for reflection, pattern recognition, and
-              personal journaling. Human intuition, context, and lived experience matter more than
-              any single reading or number.
-            </p>
-          </div>
-        </section>
-
+        {/* 2. Asymmetric Bento Grid Capabilities */}
         <Features />
+
+        {/* 3. Live Interactive Vedic Numerology Matrix */}
         <Numerology />
+
+        {/* 4. Three-Step Sacred Ritual */}
         <HowItWorks />
 
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--gold)]">
-              Why readers choose us
-            </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-5xl">Why choose AstroFree?</h2>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                icon: BookOpenText,
-                title: "Clear learning",
-                body: "Our guides explain the meaning behind the symbols, the maths behind the numbers, and the context behind each reading.",
-              },
-              {
-                icon: Compass,
-                title: "Reflective tools",
-                body: "Every reading is framed as a prompt for self-reflection, discussion, and journaling rather than a fixed certainty.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Transparent methods",
-                body: "We explain how card meanings and numerology calculations are derived, so readers know the framework behind the result.",
-              },
-              {
-                icon: Heart,
-                title: "Private and free",
-                body: "No account is required for the core experience. Your questions, journal notes, and birth data stay in your own flow.",
-              },
-            ].map((item) => (
-              <GlassCard key={item.title} className="h-full p-5">
-                <div className="grid h-11 w-11 place-items-center rounded-xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-white/[0.04]">
-                  <item.icon className="h-5 w-5 text-[color:var(--gold)]" strokeWidth={1.5} />
-                </div>
-                <h3 className="mt-4 font-display text-xl text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-              </GlassCard>
-            ))}
+        {/* 5. Featured Spreads Altar Showcase */}
+        <section className="relative py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">
+                The Sacred Formations
+              </div>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground [text-wrap:balance]">
+                Choose Your Gateway of Divination
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed [text-wrap:balance]">
+                Each spread is an energetic constellation arranged to illuminate different facets of your life journey.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {SPREADS.map((s) => (
+                <Link
+                  key={s.to}
+                  to={s.to}
+                  className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.01] p-6 shadow-xl backdrop-blur-xl transition-all duration-300 hover:border-amber-400/40 hover:-translate-y-1.5"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-amber-400/20 bg-amber-400/10 text-amber-300 transition-transform duration-300 group-hover:scale-110">
+                        <s.icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-[11px] font-medium text-amber-300/80">
+                        {s.cards}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 font-display text-xl font-bold text-foreground group-hover:text-amber-200 transition-colors">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      {s.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-amber-300">
+                    <span>{s.badge}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <Link
+                to="/tarot"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
+              >
+                <span>Browse All 8 Tarot Spreads & Meanings</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
-        <Suspense fallback={null}>
-          <FAQ />
-          <div className="relative mx-auto w-full max-w-4xl px-4 sm:px-6">
-            <InArticleAd />
-            <DisplayAd />
+        {/* 6. Comprehensive Educational Content: The Architecture of Tarot (AdSense Value Pillar) */}
+        <section className="relative py-20 border-t border-white/10 bg-black/20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">
+                Esoteric Foundations
+              </div>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
+                The Symbolic Architecture of Tarot
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Tarot is not a parlor trick or a superstitious decree; it is a 600-year-old symbolic system that maps the spectrum of human consciousness, psychological archetypes, and spiritual transformation.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-8 md:grid-cols-2">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md">
+                <div className="flex items-center gap-3 text-amber-300">
+                  <Sparkles className="h-5 w-5" />
+                  <h3 className="font-display text-2xl font-bold text-foreground">
+                    The Major Arcana: The Soul's Pilgrimage
+                  </h3>
+                </div>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  The 22 cards of the Major Arcana (from 0 The Fool to XXI The World) represent the universal stages of spiritual maturation and psychological individuation. Often termed "The Fool's Journey," this sequence mirrors our passage through innocence, intellectual mastery, emotional union, worldly crisis, dark-night transformation, and cosmic enlightenment. When Major Arcana cards appear in your reading, they signal profound life themes, spiritual lessons, and karmic shifts that transcend temporary daily matters.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2 text-xs">
+                  <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-foreground/80">
+                    22 Archetypal Keys
+                  </span>
+                  <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-foreground/80">
+                    Karmic Lessons
+                  </span>
+                  <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-foreground/80">
+                    Psychological Individuation
+                  </span>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md">
+                <div className="flex items-center gap-3 text-amber-300">
+                  <Compass className="h-5 w-5" />
+                  <h3 className="font-display text-2xl font-bold text-foreground">
+                    The Minor Arcana: Four Elemental Planes
+                  </h3>
+                </div>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  The 56 cards of the Minor Arcana reflect the daily fabric of human existence. Divided into four suits, each corresponds to a classical element and a distinct realm of life:
+                </p>
+                <div className="mt-5 space-y-3 text-xs">
+                  <div className="flex items-start gap-2.5">
+                    <Flame className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-foreground">Suit of Wands (Fire):</strong> Willpower, creative passion, spiritual vigor, ambition, and career projects.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Droplets className="h-4 w-4 text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-foreground">Suit of Cups (Water):</strong> Emotional depth, romantic bonding, intuitive wisdom, and healing.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Wind className="h-4 w-4 text-cyan-300 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-foreground">Suit of Swords (Air):</strong> Intellect, ethical dilemmas, mental clarity, communication, and truth.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Coins className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-foreground">Suit of Pentacles (Earth):</strong> Material reality, finances, bodily health, craft, and grounded security.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Directory to Top Major Arcana Cards */}
+            <div className="mt-12">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="font-display text-xl font-bold text-foreground">
+                  Explore Major Arcana Meanings
+                </h4>
+                <Link to="/guide/major-arcana-meanings" className="text-xs text-amber-300 hover:underline">
+                  View Full Archetype Index →
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
+                {MAJOR_CARDS.map((card) => (
+                  <Link
+                    key={card.slug}
+                    to={`/tarot/${card.slug}` as any}
+                    className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-left hover:border-amber-400/30 hover:bg-white/[0.05] transition-colors"
+                  >
+                    <div className="text-amber-400 font-mono text-[11px]">Key {card.number}</div>
+                    <div className="font-medium text-foreground mt-1 truncate">{card.name}</div>
+                    <div className="text-[10px] text-muted-foreground mt-0.5 truncate">{card.theme}</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
-        </Suspense>
+        </section>
+
+        {/* 7. Comprehensive Educational Content: The Vedic Science of Ank Shastra */}
+        <section className="relative py-20 border-t border-white/10">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">
+                Ancient Indian Numerology
+              </div>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
+                The Sacred Triad: Mulank, Bhagyank & Namank
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Vedic Numerology (अंक शास्त्र) teaches that each number from 1 to 9 emits a cosmic vibration presided over by one of the nine celestial planetary forces (Navagraha).
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                    Core Personality
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-foreground">
+                    Mulank (Root Number / जन्मांक)
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    Calculated solely from your birth date (1 to 31 reduced to a single digit). Mulank reflects your intrinsic nature, psychological temperament, personal tastes, and instinctual behavior when faced with challenges.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  <Link to="/numerology/mulank" className="text-xs font-semibold text-amber-300 hover:text-amber-200 inline-flex items-center gap-1">
+                    <span>Mulank Master Guide</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                    Life Mission
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-foreground">
+                    Bhagyank (Destiny Number / भाग्यांक)
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    Calculated by summing all digits of your Day, Month, and Year of birth. Bhagyank governs your destiny trajectory, societal role, major karma, and the career challenges you must master to achieve fulfillment.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  <Link to="/bhagyank-calculator" className="text-xs font-semibold text-amber-300 hover:text-amber-200 inline-flex items-center gap-1">
+                    <span>Bhagyank Calculator</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                    Name Frequency
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-foreground">
+                    Namank (Name Vibration / नामांक)
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    Derived from ancient Chaldean sound vibration formulas that assign numeric weight to alphabet phonetics. A balanced Namank creates harmony between your inner desires and external life success.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  <Link to="/namank-calculator" className="text-xs font-semibold text-amber-300 hover:text-amber-200 inline-flex items-center gap-1">
+                    <span>Namank Calculator</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Nine Planets Overview Table */}
+            <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+              <h4 className="font-display text-xl font-bold text-foreground mb-4">
+                The 9 Planetary Lords & Their Core Vibration
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 1 · Surya (Sun)</strong>
+                  <span className="text-muted-foreground mt-1 block">Leadership, pioneering spirit, high self-respect, and vitality.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 2 · Chandra (Moon)</strong>
+                  <span className="text-muted-foreground mt-1 block">Emotional intelligence, diplomacy, imagination, and empathy.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 3 · Guru (Jupiter)</strong>
+                  <span className="text-muted-foreground mt-1 block">Spiritual wisdom, teaching, moral integrity, and eloquence.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 4 · Rahu</strong>
+                  <span className="text-muted-foreground mt-1 block">Unconventional genius, disruptive strategy, and structural logic.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 5 · Budha (Mercury)</strong>
+                  <span className="text-muted-foreground mt-1 block">Commercial acumen, versatile communication, and quick wit.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 6 · Shukra (Venus)</strong>
+                  <span className="text-muted-foreground mt-1 block">Aesthetics, unconditional love, domestic harmony, and luxury.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 7 · Ketu</strong>
+                  <span className="text-muted-foreground mt-1 block">Philosophical inquiry, mystical intuition, and analytical depth.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 8 · Shani (Saturn)</strong>
+                  <span className="text-muted-foreground mt-1 block">Karmic justice, organizational resilience, and enduring mastery.</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <strong className="text-amber-300 text-sm block">Number 9 · Mangal (Mars)</strong>
+                  <span className="text-muted-foreground mt-1 block">Courage, humanitarian compassion, physical drive, and triumph.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Substantive In-Depth FAQ Section (E-E-A-T and AdSense Requirement) */}
+        <section id="faq" className="relative py-20 border-t border-white/10 bg-black/20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="mx-auto max-w-2xl text-center mb-12">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">
+                Frequently Asked Questions
+              </div>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                Everything You Need to Know About AstroFree
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Detailed explanations regarding our methodology, privacy practices, and esoteric frameworks.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {COMPREHENSIVE_FAQS.map((faq, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <div
+                    key={faq.question}
+                    className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      className="w-full flex items-center justify-between p-5 text-left font-display text-lg font-semibold text-foreground hover:text-amber-300 transition-colors"
+                    >
+                      <span>{faq.question}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 text-amber-400 transition-transform duration-300 shrink-0 ml-4 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-white/5 pt-3">
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 9. Author & Editorial Desk Transparency (E-E-A-T) */}
+        <section className="relative mx-auto max-w-4xl px-4 sm:px-6 py-16">
+          <AuthorCard
+            lastUpdated="2026-10-26"
+            category="Esoteric Research & Methodology"
+            readingTime="12 min read"
+          />
+        </section>
       </main>
+
       <Footer />
     </div>
   );

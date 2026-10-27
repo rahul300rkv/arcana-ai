@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type {} from "@tanstack/react-start";
 import { TAROT_SLUGS } from "@/data/tarot";
 import { NUMEROLOGY_SLUGS } from "@/data/numerology";
 import { MULANK_SLUGS } from "@/data/mulank";
@@ -47,41 +46,5 @@ const STATIC_ENTRIES: SitemapEntry[] = [
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
-  server: {
-    handlers: {
-      GET: async () => {
-        const entries: SitemapEntry[] = [
-          ...STATIC_ENTRIES,
-          ...TAROT_SLUGS.map((slug) => ({ path: `/tarot/${slug}` })),
-          ...MULANK_SLUGS.map((slug) => ({ path: `/numerology/${slug}` })),
-          ...NUMEROLOGY_SLUGS.map((slug) => ({ path: `/numerology/${slug}` })),
-        ];
-
-        const urls = entries.map((e) =>
-          [
-            `  <url>`,
-            `    <loc>${SITE_URL}${e.path}</loc>`,
-            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
-            `  </url>`,
-          ]
-            .filter(Boolean)
-            .join("\n"),
-        );
-
-        const xml = [
-          `<?xml version="1.0" encoding="UTF-8"?>`,
-          `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-          ...urls,
-          `</urlset>`,
-        ].join("\n");
-
-        return new Response(xml, {
-          headers: {
-            "Content-Type": "application/xml",
-            "Cache-Control": "public, max-age=3600",
-          },
-        });
-      },
-    },
-  },
+  component: () => null,
 });

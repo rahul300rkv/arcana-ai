@@ -1,4 +1,3 @@
-import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ARCHETYPES, PACING, calculate, parseNumerologyInput, toMapping } from "./engine";
 import { interpretNumerology } from "./interpret";
@@ -86,78 +85,49 @@ ${LANGUAGE_INSTRUCTION[language]} Card/archetype names (e.g. "${ARCHETYPES[mulan
 Keep the tone grounded and specific — no vague platitudes, no astrology-website filler. Return ONLY the JSON object.`;
 }
 
-/** Server-only: calls Groq if GROQ_API_KEY is configured, otherwise falls back to local synthesis. */
-export const generateNumerologyReading = createServerFn({ method: "POST" })
-  .validator(inputSchema)
-  .handler(async ({ data }): Promise<{ result: NumerologyResult; source: "ai" | "local" }> => {
-    const { dob, targetPeriod, language } = data;
+export const generateNumerologyReading = async ({
+  data,
+}: {
+  data: z.infer<typeof inputSchema>;
+}): Promise<{ result: NumerologyResult; source: "ai" | "local" }> => {
+  const { dob, targetPeriod, language } = data;
 
-    let calc: ReturnType<typeof calculate>;
-    try {
-      const parsed = parseNumerologyInput({ dob, targetPeriod });
-      calc = calculate(parsed);
-    } catch (err) {
-      throw new Error(err instanceof Error ? err.message : "Invalid input");
+  let calc: ReturnType<typeof calculate>;
+  try {
+    const parsed = parseNumerologyInput({ dob, targetPeriod });
+    calc = calculate(parsed);
+  } catch (err) {
+    throw new Error(err instanceof Error ? err.message : "Invalid input");
+  }
+
+  const calculations: NumerologyResult["calculations"] = {
+    mulank: toMapping(calc.mulank),
+    personal_year: toMapping(calc.personalYear),
+    personal_month: calc.personalMonth === null ? null : toMapping(calc.personalMonth),
+  };
+
+  try {
+    const res = await fetch("/api/ai/numerology", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ dob, targetPeriod, language }),
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json?.result) {
+        return json;
+      }
     }
+  } catch (err) {
+    console.warn("Numerology AI generation failed, falling back to local synthesis:", err);
+  }
 
-    const calculations: NumerologyResult["calculations"] = {
-      mulank: toMapping(calc.mulank),
-      personal_year: toMapping(calc.personalYear),
-      personal_month: calc.personalMonth === null ? null : toMapping(calc.personalMonth),
-    };
-
-    const localContent = interpretNumerology(calc, language);
-    const apiKey = process.env.GROQ_API_KEY;
-
-    if (!apiKey) {
-      return { result: { calculations, ...localContent }, source: "local" };
-    }
-
-    try {
-      const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-        method: "POST",
-        headers: { "content-type": "application/json", authorization: `Bearer ${apiKey}` },
-        signal: AbortSignal.timeout(8000),
-        body: JSON.stringify({
-          model: "openai/gpt-oss-120b",
-          max_completion_tokens: 900,
-          reasoning_effort: "low",
-          include_reasoning: false,
-          response_format: { type: "json_object" },
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a precise Numerology and Tarot Calculation Engine. Reply with JSON only.",
-            },
-            {
-              role: "user",
-              content: buildPrompt(calc.mulank, calc.personalYear, calc.personalMonth, language),
-            },
-          ],
-        }),
-      });
-
-      if (!response.ok) throw new Error(`Groq API error: ${response.status}`);
-
-      const json = (await response.json()) as { choices?: { message?: { content?: string } }[] };
-      const text = json.choices?.[0]?.message?.content;
-      if (!text) throw new Error("Empty AI response");
-
-      const parsedJson = JSON.parse(text);
-      const content = aiContentSchema.parse(parsedJson);
-      const pacing = calc.personalMonth === null ? null : PACING[calc.personalMonth];
-
-      return {
-        result: {
-          calculations,
-          energetic_layers: { ...content.energetic_layers, pacing },
-          guidance: content.guidance,
-        },
-        source: "ai",
-      };
-    } catch (err) {
-      console.error("Numerology AI generation failed, falling back to local synthesis:", err);
-      return { result: { calculations, ...localContent }, source: "local" };
-    }
-  });
+  const localContent = interpretNumerology(calc, language);
+  return {
+    result: {
+      calculations,
+      ...localContent,
+    },
+    source: "local",
+  };
+};

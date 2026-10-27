@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -45,7 +46,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -188,70 +189,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        {/* Runs before first paint: applies saved theme, and sets the correct lang attribute. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var k="astrofree.theme.v1";var t=localStorage.getItem(k)||"dark";var r=t==="system"?(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"):t;if(r==="light"){document.documentElement.classList.add("light");document.documentElement.style.colorScheme="light"}else{document.documentElement.style.colorScheme="dark"}var l=localStorage.getItem("astrofree.language.v1");var bcp47={en:"en",hi:"hi",hinglish:"hi-Latn",bn:"bn",te:"te",mr:"mr",ta:"ta",gu:"gu",kn:"kn",ml:"ml",pa:"pa",or:"or",as:"as"};if(l&&bcp47[l]){document.documentElement.lang=bcp47[l]}}catch(e){}})();`,
-          }}
-        />
-        <HeadContent />
-        {/*
-          Google Fonts, loaded non-blocking: the stylesheet is fetched with
-          media="print" (so it doesn't block rendering), then swapped to
-          media="all" once loaded via a tiny inline script. The <noscript>
-          tag is the fallback for when JS is disabled.
-        */}
-        <link
-          id="gfonts-stylesheet"
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-          media="print"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var l=document.getElementById("gfonts-stylesheet");if(l)l.media="all";})();`,
-          }}
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-          />
-        </noscript>
-        {/* Google tag (gtag.js) — deferred so it never blocks first paint */}
-        <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-16H3MC6MNV" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-16H3MC6MNV');`,
-          }}
-        />
-{/* Microsoft Clarity */}
-<script
-  dangerouslySetInnerHTML={{
-    __html: `(function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);
-      t.async=1;
-      t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-      y=l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y3rt714jsf");`,
-  }}
-/>
-        <meta name="monetag" content="f8ecdf8f858fc36fba6a749704602c26" />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
 
 function RootComponent() {

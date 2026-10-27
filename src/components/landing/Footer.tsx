@@ -1,66 +1,72 @@
 import { Link } from "@tanstack/react-router";
 import { Brand } from "@/components/arcana/Brand";
+import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/5 py-10 sm:py-14">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-        <div className="sm:col-span-2">
-          <Brand />
-          <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-            AstroFree — India’s first free AI Tarot card reading app, offering free Tarot readings,
-            Mulank numerology tools, Tarot card meanings, spreads and astrology guides.
-          </p>
+    <footer className="relative border-t border-white/10 bg-black/40 py-12 sm:py-16 backdrop-blur-md">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+          {/* Brand Col */}
+          <div className="col-span-2">
+            <Brand size="lg" />
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
+              AstroFree unites 78-card sacred tarot traditions with Vedic numerology wisdom and modern generative intelligence. Designed for reflection, clarity, and personal empowerment.
+            </p>
+            <div className="mt-4 flex items-center gap-2 text-xs text-amber-300/80">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Ancient Arcana · Modern Vedic Intelligence</span>
+            </div>
+          </div>
+
+          <FooterCol
+            title="Tarot Spreads"
+            items={[
+              { label: "Celtic Cross (10 Cards)", to: "/tarot/celtic-cross" },
+              { label: "Three-Card Reading", to: "/tarot/three-card" },
+              { label: "Love & Relationships", to: "/tarot/love" },
+              { label: "Career & Ambition", to: "/tarot/career" },
+              { label: "Daily Single Card", to: "/tarot/one-card" },
+              { label: "Yes / No Oracle", to: "/tarot/yes-no" },
+            ]}
+          />
+
+          <FooterCol
+            title="Vedic Numerology"
+            items={[
+              { label: "All Calculators", to: "/numerology" },
+              { label: "Mulank Root Calculator", to: "/numerology/mulank" },
+              { label: "Bhagyank Destiny Path", to: "/bhagyank-calculator" },
+              { label: "Namank Name Vibration", to: "/namank-calculator" },
+              { label: "Mulank vs Bhagyank", to: "/guide/mulank-vs-bhagyank" },
+            ]}
+          />
+
+          <FooterCol
+            title="Wisdom & Legal"
+            items={[
+              { label: "Tarot Card Meanings", to: "/guide/tarot-card-meanings" },
+              { label: "Major Arcana Guide", to: "/guide/major-arcana-meanings" },
+              { label: "About AstroFree", to: "/about" },
+              { label: "Privacy Policy", to: "/privacy" },
+              { label: "Terms of Service", to: "/terms" },
+              { label: "Disclaimer", to: "/disclaimer" },
+            ]}
+          />
         </div>
-        <FooterCol
-          title="Tarot"
-          items={[
-            { label: "Free Tarot Reading", to: "/tarot" },
-            { label: "Tarot Card Meanings", to: "/guide/tarot-card-meanings" },
-            { label: "Tarot Spreads", to: "/guide/tarot-spreads" },
-            { label: "Tarot Guides", to: "/guide" },
-          ]}
-        />
-        <FooterCol
-          title="Numerology"
-          items={[
-            { label: "Numerology Calculator", to: "/numerology" },
-            { label: "Mulank Calculator", to: "/numerology/mulank" },
-            { label: "Bhagyank Calculator", to: "/bhagyank-calculator" },
-            { label: "Namank Calculator", to: "/namank-calculator" },
-            { label: "Numerology Guide", to: "/guide/numerology" },
-          ]}
-        />
-        <FooterCol
-          title="Popular Cards"
-          items={[
-            { label: "The Fool", to: "/tarot/the-fool" },
-            { label: "The Lovers", to: "/tarot/the-lovers" },
-            { label: "The Star", to: "/tarot/the-star" },
-            { label: "The Moon", to: "/tarot/the-moon" },
-          ]}
-        />
-        <FooterCol
-          title="Company"
-          items={[
-            { label: "About", to: "/about" },
-            { label: "Contact", to: "/contact" },
-            { label: "Editorial Policy", to: "/editorial-policy" },
-            { label: "AI & LLM Information", to: "/llms.txt", external: true },
-          ]}
-        />
-        <FooterCol
-          title="Legal"
-          items={[
-            { label: "Privacy", to: "/privacy" },
-            { label: "Terms", to: "/terms" },
-            { label: "Disclaimer", to: "/disclaimer" },
-            { label: "Cookie Policy", to: "/cookie-policy" },
-          ]}
-        />
-      </div>
-      <div className="mx-auto mt-10 max-w-6xl px-4 text-xs text-muted-foreground">
-        © {new Date().getFullYear()} AstroFree. Crafted with intention, made in India.
+
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <div>
+            © {new Date().getFullYear()} AstroFree. Crafted with reverence & intention.
+          </div>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <span>·</span>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <span>·</span>
+            <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
@@ -71,35 +77,21 @@ function FooterCol({
   items,
 }: {
   title: string;
-  items: { label: string; to: string; external?: boolean }[];
+  items: { label: string; to: string }[];
 }) {
   return (
     <div>
-      <div className="text-xs uppercase tracking-widest text-[color-mix(in_oklab,var(--gold)_75%,white)]">
+      <div className="text-xs font-semibold uppercase tracking-wider text-amber-300/90">
         {title}
       </div>
       <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-        {items.map((i) =>
-          i.to.startsWith("mailto:") ? (
-            <li key={i.label}>
-              <a href={i.to} className="hover:text-foreground">
-                {i.label}
-              </a>
-            </li>
-          ) : (
-            <li key={i.label}>
-              {i.to === "/llms.txt" ? (
-                <a href={i.to} className="hover:text-foreground">
-                  {i.label}
-                </a>
-              ) : (
-                <Link to={i.to} className="hover:text-foreground">
-                  {i.label}
-                </Link>
-              )}
-            </li>
-          ),
-        )}
+        {items.map((i) => (
+          <li key={i.label}>
+            <Link to={i.to} className="transition-colors hover:text-amber-200">
+              {i.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

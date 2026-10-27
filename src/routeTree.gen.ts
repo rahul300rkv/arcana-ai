@@ -28,6 +28,12 @@ import { Route as TarotIndexRouteImport } from './routes/tarot.index'
 import { Route as ReadingIndexRouteImport } from './routes/reading.index'
 import { Route as NumerologyIndexRouteImport } from './routes/numerology.index'
 import { Route as GuideIndexRouteImport } from './routes/guide.index'
+import { Route as TarotYesNoRouteImport } from './routes/tarot.yes-no'
+import { Route as TarotThreeCardRouteImport } from './routes/tarot.three-card'
+import { Route as TarotOneCardRouteImport } from './routes/tarot.one-card'
+import { Route as TarotLoveRouteImport } from './routes/tarot.love'
+import { Route as TarotCelticCrossRouteImport } from './routes/tarot.celtic-cross'
+import { Route as TarotCareerRouteImport } from './routes/tarot.career'
 import { Route as TarotSlugRouteImport } from './routes/tarot.$slug'
 import { Route as ReadingShuffleRouteImport } from './routes/reading.shuffle'
 import { Route as ReadingRevealRouteImport } from './routes/reading.reveal'
@@ -38,8 +44,13 @@ import { Route as NumerologyMulankRouteImport } from './routes/numerology.mulank
 import { Route as NumerologyBhagyankRouteImport } from './routes/numerology.bhagyank'
 import { Route as NumerologySlugRouteImport } from './routes/numerology.$slug'
 import { Route as GuideTarotSpreadsRouteImport } from './routes/guide.tarot-spreads'
+import { Route as GuideTarotForBeginnersRouteImport } from './routes/guide.tarot-for-beginners'
 import { Route as GuideTarotCardMeaningsRouteImport } from './routes/guide.tarot-card-meanings'
+import { Route as GuideReversedTarotCardsRouteImport } from './routes/guide.reversed-tarot-cards'
 import { Route as GuideNumerologyRouteImport } from './routes/guide.numerology'
+import { Route as GuideMulankVsBhagyankRouteImport } from './routes/guide.mulank-vs-bhagyank'
+import { Route as GuideMajorArcanaMeaningsRouteImport } from './routes/guide.major-arcana-meanings'
+import { Route as GuideCelticCrossGuideRouteImport } from './routes/guide.celtic-cross-guide'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -136,6 +147,36 @@ const GuideIndexRoute = GuideIndexRouteImport.update({
   path: '/guide/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TarotYesNoRoute = TarotYesNoRouteImport.update({
+  id: '/tarot/yes-no',
+  path: '/tarot/yes-no',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotThreeCardRoute = TarotThreeCardRouteImport.update({
+  id: '/tarot/three-card',
+  path: '/tarot/three-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotOneCardRoute = TarotOneCardRouteImport.update({
+  id: '/tarot/one-card',
+  path: '/tarot/one-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotLoveRoute = TarotLoveRouteImport.update({
+  id: '/tarot/love',
+  path: '/tarot/love',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotCelticCrossRoute = TarotCelticCrossRouteImport.update({
+  id: '/tarot/celtic-cross',
+  path: '/tarot/celtic-cross',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotCareerRoute = TarotCareerRouteImport.update({
+  id: '/tarot/career',
+  path: '/tarot/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TarotSlugRoute = TarotSlugRouteImport.update({
   id: '/tarot/$slug',
   path: '/tarot/$slug',
@@ -186,14 +227,40 @@ const GuideTarotSpreadsRoute = GuideTarotSpreadsRouteImport.update({
   path: '/guide/tarot-spreads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuideTarotForBeginnersRoute = GuideTarotForBeginnersRouteImport.update({
+  id: '/guide/tarot-for-beginners',
+  path: '/guide/tarot-for-beginners',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuideTarotCardMeaningsRoute = GuideTarotCardMeaningsRouteImport.update({
   id: '/guide/tarot-card-meanings',
   path: '/guide/tarot-card-meanings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuideReversedTarotCardsRoute = GuideReversedTarotCardsRouteImport.update({
+  id: '/guide/reversed-tarot-cards',
+  path: '/guide/reversed-tarot-cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuideNumerologyRoute = GuideNumerologyRouteImport.update({
   id: '/guide/numerology',
   path: '/guide/numerology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideMulankVsBhagyankRoute = GuideMulankVsBhagyankRouteImport.update({
+  id: '/guide/mulank-vs-bhagyank',
+  path: '/guide/mulank-vs-bhagyank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideMajorArcanaMeaningsRoute =
+  GuideMajorArcanaMeaningsRouteImport.update({
+    id: '/guide/major-arcana-meanings',
+    path: '/guide/major-arcana-meanings',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuideCelticCrossGuideRoute = GuideCelticCrossGuideRouteImport.update({
+  id: '/guide/celtic-cross-guide',
+  path: '/guide/celtic-cross-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -213,8 +280,13 @@ export interface FileRoutesByFullPath {
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
+  '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
+  '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
   '/guide/numerology': typeof GuideNumerologyRoute
+  '/guide/reversed-tarot-cards': typeof GuideReversedTarotCardsRoute
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
+  '/guide/tarot-for-beginners': typeof GuideTarotForBeginnersRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
   '/numerology/bhagyank': typeof NumerologyBhagyankRoute
@@ -225,6 +297,12 @@ export interface FileRoutesByFullPath {
   '/reading/reveal': typeof ReadingRevealRoute
   '/reading/shuffle': typeof ReadingShuffleRoute
   '/tarot/$slug': typeof TarotSlugRoute
+  '/tarot/career': typeof TarotCareerRoute
+  '/tarot/celtic-cross': typeof TarotCelticCrossRoute
+  '/tarot/love': typeof TarotLoveRoute
+  '/tarot/one-card': typeof TarotOneCardRoute
+  '/tarot/three-card': typeof TarotThreeCardRoute
+  '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide/': typeof GuideIndexRoute
   '/numerology/': typeof NumerologyIndexRoute
   '/reading/': typeof ReadingIndexRoute
@@ -246,8 +324,13 @@ export interface FileRoutesByTo {
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
+  '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
+  '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
   '/guide/numerology': typeof GuideNumerologyRoute
+  '/guide/reversed-tarot-cards': typeof GuideReversedTarotCardsRoute
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
+  '/guide/tarot-for-beginners': typeof GuideTarotForBeginnersRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
   '/numerology/bhagyank': typeof NumerologyBhagyankRoute
@@ -258,6 +341,12 @@ export interface FileRoutesByTo {
   '/reading/reveal': typeof ReadingRevealRoute
   '/reading/shuffle': typeof ReadingShuffleRoute
   '/tarot/$slug': typeof TarotSlugRoute
+  '/tarot/career': typeof TarotCareerRoute
+  '/tarot/celtic-cross': typeof TarotCelticCrossRoute
+  '/tarot/love': typeof TarotLoveRoute
+  '/tarot/one-card': typeof TarotOneCardRoute
+  '/tarot/three-card': typeof TarotThreeCardRoute
+  '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide': typeof GuideIndexRoute
   '/numerology': typeof NumerologyIndexRoute
   '/reading': typeof ReadingIndexRoute
@@ -280,8 +369,13 @@ export interface FileRoutesById {
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
+  '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
+  '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
   '/guide/numerology': typeof GuideNumerologyRoute
+  '/guide/reversed-tarot-cards': typeof GuideReversedTarotCardsRoute
   '/guide/tarot-card-meanings': typeof GuideTarotCardMeaningsRoute
+  '/guide/tarot-for-beginners': typeof GuideTarotForBeginnersRoute
   '/guide/tarot-spreads': typeof GuideTarotSpreadsRoute
   '/numerology/$slug': typeof NumerologySlugRoute
   '/numerology/bhagyank': typeof NumerologyBhagyankRoute
@@ -292,6 +386,12 @@ export interface FileRoutesById {
   '/reading/reveal': typeof ReadingRevealRoute
   '/reading/shuffle': typeof ReadingShuffleRoute
   '/tarot/$slug': typeof TarotSlugRoute
+  '/tarot/career': typeof TarotCareerRoute
+  '/tarot/celtic-cross': typeof TarotCelticCrossRoute
+  '/tarot/love': typeof TarotLoveRoute
+  '/tarot/one-card': typeof TarotOneCardRoute
+  '/tarot/three-card': typeof TarotThreeCardRoute
+  '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide/': typeof GuideIndexRoute
   '/numerology/': typeof NumerologyIndexRoute
   '/reading/': typeof ReadingIndexRoute
@@ -315,8 +415,13 @@ export interface FileRouteTypes {
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/guide/celtic-cross-guide'
+    | '/guide/major-arcana-meanings'
+    | '/guide/mulank-vs-bhagyank'
     | '/guide/numerology'
+    | '/guide/reversed-tarot-cards'
     | '/guide/tarot-card-meanings'
+    | '/guide/tarot-for-beginners'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
     | '/numerology/bhagyank'
@@ -327,6 +432,12 @@ export interface FileRouteTypes {
     | '/reading/reveal'
     | '/reading/shuffle'
     | '/tarot/$slug'
+    | '/tarot/career'
+    | '/tarot/celtic-cross'
+    | '/tarot/love'
+    | '/tarot/one-card'
+    | '/tarot/three-card'
+    | '/tarot/yes-no'
     | '/guide/'
     | '/numerology/'
     | '/reading/'
@@ -348,8 +459,13 @@ export interface FileRouteTypes {
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/guide/celtic-cross-guide'
+    | '/guide/major-arcana-meanings'
+    | '/guide/mulank-vs-bhagyank'
     | '/guide/numerology'
+    | '/guide/reversed-tarot-cards'
     | '/guide/tarot-card-meanings'
+    | '/guide/tarot-for-beginners'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
     | '/numerology/bhagyank'
@@ -360,6 +476,12 @@ export interface FileRouteTypes {
     | '/reading/reveal'
     | '/reading/shuffle'
     | '/tarot/$slug'
+    | '/tarot/career'
+    | '/tarot/celtic-cross'
+    | '/tarot/love'
+    | '/tarot/one-card'
+    | '/tarot/three-card'
+    | '/tarot/yes-no'
     | '/guide'
     | '/numerology'
     | '/reading'
@@ -381,8 +503,13 @@ export interface FileRouteTypes {
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/guide/celtic-cross-guide'
+    | '/guide/major-arcana-meanings'
+    | '/guide/mulank-vs-bhagyank'
     | '/guide/numerology'
+    | '/guide/reversed-tarot-cards'
     | '/guide/tarot-card-meanings'
+    | '/guide/tarot-for-beginners'
     | '/guide/tarot-spreads'
     | '/numerology/$slug'
     | '/numerology/bhagyank'
@@ -393,6 +520,12 @@ export interface FileRouteTypes {
     | '/reading/reveal'
     | '/reading/shuffle'
     | '/tarot/$slug'
+    | '/tarot/career'
+    | '/tarot/celtic-cross'
+    | '/tarot/love'
+    | '/tarot/one-card'
+    | '/tarot/three-card'
+    | '/tarot/yes-no'
     | '/guide/'
     | '/numerology/'
     | '/reading/'
@@ -415,8 +548,13 @@ export interface RootRouteChildren {
   SettingsRoute: typeof SettingsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  GuideCelticCrossGuideRoute: typeof GuideCelticCrossGuideRoute
+  GuideMajorArcanaMeaningsRoute: typeof GuideMajorArcanaMeaningsRoute
+  GuideMulankVsBhagyankRoute: typeof GuideMulankVsBhagyankRoute
   GuideNumerologyRoute: typeof GuideNumerologyRoute
+  GuideReversedTarotCardsRoute: typeof GuideReversedTarotCardsRoute
   GuideTarotCardMeaningsRoute: typeof GuideTarotCardMeaningsRoute
+  GuideTarotForBeginnersRoute: typeof GuideTarotForBeginnersRoute
   GuideTarotSpreadsRoute: typeof GuideTarotSpreadsRoute
   NumerologySlugRoute: typeof NumerologySlugRoute
   NumerologyBhagyankRoute: typeof NumerologyBhagyankRoute
@@ -427,6 +565,12 @@ export interface RootRouteChildren {
   ReadingRevealRoute: typeof ReadingRevealRoute
   ReadingShuffleRoute: typeof ReadingShuffleRoute
   TarotSlugRoute: typeof TarotSlugRoute
+  TarotCareerRoute: typeof TarotCareerRoute
+  TarotCelticCrossRoute: typeof TarotCelticCrossRoute
+  TarotLoveRoute: typeof TarotLoveRoute
+  TarotOneCardRoute: typeof TarotOneCardRoute
+  TarotThreeCardRoute: typeof TarotThreeCardRoute
+  TarotYesNoRoute: typeof TarotYesNoRoute
   GuideIndexRoute: typeof GuideIndexRoute
   NumerologyIndexRoute: typeof NumerologyIndexRoute
   ReadingIndexRoute: typeof ReadingIndexRoute
@@ -568,6 +712,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuideIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tarot/yes-no': {
+      id: '/tarot/yes-no'
+      path: '/tarot/yes-no'
+      fullPath: '/tarot/yes-no'
+      preLoaderRoute: typeof TarotYesNoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/three-card': {
+      id: '/tarot/three-card'
+      path: '/tarot/three-card'
+      fullPath: '/tarot/three-card'
+      preLoaderRoute: typeof TarotThreeCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/one-card': {
+      id: '/tarot/one-card'
+      path: '/tarot/one-card'
+      fullPath: '/tarot/one-card'
+      preLoaderRoute: typeof TarotOneCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/love': {
+      id: '/tarot/love'
+      path: '/tarot/love'
+      fullPath: '/tarot/love'
+      preLoaderRoute: typeof TarotLoveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/celtic-cross': {
+      id: '/tarot/celtic-cross'
+      path: '/tarot/celtic-cross'
+      fullPath: '/tarot/celtic-cross'
+      preLoaderRoute: typeof TarotCelticCrossRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/career': {
+      id: '/tarot/career'
+      path: '/tarot/career'
+      fullPath: '/tarot/career'
+      preLoaderRoute: typeof TarotCareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tarot/$slug': {
       id: '/tarot/$slug'
       path: '/tarot/$slug'
@@ -638,6 +824,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuideTarotSpreadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guide/tarot-for-beginners': {
+      id: '/guide/tarot-for-beginners'
+      path: '/guide/tarot-for-beginners'
+      fullPath: '/guide/tarot-for-beginners'
+      preLoaderRoute: typeof GuideTarotForBeginnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guide/tarot-card-meanings': {
       id: '/guide/tarot-card-meanings'
       path: '/guide/tarot-card-meanings'
@@ -645,11 +838,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuideTarotCardMeaningsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guide/reversed-tarot-cards': {
+      id: '/guide/reversed-tarot-cards'
+      path: '/guide/reversed-tarot-cards'
+      fullPath: '/guide/reversed-tarot-cards'
+      preLoaderRoute: typeof GuideReversedTarotCardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guide/numerology': {
       id: '/guide/numerology'
       path: '/guide/numerology'
       fullPath: '/guide/numerology'
       preLoaderRoute: typeof GuideNumerologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide/mulank-vs-bhagyank': {
+      id: '/guide/mulank-vs-bhagyank'
+      path: '/guide/mulank-vs-bhagyank'
+      fullPath: '/guide/mulank-vs-bhagyank'
+      preLoaderRoute: typeof GuideMulankVsBhagyankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide/major-arcana-meanings': {
+      id: '/guide/major-arcana-meanings'
+      path: '/guide/major-arcana-meanings'
+      fullPath: '/guide/major-arcana-meanings'
+      preLoaderRoute: typeof GuideMajorArcanaMeaningsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide/celtic-cross-guide': {
+      id: '/guide/celtic-cross-guide'
+      path: '/guide/celtic-cross-guide'
+      fullPath: '/guide/celtic-cross-guide'
+      preLoaderRoute: typeof GuideCelticCrossGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -671,8 +892,13 @@ const rootRouteChildren: RootRouteChildren = {
   SettingsRoute: SettingsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  GuideCelticCrossGuideRoute: GuideCelticCrossGuideRoute,
+  GuideMajorArcanaMeaningsRoute: GuideMajorArcanaMeaningsRoute,
+  GuideMulankVsBhagyankRoute: GuideMulankVsBhagyankRoute,
   GuideNumerologyRoute: GuideNumerologyRoute,
+  GuideReversedTarotCardsRoute: GuideReversedTarotCardsRoute,
   GuideTarotCardMeaningsRoute: GuideTarotCardMeaningsRoute,
+  GuideTarotForBeginnersRoute: GuideTarotForBeginnersRoute,
   GuideTarotSpreadsRoute: GuideTarotSpreadsRoute,
   NumerologySlugRoute: NumerologySlugRoute,
   NumerologyBhagyankRoute: NumerologyBhagyankRoute,
@@ -683,6 +909,12 @@ const rootRouteChildren: RootRouteChildren = {
   ReadingRevealRoute: ReadingRevealRoute,
   ReadingShuffleRoute: ReadingShuffleRoute,
   TarotSlugRoute: TarotSlugRoute,
+  TarotCareerRoute: TarotCareerRoute,
+  TarotCelticCrossRoute: TarotCelticCrossRoute,
+  TarotLoveRoute: TarotLoveRoute,
+  TarotOneCardRoute: TarotOneCardRoute,
+  TarotThreeCardRoute: TarotThreeCardRoute,
+  TarotYesNoRoute: TarotYesNoRoute,
   GuideIndexRoute: GuideIndexRoute,
   NumerologyIndexRoute: NumerologyIndexRoute,
   ReadingIndexRoute: ReadingIndexRoute,
@@ -693,11 +925,8 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
+declare module '@tanstack/react-router' {
   interface Register {
-    ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }
