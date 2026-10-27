@@ -3,7 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Compass, Moon, Sun, Shield } from "lucide-react";
 import { FloatingCards } from "@/components/arcana/FloatingCards";
 
-export function Hero() {
+interface HeroProps {
+  onReplayIntro?: () => void;
+}
+
+export function Hero({ onReplayIntro }: HeroProps) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -25,7 +29,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-4xl text-center"
         >
-          {/* Unboxed clean metadata kicker (anti-slop rule: no static pill badge) */}
+          {/* Unboxed clean metadata kicker */}
           <div className="mx-auto mb-4 flex items-center justify-center gap-2 text-xs font-medium text-amber-300/90 tracking-widest uppercase">
             <span>Ancient Wisdom</span>
             <span aria-hidden="true" className="text-amber-500/60">·</span>
@@ -65,8 +69,8 @@ export function Hero() {
             </Link>
           </div>
 
-          {/* Quiet Trust Evidence Strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground/80">
+          {/* Quiet Trust Evidence Strip with Replay Intro trigger */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground/80">
             <div className="flex items-center gap-1.5">
               <Sun className="h-3.5 w-3.5 text-amber-400/80" />
               <span>8 Traditional Spreads</span>
@@ -79,8 +83,22 @@ export function Hero() {
             <span aria-hidden="true" className="text-white/20">·</span>
             <div className="flex items-center gap-1.5">
               <Shield className="h-3.5 w-3.5 text-emerald-400/80" />
-              <span>100% Private · No Account Needed</span>
+              <span>100% Private · Free</span>
             </div>
+            {onReplayIntro && (
+              <>
+                <span aria-hidden="true" className="text-white/20">·</span>
+                <button
+                  type="button"
+                  onClick={onReplayIntro}
+                  className="inline-flex items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-0.5 text-[11px] font-medium text-amber-300 hover:bg-amber-400/20 hover:border-amber-400/50 transition-colors cursor-pointer"
+                  title="Replay the cosmic opening animation"
+                >
+                  <Sparkles className="h-3 w-3" />
+                  <span>Replay Intro</span>
+                </button>
+              </>
+            )}
           </div>
         </motion.div>
 
