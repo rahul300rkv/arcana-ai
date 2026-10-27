@@ -16,6 +16,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script>
+      window.addEventListener("error", function(e) {
+        if (e && (e.message && e.message.includes("WebSocket") || e.filename && e.filename.includes("@vite/client"))) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
+      window.addEventListener("unhandledrejection", function(e) {
+        if (e && e.reason && (e.reason.message && e.reason.message.includes("WebSocket") || String(e.reason).includes("@vite/client"))) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
       (function() {
         try {
           var k = "astrofree.theme.v1";
