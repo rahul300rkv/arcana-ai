@@ -207,6 +207,27 @@ Return ONLY valid raw JSON without markdown formatting.`;
   }
 });
 
+// Explicit sitemap.xml and ads.txt routes
+app.get("/sitemap.xml", (_req, res) => {
+  res.setHeader("Content-Type", "application/xml");
+  const sitemapPath = path.resolve(process.cwd(), "public", "sitemap.xml");
+  if (fs.existsSync(sitemapPath)) {
+    res.sendFile(sitemapPath);
+  } else {
+    res.status(404).send("Not found");
+  }
+});
+
+app.get("/ads.txt", (_req, res) => {
+  res.setHeader("Content-Type", "text/plain");
+  const adsPath = path.resolve(process.cwd(), "public", "ads.txt");
+  if (fs.existsSync(adsPath)) {
+    res.sendFile(adsPath);
+  } else {
+    res.status(404).send("Not found");
+  }
+});
+
 // Vite middleware or static serving
 async function startServer() {
   if (process.env.NODE_ENV === "production") {
