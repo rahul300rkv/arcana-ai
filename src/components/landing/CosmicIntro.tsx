@@ -26,8 +26,7 @@ export function CosmicIntro({ onComplete, forcePlay, onClose }: CosmicIntroProps
   useEffect(() => {
     if (!show) return;
 
-    // Smooth 2.2s total presentation time
-    // Smooth hold before luxurious dissolve
+    // 2.8s presentation hold before liquid dissolve
     const timer = setTimeout(() => {
       dismiss();
     }, 2800);
@@ -39,102 +38,110 @@ export function CosmicIntro({ onComplete, forcePlay, onClose }: CosmicIntroProps
     <AnimatePresence>
       {show && (
         <motion.div
-          key="cosmic-intro"
+          key="liquid-chrome-intro"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.03,
-            filter: "blur(10px)",
+            scale: 1.04,
+            filter: "blur(12px)",
             transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#070712] overflow-hidden select-none cursor-pointer"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05060a] overflow-hidden select-none cursor-pointer"
           onClick={dismiss}
+          aria-label="Click anywhere to enter AstroFree"
         >
-          {/* Subtle celestial breathing ambient light (GPU accelerated radial gradient) */}
+          {/* Molten Mercury Ambient Fluid Refraction */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{
-              opacity: [0.4, 0.75, 0.5],
+              opacity: [0.35, 0.65, 0.4],
               scale: [0.9, 1.1, 0.95],
             }}
             transition={{
-              duration: 3,
+              duration: 3.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="pointer-events-none absolute h-[500px] w-[500px] sm:h-[650px] sm:w-[650px] rounded-full bg-[radial-gradient(circle_at_center,rgba(217,170,89,0.18)_0%,rgba(147,75,255,0.12)_45%,transparent_70%)] blur-3xl"
+            className="pointer-events-none absolute h-[550px] w-[550px] sm:h-[700px] sm:w-[700px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,rgba(148,163,184,0.14)_35%,rgba(99,102,241,0.08)_60%,transparent_75%)] blur-3xl"
           />
 
-          {/* Minimalist faint cosmic dust rings (whisper-quiet, non-distracting) */}
+          {/* Polished Concentric Chrome Orbitals */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 0.35, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute h-[320px] w-[320px] sm:h-[420px] sm:w-[420px] rounded-full border border-amber-300/20"
+            initial={{ opacity: 0, scale: 0.75 }}
+            animate={{ opacity: 0.4, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute h-[320px] w-[320px] sm:h-[430px] sm:w-[430px] rounded-full border border-white/25 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_0_20px_rgba(255,255,255,0.15)]"
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 0.2, scale: 1.15 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute h-[440px] w-[440px] sm:h-[580px] sm:w-[580px] rounded-full border border-purple-400/15"
+            initial={{ opacity: 0, scale: 0.65 }}
+            animate={{ opacity: 0.25, scale: 1.18 }}
+            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute h-[440px] w-[440px] sm:h-[600px] sm:w-[600px] rounded-full border border-slate-400/20 shadow-[0_0_30px_rgba(180,200,255,0.1)]"
           />
 
-          {/* Quick Skip button in top corner */}
+          {/* Top Skip Button in Liquid Chrome Pill */}
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation();
               dismiss();
             }}
-            className="absolute top-6 right-6 z-20 text-[11px] font-medium tracking-wider uppercase text-amber-200/60 hover:text-amber-200 transition-colors px-3 py-1.5 rounded-full border border-white/10 hover:border-amber-400/30 bg-black/20 backdrop-blur-sm"
+            className="absolute top-6 right-6 z-30 flex items-center gap-1.5 rounded-full border border-white/30 bg-white/[0.06] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_16px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all hover:border-white/60 hover:bg-white/[0.12] hover:scale-105 cursor-pointer"
           >
-            Skip &rarr;
+            <span>Enter Site</span>
+            <span>&rarr;</span>
           </button>
 
-          {/* Central Sacred Brand Reveal */}
+          {/* Central Molten Chrome Sphere & Title */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center px-6">
-            {/* Luminous Emblem */}
+            {/* Liquid Metal Specular Core */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.75, filter: "blur(8px)" }}
+              initial={{ opacity: 0, scale: 0.6, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 via-amber-500 to-amber-700 p-[1.5px] shadow-[0_0_40px_rgba(245,197,100,0.35)]"
+              className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-white via-slate-200 via-slate-400 to-slate-700 p-[2px] shadow-[0_0_50px_rgba(255,255,255,0.45),inset_0_1px_2px_rgba(255,255,255,0.9)]"
             >
-              <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0a0a18]">
-                <Sparkles className="h-8 w-8 sm:h-9 sm:w-9 text-amber-300" />
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-b from-[#141622] to-[#06070c] shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),inset_0_-1px_2px_rgba(255,255,255,0.3)]">
+                <motion.div
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 6, -6, 0],
+                  }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Sparkles className="h-9 w-9 text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.9)]" />
+                </motion.div>
               </div>
             </motion.div>
 
-            {/* Brand Typography */}
+            {/* Liquid Chrome Typography */}
             <motion.div
-              initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6"
             >
-              <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight leading-none">
-                <span className="gold-text drop-shadow-[0_0_25px_rgba(245,197,100,0.3)]">
-                  Astro
-                </span>
-                <span className="text-foreground/90 font-light">Free</span>
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+                <span className="chrome-text">Astro</span>
+                <span className="text-zinc-200 font-light tracking-wide ml-1">Free</span>
               </h1>
             </motion.div>
 
-            {/* Glowing Golden Ray Divider */}
+            {/* Liquid Chrome Hairline Ray */}
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 h-[1px] w-24 sm:w-32 bg-gradient-to-r from-transparent via-amber-300/80 to-transparent origin-center"
+              transition={{ duration: 0.95, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-4 h-[1.5px] w-28 sm:w-36 bg-gradient-to-r from-transparent via-white/90 to-transparent origin-center shadow-[0_0_10px_rgba(255,255,255,0.8)]"
             />
 
-            {/* Whisper Subtitle */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 0.8, y: 0 }}
+              animate={{ opacity: 0.85, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-3 text-xs sm:text-sm tracking-[0.25em] uppercase text-amber-200/70 font-light"
+              className="mt-3.5 text-xs sm:text-sm tracking-[0.28em] uppercase text-slate-300 font-normal"
             >
               Ancient Arcana · Modern Vedic Wisdom
             </motion.p>

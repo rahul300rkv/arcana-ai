@@ -6,16 +6,24 @@ export function Brand({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const textSize = size === "sm" ? "text-lg" : size === "lg" ? "text-2xl" : "text-xl";
 
   return (
-    <Link to="/" className="group inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 rounded-full">
-      <div className={`relative ${iconSize} shrink-0 rounded-full bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 p-[1.5px] shadow-glow-gold transition-transform duration-300 group-hover:scale-105`}>
-        <div className="flex h-full w-full items-center justify-center rounded-full bg-background/95 backdrop-blur-sm">
-          <Sparkles className="h-4 w-4 text-amber-300 transition-transform duration-500 group-hover:rotate-12" />
+    <Link
+      to="/"
+      className="group inline-flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+    >
+      {/* Liquid Chrome Emblem with Specular Highlight */}
+      <div
+        className={`relative ${iconSize} shrink-0 rounded-full bg-gradient-to-br from-white via-slate-300 to-slate-600 p-[1.5px] shadow-[0_0_20px_rgba(255,255,255,0.35)] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(255,255,255,0.55)]`}
+      >
+        <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-b from-[#161824] to-[#090a10] shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
+          <Sparkles className="h-4 w-4 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-transform duration-500 group-hover:rotate-12" />
         </div>
       </div>
+
+      {/* Chrome Typography */}
       <div className="flex flex-col text-left">
-        <span className={`font-display ${textSize} font-bold tracking-wide leading-none`}>
-          <span className="gold-text">Astro</span>
-          <span className="text-foreground/90 font-light">Free</span>
+        <span className={`font-display ${textSize} font-bold tracking-tight leading-none`}>
+          <span className="chrome-text">Astro</span>
+          <span className="text-zinc-300/90 font-light tracking-wide ml-0.5">Free</span>
         </span>
       </div>
     </Link>

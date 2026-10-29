@@ -36,10 +36,10 @@ export function FloatingCards() {
 
   return (
     <div className="relative mx-auto h-[320px] w-full max-w-4xl sm:h-[400px]">
-      {/* Subtle glowing halo beneath the card fan */}
+      {/* Liquid chrome molten halo beneath the card fan */}
       <div 
         aria-hidden 
-        className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-purple-600/25 via-amber-400/25 to-blue-600/25 blur-3xl" 
+        className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-slate-300/20 via-white/30 to-indigo-300/20 blur-3xl shadow-[0_0_60px_rgba(255,255,255,0.25)]" 
       />
 
       {cards.map((c, i) => {
@@ -133,21 +133,21 @@ export function FloatingCards() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.92 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-amber-400/40 bg-[oklch(0.12_0.04_275/0.95)] p-3.5 text-center shadow-2xl backdrop-blur-xl"
+                  className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-white/25 bg-[#0e101a]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)] backdrop-blur-xl"
                 >
-                  <div className="flex items-center justify-center gap-1.5 text-amber-300 text-xs font-medium">
-                    <Sparkles className="h-3 w-3" />
+                  <div className="flex items-center justify-center gap-1.5 text-slate-300 text-xs font-semibold uppercase tracking-wider">
+                    <Sparkles className="h-3 w-3 text-white" />
                     <span>Arcana Archetype</span>
                   </div>
-                  <div className="font-display text-base font-semibold text-foreground tracking-wide mt-0.5">
+                  <div className="font-display text-base font-bold text-white tracking-wide mt-0.5">
                     {card.name}
                   </div>
-                  <div className="mt-1 text-xs text-muted-foreground leading-snug">
+                  <div className="mt-1 text-xs text-slate-300 leading-snug">
                     {card.keywords.slice(0, 3).join(" · ")}
                   </div>
                   <Link
                     to="/tarot"
-                    className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-medium text-amber-300 hover:text-amber-200 transition-colors"
+                    className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-white hover:underline transition-colors"
                   >
                     <Eye className="h-3 w-3" />
                     <span>View Card Insight</span>
