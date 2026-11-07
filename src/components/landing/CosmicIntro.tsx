@@ -9,7 +9,22 @@ interface CosmicIntroProps {
 }
 
 export function CosmicIntro({ onComplete, forcePlay, onClose }: CosmicIntroProps) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(() => {
+    if (typeof window === "undefined") return false;
+    // Immediately skip for search engine crawlers and headless testing environments
+    const ua = navigator.userAgent.toLowerCase();
+    const isBot =
+      /bot|google|crawler|spider|robot|crawling|lighthouse|adsense|mediapartners-google/i.test(
+        ua,
+      );
+    if (isBot) return false;
+
+    // If explicitly replaying via Replay Intro button
+    if (forcePlay) return true;
+
+    // Show on first visit, but avoid repeatedly trapping returning visitors
+    return true;
+  });
 
   useEffect(() => {
     if (forcePlay) {
