@@ -35,10 +35,10 @@ export function HowItWorks() {
         />
 
         <div className="relative mt-16 grid gap-6 md:grid-cols-3">
-          {/* Liquid chrome linking thread */}
+          {/* Warm Ivory Linking Thread */}
           <div
             aria-hidden
-            className="absolute inset-x-12 top-10 hidden h-[1.5px] bg-gradient-to-r from-transparent via-white/40 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] md:block"
+            className="absolute inset-x-12 top-10 hidden h-[1.5px] bg-gradient-to-r from-transparent via-[#f5e7d0]/40 to-transparent shadow-[0_0_10px_rgba(250,240,224,0.45)] md:block"
           />
 
           {steps.map((s, i) => (
@@ -50,18 +50,18 @@ export function HowItWorks() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group relative rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-8 text-center"
             >
-              {/* Liquid Chrome Icon Emblem */}
-              <div className="relative mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/30 bg-gradient-to-br from-white/20 via-slate-700/40 to-black/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_0_25px_rgba(255,255,255,0.2)]">
-                <s.icon className="h-6 w-6 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" strokeWidth={1.75} />
-                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#0a0b12] border border-white/40 text-[11px] font-bold text-white shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              {/* Crimson & Warm Ivory Icon Emblem */}
+              <div className="relative mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#f5e7d0]/30 bg-gradient-to-br from-[#f5e7d0]/20 via-[#5a1224]/65 to-[#1c050b]/90 shadow-[inset_0_1px_1px_rgba(255,248,235,0.45),0_0_25px_rgba(165,30,58,0.28)]">
+                <s.icon className="h-6 w-6 text-[#faf2e4] drop-shadow-[0_0_8px_rgba(250,240,224,0.75)]" strokeWidth={1.75} />
+                <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#24070e] border border-[#f5e7d0]/45 text-[11px] font-bold text-[#faf2e4] shadow-[0_2px_8px_rgba(10,1,4,0.85)]">
                   {s.n}
                 </span>
               </div>
 
-              <h3 className="font-display text-xl sm:text-2xl font-extrabold text-white">
+              <h3 className="font-display text-xl sm:text-2xl font-extrabold text-[#faf2e4]">
                 {s.title}
               </h3>
-              <p className="mt-3 text-sm text-slate-300/90 leading-relaxed">
+              <p className="mt-3 text-sm text-[#e3cfb6]/90 leading-relaxed">
                 {s.body}
               </p>
             </motion.div>
@@ -71,7 +71,7 @@ export function HowItWorks() {
         <div className="mt-12 text-center">
           <Link
             to="/reading"
-            className="liquid-chrome-btn inline-flex items-center gap-2 rounded-full px-7 py-3 text-xs font-bold uppercase tracking-wider text-slate-950"
+            className="liquid-chrome-btn inline-flex items-center gap-2 rounded-full px-7 py-3 text-xs font-bold uppercase tracking-wider text-[#24060e]"
           >
             <span>Begin Your Personal Ritual</span>
             <ArrowRight className="h-4 w-4" />

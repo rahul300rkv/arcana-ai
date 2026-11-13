@@ -42,7 +42,7 @@ export function CTASection({ title, body, ctaLabel, to }: Props) {
         </p>
         <Link
           to={to}
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#b8862c)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow-gold transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#cbb38b)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow-gold transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {ctaLabel}
           <ArrowRight className="h-4 w-4" aria-hidden />

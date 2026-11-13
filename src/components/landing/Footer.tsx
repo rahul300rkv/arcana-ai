@@ -4,17 +4,17 @@ import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-[#06070c]/90 py-12 sm:py-16 backdrop-blur-xl">
+    <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307]/95 py-12 sm:py-16 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand Col */}
           <div className="col-span-2">
             <Brand size="lg" />
-            <p className="mt-4 max-w-sm text-sm text-slate-400 leading-relaxed">
+            <p className="mt-4 max-w-sm text-sm text-[#d6bfa3] leading-relaxed">
               AstroFree unites 78-card sacred tarot traditions with Vedic numerology wisdom and modern generative intelligence. Designed for reflection, clarity, and personal empowerment.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-slate-300">
-              <Sparkles className="h-3.5 w-3.5 text-white" />
+            <div className="mt-4 flex items-center gap-2 text-xs text-[#ead9c3]">
+              <Sparkles className="h-3.5 w-3.5 text-[#faf2e4]" />
               <span>Ancient Arcana · Modern Vedic Intelligence</span>
             </div>
           </div>
@@ -55,16 +55,16 @@ export function Footer() {
           />
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-12 pt-6 border-t border-[#f5e7d0]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#d6bfa3]">
           <div>
             © {new Date().getFullYear()} AstroFree. Crafted with reverence & intention.
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link to="/privacy" className="hover:text-[#fffaf0] transition-colors">Privacy</Link>
             <span>·</span>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link to="/terms" className="hover:text-[#fffaf0] transition-colors">Terms</Link>
             <span>·</span>
-            <Link to="/about" className="hover:text-white transition-colors">About</Link>
+            <Link to="/about" className="hover:text-[#fffaf0] transition-colors">About</Link>
           </div>
         </div>
       </div>
@@ -81,13 +81,13 @@ function FooterCol({
 }) {
   return (
     <div>
-      <div className="text-xs font-semibold uppercase tracking-widest text-slate-300">
+      <div className="text-xs font-semibold uppercase tracking-widest text-[#ead9c3]">
         {title}
       </div>
-      <ul className="mt-4 space-y-2 text-sm text-slate-400">
+      <ul className="mt-4 space-y-2 text-sm text-[#d6bfa3]">
         {items.map((i) => (
           <li key={i.label}>
-            <Link to={i.to} className="transition-colors hover:text-white">
+            <Link to={i.to} className="transition-colors hover:text-[#fffaf0]">
               {i.label}
             </Link>
           </li>

@@ -26,8 +26,8 @@ export function LandingNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 transition-all duration-300">
       <div className="mx-auto mt-3 max-w-6xl px-4 sm:px-6">
-        {/* Liquid Chrome Floating Pill Bar */}
-        <div className="flex items-center justify-between gap-6 rounded-full border border-white/20 bg-[radial-gradient(120%_120%_at_50%_0%,rgba(255,255,255,0.12)_0%,rgba(14,16,24,0.88)_100%)] px-5 py-2.5 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.4),0_0_20px_rgba(200,225,255,0.1)] backdrop-blur-2xl">
+        {/* Deep Crimson & Warm Ivory Floating Pill Bar */}
+        <div className="flex items-center justify-between gap-6 rounded-full border border-[#f5e7d0]/20 bg-[radial-gradient(120%_120%_at_50%_0%,rgba(250,238,218,0.12)_0%,rgba(38,8,16,0.9)_100%)] px-5 py-2.5 shadow-[0_15px_40px_-10px_rgba(12,2,5,0.88),inset_0_1px_1px_rgba(255,248,235,0.32),0_0_22px_rgba(155,28,54,0.22)] backdrop-blur-2xl">
           {/* Zone 1: Brand Wordmark */}
           <div className="shrink-0">
             <Brand size="md" />
@@ -39,7 +39,7 @@ export function LandingNav() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="whitespace-nowrap text-sm font-medium text-slate-300 transition-all duration-200 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+                className="whitespace-nowrap text-sm font-medium text-[#ead9c3] transition-all duration-200 hover:text-[#fffaf0] hover:drop-shadow-[0_0_10px_rgba(250,240,224,0.5)]"
               >
                 {link.label}
               </Link>
@@ -48,16 +48,16 @@ export function LandingNav() {
 
           {/* Zone 3: Controls & Primary Action */}
           <div className="hidden items-center gap-3 sm:flex">
-            <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]">
-              <Globe className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
+            <div className="flex items-center gap-1.5 rounded-full border border-[#f5e7d0]/20 bg-[#f5e7d0]/[0.05] px-2.5 py-1 shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
+              <Globe className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
               <Select
                 value={language}
                 onValueChange={(value) => setLanguage(value as typeof language)}
               >
-                <SelectTrigger className="h-7 w-[105px] border-0 bg-transparent px-1 text-xs text-foreground/90 shadow-none ring-0 focus:ring-0">
+                <SelectTrigger className="h-7 w-[105px] border-0 bg-transparent px-1 text-xs text-[#faf2e4] shadow-none ring-0 focus:ring-0">
                   <SelectValue aria-label="Language" placeholder="Language" />
                 </SelectTrigger>
-                <SelectContent className="border-white/15 bg-[#0e101a]/95 backdrop-blur-xl shadow-2xl">
+                <SelectContent className="border-[#f5e7d0]/20 bg-[#23080f]/95 text-[#faf2e4] backdrop-blur-xl shadow-2xl">
                   <SelectItem value="en">English</SelectItem>
                   <SelectItem value="hi">हिन्दी (Hindi)</SelectItem>
                   <SelectItem value="hinglish">Hinglish</SelectItem>
@@ -75,7 +75,7 @@ export function LandingNav() {
               </Select>
             </div>
 
-            {/* Liquid Chrome CTA Button */}
+            {/* Warm Ivory Satin CTA Button */}
             <Link
               to="/reading"
               className="liquid-chrome-btn inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap"
@@ -88,7 +88,7 @@ export function LandingNav() {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="grid h-9 w-9 place-items-center rounded-full border border-white/20 bg-white/[0.05] text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] lg:hidden"
+            className="grid h-9 w-9 place-items-center rounded-full border border-[#f5e7d0]/25 bg-[#f5e7d0]/[0.06] text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls={menuId}
@@ -103,29 +103,29 @@ export function LandingNav() {
           <nav
             id={menuId}
             aria-label="Mobile Navigation"
-            className="mt-2 flex flex-col gap-1.5 rounded-2xl border border-white/20 bg-[#0c0d16]/95 p-4 shadow-2xl backdrop-blur-2xl lg:hidden"
+            className="mt-2 flex flex-col gap-1.5 rounded-2xl border border-[#f5e7d0]/20 bg-[#1f060d]/95 p-4 shadow-2xl backdrop-blur-2xl lg:hidden"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/[0.06] hover:text-white"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-[#ead9c3] transition-colors hover:bg-[#f5e7d0]/[0.08] hover:text-[#fffaf0]"
               >
                 {link.label}
               </Link>
             ))}
 
-            <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-3">
-              <span className="text-xs text-muted-foreground">Language</span>
+            <div className="mt-2 flex items-center justify-between border-t border-[#f5e7d0]/15 pt-3">
+              <span className="text-xs text-[#dcc8b2]">Language</span>
               <Select
                 value={language}
                 onValueChange={(value) => setLanguage(value as typeof language)}
               >
-                <SelectTrigger className="h-8 w-[140px] border-white/15 bg-white/[0.05] text-xs text-foreground">
+                <SelectTrigger className="h-8 w-[140px] border-[#f5e7d0]/20 bg-[#f5e7d0]/[0.06] text-xs text-[#faf2e4]">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="border-white/15 bg-[#0e101a] backdrop-blur-xl">
+                <SelectContent className="border-[#f5e7d0]/20 bg-[#23080f] text-[#faf2e4] backdrop-blur-xl">
                   <SelectItem value="en">English</SelectItem>
                   <SelectItem value="hi">हिन्दी (Hindi)</SelectItem>
                   <SelectItem value="hinglish">Hinglish</SelectItem>

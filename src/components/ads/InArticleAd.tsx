@@ -58,7 +58,7 @@ function AdSlot({
 
   return (
     <div
-      className={`my-8 w-full min-h-[280px] rounded-xl overflow-hidden bg-[#0a0d14] border border-slate-800/50 flex items-center justify-center ${className}`}
+      className={`my-8 w-full min-h-[280px] rounded-xl overflow-hidden bg-[#1e070d] border border-[#f5e7d0]/15 flex items-center justify-center ${className}`}
     >
       <ins
         className="adsbygoogle"

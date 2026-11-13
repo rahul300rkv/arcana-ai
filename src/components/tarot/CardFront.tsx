@@ -17,7 +17,7 @@ export function CardFront({
     <div
       className={cn(
         "relative h-full w-full overflow-hidden rounded-2xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)]",
-        "bg-[linear-gradient(160deg,#1a1338,#0d0a24)] shadow-elegant",
+        "bg-[linear-gradient(160deg,#3b0d19,#18050b)] shadow-elegant",
         className,
       )}
     >
@@ -39,7 +39,7 @@ export function CardFront({
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(10,8,26,0.75))] mix-blend-multiply" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(26,5,11,0.8))] mix-blend-multiply" />
         </div>
         <div className="text-center font-display text-sm tracking-wide">{card.name}</div>
       </div>

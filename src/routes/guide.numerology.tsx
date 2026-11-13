@@ -333,7 +333,7 @@ function NumberGlyph({ n }: { n: RootNumber }) {
             "radial-gradient(circle, color-mix(in oklab, var(--gold) 45%, transparent), transparent 70%)",
         }}
       />
-      <div className="relative grid h-14 w-14 place-items-center rounded-full border border-[color-mix(in_oklab,var(--gold)_45%,transparent)] bg-[linear-gradient(160deg,#1a1338,#0d0a24)] shadow-glow-gold">
+      <div className="relative grid h-14 w-14 place-items-center rounded-full border border-[color-mix(in_oklab,var(--gold)_45%,transparent)] bg-[linear-gradient(160deg,#3b0d19,#18050b)] shadow-glow-gold">
         <span className="font-display text-2xl gold-text">{n}</span>
       </div>
     </div>
@@ -628,7 +628,7 @@ function NumerologyGuidePage() {
                       {nums.map((n) => (
                         <span
                           key={n}
-                          className="grid h-7 w-7 place-items-center rounded-full border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-[linear-gradient(160deg,#1a1338,#0d0a24)] font-display text-sm gold-text"
+                          className="grid h-7 w-7 place-items-center rounded-full border border-[color-mix(in_oklab,var(--gold)_35%,transparent)] bg-[linear-gradient(160deg,#3b0d19,#18050b)] font-display text-sm gold-text"
                         >
                           {n}
                         </span>

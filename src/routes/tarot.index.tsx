@@ -248,7 +248,7 @@ function TarotIndexPage() {
                 className={cn(
                   "rounded-full px-4 py-1.5 text-xs transition",
                   filter === f.key
-                    ? "bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#b8862c)] text-primary-foreground shadow-glow-gold"
+                    ? "bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#cbb38b)] text-primary-foreground shadow-glow-gold"
                     : "glass text-muted-foreground hover:text-foreground",
                 )}
               >

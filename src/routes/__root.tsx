@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "AstroFree is India's first free AI tarot card reading app, now with a free Mulank numerology calculator. Get instant AI-guided tarot readings, your Personal Year & Personal Month forecast, a daily card ritual, and a private journal — always free.",
       },
-      { name: "theme-color", content: "#12122a" },
+      { name: "theme-color", content: "#19060b" },
       {
         property: "og:title",
         content: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",

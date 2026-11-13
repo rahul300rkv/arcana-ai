@@ -20,7 +20,7 @@ export function CardBack({
     <div
       className={cn(
         "relative h-full w-full overflow-hidden rounded-2xl border border-[color-mix(in_oklab,var(--gold)_35%,transparent)]",
-        "bg-[linear-gradient(160deg,#160f3a,#0b0820)] shadow-glow-gold",
+        "bg-[linear-gradient(160deg,#3a0c18,#19050b)] shadow-glow-gold",
         className,
       )}
     >

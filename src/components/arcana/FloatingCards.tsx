@@ -36,10 +36,10 @@ export function FloatingCards() {
 
   return (
     <div className="relative mx-auto h-[320px] w-full max-w-4xl sm:h-[400px]">
-      {/* Liquid chrome molten halo beneath the card fan */}
-      <div 
-        aria-hidden 
-        className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-slate-300/20 via-white/30 to-indigo-300/20 blur-3xl shadow-[0_0_60px_rgba(255,255,255,0.25)]" 
+      {/* Crimson & Warm Ivory Halo beneath the card fan */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#8c162e]/35 via-[#f5e7d0]/22 to-[#6b0f23]/35 blur-3xl shadow-[0_0_65px_rgba(165,30,58,0.35)]"
       />
 
       {cards.map((c, i) => {
@@ -82,7 +82,7 @@ export function FloatingCards() {
               onFocus={() => setActive(c.id)}
               onBlur={() => setActive((v) => (v === c.id ? null : v))}
               onClick={() => setActive((v) => (v === c.id ? null : c.id))}
-              className="group block cursor-pointer rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+              className="group block cursor-pointer rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5e7d0]"
               animate={
                 reduce
                   ? undefined
@@ -104,8 +104,8 @@ export function FloatingCards() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="relative h-48 w-32 [perspective:1200px] sm:h-64 sm:w-40 transition-transform duration-300">
-                {/* Golden rim border glow */}
-                <div className={`absolute -inset-[1.5px] rounded-xl bg-gradient-to-br from-amber-300/40 via-amber-500/20 to-purple-500/30 transition-opacity duration-300 ${isActive ? 'opacity-100 ring-2 ring-amber-300/80 shadow-glow-gold' : 'opacity-60'}`} />
+                {/* Warm Ivory & Crimson Rim Glow */}
+                <div className={`absolute -inset-[1.5px] rounded-xl bg-gradient-to-br from-[#f8ebd3]/50 via-[#c9a97e]/25 to-[#8f1c35]/45 transition-opacity duration-300 ${isActive ? 'opacity-100 ring-2 ring-[#f5e7d0]/80 shadow-glow-gold' : 'opacity-60'}`} />
 
                 <motion.div
                   className="relative h-full w-full rounded-xl overflow-hidden [transform-style:preserve-3d]"
@@ -133,21 +133,21 @@ export function FloatingCards() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.92 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-white/25 bg-[#0e101a]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.4)] backdrop-blur-xl"
+                  className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-[#f5e7d0]/25 bg-[#1f060d]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(10,1,4,0.92),inset_0_1px_1px_rgba(255,248,235,0.3)] backdrop-blur-xl"
                 >
-                  <div className="flex items-center justify-center gap-1.5 text-slate-300 text-xs font-semibold uppercase tracking-wider">
-                    <Sparkles className="h-3 w-3 text-white" />
+                  <div className="flex items-center justify-center gap-1.5 text-[#ead9c3] text-xs font-semibold uppercase tracking-wider">
+                    <Sparkles className="h-3 w-3 text-[#faf2e4]" />
                     <span>Arcana Archetype</span>
                   </div>
-                  <div className="font-display text-base font-bold text-white tracking-wide mt-0.5">
+                  <div className="font-display text-base font-bold text-[#faf2e4] tracking-wide mt-0.5">
                     {card.name}
                   </div>
-                  <div className="mt-1 text-xs text-slate-300 leading-snug">
+                  <div className="mt-1 text-xs text-[#dcc8b2] leading-snug">
                     {card.keywords.slice(0, 3).join(" · ")}
                   </div>
                   <Link
                     to="/tarot"
-                    className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-white hover:underline transition-colors"
+                    className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-[#fffaf0] hover:underline transition-colors"
                   >
                     <Eye className="h-3 w-3" />
                     <span>View Card Insight</span>

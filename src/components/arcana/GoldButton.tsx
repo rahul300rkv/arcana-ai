@@ -16,7 +16,7 @@ export const GoldButton = forwardRef<HTMLButtonElement, Props>(
 
     const variants = {
       primary:
-        "text-primary-foreground bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#b8862c)] shadow-glow-gold hover:brightness-110",
+        "text-primary-foreground bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#cbb38b)] shadow-glow-gold hover:brightness-110",
       secondary:
         "glass text-foreground hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]",
       ghost: "text-foreground/80 hover:text-foreground hover:bg-white/5",
