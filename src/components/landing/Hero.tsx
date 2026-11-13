@@ -3,11 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Compass, Moon, Sun, Shield } from "lucide-react";
 import { FloatingCards } from "@/components/arcana/FloatingCards";
 
-interface HeroProps {
-  onReplayIntro?: () => void;
-}
-
-export function Hero({ onReplayIntro }: HeroProps) {
+export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -69,7 +65,7 @@ export function Hero({ onReplayIntro }: HeroProps) {
             </Link>
           </div>
 
-          {/* Quiet Trust Evidence Strip with Replay Intro trigger */}
+          {/* Quiet Trust Evidence Strip */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-[#d6bfa3]">
             <div className="flex items-center gap-1.5">
               <Sun className="h-3.5 w-3.5 text-[#ead9c3]" />
@@ -85,20 +81,6 @@ export function Hero({ onReplayIntro }: HeroProps) {
               <Shield className="h-3.5 w-3.5 text-[#ead9c3]" />
               <span>100% Private · Free</span>
             </div>
-            {onReplayIntro && (
-              <>
-                <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
-                <button
-                  type="button"
-                  onClick={onReplayIntro}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#f5e7d0]/25 bg-[#3a0d18]/60 px-2.5 py-0.5 text-[11px] font-medium text-[#faf2e4] hover:bg-[#521222]/80 hover:border-[#f5e7d0]/50 shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] transition-colors cursor-pointer"
-                  title="Replay the opening animation"
-                >
-                  <Sparkles className="h-3 w-3 text-[#faf2e4]" />
-                  <span>Replay Intro</span>
-                </button>
-              </>
-            )}
           </div>
         </motion.div>
 

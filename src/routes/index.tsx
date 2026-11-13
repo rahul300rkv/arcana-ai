@@ -22,7 +22,6 @@ import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
 import { Spotlight } from "@/components/arcana/Spotlight";
 import { LandingNav } from "@/components/arcana/LandingNav";
-import { CosmicIntro } from "@/components/landing/CosmicIntro";
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { Numerology } from "@/components/landing/Numerology";
@@ -184,19 +183,17 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [replayIntro, setReplayIntro] = useState(false);
 
   return (
     <div className="relative min-h-dvh overflow-x-hidden bg-background text-foreground antialiased selection:bg-[#6e1427]/60 selection:text-[#faf2e4]">
-      <CosmicIntro forcePlay={replayIntro} onClose={() => setReplayIntro(false)} />
       <AuroraBackground />
       <ParticleBackground count={45} />
       <Spotlight />
       <LandingNav />
 
       <main>
-        {/* 1. Hero with Interactive 3D Card Fan & Intro Replay */}
-        <Hero onReplayIntro={() => setReplayIntro(true)} />
+        {/* 1. Hero with Interactive 3D Card Fan */}
+        <Hero />
 
         {/* 2. Asymmetric Bento Grid Capabilities */}
         <Features />
