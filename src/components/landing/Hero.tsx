@@ -7,7 +7,10 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <section
+      id="site-content"
+      className="relative overflow-hidden scroll-mt-16 pt-20 pb-16 sm:pt-24 sm:pb-24"
+    >
       {/* Ambient Crimson Burgundy & Warm Ivory Glows */}
       <div
         aria-hidden

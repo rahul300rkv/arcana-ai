@@ -22,6 +22,7 @@ import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
 import { Spotlight } from "@/components/arcana/Spotlight";
 import { LandingNav } from "@/components/arcana/LandingNav";
+import { StormIntro } from "@/components/landing/StormIntro";
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { Numerology } from "@/components/landing/Numerology";
@@ -185,13 +186,16 @@ function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-background text-foreground antialiased selection:bg-[#6e1427]/60 selection:text-[#faf2e4]">
+    <div className="relative min-h-dvh overflow-x-clip bg-background text-foreground antialiased selection:bg-[#6e1427]/60 selection:text-[#faf2e4]">
       <AuroraBackground />
       <ParticleBackground count={45} />
       <Spotlight />
       <LandingNav />
 
       <main>
+        {/* 0. Interactive Three.js Storm Scroll Intro */}
+        <StormIntro />
+
         {/* 1. Hero with Interactive 3D Card Fan */}
         <Hero />
 
