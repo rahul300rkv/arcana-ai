@@ -309,6 +309,53 @@ function TarotIndexPage() {
           </ul>
         </section>
 
+        <section className="mt-20 rounded-3xl liquid-chrome-card p-8 sm:p-12 space-y-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
+              Comprehensive Guide
+            </span>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
+              The History, Symbolism, and Cultural Significance of Tarot
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              An exploration of how a 15th-century European parlor game evolved into a profound mirror for human consciousness and psychological self-reflection.
+            </p>
+          </div>
+
+          <div className="space-y-6 text-sm text-muted-foreground leading-relaxed pt-4">
+            <div>
+              <h3 className="font-display text-xl text-foreground mb-2">1. The 600-Year Evolution of the Tarot Deck</h3>
+              <p>
+                Popular culture often associates tarot with ancient mystical origins in Egypt or esoteric cabalistic orders of antiquity. However, historical records trace the roots of tarot directly to 15th-century Northern Italy. Originally conceived as a luxurious card game known as <em className="text-foreground italic">Tarocchi</em>, played by wealthy aristocratic courts such as the Visconti-Sforza family in Milan, these decks featured standard suits alongside a special set of 21 allegorical trump cards and a single unnumbered card known as The Fool. It was not until the late 18th century in France—championed by occult scholars like Antoine Court de Gébelin and Jean-Baptiste Alliette (Etteilla)—that the cards were systematically reinterpreted as esoteric instruments for divination and spiritual insight.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-display text-xl text-foreground mb-2">2. The Dual Structure: Major and Minor Arcana</h3>
+              <p>
+                A standard 78-card tarot deck is divided into two distinct structural domains: the Major Arcana and the Minor Arcana. The word "arcana" derives from the Latin <em className="text-foreground italic">arcanum</em>, meaning secret or mystery. The 22 cards of the Major Arcana (numbered 0 through 21) represent major archetypal life milestones, karmic lessons, and spiritual turning points. Known collectively as "The Fool's Journey," this sequence mirrors human maturation from innocence through worldly struggle, crisis, transformation, and ultimate enlightenment.
+              </p>
+              <p className="mt-3">
+                In contrast, the 56 cards of the Minor Arcana govern the immediate fabric of everyday life. Divided into four suits—Wands (Fire / Ambition), Cups (Water / Emotion), Swords (Air / Intellect), and Pentacles (Earth / Material Security)—the Minor Arcana explore how universal archetypes manifest in practical decisions, relationships, professional challenges, and daily emotional rhythms.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-display text-xl text-foreground mb-2">3. Symbolism, Psychology, and Synchronicity</h3>
+              <p>
+                The enduring power of tarot lies in its rich visual symbolism. Created in 1909 by occultist Arthur Edward Waite and artist Pamela Colman Smith, the Rider–Waite–Smith deck imbued every minor card with narrative illustrations that bypass rigid memorization and engage human intuition directly. In analytical psychology, Carl Jung noted that these symbolic images function as keys to the collective unconscious. When drawing cards in a spread, the apparent coincidence is understood through synchronicity—meaningful alignment where outer visual patterns mirror inner psychological states.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-display text-xl text-foreground mb-2">4. Ethical Divination and Empowered Free Will</h3>
+              <p>
+                Ethical tarot practice rejects fatalism. The cards do not decree an immutable future; instead, they serve as a diagnostic mirror reflecting current energies, hidden blind spots, and probable outcomes based on present trajectories. By consulting tarot with an open, reflective mindset, seekers exercise free will, make conscious course corrections, and navigate life's transitions with grounded wisdom and self-compassion.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <ContentSection id="faq" title="Frequently asked questions" className="mt-16">
           <FAQAccordion items={TAROT_FAQS} />
         </ContentSection>
