@@ -1,0 +1,6 @@
+{
+  "name": "Arcana AI",
+  "description": "AI-powered tarot card readings and Vedic numerology calculator (Mulank, Bhagyank, Namank) with cosmic visualizations and multi-language guidance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
