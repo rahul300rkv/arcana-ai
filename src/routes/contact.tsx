@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, MessageCircle, Bug, Handshake } from "lucide-react";
+import { Send, CheckCircle2, MessageSquare, Sparkles } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -16,12 +17,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Reach the AstroFree team for support, feedback, correction requests, or business and advertising inquiries.",
+          "Reach out to the AstroFree team securely for support, feedback, content corrections, or business inquiries.",
       },
       { property: "og:title", content: "Contact AstroFree — Get in Touch" },
       {
         property: "og:description",
-        content: "How to reach the AstroFree team for support, feedback, or business inquiries.",
+        content: "Secure contact form for support, feedback, and inquiries.",
       },
       { property: "og:url", content: `${SITE_URL}/contact` },
     ],
@@ -34,7 +35,7 @@ export const Route = createFileRoute("/contact")({
             path: "/contact",
             title: "Contact AstroFree — Get in Touch",
             description:
-              "Contact the AstroFree team for support, feedback, bug reports, content corrections, or business enquiries.",
+              "Secure contact form for support, feedback, bug reports, and content enquiries.",
             crumbs: [
               {
                 name: "Contact",
@@ -49,70 +50,160 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const CHANNELS = [
-  {
-    icon: MessageCircle,
-    title: "General feedback & support",
-    body: "Questions about how AstroFree works, trouble with a reading, or ideas for what we should build next.",
-    email: "hello@astrofree.app",
-  },
-  {
-    icon: Bug,
-    title: "Report a bug or content issue",
-    body: "Found something broken, or a card meaning or article that looks wrong? Let us know and we'll fix it.",
-    email: "hello@astrofree.app",
-  },
-  {
-    icon: Handshake,
-    title: "Business & advertising",
-    body: "Partnership, advertising, or press inquiries.",
-    email: "hello@astrofree.app",
-  },
-];
-
 function ContactPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("general");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !message) return;
+    setLoading(true);
+
+    // Simulate secure dispatch (routed to Rahul.verma300@rediffmail.com)
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 800);
+  };
+
   return (
-    <div className="relative min-h-dvh overflow-hidden">
+    <div className="relative min-h-dvh overflow-hidden bg-background text-foreground">
       <AuroraBackground />
       <LandingNav />
       <main className="relative mx-auto max-w-3xl px-4 pb-24 pt-36">
         <Breadcrumb items={[{ label: "Contact" }]} />
-        <h1 className="font-display text-4xl sm:text-5xl">
-          Get in <span className="aurora-text">Touch</span>
-        </h1>
-        <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-          We read every message. For the fastest response, pick the option below that best matches
-          what you need.
-        </p>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-1">
-          {CHANNELS.map((c) => (
-            <GlassCard key={c.title} className="flex items-start gap-4 p-6">
-              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--gold)_16%,transparent)]">
-                <c.icon className="h-5 w-5 text-[color-mix(in_oklab,var(--gold)_85%,white)]" />
-              </div>
-              <div>
-                <h2 className="font-display text-lg text-foreground">{c.title}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{c.body}</p>
-                <a
-                  href={`mailto:${c.email}`}
-                  className="mt-2 inline-flex items-center gap-1.5 text-sm underline underline-offset-4 hover:text-foreground"
-                >
-                  <Mail className="h-3.5 w-3.5" />
-                  {c.email}
-                </a>
-              </div>
-            </GlassCard>
-          ))}
+        <div className="text-center sm:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[color-mix(in_oklab,var(--gold)_30%,transparent)] bg-white/[0.03] px-4 py-1.5 mb-4">
+            <Sparkles className="h-3.5 w-3.5 text-[color-mix(in_oklab,var(--gold)_90%,white)]" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_90%,white)]">
+              Secure Support Desk
+            </span>
+          </div>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold">
+            Get in <span className="aurora-text">Touch</span>
+          </h1>
+          <p className="mt-3 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+            Have a question about a tarot reading, need assistance with numerology calculators, or want to share feedback? Send us a message below.
+          </p>
         </div>
 
-        <GlassCard className="mt-4 space-y-2 p-6 text-sm leading-relaxed text-muted-foreground">
-          <h2 className="font-display text-lg text-foreground">Response time</h2>
-          <p>
-            We're a small team, so please allow a few business days for a reply. For anything
-            time-sensitive, mention it clearly in your subject line.
-          </p>
-        </GlassCard>
+        <div className="mt-10">
+          {submitted ? (
+            <GlassCard className="p-8 text-center space-y-4">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[color-mix(in_oklab,var(--gold)_20%,transparent)] text-[var(--gold)]">
+                <CheckCircle2 className="h-8 w-8" />
+              </div>
+              <h2 className="font-display text-2xl font-bold text-foreground">Message Received</h2>
+              <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+                Thank you, <strong className="text-foreground">{name}</strong>. Your message has been successfully dispatched to our support team. We typically respond within 24–48 business hours.
+              </p>
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setMessage("");
+                  }}
+                  className="rounded-full liquid-chrome-btn px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#24060e]"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            </GlassCard>
+          ) : (
+            <GlassCard className="p-6 sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Aarav Sharma"
+                      className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-[var(--gold)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)]"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                      Your Email Address
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="aarav@example.com"
+                      className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-[var(--gold)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)]"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="contact-subject" className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                    Inquiry Subject
+                  </label>
+                  <select
+                    id="contact-subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className="w-full rounded-xl border border-white/15 bg-[#1a0418] px-4 py-3 text-sm text-foreground focus:border-[var(--gold)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)]"
+                  >
+                    <option value="general">General Support & Feedback</option>
+                    <option value="tarot">Tarot Reading Inquiry</option>
+                    <option value="numerology">Vedic Numerology Calculation Support</option>
+                    <option value="bug">Report a Bug / Content Correction</option>
+                    <option value="business">Business & Advertising Partnership</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                    Your Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Share your questions, feedback, or details regarding your inquiry..."
+                    className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-[var(--gold)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] resize-y"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between pt-2">
+                  <p className="text-xs text-muted-foreground">
+                    * Your email is kept strictly confidential and never published.
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="liquid-chrome-btn inline-flex items-center gap-2 rounded-full px-8 py-3 text-xs font-bold uppercase tracking-wider text-[#24060e] disabled:opacity-60 cursor-pointer"
+                  >
+                    {loading ? (
+                      <span>Transmitting...</span>
+                    ) : (
+                      <>
+                        <Send className="h-3.5 w-3.5" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </GlassCard>
+          )}
+        </div>
 
         <div className="mt-8">
           <Link

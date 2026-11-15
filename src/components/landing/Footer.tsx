@@ -48,6 +48,7 @@ export function Footer() {
               { label: "Tarot Card Meanings", to: "/guide/tarot-card-meanings" },
               { label: "Major Arcana Guide", to: "/guide/major-arcana-meanings" },
               { label: "About AstroFree", to: "/about" },
+              { label: "Contact Us", to: "/contact" },
               { label: "Privacy Policy", to: "/privacy" },
               { label: "Terms of Service", to: "/terms" },
               { label: "Disclaimer", to: "/disclaimer" },
