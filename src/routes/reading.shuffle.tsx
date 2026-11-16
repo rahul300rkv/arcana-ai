@@ -17,6 +17,7 @@ export const Route = createFileRoute("/reading/shuffle")({
         name: "description",
         content: "Center yourself and shuffle the deck. The cards will find you.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: ShufflePage,

@@ -19,16 +19,41 @@ const CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How the three card spread works",
       paragraphs: [
-        "Three cards are drawn in sequence and placed into three positions: what has shaped the situation (Past), where you stand right now (Present), and where things are heading if the current pattern continues (Future). Each card is read both on its own and in relation to the others, since the story is in how they connect.",
-        "AstroFree's AI interpretation writes one short paragraph per card, then a closing synthesis that weaves all three into a single, coherent read rather than three disconnected fragments.",
+        "Three cards are drawn in sequence and placed into three positions: what has shaped the situation (Past), where you stand right now (Present), and where things are heading if the current pattern continues (Future). Each card is read both on its own and in relation to the others, since the real narrative lives in how the three cards transition from one to the next.",
+        "AstroFree's AI interpretation writes one dedicated paragraph per card, connecting both its upright or reversed orientation and its position in the timeline, then finishes with a closing synthesis that weaves all three into a single, coherent read rather than three disconnected fragments.",
+        "Notice the momentum across the row. Does the energy accelerate from passive Minor Arcana cards into a decisive Major Arcana card? Or does a grounded Earth card (Pentacles) in the Past shift into turbulent mental energy (Swords) in the Present? Watching how the energy moves left to right gives you far more insight than reading three isolated definitions.",
       ],
     },
     {
       id: "when-to-use",
       title: "When to use a three card tarot spread",
       paragraphs: [
-        "This spread suits situations that are unfolding rather than static — a relationship shifting, a project in motion, a decision that's been building for a while. It's more revealing than a single card without the depth (and time) required by something like the Celtic Cross, which makes it the most popular general-purpose spread for everyday questions.",
-        "Some readers also use the same three positions as Situation / Action / Outcome, or Mind / Body / Spirit — the structure is flexible, but Past / Present / Future is the default and the one AstroFree uses here.",
+        "This spread suits situations that are unfolding rather than static — a relationship shifting, a project in motion, a personal transition, or a decision that's been building for a while. It's more revealing than a single card without the depth (and time) required by something like the Celtic Cross, which makes it the most popular general-purpose spread for everyday questions.",
+        "If you feel stuck inside the middle of a story and cannot tell whether your current tension is old baggage or an incoming turning point, a three-card layout gives you immediate perspective. Seeing what belongs to the Past position helps you separate historical habits from what is actually happening in the Present.",
+      ],
+    },
+    {
+      id: "alternative-layouts",
+      title: "Alternative ways readers frame three cards",
+      paragraphs: [
+        "Although Past / Present / Future is the classic default used here, experienced tarot readers love the three-card structure because the same three slots can adapt to almost any inner question. Common variations include Situation / Challenge / Advice (great for practical troubleshooting), Mind / Body / Spirit (ideal for wellness and emotional check-ins), and What Helps / What Hinders / What Unfolds.",
+        "Even when using Past, Present, and Future, remember that the 'Future' card is never locked in stone. In reflective tarot practice, the third card shows the probable trajectory if nothing changes in your mindset or actions — meaning an uncomfortable third card acts as an early warning system you still have full agency to redirect.",
+      ],
+    },
+    {
+      id: "elemental-balance",
+      title: "Reading elemental and Major Arcana patterns across three cards",
+      paragraphs: [
+        "Once you read each position individually, step back and scan the suit balance across all three cards. Three cards heavy in Cups signal emotional processing, empathy, or creative intuition; Swords highlight communication, analysis, or mental stress; Wands bring urgency, ambition, and creative fire; and Pentacles ground the question in finances, habits, health, or tangible work.",
+        "Pay special attention when one or more Major Arcana cards appear in a three-card spread. While Minor Arcana cards typically describe day-to-day choices and passing moods, Major Arcana cards mark deeper turning points, life lessons, or archetypal shifts that carry longer-lasting significance.",
+      ],
+    },
+    {
+      id: "journaling-prompts",
+      title: "Questions and journaling prompts for three-card spreads",
+      paragraphs: [
+        "To get the sharpest reading, frame your prompt around movement or evolution: 'How is my approach to this project shifting right now?', 'What have I carried into this chapter from the past, and where can I grow next?', or 'What is the arc of my creative momentum over the coming month?'",
+        "After reading your synthesis, write down one sentence linking the Past card to the Present card — for example, 'Because I felt overextended (Ten of Wands) earlier, I am now pausing to re-evaluate (The Hermit).' Naming that bridge turns symbolic insight into genuine self-awareness.",
       ],
     },
   ],
@@ -47,6 +72,16 @@ const CONFIG: ReadingLandingConfig = {
       question: "What if two of my three cards seem to contradict each other?",
       answer:
         "That's common and meaningful rather than a sign of error — it often reflects genuine tension in the situation. The synthesis paragraph in your reading is written to address exactly that kind of contrast.",
+    },
+    {
+      question: "Is the Future card in a three card reading permanent?",
+      answer:
+        "No. The Future position reflects the natural direction of your current momentum if patterns remain unchanged. You always retain free will to adjust your response based on what the Present card reveals.",
+    },
+    {
+      question: "How far back and ahead do Past and Future reach?",
+      answer:
+        "Timeframes in tarot depend on the scope of your question. If you ask about this week, Past and Future usually span days; if you ask about a career transition, they may reflect months of buildup and upcoming change.",
     },
   ],
   relatedCards: [

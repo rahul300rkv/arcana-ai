@@ -26,6 +26,7 @@ export const Route = createFileRoute("/reading/result")({
     meta: [
       { title: "Your Reading — AstroFree" },
       { name: "description", content: "The synthesized interpretation of your tarot reading." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: ResultPage,

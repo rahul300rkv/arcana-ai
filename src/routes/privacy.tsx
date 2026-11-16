@@ -59,30 +59,45 @@ function PrivacyPage() {
         <p className="mt-2 text-sm text-muted-foreground">Last updated: July 2026</p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
-          <Section title="Overview">
-            AstroFree ("we", "our", "the app") provides AI-assisted tarot card readings for
-            reflection and entertainment purposes. This policy explains what information we collect,
-            how it's used, and the choices you have.
+          <Section title="1. Overview &amp; Commitment to Privacy">
+            AstroFree ("we", "our", "the platform") provides free AI-assisted tarot card readings,
+            Vedic numerology calculators, and educational reference guides for reflection and personal
+            insight. Privacy is foundational to how AstroFree is engineered: reflective journaling
+            only works when readers feel safe exploring honest questions without surveillance. This
+            Privacy Policy explains what limited information is processed when you visit the site,
+            what stays strictly on your own device, how third-party advertising cookies operate, and
+            what rights and controls you have over your data.
           </Section>
 
-          <Section title="Information we collect">
-            Your readings, daily card history, and journal reflections are stored locally in your
-            browser (using local storage) and are not tied to a personal account unless you choose
-            to sign in. We do not sell your personal information.
+          <Section title="2. Local-First Storage on Your Device">
+            Unlike conventional astrology portals that require mandatory sign-ups and store intimate
+            life questions in remote databases, AstroFree operates on a local-first architecture.
+            Your past tarot readings, daily card streak, saved journal reflections, language
+            selection, and theme preferences are stored directly inside your web browser's local
+            storage (`localStorage`). Because this data lives on your own hardware, our servers do not
+            retain a central archive of your personal diary entries, and clearing your browser's site
+            data immediately deletes those saved records from your device.
           </Section>
 
-          <Section title="AI-generated readings">
-            When you request an interpretation, your question and the cards drawn are sent to a
-            third-party AI provider to generate the reading text. This request does not include your
-            name, email, or other identifying information unless you've typed it into the question
-            field yourself — please avoid including sensitive personal details in your questions.
+          <Section title="3. Information Processed During Interactive Tools">
+            When you calculate a Mulank, Bhagyank, or Namank chart, the mathematical digit
+            reductions run directly in your browser. When you submit a tarot question or request a
+            personalized synthesis, only the minimal prompt context (the spread type, drawn card
+            names, selected language, and your optional question text) is transmitted securely to our
+            server endpoint so our AI provider can compose the interpretation. We strip identifying
+            account metadata from these requests; nevertheless, please avoid typing sensitive
+            government IDs, financial account numbers, passwords, or private medical details into
+            free-text question boxes.
           </Section>
 
-          <Section title="Cookies and advertising">
-            AstroFree uses Google AdSense to display advertising. Google and its partners may use
-            cookies (including the DoubleClick cookie) to serve ads based on your visits to this
-            site and other sites on the internet. You can opt out of personalized advertising by
-            visiting{" "}
+          <Section title="4. Cookies &amp; Google AdSense Advertising">
+            To keep every tarot spread, guide, and numerology calculator 100% free without paywalls
+            or subscriptions, AstroFree partners with Google AdSense to display advertisements.
+            Third-party vendors, including Google, use cookies to serve ads based on your prior
+            visits to AstroFree and other websites across the internet. Google's use of advertising
+            cookies enables it and its partners to deliver ads tailored to your interests and to
+            measure campaign performance while limiting repetitive ad impressions. You may opt out of
+            personalized advertising at any time by visiting{" "}
             <a
               href="https://adssettings.google.com"
               target="_blank"
@@ -91,7 +106,16 @@ function PrivacyPage() {
             >
               Google Ads Settings
             </a>
-            . For more on how Google uses data, see{" "}
+            , or by managing third-party vendor cookies via{" "}
+            <a
+              href="https://www.aboutads.info/choices/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              aboutads.info
+            </a>
+            . For additional transparency on Google's partner practices, review{" "}
             <a
               href="https://policies.google.com/technologies/partner-sites"
               target="_blank"
@@ -103,36 +127,54 @@ function PrivacyPage() {
             .
           </Section>
 
-          <Section title="Analytics">
-            We may use standard web analytics to understand aggregate usage patterns (e.g. which
-            pages are visited) so we can improve the app. This data is anonymized and not used to
-            identify individual users.
+          <Section title="5. Server Logs &amp; Aggregate Analytics">
+            Like standard web applications, our hosting infrastructure may automatically record basic
+            technical diagnostics in transient server logs — such as browser user-agent, anonymized
+            IP region, requested URL path, and response latency — strictly to maintain uptime,
+            prevent automated abuse, and monitor page performance. We do not sell, rent, or trade
+            visitor logs or personal information to data brokers.
           </Section>
 
-          <Section title="Children's privacy">
-            AstroFree is not directed at children under 13, and we do not knowingly collect personal
-            information from children. If you believe a child has provided us information, please
-            contact us and we'll remove it.
+          <Section title="6. Contact Form Submissions">
+            If you choose to reach out through our{" "}
+            <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
+              Contact page
+            </Link>
+            , we collect the name, reply email address, subject category, and message content you
+            voluntarily provide. We use this information solely to investigate and respond to your
+            support request, bug report, or feedback, and never add senders to unsolicited mailing
+            lists.
           </Section>
 
-          <Section title="Your choices">
-            Since readings and journal entries live in your browser's local storage, you can clear
-            them at any time by clearing your browser's site data for AstroFree.
+          <Section title="7. Children's Privacy">
+            AstroFree is intended for general audiences aged 13 and older. We do not knowingly
+            collect personal information from children under 13 (or under the applicable age of
+            digital consent in your jurisdiction). If you are a parent or guardian and believe a minor
+            has submitted personal details via our contact form, please notify us via the Contact
+            page so we can delete the record promptly.
           </Section>
 
-          <Section title="Changes to this policy">
-            We may update this policy from time to time. Continued use of AstroFree after changes
-            are posted constitutes acceptance of the updated policy.
+          <Section title="8. International Privacy Rights &amp; Data Control">
+            Depending on your jurisdiction — including under India's Digital Personal Data
+            Protection (DPDP) framework, the European Union's GDPR, or California's CCPA/CPRA — you
+            have the right to know what personal data is processed, request correction or deletion of
+            any message you have submitted to us, and control cookie tracking through browser settings
+            or ad opt-out tools. To export or wipe your local reading history at any time, use the
+            controls inside{" "}
+            <Link to="/settings" className="underline underline-offset-4 hover:text-foreground">
+              Settings
+            </Link>{" "}
+            or clear your browser's site data for this domain.
           </Section>
 
-          <Section title="Contact">
-            Questions about this policy? Reach us at{" "}
-            <a
-              href="mailto:hello@astrofree.app"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              hello@astrofree.app
-            </a>
+          <Section title="9. Changes to This Policy &amp; Contact">
+            We review this Privacy Policy periodically as web standards, privacy regulations, and
+            site features evolve. Any updates take effect when published on this page with a revised
+            effective date. If you have questions about our privacy practices, please reach our team
+            securely through our{" "}
+            <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
+              Contact page
+            </Link>
             .
           </Section>
         </GlassCard>

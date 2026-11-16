@@ -642,6 +642,77 @@ function NumerologyGuidePage() {
           </div>
         </section>
 
+        {/* Deeper context & common pitfalls */}
+        <section className="mt-16 space-y-6">
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
+              Historical context
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl">
+              Vedic Roots of Mulank in Indian Tradition
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              In traditional Indian numerology (Ank Shastra), numbers are never treated as dry
+              arithmetic; each single digit from 1 through 9 corresponds to one of the nine classical
+              celestial influences (Navagraha): Sun (1), Moon (2), Jupiter (3), Rahu (4), Mercury (5),
+              Venus (6), Ketu (7), Saturn (8), and Mars (9). While Western Pythagorean numerology
+              often focuses first on the full Life Path sum, Indian practice begins with the Mulank
+              — the day of birth alone — because it reveals how your mind instinctively greets the
+              world every morning.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Pairing Vedic root numbers with Major Arcana tarot archetypes bridges two symbolic
+              languages that share an astonishing structural harmony. For instance, Mulank 1 aligns
+              naturally with The Magician (focused initiative and will), Mulank 2 with The High
+              Priestess (receptivity and inner knowing), and Mulank 4 with The Emperor (structure and
+              steadfast discipline).
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
+              How Mulank, Personal Year, and Personal Month Work Together
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Think of your three core numerology numbers like weather layered over climate. Your{" "}
+              <strong className="text-foreground">Mulank</strong> is your permanent psychological
+              climate — it never changes across your lifetime. Your{" "}
+              <strong className="text-foreground">Personal Year</strong> describes the annual season
+              you are walking through from January to December, explaining why certain themes (like
+              career rebuilding in a Year 4 or quiet study in a Year 7) suddenly take center stage.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Your <strong className="text-foreground">Personal Month</strong> narrows that seasonal
+              arc down to a 30-day window. When a naturally bold Mulank 1 enters a reflective Personal
+              Month 7, friction often arises if you try to force rapid external launches; noticing the
+              monthly rhythm encourages strategic preparation instead of burnout.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
+              Common Calculation Mistakes to Avoid
+            </h2>
+            <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground list-disc pl-5">
+              <li>
+                <strong className="text-foreground">Confusing Mulank with Bhagyank:</strong> Mulank
+                uses only your calendar day (1–31), whereas Bhagyank sums your entire birth day,
+                month, and four-digit year. Make sure you know which lens you are calculating.
+              </li>
+              <li>
+                <strong className="text-foreground">Stopping too early on two-digit totals:</strong>{" "}
+                For example, being born on the 29th gives 2 + 9 = 11, which must reduce one step
+                further (1 + 1 = 2) when finding your single-digit Mulank 1–9.
+              </li>
+              <li>
+                <strong className="text-foreground">Mixing target years on Personal Month:</strong>{" "}
+                Always compute the Personal Year for the specific calendar year you are planning for
+                before adding the target month digit (1–12).
+              </li>
+            </ul>
+          </GlassCard>
+        </section>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

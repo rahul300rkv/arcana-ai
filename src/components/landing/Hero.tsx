@@ -14,7 +14,7 @@ export function Hero() {
       {/* Ambient Crimson Burgundy & Warm Ivory Glows */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[550px] w-[900px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(250,238,218,0.12)_0%,rgba(165,28,56,0.22)_38%,rgba(105,12,32,0.12)_62%,transparent_76%)] blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[550px] w-[92vw] max-w-4xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(250,238,218,0.12)_0%,rgba(165,28,56,0.22)_38%,rgba(105,12,32,0.12)_62%,transparent_76%)] blur-3xl"
       />
       <div
         aria-hidden

@@ -14,6 +14,7 @@ export const Route = createFileRoute("/reading/")({
         content:
           "Pick a tarot spread to begin your reading — from a single card to the full Celtic Cross.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: ReadingIndex,

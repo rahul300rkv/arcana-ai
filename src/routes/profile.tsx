@@ -14,6 +14,7 @@ export const Route = createFileRoute("/profile")({
         name: "description",
         content: "Your AstroFree profile — statistics, achievements, and reading streak.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: ProfilePage,

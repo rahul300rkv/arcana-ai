@@ -66,45 +66,64 @@ function EditorialPolicyPage() {
         <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
-          <Section title="Our goal">
-            Our guides on tarot card meanings, spreads, and numerology aim to reflect widely
-            recognized, traditional interpretations rather than any single author's invented system.
-            We want a reader new to tarot or numerology to come away with an accurate, practical
-            understanding of the topic.
+          <Section title="1. Our Educational Mission &amp; Tone">
+            AstroFree's guides on tarot card meanings, spread layouts, and Vedic numerology are built
+            around one clear goal: teaching classic symbolic traditions accurately in plain, grounded
+            language. Rather than relying on sensationalized claims, fatalistic fearmongering, or
+            invented lore, every reference page is written to help both first-time seekers and
+            seasoned readers understand where symbols come from, how calculations work step by step,
+            and how to apply insights thoughtfully in daily life.
           </Section>
 
-          <Section title="How our guides are written">
-            Card meanings and numerology interpretations are grounded in long-established traditions
-            — the historical Rider-Waite-Smith card associations for tarot, and standard
-            Pythagorean-style reduction methods for numerology. We use AI tools to help draft and
-            structure this content efficiently, with meanings checked against traditional sources
-            rather than generated freely. A human reviews structure and accuracy before publishing.
+          <Section title="2. Traditional Source Foundations">
+            All 78 card reference pages and spread walkthroughs on AstroFree follow well-established
+            Rider-Waite-Smith tarot iconography and widely taught elemental correspondences (Fire /
+            Wands, Water / Cups, Air / Swords, Earth / Pentacles), alongside classical Minor Arcana
+            numerological progression from Aces to Tens and Court Card archetypes. Our numerology
+            articles and calculators distinguish clearly between Indian Vedic Ank Shastra principles
+            (Mulank root numbers, Bhagyank destiny numbers, and Navagraha planetary rulerships) and
+            Western Pythagorean / Chaldean name-reduction traditions (Namank and Master Numbers 11 and
+            22) so readers never confuse overlapping systems.
           </Section>
 
-          <Section title="Corrections and updates">
-            If you spot an error — a miscategorized card, an incorrect number reduction, a broken
-            link — we want to know. Pages are updated when we identify inaccuracies, and guides may
-            be revised over time to improve clarity or add missing context.
+          <Section title="3. AI Assistance &amp; Human Editorial Review">
+            We are transparent about using modern AI tools within both our live reading synthesis and
+            our educational publishing workflow. In editorial production, AI helps organize large
+            encyclopedic matrices (such as 78 individual tarot cards across upright, reversed, love,
+            and career dimensions) and maintain structural consistency. However, AI is never allowed
+            to invent arbitrary card meanings or falsify numerological formulas. All arithmetic logic
+            is verified deterministically in TypeScript code, and human editors review article
+            structure, factual alignment with historical decks, tone, and responsible disclaimers
+            before publication.
           </Section>
 
-          <Section title="Independence from advertising">
-            AstroFree is supported by advertising, but ad placement never influences what a card
-            meaning says or how a numerology result is calculated. Editorial content and advertising
-            are kept separate.
+          <Section title="4. Multilingual Quality Across 13 Indian Languages">
+            Because AstroFree serves readers across diverse linguistic communities, we continuously
+            refine translations across Hindi, Hinglish, Bengali, Telugu, Marathi, Tamil, Gujarati,
+            Kannada, Malayalam, Punjabi, Odia, Assamese, and English. Well-known card names (such as
+            The Fool or The Sun) and established Sanskrit/Hindi numerology terms (Mulank, Bhagyank,
+            Namank) are kept recognizable so bilingual readers can cross-reference classic literature
+            easily.
           </Section>
 
-          <Section title="Affiliate and product mentions">
-            Where we mention external products, books, or services (for example, in a resources or
-            further-reading section), any affiliate relationship will be disclosed clearly near the
-            mention. We only recommend things genuinely relevant to the topic at hand.
+          <Section title="5. Strict Separation Between Editorial Content &amp; Advertising">
+            AstroFree is free for every visitor and supported by Google AdSense advertising. Ad
+            partners, networks, and advertisers have zero influence over what a tarot card guide says,
+            which spreads we recommend, or how any numerology calculator scores a number. Sponsored
+            content or paid placements, if ever introduced in the future, would be explicitly labeled
+            and separated cleanly from core educational guides.
           </Section>
 
-          <Section title="Report an issue">
-            To flag a correction or ask about a specific guide, contact us via our{" "}
+          <Section title="6. Corrections, Revisions &amp; Reader Feedback">
+            Every reference guide carries a visible revision record, and we treat reader feedback as
+            an essential part of keeping our library accurate. If you notice a miscategorized
+            elemental correspondence, a typo in a mathematical example, a broken internal link, or a
+            confusing translation, please report it through our secure{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
-              Contact
-            </Link>{" "}
-            page.
+              Contact page
+            </Link>
+            . Confirmed errors are corrected directly in source data and documented on the next site
+            update.
           </Section>
         </GlassCard>
 

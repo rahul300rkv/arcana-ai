@@ -9,6 +9,8 @@ import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { GammaCorrectionShader } from "three/addons/shaders/GammaCorrectionShader.js";
 import { CopyShader } from "three/addons/shaders/CopyShader.js";
 
+import { useIsMobile } from "@/hooks/use-mobile";
+
 const CONFIG = {
   bgColor: "#1a0418",
   flameColor: "#ff2d6b",
@@ -59,6 +61,7 @@ function detectSoftwareWebGL(): boolean {
 }
 
 export function StormIntro() {
+  const isMobile = useIsMobile();
   const wrapperRef = useRef<HTMLElement>(null);
   const canvasHostRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -81,6 +84,65 @@ export function StormIntro() {
       });
     }
   };
+
+  if (isMobile) {
+    return (
+      <section
+        id="storm-intro"
+        aria-label="AstroFree Cosmic Introduction"
+        className="relative w-full min-h-[82svh] bg-[#1a0418] flex flex-col items-center justify-center px-4 py-16 text-center overflow-hidden border-b border-white/10"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 45%, rgba(255,45,107,0.28) 0%, rgba(106,10,42,0.35) 45%, #1a0418 85%)",
+          }}
+        />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#ff2d6b]/15 blur-3xl pointer-events-none animate-pulse" />
+
+        <div className="relative z-20 flex flex-col items-center justify-center max-w-lg mx-auto">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#ead9c3] drop-shadow-md">
+            Ancient Wisdom · Vedic Numerology · Compassionate AI
+          </p>
+
+          <p className="mt-4 font-display text-5xl font-extrabold tracking-tight leading-none drop-shadow-lg">
+            <span className="chrome-text">Astro</span>
+            <span className="ml-1 font-light tracking-wide text-[#faf2e4]">Free</span>
+          </p>
+
+          <div
+            aria-hidden="true"
+            className="mt-3 h-[1.5px] w-24 bg-gradient-to-r from-transparent via-[#ffd36b]/85 to-transparent"
+          />
+
+          <p className="mt-4 text-sm text-[#f5e7d0]/95 leading-relaxed [text-wrap:balance]">
+            Enter the sanctuary for free 78-card AI tarot readings and Vedic numerology insights.
+          </p>
+
+          <div className="mt-7 flex flex-col w-full gap-3 px-2">
+            <button
+              type="button"
+              onClick={scrollToSite}
+              className="liquid-chrome-btn inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-xs font-bold uppercase tracking-wider text-[#24060e] cursor-pointer"
+            >
+              <span>Enter Sanctuary</span>
+              <ArrowDown className="h-4 w-4" />
+            </button>
+
+            <Link
+              to="/reading"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/35 bg-[#2d0713]/85 px-6 py-3 text-xs font-semibold text-[#faf2e4]"
+            >
+              <span>Begin Tarot Reading</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");

@@ -19,6 +19,7 @@ export const Route = createFileRoute("/dashboard")({
         name: "description",
         content: "Your daily card, recent readings, journal, and reading streak.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: DashboardPage,

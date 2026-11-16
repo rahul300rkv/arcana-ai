@@ -19,15 +19,41 @@ const CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How a yes or no tarot reading works",
       paragraphs: [
-        'Phrase your question so it genuinely has a yes/no answer — "should I take this job?" reads differently than "what should I do about this job?" — then draw a single card. Traditionally, upright cards lean toward yes and reversed cards lean toward no, though the specific card always matters more than orientation alone: The Tower upright is still a caution, and The Star reversed is still gentler than most reversed cards.',
-        'AstroFree\'s interpretation doesn\'t just output "yes" or "no" — it explains the reasoning behind the lean using the card\'s actual symbolism, so you understand why, not just what.',
+        'Phrase your question so it genuinely has a yes/no shape — "should I take this role?" reads much more cleanly than "what should I do about my career?" — then draw a single card from the 78-card deck. Traditionally, upright cards lean toward yes and reversed cards lean toward no or "not yet," though the card\'s actual archetype always outweighs orientation alone.',
+        "For instance, The Tower upright is still a signal to pause and examine unstable foundations, while The Star reversed may simply mean yes, provided you rebuild confidence first rather than rushing ahead.",
+        'AstroFree\'s interpretation does not flatten tarot into a sterile coin flip. Instead of outputting a bare "yes" or "no," the reading explains the reasoning behind the directional lean using the card\'s symbolism, element, and timing cues so you understand the condition underneath the answer.',
       ],
     },
     {
       id: "when-to-use",
       title: "When to use a yes/no tarot pull",
       paragraphs: [
-        'This spread works best for quick, binary questions where you want a fast directional read rather than nuance — "is now a good time to reach out?" or "should I go?" For questions that need more context or involve weighing two real options, the Decision spread or a Three Card Reading will serve you better than forcing a yes/no framing.',
+        'This spread works best for direct, timely questions where you want a quick directional read rather than a sweeping analysis — "is this week a good moment to pitch my idea?" or "should I attend this event?" For decisions involving two competing choices or deep emotional history, the Three Card Reading or Celtic Cross spread gives you the context a binary answer leaves out.',
+        "A yes/no pull is also surprisingly helpful as a gut-check mirror: notice your instant emotional reaction the moment the card flips. If you draw a cautious 'no' and feel quietly relieved, your intuition already knew your true answer before you shuffled.",
+      ],
+    },
+    {
+      id: "yes-no-maybe-spectrum",
+      title: "Understanding Yes, No, and Conditional 'Maybe' cards",
+      paragraphs: [
+        "Experienced readers view yes/no tarot across a three-part spectrum rather than strict absolutes. Cards of expansion, clarity, and fruition — such as The Sun, Ace of Wands, Six of Wands, Nine of Cups, or Ten of Pentacles — naturally carry an enthusiastic 'Yes' lean when upright.",
+        "Cards associated with illusion, inner conflict, or suspension — like The Moon, Two of Swords, Seven of Cups, or The Hanged Man — commonly signal 'Maybe' or 'Wait for clearer facts.' Meanwhile, cards of sharp friction or depletion (Three of Swords, Five of Pentacles, Ten of Swords) or reversed momentum typically urge a protective 'No' or suggest changing your timing before acting.",
+      ],
+    },
+    {
+      id: "major-vs-minor-weight",
+      title: "Major Arcana gravity vs. Minor Arcana timing",
+      paragraphs: [
+        "Pay close attention to whether your yes/no pull lands on a Major Arcana card or a Minor Arcana card. Major Arcana cards carry long-range archetypal weight: drawing Judgement or The Wheel of Fortune suggests the question touches a significant turning point or deeper personal lesson.",
+        "Minor Arcana cards speak to everyday practicality and faster-moving circumstances. An upright Knight of Wands says 'move swiftly while enthusiasm is high,' whereas an upright Four of Pentacles suggests holding your resources steady rather than spending or committing impulsively.",
+      ],
+    },
+    {
+      id: "framing-questions",
+      title: "How to phrase clear yes or no questions",
+      paragraphs: [
+        "Avoid double-barreled or negative questions like 'Should I quit my job or stay until December?' — a single card cannot answer two different paths at once. Split compound questions into one clear proposition, such as 'Is leaving this role in the next month aligned with my growth?'",
+        "Equally important: avoid health diagnoses, legal outcomes, or high-stakes financial wagers. Treat a yes or no tarot draw as a thoughtful sounding board that clarifies your own priorities rather than a substitute for real-world verification.",
       ],
     },
   ],
@@ -46,6 +72,16 @@ const CONFIG: ReadingLandingConfig = {
       question: "Can I ask the same yes/no question twice?",
       answer:
         "You can, but re-asking the same question repeatedly until you get the answer you want defeats the purpose of the reflection. If the question still feels unresolved, try reframing it instead.",
+    },
+    {
+      question: "Do reversed cards always mean 'No' in a yes or no reading?",
+      answer:
+        "Not always. While reversals often indicate delay, blockage, or a cautionary 'no,' positive cards like The Sun or The Empress reversed may instead point to a quiet 'yes, once you slow down or address an internal block.'",
+    },
+    {
+      question: "Why not just flip a coin instead of drawing a tarot card?",
+      answer:
+        "A coin only gives heads or tails without context. A tarot card pairs directional momentum with rich symbolism — showing you why a path feels aligned or what hidden obstacle deserves attention before you decide.",
     },
   ],
   relatedCards: [

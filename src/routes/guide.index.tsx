@@ -240,6 +240,108 @@ function GuideIndexPage() {
           ))}
         </div>
 
+        <section className="mt-16 space-y-10">
+          <GlassCard className="p-6 sm:p-8 space-y-6">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-[color-mix(in_oklab,var(--gold)_85%,white)]">
+                Structured curriculum
+              </p>
+              <h2 className="mt-2 font-display text-2xl sm:text-3xl text-foreground">
+                How to Use the AstroFree Learning Library
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Learning tarot and Vedic numerology works best when you treat them as living
+                reflective languages rather than trivia lists to memorize overnight. Every guide in
+                this library is written in plain, grounded English and structured so you can move
+                smoothly from basic definitions to confident, nuanced interpretation. Whether you are
+                drawing your very first daily card or comparing your Mulank and Bhagyank numbers side
+                by side, you can read every page here without paywalls, registration walls, or
+                overly mystical jargon.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Instead of treating cards or birth numbers as fatalistic predictions, our editorial
+                framework centers on pattern recognition and self-inquiry. A card like The Tower or a
+                challenging Personal Year cycle does not sentence you to misfortune; rather, it names
+                the kind of pressure or structural shift already asking for your attention so you can
+                meet it consciously.
+              </p>
+            </div>
+
+            <div className="grid gap-5 border-t border-white/10 pt-6 md:grid-cols-3">
+              <div>
+                <h3 className="font-display text-lg text-foreground">Stage 1: Foundations</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Start with <strong className="text-foreground/90">Tarot for Beginners</strong> to
+                  grasp the 22 Major Arcana vs. 56 Minor Arcana split, then explore the{" "}
+                  <strong className="text-foreground/90">22 Major Arcana Explained</strong> guide to
+                  recognize life's big archetypal turning points.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-lg text-foreground">Stage 2: Spreads &amp; Nuance</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Move on to <strong className="text-foreground/90">Tarot Spreads Explained</strong>{" "}
+                  and <strong className="text-foreground/90">Reversed Tarot Cards</strong> to learn
+                  how card positions alter meaning and how reversals highlight internal energy,
+                  hesitation, or subtle delays.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-lg text-foreground">Stage 3: Vedic Timing</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Pair your card study with <strong className="text-foreground/90">Mulank Numerology</strong>{" "}
+                  and <strong className="text-foreground/90">Mulank vs Bhagyank</strong> to map your
+                  innate birth vibration alongside Personal Year and Personal Month timing cycles.
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-5">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Core Tarot &amp; Numerology Terms at a Glance
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              If you encounter unfamiliar terminology while exploring readings or calculators, use this
+              concise reference glossary as your anchor:
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 text-sm text-muted-foreground">
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">Major &amp; Minor Arcana</h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  The 78-card tarot deck is split into 22 Major Arcana trump cards representing core
+                  life themes and archetypes, and 56 Minor Arcana cards divided into Wands (Fire),
+                  Cups (Water), Swords (Air), and Pentacles (Earth) reflecting daily circumstances.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">Upright vs. Reversed</h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  Cards drawn right-side up usually express energy outwardly and directly. Upside-down
+                  (reversed) cards point toward inward processing, blocked flow, moderation, or a
+                  lesson still taking shape beneath the surface.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">Mulank (Root Number)</h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  Derived solely from the calendar day of your birth reduced to 1–9, Mulank describes
+                  your instinctive temperament, natural talents, and immediate reaction style under
+                  Vedic planetary rulerships.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">Bhagyank &amp; Namank</h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  Bhagyank (Destiny Number) reduces every digit of your full birth date to show your
+                  broader life path, while Namank translates the letters of your given name into a
+                  harmonic vibration complementing your birth chart.
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+        </section>
+
         <div className="mt-12 grid gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-2">
           <div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">

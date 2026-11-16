@@ -120,6 +120,26 @@ function AboutPage() {
             and professional support still matter most when real decisions are being made.
           </Section>
 
+          <Section title="Bridging Indian Numerology and Classic Tarot">
+            A signature feature of AstroFree is the integration of classic 78-card Rider-Waite-Smith
+            tarot symbolism with Indian Vedic numerology (Ank Shastra). While many western apps treat
+            tarot and numerology as separate curiosities, both traditions rest on shared archetypal
+            geometry: the nine root numbers (Mulank 1 through 9) correspond cleanly to the first nine
+            Major Arcana trump cards, from The Magician (1) to The Hermit (9). By placing Mulank,
+            Bhagyank, Namank, and Personal Year timing cycles alongside your card pulls, AstroFree
+            gives readers a richer context for understanding both daily moments and multi-year
+            personal chapters.
+          </Section>
+
+          <Section title="Multilingual Accessibility Without Paywalls">
+            Reflective tools work best in the language you naturally think and journal in. Because
+            AstroFree serves readers across India and worldwide, we designed our reading synthesis and
+            educational resources to support 13 Indian languages alongside English — including Hindi,
+            Hinglish, Bengali, Telugu, Marathi, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia,
+            and Assamese. Everything on the platform remains genuinely free: no trial counters, no
+            locked reversals, and no surprise subscription tiers.
+          </Section>
+
           <Section title="Privacy First">
             AstroFree is built so that readers can explore freely without needing a heavy account
             system. We do not sell personal data, and our privacy practices are designed to keep the
@@ -127,8 +147,12 @@ function AboutPage() {
             please read our{" "}
             <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
               Privacy Policy
-            </Link>{" "}
-            and our{" "}
+            </Link>
+            , our{" "}
+            <Link to="/cookie-policy" className="underline underline-offset-4 hover:text-foreground">
+              Cookie Policy
+            </Link>
+            , and our{" "}
             <Link to="/disclaimer" className="underline underline-offset-4 hover:text-foreground">
               Disclaimer
             </Link>
@@ -136,18 +160,13 @@ function AboutPage() {
           </Section>
 
           <Section title="Contact">
-            Questions, corrections, or suggestions are welcome. Visit our{" "}
+            Questions, corrections, editorial suggestions, or technical feedback are always welcome.
+            You can reach our support desk directly through our secure{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
               Contact page
-            </Link>{" "}
-            or write to{" "}
-            <a
-              href="mailto:hello@astrofree.app"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              hello@astrofree.app
-            </a>
-            .
+            </Link>
+            , where every inquiry is routed privately to our editorial and engineering team without
+            requiring third-party social logins.
           </Section>
         </GlassCard>
 

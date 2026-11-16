@@ -1186,6 +1186,44 @@ function NumerologyPage() {
         </div>
 
         <div>
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Planetary Rulerships in Vedic Numerology (Ank Shastra)
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            One reason Vedic numerology feels distinct from purely Western number charts is its
+            close tie to the nine classical planetary forces (Navagraha). In Indian tradition, each
+            root number from 1 through 9 embodies the psychological strengths and shadow lessons of
+            its ruling planet: Surya (Sun) governs Mulank 1 with leadership and self-reliance;
+            Chandra (Moon) infuses Mulank 2 with empathy and emotional nuance; Guru (Jupiter) expands
+            Mulank 3 toward teaching and optimism; Rahu lends Mulank 4 unconventional precision;
+            Budha (Mercury) quickens Mulank 5 toward curiosity and adaptability; Shukra (Venus)
+            harmonizes Mulank 6 around beauty and care; Ketu draws Mulank 7 into contemplation;
+            Shani (Saturn) tempers Mulank 8 through patience and accountability; and Mangal (Mars)
+            energizes Mulank 9 with courage and humanitarian resolve.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Understanding planetary temperament helps explain why two people with equally ambitious
+            goals pursue them differently. A Mulank 1 builds momentum through visible initiative and
+            autonomy, whereas a Mulank 8 achieves lasting authority through endurance, structure,
+            and long-range discipline.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Combining Mulank Numerology with Tarot Archetypes
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            AstroFree pairs every single-digit numerology cycle directly with its corresponding Major
+            Arcana tarot card (1 The Magician through 9 The Hermit). When you calculate your Personal
+            Year or Personal Month above and then pull a Three Card or One Card tarot spread, look
+            for resonance between your number theme and your drawn cards. For example, stepping into
+            a Personal Month 4 (The Emperor) while drawing Pentacles or Justice reinforces a clear
+            season for contracts, budgeting, and disciplined foundations rather than impulsive risk.
+          </p>
+        </div>
+
+        <div>
           <h2 className="font-display text-3xl sm:text-4xl">FAQs</h2>
           <div className="mt-5">
             <FAQAccordion items={mulankFaqs} />

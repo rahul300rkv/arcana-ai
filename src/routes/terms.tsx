@@ -59,57 +59,95 @@ function TermsPage() {
         <p className="mt-2 text-sm text-muted-foreground">Last updated: July 2026</p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
-          <Section title="Acceptance of terms">
-            By using AstroFree, you agree to these terms. If you don't agree, please don't use the
-            app.
+          <Section title="1. Acceptance of Terms">
+            Welcome to AstroFree. By accessing, browsing, or using our website, tarot reading tools,
+            Vedic numerology calculators, or educational articles (collectively, the "Service"), you
+            acknowledge that you have read, understood, and agreed to be bound by these Terms of
+            Service along with our{" "}
+            <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link to="/disclaimer" className="underline underline-offset-4 hover:text-foreground">
+              Disclaimer
+            </Link>
+            . If you do not agree with any provision of these terms, please discontinue use of the
+            Service.
           </Section>
 
-          <Section title="Entertainment purposes only">
-            AstroFree provides tarot readings for reflection, entertainment, and personal insight.
-            Readings are not a substitute for professional medical, legal, financial, or
-            psychological advice. Please consult a qualified professional for decisions in those
-            areas.
+          <Section title="2. Eligibility &amp; Intended Audience">
+            AstroFree is designed for visitors aged 13 and older. By using the Service, you confirm
+            that you meet the minimum digital consent age in your country or are accessing the
+            educational resources under the supervision of a parent or legal guardian. No account
+            registration is required to browse guides or generate readings.
           </Section>
 
-          <Section title="Free to use">
-            AstroFree is free to use. We may display advertising (via Google AdSense) to support the
-            cost of running the service. We do not currently charge for any feature.
+          <Section title="3. Entertainment, Educational &amp; Reflective Scope">
+            All tarot spreads, card interpretations, numerology reductions (Mulank, Bhagyank,
+            Namank, Personal Year, Personal Month), and editorial articles published on AstroFree are
+            offered strictly for personal reflection, cultural education, and entertainment.
+            Symbolic interpretations do not constitute empirically verified predictions and must
+            never replace licensed medical, psychiatric, legal, tax, investment, or relationship
+            counseling. You remain solely responsible for all real-world choices you make.
           </Section>
 
-          <Section title="Your content">
-            Questions you type and reflections you save remain yours. We don't claim ownership over
-            your journal entries or questions.
+          <Section title="4. AI-Assisted Content &amp; Service Availability">
+            Portions of AstroFree's personalized reading syntheses are generated dynamically using
+            automated language models paired with traditional tarot and Vedic numerology rules.
+            While we refine prompts and editorial baselines continuously, automated outputs can
+            occasionally reflect ambiguity or unexpected phrasing. We also reserve the right to
+            modify, suspend, or upgrade calculators, spreads, or supported languages at any time
+            without prior notice.
           </Section>
 
-          <Section title="Acceptable use">
-            Please don't use AstroFree to submit unlawful, harmful, or abusive content, or to
-            attempt to disrupt or reverse-engineer the service.
+          <Section title="5. Free Access &amp; Advertising Support">
+            AstroFree is provided free of charge to all visitors. To cover hosting, maintenance, and
+            AI computation expenses without charging subscription fees, the Service displays
+            third-party advertisements (such as Google AdSense) on editorial and calculator pages. You
+            agree not to interfere with, block maliciously, or artificially inflate ad impressions or
+            clicks in violation of advertising network policies.
           </Section>
 
-          <Section title="No warranty">
-            AstroFree is provided "as is" without warranties of any kind. We do our best to keep the
-            app accurate and available, but we can't guarantee uninterrupted or error-free
-            operation.
+          <Section title="6. Intellectual Property &amp; User Content">
+            All original editorial guides, page layouts, software code, and custom visual assets on
+            AstroFree remain the intellectual property of AstroFree or its respective licensors. You
+            are welcome to read, share links to, and quote brief passages for personal or educational
+            purposes with attribution, but systematic scraping, mirroring, or commercial
+            republication of our guides is prohibited. Questions you enter and personal journal notes
+            stored in your browser remain 100% yours; we claim no ownership over your private
+            reflections.
           </Section>
 
-          <Section title="Limitation of liability">
-            To the fullest extent permitted by law, AstroFree and its creators are not liable for
-            any indirect, incidental, or consequential damages arising from your use of the app.
+          <Section title="7. Acceptable Use &amp; Fair Technical Limits">
+            You agree to use AstroFree lawfully and respectfully. You must not attempt to probe,
+            overload, or disrupt our servers via automated bots, denial-of-service traffic,
+            unauthorized API scraping, or injection attacks, nor submit hateful, harassing, or
+            unlawful material through any interactive input or contact form.
           </Section>
 
-          <Section title="Changes to these terms">
-            We may update these terms occasionally. Continued use after changes are posted means you
-            accept the revised terms.
+          <Section title="8. Third-Party Links &amp; External Websites">
+            Our articles and ad units may contain links to third-party resources or external
+            services. AstroFree does not endorse and is not responsible for the content, privacy
+            practices, or terms of any external website you visit after leaving our domain.
           </Section>
 
-          <Section title="Contact">
-            Questions about these terms? Reach us at{" "}
-            <a
-              href="mailto:hello@astrofree.app"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              hello@astrofree.app
-            </a>
+          <Section title="9. Disclaimer of Warranties &amp; Limitation of Liability">
+            The Service is provided strictly on an "AS IS" and "AS AVAILABLE" basis without express
+            or implied warranties of merchantability, fitness for a particular purpose, or
+            uninterrupted availability. To the maximum extent permitted under applicable law,
+            AstroFree and its operators shall not be liable for any direct, indirect, incidental,
+            special, or consequential damages resulting from your use of, or inability to use, any
+            reading, calculator, or article on the platform.
+          </Section>
+
+          <Section title="10. Changes to Terms &amp; Contact">
+            We may revise these Terms of Service periodically to reflect legal updates or new
+            platform capabilities. Continued access after revised terms are posted indicates your
+            acceptance of the updated agreement. Questions regarding these terms may be sent anytime
+            through our secure{" "}
+            <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
+              Contact page
+            </Link>
             .
           </Section>
         </GlassCard>

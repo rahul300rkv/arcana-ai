@@ -19,16 +19,41 @@ const CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How the career reading works",
       paragraphs: [
-        "Four cards are drawn into four positions: your current position at work, what's holding you back, how to move forward, and where the situation is likely heading if you take that advice. The structure moves from diagnosis to action, so the reading ends with something you can actually act on rather than just a description of where you stand.",
-        "AstroFree's AI interpretation ties each card to your specific question — a promotion, a resignation, a business decision — rather than giving generic career platitudes.",
+        "Four cards are drawn into four structured positions: Where You Are (your current professional stance), Challenge (what is creating friction or holding momentum back), Advice (the practical posture or mindset most likely to unlock progress), and Outcome (where the trajectory leads if you apply that guidance).",
+        "Because the layout moves deliberately from diagnosis to strategy, the reading concludes with something constructive you can act on rather than leaving you with vague observations about workplace stress.",
+        "AstroFree's AI interpretation connects each card directly to your stated work context — whether you are preparing for an interview, considering an industry pivot, negotiating responsibilities, or deciding whether to launch an independent venture.",
       ],
     },
     {
       id: "when-to-use",
       title: "When to use a career tarot reading",
       paragraphs: [
-        "This spread fits any work-related question: whether to take a new role, how to handle a difficult colleague or manager, whether now is the right time to start something on your own, or simply feeling stuck and wanting a different angle on the situation. For a broader life-direction question that isn't specifically about work, the Three Card Reading may fit better.",
-        "As with every reading here, this is a reflective tool, not financial or career advice — treat the Advice and Outcome positions as prompts to think through, not instructions to follow blindly.",
+        "This spread fits any work, study, or vocational question: weighing a job offer, navigating tension with a manager or co-founder, diagnosing creative burnout, or checking whether a side project is ready to scale. For broader questions about personal growth or identity outside work, the Three Card or Celtic Cross spread may give you a wider frame.",
+        "As with every reading on AstroFree, career tarot is a strategic reflection tool, not financial or legal counsel. Treat the Advice and Outcome cards as structured prompts to challenge blind spots alongside real market research and trusted mentors.",
+      ],
+    },
+    {
+      id: "four-positions-career",
+      title: "Breaking down the four career positions",
+      paragraphs: [
+        "Position 1 (Where You Are) often reveals an inner reality you haven't admitted yet — perhaps you look successful on paper (Nine of Pentacles) while feeling quietly restless (Four of Cups). Naming your starting point honestly makes every decision afterward clearer.",
+        "Position 2 (Challenge) distinguishes external obstacles (budget freezes, rigid hierarchy) from internal blockers (imposter syndrome, perfectionism, fear of visibility). Position 3 (Advice) then offers a direct counterweight, and Position 4 (Outcome) previews the realistic direction of that adjusted path.",
+      ],
+    },
+    {
+      id: "suits-at-work",
+      title: "What the four tarot suits mean in a career spread",
+      paragraphs: [
+        "Every suit maps cleanly onto real workplace dynamics. Pentacles govern income, craft, steady skill-building, and long-term security — cards like Eight of Pentacles or Three of Pentacles celebrate mastery and reliable teamwork. Wands represent ambition, entrepreneurship, leadership energy, and creative drive.",
+        "Swords highlight strategy, contracts, intellectual problem-solving, and clear communication — though reversed Swords can warn against burnout from overthinking. Cups reflect workplace culture, purpose, fulfillment, and how emotionally nourished you feel by what you build every day.",
+      ],
+    },
+    {
+      id: "practical-next-steps",
+      title: "Turning tarot insight into concrete work action",
+      paragraphs: [
+        "Once you finish reading your spread, translate the Advice card into one small action within 48 hours. If The Magician appears in Advice, update your portfolio or pitch the idea you've been sitting on; if Four of Swords shows up, protect an uninterrupted evening of rest before making any major resignation or contract call.",
+        "Pairing your Career Tarot Reading with your Personal Year number in our Numerology Calculator can also illuminate timing — showing whether this year favors bold expansion (Personal Year 1 or 5) or patient consolidation (Personal Year 4 or 7).",
       ],
     },
   ],
@@ -47,6 +72,16 @@ const CONFIG: ReadingLandingConfig = {
       question: "How specific should my career question be?",
       answer:
         'More specific tends to give a more useful reading. "Should I leave my current job for the offer I received?" will read more clearly than a broad "what should I do with my career?"',
+    },
+    {
+      question: "What if I draw Ten of Wands or Five of Pentacles in a career spread?",
+      answer:
+        "Those cards rarely predict permanent failure — instead, they highlight overcommitment, under-compensation, or carrying responsibilities that belong elsewhere. In Advice or Challenge, they nudge you to delegate, renegotiate boundaries, or ask for support.",
+    },
+    {
+      question: "Can students or job-seekers use the career tarot spread?",
+      answer:
+        "Yes. Whether you are choosing an academic track, returning to work after a break, or interviewing after a layoff, the four positions adapt naturally to learning, preparation, and next steps.",
     },
   ],
   relatedCards: [

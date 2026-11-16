@@ -169,6 +169,75 @@ function TarotSpreadsPage() {
           ))}
         </div>
 
+        <section className="mt-14 space-y-8">
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
+              How Position Context Transforms Every Card
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Beginners often treat tarot cards as fixed flashcards: The Sun equals joy, Five of
+              Pentacles equals hardship, Three of Swords equals heartbreak. In practice, a spread's
+              architecture acts like grammar in a sentence. A card acts as a noun or verb, while the
+              position it lands in decides whether that energy describes a past habit, an unseen ally,
+              a present obstacle, or an emerging solution.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Consider drawing the Eight of Swords inside a Challenge position versus an Advice
+              position. As a Challenge, it points out where overthinking or self-imposed rules have
+              convinced you that you have fewer options than you actually do. Inside an Advice slot,
+              however, it invites you to question unexamined assumptions immediately — noticing that
+              the blindfold in traditional artwork is tied loosely enough to remove yourself.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
+              Choosing the Right Spread Size for Your Question
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              More cards do not automatically produce a better reading. Matching spread complexity to
+              the real scope of your question keeps interpretations crisp and actionable:
+            </p>
+            <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground list-disc pl-5">
+              <li>
+                <strong className="text-foreground">Single Card (1 card):</strong> Ideal for morning
+                intentions, emotional temperature checks, and direct yes/no leans where excessive
+                detail only clouds your intuition.
+              </li>
+              <li>
+                <strong className="text-foreground">Three Card &amp; Decision Spreads (3–4 cards):</strong>{" "}
+                Best when you need narrative flow — seeing how yesterday's momentum shapes today's
+                choice, or weighing two distinct options side by side.
+              </li>
+              <li>
+                <strong className="text-foreground">Topic Spreads (Love, Career, Money — 4 cards):</strong>{" "}
+                Designed around dedicated interpersonal or practical lenses so you examine both internal
+                stance and external obstacles cleanly.
+              </li>
+              <li>
+                <strong className="text-foreground">Celtic Cross &amp; Year Ahead (10–12 cards):</strong>{" "}
+                Best saved for major life transitions, long-horizon planning, or multi-layered
+                dilemmas where psychological roots and external influences both matter.
+              </li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
+              Synthesizing Multi-Card Spreads Without Overwhelm
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              When staring at four to ten cards at once, resist reading each one in isolation. First,
+              scan the whole layout for elemental balance: an abundance of Cups points to emotional
+              sensitivity, Wands signals creative urgency, Swords reveals heavy mental analysis, and
+              Pentacles anchors the question in tangible stability, craft, or finances. Next, note
+              how many Major Arcana cards appear — two or more suggest deeper life themes at play
+              rather than minor passing moods. Finally, look at the first and last cards together as
+              a headline summarizing where the energy starts and where it resolves.
+            </p>
+          </GlassCard>
+        </section>
+
         <div className="mt-14">
           <Link
             to="/"

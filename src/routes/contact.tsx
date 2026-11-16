@@ -205,6 +205,132 @@ function ContactPage() {
           )}
         </div>
 
+        <section className="mt-14 space-y-8">
+          <GlassCard className="p-6 sm:p-8 space-y-5">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[color-mix(in_oklab,var(--gold)_85%,white)]">
+              <MessageSquare className="h-4 w-4" />
+              <span>How We Can Help</span>
+            </div>
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Support Topics &amp; Editorial Inquiries
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Whether you are visiting AstroFree for your first tarot spread, verifying a Vedic
+              numerology calculation, or flagging an editorial detail, every message submitted through
+              this form is reviewed personally by our support and editorial team. To help us route
+              your inquiry accurately and reply within 24 to 48 business hours, choose the subject
+              category that best fits your note.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2 pt-2 text-sm text-muted-foreground">
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">
+                  Tarot Spreads &amp; Card Meanings
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  Questions about how AstroFree synthesizes reversed cards, how to choose between the
+                  Three Card and Celtic Cross spreads, or suggestions for clarifying traditional card
+                  descriptions across our 78-card directory.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">
+                  Vedic Numerology Calculators
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  Need clarity on how our Mulank, Bhagyank, Namank, Personal Year, or Master Number 11
+                  and 22 calculators reduce compound digits? Include your question (without sensitive
+                  identity documents) and we will gladly explain the calculation steps.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">
+                  Corrections &amp; Language Feedback
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  We maintain educational content in English alongside 13 Indian languages. If you
+                  spot a typo, broken link, or phrasing that could sound more natural in Hindi,
+                  Hinglish, Tamil, Bengali, or another regional script, let us know the page path so
+                  our editors can review it promptly.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                <h3 className="font-display text-base text-foreground">
+                  Privacy, Cookies &amp; Compliance
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed">
+                  For inquiries regarding browser local storage, cookie preferences, advertising
+                  disclosures, or content removal requests, select General Support and reference the
+                  specific policy section from our{" "}
+                  <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-5">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Frequently Asked Support Questions
+            </h2>
+            <div className="space-y-4 text-sm text-muted-foreground">
+              <div>
+                <h3 className="font-display text-base text-foreground">
+                  How quickly does the AstroFree team respond?
+                </h3>
+                <p className="mt-1 leading-relaxed">
+                  We review incoming messages daily and aim to respond to all genuine support,
+                  correction, and partnership requests within 24 to 48 hours on business days.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-base text-foreground">
+                  Can I request a personal live reading through the contact form?
+                </h3>
+                <p className="mt-1 leading-relaxed">
+                  AstroFree is built as a self-serve, privacy-first educational and reflective
+                  platform — we do not sell private paid consultations via email. You can generate
+                  unlimited spreads for free anytime from our{" "}
+                  <Link to="/tarot" className="underline underline-offset-4 hover:text-foreground">
+                    Tarot Reading hub
+                  </Link>{" "}
+                  or explore your{" "}
+                  <Link
+                    to="/numerology"
+                    className="underline underline-offset-4 hover:text-foreground"
+                  >
+                    Vedic Numerology forecast
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-base text-foreground">
+                  Where is my saved reading history stored?
+                </h3>
+                <p className="mt-1 leading-relaxed">
+                  Your reading log, daily card streak, and personal reflections are stored directly on
+                  your own device using browser local storage. Because we do not keep centralized
+                  reading diaries on our servers, clearing your browser cache or switching devices
+                  resets local entries unless exported from Settings.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-base text-foreground">
+                  How is my contact form submission handled?
+                </h3>
+                <p className="mt-1 leading-relaxed">
+                  Your name, reply email, and message are used strictly to respond to your inquiry. We
+                  never publish visitor email addresses, add senders to unsolicited marketing lists, or
+                  sell contact details to third parties.
+                </p>
+              </div>
+            </div>
+          </GlassCard>
+        </section>
+
         <div className="mt-8">
           <Link
             to="/"

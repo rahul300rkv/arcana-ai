@@ -26,6 +26,7 @@ export const Route = createFileRoute("/settings")({
         content:
           "Personalize your AstroFree experience — theme, language, notifications, privacy, and account.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: SettingsPage,

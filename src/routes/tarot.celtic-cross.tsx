@@ -19,16 +19,41 @@ const CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How the Celtic Cross spread works",
       paragraphs: [
-        "Ten cards are dealt into ten fixed positions, each covering a different facet of the situation: the heart of the matter, what crosses you, the foundation beneath it, what's passing away, what's possible, what's approaching, how you see yourself, outside influences, your hopes and fears, and finally the likely outcome. Reading it well means looking at each card individually and then at how the ten connect as a single story.",
-        "Because there's so much more information here than in a single or three-card pull, AstroFree writes one paragraph per position and then a longer synthesis that draws the whole spread together — we'd recommend giving yourself a few unhurried minutes to read the full result.",
-        "For a full walkthrough of what each of the ten positions means and how to read them together, see our step-by-step Celtic Cross guide.",
+        "Ten cards are dealt into ten fixed positions, each illuminating a distinct layer of the situation: the heart of the matter (1), what crosses or challenges you (2), the hidden foundation beneath it (3), what is passing away (4), the highest potential or conscious goal (5), what is approaching next (6), how you see yourself (7), outside influences around you (8), your hopes and fears (9), and finally the likely outcome (10).",
+        "Because ten cards carry dramatically more nuance than a quick pull, AstroFree writes a dedicated paragraph for every position and then weaves all ten into a comprehensive closing synthesis — giving you a structured, readable narrative rather than ten disconnected dictionary entries.",
+        "For a full position-by-position reference with worked reading tips, see our companion step-by-step Celtic Cross guide.",
       ],
     },
     {
       id: "when-to-use",
       title: "When to use the Celtic Cross",
       paragraphs: [
-        "This is the right spread for complex, multi-layered questions — a major life decision, a relationship with a long history, or a situation where a quick single-card or three-card read has left you wanting more depth. It's less suited to quick daily check-ins, where the One Card Reading is faster and easier to sit with.",
+        "Reach for the Celtic Cross when your question is complex, multi-layered, or carries real emotional stakes — a major career pivot, a long-term relationship crossroads, moving to a new city, or a chapter where shorter spreads have only scratched the surface.",
+        "It is intentionally unhurried. If you only need a fast morning check-in or a single directional lean, the One Card or Three Card reading is lighter and easier to digest. Save the Celtic Cross for moments when you have ten or fifteen quiet minutes to reflect.",
+      ],
+    },
+    {
+      id: "cross-and-staff",
+      title: "Anatomy of the Cross (1–6) and the Staff (7–10)",
+      paragraphs: [
+        "Most readers mentally divide the Celtic Cross into two halves. Positions 1 through 6 form the Cross: they examine the situation itself — the core tension between Positions 1 and 2, the timeline flowing horizontally from Position 4 (Recent Past) to Position 6 (Near Future), and the vertical axis connecting subconscious roots (Position 3) with conscious aspirations (Position 5).",
+        "Positions 7 through 10 form the Staff on the right side, shifting the lens toward psychology and context. Position 7 mirrors your inner attitude, Position 8 reflects people or external circumstances shaping the arena, Position 9 exposes what you secretly wish for or dread, and Position 10 integrates everything into the culminating trajectory.",
+      ],
+    },
+    {
+      id: "pattern-spotting",
+      title: "Spotting dominant suits, court cards, and Major Arcana",
+      paragraphs: [
+        "After reading the ten positions in order, step back and look for repetition. If four or more cards belong to the same suit — say, Swords or Pentacles — that element names the true centerpiece of the issue, even if your question sounded like it belonged to another area of life.",
+        "Similarly, three or more Court Cards (Pages, Knights, Queens, Kings) often indicate that multiple personalities, mentors, or competing roles are influencing the outcome. Multiple Major Arcana cards signal a milestone chapter where deeper personal growth matters just as much as immediate logistics.",
+      ],
+    },
+    {
+      id: "preparing-your-reading",
+      title: "Getting the most out of a ten-card reading",
+      paragraphs: [
+        "Before drawing, write down or state your question in plain, honest language. Broad, open framing such as 'Help me understand what is unfolding in my creative life and career over the next six months' works far better across ten cards than a narrow yes/no question.",
+        "Once your synthesis appears, pay attention to the relationship between Position 3 (Foundation), Position 9 (Hopes & Fears), and Position 10 (Outcome). Very often, shifting an unspoken fear revealed in Position 9 directly unlocks a healthier outcome.",
       ],
     },
   ],
@@ -47,6 +72,16 @@ const CONFIG: ReadingLandingConfig = {
       question: "What's the difference between the Celtic Cross and a Three Card Reading?",
       answer:
         "Both use a Past/Present/Future-style logic, but the Celtic Cross adds seven more positions — challenge, foundation, hopes and fears, outside influences, and more — for a far more detailed picture. Use the Three Card Reading for lighter questions and the Celtic Cross when you want the full depth.",
+    },
+    {
+      question: "Why does Position 2 'cross' Position 1 — is it always negative?",
+      answer:
+        "No. Although Position 2 is often called the Challenge or Crossing card, it represents whatever intersects with the main situation. Sometimes a positive card there shows an opportunity you aren't sure how to integrate yet, or an asset you are overlooking.",
+    },
+    {
+      question: "Can I revisit a Celtic Cross reading weeks later?",
+      answer:
+        "Yes — in fact, the Celtic Cross rewards revisiting. Saving your reading to your local journal and re-reading Positions 6, 8, and 10 a month later is one of the best ways to notice how subtle symbols played out in real life.",
     },
   ],
   relatedCards: [

@@ -30,6 +30,7 @@ export const Route = createFileRoute("/reading/question")({
         name: "description",
         content: "Focus your intention. Type the question you want the cards to speak to.",
       },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: QuestionPage,

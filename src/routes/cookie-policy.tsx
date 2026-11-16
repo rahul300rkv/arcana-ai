@@ -66,71 +66,110 @@ function CookiePolicyPage() {
         <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
-          <Section title="What cookies are">
-            Cookies are small text files a website stores in your browser to remember information
-            between visits. Some sites also use similar technologies, like browser local storage, to
-            store data on your device.
+          <Section title="1. What Cookies &amp; Browser Storage Are">
+            Cookies are small text files placed on your computer, tablet, or smartphone when you
+            visit a website. They help browsers remember settings between page loads, measure
+            aggregate traffic, and support relevant advertising. Alongside traditional HTTP cookies,
+            modern web applications like AstroFree also use browser local storage (`localStorage`),
+            which saves preferences and personal app state strictly on your own device without
+            transmitting that state on every network request.
           </Section>
 
-          <Section title="How AstroFree uses local storage">
-            AstroFree stores your reading history, daily card streak, journal entries, theme, and
-            language preference directly in your browser's local storage. This data stays on your
-            device, isn't sent to our servers unless you choose to sign in, and can be cleared at
-            any time from your browser settings.
-          </Section>
-
-          <Section title="Advertising cookies (Google AdSense)">
-            We use Google AdSense to display ads, which may set cookies — including the DoubleClick
-            cookie — to serve ads based on your visits to this and other sites. Google may also use
-            these cookies to measure ad performance and limit how often you see the same ad.
-          </Section>
-
-          <Section title="Analytics cookies">
-            We may use standard web analytics tools to understand aggregate traffic patterns, such
-            as which pages are visited and how. These tools may set cookies to distinguish sessions
-            and visitors; the data is used in aggregate and isn't used to identify you personally.
-          </Section>
-
-          <Section title="Managing your preferences">
-            You can control or delete cookies through your browser's settings — most browsers let
-            you block third-party cookies entirely or clear cookies for a specific site. To opt out
-            of personalized advertising from Google specifically, visit{" "}
-            <a
-              href="https://adssettings.google.com"
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              Google Ads Settings
-            </a>
-            . You can also opt out of some third-party vendors' use of cookies for personalized
-            advertising via{" "}
-            <a
-              href="https://www.aboutads.info/choices/"
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4 hover:text-foreground"
-            >
-              aboutads.info
-            </a>
+          <Section title="2. How AstroFree Uses Local Storage (Device-Only)">
+            To keep your tarot readings and reflections private without forcing account sign-ups,
+            AstroFree stores essential app data inside your browser's local storage. This includes
+            your reading history log, daily card streak counter, personal journal notes, selected
+            visual theme, and preferred display language (across English and 13 Indian languages).
+            Unlike third-party tracking cookies, local storage entries never leave your device to
+            power cross-site profiling, and you can export or wipe them anytime from your{" "}
+            <Link to="/settings" className="underline underline-offset-4 hover:text-foreground">
+              Settings page
+            </Link>
             .
           </Section>
 
-          <Section title="Changes to this policy">
-            We may update this Cookie Policy as our use of cookies and similar technologies changes.
-            Check back periodically for updates.
+          <Section title="3. Essential Functional Technologies">
+            Certain lightweight browser storage mechanisms are strictly necessary for basic site
+            operation — such as remembering your language toggle as you navigate from a tarot guide
+            to a numerology calculator, keeping multi-step reading selections intact between the
+            Question, Shuffle, Reveal, and Result screens, and preserving security headers.
           </Section>
 
-          <Section title="Questions">
-            For anything not covered here, see our{" "}
+          <Section title="4. Advertising Cookies (Google AdSense)">
+            AstroFree remains completely free to use thanks to non-intrusive display advertising
+            served via Google AdSense. Google and its certified third-party ad networks may place
+            and read cookies — including the DoubleClick / NID / IDE cookies — or use web beacons to
+            serve ads tailored to your previous visits to this website or other sites across the web.
+            These cookies also enforce frequency caps (so you do not see the exact same ad
+            repeatedly), detect invalid click fraud, and report aggregate ad performance to
+            publishers.
+          </Section>
+
+          <Section title="5. Analytics &amp; Performance Measurement">
+            We may utilize privacy-conscious aggregate analytics to understand broad usage patterns —
+            for example, identifying which tarot spreads, numerology calculators, or educational guides
+            readers find most helpful, and diagnosing slow page loads on mobile devices. These
+            metrics are analyzed in aggregate rather than used to construct individual consumer
+            profiles.
+          </Section>
+
+          <Section title="6. How to Manage or Opt Out of Cookies">
+            You remain in full control of cookie behavior across every device you use:
+            <span className="block mt-2">
+              • <strong className="text-foreground">Google Personalized Ads Opt-Out:</strong> Visit{" "}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                Google Ads Settings
+              </a>{" "}
+              to disable personalized ad targeting across Google partner sites.
+            </span>
+            <span className="block mt-1">
+              • <strong className="text-foreground">Industry Opt-Out Portals:</strong> Manage
+              participating third-party advertising networks via{" "}
+              <a
+                href="https://www.aboutads.info/choices/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                aboutads.info
+              </a>{" "}
+              or{" "}
+              <a
+                href="https://www.youronlinechoices.eu/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 hover:text-foreground"
+              >
+                Your Online Choices
+              </a>
+              .
+            </span>
+            <span className="block mt-1">
+              • <strong className="text-foreground">Browser Settings:</strong> All major browsers
+              (Chrome, Safari, Firefox, Edge) allow you to inspect, block third-party cookies, or
+              automatically clear site data whenever you close a window. Please note that disabling
+              local storage completely will prevent your reading history and language choice from
+              persisting between visits.
+            </span>
+          </Section>
+
+          <Section title="7. Updates &amp; Further Questions">
+            We may update this Cookie Policy whenever our technical stack, privacy standards, or
+            advertising integrations evolve. For broader details on how data is handled across the
+            platform, read our{" "}
             <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
               Privacy Policy
             </Link>{" "}
-            or reach us via our{" "}
+            or reach our support team anytime through our{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
-              Contact
-            </Link>{" "}
-            page.
+              Contact page
+            </Link>
+            .
           </Section>
         </GlassCard>
 

@@ -1,10 +1,14 @@
+User-agent: Mediapartners-Google
+Allow: /
+
 User-agent: *
 Allow: /
+Disallow: /api/
 Disallow: /dashboard
 Disallow: /journal
 Disallow: /profile
 Disallow: /settings
 Disallow: /reading
+Disallow: /reading/
 
 Sitemap: https://astrofree.vercel.app/sitemap.xml
-

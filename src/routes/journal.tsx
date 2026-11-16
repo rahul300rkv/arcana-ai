@@ -11,6 +11,7 @@ export const Route = createFileRoute("/journal")({
     meta: [
       { title: "Journal — AstroFree" },
       { name: "description", content: "Your reading history and private reflections." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: JournalPage,
