@@ -290,31 +290,30 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         links={[
           {
             to: "/numerology/mulank",
-            label: "The complete Mulank guide",
-            blurb:
-              "How the birth number is calculated, what it rules, and all nine numbers side by side.",
+            label: "The complete Mulank hub",
+            blurb: `Compare ${page.label} with all nine birth-day archetypes side by side.`,
           },
           {
             to: "/numerology",
-            label: "Free Mulank calculator",
-            blurb: "Get your Mulank, Personal Year and Personal Month in seconds.",
+            label: "Instant Mulank calculator",
+            blurb: `Verify ${page.label} alongside your full Bhagyank and current Personal Year.`,
           },
           {
-            to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb: "The digit-reduction method behind every number on this site.",
+            to: "/guide/mulank-vs-bhagyank",
+            label: "Mulank vs. Bhagyank",
+            blurb: `See how ${page.label} driver energy interacts with full-date destiny paths.`,
           },
           {
             to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: "Explore the tarot archetypes that mirror each birth number.",
+            label: `${page.tarotCard} & 78 cards`,
+            blurb: `Pair ${page.planet} birth traits with classic Rider–Waite–Smith imagery.`,
           },
         ]}
       />
 
       <CTASection
-        title="Calculate your full numerology profile"
-        body="Get your Mulank, Personal Year and Personal Month mapped to tarot archetypes — free, instant, and no signup required."
+        title={`Explore your ${page.label} forecast`}
+        body={`Pair ${page.label} (${page.dates.join(", ")}) with your Personal Year and tarot archetype inside the free instant calculator.`}
         ctaLabel="Open the free calculator"
         to="/numerology"
       />

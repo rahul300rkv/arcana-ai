@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "Love Tarot Reading",
   intro:
     "The Love Tarot Reading lays out four cards — You, Partner, The Relationship, and Future — to illuminate the dynamics between you and another person, whether that's an existing relationship, a situationship, or someone you're still figuring out.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "6 min read",
   sections: [
     {
       id: "how-it-works",
@@ -57,6 +60,37 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "Why does communication feel guarded between us lately, and how can we soften it?",
+    positions: [
+      {
+        position: "1 · You",
+        card: "Page of Cups (Upright)",
+        reading:
+          "You are genuinely open to tenderness, heartfelt conversation, and restarting on a softer note, even if you feel slightly vulnerable initiating it first.",
+      },
+      {
+        position: "2 · Partner",
+        card: "Four of Pentacles (Reversed)",
+        reading:
+          "The other person appears to be releasing an old habit of holding feelings tightly behind defensive control, though doing so still feels unfamiliar and awkward.",
+      },
+      {
+        position: "3 · The Relationship",
+        card: "Two of Swords (Upright)",
+        reading:
+          "Between you sits an unspoken stalemate — both sides avoiding a direct question for fear of saying the wrong thing and tipping the delicate balance.",
+      },
+      {
+        position: "4 · Future",
+        card: "Temperance (Upright)",
+        reading:
+          "Patient, low-stakes dialogue restores steady emotional reciprocity over time once neither person demands an instant all-or-nothing resolution.",
+      },
+    ],
+    synthesis:
+      "No lack of care is visible here — the stalemate in Position 3 stems from mutual caution rather than coldness. Open one calm, low-pressure conversation focused on listening rather than fixing everything in one sitting.",
+  },
   faqs: [
     {
       question: "Can a love tarot reading tell me if someone likes me?",
@@ -158,7 +192,8 @@ export const Route = createFileRoute("/tarot/love")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Love Reading", path: PATH },

@@ -2393,9 +2393,9 @@ const strings = {
   // Privacy Policy
   "privacy.title": { en: "Privacy Policy", hi: "गोपनीयता नीति", hinglish: "Privacy Policy" },
   "privacy.updated": {
-    en: "Last updated: July 2026",
-    hi: "आखिरी अपडेट: जुलाई 2026",
-    hinglish: "Last updated: July 2026",
+    en: "Last updated: 16 November 2026",
+    hi: "आखिरी अपडेट: 16 नवंबर 2026",
+    hinglish: "Last updated: 16 November 2026",
   },
   "privacy.back": {
     en: "← Back home",

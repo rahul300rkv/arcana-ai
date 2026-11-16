@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Briefcase, Coins, Flame } from "lucide-react";
+import { CalendarClock, Sparkles, Heart, Briefcase, Coins, Flame } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -11,7 +11,37 @@ import type { TarotCard } from "@/lib/tarot/types";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
+import { FAQAccordion } from "@/components/content/FAQAccordion";
+import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+
+const MEANINGS_FAQS = [
+  {
+    question: "How many tarot cards are there?",
+    answer:
+      "A standard tarot deck has 78 cards: 22 Major Arcana trump cards tracing major life chapters from The Fool to The World, and 56 Minor Arcana cards split evenly across four elemental suits of 14 cards each.",
+  },
+  {
+    question: "What does a reversed tarot card mean?",
+    answer:
+      "A reversed card usually softens, delays, blocks, or turns inward the upright archetype — signaling where energy feels internalized, resisted, or overdue for balanced adjustment rather than signifying automatic doom.",
+  },
+  {
+    question: "Which tarot deck are these meanings based on?",
+    answer:
+      "All meanings follow the classic 1909 Rider–Waite–Smith pictorial system illustrated by Pamela Colman Smith under Arthur Edward Waite, chosen for its clear narrative scenes across every pip card.",
+  },
+  {
+    question: "How do the four Minor Arcana suits map to daily life?",
+    answer:
+      "Wands (Fire) track creativity, ambition, and courage; Cups (Water) trace relationships, intuition, and emotional depth; Swords (Air) dissect intellect, conflict, and candid truth; and Pentacles (Earth) anchor finances, physical health, craftsmanship, and steady security.",
+  },
+  {
+    question: "Should beginners memorize keywords or read the card artwork first?",
+    answer:
+      "Always observe posture, color, gaze direction, and weather inside the illustration before consulting memorized keywords. Connecting visual cues directly to your spread question produces far sharper, less mechanical readings.",
+  },
+];
 
 export const Route = createFileRoute("/guide/tarot-card-meanings")({
   head: () => ({
@@ -20,7 +50,7 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
       {
         name: "description",
         content:
-          "A complete free tarot card meanings guide: upright and reversed meanings for all 22 Major Arcana and 56 Minor Arcana cards, plus what each card means for love, career, money, and spirituality.",
+          "A complete free tarot card meanings guide: upright and reversed meanings for all 22 Major Arcana and 56 Minor Arcana cards, plus deck structure, four elements, and domain applications.",
       },
       {
         name: "keywords",
@@ -39,7 +69,7 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
             path: "/guide/tarot-card-meanings",
             title: "Tarot Card Meanings — All 78 Cards, Upright & Reversed",
             description:
-              "Free tarot card meanings for all 78 Rider-Waite-Smith cards, with upright and reversed interpretations.",
+              "Free tarot card meanings for all 78 Rider-Waite-Smith cards, with upright and reversed interpretations and deck architecture guide.",
             crumbs: [
               {
                 name: "Guides",
@@ -50,25 +80,10 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
                 path: "/guide/tarot-card-meanings",
               },
             ],
-            faqs: [
-              {
-                question: "How many tarot cards are there?",
-                answer:
-                  "A standard tarot deck has 78 cards: 22 Major Arcana and 56 Minor Arcana split across Wands, Cups, Swords, and Pentacles.",
-              },
-              {
-                question: "What does a reversed tarot card mean?",
-                answer:
-                  "A reversed card usually softens, blocks, or turns inward the upright meaning — it is a shift in expression rather than a simple opposite.",
-              },
-              {
-                question: "Which tarot deck are these meanings based on?",
-                answer:
-                  "All meanings follow the Rider-Waite-Smith (1909) tradition, which is in the public domain and the most widely used tarot system.",
-              },
-            ],
+            faqs: MEANINGS_FAQS,
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Tarot",
             },
           }),
@@ -246,22 +261,75 @@ function TarotCardMeaningsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Free guide</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Free reference</p>
           <h1 className="mt-2 font-display text-4xl sm:text-6xl">
             Tarot card <span className="aurora-text">meanings</span>
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Every tarot card carries an upright meaning and a reversed meaning — the same archetype
-            expressed in flow or in friction. Below is the full 78-card deck, illustrated: the 22
-            Major Arcana cards that mark life's turning points, and the 56 Minor Arcana across four
-            suits that speak to day-to-day texture. If you'd rather have these interpreted for your
-            own question, AstroFree's{" "}
+            Every tarot card carries an upright expression and a reversed expression — the same
+            living archetype moving smoothly outward or pausing inward for recalibration. Below is
+            the entire 78-card Rider–Waite–Smith deck organized by Major Arcana and the four Minor
+            Arcana suits, alongside love, career, money, and spiritual prompts. If you want these
+            symbols synthesized around a specific question, launch AstroFree&apos;s{" "}
             <Link to="/reading" className="underline underline-offset-4 hover:text-foreground">
               free AI tarot reading
             </Link>{" "}
-            draws and reads them for you.
+            anytime.
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime="2026-08-07">7 August 2026</time>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            </span>
+          </div>
         </motion.div>
+
+        <section className="mt-10 grid gap-6 md:grid-cols-2">
+          <GlassCard className="p-6 space-y-3">
+            <h2 className="font-display text-xl text-foreground">
+              How the 78-Card Deck Fits Together
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Understanding deck architecture eliminates brute rote memorization. The 22{" "}
+              <strong className="text-foreground">Major Arcana</strong> trump cards trace sweeping
+              developmental chapters — courage, disillusionment, moral choice, loss, and renewal —
+              marking turning points that outlast any single busy week. When several Major cards
+              dominate one spread, pay close attention: you are standing at a pivotal crossroads
+              rather than navigating ordinary administrative chores.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              By contrast, the 56 <strong className="text-foreground">Minor Arcana</strong> cards
+              mirror daily texture across four classical elements: fiery Wands fuel creative
+              initiative, watery Cups hold shifting relationships, airy Swords sharpen candid
+              analysis, and earthy Pentacles ground real budgets, craft, and physical wellbeing.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 space-y-3">
+            <h2 className="font-display text-xl text-foreground">
+              Reading Numbers, Courts &amp; Reversals
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Inside every Minor suit, pip cards numbered Ace through Ten tell a continuous ten-step
+              story: Aces offer pure unshaped potential; Twos negotiate balance; Fives test
+              resilience under sudden disruption; Sixes restore constructive reciprocity; Eights
+              accelerate craft or speed; and Tens close cycles completely before renewal starts.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Above the tens sit four <strong className="text-foreground">Court Cards</strong> —
+              Pages embody curious learners or unexpected news, Knights rush outward with focused
+              drive, Queens steward elemental wisdom intuitively from within, and Kings govern
+              mature outward order. When any card lands{" "}
+              <strong className="text-foreground">reversed</strong>, check whether the theme is
+              delayed, internalized silently, blocked by hesitation, or tipped slightly past healthy
+              moderation.
+            </p>
+          </GlassCard>
+        </section>
 
         {/* jump nav */}
         <nav className="mt-8 flex flex-wrap gap-2 text-sm">
@@ -313,7 +381,21 @@ function TarotCardMeaningsPage() {
           </section>
         ))}
 
-        <div className="mt-16">
+        <section className="mt-16 space-y-6">
+          <h2 className="font-display text-2xl sm:text-3xl">Frequently asked questions</h2>
+          <FAQAccordion items={MEANINGS_FAQS} />
+        </section>
+
+        <div className="mt-12">
+          <AuthorCard
+            published="2026-08-07"
+            lastUpdated="2026-11-16"
+            category="Tarot Reference"
+            readingTime="16 min read"
+          />
+        </div>
+
+        <div className="mt-10">
           <Link
             to="/"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"

@@ -56,6 +56,10 @@ export const Route = createFileRoute("/bhagyank-calculator")({
             description: DESCRIPTION,
             crumbs: [{ name: "Bhagyank Calculator", path: PATH }],
             faqs: BHAGYANK_FAQS,
+            article: {
+              updated: BHAGYANK_UPDATED,
+              section: "Numerology",
+            },
           }),
         ),
       },

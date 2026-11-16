@@ -13,6 +13,14 @@ export function CardFront({
   eager?: boolean;
 }) {
 
+  const suitLabel =
+    card.arcana === "major"
+      ? "Major Arcana"
+      : `${card.suit ? card.suit.charAt(0).toUpperCase() + card.suit.slice(1) : "Minor"} Minor Arcana`;
+  const orientation = reversed ? ", reversed" : "";
+  const themes = card.keywords.slice(0, 3).join(", ");
+  const altText = `${card.name}${orientation} (${suitLabel}) Rider–Waite–Smith tarot card illustration${themes ? ` symbolizing ${themes}` : ""}`;
+
   return (
     <div
       className={cn(
@@ -34,7 +42,7 @@ export function CardFront({
         <div className="relative overflow-hidden rounded-lg bg-[radial-gradient(80%_60%_at_50%_40%,color-mix(in_oklab,var(--aurora-1)_50%,transparent),transparent_70%)]">
           <img
             src={card.image}
-            alt={card.name}
+            alt={altText}
             loading={eager ? "eager" : "lazy"}
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-center opacity-95"

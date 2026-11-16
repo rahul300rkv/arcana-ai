@@ -88,7 +88,8 @@ export const Route = createFileRoute("/guide/numerology")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Numerology",
             },
           }),
@@ -198,11 +199,10 @@ function MathStep({
 }
 
 function InteractiveExample() {
-  const today = new Date();
   const [day, setDay] = useState(22);
   const [month, setMonth] = useState(7);
-  const [targetYear, setTargetYear] = useState(today.getFullYear() + 1);
-  const [targetMonth, setTargetMonth] = useState(today.getMonth() + 1);
+  const [targetYear, setTargetYear] = useState(2027);
+  const [targetMonth, setTargetMonth] = useState(8);
 
   const { mulank, personalYear, personalMonth, mulankSum, personalYearSum, personalMonthSum } =
     useMemo(() => {
@@ -252,8 +252,8 @@ function InteractiveExample() {
               onClick={() => {
                 setDay(22);
                 setMonth(7);
-                setTargetYear(today.getFullYear() + 1);
-                setTargetMonth(today.getMonth() + 1);
+                setTargetYear(2027);
+                setTargetMonth(8);
               }}
               className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)] hover:text-foreground"
             >
@@ -421,6 +421,16 @@ function NumerologyGuidePage() {
             </Link>{" "}
             is doing behind the scenes.
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime="2026-08-07">7 August 2026</time>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            </span>
+          </div>
         </motion.div>
 
         {/* Reduction rule — highlighted */}

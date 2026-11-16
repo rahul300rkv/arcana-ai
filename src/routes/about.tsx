@@ -42,7 +42,8 @@ export const Route = createFileRoute("/about")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Company",
             },
           }),
@@ -63,7 +64,14 @@ function AboutPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           About <span className="aurora-text">AstroFree</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-08-07">7 August 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-7 text-sm leading-relaxed text-muted-foreground">
           <Section title="Our Mission">
@@ -140,17 +148,31 @@ function AboutPage() {
             locked reversals, and no surprise subscription tiers.
           </Section>
 
-          <Section title="Privacy First">
+          <Section title="Design Philosophy: Calm Reflection Over Clickbait">
+            Most esoteric apps rely on countdown timers, paywall pop-ups, and alarmist headlines
+            designed to keep visitors anxious. AstroFree takes the opposite stance: generous spacing,
+            quiet celestial typography, clean mobile performance, and transparent explanations
+            grounded in established tarot and Ank Shastra reference texts. We design every screen
+            to slow down your thinking so you leave a session feeling clearer, not hurried.
+          </Section>
+
+          <Section title="Privacy First &amp; Transparent Sustainability">
             AstroFree is built so that readers can explore freely without needing a heavy account
-            system. We do not sell personal data, and our privacy practices are designed to keep the
-            experience calm, simple, and respectful. For details on what is collected and why,
-            please read our{" "}
+            system or handing over intimate reflections to remote databases. Your journal notes and
+            streaks remain stored on your own device. We do not sell personal data, and our modest
+            advertising placements keep all 78 tarot meanings, spreads, and numerology calculators
+            accessible without subscriptions. For details on what is processed and why, please read
+            our{" "}
             <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
               Privacy Policy
             </Link>
             , our{" "}
             <Link to="/cookie-policy" className="underline underline-offset-4 hover:text-foreground">
               Cookie Policy
+            </Link>
+            , our{" "}
+            <Link to="/editorial-policy" className="underline underline-offset-4 hover:text-foreground">
+              Editorial Policy
             </Link>
             , and our{" "}
             <Link to="/disclaimer" className="underline underline-offset-4 hover:text-foreground">
@@ -159,7 +181,7 @@ function AboutPage() {
             .
           </Section>
 
-          <Section title="Contact">
+          <Section title="Contact &amp; Editorial Feedback">
             Questions, corrections, editorial suggestions, or technical feedback are always welcome.
             You can reach our support desk directly through our secure{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">

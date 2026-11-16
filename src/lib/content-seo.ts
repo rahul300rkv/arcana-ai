@@ -5,6 +5,7 @@ interface JsonLdArgs {
   title: string;
   description: string;
   image?: string;
+  published?: string;
   updated: string;
   crumbs: { name: string; path: string }[];
   faqs: { question: string; answer: string }[];
@@ -16,11 +17,13 @@ export function buildContentJsonLd({
   title,
   description,
   image,
+  published,
   updated,
   crumbs,
   faqs,
 }: JsonLdArgs) {
   const url = `${SITE_URL}${path}`;
+  const publishedDate = published ?? updated;
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -30,6 +33,8 @@ export function buildContentJsonLd({
         url,
         name: title,
         description,
+        datePublished: publishedDate,
+        dateModified: updated,
         inLanguage: "en",
         isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
       },
@@ -39,7 +44,7 @@ export function buildContentJsonLd({
         description,
         ...(image ? { image: `${SITE_URL}${image}` } : {}),
         dateModified: updated,
-        datePublished: updated,
+        datePublished: publishedDate,
         mainEntityOfPage: url,
         author: { "@type": "Organization", name: `${SITE_NAME} Editorial Desk`, url: SITE_URL },
         publisher: {
@@ -115,7 +120,7 @@ interface PageJsonLdArgs {
   crumbs: { name: string; path: string }[];
   faqs?: { question: string; answer: string }[];
   /** Adds an Article node for editorial pages (guides, policies). */
-  article?: { updated: string; section?: string };
+  article?: { published?: string; updated: string; section?: string };
 }
 
 /** WebPage (+ Breadcrumb, optional FAQPage / Article) graph for a static page. */
@@ -128,6 +133,7 @@ export function buildPageJsonLd({
   article,
 }: PageJsonLdArgs) {
   const url = `${SITE_URL}${path}`;
+  const publishedDate = article?.published ?? article?.updated;
   const graph: Record<string, unknown>[] = [
     {
       "@type": "WebPage",
@@ -135,6 +141,7 @@ export function buildPageJsonLd({
       url,
       name: title,
       description,
+      ...(article ? { datePublished: publishedDate, dateModified: article.updated } : {}),
       inLanguage: "en",
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
     },
@@ -158,7 +165,7 @@ export function buildPageJsonLd({
       headline: title,
       description,
       mainEntityOfPage: url,
-      datePublished: article.updated,
+      datePublished: publishedDate,
       dateModified: article.updated,
       ...(article.section ? { articleSection: article.section } : {}),
       author: { "@type": "Organization", name: `${SITE_NAME} Editorial Desk`, url: SITE_URL },

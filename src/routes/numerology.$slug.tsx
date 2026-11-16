@@ -318,24 +318,23 @@ function NumerologyNumberPage() {
         links={[
           {
             to: "/numerology",
-            label: "Free Mulank calculator",
-            blurb: "Get your root number, Personal Year and Personal Month in seconds.",
+            label: "Interactive Mulank calculator",
+            blurb: `Compute your exact Personal Year cycle alongside ${page.label} influences.`,
           },
           {
             to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb:
-              "The digit-reduction method behind every number on this site, worked through step by step.",
+            label: "Digit-reduction method",
+            blurb: "Step-by-step arithmetic behind Life Path, Expression, and master reductions.",
           },
           {
             to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: "Explore the tarot archetypes that mirror each life path number.",
+            label: `Explore ${page.tarotCard} & deck`,
+            blurb: `Connect ${page.label}'s lessons with Rider–Waite–Smith tarot symbolism.`,
           },
           {
             to: "/guide",
-            label: "The AstroFree guide library",
-            blurb: "Spreads, card meanings and numerology fundamentals in one place.",
+            label: "Study archive",
+            blurb: "Spread architecture, reversed cards, and traditional synthesis.",
           },
         ]}
       />
@@ -349,8 +348,8 @@ function NumerologyNumberPage() {
       />
 
       <CTASection
-        title="Calculate your own numerology forecast"
-        body={`Get your Mulank, Personal Year and Personal Month mapped to tarot archetypes — free, instant, and no signup required.`}
+        title={`Compute your ${page.label} chart`}
+        body={`Combine ${page.label} tendencies with your current Personal Year and Month directly inside the instant calculator.`}
         ctaLabel="Open the free calculator"
         to="/numerology"
       />

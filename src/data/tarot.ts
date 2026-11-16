@@ -1,15 +1,14 @@
 import { DECK } from "@/lib/tarot/engine";
 import type { TarotCard } from "@/lib/tarot/types";
+import { UNIQUE_CARD_COPY } from "./tarot-cards";
 
 /**
  * Structured content layer for the 78 `/tarot/[slug]` pages.
  *
- * Everything a page renders comes from `TarotPage` objects built here — the
- * routes contain no hardcoded card copy. Each page is composed from three
- * sources: the shared deck data (`src/data/cards/deck.json`), the editorial
- * correspondence table below (element / planet / zodiac / yes-no / archetype),
- * and deterministic prose composers that expand those facts into full
- * long-form sections.
+ * Each card draws its Rider-Waite-Smith imagery, upright/reversed nuances,
+ * domain readings, timeline angles, prompts, and FAQs from unique per-card
+ * editorial essays in `src/data/tarot-cards/`, combined with structured card
+ * metadata from `src/data/cards/deck.json` and astronomical correspondences.
  */
 
 export type YesNo = "yes" | "no" | "maybe";
@@ -25,6 +24,7 @@ export interface TarotPage {
   name: string;
   title: string;
   description: string;
+  intro: string;
   keywords: string[];
   image: string;
   /** "Major Arcana" | "Minor Arcana" */
@@ -75,13 +75,6 @@ const SUIT_ELEMENT: Record<string, string> = {
   cups: "Water",
   swords: "Air",
   pentacles: "Earth",
-};
-
-const SUIT_DOMAIN: Record<string, string> = {
-  wands: "drive, creativity, and the will to act",
-  cups: "emotion, intuition, and relationship",
-  swords: "thought, communication, and truth",
-  pentacles: "body, work, money, and the material world",
 };
 
 const SUIT_SIGNS: Record<string, string[]> = {
@@ -171,24 +164,11 @@ const MAJOR: Record<number, MajorAttribution> = {
   21: { planet: "Saturn", zodiac: "Capricorn", element: "Earth", archetype: "The Completion" },
 };
 
-const COURT_RANK: Record<string, { label: string; role: string; index: number }> = {
-  page: { label: "Page", role: "the student — curious, unproven, and willing to learn", index: 11 },
-  knight: { label: "Knight", role: "the pursuer — committed, mobile, and sometimes extreme", index: 12 },
-  queen: { label: "Queen", role: "the nurturer — mastery expressed inwardly and relationally", index: 13 },
-  king: { label: "King", role: "the ruler — mastery expressed outwardly through authority", index: 14 },
-};
-
-const NUMBER_THEME: Record<number, string> = {
-  1: "a seed and a beginning — pure potential in its rawest form",
-  2: "balance, pairing, and the first meeting of two forces",
-  3: "growth, expression, and the first visible results",
-  4: "structure, stability, and consolidation",
-  5: "conflict, disruption, and the pressure that forces change",
-  6: "harmony restored, generosity, and reciprocity",
-  7: "assessment, patience, and the test of persistence",
-  8: "momentum, mastery, and rapid movement",
-  9: "near-completion, resilience, and the last stretch",
-  10: "completion, culmination, and the handover to a new cycle",
+const COURT_RANK: Record<string, { label: string; index: number }> = {
+  page: { label: "Page", index: 11 },
+  knight: { label: "Knight", index: 12 },
+  queen: { label: "Queen", index: 13 },
+  king: { label: "King", index: 14 },
 };
 
 /** Cards that answer clearly one way in a yes/no pull. Everything else is conditional. */
@@ -226,10 +206,6 @@ function ordinal(n: number): string {
 function rankOf(card: TarotCard): string | null {
   const tail = card.id.split("-")[1];
   return tail in COURT_RANK ? tail : null;
-}
-
-function lowerKeywords(card: TarotCard): string {
-  return card.keywords.map((k) => k.toLowerCase()).join(", ");
 }
 
 interface Attribution {
@@ -290,209 +266,6 @@ function attributionFor(card: TarotCard): Attribution {
   };
 }
 
-function overviewFor(card: TarotCard, a: Attribution): string[] {
-  const suitText =
-    card.arcana === "major"
-      ? `As a Major Arcana card, ${card.name} describes a force larger than any single week or decision. Major cards mark the chapters of a life rather than its sentences, so when this one appears the situation you are asking about is carrying more weight than it first appeared to.`
-      : `${card.name} belongs to the ${SUIT_LABEL[card.suit as string]}, the suit of ${SUIT_DOMAIN[card.suit as string]}. Minor Arcana cards describe the practical texture of daily life — the conversations, tasks, moods, and decisions that fill the space between larger turning points.`;
-
-  const numberText =
-    card.arcana === "major"
-      ? `Numbered ${card.number} in the Fool's Journey, it sits at the point where ${NUMBER_THEME[Math.max(1, card.number % 10 || 10)]}.`
-      : rankOf(card)
-        ? `As a court card it can describe a person in your life, a role you are being asked to play, or an attitude that the situation is calling for: ${COURT_RANK[rankOf(card) as string].role}.`
-        : `Its number carries the theme of ${NUMBER_THEME[card.number]}, filtered through the ${a.element.toLowerCase()} temperament of the suit.`;
-
-  return [
-    `${card.name} is the card of ${lowerKeywords(card)}. Its core message upright is simple: ${card.uprightMeaning.toLowerCase()}. Reversed, that same energy turns inward or sours into ${card.reversedMeaning.toLowerCase()}.`,
-    suitText,
-    numberText,
-    `Astrologically the card is associated with ${a.planet} and ${a.zodiac}, and it belongs to the element of ${a.element}. Those correspondences are not decoration — they tell you the tempo of the card. ${elementTempo(a.element)}`,
-    `Read ${card.name} as an answer to the question you actually asked. The same image means something different in a love spread than in a career spread, and the sections below break the card down across each area of life so you can take only what fits.`,
-  ];
-}
-
-function elementTempo(element: string): string {
-  switch (element) {
-    case "Fire":
-      return "Fire moves fast and asks for action before certainty; expect events tied to this card to arrive quickly and demand a response.";
-    case "Water":
-      return "Water moves slowly and indirectly; expect this card to describe feelings that have been forming under the surface for some time.";
-    case "Air":
-      return "Air moves through words and thought; expect this card to show up as a conversation, a realisation, a document, or a decision that has to be argued out.";
-    default:
-      return "Earth moves gradually and materially; expect this card to describe something you can measure — money, health, a workload, a home.";
-  }
-}
-
-function upgradePhrase(text: string): string {
-  return text.charAt(0).toLowerCase() + text.slice(1);
-}
-
-function uprightFor(card: TarotCard, a: Attribution): string[] {
-  return [
-    `Upright, ${card.name} means ${upgradePhrase(card.uprightMeaning)}. This is the card working with you rather than against you: the energy is available, the timing is reasonable, and the main thing standing between you and the outcome is whether you engage.`,
-    `In a practical reading, that shows up as ${a.element === "Fire" ? "an opportunity that requires you to move before you feel ready" : a.element === "Water" ? "a feeling you can finally name, and a relationship or inner state that responds when you honour it" : a.element === "Air" ? "clarity arriving through information — something said, written, or finally understood" : "a tangible result you can count, hold, or build on"}.`,
-    `Keywords to hold while you read: ${lowerKeywords(card)}. If several of those words describe your situation already, the card is confirming what you suspect rather than introducing something new.`,
-    `The upright card is rarely a promise. It is a description of the current conditions and where they lead if nothing interrupts them. Treat it as a weather report you can still dress for.`,
-  ];
-}
-
-function reversedFor(card: TarotCard): string[] {
-  return [
-    `Reversed, ${card.name} points to ${upgradePhrase(card.reversedMeaning)}. A reversal does not cancel a card — it changes its direction. The same energy is present but blocked, delayed, internalised, or overdone.`,
-    `Ask three questions when this card lands reversed. Is the energy stuck (nothing is moving yet)? Is it internal (this is happening inside you rather than out in the world)? Or is it excessive (you have too much of a good thing)? One of those three usually fits, and the answer changes the advice completely.`,
-    `Reversals also soften timing. Where the upright card suggests something is already in motion, the reversal usually means it is a stage earlier than you hoped — still workable, but not yet resolved.`,
-    `If the reversal feels harsh, remember that the reversed reading names a problem precisely so you can act on it. ${card.name} reversed is a diagnosis, not a verdict.`,
-  ];
-}
-
-function loveFor(card: TarotCard): string[] {
-  return [
-    `In love and relationships, ${card.name} speaks to ${upgradePhrase(card.loveMeaning)}.`,
-    `If you are in a relationship, read the card as a description of the current dynamic between the two of you rather than of your partner alone. Tarot describes the space between people at least as often as it describes the people themselves.`,
-    `If you are single, the card describes what you are bringing to the next connection and what pattern is currently active. That pattern is the thing to work with — it will shape whoever arrives next far more than any prediction can.`,
-    `Reversed in a love reading, the same energy tends to show up as ${upgradePhrase(card.reversedMeaning)} playing out privately: the feeling exists but has not been said aloud, or it has been said so often that it has lost its weight.`,
-  ];
-}
-
-function careerFor(card: TarotCard): string[] {
-  return [
-    `For work, study, and vocation, ${card.name} indicates ${upgradePhrase(card.careerMeaning)}.`,
-    `Look at where the card sits in your spread before acting on it. In a "present" position it describes your current working conditions; in an "advice" position it is telling you what to do next; in an "outcome" position it is describing where the current approach lands you.`,
-    `Career readings are the easiest place to test tarot honestly. Write down what you take from this card, give it four to six weeks, and check back. Over time you build a personal record of how ${card.name} behaves for you specifically.`,
-    `Reversed, expect the career message to slow down: a delay in a decision, feedback you have not received yet, or effort that is real but not yet visible to the people who make decisions about you.`,
-  ];
-}
-
-function financeFor(card: TarotCard): string[] {
-  return [
-    `Financially, ${card.name} suggests ${upgradePhrase(card.financeMeaning)}.`,
-    `Tarot is not financial advice and should never replace it. What the card can do is describe your relationship to money right now — whether you are avoiding numbers, over-controlling them, spending from an emotion, or building something slowly and well.`,
-    `A useful exercise with this card: name one concrete money action it points to that you could complete this week. Something checkable, like reviewing a subscription, asking about a rate, or moving a fixed amount into savings. Cards get much more useful when they end in an action.`,
-  ];
-}
-
-function healthFor(card: TarotCard, a: Attribution): string[] {
-  const elementHealth: Record<string, string> = {
-    Fire: "energy levels, inflammation, sleep debt, and burnout from running hot for too long",
-    Water: "emotional health, hydration, hormonal rhythm, and the physical cost of unprocessed feeling",
-    Air: "the nervous system, breathing, mental load, and stress carried in the head, neck, and shoulders",
-    Earth: "the physical body itself — nutrition, movement, rest, and the slow-accumulating habits that decide long-term health",
-  };
-  return [
-    `As a wellbeing signal, ${card.name} draws attention to ${elementHealth[a.element]}.`,
-    `Read this as a prompt rather than a diagnosis. Tarot cannot see inside your body, and nothing on this page substitutes for a qualified medical opinion. What a card can do is notice a pattern you have been ignoring and give you a reason to book the appointment.`,
-    `Given the card's keywords — ${lowerKeywords(card)} — the practical question is whether your current routine matches the pace this card describes. ${a.element === "Fire" ? "Fire cards usually ask for rest before recovery becomes mandatory." : a.element === "Water" ? "Water cards usually ask for emotional release rather than more effort." : a.element === "Air" ? "Air cards usually ask you to quiet the mental noise before making a decision." : "Earth cards usually ask for one small, boring, repeatable habit."}`,
-  ];
-}
-
-function spiritualFor(card: TarotCard): string[] {
-  return [
-    `Spiritually, ${card.name} carries the theme of ${upgradePhrase(card.spiritualityMeaning)}.`,
-    `Whatever your framework — devotional, secular, or somewhere in between — the spiritual layer of a card is really about meaning: what this experience is teaching you, and who you become on the other side of it.`,
-    `Sit with the image before you read another word of interpretation. Notice what you saw first, what colour drew your eye, and what the figure in the card seems to be doing. Your immediate reaction is data, and it is usually more accurate for your situation than any general meaning written for a stranger.`,
-  ];
-}
-
-function yesNoFor(card: TarotCard): { value: YesNo; text: string } {
-  if (YES_IDS.has(card.id)) {
-    return {
-      value: "yes",
-      text: `${card.name} reads as a yes. The card's core energy — ${lowerKeywords(card)} — moves toward what you are asking about rather than away from it. Reversed, downgrade the answer to "yes, but later" or "yes, with conditions", and read the reversed meaning for the condition.`,
-    };
-  }
-  if (NO_IDS.has(card.id)) {
-    return {
-      value: "no",
-      text: `${card.name} reads as a no, or at least a not-like-this. That is not a punishment; the card is describing a route that costs more than it returns. Reversed, the no often softens into "not yet" — the obstacle is beginning to move.`,
-    };
-  }
-  return {
-    value: "maybe",
-    text: `${card.name} is a conditional answer. It gives you a "yes, if" or a "no, unless" rather than a verdict, because the outcome depends on a choice that has not been made yet — usually yours. Look at the advice section for the condition that decides it.`,
-  };
-}
-
-function timelineFor(card: TarotCard): { label: string; text: string }[] {
-  return [
-    {
-      label: "Past",
-      text: `In a past position, ${card.name} describes an experience of ${lowerKeywords(card)} that shaped how you approach the current question. It is finished as an event but still active as a habit.`,
-    },
-    {
-      label: "Present",
-      text: `In a present position, the card is a mirror: ${upgradePhrase(card.uprightMeaning)} is the live condition right now, whether or not you have named it yet.`,
-    },
-    {
-      label: "Future",
-      text: `In a future position, ${card.name} describes where the current trajectory leads — not a fixed fate, but the most likely outcome if nothing changes. The advice section is where you change it.`,
-    },
-  ];
-}
-
-function adviceFor(card: TarotCard, a: Attribution): string[] {
-  return [
-    `Act in the spirit of the card rather than the letter of it — ${lowerKeywords(card)} is a posture, not a checklist.`,
-    a.element === "Fire"
-      ? "Move first and refine later; this card loses power when you sit on it."
-      : a.element === "Water"
-        ? "Feel it fully before you decide; a decision made to escape a feeling will need remaking."
-        : a.element === "Air"
-          ? "Say the thing plainly, in writing if you can. Ambiguity is the real problem here."
-          : "Do the small, unglamorous, structural thing. Progress here is cumulative, not dramatic.",
-    `Watch for the reversed expression — ${upgradePhrase(card.reversedMeaning)} — as an early warning sign, and correct before it hardens.`,
-    `Pair this card with a specific action and a date. Undated intentions are how readings quietly expire.`,
-  ];
-}
-
-function journalFor(card: TarotCard): string[] {
-  return [
-    `Where in my life right now is ${lowerKeywords(card).split(", ")[0]} already present, and where am I pretending it isn't?`,
-    `If ${card.name} were describing a person in my life, who would it be — and what would I want to say to them?`,
-    `What would change this week if I fully accepted the upright message of this card: ${card.uprightMeaning.toLowerCase()}?`,
-    `What does the reversed version — ${card.reversedMeaning.toLowerCase()} — cost me when I let it run unchecked?`,
-  ];
-}
-
-function faqsFor(card: TarotCard, a: Attribution, yesNo: { value: YesNo; text: string }): TarotFaq[] {
-  return [
-    {
-      question: `What does ${card.name} mean in a tarot reading?`,
-      answer: `${card.name} means ${upgradePhrase(card.uprightMeaning)}. Its keywords are ${lowerKeywords(card)}, and it belongs to the ${card.arcana === "major" ? "Major Arcana" : SUIT_LABEL[card.suit as string]}, associated with the element of ${a.element}.`,
-    },
-    {
-      question: `What does ${card.name} mean reversed?`,
-      answer: `Reversed, ${card.name} points to ${upgradePhrase(card.reversedMeaning)}. The card's energy is blocked, internalised, delayed, or overexpressed rather than absent.`,
-    },
-    {
-      question: `Is ${card.name} a yes or no card?`,
-      answer: yesNo.text,
-    },
-    {
-      question: `What does ${card.name} mean for love?`,
-      answer: `In love readings, ${card.name} points to ${upgradePhrase(card.loveMeaning)}. Read it as a description of the dynamic between two people rather than a verdict on one of them.`,
-    },
-    {
-      question: `What does ${card.name} mean for career and money?`,
-      answer: `For work it indicates ${upgradePhrase(card.careerMeaning)}. Financially it suggests ${upgradePhrase(card.financeMeaning)}. Neither is a substitute for professional advice — use them as prompts for a concrete next step.`,
-    },
-    {
-      question: `Which zodiac sign and planet rule ${card.name}?`,
-      answer: `${card.name} is associated with ${a.planet} and ${a.zodiac}, under the element of ${a.element}.`,
-    },
-  ];
-}
-
-function meditationFor(card: TarotCard, a: Attribution): string {
-  return `Set the card where you can see it and take five slow breaths, letting the exhale be longer than the inhale. Let your eyes rest on the image without trying to interpret it. On each inhale, silently name the card's central quality — ${lowerKeywords(card).split(", ")[0]}. On each exhale, release its shadow — ${card.reversedMeaning.split(",")[0].toLowerCase()}. After five minutes, ask a single question of the card and write the first answer that arrives, unedited. ${a.element === "Fire" ? "Finish by standing up and doing one physical thing immediately; fire cards want to be enacted." : a.element === "Water" ? "Finish by placing a hand over your heart and staying still for one more minute." : a.element === "Air" ? "Finish by writing one clear sentence — the truest one you can manage." : "Finish by putting your feet flat on the floor and naming three things you can physically touch."}`;
-}
-
-function affirmationFor(card: TarotCard): string {
-  const first = card.keywords[0].toLowerCase();
-  return `I welcome ${first} without forcing it, and I trust myself to act on what ${card.name} is showing me.`;
-}
-
 function relatedFor(card: TarotCard, all: TarotCard[]): string[] {
   const related: TarotCard[] = [];
   const push = (c?: TarotCard) => {
@@ -511,7 +284,6 @@ function relatedFor(card: TarotCard, all: TarotCard[]): string[] {
       if (other !== suit) push(all.find((c) => c.suit === other && c.number === card.number));
     }
   }
-  // Top up with same-element cards so every page has four related links.
   for (const c of all) {
     if (related.length >= 4) break;
     push(c);
@@ -521,6 +293,7 @@ function relatedFor(card: TarotCard, all: TarotCard[]): string[] {
 
 function countWords(page: Omit<TarotPage, "wordCount" | "readingMinutes">): number {
   const chunks: string[] = [
+    page.intro,
     ...page.overview,
     ...page.upright,
     ...page.reversed,
@@ -541,8 +314,17 @@ function countWords(page: Omit<TarotPage, "wordCount" | "readingMinutes">): numb
 }
 
 function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
+  const unique = UNIQUE_CARD_COPY[card.id];
+  if (!unique) {
+    throw new Error(`Missing unique copy entry for tarot card id: ${card.id}`);
+  }
+
   const a = attributionFor(card);
-  const yesNo = yesNoFor(card);
+  const yesNoValue: YesNo = YES_IDS.has(card.id)
+    ? "yes"
+    : NO_IDS.has(card.id)
+      ? "no"
+      : "maybe";
   const slug = slugify(card.name);
   const suitLabel = card.suit ? SUIT_LABEL[card.suit] : "Major Arcana";
 
@@ -552,6 +334,7 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     name: card.name,
     title: `${card.name} Tarot Card Meaning — Upright, Reversed, Love & Career`,
     description: `${card.name} tarot card meaning: ${card.uprightMeaning.toLowerCase()} upright and ${card.reversedMeaning.toLowerCase()} reversed. Love, career, money, health, yes/no and advice.`,
+    intro: `${card.name} — ${card.keywords.join(", ").toLowerCase()} — explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`,
     keywords: [
       `${card.name.toLowerCase()} tarot card`,
       `${card.name.toLowerCase()} meaning`,
@@ -571,23 +354,27 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     zodiac: a.zodiac,
     archetype: a.archetype,
     cardKeywords: card.keywords,
-    overview: overviewFor(card, a),
-    upright: uprightFor(card, a),
-    reversed: reversedFor(card),
-    love: loveFor(card),
-    career: careerFor(card),
-    finance: financeFor(card),
-    health: healthFor(card, a),
-    spiritual: spiritualFor(card),
-    yesNo: yesNo.value,
-    yesNoText: yesNo.text,
-    timeline: timelineFor(card),
-    advice: adviceFor(card, a),
-    journalPrompts: journalFor(card),
-    meditation: meditationFor(card, a),
-    affirmation: affirmationFor(card),
+    overview: [...unique.overview],
+    upright: [...unique.upright],
+    reversed: [...unique.reversed],
+    love: [...unique.love],
+    career: [...unique.career],
+    finance: [...unique.finance],
+    health: [...unique.health],
+    spiritual: [...unique.spiritual],
+    yesNo: yesNoValue,
+    yesNoText: unique.yesNoText,
+    timeline: [
+      { label: "Past", text: unique.timeline[0] },
+      { label: "Present", text: unique.timeline[1] },
+      { label: "Future", text: unique.timeline[2] },
+    ],
+    advice: [...unique.advice],
+    journalPrompts: [...unique.journalPrompts],
+    meditation: unique.meditation,
+    affirmation: unique.affirmation,
     relatedSlugs: relatedFor(card, all),
-    faqs: faqsFor(card, a, yesNo),
+    faqs: unique.faqs,
     updated: TAROT_UPDATED,
   };
 

@@ -1,27 +1,70 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { useMemo } from "react";
-import { routeTree } from "./routeTree.gen";
+import { RouterProvider } from "@tanstack/react-router";
+import { useEffect, useMemo } from "react";
+import { createAppRouter, type AppRouter } from "./router";
 
-export default function App() {
+interface AppProps {
+  router?: AppRouter;
+  queryClient?: QueryClient;
+}
+
+function syncDocumentHead(router: AppRouter) {
+  if (typeof document === "undefined") return;
+  const matches = router.state.matches;
+  let title: string | undefined;
+  let description: string | undefined;
+  let canonical: string | undefined;
+
+  for (const match of matches) {
+    const meta = (match as unknown as { meta?: Array<Record<string, unknown>> }).meta;
+    if (Array.isArray(meta)) {
+      for (const entry of meta) {
+        if (typeof entry.title === "string") title = entry.title;
+        if (entry.name === "description" && typeof entry.content === "string") {
+          description = entry.content;
+        }
+      }
+    }
+    const links = (match as unknown as { links?: Array<Record<string, unknown>> }).links;
+    if (Array.isArray(links)) {
+      for (const link of links) {
+        if (link.rel === "canonical" && typeof link.href === "string") {
+          canonical = link.href;
+        }
+      }
+    }
+  }
+
+  if (title) document.title = title;
+  if (description) {
+    const el = document.querySelector('meta[name="description"]');
+    if (el) el.setAttribute("content", description);
+  }
+  if (canonical) {
+    let linkEl = document.querySelector('link[rel="canonical"]');
+    if (!linkEl) {
+      linkEl = document.createElement("link");
+      linkEl.setAttribute("rel", "canonical");
+      document.head.appendChild(linkEl);
+    }
+    linkEl.setAttribute("href", canonical);
+  }
+}
+
+export default function App({ router: providedRouter, queryClient: providedQueryClient }: AppProps) {
   const { router, queryClient } = useMemo(() => {
-    const qc = new QueryClient({
-      defaultOptions: {
-        queries: {
-          staleTime: 1000 * 60 * 5,
-        },
-      },
-    });
+    if (providedRouter && providedQueryClient) {
+      return { router: providedRouter, queryClient: providedQueryClient };
+    }
+    return createAppRouter();
+  }, [providedRouter, providedQueryClient]);
 
-    const r = createRouter({
-      routeTree,
-      context: { queryClient: qc },
-      scrollRestoration: true,
-      defaultPreloadStaleTime: 0,
+  useEffect(() => {
+    syncDocumentHead(router);
+    return router.subscribe("onResolved", () => {
+      syncDocumentHead(router);
     });
-
-    return { router: r, queryClient: qc };
-  }, []);
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>

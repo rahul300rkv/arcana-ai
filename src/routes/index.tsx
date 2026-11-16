@@ -149,12 +149,16 @@ export const Route = createFileRoute("/")({
               url: SITE_URL,
               name: SITE_NAME,
               description: "Free AI Tarot Card Readings & Vedic Numerology Calculators",
+              datePublished: "2026-07-15",
+              dateModified: "2026-11-16",
               inLanguage: "en",
             },
             {
               "@type": "WebApplication",
               name: SITE_NAME,
               url: SITE_URL,
+              datePublished: "2026-07-15",
+              dateModified: "2026-11-16",
               applicationCategory: "LifestyleApplication",
               operatingSystem: "All",
               offers: {
@@ -612,6 +616,7 @@ function LandingPage() {
                   >
                     <button
                       type="button"
+                      aria-expanded={isOpen}
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full flex items-center justify-between p-5 text-left font-display text-lg font-bold text-[#faf2e4] hover:text-[#fffdf8] transition-colors"
                     >
@@ -622,11 +627,15 @@ function LandingPage() {
                         }`}
                       />
                     </button>
-                    {isOpen && (
-                      <div className="px-5 pb-5 text-sm text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3">
-                        {faq.answer}
-                      </div>
-                    )}
+                    <div
+                      className={
+                        isOpen
+                          ? "px-5 pb-5 text-sm text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3 transition-all duration-200"
+                          : "max-h-0 overflow-hidden opacity-0 pointer-events-none px-5 text-sm leading-relaxed"
+                      }
+                    >
+                      {faq.answer}
+                    </div>
                   </div>
                 );
               })}
@@ -637,7 +646,8 @@ function LandingPage() {
         {/* 9. Author & Editorial Desk Transparency (E-E-A-T) */}
         <section className="relative mx-auto max-w-4xl px-4 sm:px-6 py-16">
           <AuthorCard
-            lastUpdated="2026-10-26"
+            published="2026-07-15"
+            lastUpdated="2026-11-16"
             category="Esoteric Research & Methodology"
             readingTime="12 min read"
           />

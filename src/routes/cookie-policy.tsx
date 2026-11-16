@@ -42,7 +42,8 @@ export const Route = createFileRoute("/cookie-policy")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Legal",
             },
           }),
@@ -63,7 +64,14 @@ function CookiePolicyPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           Cookie <span className="aurora-text">Policy</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-08-07">7 August 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="1. What Cookies &amp; Browser Storage Are">
@@ -158,10 +166,53 @@ function CookiePolicyPage() {
             </span>
           </Section>
 
-          <Section title="7. Updates &amp; Further Questions">
-            We may update this Cookie Policy whenever our technical stack, privacy standards, or
-            advertising integrations evolve. For broader details on how data is handled across the
-            platform, read our{" "}
+          <Section title="7. Summary of Cookies &amp; Local Storage Technologies">
+            The overview below distinguishes what AstroFree saves locally on your device from what
+            third-party advertising partners may set during your visit:
+            <div className="mt-3 overflow-x-auto rounded-xl border border-white/10">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-white/[0.04] text-foreground">
+                  <tr>
+                    <th className="px-3 py-2">Category</th>
+                    <th className="px-3 py-2">Storage Mechanism</th>
+                    <th className="px-3 py-2">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10">
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">Preferences</td>
+                    <td className="px-3 py-2">Browser localStorage</td>
+                    <td className="px-3 py-2">
+                      Remembers dark/light theme and chosen display language across pages.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">Reading Journal</td>
+                    <td className="px-3 py-2">Browser localStorage</td>
+                    <td className="px-3 py-2">
+                      Stores drawn spreads, daily card check-ins, streaks, and notes on your device.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">Advertising</td>
+                    <td className="px-3 py-2">Third-party HTTP Cookies</td>
+                    <td className="px-3 py-2">
+                      Used by Google AdSense to serve ads, cap frequency, and prevent click fraud.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Section>
+
+          <Section title="8. Regional Rights &amp; Updates to This Policy">
+            Visitors accessing AstroFree from India, the European Economic Area, the United Kingdom,
+            or California benefit from transparency and preference controls aligned with applicable
+            data-protection rules, including browser cookie blocking, ad personalization opt-outs,
+            and immediate local-storage erasure via browser tools or our Settings page. We may update
+            this Cookie Policy whenever our technical stack, privacy standards, or advertising
+            integrations evolve. For broader details on how data is handled across the platform,
+            read our{" "}
             <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
               Privacy Policy
             </Link>{" "}
@@ -170,6 +221,37 @@ function CookiePolicyPage() {
               Contact page
             </Link>
             .
+          </Section>
+
+          <Section title="8. Local Storage vs. HTTP Cookies Explained">
+            While HTTP cookies are transmitted between your browser and web servers with page
+            requests, HTML5 local storage resides exclusively inside your device&apos;s browser sandbox.
+            AstroFree relies primarily on local storage to preserve your daily card ritual, reading
+            journal entries, saved numerology calculations, theme preference (light or dark sanctuary
+            mode), and interface language selection across our 13 supported languages. Because this
+            reflective history never sits in a remote consumer ad profile, clearing your site data in
+            your browser deletes those local records immediately on your hardware.
+          </Section>
+
+          <Section title="9. Step-by-Step Browser Controls Across Desktop &amp; Mobile">
+            Modern browsers let you review, block, or clear cookies and site data at any time. In
+            Google Chrome or Microsoft Edge, open Settings, navigate to Privacy and Security, and
+            select Third-party cookies or Site data to restrict tracking technologies globally or per
+            domain. In Apple Safari on iPhone, iPad, or macOS, open Privacy settings to enable
+            Prevent Cross-Site Tracking or Block All Cookies. In Mozilla Firefox, open Privacy &amp;
+            Security and select Strict under Enhanced Tracking Protection. Note that disabling local
+            storage completely may reset your chosen language or clear unsaved journal reflections
+            when switching tabs.
+          </Section>
+
+          <Section title="10. Policy Alignment &amp; Periodic Updates">
+            We audit our Cookie &amp; Storage Policy alongside our{" "}
+            <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+              Privacy Policy
+            </Link>{" "}
+            whenever analytics, consent frameworks, or advertising integrations change. Any material
+            revisions are published directly on this page with an updated effective date at the top
+            of the guide.
           </Section>
         </GlassCard>
 

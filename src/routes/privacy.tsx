@@ -35,7 +35,8 @@ export const Route = createFileRoute("/privacy")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-07-15",
+              updated: "2026-11-16",
               section: "Legal",
             },
           }),
@@ -56,7 +57,14 @@ function PrivacyPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           Privacy <span className="aurora-text">Policy</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: July 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-07-15">15 July 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="1. Overview &amp; Commitment to Privacy">
@@ -167,11 +175,50 @@ function PrivacyPage() {
             or clear your browser's site data for this domain.
           </Section>
 
-          <Section title="9. Changes to This Policy &amp; Contact">
+          <Section title="9. Changes to This Policy &amp; Transparency Summary">
             We review this Privacy Policy periodically as web standards, privacy regulations, and
             site features evolve. Any updates take effect when published on this page with a revised
-            effective date. If you have questions about our privacy practices, please reach our team
-            securely through our{" "}
+            last-updated date. The summary below outlines how data flows across AstroFree:
+            <div className="mt-3 overflow-x-auto rounded-xl border border-white/10">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-white/[0.04] text-foreground">
+                  <tr>
+                    <th className="px-3 py-2">Interaction</th>
+                    <th className="px-3 py-2">Where Processed</th>
+                    <th className="px-3 py-2">Retention Window</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10">
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">Numerology math</td>
+                    <td className="px-3 py-2">Directly in browser</td>
+                    <td className="px-3 py-2">Not uploaded unless AI insight is requested</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">Saved journal &amp; streak</td>
+                    <td className="px-3 py-2">Your device localStorage</td>
+                    <td className="px-3 py-2">Until cleared or exported by you</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">AI spread synthesis</td>
+                    <td className="px-3 py-2">Transient HTTPS server request</td>
+                    <td className="px-3 py-2">Transient processing; no user account dossier</td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 py-2 text-foreground">AdSense delivery</td>
+                    <td className="px-3 py-2">Google &amp; certified ad partners</td>
+                    <td className="px-3 py-2">Governed by Google Ad Settings / cookie opt-outs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Section>
+
+          <Section title="10. Security Safeguards &amp; Contact">
+            All traffic between your browser and AstroFree travels over HTTPS encryption, backed by
+            strict transport and content security policies designed to block unauthorized scripts.
+            If you have questions about our privacy practices or wish to request deletion of a
+            previous contact inquiry, please reach our team securely through our{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
               Contact page
             </Link>

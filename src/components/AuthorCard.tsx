@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 interface AuthorCardProps {
+  published?: string;
   lastUpdated: string;
   category: string;
   readingTime: string;
@@ -18,6 +19,7 @@ const formatDate = (value: string) =>
   });
 
 export function AuthorCard({
+  published,
   lastUpdated,
   category,
   readingTime,
@@ -43,16 +45,20 @@ export function AuthorCard({
         </div>
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-[#e3cfb6]/90">
-        Every guide is reviewed by the AstroFree Editorial Team. Our articles combine traditional
-        tarot and numerology references with carefully edited AI-assisted writing. Content is created
-        for education and self-reflection, not as professional medical, legal or financial advice.
+      <p className="mt-3 text-sm leading-relaxed text-[#e3cfb6]/90">
+        Curated and reviewed for reflection and education by the AstroFree Editorial Team.
       </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-[#d6bfa3] font-medium">
+        {published && published !== lastUpdated && (
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
+            Published <time dateTime={published}>{formatDate(published)}</time>
+          </span>
+        )}
         <span className="inline-flex items-center gap-1.5">
           <CalendarClock className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
-          Last updated {formatDate(lastUpdated)}
+          Last updated <time dateTime={lastUpdated}>{formatDate(lastUpdated)}</time>
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Sparkles className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
@@ -64,12 +70,12 @@ export function AuthorCard({
         </span>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-3 text-xs text-[#ead9c3]">
+      <div className="mt-4 flex flex-wrap gap-3 text-xs text-[#ead9c3]">
         <Link to="/editorial-policy" className="underline underline-offset-4 hover:text-[#fffaf0] transition-colors">
           Editorial Policy
         </Link>
         <Link to="/about" className="underline underline-offset-4 hover:text-[#fffaf0] transition-colors">
-          AI Methodology
+          Methodology
         </Link>
       </div>
     </div>

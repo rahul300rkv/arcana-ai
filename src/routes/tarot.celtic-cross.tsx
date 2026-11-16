@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "Celtic Cross Tarot Reading",
   intro:
     "The Celtic Cross is the most well-known tarot spread in the world: ten cards covering the present situation, the challenge crossing it, its roots, the recent past and near future, your own self-image, outside influences, hopes and fears, and the likely outcome. It's the spread to reach for when a question is layered, high-stakes, or hard to untangle in a quick pull.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "8 min read",
   sections: [
     {
       id: "how-it-works",
@@ -57,6 +60,31 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "How can I navigate the next six months of relocating to a new city and restarting my work?",
+    positions: [
+      {
+        position: "1 · Present & 2 · Challenge",
+        card: "The Fool (Upright) crossed by Four of Pentacles (Upright)",
+        reading:
+          "A genuine willingness to start fresh (The Fool) sits directly in tension with clinging tightly to security, old routines, and financial caution (Four of Pentacles). Growth requires smart budgeting without letting fear freeze movement.",
+      },
+      {
+        position: "3 · Foundation & 5 · Crown",
+        card: "Nine of Wands (Upright) beneath The Star (Upright)",
+        reading:
+          "Your resilience comes from hard-earned endurance through past setbacks (Nine of Wands), while your conscious aspiration (The Star) seeks calmer purpose, community healing, and creative renewal.",
+      },
+      {
+        position: "7 · Self, 9 · Hopes & Fears, 10 · Outcome",
+        card: "Queen of Pentacles · Two of Cups · The World (Upright)",
+        reading:
+          "Seeing yourself as capable and practical (Queen of Pentacles) while craving genuine belonging (Two of Cups) points toward The World in Outcome: closing an older chapter cleanly and establishing rooted wholeness in the new setting.",
+      },
+    ],
+    synthesis:
+      "When reading the full ten-card arc, practical grounding pairs with major life integration (The Fool in 1 moving into The World in 10). Build a transparent cash runway to satisfy Position 2, then give new local friendships room to take root.",
+  },
   faqs: [
     {
       question: "How long does a Celtic Cross reading take?",
@@ -158,7 +186,8 @@ export const Route = createFileRoute("/tarot/celtic-cross")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Celtic Cross Reading", path: PATH },

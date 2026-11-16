@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, Layers, Sparkles } from "lucide-react";
+import { CalendarClock, Clock, Layers, Sparkles } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -10,9 +10,22 @@ import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion, type FaqItem } from "@/components/content/FAQAccordion";
 import { RelatedCards, type RelatedItem } from "@/components/content/RelatedCards";
 import { KeepExploring, type HubLink } from "@/components/content/KeepExploring";
+import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
 import type { SpreadId } from "@/lib/tarot/types";
 import { getSpread } from "@/lib/tarot/spreads";
+
+export interface ReadingSamplePosition {
+  position: string;
+  card: string;
+  reading: string;
+}
+
+export interface ReadingSamplePull {
+  question: string;
+  positions: ReadingSamplePosition[];
+  synthesis: string;
+}
 
 export interface ReadingLandingConfig {
   /** URL path, e.g. "/tarot/one-card". */
@@ -22,12 +35,26 @@ export interface ReadingLandingConfig {
   eyebrow: string;
   h1: string;
   intro: string;
-  /** 2-4 short paragraphs: what it is / how it works / when to use it. */
+  published?: string;
+  updated: string;
+  readingTime?: string;
+  /** Rich sections explaining mechanics, nuances, and practical framing. */
   sections: { id: string; title: string; paragraphs: string[] }[];
+  /** Worked example walkthrough tailored specifically to this spread. */
+  samplePull?: ReadingSamplePull;
   faqs: FaqItem[];
   relatedCards: RelatedItem[];
   relatedLinks: HubLink[];
   ctaLabel: string;
+}
+
+function formatDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 /**
@@ -55,6 +82,18 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           {config.intro}
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+          {config.published && config.published !== config.updated && (
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime={config.published}>{formatDate(config.published)}</time>
+            </span>
+          )}
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+            Last updated <time dateTime={config.updated}>{formatDate(config.updated)}</time>
+          </span>
+        </div>
 
         <GlassCard className="mt-8 flex flex-wrap items-center justify-between gap-4 p-6">
           <div className="flex items-center gap-6 text-xs text-muted-foreground">
@@ -77,6 +116,47 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
             <ContentSection key={s.id} id={s.id} title={s.title} paragraphs={s.paragraphs} />
           ))}
 
+          {config.samplePull && (
+            <ContentSection id="worked-example" title="Worked example spread walkthrough">
+              <GlassCard className="space-y-5 p-6">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--gold)]">
+                    Sample question asked
+                  </p>
+                  <p className="mt-1 font-display text-lg text-foreground">
+                    “{config.samplePull.question}”
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  {config.samplePull.positions.map((pos) => (
+                    <div
+                      key={pos.position}
+                      className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
+                          {pos.position}
+                        </span>
+                        <span className="font-display text-sm text-foreground">{pos.card}</span>
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {pos.reading}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Synthesis takeaway
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-foreground/90">
+                    {config.samplePull.synthesis}
+                  </p>
+                </div>
+              </GlassCard>
+            </ContentSection>
+          )}
+
           <ContentSection id="disclaimer" title="A note on responsible use" as="h3">
             <p className="text-sm leading-relaxed text-muted-foreground">
               This reading is a reflective, symbolic tool for self-exploration — not a deterministic
@@ -90,6 +170,13 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
               <FAQAccordion items={config.faqs} />
             </ContentSection>
           )}
+
+          <AuthorCard
+            published={config.published}
+            lastUpdated={config.updated}
+            category={`Tarot Spread · ${config.eyebrow}`}
+            readingTime={config.readingTime ?? "6 min read"}
+          />
 
           <RelatedCards title="Related tarot cards" items={config.relatedCards} />
           <KeepExploring links={config.relatedLinks} />

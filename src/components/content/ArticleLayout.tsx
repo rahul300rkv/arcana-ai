@@ -17,6 +17,7 @@ interface Props {
   title: string;
   intro: string;
   url: string;
+  published?: string;
   updated: string;
   readingMinutes: number;
   wordCount: number;
@@ -46,6 +47,7 @@ export function ArticleLayout({
   title,
   intro,
   url,
+  published,
   updated,
   readingMinutes,
   wordCount,
@@ -78,6 +80,12 @@ export function ArticleLayout({
                 <UserRound className="h-3.5 w-3.5" aria-hidden />
                 {AUTHOR.name}
               </span>
+              {published && published !== updated && (
+                <span className="inline-flex items-center gap-1.5">
+                  <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+                  Published <time dateTime={published}>{formatDate(published)}</time>
+                </span>
+              )}
               <span className="inline-flex items-center gap-1.5">
                 <CalendarClock className="h-3.5 w-3.5" aria-hidden />
                 Updated <time dateTime={updated}>{formatDate(updated)}</time>
@@ -100,6 +108,7 @@ export function ArticleLayout({
 
         <div className="mt-14">
           <AuthorCard
+            published={published}
             lastUpdated={updated}
             category={eyebrow}
             readingTime={`${readingMinutes} min read`}

@@ -33,7 +33,7 @@ export function RelatedCards({ title, items }: { title: string; items: RelatedIt
                 {item.image && (
                   <img
                     src={item.image}
-                    alt={`${item.name} tarot card`}
+                    alt={`${item.name} Rider–Waite–Smith tarot card illustration — ${item.subtitle}`}
                     loading="lazy"
                     decoding="async"
                     width={64}

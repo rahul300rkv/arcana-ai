@@ -41,7 +41,8 @@ export const Route = createFileRoute("/disclaimer")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Legal",
             },
           }),
@@ -62,7 +63,14 @@ function DisclaimerPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           <span className="aurora-text">Disclaimer</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-08-07">7 August 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="1. Entertainment, Cultural Study &amp; Self-Reflection Only">
@@ -122,15 +130,52 @@ function DisclaimerPage() {
             lived context.
           </Section>
 
-          <Section title="7. Age Guidance &amp; Questions">
+          <Section title="7. Age Guidance &amp; Parental Supervision">
             AstroFree is intended for visitors aged 13 and older. Younger readers exploring tarot or
             numerology for curiosity or creative journaling should discuss major life choices with a
-            parent, teacher, or trusted guardian. If anything in this Disclaimer requires
+            parent, teacher, or trusted guardian.
+          </Section>
+
+          <Section title="8. High-Stakes Decisions Across Life Domains">
+            Readers often consult spreads and number calculators during turning points involving
+            relationships, employment changes, academic exams, or personal relocation. While symbolic
+            archetypes can illuminate emotional priorities or clarify what questions you need to ask
+            yourself, high-stakes commitments demand real-world verification: review written
+            employment contracts, verify financial budgets with qualified planners, communicate
+            directly with partners rather than guessing intentions from cards alone, and prioritize
+            clinical medical testing whenever physical symptoms arise.
+          </Section>
+
+          <Section title="9. Questions About This Disclaimer">
+            Across centuries, different tarot schools and Vedic Ank Shastra lineages have assigned
+            varying correspondences to reversed cards, Chaldean compound digits, and Personal Year
+            transitions. AstroFree presents widely recognized traditional interpretations for study
+            and quiet introspection rather than rigid dogma. If anything in this Disclaimer requires
             clarification, please reach out through our{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
               Contact page
             </Link>
             .
+          </Section>
+
+          <Section title="10. Distinction Between Reflection &amp; Objective Forecasting">
+            Tarot archetypes and numerological vibrations (Mulank, Bhagyank, Namank, and Personal
+            Year cycles) operate as structured lenses for storytelling, journaling, and noticing
+            recurring personal habits. They do not measure physical probabilities, market returns,
+            clinical diagnoses, compatibility guarantees, or future legal outcomes. When readers treat
+            spreads as prompts for self-observation — asking &ldquo;What pattern am I noticing in my
+            response?&rdquo; instead of &ldquo;What am I fated to endure?&rdquo; — reflective tools remain
+            healthy, grounded, and empowering.
+          </Section>
+
+          <Section title="11. Accuracy of Mathematical Calculations &amp; Third-Party Links">
+            All arithmetic reductions in AstroFree&apos;s Vedic numerology calculators follow deterministic
+            formulas documented publicly across our methodology guides. Even so, historical lineages
+            sometimes differ on Chaldean letter mappings, Master Number treatment (11, 22, 33), or
+            reversed-card weighting. AstroFree provides every calculation and reference table on an
+            &ldquo;as-is&rdquo; educational basis without warranties of fitness for any commercial purpose.
+            External links or embedded third-party notices follow their own operators&apos; policies and
+            terms.
           </Section>
         </GlassCard>
 

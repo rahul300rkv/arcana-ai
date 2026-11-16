@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "One Card Tarot Reading",
   intro:
     "The One Card Tarot Reading is the simplest, fastest way to draw on tarot for clarity: a single card drawn against a single question or moment, interpreted upright or reversed. It's the spread most people reach for as a daily ritual, and the one we'd suggest if you're new to reading cards.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "6 min read",
   sections: [
     {
       id: "how-it-works",
@@ -41,6 +44,14 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
     {
+      id: "suit-and-rank-cues",
+      title: "Reading suit & numerology cues in one card",
+      paragraphs: [
+        "Even before recalling a card's dictionary textbook paragraph, two quick observations unlock an accurate single-card interpretation: which suit landed (or whether it belongs to the Major Arcana), and what number from Ace to Ten it carries. Wands invite initiative, movement, and courage; Cups point toward emotional honesty or pacing your heart; Swords ask for clear thinking and boundaries; and Pentacles ground your focus in money, routines, sleep, and tangible craftsmanship.",
+        "Numerologically, Aces signal a raw seed waiting to be planted, Fives bring productive disruption that forces adaptation, Sixes restore temporary harmony, and Tens mark exhaustion or completion right before a cycle resets. Reading suit + rank gives even first-time visitors immediate fluency.",
+      ],
+    },
+    {
       id: "daily-ritual",
       title: "Building a mindful daily one-card ritual",
       paragraphs: [
@@ -57,6 +68,19 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "What posture will help me navigate a difficult conversation with my teammate today?",
+    positions: [
+      {
+        position: "Position 1 · Core Message",
+        card: "Queen of Cups (Upright)",
+        reading:
+          "Queen of Cups combines emotional steadiness with clear inner boundaries. Rather than reacting defensively or absorbing someone else's urgency as your own panic, the card advises listening deeply first while staying anchored in your own calm center. Notice what is left unsaid in their tone without rushing to fix discomfort prematurely.",
+      },
+    ],
+    synthesis:
+      "Lead with empathy, not urgency: pause two seconds before replying in today's discussion, validate what you actually hear, and state your boundary gently in one clear sentence.",
+  },
   faqs: [
     {
       question: "How is a one card tarot reading different from a daily card?",
@@ -158,7 +182,8 @@ export const Route = createFileRoute("/tarot/one-card")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "One Card Reading", path: PATH },

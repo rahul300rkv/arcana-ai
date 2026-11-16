@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   BookOpen,
+  CalendarClock,
   LayoutGrid,
   Hash,
   ArrowRight,
@@ -19,7 +20,32 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
+import { FAQAccordion } from "@/components/content/FAQAccordion";
+import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+
+const GUIDE_HUB_FAQS = [
+  {
+    question: "Which guide should an absolute beginner read first?",
+    answer:
+      "Start with Tarot for Beginners to learn the 22 Major Arcana vs. 56 Minor Arcana structure, how shuffling works, and how to formulate open-ended questions before jumping into complex spreads.",
+  },
+  {
+    question: "How do AstroFree's tarot and Vedic numerology guides fit together?",
+    answer:
+      "Tarot captures the texture of immediate circumstances and personal choices, while Indian Ank Shastra (Mulank, Bhagyank, and Namank) maps temperament and multi-year timing cycles—pair both to compare daily nuance against longer life arcs.",
+  },
+  {
+    question: "Are all AstroFree study guides free without account registration?",
+    answer:
+      "Yes. All eight in-depth tutorials, our 78 individual tarot card pages, and every Mulank and Life Path reference page remain open without paywalls or mandatory accounts.",
+  },
+  {
+    question: "Why does AstroFree include reversed card guidance?",
+    answer:
+      "Reversals prevent one-dimensional fatalistic readings by highlighting when a card's core energy sits internalized, blocked, overdue, or subtly overexpressed—helpful context covered step by step in Reversed Tarot Cards.",
+  },
+];
 
 export const Route = createFileRoute("/guide/")({
   head: () => ({
@@ -28,7 +54,7 @@ export const Route = createFileRoute("/guide/")({
       {
         name: "description",
         content:
-          "Free tarot and numerology guides covering 78 card meanings, tarot spreads, Mulank calculation, and Personal Year explanations.",
+          "Free tarot and numerology guides covering 78 card meanings, tarot spreads, Mulank vs Bhagyank calculation, and Personal Year explanations.",
       },
       { property: "og:title", content: "Tarot & Numerology Guides — AstroFree" },
       {
@@ -56,6 +82,12 @@ export const Route = createFileRoute("/guide/")({
                 path: "/guide",
               },
             ],
+            faqs: GUIDE_HUB_FAQS,
+            article: {
+              published: "2026-07-15",
+              updated: "2026-11-16",
+              section: "Guides",
+            },
           }),
         ),
       },
@@ -70,7 +102,7 @@ const guides = [
     icon: BookOpen,
     title: "Tarot Card Meanings",
     body: "Upright and reversed meanings for all 78 cards — the 22 Major Arcana and all four Minor Arcana suits — plus what each card suggests for love, career, finances, and spiritual growth.",
-    readingMinutes: 12,
+    readingMinutes: 16,
     anchor: "tarot-card-meanings",
   },
   {
@@ -171,6 +203,16 @@ function GuideIndexPage() {
             of what every tarot card means, how each spread is laid out, and the exact math behind
             Mulank numerology. Everything here is free to read, no signup required.
           </p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime="2026-07-15">15 July 2026</time>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            </span>
+          </div>
         </motion.div>
 
         <nav
@@ -299,6 +341,27 @@ function GuideIndexPage() {
 
           <GlassCard className="p-6 sm:p-8 space-y-5">
             <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Combining Tarot Symbolism with Vedic Numerology
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Many readers approach tarot and numerology as unrelated hobbies, yet the two systems
+              share deep structural symmetry. Tarot excels at illuminating immediate dilemmas — what
+              is unfolding in a specific relationship, creative effort, or crossroads decision right
+              now. Vedic Ank Shastra zooms out across longer spans: your Mulank highlights native
+              instinctive temperament driven by the calendar day of birth, while your Bhagyank and
+              Personal Year spotlight recurring multi-year developmental lessons.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              When practicing both together, pull a Three Card spread right after calculating your
+              Personal Month. Notice whether Major Arcana cards matching your birth number or ruler
+              planet surface repeatedly inside your journal. Pairing concrete visual reflection with
+              structured numeric timing turns solitary study into an organized habit of sober
+              self-awareness rather than wishful daydreaming.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-5">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
               Core Tarot &amp; Numerology Terms at a Glance
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -340,6 +403,13 @@ function GuideIndexPage() {
               </div>
             </div>
           </GlassCard>
+
+          <div className="space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Frequently Asked Questions
+            </h2>
+            <FAQAccordion items={GUIDE_HUB_FAQS} />
+          </div>
         </section>
 
         <div className="mt-12 grid gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-2">
@@ -394,6 +464,15 @@ function GuideIndexPage() {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <AuthorCard
+            published="2026-07-15"
+            lastUpdated="2026-11-16"
+            category="Study Archive"
+            readingTime="8 min read"
+          />
         </div>
 
         <motion.div

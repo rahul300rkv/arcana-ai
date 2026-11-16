@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Clock, Layers } from "lucide-react";
+import { CalendarClock, Clock, Layers } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -8,7 +8,32 @@ import { SPREAD_LIST } from "@/lib/tarot/spreads";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
+import { FAQAccordion } from "@/components/content/FAQAccordion";
+import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+
+const SPREADS_FAQS = [
+  {
+    question: "Which tarot spread should a beginner use?",
+    answer:
+      "Start with the Single Card or Three Card spread — few positions, crisp narrative structure, and easy to cross-check against real-world events without overwhelm.",
+  },
+  {
+    question: "What is the Celtic Cross spread?",
+    answer:
+      "The Celtic Cross is a traditional ten-card layout examining present situation, immediate crossing challenge, conscious aims, subconscious roots, recent past, near future, internal stance, external influences, hopes and fears, and likely outcome.",
+  },
+  {
+    question: "Can I use any spread for any question?",
+    answer:
+      "Yes, though tailored topic layouts deliver clearer contrast — Love spreads compare two partners evenly while Decision spreads illuminate blindspots between distinct paths.",
+  },
+  {
+    question: "How should I word questions before pulling a spread?",
+    answer:
+      "Frame open-ended questions beginning with 'What helps me see...', 'How can I approach...', or 'What dynamic deserves attention in...' rather than passive fatalistic 'When will...' phrasing.",
+  },
+];
 
 export const Route = createFileRoute("/guide/tarot-spreads")({
   head: () => ({
@@ -47,25 +72,10 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
                 path: "/guide/tarot-spreads",
               },
             ],
-            faqs: [
-              {
-                question: "Which tarot spread should a beginner use?",
-                answer:
-                  "Start with the Single Card or Three Card spread — few positions, clear structure, and easy to interpret.",
-              },
-              {
-                question: "What is the Celtic Cross spread?",
-                answer:
-                  "The Celtic Cross is a ten-card spread covering the situation, the challenge, the past, the near future, hopes, external influences, and the likely outcome.",
-              },
-              {
-                question: "Can I use any spread for any question?",
-                answer:
-                  "Yes, but spreads are designed around question types — love spreads compare two people's energy, decision spreads weigh two options.",
-              },
-            ],
+            faqs: SPREADS_FAQS,
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Tarot",
             },
           }),
@@ -109,12 +119,22 @@ function TarotSpreadsPage() {
           A tarot spread is simply a layout — a fixed set of positions, each assigned its own
           meaning, that cards are drawn into. The same card lands differently depending on which
           position it falls in: The Tower in a "Challenge" position reads very differently than The
-          Tower in an "Outcome" position. Below are all eight spreads available in AstroFree's{" "}
+          Tower in an "Outcome" position. Below are all eight spreads available in AstroFree&apos;s{" "}
           <Link to="/reading" className="underline underline-offset-4 hover:text-foreground">
             free AI tarot reading
           </Link>
           , what each position means, and when each spread is the right fit.
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+            Published <time dateTime="2026-08-07">7 August 2026</time>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+            Last updated <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </div>
 
         <div className="mt-12 space-y-8">
           {SPREAD_LIST.map((spread) => (
@@ -176,7 +196,7 @@ function TarotSpreadsPage() {
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Beginners often treat tarot cards as fixed flashcards: The Sun equals joy, Five of
-              Pentacles equals hardship, Three of Swords equals heartbreak. In practice, a spread's
+              Pentacles equals hardship, Three of Swords equals heartbreak. In practice, a spread&apos;s
               architecture acts like grammar in a sentence. A card acts as a noun or verb, while the
               position it lands in decides whether that energy describes a past habit, an unseen ally,
               a present obstacle, or an emerging solution.
@@ -206,7 +226,7 @@ function TarotSpreadsPage() {
               </li>
               <li>
                 <strong className="text-foreground">Three Card &amp; Decision Spreads (3–4 cards):</strong>{" "}
-                Best when you need narrative flow — seeing how yesterday's momentum shapes today's
+                Best when you need narrative flow — seeing how yesterday&apos;s momentum shapes today&apos;s
                 choice, or weighing two distinct options side by side.
               </li>
               <li>
@@ -224,6 +244,26 @@ function TarotSpreadsPage() {
 
           <GlassCard className="p-6 sm:p-8 space-y-4">
             <h2 className="font-display text-2xl sm:text-3xl">
+              Worked Example: Synthesizing a Three Card Pull
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Suppose a reader asks, &ldquo;How should I approach a possible job transition next
+              quarter?&rdquo; and draws <strong className="text-foreground">The Hermit</strong> (Past),{" "}
+              <strong className="text-foreground">Seven of Swords</strong> (Present), and{" "}
+              <strong className="text-foreground">Ace of Pentacles</strong> (Future).
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Read mechanically, Seven of Swords might trigger alarm about betrayal. Read inside the
+              spread arc, however, a calm narrative emerges: months of quiet private research (The
+              Hermit) have taught you quietly to inspect fine print and keep your plans discreet until
+              ready (Seven of Swords — tactical discretion rather than deceit), paving cleanly toward
+              a solid, tangible offer or contract (Ace of Pentacles). Notice the shift from Air
+              reflection to concrete Earth prosperity: discernment protects the seed.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">
               Synthesizing Multi-Card Spreads Without Overwhelm
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -236,9 +276,23 @@ function TarotSpreadsPage() {
               a headline summarizing where the energy starts and where it resolves.
             </p>
           </GlassCard>
+
+          <div className="space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl">Frequently asked questions</h2>
+            <FAQAccordion items={SPREADS_FAQS} />
+          </div>
         </section>
 
-        <div className="mt-14">
+        <div className="mt-12">
+          <AuthorCard
+            published="2026-08-07"
+            lastUpdated="2026-11-16"
+            category="Spread Architecture"
+            readingTime="10 min read"
+          />
+        </div>
+
+        <div className="mt-10">
           <Link
             to="/"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"

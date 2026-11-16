@@ -22,7 +22,13 @@ export function TarotDeck({ shuffling = false }: { shuffling?: boolean }) {
           transition={{ duration: 1.1, repeat: shuffling ? Infinity : 0, ease: "easeInOut" }}
           style={{ zIndex: i }}
         >
-          <CardBack />
+          <CardBack
+            alt={
+              i === cards.length - 1
+                ? "Stacked 78-card Rider–Waite–Smith tarot deck with ornate gold filigree card backs ready for shuffling"
+                : ""
+            }
+          />
         </motion.div>
       ))}
     </div>

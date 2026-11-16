@@ -89,7 +89,7 @@ function TarotCardPage() {
       crumbs={[{ label: "Tarot Card Meanings", to: "/tarot" }, { label: page.name }]}
       eyebrow={`${page.arcanaLabel}${page.suit ? ` · ${page.suitLabel}` : ""}`}
       title={`${page.name} Tarot Card Meaning`}
-      intro={page.overview[0]}
+      intro={page.intro}
       url={`${SITE_URL}${path}`}
       updated={page.updated}
       readingMinutes={page.readingMinutes}
@@ -118,7 +118,7 @@ function TarotCardPage() {
         />
       </ContentSection>
 
-      <ContentSection id="overview" title="Overview" icon={BookOpen} paragraphs={page.overview} />
+      <ContentSection id="overview" title="Symbolism and overview" icon={BookOpen} paragraphs={page.overview} />
 
       <ContentSection id="meaning" title={`${page.name} meaning`} icon={Sparkles}>
         <div className="grid gap-6 md:grid-cols-2">
@@ -257,22 +257,22 @@ function TarotCardPage() {
           {
             to: "/tarot",
             label: "All 78 tarot card meanings",
-            blurb: "Browse the complete Rider–Waite–Smith library with search and suit filters.",
+            blurb: `Compare ${page.name} with the wider ${page.suit ? page.suitLabel : "Major Arcana"} and element of ${page.element}.`,
           },
           {
             to: "/guide/tarot-spreads",
             label: "Tarot spreads explained",
-            blurb: `See which spread places ${page.name} in the most useful position.`,
+            blurb: `See which spread places ${page.name} in the most clarifying position.`,
           },
           {
             to: "/guide/tarot-card-meanings",
-            label: "Quick meanings cheat sheet",
-            blurb: "Upright and reversed keywords for the whole deck on one page.",
+            label: "Quick meanings reference",
+            blurb: "Deck architecture, four elements, and upright vs. reversed guidance.",
           },
           {
             to: "/numerology",
-            label: "Mulank numerology calculator",
-            blurb: "Pair this card's archetype with your Personal Year and Month numbers.",
+            label: "Numerology library",
+            blurb: `Pair ${page.name}'s themes with your personal Mulank and Life Path numbers.`,
           },
         ]}
       />
@@ -286,8 +286,8 @@ function TarotCardPage() {
       />
 
       <CTASection
-        title="Try a free AI tarot reading"
-        body={`Pull ${page.name} in a real spread and get a personalised interpretation for your own question — no signup, no card details, in under a minute.`}
+        title={`Draw ${page.name} in a live spread`}
+        body={`Pull ${page.name} alongside clarifying cards to test how ${page.cardKeywords[0].toLowerCase()} speaks directly to your current question.`}
         ctaLabel="Start your free reading"
         to="/reading"
       />

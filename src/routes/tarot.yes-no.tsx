@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "Yes or No Tarot Reading",
   intro:
     "The Yes or No Tarot Reading uses a single card, drawn upright or reversed, to give a clear lean on a direct question. It's the same single-card mechanic as our One Card Reading, framed specifically around questions that have a yes/no shape rather than an open-ended one.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "6 min read",
   sections: [
     {
       id: "how-it-works",
@@ -57,6 +60,19 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "Is this month the right time to propose my new workflow idea at work?",
+    positions: [
+      {
+        position: "Single Card · Directional Lean",
+        card: "Seven of Pentacles (Upright) — Conditional Yes",
+        reading:
+          "Seven of Pentacles leans yes, but with a patient, measured tempo. The groundwork you already invested is bearing quiet fruit; however, rushing a half-finished pitch tomorrow could undersell the value. Take one more week to gather concrete metrics before presenting.",
+      },
+    ],
+    synthesis:
+      "Directional answer: Conditional Yes — prepare your supporting data carefully, then pitch from a position of calm patience rather than urgency.",
+  },
   faqs: [
     {
       question: "How accurate is a yes or no tarot reading?",
@@ -148,7 +164,8 @@ export const Route = createFileRoute("/tarot/yes-no")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Yes or No Reading", path: PATH },

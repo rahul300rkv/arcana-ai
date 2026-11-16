@@ -13,12 +13,18 @@ interface Props {
 }
 
 export function TarotCard({ card, reversed, revealed, onReveal, className }: Props) {
+  const buttonLabel = revealed
+    ? `${card.name}${reversed ? " (reversed)" : ""} tarot card revealed`
+    : "Face-down tarot card — tap to reveal";
+
   return (
     <motion.button
       type="button"
       onClick={onReveal}
+      aria-label={buttonLabel}
+      aria-pressed={Boolean(revealed)}
       className={cn(
-        "relative aspect-[2/3] w-full [perspective:1200px] focus-visible:outline-none",
+        "relative aspect-[2/3] w-full [perspective:1200px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] rounded-2xl",
         !revealed && "cursor-pointer",
         className,
       )}
@@ -30,10 +36,13 @@ export function TarotCard({ card, reversed, revealed, onReveal, className }: Pro
         animate={{ rotateY: revealed ? 180 : 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="absolute inset-0 [backface-visibility:hidden]">
-          <CardBack />
+        <div aria-hidden={Boolean(revealed)} className="absolute inset-0 [backface-visibility:hidden]">
+          <CardBack alt="Face-down tarot card back with celestial crimson and gold filigree pattern" />
         </div>
-        <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div
+          aria-hidden={!revealed}
+          className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]"
+        >
           <CardFront card={card} reversed={reversed} />
         </div>
       </motion.div>

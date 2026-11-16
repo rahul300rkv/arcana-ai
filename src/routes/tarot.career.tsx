@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "Career Tarot Reading",
   intro:
     "The Career Tarot Reading lays out four cards — Where You Are, Challenge, Advice, and Outcome — to bring clarity to work decisions: a stuck project, a job change you're weighing, or a general sense that your current path doesn't quite fit anymore.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "6 min read",
   sections: [
     {
       id: "how-it-works",
@@ -57,6 +60,37 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "Should I apply for the senior product lead opening or focus on deepening my current specialist role?",
+    positions: [
+      {
+        position: "1 · Where You Are",
+        card: "Eight of Pentacles (Upright)",
+        reading:
+          "You have built rock-solid technical credibility through disciplined daily craft. Colleagues already rely on your thoroughness, which gives you strong leverage no matter which route you choose.",
+      },
+      {
+        position: "2 · Challenge",
+        card: "Six of Swords (Reversed)",
+        reading:
+          "The friction comes from hesitation about leaving familiar territory — lingering comfort and fear of unfamiliar stakeholder politics make transition feel heavier than it actually is.",
+      },
+      {
+        position: "3 · Advice",
+        card: "Knight of Wands (Upright)",
+        reading:
+          "Step forward with bold curiosity and showcase your vision publicly instead of waiting passively for someone to tap you on the shoulder.",
+      },
+      {
+        position: "4 · Outcome",
+        card: "Six of Wands (Upright)",
+        reading:
+          "Putting your hat in the ring brings visible recognition and restored confidence in your trajectory, reinforcing that your growth depends on embracing larger visibility.",
+      },
+    ],
+    synthesis:
+      "Your skills (Eight of Pentacles) are already ready; the real bottleneck is hesitation around transitioning (Six of Swords Reversed). Prepare a concise case study of three wins and submit the application this week.",
+  },
   faqs: [
     {
       question: "Can a career tarot reading tell me if I'll get a job or promotion?",
@@ -158,7 +192,8 @@ export const Route = createFileRoute("/tarot/career")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Career Reading", path: PATH },

@@ -14,6 +14,9 @@ const CONFIG: ReadingLandingConfig = {
   h1: "Three Card Tarot Reading",
   intro:
     "The Three Card Tarot Reading is the classic next step up from a single card pull: three cards drawn into Past, Present, and Future positions, giving you the arc of a situation rather than just a snapshot of it.",
+  published: "2026-08-16",
+  updated: "2026-11-16",
+  readingTime: "6 min read",
   sections: [
     {
       id: "how-it-works",
@@ -57,6 +60,31 @@ const CONFIG: ReadingLandingConfig = {
       ],
     },
   ],
+  samplePull: {
+    question: "How is my energy around launching an independent side project unfolding right now?",
+    positions: [
+      {
+        position: "1 · Past",
+        card: "Eight of Swords (Upright)",
+        reading:
+          "Over recent months, mental self-doubt and fear of choosing imperfectly kept you boxed in. Even when practical opportunities existed, internal hesitation made every option feel risky.",
+      },
+      {
+        position: "2 · Present",
+        card: "Two of Wands (Upright)",
+        reading:
+          "Today you have stepped back onto a higher vantage point and are actively weighing concrete plans. Instead of spinning in worry, you are comparing two tangible scopes and deciding where to commit.",
+      },
+      {
+        position: "3 · Future",
+        card: "Three of Pentacles (Upright)",
+        reading:
+          "If you stay grounded and execute step by step, the project moves naturally into collaborative craftsmanship — inviting feedback from a peer, mentor, or early client who strengthens the work.",
+      },
+    ],
+    synthesis:
+      "Notice the elemental arc from Swords (mental gridlock) through Wands (decisive planning) into Pentacles (real-world building). Stop rehearsing worst-case scenarios in private and share an early draft with someone whose craft you trust.",
+  },
   faqs: [
     {
       question: "Is the three card spread good for beginners?",
@@ -158,7 +186,8 @@ export const Route = createFileRoute("/tarot/three-card")({
             path: PATH,
             title: TITLE,
             description: DESCRIPTION,
-            updated: "2026-08-16",
+            published: CONFIG.published,
+            updated: CONFIG.updated,
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Three Card Reading", path: PATH },

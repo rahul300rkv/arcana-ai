@@ -32,7 +32,7 @@ export function Features() {
             <div className="absolute inset-0 z-0">
               <img
                 src="/src/assets/images/tarot_cosmic_sanctuary_1793008311617.jpg"
-                alt="Sacred tarot altar sanctuary"
+                alt="Candlelit crimson and velvet tarot altar sanctuary prepared for sacred arcana spread readings"
                 referrerPolicy="no-referrer"
                 className="h-full w-full object-cover object-center opacity-30 transition-transform duration-700 ease-out group-hover:scale-105"
               />
@@ -103,7 +103,7 @@ export function Features() {
             <div className="absolute inset-0 z-0">
               <img
                 src="/src/assets/images/vedic_numerology_wheel_1793008328818.jpg"
-                alt="Vedic numerology wheel"
+                alt="Vedic numerology sacred geometry wheel illustrating numbers 1 through 9 and planetary rulers"
                 referrerPolicy="no-referrer"
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />
@@ -145,7 +145,7 @@ export function Features() {
             <div className="absolute inset-0 z-0">
               <img
                 src="/src/assets/images/tarot_reading_oracle_1793008343197.jpg"
-                alt="Mystical tarot reader oracle hands"
+                alt="Tarot reader hands thoughtfully drawing an illustrated arcana card during a reflective oracle reading"
                 referrerPolicy="no-referrer"
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />

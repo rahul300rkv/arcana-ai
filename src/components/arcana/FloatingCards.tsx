@@ -117,7 +117,7 @@ export function FloatingCards() {
                   }}
                 >
                   <div className="absolute inset-0 [backface-visibility:hidden]">
-                    <CardBack alt={`${card.name} tarot card, face-down`} />
+                    <CardBack alt={`${card.name} tarot card back with celestial gold filigree design, face-down`} />
                   </div>
                   <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <CardFront card={card} eager />

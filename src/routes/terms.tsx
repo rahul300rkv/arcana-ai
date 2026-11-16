@@ -35,7 +35,8 @@ export const Route = createFileRoute("/terms")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-07-15",
+              updated: "2026-11-16",
               section: "Legal",
             },
           }),
@@ -56,7 +57,14 @@ function TermsPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           Terms of <span className="aurora-text">Service</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: July 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-07-15">15 July 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="1. Acceptance of Terms">
@@ -140,13 +148,50 @@ function TermsPage() {
             reading, calculator, or article on the platform.
           </Section>
 
-          <Section title="10. Changes to Terms &amp; Contact">
+          <Section title="10. Changes to Terms &amp; Modifications">
             We may revise these Terms of Service periodically to reflect legal updates or new
-            platform capabilities. Continued access after revised terms are posted indicates your
-            acceptance of the updated agreement. Questions regarding these terms may be sent anytime
-            through our secure{" "}
+            platform capabilities. When substantive edits occur, the "Last updated" date at the top
+            of this page is updated accordingly. Continued access after revised terms are posted
+            indicates your acceptance of the updated agreement.
+          </Section>
+
+          <Section title="11. Local Browser Data &amp; Continuity">
+            Because AstroFree stores your journal notes, streak history, and saved tarot spreads
+            locally inside your web browser rather than on mandatory user accounts, AstroFree cannot
+            recover lost reflections if you clear your browser storage, switch devices without
+            exporting your entries, or use private/incognito browsing sessions. We encourage readers
+            who keep long-term journals to back up important reflections periodically through Settings.
+          </Section>
+
+          <Section title="12. Governing Principles, Severability &amp; Contact">
+            If any provision of these Terms of Service is found invalid or unenforceable by a
+            competent court, that clause shall be limited or eliminated to the minimum extent
+            necessary so that the remaining provisions continue in full force and effect. Any
+            dispute relating to these terms shall be interpreted in good faith under applicable laws
+            in India, without prejudice to mandatory consumer protections in your country of
+            residence. Questions regarding these terms may be sent anytime through our secure{" "}
             <Link to="/contact" className="underline underline-offset-4 hover:text-foreground">
               Contact page
+            </Link>
+            .
+          </Section>
+
+          <Section title="13. Acceptable Use &amp; Automated Access Limits">
+            AstroFree grants personal, non-commercial learners, readers, and researchers a revocable
+            license to read our guides, compute numerology profiles, and generate tarot spreads in a
+            standard browser. You agree not to deploy automated scrapers, credential-stuffing tools,
+            or denial-of-service floods against our endpoints or mirror our original 78-card or Vedic
+            numerology library for competing commercial redistribution without prior written consent.
+          </Section>
+
+          <Section title="14. Third-Party Advertising &amp; Sponsored Disclosures">
+            Public educational guides on AstroFree are supported by advertising delivered through
+            Google AdSense and compatible privacy-respecting ad partners. Advertisements are labeled
+            clearly and remain strictly independent from editorial rankings, tarot card meanings, and
+            numerology reduction outcomes. By using AstroFree, you acknowledge that your browser may
+            interact with ad-serving scripts subject to your consent settings as described in our{" "}
+            <Link to="/cookie-policy" className="underline underline-offset-4 hover:text-foreground">
+              Cookie Policy
             </Link>
             .
           </Section>

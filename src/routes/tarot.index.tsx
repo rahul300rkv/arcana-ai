@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Briefcase, Clover, Heart, Layers, Search, Sparkles } from "lucide-react";
+import { Briefcase, CalendarClock, Clover, Heart, Layers, Search, Sparkles } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -102,6 +102,8 @@ export const Route = createFileRoute("/tarot/")({
           "@type": "CollectionPage",
           name: TITLE,
           description: DESCRIPTION,
+          datePublished: "2026-07-15",
+          dateModified: "2026-11-16",
           url: `${SITE_URL}/tarot`,
           hasPart: TAROT_PAGES.map((p) => ({
             "@type": "Article",
@@ -178,6 +180,16 @@ function TarotIndexPage() {
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {DESCRIPTION}
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime="2026-07-15">15 July 2026</time>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            </span>
+          </div>
           <div className="mt-6">
             <Link to="/reading">
               <GoldButton size="lg">
@@ -268,7 +280,7 @@ function TarotIndexPage() {
                 <GlassCard className="h-full p-3">
                   <img
                     src={p.image}
-                    alt={`${p.name} tarot card`}
+                    alt={`${p.name} (${p.arcana === "major" ? "Major Arcana" : `${p.suit ? p.suit.charAt(0).toUpperCase() + p.suit.slice(1) : "Minor"} Suit`}) Rider–Waite–Smith tarot card illustration — ${p.cardKeywords.slice(0, 3).join(", ")}`}
                     loading="lazy"
                     decoding="async"
                     width={200}

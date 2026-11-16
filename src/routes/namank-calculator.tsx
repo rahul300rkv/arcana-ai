@@ -56,6 +56,10 @@ export const Route = createFileRoute("/namank-calculator")({
             description: DESCRIPTION,
             crumbs: [{ name: "Namank Calculator", path: PATH }],
             faqs: NAMANK_FAQS,
+            article: {
+              updated: NAMANK_UPDATED,
+              section: "Numerology",
+            },
           }),
         ),
       },

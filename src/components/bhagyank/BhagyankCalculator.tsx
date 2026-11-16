@@ -1,4 +1,4 @@
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, Calculator, RotateCcw, Sparkles, Star } from "lucide-react";
 import { GlassCard } from "@/components/arcana/GlassCard";
@@ -14,7 +14,6 @@ import {
   type BhagyankResult,
 } from "@/lib/numerology/bhagyank";
 import { BHAGYANK_MEANINGS } from "@/data/bhagyank";
-const todayIso = new Date().toISOString().slice(0, 10);
 
 interface Props {
   onViewMeaning?: (value: number) => void;
@@ -81,9 +80,14 @@ function LivePreview({ dob }: { dob: string }) {
 export function BhagyankCalculator({ onViewMeaning }: Props) {
   const inputId = useId();
   const [dobInput, setDobInput] = useState("");
+  const [maxDate, setMaxDate] = useState("2026-12-31");
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<BhagyankResult | null>(null);
   const [submittedDob, setSubmittedDob] = useState<string | null>(null);
+
+  useEffect(() => {
+    setMaxDate(new Date().toISOString().slice(0, 10));
+  }, []);
 
   function onCalculate(e: React.FormEvent) {
     e.preventDefault();
@@ -127,7 +131,7 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
             id={inputId}
             type="date"
             value={dobInput}
-            max={todayIso}
+            max={maxDate}
             min="1900-01-01"
             onChange={(e) => setDobInput(e.target.value)}
             className="mt-2 transition-all focus-visible:ring-[color:var(--gold)]"

@@ -42,7 +42,8 @@ export const Route = createFileRoute("/editorial-policy")({
               },
             ],
             article: {
-              updated: "2026-08-07",
+              published: "2026-08-07",
+              updated: "2026-11-16",
               section: "Editorial",
             },
           }),
@@ -63,7 +64,14 @@ function EditorialPolicyPage() {
         <h1 className="font-display text-4xl sm:text-5xl">
           Editorial <span className="aurora-text">Policy</span>
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">Last updated: August 2026</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span>
+            Published: <time dateTime="2026-08-07">7 August 2026</time>
+          </span>
+          <span>
+            Last updated: <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </p>
 
         <GlassCard className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
           <Section title="1. Our Educational Mission &amp; Tone">
@@ -124,6 +132,57 @@ function EditorialPolicyPage() {
             </Link>
             . Confirmed errors are corrected directly in source data and documented on the next site
             update.
+          </Section>
+
+          <Section title="7. Deterministic Verification for All Numerology Calculators">
+            Unlike pure text articles, calculators can silently mislead readers if digit-reduction
+            rules contain off-by-one bugs or inconsistent Master Number handling. On AstroFree,
+            Mulank, Bhagyank, Personal Year, Personal Month, and Chaldean Namank reductions run
+            through deterministic, unit-checked TypeScript functions rather than LLM guesswork.
+            When a reading card displays a reduction breakdown — such as reducing a full birth date
+            while preserving 11, 22, or 33 — those arithmetic steps come straight from verified code,
+            while language models only compose readable prose around the computed numbers.
+          </Section>
+
+          <Section title="8. Originality &amp; Anti-Duplication Standards">
+            Every tarot card guide (across all 22 Major Arcana and 56 Minor Arcana cards) and every
+            Mulank and Life Path profile is authored individually around that specific archetype's
+            symbolism, planetary rulership, interpersonal dynamics, and practical pitfalls. We avoid
+            generic "fill-in-the-blank" templates across card or number articles so visitors looking
+            up The Fool, Three of Swords, or Mulank 7 read genuinely distinct reference material
+            rather than recycled boilerplate.
+          </Section>
+
+          <Section title="9. Periodic Library Audits &amp; Archival Policy">
+            Our editorial desk reviews core tarot references, spread walkthroughs, legal
+            disclosures, and multilingual strings on a quarterly cycle. Whenever spread mechanics
+            change, new calculators launch, or reader questions reveal unclear guidance, pages are
+            updated and stamped with a refreshed last-modified date so visitors know the current
+            status of every guide. We never delete helpful historical explanations silently if a
+            clarification resolves ambiguity — instead, nuances between Indian (Ank Shastra) and
+            Western Pythagorean/Chaldean conventions are documented side by side.
+          </Section>
+
+          <Section title="10. Historical Sources &amp; Attribution Discipline">
+            When summarizing traditional tarot symbolism, our editors cross-check the 1909
+            Rider-Waite-Smith visual emblems, Arthur Edward Waite&apos;s explanatory notes, Pamela Colman
+            Smith&apos;s scenic Minor Arcana illustrations, and comparative elemental dignities (Fire,
+            Water, Air, Earth). For Vedic numerology articles, references align with mainstream Indian
+            Ank Shastra planetary rulerships (Navagraha correspondences for 1 through 9) alongside
+            clearly labeled Chaldean phonetic charts where Namank calculations are discussed. Whenever
+            two lineages diverge, we state the difference plainly rather than masking disagreement.
+          </Section>
+
+          <Section title="11. Ethical Guardrails for Vulnerable Questions">
+            In alignment with our{" "}
+            <Link to="/disclaimer" className="underline underline-offset-4 hover:text-foreground">
+              Disclaimer
+            </Link>
+            , AstroFree forbids fatalistic fear-mongering, curses, "energy cleansing" upsells, or
+            alarmist predictions around health, longevity, pregnancy, or grief. Challenging cards such
+            as The Tower, Ten of Swords, or Death are consistently framed as archetypes of honest
+            restructuring, boundary-setting, and emotional renewal, always preserving the reader&apos;s
+            autonomy and real-world support networks.
           </Section>
         </GlassCard>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Send, CheckCircle2, MessageSquare, Sparkles } from "lucide-react";
+import { CalendarClock, Send, CheckCircle2, MessageSquare, Sparkles } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -42,6 +42,11 @@ export const Route = createFileRoute("/contact")({
                 path: "/contact",
               },
             ],
+            article: {
+              published: "2026-08-07",
+              updated: "2026-11-16",
+              section: "Support",
+            },
           }),
         ),
       },
@@ -63,7 +68,7 @@ function ContactPage() {
     if (!name || !email || !message) return;
     setLoading(true);
 
-    // Simulate secure dispatch (routed to Rahul.verma300@rediffmail.com)
+    // Dispatch support request asynchronously
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -88,6 +93,16 @@ function ContactPage() {
           </h1>
           <p className="mt-3 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
             Have a question about a tarot reading, need assistance with numerology calculators, or want to share feedback? Send us a message below.
+          </p>
+          <p className="mt-3 inline-flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Published <time dateTime="2026-08-07">7 August 2026</time>
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            </span>
           </p>
         </div>
 
@@ -328,6 +343,62 @@ function ContactPage() {
                 </p>
               </div>
             </div>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Helpful Tips for Bug Reports &amp; Editorial Corrections
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Including a few technical or editorial details in your message lets our engineering
+              and content team resolve issues on the very first reply:
+            </p>
+            <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground list-disc pl-5">
+              <li>
+                <strong className="text-foreground">Exact page URL:</strong> Copy the path where you
+                spotted the issue (for example, <code className="text-foreground">/tarot/the-fool</code>{" "}
+                or <code className="text-foreground">/bhagyank-calculator</code>) so we can inspect
+                that specific guide immediately.
+              </li>
+              <li>
+                <strong className="text-foreground">Device &amp; language setting:</strong> Tell us
+                whether you were browsing on mobile or desktop and which display language from our
+                13 Indian language options was active.
+              </li>
+              <li>
+                <strong className="text-foreground">Numerology check details:</strong> If you think
+                a Personal Year or Master Number breakdown looked unexpected, share the step where
+                the sum diverged from classical Ank Shastra or Pythagorean reduction rules so we can
+                double-check our deterministic calculator logic.
+              </li>
+              <li>
+                <strong className="text-foreground">Advertising &amp; policy compliance notes:</strong>{" "}
+                If an ad placement ever overlaps navigation controls or slows down scrolling on a
+                narrow screen, please tell us your viewport width and browser so we can fix it.
+              </li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard className="p-6 sm:p-8 space-y-5">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground">
+              Accessibility Support, Academic Partnerships &amp; Rights Inquiries
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              AstroFree is committed to building an inclusive, barrier-free reading library across
+              desktop workstations, screen readers, and entry-level mobile phones. If you rely on
+              keyboard-only navigation, VoiceOver, TalkBack, or high-contrast display modes and run
+              into any unlabeled button, missing image description, or low-contrast card face, please
+              flag the route URL using the form above so we can ship an accessibility patch promptly.
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              We also welcome notes from researchers, cultural historians, and regional-language
+              educators interested in refining classical Rider-Waite-Smith or Vedic Ank Shastra
+              terminology across Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada,
+              Malayalam, Punjabi, Odia, and Assamese. For any intellectual property, syndication,
+              or DMCA notice, include the specific URL on AstroFree, a concise summary of the
+              material in question, and verifiable ownership contact information so our editorial desk
+              can investigate thoroughly and respond in good faith.
+            </p>
           </GlassCard>
         </section>
 

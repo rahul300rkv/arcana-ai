@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   AlertTriangle,
   ArrowRight,
+  CalendarClock,
   CalendarDays,
   CheckCircle2,
   Compass,
@@ -76,6 +77,8 @@ export const Route = createFileRoute("/numerology/")({
           "@type": "WebApplication",
           name: "Numerology Calculator",
           url: PAGE_URL,
+          datePublished: "2026-07-15",
+          dateModified: "2026-11-16",
           applicationCategory: "LifestyleApplication",
           operatingSystem: "Any",
           description: PAGE_DESC,
@@ -160,7 +163,9 @@ export const Route = createFileRoute("/numerology/")({
   component: NumerologyPage,
 });
 
-const currentYear = new Date().getFullYear();
+const DEFAULT_SSR_YEAR = 2026;
+const DEFAULT_SSR_MONTH = "2026-11";
+const DEFAULT_SSR_MAX_DATE = "2026-12-31";
 
 /** Renders the digit-reduction math, e.g. 28 → 2 + 8 → 10 → 1 + 0 → 1 */
 function reductionSteps(n: number): string[] {
@@ -381,13 +386,21 @@ function NumerologyPage() {
     linkedPeriod?.includes("-") ? "month" : "year",
   );
   const [targetYear, setTargetYear] = useState(
-    linkedPeriod && !linkedPeriod.includes("-") ? linkedPeriod : String(currentYear),
+    linkedPeriod && !linkedPeriod.includes("-") ? linkedPeriod : String(DEFAULT_SSR_YEAR),
   );
   const [targetMonth, setTargetMonth] = useState(
-    linkedPeriod?.includes("-")
-      ? linkedPeriod
-      : `${currentYear}-${String(new Date().getMonth() + 1).padStart(2, "0")}`,
+    linkedPeriod?.includes("-") ? linkedPeriod : DEFAULT_SSR_MONTH,
   );
+  const [maxDobDate, setMaxDobDate] = useState(DEFAULT_SSR_MAX_DATE);
+
+  useEffect(() => {
+    const now = new Date();
+    setMaxDobDate(now.toISOString().slice(0, 10));
+    if (!linkedPeriod) {
+      setTargetYear(String(now.getFullYear()));
+      setTargetMonth(`${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`);
+    }
+  }, [linkedPeriod]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -578,6 +591,16 @@ function NumerologyPage() {
           <span className="aurora-text">{t("numerology.title")}</span>
         </h1>
         <p className="mt-3 text-muted-foreground">{t("numerology.subtitle")}</p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+            Published <time dateTime="2026-07-15">15 July 2026</time>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+            Last updated <time dateTime="2026-11-16">16 November 2026</time>
+          </span>
+        </div>
         <div className="mt-4 h-px w-24 bg-gradient-to-r from-[color:var(--gold)] to-transparent" />
       </motion.header>
 
@@ -608,7 +631,7 @@ function NumerologyPage() {
                   id="dob"
                   type="date"
                   value={dob}
-                  max={new Date().toISOString().slice(0, 10)}
+                  max={maxDobDate}
                   onChange={(e) => setDob(e.target.value)}
                   className="mt-2 transition-all focus-visible:ring-[color:var(--gold)]"
                 />
@@ -674,7 +697,7 @@ function NumerologyPage() {
                         className="mt-2 focus-visible:ring-[color:var(--gold)]"
                       />
                       <div className="mt-2 flex flex-wrap gap-2">
-                        {[currentYear - 1, currentYear, currentYear + 1].map((y) => {
+                        {[DEFAULT_SSR_YEAR - 1, DEFAULT_SSR_YEAR, DEFAULT_SSR_YEAR + 1].map((y) => {
                           const active = targetYear === String(y);
                           return (
                             <button
