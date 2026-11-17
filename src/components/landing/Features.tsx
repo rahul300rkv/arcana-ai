@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Compass, Sparkles, BookOpen, ArrowRight, ShieldCheck, Moon } from "lucide-react";
 
@@ -21,19 +20,16 @@ export function Features() {
         {/* Crimson Burgundy & Ivory Asymmetric Bento Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Bento Card 1: 2-column marquee - Sacred Tarot Spreads */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between"
-          >
+          <div className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between">
             {/* Background Image Scrim */}
             <div className="absolute inset-0 z-0">
               <img
-                src="/src/assets/images/tarot_cosmic_sanctuary_1793008311617.jpg"
+                src="/images/tarot-cosmic-sanctuary.webp"
                 alt="Candlelit crimson and velvet tarot altar sanctuary prepared for sacred arcana spread readings"
-                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                width={768}
+                height={429}
                 className="h-full w-full object-cover object-center opacity-30 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/85 to-transparent" />
@@ -47,64 +43,61 @@ export function Features() {
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
                 8 Sacred Tarot Spreads for Every Seeking
               </h3>
-              <p className="mt-2.5 max-w-xl text-sm sm:text-base text-[#e3cfb6]/95 leading-relaxed">
-                Whether you seek the comprehensive 10-position Celtic Cross, romantic clarity with the Love & Soulmate spread, or concise daily direction — each card draw honors traditional position symbolism and archetypal resonance.
+              <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
+                Whether you seek the comprehensive 10-position Celtic Cross, romantic clarity with the Love &amp; Soulmate spread, or concise daily direction — each card draw honors traditional position symbolism and archetypal resonance.
               </p>
 
               {/* Spread Quick Launchers */}
-              <div className="mt-6 flex flex-wrap gap-2 text-xs">
+              <div className="mt-6 flex flex-wrap gap-2.5 text-sm sm:text-xs">
                 <Link
                   to="/tarot/celtic-cross"
-                  className="rounded-full border border-[#f5e7d0]/35 bg-[#f5e7d0]/15 px-3.5 py-1.5 font-medium text-[#fffaf0] shadow-[inset_0_1px_1px_rgba(255,248,235,0.3)] transition-all hover:bg-[#f5e7d0]/25 hover:border-[#f5e7d0]/60"
+                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/35 bg-[#f5e7d0]/15 px-4 py-2 sm:px-3.5 sm:py-1.5 font-medium text-[#fffaf0] shadow-[inset_0_1px_1px_rgba(255,248,235,0.3)] transition-all hover:bg-[#f5e7d0]/25 hover:border-[#f5e7d0]/60"
                 >
                   Celtic Cross (10 Cards)
                 </Link>
                 <Link
                   to="/tarot/three-card"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Past · Present · Future
                 </Link>
                 <Link
                   to="/tarot/love"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
-                  Love & Connections
+                  Love &amp; Connections
                 </Link>
                 <Link
                   to="/tarot/career"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Career Pathway
                 </Link>
               </div>
             </div>
 
-            <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between">
-              <span className="text-xs text-[#d6bfa3]">78 Hand-crafted Major & Minor Arcana</span>
+            <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between gap-2">
+              <span className="text-xs text-[#d6bfa3]">78 Hand-crafted Major &amp; Minor Arcana</span>
               <Link
                 to="/tarot"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Explore All Spreads</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bento Card 2: 1-column - Vedic Numerology Wheel */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between"
-          >
+          <div className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between">
             <div className="absolute inset-0 z-0">
               <img
-                src="/src/assets/images/vedic_numerology_wheel_1793008328818.jpg"
+                src="/images/vedic-numerology-wheel.webp"
                 alt="Vedic numerology sacred geometry wheel illustrating numbers 1 through 9 and planetary rulers"
-                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                width={768}
+                height={573}
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/88 to-transparent" />
@@ -116,9 +109,9 @@ export function Features() {
                 <span>Vedic Mathematics</span>
               </div>
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
-                Mulank, Bhagyank & Namank
+                Mulank, Bhagyank &amp; Namank
               </h3>
-              <p className="mt-2 text-sm text-[#e3cfb6]/95 leading-relaxed">
+              <p className="mt-2 text-base sm:text-sm text-[#e3cfb6]/95 leading-relaxed">
                 Unlock your root number, planetary lord, life destiny path, and name vibration — mapped directly to corresponding Major Arcana tarot cards.
               </p>
             </div>
@@ -126,27 +119,24 @@ export function Features() {
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
                 to="/numerology"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Calculate Your Numbers</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bento Card 3: 1-column - Compassionate AI Oracle */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between"
-          >
+          <div className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between">
             <div className="absolute inset-0 z-0">
               <img
-                src="/src/assets/images/tarot_reading_oracle_1793008343197.jpg"
+                src="/images/tarot-reading-oracle.webp"
                 alt="Tarot reader hands thoughtfully drawing an illustrated arcana card during a reflective oracle reading"
-                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                width={768}
+                height={573}
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/88 to-transparent" />
@@ -160,7 +150,7 @@ export function Features() {
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
                 Deep Contextual AI Synthesis
               </h3>
-              <p className="mt-2 text-sm text-[#e3cfb6]/95 leading-relaxed">
+              <p className="mt-2 text-base sm:text-sm text-[#e3cfb6]/95 leading-relaxed">
                 Readings weave together your question, card upright/reversed positions, and Vedic energy pacing into grounded, empathetic insights in 13 languages.
               </p>
             </div>
@@ -168,31 +158,25 @@ export function Features() {
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
                 to="/reading"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Ask The Oracle</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bento Card 4: 2-column - Sacred Rituals & Private Journal */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between"
-          >
+          <div className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between">
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                 <BookOpen className="h-4 w-4 text-[#faf2e4]" />
                 <span>Sacred Rituals</span>
               </div>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
-                Private Journal & Daily Card Ritual
+                Private Journal &amp; Daily Card Ritual
               </h3>
-              <p className="mt-2.5 max-w-xl text-sm sm:text-base text-[#e3cfb6]/95 leading-relaxed">
+              <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
                 Begin each morning by drawing a single card to anchor your intention. Review your personal reading history, spot recurring archetypes, and observe your energetic cycles over months and years — 100% confidential in your local storage.
               </p>
 
@@ -203,7 +187,7 @@ export function Features() {
                 </div>
                 <div className="rounded-2xl border border-[#f5e7d0]/20 bg-[#3a0c18]/55 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
                   <div className="text-[#faf2e4] font-display text-lg font-bold">Energy Pacing</div>
-                  <div className="text-xs text-[#d6bfa3] mt-0.5">Active, Reflective & Harmony</div>
+                  <div className="text-xs text-[#d6bfa3] mt-0.5">Active, Reflective &amp; Harmony</div>
                 </div>
                 <div className="rounded-2xl border border-[#f5e7d0]/20 bg-[#3a0c18]/55 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
                   <div className="text-[#faf2e4] font-display text-lg font-bold">Zero Telemetry</div>
@@ -212,20 +196,20 @@ export function Features() {
               </div>
             </div>
 
-            <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between">
+            <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5 text-xs text-[#ead9c3]">
                 <ShieldCheck className="h-4 w-4 text-[#faf2e4]" />
                 <span>Protected by Client-Side Storage</span>
               </div>
               <Link
                 to="/journal"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Open Sanctuary Journal</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -250,7 +234,7 @@ export function SectionHeader({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-sm sm:text-base text-[#e3cfb6]/90 leading-relaxed [text-wrap:balance]">
+        <p className="mt-4 text-base text-[#e3cfb6]/90 leading-relaxed [text-wrap:balance]">
           {subtitle}
         </p>
       )}

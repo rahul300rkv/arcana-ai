@@ -79,7 +79,7 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
         <h1 className="mt-2 font-display text-4xl leading-tight aurora-text sm:text-5xl">
           {config.h1}
         </h1>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           {config.intro}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
@@ -139,17 +139,17 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
                         </span>
                         <span className="font-display text-sm text-foreground">{pos.card}</span>
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-2 text-base leading-relaxed text-muted-foreground">
                         {pos.reading}
                       </p>
                     </div>
                   ))}
                 </div>
                 <div className="border-t border-white/10 pt-4">
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                     Synthesis takeaway
                   </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground/90">
+                  <p className="mt-1.5 text-base leading-relaxed text-foreground/90">
                     {config.samplePull.synthesis}
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
           )}
 
           <ContentSection id="disclaimer" title="A note on responsible use" as="h3">
-            <p className="text-sm leading-relaxed text-muted-foreground">
+            <p className="text-base leading-relaxed text-muted-foreground">
               This reading is a reflective, symbolic tool for self-exploration — not a deterministic
               prediction. It is not a substitute for professional medical, legal, or financial
               advice. Use it as a prompt for your own judgement, not a replacement for it.

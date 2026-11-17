@@ -47,7 +47,7 @@ export function KeepExploring({ links }: { links: HubLink[] }) {
               <GlassCard className="flex h-full items-start gap-3 p-4">
                 <span className="min-w-0 flex-1">
                   <span className="block font-display text-base">{l.label}</span>
-                  <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                  <span className="mt-1 block text-sm sm:text-xs leading-relaxed text-muted-foreground">
                     {l.blurb}
                   </span>
                 </span>

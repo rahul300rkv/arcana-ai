@@ -44,7 +44,10 @@ export function CardFront({
             src={card.image}
             alt={altText}
             loading={eager ? "eager" : "lazy"}
+            fetchPriority={eager ? "high" : undefined}
             decoding="async"
+            width={360}
+            height={604}
             className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(26,5,11,0.8))] mix-blend-multiply" />

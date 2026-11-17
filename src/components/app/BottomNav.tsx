@@ -17,7 +17,7 @@ export function BottomNav() {
               to={item.to}
               aria-label={t(item.titleKey)}
               className={cn(
-                "grid h-11 w-11 place-items-center rounded-full transition-all",
+                "grid h-12 w-12 place-items-center rounded-full transition-all",
                 active
                   ? "bg-[linear-gradient(135deg,color-mix(in_oklab,var(--gold)_25%,transparent),transparent)] text-[color-mix(in_oklab,var(--gold)_85%,white)]"
                   : "text-muted-foreground hover:text-foreground",

@@ -30,8 +30,8 @@ export function CardBack({
         aria-hidden={alt ? undefined : true}
         loading="lazy"
         decoding="async"
-        width={440}
-        height={660}
+        width={360}
+        height={540}
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_100%_at_50%_0%,color-mix(in_oklab,var(--gold)_12%,transparent),transparent_65%)]" />

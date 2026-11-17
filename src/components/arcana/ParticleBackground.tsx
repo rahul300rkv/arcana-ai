@@ -1,40 +1,30 @@
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 
-type Particle = { x: number; y: number; size: number; delay: number; duration: number };
+type Particle = { x: number; y: number; size: number; opacity: number };
 
-export function ParticleBackground({ count = 40 }: { count?: number }) {
-  const prefersReducedMotion = useReducedMotion();
+export function ParticleBackground({ count = 24 }: { count?: number }) {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setParticles([]);
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
 
-    // Halve the particle count on narrow / low-power viewports — the
-    // visual is a faint ambient sparkle, so fewer particles cost far less
-    // main-thread + compositor work without a noticeable visual change.
-    const isSmallViewport = window.matchMedia("(max-width: 640px)").matches;
-    const effectiveCount = isSmallViewport ? Math.ceil(count / 2) : count;
-
-    const arr: Particle[] = Array.from({ length: effectiveCount }, () => ({
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 2 + 1,
-      delay: Math.random() * 6,
-      duration: Math.random() * 8 + 6,
+    const effectiveCount = Math.min(count, 24);
+    const arr: Particle[] = Array.from({ length: effectiveCount }, (_, i) => ({
+      x: ((i * 37) % 97) + 1.5,
+      y: ((i * 53) % 95) + 2,
+      size: (i % 2) + 1.5,
+      opacity: 0.35 + ((i * 19) % 50) / 100,
     }));
     setParticles(arr);
-  }, [count, prefersReducedMotion]);
+  }, [count]);
 
-  if (prefersReducedMotion) return null;
+  if (particles.length === 0) return null;
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden md:block">
       {particles.map((p, i) => (
-        <motion.span
+        <span
           key={i}
           className="absolute rounded-full bg-gold-soft/70"
           style={{
@@ -42,14 +32,8 @@ export function ParticleBackground({ count = 40 }: { count?: number }) {
             top: `${p.y}%`,
             width: p.size,
             height: p.size,
+            opacity: p.opacity,
             boxShadow: "0 0 8px color-mix(in oklab, var(--gold) 60%, transparent)",
-          }}
-          animate={{ opacity: [0, 1, 0], y: [-6, 6, -6] }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
           }}
         />
       ))}

@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { GlassCard } from "@/components/arcana/GlassCard";
 
@@ -20,16 +19,10 @@ export function RelatedCards({ title, items }: { title: string; items: RelatedIt
         {title}
       </h2>
       <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-        {items.map((item, i) => (
-          <motion.li
-            key={item.slug}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: i * 0.06, duration: 0.45 }}
-          >
+        {items.map((item) => (
+          <li key={item.slug}>
             <Link to={item.base} params={{ slug: item.slug }} className="block h-full">
-              <GlassCard className="flex h-full items-center gap-4 p-4">
+              <GlassCard className="flex h-full min-h-14 items-center gap-4 p-4">
                 {item.image && (
                   <img
                     src={item.image}
@@ -50,7 +43,7 @@ export function RelatedCards({ title, items }: { title: string; items: RelatedIt
                 <ArrowRight className="h-4 w-4 shrink-0 text-[var(--gold)]" aria-hidden />
               </GlassCard>
             </Link>
-          </motion.li>
+          </li>
         ))}
       </ul>
     </section>

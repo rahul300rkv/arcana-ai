@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
 import { CalendarClock, Clock, UserRound } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
@@ -61,18 +60,13 @@ export function ArticleLayout({
       <main className="relative mx-auto w-full max-w-4xl px-4 pb-24 pt-28 sm:px-6">
         <Breadcrumb items={crumbs} />
 
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="grid gap-8 sm:grid-cols-[1fr_auto] sm:items-center"
-        >
+        <header className="grid gap-8 sm:grid-cols-[1fr_auto] sm:items-center">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--gold)]">{eyebrow}</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-[var(--gold)]">{eyebrow}</p>
             <h1 className="mt-3 font-display text-3xl leading-tight aurora-text sm:text-5xl">
               {title}
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               {intro}
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
@@ -100,7 +94,7 @@ export function ArticleLayout({
             </div>
           </div>
           {aside && <div className="mx-auto w-full max-w-[220px] sm:mx-0">{aside}</div>}
-        </motion.header>
+        </header>
 
         <article className="mt-14 space-y-14">{children}</article>
 

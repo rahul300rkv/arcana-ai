@@ -10,7 +10,7 @@ export function Footer() {
           {/* Brand Col */}
           <div className="col-span-2">
             <Brand size="lg" />
-            <p className="mt-4 max-w-sm text-sm text-[#d6bfa3] leading-relaxed">
+            <p className="mt-4 max-w-sm text-base sm:text-sm text-[#d6bfa3] leading-relaxed">
               AstroFree unites 78-card sacred tarot traditions with Vedic numerology wisdom and modern generative intelligence. Designed for reflection, clarity, and personal empowerment.
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs text-[#ead9c3]">
@@ -56,16 +56,16 @@ export function Footer() {
           />
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[#f5e7d0]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#d6bfa3]">
+        <div className="mt-12 pt-6 border-t border-[#f5e7d0]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#d6bfa3]">
           <div>
-            © {new Date().getFullYear()} AstroFree. Crafted with reverence & intention.
+            © {new Date().getFullYear()} AstroFree. Crafted with reverence &amp; intention.
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/privacy" className="hover:text-[#fffaf0] transition-colors">Privacy</Link>
+            <Link to="/privacy" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">Privacy</Link>
             <span>·</span>
-            <Link to="/terms" className="hover:text-[#fffaf0] transition-colors">Terms</Link>
+            <Link to="/terms" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">Terms</Link>
             <span>·</span>
-            <Link to="/about" className="hover:text-[#fffaf0] transition-colors">About</Link>
+            <Link to="/about" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">About</Link>
           </div>
         </div>
       </div>
@@ -85,10 +85,13 @@ function FooterCol({
       <div className="text-xs font-semibold uppercase tracking-widest text-[#ead9c3]">
         {title}
       </div>
-      <ul className="mt-4 space-y-2 text-sm text-[#d6bfa3]">
+      <ul className="mt-3 space-y-0.5 sm:space-y-2 text-base sm:text-sm text-[#d6bfa3]">
         {items.map((i) => (
           <li key={i.label}>
-            <Link to={i.to} className="transition-colors hover:text-[#fffaf0]">
+            <Link
+              to={i.to}
+              className="inline-flex min-h-12 sm:min-h-0 items-center py-1 sm:py-0 transition-colors hover:text-[#fffaf0]"
+            >
               {i.label}
             </Link>
           </li>

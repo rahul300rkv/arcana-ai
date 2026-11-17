@@ -41,7 +41,7 @@ export function ContentSection({
         {title}
       </Heading>
       {paragraphs && paragraphs.length > 0 && (
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}

@@ -24,17 +24,17 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center gap-3">
       <button
         type="button"
         onClick={share}
         aria-label={`Share ${title}`}
-        className="inline-flex min-h-11 items-center gap-2 rounded-full glass px-4 text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 text-sm sm:text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {copied ? (
-          <Check className="h-3.5 w-3.5 text-[var(--gold)]" aria-hidden />
+          <Check className="h-4 w-4 text-[var(--gold)]" aria-hidden />
         ) : (
-          <Share2 className="h-3.5 w-3.5" aria-hidden />
+          <Share2 className="h-4 w-4" aria-hidden />
         )}
         {copied ? "Link copied" : "Share"}
       </button>
@@ -43,9 +43,9 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Share ${title} on WhatsApp`}
-        className="inline-flex min-h-11 items-center gap-2 rounded-full glass px-4 text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
+        className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 text-sm sm:text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
       >
-        <Link2 className="h-3.5 w-3.5" aria-hidden />
+        <Link2 className="h-4 w-4" aria-hidden />
         WhatsApp
       </a>
     </div>

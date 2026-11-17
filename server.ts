@@ -242,9 +242,19 @@ app.get("/ads.txt", (_req, res) => {
 // Vite middleware or static serving
 async function startServer() {
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.resolve(__dirname, "dist")));
+    const distDir = path.resolve(__dirname, "dist");
+    for (const dir of ["assets", "cards", "images"]) {
+      app.use(
+        `/${dir}`,
+        express.static(path.join(distDir, dir), {
+          maxAge: "365d",
+          immutable: true,
+        }),
+      );
+    }
+    app.use(express.static(distDir, { maxAge: "7d" }));
     app.get("*", (_req, res) => {
-      res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+      res.sendFile(path.join(distDir, "index.html"));
     });
   } else {
     const { createServer: createViteServer } = await import("vite");

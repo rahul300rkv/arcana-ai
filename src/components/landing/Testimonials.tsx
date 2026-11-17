@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SectionHeader } from "./Features";
@@ -17,14 +16,8 @@ export function Testimonials() {
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeader eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")} />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {quotes.map((q, i) => (
-            <motion.div
-              key={q.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-            >
+          {quotes.map((q) => (
+            <div key={q.name}>
               <GlassCard className="h-full">
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, j) => (
@@ -34,13 +27,13 @@ export function Testimonials() {
                     />
                   ))}
                 </div>
-                <p className="mt-4 text-[15px] leading-relaxed text-foreground/90">"{q.body}"</p>
+                <p className="mt-4 text-base leading-relaxed text-foreground/90">"{q.body}"</p>
                 <div className="mt-6 text-sm">
                   <div className="font-medium">{q.name}</div>
                   <div className="text-muted-foreground text-xs">{q.role}</div>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

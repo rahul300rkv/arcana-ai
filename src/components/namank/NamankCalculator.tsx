@@ -252,7 +252,7 @@ export function NamankCalculator({ onViewMeaning }: Props) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.22 }}
-              className="mx-auto mt-6 max-w-lg text-center text-sm leading-relaxed text-muted-foreground"
+              className="mx-auto mt-6 max-w-lg text-center text-base sm:text-sm leading-relaxed text-muted-foreground"
             >
               {meaning.meaning}
             </motion.p>
@@ -266,7 +266,7 @@ export function NamankCalculator({ onViewMeaning }: Props) {
               <button
                 type="button"
                 onClick={() => onViewMeaning?.(result.value)}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--gold)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                className="inline-flex min-h-12 items-center gap-1.5 px-4 text-base sm:text-sm font-medium text-[var(--gold)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
               >
                 See the full Namank {result.value} meaning ↓
               </button>

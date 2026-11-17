@@ -34,6 +34,18 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
   const { router, queryClient } = createAppRouter({ history });
 
   await router.load();
+  await Promise.all(
+    router.state.matches.map((m) => {
+      const route = (
+        router.routesById as unknown as Record<
+          string,
+          { options?: { component?: unknown } } | undefined
+        >
+      )?.[m.routeId];
+      const comp = route?.options?.component as { preload?: () => Promise<unknown> } | undefined;
+      return comp?.preload?.();
+    }),
+  );
 
   const appHtml = renderToString(
     <QueryClientProvider client={queryClient}>

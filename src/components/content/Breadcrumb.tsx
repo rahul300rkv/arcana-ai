@@ -10,9 +10,9 @@ export interface Crumb {
 export function Breadcrumb({ items }: { items: Crumb[] }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+      <ol className="flex flex-wrap items-center gap-1.5 text-sm sm:text-xs text-muted-foreground">
         <li className="flex items-center gap-1">
-          <Link to="/" className="inline-flex items-center gap-1 hover:text-foreground">
+          <Link to="/" className="inline-flex min-h-11 sm:min-h-0 items-center gap-1 py-1 sm:py-0 hover:text-foreground">
             <Home className="h-3.5 w-3.5" aria-hidden />
             <span>Home</span>
           </Link>
@@ -21,7 +21,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
           <li key={item.label} className="flex items-center gap-1">
             <ChevronRight className="h-3.5 w-3.5 opacity-50" aria-hidden />
             {item.to && i < items.length - 1 ? (
-              <Link to={item.to} className="hover:text-foreground">
+              <Link to={item.to} className="inline-flex min-h-11 sm:min-h-0 items-center py-1 sm:py-0 hover:text-foreground">
                 {item.label}
               </Link>
             ) : (

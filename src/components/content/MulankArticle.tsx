@@ -67,7 +67,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             </span>
           ))}
         </div>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
           Your Mulank uses only the day of the month. Add its digits until one digit remains — the
           month and year belong to your{" "}
           <Link
@@ -115,7 +115,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+            <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.strengths.map((s) => (
                 <li key={s}>— {s}</li>
               ))}
@@ -123,7 +123,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
           </GlassCard>
           <GlassCard className="p-6">
             <h3 className="font-display text-lg">Challenges</h3>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+            <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.weaknesses.map((s) => (
                 <li key={s}>— {s}</li>
               ))}
@@ -162,7 +162,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
                   {VERDICT_LABEL[c.verdict]}
                 </span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.note}</p>
+              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
             </GlassCard>
           ))}
         </div>
@@ -179,16 +179,16 @@ export function MulankArticle({ page }: { page: MulankPage }) {
       <ContentSection id="remedies" title="Remedies and practices" icon={Wand2}>
         <ul className="space-y-3">
           {page.remedies.map((r) => (
-            <li key={r} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+            <li key={r} className="flex gap-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               <span
                 aria-hidden
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
               />
               {r}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-sm sm:text-xs leading-relaxed text-muted-foreground">
           Remedies are traditional practices for reflection and discipline, not medical, financial
           or legal advice. Consult a qualified professional before wearing gemstones.
         </p>
@@ -208,7 +208,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg">Journal prompts</h3>
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+            <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.journalPrompts.map((p, i) => (
                 <li key={i}>— {p}</li>
               ))}
@@ -216,10 +216,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
           </GlassCard>
           <GlassCard className="p-6">
             <h3 className="font-display text-lg">Affirmation</h3>
-            <p className="mt-3 text-sm italic leading-relaxed text-foreground/90">
+            <p className="mt-3 text-base sm:text-[15px] italic leading-relaxed text-foreground/90">
               “{page.affirmation}”
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-base sm:text-sm text-muted-foreground">
               Tarot archetype:{" "}
               <Link
                 to="/tarot/$slug"

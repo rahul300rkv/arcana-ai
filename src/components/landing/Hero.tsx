@@ -1,11 +1,8 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Compass, Moon, Sun, Shield } from "lucide-react";
 import { FloatingCards } from "@/components/arcana/FloatingCards";
 
 export function Hero() {
-  const prefersReducedMotion = useReducedMotion();
-
   return (
     <section
       id="site-content"
@@ -22,14 +19,9 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto max-w-4xl text-center"
-        >
+        <div className="mx-auto max-w-4xl text-center">
           {/* Unboxed clean metadata kicker */}
-          <div className="mx-auto mb-4 flex items-center justify-center gap-2 text-xs font-semibold text-[#e6d3ba] tracking-[0.22em] uppercase">
+          <div className="mx-auto mb-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-[#e6d3ba] tracking-[0.22em] uppercase">
             <span>Ancient Wisdom</span>
             <span aria-hidden="true" className="text-[#f5e7d0]/40">·</span>
             <span>Vedic Numerology</span>
@@ -39,7 +31,7 @@ export function Hero() {
 
           {/* Majestic Display Headline with Warm Ivory Satin Shine */}
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.08] [text-wrap:balance]">
-            <span>Unveil What the Stars &</span>{" "}
+            <span>Unveil What the Stars &amp;</span>{" "}
             <span className="chrome-text">Arcana Whisper</span>
           </h1>
 
@@ -52,7 +44,7 @@ export function Hero() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/reading"
-              className="liquid-chrome-btn w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[#24060e]"
+              className="liquid-chrome-btn w-full sm:w-auto inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[#24060e]"
             >
               <Compass className="h-4 w-4" />
               <span>Begin Sacred Tarot Reading</span>
@@ -61,7 +53,7 @@ export function Hero() {
 
             <Link
               to="/numerology"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/25 bg-[#3f0e1b]/55 px-7 py-3.5 text-sm font-semibold text-[#faf2e4] hover:bg-[#571324]/75 hover:border-[#f5e7d0]/55 shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] transition-all duration-300 backdrop-blur-md"
+              className="w-full sm:w-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/25 bg-[#3f0e1b]/55 px-7 py-3.5 text-base sm:text-sm font-semibold text-[#faf2e4] hover:bg-[#571324]/75 hover:border-[#f5e7d0]/55 shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] transition-all duration-300 backdrop-blur-md"
             >
               <Moon className="h-4 w-4 text-[#ead9c3]" />
               <span>Calculate Vedic Numerology</span>
@@ -77,7 +69,7 @@ export function Hero() {
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
             <div className="flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-[#ead9c3]" />
-              <span>Mulank, Bhagyank & Namank</span>
+              <span>Mulank, Bhagyank &amp; Namank</span>
             </div>
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
             <div className="flex items-center gap-1.5">
@@ -85,17 +77,12 @@ export function Hero() {
               <span>100% Private · Free</span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Five-Card Interactive Fan Display with Liquid Chrome Molten Aura */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 sm:mt-16"
-        >
+        {/* Five-Card Interactive Fan Display */}
+        <div className="mt-14 sm:mt-16">
           <FloatingCards />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

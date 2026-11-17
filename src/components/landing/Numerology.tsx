@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Hash, Sparkles, ArrowRight, Star, Moon, Compass, Calendar } from "lucide-react";
 import { SectionHeader } from "./Features";
@@ -67,7 +66,7 @@ export function Numerology() {
                 <h3 className="mt-2 font-display text-2xl font-extrabold text-[#faf2e4]">
                   Select Your Date of Birth
                 </h3>
-                <p className="mt-1 text-sm text-[#e3cfb6]/90">
+                <p className="mt-1 text-base sm:text-sm text-[#e3cfb6]/90">
                   Your birth day determines your core personality (Mulank), while full birth date reveals your life purpose (Bhagyank).
                 </p>
               </div>
@@ -75,14 +74,14 @@ export function Numerology() {
               {/* Day, Month, Year Pickers */}
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label htmlFor="birth-day" className="block text-xs font-medium text-[#ead9c3] mb-1.5">
+                  <label htmlFor="birth-day" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
                     Day
                   </label>
                   <select
                     id="birth-day"
                     value={day}
                     onChange={(e) => setDay(Number(e.target.value))}
-                    className="w-full rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
+                    className="w-full min-h-12 sm:min-h-10 rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-base sm:text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
                   >
                     {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
                       <option key={d} value={d} className="bg-[#23070f] text-[#faf2e4]">
@@ -93,14 +92,14 @@ export function Numerology() {
                 </div>
 
                 <div>
-                  <label htmlFor="birth-month" className="block text-xs font-medium text-[#ead9c3] mb-1.5">
+                  <label htmlFor="birth-month" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
                     Month
                   </label>
                   <select
                     id="birth-month"
                     value={month}
                     onChange={(e) => setMonth(Number(e.target.value))}
-                    className="w-full rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
+                    className="w-full min-h-12 sm:min-h-10 rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-base sm:text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
                   >
                     {[
                       "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -114,14 +113,14 @@ export function Numerology() {
                 </div>
 
                 <div>
-                  <label htmlFor="birth-year" className="block text-xs font-medium text-[#ead9c3] mb-1.5">
+                  <label htmlFor="birth-year" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
                     Year
                   </label>
                   <select
                     id="birth-year"
                     value={year}
                     onChange={(e) => setYear(Number(e.target.value))}
-                    className="w-full rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
+                    className="w-full min-h-12 sm:min-h-10 rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-base sm:text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
                   >
                     {Array.from({ length: 80 }, (_, i) => 2026 - i).map((y) => (
                       <option key={y} value={y} className="bg-[#23070f] text-[#faf2e4]">
@@ -133,22 +132,22 @@ export function Numerology() {
               </div>
 
               {/* Calculator Deep-Dive Links */}
-              <div className="pt-2 border-t border-[#f5e7d0]/15 flex flex-wrap gap-2 text-xs">
+              <div className="pt-2 border-t border-[#f5e7d0]/15 flex flex-wrap gap-2 text-sm sm:text-xs">
                 <Link
                   to="/numerology/mulank"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
                   Mulank Guide
                 </Link>
                 <Link
                   to="/bhagyank-calculator"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
                   Bhagyank Calculator
                 </Link>
                 <Link
                   to="/namank-calculator"
-                  className="rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-3.5 py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
                   Namank Name Numerology
                 </Link>
@@ -157,12 +156,9 @@ export function Numerology() {
 
             {/* Right: Live Calculation Output Card */}
             <div className="lg:col-span-7">
-              <motion.div
+              <div
                 key={`${day}-${month}-${year}`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl border border-[#f5e7d0]/25 bg-gradient-to-br from-[#470f1d]/75 via-[#2a0811]/85 to-[#160409]/95 p-6 sm:p-8 shadow-[inset_0_1px_1px_rgba(255,248,235,0.35),0_15px_35px_rgba(10,1,4,0.85)]"
+                className="relative overflow-hidden rounded-2xl border border-[#f5e7d0]/25 bg-gradient-to-br from-[#470f1d]/75 via-[#2a0811]/85 to-[#160409]/95 p-6 sm:p-8 shadow-[inset_0_1px_1px_rgba(255,248,235,0.35),0_15px_35px_rgba(10,1,4,0.85)] transition-opacity duration-200"
               >
                 {/* Result header badges */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -205,29 +201,29 @@ export function Numerology() {
 
                 {/* Archetype Synthesis */}
                 <div className="mt-6 pt-5 border-t border-[#f5e7d0]/15">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#faf2e4]">
+                  <div className="flex items-center gap-2 text-base font-semibold text-[#faf2e4]">
                     <Sparkles className="h-4 w-4 text-[#ead9c3]" />
                     <span>{archetype.name}</span>
                   </div>
-                  <p className="mt-2 text-sm text-[#e8d7c0] leading-relaxed">
+                  <p className="mt-2 text-base sm:text-sm text-[#e8d7c0] leading-relaxed">
                     Governed by <strong className="text-[#fffaf0]">{archetype.planet}</strong> and attuned to the archetype of <strong className="text-[#fffaf0]">{archetype.tarot}</strong>. Your innate energetic gifts center on <span className="text-[#ead9c3]">{archetype.traits}</span>.
                   </p>
                 </div>
 
                 {/* Action button */}
                 <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                  <span className="text-xs text-[#d6bfa3]">
+                  <span className="text-sm sm:text-xs text-[#d6bfa3]">
                     Born on {day}/{month}/{year}
                   </span>
                   <Link
                     to="/numerology"
-                    className="liquid-chrome-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#24060e]"
+                    className="liquid-chrome-btn inline-flex min-h-12 items-center gap-1.5 rounded-full px-5 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
                   >
                     <span>View Complete Personal Forecast</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

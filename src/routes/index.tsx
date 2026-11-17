@@ -247,12 +247,12 @@ function LandingPage() {
                     <h3 className="mt-5 font-display text-xl font-bold text-[#faf2e4] group-hover:text-[#fffdf8] transition-colors">
                       {s.title}
                     </h3>
-                    <p className="mt-2 text-xs text-[#dfd0bc]/90 leading-relaxed line-clamp-3">
+                    <p className="mt-2 text-base sm:text-sm text-[#dfd0bc]/90 leading-relaxed line-clamp-3">
                       {s.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between text-xs font-semibold text-[#faf2e4]">
+                  <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between text-sm sm:text-xs font-semibold text-[#faf2e4]">
                     <span>{s.badge}</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
@@ -263,7 +263,7 @@ function LandingPage() {
             <div className="mt-10 text-center">
               <Link
                 to="/tarot"
-                className="liquid-chrome-btn inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#24060e]"
+                className="liquid-chrome-btn inline-flex min-h-12 items-center gap-2 rounded-full px-6 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
               >
                 <span>Browse All 8 Tarot Spreads & Meanings</span>
                 <ArrowRight className="h-4 w-4" />
@@ -282,7 +282,7 @@ function LandingPage() {
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4]">
                 The Symbolic Architecture of Tarot
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-[#e3cfb6]/90 leading-relaxed">
+              <p className="mt-4 text-base text-[#e3cfb6]/90 leading-relaxed">
                 Tarot is not a parlor trick or a superstitious decree; it is a 600-year-old symbolic system that maps the spectrum of human consciousness, psychological archetypes, and spiritual transformation.
               </p>
             </div>
@@ -295,7 +295,7 @@ function LandingPage() {
                     The Major Arcana: The Soul's Pilgrimage
                   </h3>
                 </div>
-                <p className="mt-4 text-sm text-[#e3cfb6] leading-relaxed">
+                <p className="mt-4 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
                   The 22 cards of the Major Arcana (from 0 The Fool to XXI The World) represent the universal stages of spiritual maturation and psychological individuation. Often termed "The Fool's Journey," this sequence mirrors our passage through innocence, intellectual mastery, emotional union, worldly crisis, dark-night transformation, and cosmic enlightenment. When Major Arcana cards appear in your reading, they signal profound life themes, spiritual lessons, and karmic shifts that transcend temporary daily matters.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2 text-xs">
@@ -318,30 +318,30 @@ function LandingPage() {
                     The Minor Arcana: Four Elemental Planes
                   </h3>
                 </div>
-                <p className="mt-4 text-sm text-[#e3cfb6] leading-relaxed">
+                <p className="mt-4 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
                   The 56 cards of the Minor Arcana reflect the daily fabric of human existence. Divided into four suits, each corresponds to a classical element and a distinct realm of life:
                 </p>
-                <div className="mt-5 space-y-3 text-xs text-[#dfd0bc]">
+                <div className="mt-5 space-y-3 text-base sm:text-sm text-[#dfd0bc]">
                   <div className="flex items-start gap-2.5">
-                    <Flame className="h-4 w-4 text-[#f6c49f] shrink-0 mt-0.5" />
+                    <Flame className="h-4 w-4 text-[#f6c49f] shrink-0 mt-1" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Wands (Fire):</strong> Willpower, creative passion, spiritual vigor, ambition, and career projects.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Droplets className="h-4 w-4 text-[#f2d6c3] shrink-0 mt-0.5" />
+                    <Droplets className="h-4 w-4 text-[#f2d6c3] shrink-0 mt-1" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Cups (Water):</strong> Emotional depth, romantic bonding, intuitive wisdom, and healing.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Wind className="h-4 w-4 text-[#faf2e4] shrink-0 mt-0.5" />
+                    <Wind className="h-4 w-4 text-[#faf2e4] shrink-0 mt-1" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Swords (Air):</strong> Intellect, ethical dilemmas, mental clarity, communication, and truth.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Coins className="h-4 w-4 text-[#e9cea4] shrink-0 mt-0.5" />
+                    <Coins className="h-4 w-4 text-[#e9cea4] shrink-0 mt-1" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Pentacles (Earth):</strong> Material reality, finances, bodily health, craft, and grounded security.
                     </div>
@@ -352,24 +352,24 @@ function LandingPage() {
 
             {/* Quick Directory to Top Major Arcana Cards */}
             <div className="mt-12">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between gap-4 mb-4">
                 <h4 className="font-display text-xl font-bold text-[#faf2e4]">
                   Explore Major Arcana Meanings
                 </h4>
-                <Link to="/guide/major-arcana-meanings" className="text-xs text-[#faf2e4] hover:underline font-semibold">
+                <Link to="/guide/major-arcana-meanings" className="inline-flex min-h-12 sm:min-h-0 items-center text-sm sm:text-xs text-[#faf2e4] hover:underline font-semibold">
                   View Full Archetype Index →
                 </Link>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm sm:text-xs">
                 {MAJOR_CARDS.map((card) => (
                   <Link
                     key={card.slug}
                     to={`/tarot/${card.slug}` as any}
-                    className="rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/70 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:border-[#f5e7d0]/45 hover:bg-[#3f0d1b]/80 transition-all"
+                    className="min-h-14 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/70 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:border-[#f5e7d0]/45 hover:bg-[#3f0d1b]/80 transition-all"
                   >
-                    <div className="chrome-text font-mono text-[11px] font-bold">Key {card.number}</div>
+                    <div className="chrome-text font-mono text-xs font-bold">Key {card.number}</div>
                     <div className="font-semibold text-[#faf2e4] mt-1 truncate">{card.name}</div>
-                    <div className="text-[10px] text-[#d6bfa3] mt-0.5 truncate">{card.theme}</div>
+                    <div className="text-xs sm:text-[11px] text-[#d6bfa3] mt-0.5 truncate">{card.theme}</div>
                   </Link>
                 ))}
               </div>
@@ -387,7 +387,7 @@ function LandingPage() {
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4]">
                 The Sacred Triad: Mulank, Bhagyank & Namank
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-[#e3cfb6]/90 leading-relaxed">
+              <p className="mt-4 text-base text-[#e3cfb6]/90 leading-relaxed">
                 Vedic Numerology (अंक शास्त्र) teaches that each number from 1 to 9 emits a cosmic vibration presided over by one of the nine celestial planetary forces (Navagraha).
               </p>
             </div>
@@ -401,12 +401,12 @@ function LandingPage() {
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
                     Mulank (Root Number / जन्मांक)
                   </h3>
-                  <p className="mt-3 text-sm text-[#e3cfb6] leading-relaxed">
+                  <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
                     Calculated solely from your birth date (1 to 31 reduced to a single digit). Mulank reflects your intrinsic nature, psychological temperament, personal tastes, and instinctual behavior when faced with challenges.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/numerology/mulank" className="text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1">
+                  <Link to="/numerology/mulank" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Mulank Master Guide</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -421,12 +421,12 @@ function LandingPage() {
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
                     Bhagyank (Destiny Number / भाग्यांक)
                   </h3>
-                  <p className="mt-3 text-sm text-[#e3cfb6] leading-relaxed">
+                  <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
                     Calculated by summing all digits of your Day, Month, and Year of birth. Bhagyank governs your destiny trajectory, societal role, major karma, and the career challenges you must master to achieve fulfillment.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/bhagyank-calculator" className="text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1">
+                  <Link to="/bhagyank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Bhagyank Calculator</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -441,12 +441,12 @@ function LandingPage() {
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
                     Namank (Name Vibration / नामांक)
                   </h3>
-                  <p className="mt-3 text-sm text-[#e3cfb6] leading-relaxed">
+                  <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
                     Derived from ancient Chaldean sound vibration formulas that assign numeric weight to alphabet phonetics. A balanced Namank creates harmony between your inner desires and external life success.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/namank-calculator" className="text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1">
+                  <Link to="/namank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Namank Calculator</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -516,7 +516,7 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="mt-14 space-y-10 text-sm sm:text-base text-[#e3cfb6]/95 leading-relaxed">
+            <div className="mt-14 space-y-10 text-base text-[#e3cfb6]/95 leading-relaxed">
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
                   1. Introduction: Bridging Western Hermeticism and Eastern Ank Shastra
@@ -601,7 +601,7 @@ function LandingPage() {
               <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-[#faf2e4]">
                 Everything You Need to Know About AstroFree
               </h2>
-              <p className="mt-3 text-sm text-[#e3cfb6]/90">
+              <p className="mt-3 text-base sm:text-sm text-[#e3cfb6]/90">
                 Detailed explanations regarding our methodology, privacy practices, and esoteric frameworks.
               </p>
             </div>
@@ -618,7 +618,7 @@ function LandingPage() {
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenFaq(isOpen ? null : index)}
-                      className="w-full flex items-center justify-between p-5 text-left font-display text-lg font-bold text-[#faf2e4] hover:text-[#fffdf8] transition-colors"
+                      className="w-full min-h-14 flex items-center justify-between p-5 text-left font-display text-lg font-bold text-[#faf2e4] hover:text-[#fffdf8] transition-colors"
                     >
                       <span>{faq.question}</span>
                       <ChevronDown
@@ -630,8 +630,8 @@ function LandingPage() {
                     <div
                       className={
                         isOpen
-                          ? "px-5 pb-5 text-sm text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3 transition-all duration-200"
-                          : "max-h-0 overflow-hidden opacity-0 pointer-events-none px-5 text-sm leading-relaxed"
+                          ? "px-5 pb-5 text-base sm:text-[15px] text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3 transition-all duration-200"
+                          : "max-h-0 overflow-hidden opacity-0 pointer-events-none px-5 text-base leading-relaxed"
                       }
                     >
                       {faq.answer}
