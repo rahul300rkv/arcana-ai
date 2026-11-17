@@ -1,11 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
 import { createAppRouter, type AppRouter } from "./router";
 
 interface AppProps {
   router?: AppRouter;
-  queryClient?: QueryClient;
 }
 
 function syncDocumentHead(router: AppRouter) {
@@ -51,13 +49,11 @@ function syncDocumentHead(router: AppRouter) {
   }
 }
 
-export default function App({ router: providedRouter, queryClient: providedQueryClient }: AppProps) {
-  const { router, queryClient } = useMemo(() => {
-    if (providedRouter && providedQueryClient) {
-      return { router: providedRouter, queryClient: providedQueryClient };
-    }
-    return createAppRouter();
-  }, [providedRouter, providedQueryClient]);
+export default function App({ router: providedRouter }: AppProps) {
+  const router = useMemo(() => {
+    if (providedRouter) return providedRouter;
+    return createAppRouter().router;
+  }, [providedRouter]);
 
   useEffect(() => {
     syncDocumentHead(router);
@@ -66,9 +62,5 @@ export default function App({ router: providedRouter, queryClient: providedQuery
     });
   }, [router]);
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  );
+  return <RouterProvider router={router} />;
 }

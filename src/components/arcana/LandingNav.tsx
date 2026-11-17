@@ -78,7 +78,7 @@ export function LandingNav() {
               className="liquid-chrome-btn inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap"
             >
               <span>Begin Reading</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>
 
@@ -90,7 +90,7 @@ export function LandingNav() {
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
         </div>
 
@@ -141,7 +141,7 @@ export function LandingNav() {
               className="liquid-chrome-btn mt-2 flex min-h-12 items-center justify-center gap-2 rounded-full py-3 text-center text-sm font-bold uppercase tracking-wider"
             >
               <span>Begin Reading</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </nav>
         )}

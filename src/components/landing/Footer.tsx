@@ -60,12 +60,12 @@ export function Footer() {
           <div>
             © {new Date().getFullYear()} AstroFree. Crafted with reverence &amp; intention.
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/privacy" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">Privacy</Link>
-            <span>·</span>
-            <Link to="/terms" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">Terms</Link>
-            <span>·</span>
-            <Link to="/about" className="inline-flex min-h-12 sm:min-h-0 items-center px-1 hover:text-[#fffaf0] transition-colors">About</Link>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Link to="/privacy" className="inline-flex min-h-12 min-w-12 sm:min-h-0 sm:min-w-0 items-center justify-center px-2 hover:text-[#fffaf0] transition-colors">Privacy</Link>
+            <span aria-hidden="true">·</span>
+            <Link to="/terms" className="inline-flex min-h-12 min-w-12 sm:min-h-0 sm:min-w-0 items-center justify-center px-2 hover:text-[#fffaf0] transition-colors">Terms</Link>
+            <span aria-hidden="true">·</span>
+            <Link to="/about" className="inline-flex min-h-12 min-w-12 sm:min-h-0 sm:min-w-0 items-center justify-center px-2 hover:text-[#fffaf0] transition-colors">About</Link>
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ export function Features() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                <Compass className="h-4 w-4 text-[#faf2e4]" />
+                <Compass className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                 <span>The Oracle's Altar</span>
               </div>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
@@ -51,25 +51,25 @@ export function Features() {
               <div className="mt-6 flex flex-wrap gap-2.5 text-sm sm:text-xs">
                 <Link
                   to="/tarot/celtic-cross"
-                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/35 bg-[#f5e7d0]/15 px-4 py-2 sm:px-3.5 sm:py-1.5 font-medium text-[#fffaf0] shadow-[inset_0_1px_1px_rgba(255,248,235,0.3)] transition-all hover:bg-[#f5e7d0]/25 hover:border-[#f5e7d0]/60"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/35 bg-[#f5e7d0]/15 px-4 py-2 sm:px-3.5 sm:py-1.5 font-medium text-[#fffaf0] shadow-[inset_0_1px_1px_rgba(255,248,235,0.3)] transition-all hover:bg-[#f5e7d0]/25 hover:border-[#f5e7d0]/60"
                 >
                   Celtic Cross (10 Cards)
                 </Link>
                 <Link
                   to="/tarot/three-card"
-                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Past · Present · Future
                 </Link>
                 <Link
                   to="/tarot/love"
-                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Love &amp; Connections
                 </Link>
                 <Link
                   to="/tarot/career"
-                  className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Career Pathway
                 </Link>
@@ -80,10 +80,10 @@ export function Features() {
               <span className="text-xs text-[#d6bfa3]">78 Hand-crafted Major &amp; Minor Arcana</span>
               <Link
                 to="/tarot"
-                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Explore All Spreads</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -105,7 +105,7 @@ export function Features() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                <Moon className="h-4 w-4 text-[#faf2e4]" />
+                <Moon className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                 <span>Vedic Mathematics</span>
               </div>
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
@@ -119,10 +119,10 @@ export function Features() {
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
                 to="/numerology"
-                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Calculate Your Numbers</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -144,7 +144,7 @@ export function Features() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                <Sparkles className="h-4 w-4 text-[#faf2e4]" />
+                <Sparkles className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                 <span>Modern Intelligence</span>
               </div>
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
@@ -158,10 +158,10 @@ export function Features() {
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
                 to="/reading"
-                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Ask The Oracle</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -170,7 +170,7 @@ export function Features() {
           <div className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between">
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                <BookOpen className="h-4 w-4 text-[#faf2e4]" />
+                <BookOpen className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                 <span>Sacred Rituals</span>
               </div>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
@@ -198,15 +198,15 @@ export function Features() {
 
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5 text-xs text-[#ead9c3]">
-                <ShieldCheck className="h-4 w-4 text-[#faf2e4]" />
+                <ShieldCheck className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                 <span>Protected by Client-Side Storage</span>
               </div>
               <Link
                 to="/journal"
-                className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
+                className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
                 <span>Open Sanctuary Journal</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>

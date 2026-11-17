@@ -1,5 +1,4 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
-import { TAROT_CARD_LIST } from "@/data/tarot-list";
 import { buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
 
@@ -31,7 +30,11 @@ const TAROT_FAQS = [
 ];
 
 export const Route = createFileRoute("/tarot/")({
-  head: () => ({
+  loader: async () => {
+    const { TAROT_CARD_LIST } = await import("@/data/tarot-list");
+    return { cards: TAROT_CARD_LIST };
+  },
+  head: ({ loaderData }) => ({
     meta: buildContentMeta({
       path: "/tarot",
       title: TITLE,
@@ -56,7 +59,7 @@ export const Route = createFileRoute("/tarot/")({
           datePublished: "2026-07-15",
           dateModified: "2026-11-16",
           url: `${SITE_URL}/tarot`,
-          hasPart: TAROT_CARD_LIST.map((p) => ({
+          hasPart: (loaderData?.cards ?? []).map((p) => ({
             "@type": "Article",
             headline: p.name,
             url: `${SITE_URL}/tarot/${p.slug}`,

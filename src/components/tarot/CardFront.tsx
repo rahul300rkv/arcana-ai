@@ -1,13 +1,19 @@
 import { cn } from "@/lib/utils";
 import type { TarotCard } from "@/lib/tarot/types";
 
+export type CardFrontCard = Pick<TarotCard, "id" | "name" | "arcana" | "image" | "keywords"> & {
+  suit?: TarotCard["suit"];
+  width?: number;
+  height?: number;
+};
+
 export function CardFront({
   card,
   reversed,
   className,
   eager,
 }: {
-  card: TarotCard;
+  card: CardFrontCard;
   reversed?: boolean;
   className?: string;
   eager?: boolean;
@@ -46,8 +52,8 @@ export function CardFront({
             loading={eager ? "eager" : "lazy"}
             fetchPriority={eager ? "high" : undefined}
             decoding="async"
-            width={360}
-            height={604}
+            width={card.width ?? 360}
+            height={card.height ?? 604}
             className="absolute inset-0 h-full w-full object-cover object-center opacity-95"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(26,5,11,0.8))] mix-blend-multiply" />

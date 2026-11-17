@@ -10,7 +10,7 @@ const prerenderedPath = rootEl.getAttribute("data-prerendered-path");
 
 async function mount() {
   if (prerenderedPath === currentPath && rootEl.firstElementChild !== null) {
-    const { router, queryClient } = createAppRouter();
+    const { router } = createAppRouter();
     await router.load();
     const matchComponents = router.state.matches.map((m) => {
       const route = (
@@ -23,7 +23,7 @@ async function mount() {
       return comp?.preload?.();
     });
     await Promise.all(matchComponents);
-    hydrateRoot(rootEl, <App router={router} queryClient={queryClient} />);
+    hydrateRoot(rootEl, <App router={router} />);
   } else {
     createRoot(rootEl).render(<App />);
   }

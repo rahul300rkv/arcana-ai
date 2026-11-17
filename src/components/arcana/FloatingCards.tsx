@@ -1,18 +1,89 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { CardFront } from "@/components/tarot/CardFront";
-import { getCardById } from "@/lib/tarot/engine";
+import { CardFront, type CardFrontCard } from "@/components/tarot/CardFront";
 import { Sparkles, Eye } from "lucide-react";
 
 const STEP = "clamp(55px, 15vw, 130px)";
 
+interface HeroCardSlot {
+  card: CardFrontCard;
+  rotate: number;
+  x: string;
+  y: string;
+}
+
 /** Five-card celestial fan: The Fool, The High Priestess, The Star, The Magician, The Sun */
-const cards = [
-  { id: "major-00", rotate: -14, x: `calc(${STEP} * -2)`, y: "26px" },
-  { id: "major-02", rotate: -7, x: `calc(${STEP} * -1)`, y: "6px" },
-  { id: "major-17", rotate: 0, x: "0px", y: "-10px" },
-  { id: "major-01", rotate: 7, x: `calc(${STEP} * 1)`, y: "6px" },
-  { id: "major-19", rotate: 14, x: `calc(${STEP} * 2)`, y: "26px" },
+const HERO_CARDS: HeroCardSlot[] = [
+  {
+    card: {
+      id: "major-00",
+      name: "The Fool",
+      arcana: "major",
+      image: "/cards/hero-major-00.webp",
+      width: 192,
+      height: 322,
+      keywords: ["New beginnings", "innocence", "spontaneity", "a free spirit"],
+    },
+    rotate: -14,
+    x: `calc(${STEP} * -2)`,
+    y: "26px",
+  },
+  {
+    card: {
+      id: "major-02",
+      name: "The High Priestess",
+      arcana: "major",
+      image: "/cards/hero-major-02.webp",
+      width: 192,
+      height: 330,
+      keywords: ["Intuition", "sacred knowledge", "divine feminine", "subconscious"],
+    },
+    rotate: -7,
+    x: `calc(${STEP} * -1)`,
+    y: "6px",
+  },
+  {
+    card: {
+      id: "major-17",
+      name: "The Star",
+      arcana: "major",
+      image: "/cards/hero-major-17.webp",
+      width: 192,
+      height: 331,
+      keywords: ["Hope", "faith", "purpose", "renewal", "spirituality"],
+    },
+    rotate: 0,
+    x: "0px",
+    y: "-10px",
+  },
+  {
+    card: {
+      id: "major-01",
+      name: "The Magician",
+      arcana: "major",
+      image: "/cards/hero-major-01.webp",
+      width: 192,
+      height: 333,
+      keywords: ["Manifestation", "resourcefulness", "power", "inspired action"],
+    },
+    rotate: 7,
+    x: `calc(${STEP} * 1)`,
+    y: "6px",
+  },
+  {
+    card: {
+      id: "major-19",
+      name: "The Sun",
+      arcana: "major",
+      image: "/cards/hero-major-19.webp",
+      width: 192,
+      height: 331,
+      keywords: ["Positivity", "fun", "warmth", "success", "vitality"],
+    },
+    rotate: 14,
+    x: `calc(${STEP} * 2)`,
+    y: "26px",
+  },
 ];
 
 export function FloatingCards() {
@@ -25,14 +96,13 @@ export function FloatingCards() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-[28rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(245,231,208,0.18)_0%,rgba(140,22,46,0.28)_42%,transparent_72%)]"
       />
 
-      {cards.map((c, i) => {
-        const card = getCardById(c.id);
-        if (!card) return null;
-        const isActive = active === c.id;
+      {HERO_CARDS.map((c, i) => {
+        const { card } = c;
+        const isActive = active === card.id;
 
         return (
           <div
-            key={c.id}
+            key={card.id}
             className="absolute top-1/2 transition-transform duration-300 ease-out"
             style={{
               left: `calc(50% + ${c.x})`,
@@ -42,12 +112,13 @@ export function FloatingCards() {
           >
             <button
               type="button"
+              aria-expanded={isActive}
               aria-label={`${card.name} — ${card.keywords.slice(0, 3).join(", ")}`}
-              onMouseEnter={() => setActive(c.id)}
-              onMouseLeave={() => setActive((v) => (v === c.id ? null : v))}
-              onFocus={() => setActive(c.id)}
-              onBlur={() => setActive((v) => (v === c.id ? null : v))}
-              onClick={() => setActive((v) => (v === c.id ? null : c.id))}
+              onMouseEnter={() => setActive(card.id)}
+              onMouseLeave={() => setActive((v) => (v === card.id ? null : v))}
+              onFocus={() => setActive(card.id)}
+              onBlur={() => setActive((v) => (v === card.id ? null : v))}
+              onClick={() => setActive((v) => (v === card.id ? null : card.id))}
               style={{ transform: `translateY(${c.y})` }}
               className="group block cursor-pointer rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5e7d0]"
             >

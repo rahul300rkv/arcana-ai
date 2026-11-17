@@ -1,4 +1,3 @@
-import { QueryClientProvider } from "@tanstack/react-query";
 import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 import { renderToString } from "react-dom/server";
 import { createAppRouter } from "./router";
@@ -31,7 +30,7 @@ const SKIP_META_NAMES = new Set([
 export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
   const normalizedPath = urlPath === "/" ? "/" : urlPath.replace(/\/+$/, "");
   const history = createMemoryHistory({ initialEntries: [normalizedPath] });
-  const { router, queryClient } = createAppRouter({ history });
+  const { router } = createAppRouter({ history });
 
   await router.load();
   await Promise.all(
@@ -47,11 +46,7 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
     }),
   );
 
-  const appHtml = renderToString(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>,
-  );
+  const appHtml = renderToString(<RouterProvider router={router} />);
 
   let title = "AstroFree — Free AI Tarot & Vedic Numerology";
   const metaMap = new Map<string, { attr: "name" | "property"; key: string; content: string }>();
@@ -152,8 +147,6 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
   const hasNotFound = router.state.matches.some(
     (m) => m.status === "notFound" || m.status === "error",
   );
-
-  queryClient.clear();
 
   return {
     appHtml,

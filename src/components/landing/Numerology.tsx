@@ -60,7 +60,7 @@ export function Numerology() {
             <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
               <div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                  <Calendar className="h-4 w-4 text-[#faf2e4]" />
+                  <Calendar className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
                   <span>Interactive Birth Date Test</span>
                 </div>
                 <h3 className="mt-2 font-display text-2xl font-extrabold text-[#faf2e4]">
@@ -202,7 +202,7 @@ export function Numerology() {
                 {/* Archetype Synthesis */}
                 <div className="mt-6 pt-5 border-t border-[#f5e7d0]/15">
                   <div className="flex items-center gap-2 text-base font-semibold text-[#faf2e4]">
-                    <Sparkles className="h-4 w-4 text-[#ead9c3]" />
+                    <Sparkles className="h-4 w-4 text-[#ead9c3]" aria-hidden="true" />
                     <span>{archetype.name}</span>
                   </div>
                   <p className="mt-2 text-base sm:text-sm text-[#e8d7c0] leading-relaxed">
@@ -220,7 +220,7 @@ export function Numerology() {
                     className="liquid-chrome-btn inline-flex min-h-12 items-center gap-1.5 rounded-full px-5 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
                   >
                     <span>View Complete Personal Forecast</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>

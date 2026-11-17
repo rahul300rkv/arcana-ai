@@ -237,7 +237,7 @@ function LandingPage() {
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#f5e7d0]/30 bg-gradient-to-br from-[#f5e7d0]/20 via-[#5a1224]/65 to-[#1c050b]/90 text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.45)] transition-transform duration-300 group-hover:scale-110">
-                        <s.icon className="h-5 w-5" />
+                        <s.icon className="h-5 w-5" aria-hidden="true" />
                       </div>
                       <span className="text-xs font-semibold text-[#ead9c3]">
                         {s.cards}
@@ -254,7 +254,7 @@ function LandingPage() {
 
                   <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between text-sm sm:text-xs font-semibold text-[#faf2e4]">
                     <span>{s.badge}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </Link>
               ))}
@@ -266,7 +266,7 @@ function LandingPage() {
                 className="liquid-chrome-btn inline-flex min-h-12 items-center gap-2 rounded-full px-6 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
               >
                 <span>Browse All 8 Tarot Spreads & Meanings</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -290,7 +290,7 @@ function LandingPage() {
             <div className="mt-14 grid gap-8 md:grid-cols-2">
               <div className="rounded-3xl liquid-chrome-card p-8">
                 <div className="flex items-center gap-3 text-[#faf2e4]">
-                  <Sparkles className="h-5 w-5 text-[#ead9c3]" />
+                  <Sparkles className="h-5 w-5 text-[#ead9c3]" aria-hidden="true" />
                   <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
                     The Major Arcana: The Soul's Pilgrimage
                   </h3>
@@ -313,7 +313,7 @@ function LandingPage() {
 
               <div className="rounded-3xl liquid-chrome-card p-8">
                 <div className="flex items-center gap-3 text-[#faf2e4]">
-                  <Compass className="h-5 w-5 text-[#ead9c3]" />
+                  <Compass className="h-5 w-5 text-[#ead9c3]" aria-hidden="true" />
                   <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
                     The Minor Arcana: Four Elemental Planes
                   </h3>
@@ -323,25 +323,25 @@ function LandingPage() {
                 </p>
                 <div className="mt-5 space-y-3 text-base sm:text-sm text-[#dfd0bc]">
                   <div className="flex items-start gap-2.5">
-                    <Flame className="h-4 w-4 text-[#f6c49f] shrink-0 mt-1" />
+                    <Flame className="h-4 w-4 text-[#f6c49f] shrink-0 mt-1" aria-hidden="true" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Wands (Fire):</strong> Willpower, creative passion, spiritual vigor, ambition, and career projects.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Droplets className="h-4 w-4 text-[#f2d6c3] shrink-0 mt-1" />
+                    <Droplets className="h-4 w-4 text-[#f2d6c3] shrink-0 mt-1" aria-hidden="true" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Cups (Water):</strong> Emotional depth, romantic bonding, intuitive wisdom, and healing.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Wind className="h-4 w-4 text-[#faf2e4] shrink-0 mt-1" />
+                    <Wind className="h-4 w-4 text-[#faf2e4] shrink-0 mt-1" aria-hidden="true" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Swords (Air):</strong> Intellect, ethical dilemmas, mental clarity, communication, and truth.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Coins className="h-4 w-4 text-[#e9cea4] shrink-0 mt-1" />
+                    <Coins className="h-4 w-4 text-[#e9cea4] shrink-0 mt-1" aria-hidden="true" />
                     <div>
                       <strong className="text-[#faf2e4]">Suit of Pentacles (Earth):</strong> Material reality, finances, bodily health, craft, and grounded security.
                     </div>
@@ -408,7 +408,7 @@ function LandingPage() {
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
                   <Link to="/numerology/mulank" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Mulank Master Guide</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>
@@ -428,7 +428,7 @@ function LandingPage() {
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
                   <Link to="/bhagyank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Bhagyank Calculator</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>
@@ -448,7 +448,7 @@ function LandingPage() {
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
                   <Link to="/namank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
                     <span>Namank Calculator</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>
