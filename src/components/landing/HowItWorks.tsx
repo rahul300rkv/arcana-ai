@@ -47,7 +47,7 @@ export function HowItWorks() {
             >
               {/* Crimson & Warm Ivory Icon Emblem */}
               <div className="relative mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#f5e7d0]/30 bg-gradient-to-br from-[#f5e7d0]/20 via-[#5a1224]/65 to-[#1c050b]/90 shadow-[inset_0_1px_1px_rgba(255,248,235,0.45),0_0_25px_rgba(165,30,58,0.28)]">
-                <s.icon className="h-6 w-6 text-[#faf2e4] drop-shadow-[0_0_8px_rgba(250,240,224,0.75)]" strokeWidth={1.75} />
+                <s.icon className="h-6 w-6 text-[#faf2e4]" strokeWidth={1.75} aria-hidden="true" />
                 <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#24070e] border border-[#f5e7d0]/45 text-xs font-bold text-[#faf2e4] shadow-[0_2px_8px_rgba(10,1,4,0.85)]">
                   {s.n}
                 </span>
@@ -69,7 +69,7 @@ export function HowItWorks() {
             className="liquid-chrome-btn inline-flex min-h-12 items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#24060e]"
           >
             <span>Begin Your Personal Ritual</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

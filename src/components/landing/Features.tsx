@@ -6,8 +6,8 @@ export function Features() {
     <section id="features" className="relative py-20 sm:py-28">
       {/* Background ambient gradient */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-full max-w-6xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(165,28,56,0.16)_0%,rgba(248,236,214,0.06)_40%,transparent_70%)] blur-3xl"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-full max-w-6xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(165,28,56,0.14)_0%,rgba(248,236,214,0.05)_40%,transparent_70%)]"
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
@@ -28,8 +28,8 @@ export function Features() {
                 alt="Candlelit crimson and velvet tarot altar sanctuary prepared for sacred arcana spread readings"
                 loading="lazy"
                 decoding="async"
-                width={768}
-                height={429}
+                width={640}
+                height={358}
                 className="h-full w-full object-cover object-center opacity-30 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/85 to-transparent" />
@@ -96,8 +96,8 @@ export function Features() {
                 alt="Vedic numerology sacred geometry wheel illustrating numbers 1 through 9 and planetary rulers"
                 loading="lazy"
                 decoding="async"
-                width={768}
-                height={573}
+                width={480}
+                height={358}
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/88 to-transparent" />
@@ -135,8 +135,8 @@ export function Features() {
                 alt="Tarot reader hands thoughtfully drawing an illustrated arcana card during a reflective oracle reading"
                 loading="lazy"
                 decoding="async"
-                width={768}
-                height={573}
+                width={480}
+                height={358}
                 className="h-full w-full object-cover object-center opacity-25 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#18050a] via-[#1f060d]/88 to-transparent" />

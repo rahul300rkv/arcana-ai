@@ -239,7 +239,7 @@ function LandingPage() {
                       <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#f5e7d0]/30 bg-gradient-to-br from-[#f5e7d0]/20 via-[#5a1224]/65 to-[#1c050b]/90 text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.45)] transition-transform duration-300 group-hover:scale-110">
                         <s.icon className="h-5 w-5" />
                       </div>
-                      <span className="text-[11px] font-semibold text-[#ead9c3]">
+                      <span className="text-xs font-semibold text-[#ead9c3]">
                         {s.cards}
                       </span>
                     </div>
@@ -369,7 +369,7 @@ function LandingPage() {
                   >
                     <div className="chrome-text font-mono text-xs font-bold">Key {card.number}</div>
                     <div className="font-semibold text-[#faf2e4] mt-1 truncate">{card.name}</div>
-                    <div className="text-xs sm:text-[11px] text-[#d6bfa3] mt-0.5 truncate">{card.theme}</div>
+                    <div className="text-xs text-[#d6bfa3] mt-0.5 truncate">{card.theme}</div>
                   </Link>
                 ))}
               </div>
@@ -609,6 +609,7 @@ function LandingPage() {
             <div className="space-y-4">
               {COMPREHENSIVE_FAQS.map((faq, index) => {
                 const isOpen = openFaq === index;
+                const panelId = `home-faq-panel-${index}`;
                 return (
                   <div
                     key={faq.question}
@@ -617,22 +618,22 @@ function LandingPage() {
                     <button
                       type="button"
                       aria-expanded={isOpen}
+                      aria-controls={panelId}
                       onClick={() => setOpenFaq(isOpen ? null : index)}
                       className="w-full min-h-14 flex items-center justify-between p-5 text-left font-display text-lg font-bold text-[#faf2e4] hover:text-[#fffdf8] transition-colors"
                     >
                       <span>{faq.question}</span>
                       <ChevronDown
+                        aria-hidden="true"
                         className={`h-4 w-4 text-[#ead9c3] transition-transform duration-300 shrink-0 ml-4 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     <div
-                      className={
-                        isOpen
-                          ? "px-5 pb-5 text-base sm:text-[15px] text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3 transition-all duration-200"
-                          : "max-h-0 overflow-hidden opacity-0 pointer-events-none px-5 text-base leading-relaxed"
-                      }
+                      id={panelId}
+                      hidden={!isOpen}
+                      className="px-5 pb-5 text-base sm:text-[15px] text-[#e3cfb6]/95 leading-relaxed border-t border-[#f5e7d0]/15 pt-3"
                     >
                       {faq.answer}
                     </div>

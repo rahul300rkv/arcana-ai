@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useRouterState } from "@tanstack/react-router";
+import { loadAdsenseScript } from "@/lib/adsense";
 
 declare global {
   interface Window {
@@ -45,14 +46,14 @@ function AdSlot({
   const pushedRef = useRef(false);
 
   useEffect(() => {
-    // Prevent double pushing in React strict mode
     if (pushedRef.current) return;
+    void loadAdsenseScript();
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushedRef.current = true;
-    } catch (err) {
-      console.error("AdSense push error:", err);
+    } catch {
+      // Ad blocker or delayed script fill — gracefully ignore.
     }
   }, []);
 

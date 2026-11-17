@@ -28,7 +28,7 @@ export function AuthorCard({
   return (
     <div
       className={cn(
-        "rounded-2xl liquid-chrome-card p-6 shadow-2xl backdrop-blur-xl",
+        "rounded-2xl liquid-chrome-card p-6 shadow-2xl md:backdrop-blur-xl",
         className,
       )}
     >
@@ -49,7 +49,7 @@ export function AuthorCard({
         Curated and reviewed for reflection and education by the AstroFree Editorial Team.
       </p>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-[#d6bfa3] font-medium">
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-[0.16em] text-[#d6bfa3] font-medium">
         {published && published !== lastUpdated && (
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
@@ -70,11 +70,17 @@ export function AuthorCard({
         </span>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-3 text-xs text-[#ead9c3]">
-        <Link to="/editorial-policy" className="underline underline-offset-4 hover:text-[#fffaf0] transition-colors">
+      <div className="mt-4 flex flex-wrap gap-4 text-sm sm:text-xs text-[#ead9c3]">
+        <Link
+          to="/editorial-policy"
+          className="inline-flex min-h-12 sm:min-h-0 items-center underline underline-offset-4 hover:text-[#fffaf0] transition-colors"
+        >
           Editorial Policy
         </Link>
-        <Link to="/about" className="underline underline-offset-4 hover:text-[#fffaf0] transition-colors">
+        <Link
+          to="/about"
+          className="inline-flex min-h-12 sm:min-h-0 items-center underline underline-offset-4 hover:text-[#fffaf0] transition-colors"
+        >
           Methodology
         </Link>
       </div>

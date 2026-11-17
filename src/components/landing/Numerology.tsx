@@ -42,8 +42,8 @@ export function Numerology() {
     <section id="numerology" className="relative py-20 sm:py-28 overflow-hidden">
       {/* Background radial glow */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-full max-w-5xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(165,28,56,0.16)_0%,rgba(248,236,214,0.05)_42%,transparent_70%)] blur-3xl"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-full max-w-5xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(165,28,56,0.14)_0%,rgba(248,236,214,0.04)_42%,transparent_70%)]"
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
@@ -163,37 +163,37 @@ export function Numerology() {
                 {/* Result header badges */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   <div className="rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#d6bfa3] block">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
                       Mulank (Root)
                     </span>
                     <span className="font-display text-4xl font-extrabold chrome-gold-text block mt-1">
                       {mulank}
                     </span>
-                    <span className="text-[11px] text-[#ead9c3] block mt-0.5">
+                    <span className="text-xs text-[#ead9c3] block mt-0.5">
                       {archetype.planet}
                     </span>
                   </div>
 
                   <div className="rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#d6bfa3] block">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
                       Bhagyank (Destiny)
                     </span>
                     <span className="font-display text-4xl font-extrabold chrome-text block mt-1">
                       {bhagyank}
                     </span>
-                    <span className="text-[11px] text-[#ead9c3] block mt-0.5">
+                    <span className="text-xs text-[#ead9c3] block mt-0.5">
                       Full Life Path
                     </span>
                   </div>
 
                   <div className="col-span-2 sm:col-span-1 rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#d6bfa3] block">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
                       Tarot Archetype
                     </span>
                     <span className="font-display text-lg font-bold text-[#faf2e4] block mt-1 leading-tight">
                       {archetype.tarot}
                     </span>
-                    <span className="text-[11px] text-[#ead9c3] block mt-0.5">
+                    <span className="text-xs text-[#ead9c3] block mt-0.5">
                       Major Arcana {mulank}
                     </span>
                   </div>

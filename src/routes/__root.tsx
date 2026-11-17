@@ -14,12 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SITE_URL, SITE_NAME } from "../lib/site";
 import { initTheme } from "../lib/theme";
+import { ADSENSE_CLIENT_ID, scheduleAdsenseLoad } from "../lib/adsense";
 
-// Set these in your host's environment variables (e.g. Vercel → Settings →
-// Environment Variables) to override. Falls back to the values below so
-// Search Console verification works even before env vars are configured.
-const ADSENSE_CLIENT_ID =
-  (import.meta.env.VITE_ADSENSE_CLIENT_ID as string | undefined) || "ca-pub-3532554351654388";
 const GOOGLE_SITE_VERIFICATION =
   (import.meta.env.VITE_GOOGLE_SITE_VERIFICATION as string | undefined) ||
   "RBbljzCIw3mPRaMp6kDl03gswB9HqiyYYwUSdhC8cEA";
@@ -169,18 +165,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Loaded non-blocking below via the media="print" swap trick — this
-      // entry is kept only as the <noscript> fallback for the head builder.
     ],
-    scripts: ADSENSE_CLIENT_ID
-      ? [
-          {
-            src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`,
-            async: true,
-            crossOrigin: "anonymous",
-          },
-        ]
-      : [],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -196,6 +181,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => {
     initTheme();
+    return scheduleAdsenseLoad();
   }, []);
   return (
     <QueryClientProvider client={queryClient}>

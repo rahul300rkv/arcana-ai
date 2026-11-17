@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CardFront } from "@/components/tarot/CardFront";
-import { CardBack } from "@/components/tarot/CardBack";
 import { getCardById } from "@/lib/tarot/engine";
 import { Sparkles, Eye } from "lucide-react";
 
@@ -17,19 +16,13 @@ const cards = [
 ];
 
 export function FloatingCards() {
-  // Start revealed so center card image renders cleanly without an artificial 700ms LCP gate
-  const [flipped, setFlipped] = useState(true);
   const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    setFlipped(true);
-  }, []);
 
   return (
     <div className="relative mx-auto h-[320px] w-full max-w-4xl sm:h-[400px]">
       <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#8c162e]/35 via-[#f5e7d0]/22 to-[#6b0f23]/35 blur-3xl shadow-[0_0_65px_rgba(165,30,58,0.35)]"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-[28rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(245,231,208,0.18)_0%,rgba(140,22,46,0.28)_42%,transparent_72%)]"
       />
 
       {cards.map((c, i) => {
@@ -58,7 +51,7 @@ export function FloatingCards() {
               style={{ transform: `translateY(${c.y})` }}
               className="group block cursor-pointer rounded-2xl transition-transform duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5e7d0]"
             >
-              <div className="relative h-48 w-32 [perspective:1200px] sm:h-64 sm:w-40 transition-transform duration-300">
+              <div className="relative h-48 w-32 sm:h-64 sm:w-40 transition-transform duration-300">
                 <div
                   className={`absolute -inset-[1.5px] rounded-xl bg-gradient-to-br from-[#f8ebd3]/50 via-[#c9a97e]/25 to-[#8f1c35]/45 transition-opacity duration-300 ${
                     isActive
@@ -67,24 +60,16 @@ export function FloatingCards() {
                   }`}
                 />
 
-                <div
-                  className="relative h-full w-full rounded-xl overflow-hidden [transform-style:preserve-3d] transition-transform duration-500 ease-out"
-                  style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
-                >
-                  <div className="absolute inset-0 [backface-visibility:hidden]">
-                    <CardBack alt={`${card.name} tarot card back with celestial gold filigree design, face-down`} />
-                  </div>
-                  <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <CardFront card={card} eager={i === 2} />
-                  </div>
+                <div className="relative h-full w-full rounded-xl overflow-hidden">
+                  <CardFront card={card} />
                 </div>
               </div>
             </button>
 
-            {isActive && flipped && (
-              <div className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-[#f5e7d0]/25 bg-[#1f060d]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(10,1,4,0.92),inset_0_1px_1px_rgba(255,248,235,0.3)] backdrop-blur-xl">
+            {isActive && (
+              <div className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-[#f5e7d0]/25 bg-[#1f060d]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(10,1,4,0.92),inset_0_1px_1px_rgba(255,248,235,0.3)] md:backdrop-blur-xl">
                 <div className="flex items-center justify-center gap-1.5 text-[#ead9c3] text-xs font-semibold uppercase tracking-wider">
-                  <Sparkles className="h-3 w-3 text-[#faf2e4]" />
+                  <Sparkles className="h-3 w-3 text-[#faf2e4]" aria-hidden="true" />
                   <span>Arcana Archetype</span>
                 </div>
                 <div className="font-display text-base font-bold text-[#faf2e4] tracking-wide mt-0.5">
@@ -95,9 +80,9 @@ export function FloatingCards() {
                 </div>
                 <Link
                   to="/tarot"
-                  className="mt-2.5 inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs font-semibold text-[#fffaf0] hover:underline transition-colors"
+                  className="mt-2 inline-flex min-h-12 sm:min-h-10 items-center gap-1.5 px-2 text-xs font-semibold text-[#fffaf0] hover:underline transition-colors"
                 >
-                  <Eye className="h-3 w-3" />
+                  <Eye className="h-3.5 w-3.5" aria-hidden="true" />
                   <span>View Card Insight</span>
                 </Link>
               </div>

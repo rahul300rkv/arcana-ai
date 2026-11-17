@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307]/95 py-12 sm:py-16 backdrop-blur-xl">
+    <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307] md:bg-[#120307]/95 py-12 sm:py-16 md:backdrop-blur-xl">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand Col */}
@@ -14,7 +14,7 @@ export function Footer() {
               AstroFree unites 78-card sacred tarot traditions with Vedic numerology wisdom and modern generative intelligence. Designed for reflection, clarity, and personal empowerment.
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs text-[#ead9c3]">
-              <Sparkles className="h-3.5 w-3.5 text-[#faf2e4]" />
+              <Sparkles className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
               <span>Ancient Arcana · Modern Vedic Intelligence</span>
             </div>
           </div>

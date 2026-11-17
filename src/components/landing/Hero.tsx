@@ -10,12 +10,12 @@ export function Hero() {
     >
       {/* Ambient Crimson Burgundy & Warm Ivory Glows */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[550px] w-[92vw] max-w-4xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(250,238,218,0.12)_0%,rgba(165,28,56,0.22)_38%,rgba(105,12,32,0.12)_62%,transparent_76%)] blur-3xl"
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[550px] w-[92vw] max-w-4xl rounded-full bg-[radial-gradient(ellipse_at_center,rgba(250,238,218,0.1)_0%,rgba(165,28,56,0.2)_38%,rgba(105,12,32,0.09)_62%,transparent_76%)]"
       />
       <div
-        aria-hidden
-        className="pointer-events-none absolute top-40 right-10 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(248,236,214,0.09)_0%,rgba(155,24,52,0.14)_45%,transparent_72%)] blur-2xl"
+        aria-hidden="true"
+        className="pointer-events-none absolute top-40 right-10 hidden h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(248,236,214,0.08)_0%,rgba(155,24,52,0.12)_45%,transparent_72%)] md:block"
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
@@ -46,16 +46,16 @@ export function Hero() {
               to="/reading"
               className="liquid-chrome-btn w-full sm:w-auto inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[#24060e]"
             >
-              <Compass className="h-4 w-4" />
+              <Compass className="h-4 w-4" aria-hidden="true" />
               <span>Begin Sacred Tarot Reading</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
 
             <Link
               to="/numerology"
-              className="w-full sm:w-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/25 bg-[#3f0e1b]/55 px-7 py-3.5 text-base sm:text-sm font-semibold text-[#faf2e4] hover:bg-[#571324]/75 hover:border-[#f5e7d0]/55 shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] transition-all duration-300 backdrop-blur-md"
+              className="w-full sm:w-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/25 bg-[#3f0e1b]/85 md:bg-[#3f0e1b]/55 px-7 py-3.5 text-base sm:text-sm font-semibold text-[#faf2e4] hover:bg-[#571324]/75 hover:border-[#f5e7d0]/55 shadow-[inset_0_1px_1px_rgba(255,248,235,0.28)] transition-all duration-300 md:backdrop-blur-md"
             >
-              <Moon className="h-4 w-4 text-[#ead9c3]" />
+              <Moon className="h-4 w-4 text-[#ead9c3]" aria-hidden="true" />
               <span>Calculate Vedic Numerology</span>
             </Link>
           </div>
@@ -63,17 +63,17 @@ export function Hero() {
           {/* Quiet Trust Evidence Strip */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-[#d6bfa3]">
             <div className="flex items-center gap-1.5">
-              <Sun className="h-3.5 w-3.5 text-[#ead9c3]" />
+              <Sun className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
               <span>8 Traditional Spreads</span>
             </div>
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
             <div className="flex items-center gap-1.5">
-              <Sparkles className="h-3.5 w-3.5 text-[#ead9c3]" />
+              <Sparkles className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
               <span>Mulank, Bhagyank &amp; Namank</span>
             </div>
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
             <div className="flex items-center gap-1.5">
-              <Shield className="h-3.5 w-3.5 text-[#ead9c3]" />
+              <Shield className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
               <span>100% Private · Free</span>
             </div>
           </div>

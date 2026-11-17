@@ -35,7 +35,7 @@ export function LandingNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 transition-all duration-300">
       <div className="mx-auto mt-3 max-w-6xl px-4 sm:px-6">
-        <div className="flex items-center justify-between gap-6 rounded-full border border-[#f5e7d0]/20 bg-[radial-gradient(120%_120%_at_50%_0%,rgba(250,238,218,0.12)_0%,rgba(38,8,16,0.9)_100%)] px-5 py-2.5 shadow-[0_15px_40px_-10px_rgba(12,2,5,0.88),inset_0_1px_1px_rgba(255,248,235,0.32),0_0_22px_rgba(155,28,54,0.22)] backdrop-blur-2xl">
+        <div className="flex items-center justify-between gap-6 rounded-full border border-[#f5e7d0]/20 bg-[radial-gradient(120%_120%_at_50%_0%,rgba(250,238,218,0.12)_0%,rgba(38,8,16,0.95)_100%)] md:bg-[radial-gradient(120%_120%_at_50%_0%,rgba(250,238,218,0.12)_0%,rgba(38,8,16,0.9)_100%)] px-5 py-2.5 shadow-[0_15px_40px_-10px_rgba(12,2,5,0.88),inset_0_1px_1px_rgba(255,248,235,0.32)] md:backdrop-blur-2xl">
           <div className="shrink-0">
             <Brand size="md" />
           </div>
@@ -98,7 +98,7 @@ export function LandingNav() {
           <nav
             id={menuId}
             aria-label="Mobile Navigation"
-            className="mt-2 flex flex-col gap-1.5 rounded-2xl border border-[#f5e7d0]/20 bg-[#1f060d]/95 p-4 shadow-2xl backdrop-blur-2xl lg:hidden"
+            className="mt-2 flex flex-col gap-1.5 rounded-2xl border border-[#f5e7d0]/20 bg-[#1f060d]/95 p-4 shadow-2xl md:backdrop-blur-2xl lg:hidden"
           >
             {navLinks.map((link) => (
               <Link

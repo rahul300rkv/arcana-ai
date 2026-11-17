@@ -36,7 +36,7 @@ export function CardFront({
           reversed && "rotate-180",
         )}
       >
-        <div className="text-center text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+        <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
           {card.arcana === "major" ? "Major Arcana" : card.suit}
         </div>
         <div className="relative overflow-hidden rounded-lg bg-[radial-gradient(80%_60%_at_50%_40%,color-mix(in_oklab,var(--aurora-1)_50%,transparent),transparent_70%)]">
