@@ -57,7 +57,7 @@ const SPREADS = [
     badge: "Deep Connection",
   },
   {
-    to: "/tarot/career",
+    to: "/career-tarot-reading",
     title: "Career & Abundance",
     cards: "5 Cards",
     description: "Incisive guidance on vocational decisions, leadership opportunities, financial timing, and practical professional momentum.",
@@ -356,7 +356,7 @@ function LandingPage() {
                 <h4 className="font-display text-xl font-bold text-[#faf2e4]">
                   Explore Major Arcana Meanings
                 </h4>
-                <Link to="/guide/major-arcana-meanings" className="inline-flex min-h-12 sm:min-h-0 items-center text-sm sm:text-xs text-[#faf2e4] hover:underline font-semibold">
+                <Link to="/major-arcana-tarot-cards-meanings" className="inline-flex min-h-12 sm:min-h-0 items-center text-sm sm:text-xs text-[#faf2e4] hover:underline font-semibold">
                   View Full Archetype Index →
                 </Link>
               </div>

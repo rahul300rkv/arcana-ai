@@ -22,6 +22,10 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BhagyankCalculatorRouteImport } from './routes/bhagyank-calculator'
+import { Route as CareerTarotReadingRouteImport } from './routes/career-tarot-reading'
+import { Route as MajorArcanaTarotCardsMeaningsRouteImport } from './routes/major-arcana-tarot-cards-meanings'
+import { Route as YesNoTarotRouteImport } from './routes/yes-no-tarot'
+import { Route as WhatDoReversedTarotCardsMeanRouteImport } from './routes/what-do-reversed-tarot-cards-mean'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TarotIndexRouteImport } from './routes/tarot.index'
@@ -117,6 +121,28 @@ const BhagyankCalculatorRoute = BhagyankCalculatorRouteImport.update({
   path: '/bhagyank-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareerTarotReadingRoute = CareerTarotReadingRouteImport.update({
+  id: '/career-tarot-reading',
+  path: '/career-tarot-reading',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MajorArcanaTarotCardsMeaningsRoute =
+  MajorArcanaTarotCardsMeaningsRouteImport.update({
+    id: '/major-arcana-tarot-cards-meanings',
+    path: '/major-arcana-tarot-cards-meanings',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const YesNoTarotRoute = YesNoTarotRouteImport.update({
+  id: '/yes-no-tarot',
+  path: '/yes-no-tarot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatDoReversedTarotCardsMeanRoute =
+  WhatDoReversedTarotCardsMeanRouteImport.update({
+    id: '/what-do-reversed-tarot-cards-mean',
+    path: '/what-do-reversed-tarot-cards-mean',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -268,18 +294,22 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/bhagyank-calculator': typeof BhagyankCalculatorRoute
+  '/career-tarot-reading': typeof CareerTarotReadingRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/dashboard': typeof DashboardRoute
   '/disclaimer': typeof DisclaimerRoute
   '/editorial-policy': typeof EditorialPolicyRoute
   '/journal': typeof JournalRoute
+  '/major-arcana-tarot-cards-meanings': typeof MajorArcanaTarotCardsMeaningsRoute
   '/namank-calculator': typeof NamankCalculatorRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/what-do-reversed-tarot-cards-mean': typeof WhatDoReversedTarotCardsMeanRoute
+  '/yes-no-tarot': typeof YesNoTarotRoute
   '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
   '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
   '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
@@ -312,18 +342,22 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/bhagyank-calculator': typeof BhagyankCalculatorRoute
+  '/career-tarot-reading': typeof CareerTarotReadingRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/dashboard': typeof DashboardRoute
   '/disclaimer': typeof DisclaimerRoute
   '/editorial-policy': typeof EditorialPolicyRoute
   '/journal': typeof JournalRoute
+  '/major-arcana-tarot-cards-meanings': typeof MajorArcanaTarotCardsMeaningsRoute
   '/namank-calculator': typeof NamankCalculatorRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/what-do-reversed-tarot-cards-mean': typeof WhatDoReversedTarotCardsMeanRoute
+  '/yes-no-tarot': typeof YesNoTarotRoute
   '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
   '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
   '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
@@ -357,18 +391,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/bhagyank-calculator': typeof BhagyankCalculatorRoute
+  '/career-tarot-reading': typeof CareerTarotReadingRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/dashboard': typeof DashboardRoute
   '/disclaimer': typeof DisclaimerRoute
   '/editorial-policy': typeof EditorialPolicyRoute
   '/journal': typeof JournalRoute
+  '/major-arcana-tarot-cards-meanings': typeof MajorArcanaTarotCardsMeaningsRoute
   '/namank-calculator': typeof NamankCalculatorRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/what-do-reversed-tarot-cards-mean': typeof WhatDoReversedTarotCardsMeanRoute
+  '/yes-no-tarot': typeof YesNoTarotRoute
   '/guide/celtic-cross-guide': typeof GuideCelticCrossGuideRoute
   '/guide/major-arcana-meanings': typeof GuideMajorArcanaMeaningsRoute
   '/guide/mulank-vs-bhagyank': typeof GuideMulankVsBhagyankRoute
@@ -403,18 +441,22 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/bhagyank-calculator'
+    | '/career-tarot-reading'
     | '/contact'
     | '/cookie-policy'
     | '/dashboard'
     | '/disclaimer'
     | '/editorial-policy'
     | '/journal'
+    | '/major-arcana-tarot-cards-meanings'
     | '/namank-calculator'
     | '/privacy'
     | '/profile'
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/what-do-reversed-tarot-cards-mean'
+    | '/yes-no-tarot'
     | '/guide/celtic-cross-guide'
     | '/guide/major-arcana-meanings'
     | '/guide/mulank-vs-bhagyank'
@@ -447,18 +489,22 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/bhagyank-calculator'
+    | '/career-tarot-reading'
     | '/contact'
     | '/cookie-policy'
     | '/dashboard'
     | '/disclaimer'
     | '/editorial-policy'
     | '/journal'
+    | '/major-arcana-tarot-cards-meanings'
     | '/namank-calculator'
     | '/privacy'
     | '/profile'
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/what-do-reversed-tarot-cards-mean'
+    | '/yes-no-tarot'
     | '/guide/celtic-cross-guide'
     | '/guide/major-arcana-meanings'
     | '/guide/mulank-vs-bhagyank'
@@ -491,18 +537,22 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/bhagyank-calculator'
+    | '/career-tarot-reading'
     | '/contact'
     | '/cookie-policy'
     | '/dashboard'
     | '/disclaimer'
     | '/editorial-policy'
     | '/journal'
+    | '/major-arcana-tarot-cards-meanings'
     | '/namank-calculator'
     | '/privacy'
     | '/profile'
     | '/settings'
     | '/sitemap.xml'
     | '/terms'
+    | '/what-do-reversed-tarot-cards-mean'
+    | '/yes-no-tarot'
     | '/guide/celtic-cross-guide'
     | '/guide/major-arcana-meanings'
     | '/guide/mulank-vs-bhagyank'
@@ -536,18 +586,22 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BhagyankCalculatorRoute: typeof BhagyankCalculatorRoute
+  CareerTarotReadingRoute: typeof CareerTarotReadingRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   DashboardRoute: typeof DashboardRoute
   DisclaimerRoute: typeof DisclaimerRoute
   EditorialPolicyRoute: typeof EditorialPolicyRoute
   JournalRoute: typeof JournalRoute
+  MajorArcanaTarotCardsMeaningsRoute: typeof MajorArcanaTarotCardsMeaningsRoute
   NamankCalculatorRoute: typeof NamankCalculatorRoute
   PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   SettingsRoute: typeof SettingsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  WhatDoReversedTarotCardsMeanRoute: typeof WhatDoReversedTarotCardsMeanRoute
+  YesNoTarotRoute: typeof YesNoTarotRoute
   GuideCelticCrossGuideRoute: typeof GuideCelticCrossGuideRoute
   GuideMajorArcanaMeaningsRoute: typeof GuideMajorArcanaMeaningsRoute
   GuideMulankVsBhagyankRoute: typeof GuideMulankVsBhagyankRoute
@@ -668,6 +722,34 @@ declare module '@tanstack/react-router' {
       path: '/bhagyank-calculator'
       fullPath: '/bhagyank-calculator'
       preLoaderRoute: typeof BhagyankCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career-tarot-reading': {
+      id: '/career-tarot-reading'
+      path: '/career-tarot-reading'
+      fullPath: '/career-tarot-reading'
+      preLoaderRoute: typeof CareerTarotReadingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/major-arcana-tarot-cards-meanings': {
+      id: '/major-arcana-tarot-cards-meanings'
+      path: '/major-arcana-tarot-cards-meanings'
+      fullPath: '/major-arcana-tarot-cards-meanings'
+      preLoaderRoute: typeof MajorArcanaTarotCardsMeaningsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-do-reversed-tarot-cards-mean': {
+      id: '/what-do-reversed-tarot-cards-mean'
+      path: '/what-do-reversed-tarot-cards-mean'
+      fullPath: '/what-do-reversed-tarot-cards-mean'
+      preLoaderRoute: typeof WhatDoReversedTarotCardsMeanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/yes-no-tarot': {
+      id: '/yes-no-tarot'
+      path: '/yes-no-tarot'
+      fullPath: '/yes-no-tarot'
+      preLoaderRoute: typeof YesNoTarotRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -880,18 +962,22 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BhagyankCalculatorRoute: BhagyankCalculatorRoute,
+  CareerTarotReadingRoute: CareerTarotReadingRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   DashboardRoute: DashboardRoute,
   DisclaimerRoute: DisclaimerRoute,
   EditorialPolicyRoute: EditorialPolicyRoute,
   JournalRoute: JournalRoute,
+  MajorArcanaTarotCardsMeaningsRoute: MajorArcanaTarotCardsMeaningsRoute,
   NamankCalculatorRoute: NamankCalculatorRoute,
   PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   SettingsRoute: SettingsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  WhatDoReversedTarotCardsMeanRoute: WhatDoReversedTarotCardsMeanRoute,
+  YesNoTarotRoute: YesNoTarotRoute,
   GuideCelticCrossGuideRoute: GuideCelticCrossGuideRoute,
   GuideMajorArcanaMeaningsRoute: GuideMajorArcanaMeaningsRoute,
   GuideMulankVsBhagyankRoute: GuideMulankVsBhagyankRoute,

@@ -18,9 +18,9 @@ interface Props {
     | "/tarot/one-card"
     | "/tarot/three-card"
     | "/tarot/love"
-    | "/tarot/yes-no"
-    | "/tarot/career"
-    | "/tarot/celtic-cross";
+    | "/tarot/celtic-cross"
+    | "/career-tarot-reading"
+    | "/yes-no-tarot";
 }
 
 /** Shared conversion block at the end of every content page. */

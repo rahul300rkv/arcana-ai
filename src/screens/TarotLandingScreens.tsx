@@ -1,12 +1,12 @@
 import { ReadingLanding } from "@/components/tarot/ReadingLanding";
 import {
-  CAREER_CONFIG,
   CELTIC_CROSS_CONFIG,
   LOVE_CONFIG,
   ONE_CARD_CONFIG,
   THREE_CARD_CONFIG,
-  YES_NO_CONFIG,
 } from "@/data/tarot-landings";
+import { CareerTarotReadingScreen } from "./CareerTarotReadingScreen";
+import { YesNoTarotScreen } from "./YesNoTarotScreen";
 
 export function OneCardReadingScreen() {
   return <ReadingLanding config={ONE_CARD_CONFIG} />;
@@ -21,11 +21,11 @@ export function LoveReadingScreen() {
 }
 
 export function YesNoReadingScreen() {
-  return <ReadingLanding config={YES_NO_CONFIG} />;
+  return <YesNoTarotScreen />;
 }
 
 export function CareerReadingScreen() {
-  return <ReadingLanding config={CAREER_CONFIG} />;
+  return <CareerTarotReadingScreen />;
 }
 
 export function CelticCrossReadingScreen() {

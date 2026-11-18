@@ -2,11 +2,11 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 
-const PATH = "/guide/major-arcana-meanings";
-const TITLE = "22 Major Arcana Explained with Real Examples";
+const PATH = "/major-arcana-tarot-cards-meanings";
+const TITLE = "Major Arcana Tarot Cards & Meanings: All 22 Cards Explained";
 const DESCRIPTION =
-  "Every Major Arcana card from The Fool to The World, explained with a real-life example of how each one tends to show up in a reading — upright meaning, core theme, and a worked scenario.";
-const UPDATED = "2026-08-14";
+  "Every Major Arcana card from The Fool to The World, explained with archetypes, upright and reversed keywords, The Fool's Journey, and real-life reading examples.";
+const UPDATED = "2026-11-18";
 
 const FAQS = [
   {
@@ -42,6 +42,7 @@ export const Route = createFileRoute("/guide/major-arcana-meanings")({
       path: PATH,
       title: TITLE,
       description: DESCRIPTION,
+      exactTitle: true,
       keywords: [
         "major arcana meanings",
         "22 major arcana explained",
@@ -62,7 +63,7 @@ export const Route = createFileRoute("/guide/major-arcana-meanings")({
             updated: UPDATED,
             crumbs: [
               { name: "Guides", path: "/guide" },
-              { name: "22 Major Arcana Explained", path: PATH },
+              { name: "Major Arcana Meanings", path: PATH },
             ],
             faqs: FAQS,
           }),

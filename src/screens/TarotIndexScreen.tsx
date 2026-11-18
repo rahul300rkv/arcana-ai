@@ -33,13 +33,13 @@ const READING_TYPES = [
   },
   { to: "/tarot/love" as const, icon: Heart, label: "Love", body: "You, them, the bond ahead." },
   {
-    to: "/tarot/yes-no" as const,
+    to: "/yes-no-tarot" as const,
     icon: Clover,
     label: "Yes or No",
     body: "A direct, single-card lean.",
   },
   {
-    to: "/tarot/career" as const,
+    to: "/career-tarot-reading" as const,
     icon: Briefcase,
     label: "Career",
     body: "Where you stand, what's next.",

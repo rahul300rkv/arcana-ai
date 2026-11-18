@@ -68,7 +68,7 @@ export function Features() {
                   Love &amp; Connections
                 </Link>
                 <Link
-                  to="/tarot/career"
+                  to="/career-tarot-reading"
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
                   Career Pathway

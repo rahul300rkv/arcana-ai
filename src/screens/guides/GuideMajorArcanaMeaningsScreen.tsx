@@ -8,15 +8,18 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
 
-const PATH = "/guide/major-arcana-meanings";
-const TITLE = "22 Major Arcana Explained with Real Examples";
-const UPDATED = "2026-08-14";
+const PATH = "/major-arcana-tarot-cards-meanings";
+const TITLE = "Major Arcana Tarot Cards & Meanings: All 22 Cards Explained";
+const UPDATED = "2026-11-18";
 
 interface MajorCard {
   number: number;
+  roman: string;
   name: string;
   slug: string;
+  archetype: string;
   keywords: string;
+  reversedKeywords: string;
   meaning: string;
   example: string;
 }
@@ -24,9 +27,12 @@ interface MajorCard {
 const MAJOR_ARCANA: MajorCard[] = [
   {
     number: 0,
+    roman: "0",
     name: "The Fool",
     slug: "the-fool",
-    keywords: "New beginnings, innocence, spontaneity",
+    archetype: "The Innocent",
+    keywords: "New beginnings, leap of faith, innocence, spontaneity",
+    reversedKeywords: "Recklessness, naivety, hesitation, poor judgment",
     meaning:
       "A leap into the unknown, taken with trust rather than a full plan. It marks the start of a journey before experience has shaped it.",
     example:
@@ -34,9 +40,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 1,
+    roman: "I",
     name: "The Magician",
     slug: "the-magician",
-    keywords: "Manifestation, resourcefulness, inspired action",
+    archetype: "The Creator",
+    keywords: "Manifestation, resourcefulness, personal power, action",
+    reversedKeywords: "Manipulation, untapped talent, scattered focus, self-doubt",
     meaning:
       "Having every tool you need already in hand, and the will to use them. It's the card of turning an idea into a first concrete step.",
     example:
@@ -44,9 +53,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 2,
+    roman: "II",
     name: "The High Priestess",
     slug: "the-high-priestess",
-    keywords: "Intuition, sacred knowledge, the subconscious",
+    archetype: "The Oracle",
+    keywords: "Intuition, sacred knowledge, mystery, inner stillness",
+    reversedKeywords: "Hidden secrets, ignored intuition, withdrawal, surface noise",
     meaning:
       "Knowledge that hasn't surfaced into logic yet — a gut feeling worth trusting even without proof.",
     example:
@@ -54,72 +66,96 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 3,
+    roman: "III",
     name: "The Empress",
     slug: "the-empress",
-    keywords: "Abundance, nurturing, creativity",
+    archetype: "The Mother",
+    keywords: "Abundance, nurturing, creativity, sensory fertility",
+    reversedKeywords: "Creative block, dependence, overprotectiveness, stagnation",
     meaning: "Growth through care rather than force — fertility in the literal or creative sense.",
     example:
       "A creative project that's finally gaining momentum after a long incubation period, or a pregnancy, frequently draws The Empress in a reading about growth.",
   },
   {
     number: 4,
+    roman: "IV",
     name: "The Emperor",
     slug: "the-emperor",
-    keywords: "Authority, structure, discipline",
+    archetype: "The Ruler",
+    keywords: "Authority, structure, discipline, protective order",
+    reversedKeywords: "Domination, rigidity, excessive control, stubbornness",
     meaning: "Stability built through rules, boundaries, and consistent leadership.",
     example:
       "Someone setting a strict budget after years of financial chaos, or stepping into a management role for the first time, commonly draws The Emperor.",
   },
   {
     number: 5,
+    roman: "V",
     name: "The Hierophant",
     slug: "the-hierophant",
-    keywords: "Tradition, institutions, shared belief",
+    archetype: "The Teacher",
+    keywords: "Tradition, mentorship, shared belief, formal counsel",
+    reversedKeywords: "Rebellion, breaking convention, personal doctrine, dogma",
     meaning: "Guidance through established systems — mentorship, formal education, or convention.",
     example:
       "A person considering a traditional path, such as a formal degree or a family-expected career, often sees The Hierophant as confirmation to work within the existing structure.",
   },
   {
     number: 6,
+    roman: "VI",
     name: "The Lovers",
     slug: "the-lovers",
-    keywords: "Union, values alignment, choice",
+    archetype: "The Union",
+    keywords: "Union, aligned values, conscious choice, partnership",
+    reversedKeywords: "Disharmony, misaligned values, indecision, imbalance",
     meaning: "A meaningful connection, or a decision that hinges on personal values.",
     example:
       "Someone weighing two job offers where one pays more and the other fits their values better usually draws The Lovers as a prompt to choose based on alignment, not just logic.",
   },
   {
     number: 7,
+    roman: "VII",
     name: "The Chariot",
     slug: "the-chariot",
-    keywords: "Willpower, drive, victory through control",
+    archetype: "The Victor",
+    keywords: "Willpower, focused drive, victory, self-mastery",
+    reversedKeywords: "Lack of direction, scattered force, burnout, aggression",
     meaning: "Forward motion achieved by holding two opposing forces in disciplined balance.",
     example:
       "A student juggling a demanding degree and a part-time job, pushing through by sheer determination, is a classic Chariot scenario — success through willpower, not ease.",
   },
   {
     number: 8,
+    roman: "VIII",
     name: "Strength",
     slug: "strength",
-    keywords: "Courage, patience, gentle influence",
+    archetype: "The Tamer",
+    keywords: "Courage, quiet patience, compassion, inner resilience",
+    reversedKeywords: "Self-doubt, raw impulse, suppressed anger, fatigue",
     meaning: "Power that persuades rather than dominates — inner resilience over brute force.",
     example:
       "Calmly working through a conflict with a difficult family member, without losing your temper, is textbook Strength energy: control exercised through patience, not confrontation.",
   },
   {
     number: 9,
+    roman: "IX",
     name: "The Hermit",
     slug: "the-hermit",
-    keywords: "Solitude, introspection, inner guidance",
+    archetype: "The Sage",
+    keywords: "Solitude, introspection, inner lamp, discernment",
+    reversedKeywords: "Isolation, loneliness, avoiding reflection, withdrawal",
     meaning: "Stepping back from noise to find an answer that only quiet reflection can surface.",
     example:
       "Someone taking a solo trip or a deliberate break from socialising after a big life change, in order to think clearly, is commonly reflected by The Hermit.",
   },
   {
     number: 10,
+    roman: "X",
     name: "Wheel of Fortune",
     slug: "wheel-of-fortune",
-    keywords: "Cycles, turning points, fate",
+    archetype: "The Turning",
+    keywords: "Cycles, turning point, destiny, timing shift",
+    reversedKeywords: "Resisting change, unexpected delay, repeating patterns",
     meaning:
       "A shift set in motion by forces outside your control — luck turning, for better or worse.",
     example:
@@ -127,9 +163,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 11,
+    roman: "XI",
     name: "Justice",
     slug: "justice",
-    keywords: "Fairness, truth, cause and effect",
+    archetype: "The Judge",
+    keywords: "Fairness, truth, accountability, cause and effect",
+    reversedKeywords: "Unfairness, bias, dodging accountability, legal delay",
     meaning:
       "A situation resolving according to what's actually true and earned, not what's convenient.",
     example:
@@ -137,9 +176,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 12,
+    roman: "XII",
     name: "The Hanged Man",
     slug: "the-hanged-man",
-    keywords: "Pause, surrender, new perspective",
+    archetype: "The Surrender",
+    keywords: "Pause, surrender, new perspective, intentional waiting",
+    reversedKeywords: "Needless stalling, martyrdom, resisting perspective, limbo",
     meaning:
       "Willingly stalling forward motion in order to see a situation from a completely different angle.",
     example:
@@ -147,27 +189,36 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 13,
+    roman: "XIII",
     name: "Death",
     slug: "death",
-    keywords: "Endings, transformation, transition",
+    archetype: "The Transformer",
+    keywords: "Transformation, clean ending, renewal, rebirth",
+    reversedKeywords: "Resistance to change, stagnation, delayed closure, fear",
     meaning: "A necessary ending that clears space for something new — almost never literal.",
     example:
       "The end of a long relationship, a career pivot, or the close of a life chapter that had clearly run its course is the classic — and most misunderstood — Death draw.",
   },
   {
     number: 14,
+    roman: "XIV",
     name: "Temperance",
     slug: "temperance",
-    keywords: "Balance, moderation, patience",
+    archetype: "The Alchemist",
+    keywords: "Balance, moderation, alchemy, steady patience",
+    reversedKeywords: "Imbalance, excess, impatience, clashing extremes",
     meaning: "Blending opposing forces slowly and carefully until they work together.",
     example:
       "Someone learning to balance a demanding job with family time, adjusting gradually rather than overhauling everything at once, reflects Temperance's patient middle path.",
   },
   {
     number: 15,
+    roman: "XV",
     name: "The Devil",
     slug: "the-devil",
-    keywords: "Attachment, restriction, the shadow self",
+    archetype: "The Shadow",
+    keywords: "Attachment, temptation, shadow self, control",
+    reversedKeywords: "Breaking free, reclaiming power, awakening, detachment",
     meaning:
       "A pattern, habit, or relationship that feels binding, even though the way out usually exists.",
     example:
@@ -175,9 +226,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 16,
+    roman: "XVI",
     name: "The Tower",
     slug: "the-tower",
-    keywords: "Sudden upheaval, revelation, awakening",
+    archetype: "The Awakening",
+    keywords: "Sudden upheaval, truth revealed, structural collapse",
+    reversedKeywords: "Averted shock, delayed reckoning, resisting upheaval",
     meaning:
       "A fast, disruptive collapse of something built on a shaky foundation — jarring, but clarifying.",
     example:
@@ -185,9 +239,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 17,
+    roman: "XVII",
     name: "The Star",
     slug: "the-star",
-    keywords: "Hope, renewal, quiet faith",
+    archetype: "The Hope",
+    keywords: "Hope, renewal, quiet faith, serene inspiration",
+    reversedKeywords: "Self-doubt, discouragement, blocked optimism, fatigue",
     meaning:
       "Calm optimism returning after a hard period — healing that's gentle rather than dramatic.",
     example:
@@ -195,9 +252,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 18,
+    roman: "XVIII",
     name: "The Moon",
     slug: "the-moon",
-    keywords: "Illusion, fear, the subconscious",
+    archetype: "The Dreamer",
+    keywords: "Illusion, subconscious fear, unclear path, intuition",
+    reversedKeywords: "Revealed confusion, releasing anxiety, truth surfacing",
     meaning:
       "Uncertainty and unclear information — things aren't fully visible yet, and anxiety can fill the gap.",
     example:
@@ -205,9 +265,12 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 19,
+    roman: "XIX",
     name: "The Sun",
     slug: "the-sun",
-    keywords: "Joy, vitality, success",
+    archetype: "The Radiance",
+    keywords: "Joy, clarity, vitality, unmistakable success",
+    reversedKeywords: "Dimmed confidence, delayed happiness, temporary burnout",
     meaning:
       "Clarity, confidence, and genuine good fortune — one of the most straightforwardly positive cards.",
     example:
@@ -215,21 +278,51 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
   {
     number: 20,
+    roman: "XX",
     name: "Judgement",
     slug: "judgement",
-    keywords: "Rebirth, reckoning, inner calling",
+    archetype: "The Reckoning",
+    keywords: "Rebirth, inner calling, honest reckoning, absolution",
+    reversedKeywords: "Harsh self-criticism, avoiding the call, doubt",
     meaning: "A moment of honest self-assessment that leads to a decisive change in direction.",
     example:
       "Reflecting on years in a career and finally admitting it's not the right fit, then acting on that realisation, is Judgement in practice — a wake-up call answered.",
   },
   {
     number: 21,
+    roman: "XXI",
     name: "The World",
     slug: "the-world",
-    keywords: "Completion, integration, accomplishment",
+    archetype: "The Completion",
+    keywords: "Completion, wholeness, integration, achievement",
+    reversedKeywords: "Unfinished closure, near completion, loose ends",
     meaning: "A cycle closing successfully — everything that was in motion coming together.",
     example:
       "Graduating, completing a major project, or reaching a long-term goal after years of effort is the natural home of The World — an ending that's also an arrival.",
+  },
+];
+
+const FOOLS_JOURNEY_STAGES = [
+  {
+    stage: "Stage 1 · Cards 0–7",
+    title: "The Outer World, Identity & Mastery",
+    summary:
+      "From The Fool's innocent leap through The Chariot's disciplined drive, the first act builds practical agency in the material world — mentors, boundaries, values, and willpower.",
+    range: [0, 7] as const,
+  },
+  {
+    stage: "Stage 2 · Cards 8–14",
+    title: "Inner Reckoning, Surrender & Transformation",
+    summary:
+      "Strength through Temperance turn the mirror inward. Outgrown identities dissolve through solitude (The Hermit), justice, pause (The Hanged Man), and clean endings (Death).",
+    range: [8, 14] as const,
+  },
+  {
+    stage: "Stage 3 · Cards 15–21",
+    title: "Shadow Work, Illumination & Cosmic Completion",
+    summary:
+      "The final seven cards confront hidden attachments (The Devil) and false structures (The Tower) before opening into renewal (The Star), clarity (The Sun), and wholeness (The World).",
+    range: [15, 21] as const,
   },
 ];
 
@@ -252,7 +345,7 @@ const FAQS = [
   {
     question: "Is there a correct order to learn the Major Arcana in?",
     answer:
-      "The numbered sequence (0 to 21) is often read as a symbolic journey — The Fool's Journey — where each card represents a stage of growth. Learning them in that order can help the meanings build on each other logically.",
+      "The numbered sequence (0 to 21) is often read as a symbolic journey — The Fool's Journey — where each card represents a stage of growth across three acts (0–7, 8–14, and 15–21). Learning them in that order builds intuitive structure.",
   },
   {
     question: "Do Major Arcana meanings change much when reversed?",
@@ -264,20 +357,108 @@ const FAQS = [
 export function GuideMajorArcanaMeaningsScreen() {
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "22 Major Arcana Explained" }]}
+      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Major Arcana Meanings" }]}
       eyebrow="Tarot · Major Arcana"
       title={TITLE}
-      intro="The 22 Major Arcana carry the biggest themes in the deck — here's what each one means, and a real-world example of how it tends to show up in an actual reading."
+      intro="The 22 Major Arcana (0 The Fool to XXI The World) carry the deck's foundational turning points. Use the complete 22-card reference table, follow the three stages of The Fool's Journey, and explore real reading examples below."
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
-      readingMinutes={16}
-      wordCount={3520}
+      readingMinutes={18}
+      wordCount={4100}
       aside={
         <GlassCard className="grid aspect-square place-items-center p-6">
           <Star className="h-16 w-16 text-[var(--gold)]" strokeWidth={1.2} />
         </GlassCard>
       }
     >
+      <ContentSection
+        id="reference-table"
+        title="Complete Major Arcana meanings table (0–XXI)"
+        icon={Layers}
+      >
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Click any card name to open its dedicated guide covering love, career, finances, outcome
+          positions, and Yes/No verdicts.
+        </p>
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+          <table className="w-full min-w-[720px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-white/10 bg-white/[0.04] text-xs uppercase tracking-[0.16em] text-[color:var(--gold)]">
+                <th className="px-4 py-3.5">Number</th>
+                <th className="px-4 py-3.5">Card Name</th>
+                <th className="px-4 py-3.5">Archetype</th>
+                <th className="px-4 py-3.5">Upright Keywords</th>
+                <th className="px-4 py-3.5">Reversed Keywords</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/10">
+              {MAJOR_ARCANA.map((c) => (
+                <tr key={c.slug} className="hover:bg-white/[0.02]">
+                  <td className="whitespace-nowrap px-4 py-3 font-display text-[color:var(--gold)]">
+                    {c.roman} ({c.number})
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-3 font-display text-base">
+                    <Link
+                      to="/tarot/$slug"
+                      params={{ slug: c.slug }}
+                      className="text-foreground underline underline-offset-4 hover:text-[color:var(--gold)]"
+                    >
+                      {c.name}
+                    </Link>
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
+                    {c.archetype}
+                  </td>
+                  <td className="px-4 py-3 text-foreground/90">{c.keywords}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{c.reversedKeywords}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </ContentSection>
+
+      <ContentSection
+        id="fools-journey"
+        title="The Three Stages of The Fool's Journey (0–21)"
+        icon={Compass}
+      >
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Tarot teachers divide cards 0 through 21 into three consecutive groups of growth. Checking
+          which stage dominates a spread instantly tells you whether a question sits in outer
+          action (0–7), inner reckoning (8–14), or deep transformation and closure (15–21).
+        </p>
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          {FOOLS_JOURNEY_STAGES.map((stage) => {
+            const groupCards = MAJOR_ARCANA.filter(
+              (c) => c.number >= stage.range[0] && c.number <= stage.range[1],
+            );
+            return (
+              <GlassCard key={stage.stage} className="flex flex-col p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--gold)]">
+                  {stage.stage}
+                </p>
+                <h3 className="mt-1.5 font-display text-lg text-foreground">{stage.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.summary}</p>
+                <ul className="mt-4 flex flex-wrap gap-2 border-t border-white/10 pt-3">
+                  {groupCards.map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        to="/tarot/$slug"
+                        params={{ slug: c.slug }}
+                        className="inline-block rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs text-foreground/90 transition-colors hover:border-[color:var(--gold)]/50 hover:text-[color:var(--gold)]"
+                      >
+                        {c.roman}. {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            );
+          })}
+        </div>
+      </ContentSection>
+
       <ContentSection
         id="what-is-major-arcana"
         title="What the Major Arcana represent"
@@ -290,12 +471,9 @@ export function GuideMajorArcanaMeaningsScreen() {
           lessons, and life-shaping events that come along a handful of times, not every week.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Many readers treat the sequence 0 to 21 as a symbolic story — often called{" "}
-          <em>The Fool's Journey</em> — where an innocent, unformed Fool moves through experience,
-          structure, crisis, and reflection before arriving at The World, a card of completion. You
-          don't need to memorise the story to read the cards well, but knowing it helps explain why
-          the numbers matter: a low-numbered Major Arcana tends to describe something just
-          beginning, while a high-numbered one tends to describe something reaching resolution.
+          You don't need to memorise esoteric correspondences to read the cards well, but knowing
+          the arc helps explain why card numbers matter: a low-numbered Major Arcana tends to
+          describe something initiating, while a high-numbered one marks major resolution.
         </p>
       </ContentSection>
 
@@ -310,9 +488,12 @@ export function GuideMajorArcanaMeaningsScreen() {
                     params={{ slug: c.slug }}
                     className="hover:text-[var(--gold)]"
                   >
-                    {c.number}. {c.name}
+                    {c.roman} ({c.number}). {c.name}
                   </Link>
                 </h3>
+                <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {c.archetype}
+                </span>
               </div>
               <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
                 {c.keywords}
@@ -356,24 +537,24 @@ export function GuideMajorArcanaMeaningsScreen() {
       <KeepExploring
         links={[
           {
-            to: "/guide/tarot-for-beginners",
-            label: "Complete guide to tarot for beginners",
-            blurb: "Deck structure, first spreads, and a repeatable interpretation method.",
-          },
-          {
-            to: "/guide/reversed-tarot-cards",
-            label: "How to interpret reversed tarot cards",
+            to: "/what-do-reversed-tarot-cards-mean",
+            label: "What do reversed tarot cards mean?",
             blurb: "The four common ways a reversed card changes its upright meaning.",
           },
           {
-            to: "/guide/tarot-card-meanings",
-            label: "All 78 tarot card meanings",
-            blurb: "Major and Minor Arcana, upright and reversed, in one reference.",
+            to: "/career-tarot-reading",
+            label: "Free Career Tarot Spread",
+            blurb: "Draw a 3-card career reading and compare Life Path 1–9 career paths.",
+          },
+          {
+            to: "/yes-no-tarot",
+            label: "Free Yes or No Tarot Oracle",
+            blurb: "Ask the universe a direct question for an instant Yes, No, or Maybe answer.",
           },
           {
             to: "/tarot",
-            label: "Browse the full tarot deck",
-            blurb: "Every card's dedicated page with love, career, and health meanings.",
+            label: "Browse all 78 tarot cards",
+            blurb: "Every Major and Minor Arcana card with love, career, and outcome meanings.",
           },
         ]}
       />

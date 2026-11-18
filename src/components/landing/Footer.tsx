@@ -25,9 +25,9 @@ export function Footer() {
               { label: "Celtic Cross (10 Cards)", to: "/tarot/celtic-cross" },
               { label: "Three-Card Reading", to: "/tarot/three-card" },
               { label: "Love & Relationships", to: "/tarot/love" },
-              { label: "Career & Ambition", to: "/tarot/career" },
+              { label: "Career & Ambition", to: "/career-tarot-reading" },
               { label: "Daily Single Card", to: "/tarot/one-card" },
-              { label: "Yes / No Oracle", to: "/tarot/yes-no" },
+              { label: "Yes / No Oracle", to: "/yes-no-tarot" },
             ]}
           />
 
@@ -46,7 +46,7 @@ export function Footer() {
             title="Wisdom & Legal"
             items={[
               { label: "Tarot Card Meanings", to: "/guide/tarot-card-meanings" },
-              { label: "Major Arcana Guide", to: "/guide/major-arcana-meanings" },
+              { label: "Major Arcana Guide", to: "/major-arcana-tarot-cards-meanings" },
               { label: "About AstroFree", to: "/about" },
               { label: "Contact Us", to: "/contact" },
               { label: "Privacy Policy", to: "/privacy" },

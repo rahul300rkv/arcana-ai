@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { CalendarClock, Clock, Layers, Sparkles } from "lucide-react";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
@@ -27,6 +28,13 @@ export interface ReadingSamplePull {
   synthesis: string;
 }
 
+export interface SpreadPositionBreakdownItem {
+  number: number;
+  label: string;
+  focus: string;
+  description: string;
+}
+
 export interface ReadingLandingConfig {
   /** URL path, e.g. "/tarot/one-card". */
   path: string;
@@ -38,6 +46,8 @@ export interface ReadingLandingConfig {
   published?: string;
   updated: string;
   readingTime?: string;
+  /** Optional clean position-by-position breakdown displayed directly below the spread area. */
+  positionsBreakdown?: SpreadPositionBreakdownItem[];
   /** Rich sections explaining mechanics, nuances, and practical framing. */
   sections: { id: string; title: string; paragraphs: string[] }[];
   /** Worked example walkthrough tailored specifically to this spread. */
@@ -59,11 +69,17 @@ function formatDate(iso: string): string {
 
 /**
  * Shared shell for the crawlable tarot reading landing pages
- * (/tarot/one-card, /tarot/love, etc). Every CTA here routes into the same
- * existing reading engine via /reading/question?spread=<id> — no separate
- * or fake reading experience is created for SEO purposes.
+ * (/tarot/one-card, /tarot/love, /career-tarot-reading, /yes-no-tarot, /tarot/celtic-cross).
  */
-export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
+export function ReadingLanding({
+  config,
+  interactiveSlot,
+  afterInteractiveSlot,
+}: {
+  config: ReadingLandingConfig;
+  interactiveSlot?: ReactNode;
+  afterInteractiveSlot?: ReactNode;
+}) {
   const spread = getSpread(config.spreadId);
 
   return (
@@ -95,21 +111,64 @@ export function ReadingLanding({ config }: { config: ReadingLandingConfig }) {
           </span>
         </div>
 
-        <GlassCard className="mt-8 flex flex-wrap items-center justify-between gap-4 p-6">
-          <div className="flex items-center gap-6 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Layers className="h-3.5 w-3.5" /> {spread.count} card{spread.count > 1 ? "s" : ""}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} min
-            </span>
-          </div>
-          <Link to="/reading/question" search={{ spread: config.spreadId }}>
-            <GoldButton size="lg">
-              <Sparkles className="h-4 w-4" /> {config.ctaLabel}
-            </GoldButton>
-          </Link>
-        </GlassCard>
+        {interactiveSlot ? (
+          <div className="mt-8">{interactiveSlot}</div>
+        ) : (
+          <GlassCard className="mt-8 flex flex-wrap items-center justify-between gap-4 p-6">
+            <div className="flex items-center gap-6 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Layers className="h-3.5 w-3.5" /> {spread.count} card{spread.count > 1 ? "s" : ""}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} min
+              </span>
+            </div>
+            <Link to="/reading/question" search={{ spread: config.spreadId }}>
+              <GoldButton size="lg">
+                <Sparkles className="h-4 w-4" /> {config.ctaLabel}
+              </GoldButton>
+            </Link>
+          </GlassCard>
+        )}
+
+        {config.positionsBreakdown && config.positionsBreakdown.length > 0 && (
+          <section
+            aria-labelledby="positions-breakdown-heading"
+            className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
+              Spread layout reference
+            </p>
+            <h2
+              id="positions-breakdown-heading"
+              className="mt-2 font-display text-2xl aurora-text sm:text-3xl"
+            >
+              10 Celtic Cross positions explained
+            </h2>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+              {config.positionsBreakdown.map((pos) => (
+                <li
+                  key={pos.number}
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                >
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="font-display text-base text-[color:var(--gold)]">
+                      {pos.number}. {pos.label}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                      {pos.focus}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {pos.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {afterInteractiveSlot && <div className="mt-12">{afterInteractiveSlot}</div>}
 
         <article className="mt-14 space-y-12">
           {config.sections.map((s) => (

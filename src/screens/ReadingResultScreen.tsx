@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { BookHeart, RotateCcw, Sparkles, Wand2 } from "lucide-react";
+import { BookHeart, RefreshCw, RotateCcw, Sparkles, Wand2 } from "lucide-react";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
@@ -177,6 +177,17 @@ export function ReadingResultScreen() {
                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                         {pc.text}
                       </p>
+                      {pc.reversed && (
+                        <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-[color:var(--gold)]">
+                          <RefreshCw className="h-3 w-3 shrink-0" aria-hidden />
+                          <Link
+                            to="/what-do-reversed-tarot-cards-mean"
+                            className="underline underline-offset-4 hover:opacity-85"
+                          >
+                            How to read a reversed card
+                          </Link>
+                        </p>
+                      )}
                     </div>
                   </GlassCard>
                 </motion.div>

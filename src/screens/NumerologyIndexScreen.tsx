@@ -26,6 +26,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useLanguage, useTranslate } from "@/lib/i18n";
 import { generateNumerologyReading } from "@/lib/numerology/ai.server";
 import { reduceToSingleDigit, ARCHETYPES } from "@/lib/numerology/engine";
+import { calculateBhagyank, type BhagyankValue } from "@/lib/numerology/bhagyank";
 import { findCardSynergy } from "@/lib/numerology/synergy";
 import { SITE_URL } from "@/lib/site";
 import type { NumerologyResult, Pacing, RootNumber } from "@/lib/numerology/types";
@@ -33,6 +34,160 @@ import type { NumerologyResult, Pacing, RootNumber } from "@/lib/numerology/type
 const DEFAULT_SSR_YEAR = 2026;
 const DEFAULT_SSR_MONTH = "2026-11";
 const DEFAULT_SSR_MAX_DATE = "2026-12-31";
+
+interface MulankChartRow {
+  number: RootNumber;
+  dates: number[];
+  planet: string;
+  archetype: string;
+  personality: string;
+  friendly: number[];
+  neutral: number[];
+  enemy: number[];
+}
+
+const MULANK_MASTER_CHART: MulankChartRow[] = [
+  {
+    number: 1,
+    dates: [1, 10, 19, 28],
+    planet: "Sun (Surya)",
+    archetype: "The Magician",
+    personality: "Independent, direct, and driven to lead.",
+    friendly: [1, 2, 3, 9],
+    neutral: [5, 6, 7],
+    enemy: [4, 8],
+  },
+  {
+    number: 2,
+    dates: [2, 11, 20, 29],
+    planet: "Moon (Chandra)",
+    archetype: "The High Priestess",
+    personality: "Sensitive, diplomatic, and deeply relational.",
+    friendly: [1, 2, 4, 7],
+    neutral: [3, 6, 9],
+    enemy: [5, 8],
+  },
+  {
+    number: 3,
+    dates: [3, 12, 21, 30],
+    planet: "Jupiter (Guru)",
+    archetype: "The Empress",
+    personality: "Expressive, social, and naturally creative.",
+    friendly: [1, 3, 6, 9],
+    neutral: [2, 5, 7],
+    enemy: [4, 8],
+  },
+  {
+    number: 4,
+    dates: [4, 13, 22, 31],
+    planet: "Rahu (Uranus)",
+    archetype: "The Emperor",
+    personality: "Grounded, practical, and process-oriented.",
+    friendly: [4, 5, 7, 8],
+    neutral: [2, 6, 9],
+    enemy: [1, 3],
+  },
+  {
+    number: 5,
+    dates: [5, 14, 23],
+    planet: "Mercury (Budh)",
+    archetype: "The Hierophant",
+    personality: "Adaptable, curious, and freedom-seeking.",
+    friendly: [1, 4, 5, 6],
+    neutral: [3, 7, 8],
+    enemy: [2, 9],
+  },
+  {
+    number: 6,
+    dates: [6, 15, 24],
+    planet: "Venus (Shukra)",
+    archetype: "The Lovers",
+    personality: "Responsible, caring, and harmony-seeking.",
+    friendly: [3, 5, 6, 9],
+    neutral: [1, 2, 4],
+    enemy: [7, 8],
+  },
+  {
+    number: 7,
+    dates: [7, 16, 25],
+    planet: "Ketu (Neptune)",
+    archetype: "The Chariot",
+    personality: "Reflective, analytical, and spiritually inclined.",
+    friendly: [2, 4, 7, 9],
+    neutral: [1, 3, 5],
+    enemy: [6, 8],
+  },
+  {
+    number: 8,
+    dates: [8, 17, 26],
+    planet: "Saturn (Shani)",
+    archetype: "Strength / Justice",
+    personality: "Ambitious, disciplined, and focused on results.",
+    friendly: [4, 5, 8],
+    neutral: [2, 7, 9],
+    enemy: [1, 3, 6],
+  },
+  {
+    number: 9,
+    dates: [9, 18, 27],
+    planet: "Mars (Mangal)",
+    archetype: "The Hermit",
+    personality: "Compassionate, transformative, and idealistic.",
+    friendly: [1, 3, 6, 9],
+    neutral: [2, 4, 7],
+    enemy: [5, 8],
+  },
+];
+
+const MASTER_NUMBER_META: Record<11 | 22 | 33, { planet: string; friendly: number[]; label: string; slug: string }> = {
+  11: {
+    planet: "Moon / Uranus (Master Intuitive)",
+    friendly: [2, 4, 7, 11],
+    label: "Master Number 11",
+    slug: "master-number-11",
+  },
+  22: {
+    planet: "Rahu / Uranus (Master Builder)",
+    friendly: [4, 6, 8, 22],
+    label: "Master Number 22",
+    slug: "master-number-22",
+  },
+  33: {
+    planet: "Venus / Jupiter (Master Teacher)",
+    friendly: [3, 6, 9, 33],
+    label: "Master Number 33",
+    slug: "",
+  },
+};
+
+function getMulankMeta(n: RootNumber): MulankChartRow {
+  return MULANK_MASTER_CHART[n - 1];
+}
+
+function getBhagyankMeta(value: BhagyankValue) {
+  if (value === 11 || value === 22 || value === 33) {
+    return {
+      planet: MASTER_NUMBER_META[value].planet,
+      friendly: MASTER_NUMBER_META[value].friendly,
+      archetype: MASTER_NUMBER_META[value].label,
+      guideLabel:
+        value === 33 ? "Open Full Bhagyank Calculator" : `Read ${MASTER_NUMBER_META[value].label} Guide`,
+      guideTo: (value === 33 ? "/bhagyank-calculator" : "/numerology/$slug") as
+        | "/bhagyank-calculator"
+        | "/numerology/$slug",
+      guideSlug: value === 33 ? undefined : MASTER_NUMBER_META[value].slug,
+    };
+  }
+  const row = getMulankMeta(value as RootNumber);
+  return {
+    planet: row.planet,
+    friendly: row.friendly,
+    archetype: row.archetype,
+    guideLabel: `Read Life Path / Bhagyank ${value} Guide`,
+    guideTo: "/numerology/$slug" as const,
+    guideSlug: `life-path-${value}`,
+  };
+}
 
 function reductionSteps(n: number): string[] {
   const steps: string[] = [String(n)];
@@ -43,6 +198,18 @@ function reductionSteps(n: number): string[] {
     steps.push(`${digits.join(" + ")} = ${v}`);
   }
   return steps;
+}
+
+function dayLookupFormula(day: number): string {
+  if (day <= 9) return `${day} (single digit)`;
+  const parts: string[] = [];
+  let v = day;
+  while (v > 9) {
+    const digits = String(v).split("");
+    v = digits.reduce((s, d) => s + Number(d), 0);
+    parts.push(`${digits.join(" + ")} = ${v}`);
+  }
+  return parts.join(" → ");
 }
 
 function MathTrail({ value, className = "" }: { value: number; className?: string }) {
@@ -74,10 +241,19 @@ function LivePreview({ dob }: { dob: string }) {
   const preview = useMemo(() => {
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dob.trim());
     if (!m) return null;
+    const year = Number(m[1]);
+    const month = Number(m[2]);
     const day = Number(m[3]);
-    if (!day) return null;
-    const value = reduceToSingleDigit(day);
-    return { day, value, card: ARCHETYPES[value] };
+    if (!day || !month || !year) return null;
+    const mulankValue = reduceToSingleDigit(day);
+    const bhagyank = calculateBhagyank(day, month, year);
+    return {
+      day,
+      mulankValue,
+      mulankMeta: getMulankMeta(mulankValue),
+      bhagyank,
+      bhagyankMeta: getBhagyankMeta(bhagyank.value),
+    };
   }, [dob]);
 
   return (
@@ -90,29 +266,79 @@ function LivePreview({ dob }: { dob: string }) {
           className="overflow-hidden"
         >
           <div
-            className="mt-3 rounded-xl border p-3"
+            className="mt-3 grid gap-3 rounded-xl border p-3.5 sm:grid-cols-2"
             style={{
               borderColor: "color-mix(in oklab, var(--gold) 35%, transparent)",
               background:
                 "linear-gradient(135deg, color-mix(in oklab, var(--gold) 10%, transparent), transparent 70%)",
             }}
           >
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                Your Mulank
-              </span>
-              <motion.span
-                key={preview.value}
-                initial={{ scale: 0.6, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                className="font-display text-xl text-[color:var(--gold)]"
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Mulank (Psychic)
+                </span>
+                <span className="font-display text-xl text-[color:var(--gold)]">
+                  {preview.mulankValue}
+                </span>
+              </div>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Planet: <span className="text-foreground">{preview.mulankMeta.planet}</span>
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Friendly:{" "}
+                <span className="text-foreground">{preview.mulankMeta.friendly.join(", ")}</span>
+              </p>
+              <MathTrail value={preview.day} className="mt-1.5" />
+              <Link
+                to="/numerology/$slug"
+                params={{ slug: `mulank-${preview.mulankValue}` }}
+                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-[color:var(--gold)] hover:underline"
               >
-                {preview.value}
-              </motion.span>
-              <span className="text-xs text-muted-foreground">· {preview.card}</span>
+                Mulank {preview.mulankValue} Guide <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
-            <MathTrail value={preview.day} className="mt-2" />
+
+            <div className="border-t border-white/10 pt-3 sm:border-l sm:border-t-0 sm:pl-3 sm:pt-0">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Bhagyank (Destiny)
+                </span>
+                <span className="font-display text-xl text-[color:var(--gold)]">
+                  {preview.bhagyank.value}
+                </span>
+              </div>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Planet: <span className="text-foreground">{preview.bhagyankMeta.planet}</span>
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Friendly:{" "}
+                <span className="text-foreground">
+                  {preview.bhagyankMeta.friendly.join(", ")}
+                </span>
+              </p>
+              <p className="mt-1.5 font-mono text-[11px] text-muted-foreground">
+                {preview.bhagyank.steps
+                  .map((s) => `${s.expression} = ${s.sum}`)
+                  .join(" → ")}
+              </p>
+              {preview.bhagyankMeta.guideSlug ? (
+                <Link
+                  to="/numerology/$slug"
+                  params={{ slug: preview.bhagyankMeta.guideSlug }}
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-[color:var(--gold)] hover:underline"
+                >
+                  {preview.bhagyankMeta.guideLabel} <ArrowRight className="h-3 w-3" />
+                </Link>
+              ) : (
+                <Link
+                  to="/bhagyank-calculator"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-[color:var(--gold)] hover:underline"
+                >
+                  {preview.bhagyankMeta.guideLabel} <ArrowRight className="h-3 w-3" />
+                </Link>
+              )}
+            </div>
           </div>
         </motion.div>
       )}
@@ -281,6 +507,11 @@ export function NumerologyIndexScreen() {
     return { year: Number(m[1]), month: Number(m[2]), day: Number(m[3]) };
   }, [dob]);
 
+  const bhagyankResult = useMemo(() => {
+    if (!dobParts) return null;
+    return calculateBhagyank(dobParts.day, dobParts.month, dobParts.year);
+  }, [dobParts]);
+
   const synergyMatches = useMemo(() => {
     const personalMonth = result?.calculations.personal_month;
     if (!personalMonth || !submittedPeriod) return null;
@@ -355,9 +586,19 @@ export function NumerologyIndexScreen() {
 
   const mulankFaqs = [
     {
-      question: "What is Mulank?",
+      question: "What is Mulank called in English?",
       answer:
-        "Mulank is the birth number derived from the day you were born. In numerology it is treated as a root number, reflecting your natural style, instinctive patterns, and the way you show up in daily life.",
+        "In English numerology, Mulank (Moolank) is called the Psychic Number, Birth Number, Driver Number, or Radical Number. It reflects your core temperament based solely on the calendar day of your birth.",
+    },
+    {
+      question: "How to calculate Mulank and Bhagyank?",
+      answer:
+        "To calculate Mulank, sum only the digits of your birth day (1–31) until you get a single digit between 1 and 9 (for example, born on the 24th gives 2 + 4 = 6). To calculate Bhagyank (Destiny Number), add every digit of your complete date of birth (DD + MM + YYYY) and reduce to a single digit 1–9 or Master Number 11, 22, or 33.",
+    },
+    {
+      question: "Mulank kaise nikale?",
+      answer:
+        "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1 — yani aapka Mulank 1 hai.",
     },
     {
       question: "Is Mulank different from zodiac?",
@@ -384,29 +625,24 @@ export function NumerologyIndexScreen() {
       answer:
         "Name numerology is a separate branch, usually called Namank. It uses the letters of your name and a different method than Mulank, which is based only on the day of birth.",
     },
-    {
-      question: "Is numerology scientific?",
-      answer:
-        "Numerology is a symbolic and interpretive framework, not a scientific method. AstroFree presents it as a reflective tool rather than a measurable prediction system.",
-    },
-    {
-      question: "Is AstroFree free?",
-      answer:
-        "Yes. AstroFree is a free educational platform with tarot guides, numerology calculators, and reflection tools available at no cost.",
-    },
   ];
 
-  const mulankOverview = [
-    { number: 1, planet: "Sun", personality: "Independent, direct, and driven to lead." },
-    { number: 2, planet: "Moon", personality: "Sensitive, diplomatic, and deeply relational." },
-    { number: 3, planet: "Jupiter", personality: "Expressive, social, and naturally creative." },
-    { number: 4, planet: "Rahu", personality: "Grounded, practical, and process-oriented." },
-    { number: 5, planet: "Mercury", personality: "Adaptable, curious, and freedom-seeking." },
-    { number: 6, planet: "Venus", personality: "Responsible, caring, and harmony-seeking." },
-    { number: 7, planet: "Ketu", personality: "Reflective, analytical, and spiritually inclined." },
-    { number: 8, planet: "Saturn", personality: "Ambitious, disciplined, and focused on results." },
-    { number: 9, planet: "Mars", personality: "Compassionate, transformative, and idealistic." },
-  ];
+  const mulankOverview = MULANK_MASTER_CHART;
+  const birthDateLookup = useMemo(
+    () =>
+      Array.from({ length: 31 }, (_, i) => {
+        const day = i + 1;
+        const mulank = reduceToSingleDigit(day);
+        const row = getMulankMeta(mulank);
+        return {
+          day,
+          mulank,
+          formula: dayLookupFormula(day),
+          planet: row.planet,
+        };
+      }),
+    [],
+  );
 
   function onReset() {
     setResult(null);
@@ -436,22 +672,27 @@ export function NumerologyIndexScreen() {
         />
       </div>
 
-      <header className="mb-10 max-w-2xl">
+      <header className="mb-8 max-w-4xl">
         <p className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-          <Hash className="h-3.5 w-3.5" /> {t("numerology.navLabel")}
+          <Hash className="h-3.5 w-3.5" /> Vedic Numerology · Ank Shastra
         </p>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">
-          <span className="aurora-text">{t("numerology.title")}</span>
+        <h1 className="mt-2 font-display text-3xl leading-tight sm:text-4xl md:text-5xl">
+          <span className="aurora-text">
+            Mulank &amp; Bhagyank Calculator (Check Your Psychic &amp; Destiny Number)
+          </span>
         </h1>
-        <p className="mt-3 text-base text-muted-foreground">{t("numerology.subtitle")}</p>
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+        <p className="mt-3 max-w-3xl text-base text-muted-foreground">
+          Enter your date of birth below to calculate your Mulank (Psychic Number), Bhagyank
+          (Destiny / Life Path Number), Ruling Planet, Friendly Numbers, and yearly timing cycles.
+        </p>
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
             Published <time dateTime="2026-07-15">15 July 2026</time>
           </span>
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-            Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            Last updated <time dateTime="2026-11-18">18 November 2026</time>
           </span>
         </div>
         <div className="mt-4 h-px w-24 bg-gradient-to-r from-[color:var(--gold)] to-transparent" />
@@ -465,13 +706,16 @@ export function NumerologyIndexScreen() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4 }}
+            className="grid items-start gap-6 lg:grid-cols-[1.15fr_0.85fr]"
           >
-            <GlassCard className="relative max-w-xl space-y-6 overflow-hidden">
+            <GlassCard className="relative space-y-6 overflow-hidden">
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent opacity-60" />
 
               <div className="flex items-center gap-2 text-[color-mix(in_oklab,var(--gold)_85%,white)]">
                 <Wand2 className="h-4 w-4" />
-                <span className="text-xs uppercase tracking-[0.3em]">Enter your details</span>
+                <span className="text-xs uppercase tracking-[0.3em]">
+                  Instant Mulank &amp; Bhagyank Checker
+                </span>
               </div>
 
               <div>
@@ -485,7 +729,7 @@ export function NumerologyIndexScreen() {
                   value={dob}
                   max={maxDobDate}
                   onChange={(e) => setDob(e.target.value)}
-                  className="mt-2 transition-all focus-visible:ring-[color:var(--gold)]"
+                  className="mt-2 min-h-12 transition-all focus-visible:ring-[color:var(--gold)]"
                 />
                 <LivePreview dob={dob} />
               </div>
@@ -610,10 +854,53 @@ export function NumerologyIndexScreen() {
                 ) : (
                   <span className="flex items-center gap-2">
                     <Sparkles className="h-4 w-4" />
-                    {t("numerology.calculate")}
+                    Calculate Mulank &amp; Bhagyank
                   </span>
                 )}
               </GoldButton>
+            </GlassCard>
+
+            <GlassCard className="relative space-y-4 overflow-hidden">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent opacity-45" />
+              <p className="text-xs uppercase tracking-[0.26em] text-[color:var(--gold)]">
+                Formula Summary
+              </p>
+              <h2 className="font-display text-xl text-foreground">
+                How Mulank &amp; Bhagyank Are Calculated
+              </h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                To calculate your <strong className="text-foreground">Mulank</strong> (Psychic
+                Number), take only your calendar day of birth (1–31) and sum its digits until a
+                single digit (1–9) remains—for example, 19 becomes 1 + 9 = 10, then 1 + 0 = 1. For{" "}
+                <strong className="text-foreground">Bhagyank</strong> (Destiny Number), add all
+                digits of your full birth date (DD + MM + YYYY), preserving Master Numbers 11, 22,
+                and 33.
+              </p>
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3.5 text-xs text-muted-foreground">
+                <p className="font-medium text-foreground">Featured Number Guides</p>
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  <Link
+                    to="/numerology/$slug"
+                    params={{ slug: "mulank-7" }}
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[color:var(--gold)]/40 bg-[color:var(--gold)]/10 px-3.5 py-1.5 font-medium text-[color:var(--gold)] transition-colors hover:bg-[color:var(--gold)]/20"
+                  >
+                    Mulank 7 (Ketu) Guide <ArrowRight className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    to="/numerology/$slug"
+                    params={{ slug: "master-number-22" }}
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 font-medium text-foreground transition-colors hover:border-[color:var(--gold)]/40 hover:text-[color:var(--gold)]"
+                  >
+                    Master Number 22 Guide <ArrowRight className="h-3 w-3" />
+                  </Link>
+                  <Link
+                    to="/bhagyank-calculator"
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 font-medium text-foreground transition-colors hover:border-[color:var(--gold)]/40 hover:text-[color:var(--gold)]"
+                  >
+                    Bhagyank Deep Dive <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
             </GlassCard>
           </motion.div>
         )}
@@ -634,7 +921,7 @@ export function NumerologyIndexScreen() {
                   <div className="flex items-center gap-2 text-[color-mix(in_oklab,var(--gold)_85%,white)]">
                     <Sparkles className="h-4 w-4" />
                     <h2 className="font-display text-xl text-foreground">
-                      {t("numerology.title")}
+                      Your Mulank &amp; Bhagyank Profile
                     </h2>
                     {source === "ai" && (
                       <span className="ml-auto rounded-full border border-[color-mix(in_oklab,var(--gold)_40%,transparent)] px-2 py-0.5 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">
@@ -643,20 +930,97 @@ export function NumerologyIndexScreen() {
                     )}
                   </div>
 
-                  <div className="grid gap-5 sm:grid-cols-3">
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                        {t("numerology.mulank")}
-                      </p>
-                      <div className="mt-2">
-                        <NumberSigil
-                          value={result.calculations.mulank.value}
-                          card={result.calculations.mulank.card}
-                          delay={0}
-                          href={lifePathHref(result.calculations.mulank.value as RootNumber)}
-                        />
+                  {(() => {
+                    const mulankMeta = getMulankMeta(result.calculations.mulank.value as RootNumber);
+                    const bhagyankMeta = bhagyankResult
+                      ? getBhagyankMeta(bhagyankResult.value)
+                      : null;
+                    return (
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="rounded-xl border border-[color:var(--gold)]/30 bg-[color:var(--gold)]/[0.06] p-4">
+                          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                            Mulank (Psychic / Birth Number)
+                          </p>
+                          <div className="mt-2.5">
+                            <NumberSigil
+                              value={result.calculations.mulank.value}
+                              card={result.calculations.mulank.card}
+                              delay={0}
+                              href={`/numerology/mulank-${result.calculations.mulank.value}`}
+                            />
+                          </div>
+                          <div className="mt-3 space-y-1 text-xs text-muted-foreground">
+                            <p>
+                              <span className="font-medium text-foreground">Ruling Planet:</span>{" "}
+                              {mulankMeta.planet}
+                            </p>
+                            <p>
+                              <span className="font-medium text-foreground">Friendly Numbers:</span>{" "}
+                              {mulankMeta.friendly.join(", ")}
+                            </p>
+                          </div>
+                          <Link
+                            to="/numerology/$slug"
+                            params={{ slug: `mulank-${result.calculations.mulank.value}` }}
+                            className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[color:var(--gold)] hover:underline"
+                          >
+                            Read Mulank {result.calculations.mulank.value} Full Guide{" "}
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+
+                        {bhagyankResult && bhagyankMeta && (
+                          <div className="rounded-xl border border-white/15 bg-white/[0.03] p-4">
+                            <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                              Bhagyank (Destiny / Life Path)
+                            </p>
+                            <div className="mt-2.5">
+                              <NumberSigil
+                                value={bhagyankResult.value}
+                                card={bhagyankMeta.archetype}
+                                delay={0.08}
+                                href={
+                                  bhagyankMeta.guideSlug
+                                    ? `/numerology/${bhagyankMeta.guideSlug}`
+                                    : "/bhagyank-calculator"
+                                }
+                              />
+                            </div>
+                            <div className="mt-3 space-y-1 text-xs text-muted-foreground">
+                              <p>
+                                <span className="font-medium text-foreground">Ruling Planet:</span>{" "}
+                                {bhagyankMeta.planet}
+                              </p>
+                              <p>
+                                <span className="font-medium text-foreground">
+                                  Friendly Numbers:
+                                </span>{" "}
+                                {bhagyankMeta.friendly.join(", ")}
+                              </p>
+                            </div>
+                            {bhagyankMeta.guideSlug ? (
+                              <Link
+                                to="/numerology/$slug"
+                                params={{ slug: bhagyankMeta.guideSlug }}
+                                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[color:var(--gold)] hover:underline"
+                              >
+                                {bhagyankMeta.guideLabel} <ArrowRight className="h-3.5 w-3.5" />
+                              </Link>
+                            ) : (
+                              <Link
+                                to="/bhagyank-calculator"
+                                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[color:var(--gold)] hover:underline"
+                              >
+                                {bhagyankMeta.guideLabel} <ArrowRight className="h-3.5 w-3.5" />
+                              </Link>
+                            )}
+                          </div>
+                        )}
                       </div>
-                    </div>
+                    );
+                  })()}
+
+                  <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <p className="text-xs uppercase tracking-widest text-muted-foreground">
                         {t("numerology.personalYear")}
@@ -665,7 +1029,7 @@ export function NumerologyIndexScreen() {
                         <NumberSigil
                           value={result.calculations.personal_year.value}
                           card={result.calculations.personal_year.card}
-                          delay={0.08}
+                          delay={0.12}
                           href={lifePathHref(result.calculations.personal_year.value as RootNumber)}
                         />
                       </div>
@@ -697,7 +1061,7 @@ export function NumerologyIndexScreen() {
                       }}
                     >
                       <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                        How this was calculated
+                        How your numbers were calculated
                       </p>
                       <div className="mt-2 space-y-2">
                         <div>
@@ -706,6 +1070,18 @@ export function NumerologyIndexScreen() {
                           </p>
                           <MathTrail value={dobParts.day} className="mt-1" />
                         </div>
+                        {bhagyankResult && (
+                          <div>
+                            <p className="text-xs text-muted-foreground">
+                              Bhagyank = full birth date (DD + MM + YYYY) reduced
+                            </p>
+                            <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                              {bhagyankResult.steps
+                                .map((s) => `${s.expression} = ${s.sum}`)
+                                .join(" → ")}
+                            </p>
+                          </div>
+                        )}
                         <div>
                           <p className="text-xs text-muted-foreground">
                             Personal Year = day + month + year reduced
@@ -923,7 +1299,147 @@ export function NumerologyIndexScreen() {
         )}
       </AnimatePresence>
 
-      <section className="mt-14 max-w-5xl space-y-10">
+      <section className="mt-12 max-w-5xl space-y-12">
+        {/* Table A: 1–31 Birth Date Lookup */}
+        <div id="birth-date-lookup">
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Mulank Lookup by Birth Date (1 to 31)
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            Find your exact Mulank (Psychic / Birth Number) from any calendar birth date (1–31),
+            along with its digit reduction and ruling planet.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              birthDateLookup.slice(0, 11),
+              birthDateLookup.slice(11, 21),
+              birthDateLookup.slice(21, 31),
+            ].map((chunk, chunkIdx) => (
+              <div
+                key={chunkIdx}
+                className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]"
+              >
+                <table className="w-full text-left text-sm text-muted-foreground">
+                  <thead className="bg-white/[0.04] text-[10px] uppercase tracking-[0.18em] text-[color:var(--gold)]">
+                    <tr>
+                      <th className="px-3.5 py-2.5">Date</th>
+                      <th className="px-3.5 py-2.5">Reduction</th>
+                      <th className="px-3.5 py-2.5">Mulank</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {chunk.map((row) => (
+                      <tr key={row.day} className="border-t border-white/10">
+                        <td className="px-3.5 py-2 font-medium text-foreground">{row.day}</td>
+                        <td className="px-3.5 py-2 font-mono text-xs">{row.formula}</td>
+                        <td className="px-3.5 py-2">
+                          <Link
+                            to="/numerology/$slug"
+                            params={{ slug: `mulank-${row.mulank}` }}
+                            className="font-semibold text-[color:var(--gold)] hover:underline"
+                          >
+                            Mulank {row.mulank}
+                          </Link>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Table B: Master Mulank 1–9 Chart */}
+        <div id="master-mulank-chart">
+          <h2 className="font-display text-3xl sm:text-4xl">
+            Master Mulank 1–9 Chart: Planets, Friendly &amp; Enemy Numbers
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            Compare all nine Mulank root numbers, their corresponding calendar dates, Vedic ruling
+            planets, friendly numbers, and neutral or challenging numbers. Click any Mulank or{" "}
+            <Link
+              to="/numerology/$slug"
+              params={{ slug: "master-number-22" }}
+              className="text-[color:var(--gold)] hover:underline"
+            >
+              Master Number 22
+            </Link>{" "}
+            guide for complete traits and remedies.
+          </p>
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+            <table className="w-full min-w-[680px] text-left text-sm text-muted-foreground">
+              <thead className="bg-white/[0.04] text-[11px] uppercase tracking-[0.18em] text-[color:var(--gold)]">
+                <tr>
+                  <th className="px-4 py-3">Mulank</th>
+                  <th className="px-4 py-3">Birth Dates</th>
+                  <th className="px-4 py-3">Ruling Planet</th>
+                  <th className="px-4 py-3">Friendly Numbers</th>
+                  <th className="px-4 py-3">Enemy / Neutral Numbers</th>
+                </tr>
+              </thead>
+              <tbody>
+                {MULANK_MASTER_CHART.map((row) => (
+                  <tr key={row.number} className="border-t border-white/10">
+                    <td className="px-4 py-3 font-medium">
+                      <Link
+                        to="/numerology/$slug"
+                        params={{ slug: `mulank-${row.number}` }}
+                        className="font-display text-base text-[color:var(--gold)] hover:underline"
+                      >
+                        Mulank {row.number}
+                      </Link>
+                    </td>
+                    <td className="px-4 py-3 text-foreground">{row.dates.join(", ")}</td>
+                    <td className="px-4 py-3">{row.planet}</td>
+                    <td className="px-4 py-3 text-foreground">{row.friendly.join(", ")}</td>
+                    <td className="px-4 py-3">
+                      <span className="text-foreground">Enemy: {row.enemy.join(", ")}</span>
+                      <span className="text-muted-foreground">
+                        {" "}
+                        · Neutral: {row.neutral.join(", ")}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <Link
+              to="/numerology/$slug"
+              params={{ slug: "mulank-7" }}
+              className="block rounded-2xl border border-[color:var(--gold)]/30 bg-[color:var(--gold)]/[0.06] p-5 transition-colors hover:border-[color:var(--gold)]/60"
+            >
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[color:var(--gold)]">
+                Most Searched Psychic Number
+              </p>
+              <h3 className="mt-1 font-display text-xl text-foreground">
+                Mulank 7 Deep-Dive Guide (7, 16, 25)
+              </h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">
+                Ruled by Ketu — explore intuition, research careers, love dynamics, and remedies.
+              </p>
+            </Link>
+            <Link
+              to="/numerology/$slug"
+              params={{ slug: "master-number-22" }}
+              className="block rounded-2xl border border-white/15 bg-white/[0.03] p-5 transition-colors hover:border-[color:var(--gold)]/50"
+            >
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[color:var(--gold)]">
+                Master Destiny Number
+              </p>
+              <h3 className="mt-1 font-display text-xl text-foreground">
+                Master Number 22 Guide (The Master Builder)
+              </h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">
+                Unreduced Bhagyank 22 traits, high-impact leadership, and practical karmic balance.
+              </p>
+            </Link>
+          </div>
+        </div>
+
         <div>
           <h2 className="font-display text-3xl sm:text-4xl">What is Mulank?</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">

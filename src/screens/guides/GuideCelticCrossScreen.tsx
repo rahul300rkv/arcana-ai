@@ -253,8 +253,8 @@ export function GuideCelticCrossScreen() {
             blurb: "Start with simpler spreads before tackling the Celtic Cross.",
           },
           {
-            to: "/guide/reversed-tarot-cards",
-            label: "How to interpret reversed tarot cards",
+            to: "/what-do-reversed-tarot-cards-mean",
+            label: "What do reversed tarot cards mean?",
             blurb: "A practical method for reading reversals in any position.",
           },
           {

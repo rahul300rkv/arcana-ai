@@ -22,6 +22,8 @@ interface Props {
   wordCount: number;
   /** Optional visual shown beside the title (card art, sigil, etc.). */
   aside?: ReactNode;
+  /** Optional high-contrast reference block placed directly below the H1 and aside image. */
+  afterHeader?: ReactNode;
   children: ReactNode;
 }
 
@@ -51,6 +53,7 @@ export function ArticleLayout({
   readingMinutes,
   wordCount,
   aside,
+  afterHeader,
   children,
 }: Props) {
   return (
@@ -95,6 +98,8 @@ export function ArticleLayout({
           </div>
           {aside && <div className="mx-auto w-full max-w-[220px] sm:mx-0">{aside}</div>}
         </header>
+
+        {afterHeader && <div className="mt-8">{afterHeader}</div>}
 
         <article className="mt-14 space-y-14">{children}</article>
 

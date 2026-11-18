@@ -2,9 +2,9 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 
 const PATH = "/tarot/celtic-cross";
-const TITLE = "Celtic Cross Tarot Reading — Free 10-Card Spread";
+const TITLE = "Free Celtic Cross Tarot Reading Online (Instant 10-Card Spread)";
 const DESCRIPTION =
-  "Free Celtic Cross tarot reading: the classic ten-card spread for deep, complex questions, drawn and interpreted by AI across all ten positions — always free.";
+  "Get a free, instant 10-card Celtic Cross tarot reading online. Draw your cards now for deep AI-guided insights into love, career, and your future path.";
 
 export const Route = createFileRoute("/tarot/celtic-cross")({
   loader: async () => {
@@ -20,7 +20,9 @@ export const Route = createFileRoute("/tarot/celtic-cross")({
       path: PATH,
       title: TITLE,
       description: DESCRIPTION,
+      exactTitle: true,
       keywords: [
+        "free celtic cross tarot reading online",
         "celtic cross tarot reading",
         "celtic cross tarot spread",
         "10 card tarot reading",
@@ -38,12 +40,13 @@ export const Route = createFileRoute("/tarot/celtic-cross")({
             title: TITLE,
             description: DESCRIPTION,
             published: loaderData?.published ?? "2026-08-16",
-            updated: loaderData?.updated ?? "2026-11-16",
+            updated: loaderData?.updated ?? "2026-11-18",
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Celtic Cross Reading", path: PATH },
             ],
             faqs: loaderData?.faqs ?? [],
+            webApp: { name: "Free Celtic Cross Tarot Reading Online" },
           }),
         ),
       },

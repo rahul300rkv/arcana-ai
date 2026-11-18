@@ -1,8 +1,7 @@
-import { useLoaderData } from "@tanstack/react-router";
+import { Link, useLoaderData } from "@tanstack/react-router";
 import {
   BookOpen,
   Briefcase,
-  Coins,
   Compass,
   HeartHandshake,
   HelpCircle,
@@ -25,10 +24,20 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { CardFront } from "@/components/tarot/CardFront";
 import { getCardById } from "@/lib/tarot/engine";
-import { getTarotPage, TAROT_PAGES, type TarotPage } from "@/data/tarot";
+import { getTarotPage, TAROT_PAGES, type TarotPage, type YesNo } from "@/data/tarot";
 import { SITE_URL } from "@/lib/site";
 
-const VERDICT_LABEL = { yes: "Yes", no: "No", maybe: "Conditional" } as const;
+const VERDICT_LABEL: Record<YesNo, "Yes" | "No" | "Maybe"> = {
+  yes: "Yes",
+  no: "No",
+  maybe: "Maybe",
+};
+
+const VERDICT_BADGE: Record<YesNo, string> = {
+  yes: "border-emerald-400/50 bg-emerald-500/15 text-emerald-200",
+  no: "border-rose-400/50 bg-rose-500/15 text-rose-200",
+  maybe: "border-[color-mix(in_oklab,var(--gold)_55%,transparent)] bg-[color-mix(in_oklab,var(--gold)_15%,transparent)] text-[color:var(--gold)]",
+};
 
 export function TarotCardScreen() {
   const { page } = useLoaderData({ strict: false }) as { page: TarotPage };
@@ -55,6 +64,70 @@ export function TarotCardScreen() {
           </div>
         ) : null
       }
+      afterHeader={
+        <section
+          aria-label={`${page.name} quick reference keywords and yes or no verdict`}
+          className="rounded-2xl border border-[color-mix(in_oklab,var(--gold)_42%,transparent)] bg-[color-mix(in_oklab,var(--bg-elevated,#14111d)_88%,transparent)] p-5 shadow-[0_12px_36px_-18px_rgba(212,175,55,0.35)] sm:p-6"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--gold)]">
+              Quick-Reference Card Summary
+            </p>
+            <div className="flex flex-wrap items-center gap-3 text-xs">
+              <Link
+                to="/yes-no-tarot"
+                className="text-foreground/85 underline underline-offset-4 hover:text-[color:var(--gold)]"
+              >
+                Try live Yes/No Oracle →
+              </Link>
+              <Link
+                to="/what-do-reversed-tarot-cards-mean"
+                className="text-foreground/85 underline underline-offset-4 hover:text-[color:var(--gold)]"
+              >
+                Reversed Cards Guide
+              </Link>
+            </div>
+          </div>
+
+          <dl className="mt-4 grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--gold)]">
+                Upright Card Keywords
+              </dt>
+              <dd className="mt-2 text-sm leading-relaxed text-foreground">
+                {page.uprightKeywords.join(", ")}
+              </dd>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--aurora-1)]">
+                Reversed Card Keywords
+              </dt>
+              <dd className="mt-2 text-sm leading-relaxed text-foreground">
+                {page.reversedKeywords.join(", ")}
+              </dd>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Yes or No Verdict
+              </dt>
+              <dd className="mt-2 flex flex-wrap items-center gap-2">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${VERDICT_BADGE[page.yesNo]}`}
+                >
+                  Upright: {VERDICT_LABEL[page.yesNo]}
+                </span>
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${VERDICT_BADGE[page.yesNoReversed]}`}
+                >
+                  Reversed: {VERDICT_LABEL[page.yesNoReversed]}
+                </span>
+              </dd>
+            </div>
+          </dl>
+        </section>
+      }
     >
       <ContentSection id="correspondences" title="Card at a glance" icon={Compass}>
         <InfoGrid
@@ -66,15 +139,18 @@ export function TarotCardScreen() {
             { label: "Planet", value: page.planet },
             { label: "Zodiac", value: page.zodiac },
             { label: "Archetype", value: page.archetype },
-            { label: "Yes / No", value: VERDICT_LABEL[page.yesNo] },
-            { label: "Keywords", value: page.cardKeywords.join(", ") },
+            {
+              label: "Yes / No",
+              value: `Upright: ${VERDICT_LABEL[page.yesNo]} · Reversed: ${VERDICT_LABEL[page.yesNoReversed]}`,
+            },
+            { label: "Upright keywords", value: page.uprightKeywords.join(", ") },
           ]}
         />
       </ContentSection>
 
       <ContentSection id="overview" title="Symbolism and overview" icon={BookOpen} paragraphs={page.overview} />
 
-      <ContentSection id="meaning" title={`${page.name} meaning`} icon={Sparkles}>
+      <ContentSection id="meaning" title={`${page.name} meaning: upright & reversed`} icon={Sparkles}>
         <div className="grid gap-6 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">Upright meaning</h3>
@@ -94,28 +170,97 @@ export function TarotCardScreen() {
                 <p key={i}>{p}</p>
               ))}
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              New to upside-down draws? Read our{" "}
+              <Link
+                to="/what-do-reversed-tarot-cards-mean"
+                className="text-[color:var(--gold)] hover:underline"
+              >
+                complete guide to reversed tarot card meanings
+              </Link>
+              .
+            </p>
           </GlassCard>
         </div>
       </ContentSection>
 
       <ContentSection
+        id="future-outcome"
+        title={`${page.name} in the Future / Outcome Position`}
+        icon={Timer}
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          <GlassCard className="p-6">
+            <h3 className="font-display text-lg text-[var(--gold)]">
+              Future / Outcome — Upright
+            </h3>
+            <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.outcomeUpright}
+            </p>
+          </GlassCard>
+          <GlassCard className="p-6">
+            <h3 className="font-display text-lg text-[color:var(--aurora-1)]">
+              Future / Outcome — Reversed
+            </h3>
+            <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.outcomeReversed}
+            </p>
+          </GlassCard>
+        </div>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {page.timeline
+            .filter((t) => t.label !== "Future")
+            .map((t) => (
+              <GlassCard key={t.label} className="p-5">
+                <h3 className="font-display text-base text-[var(--gold)]">{t.label} position</h3>
+                <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">
+                  {t.text}
+                </p>
+              </GlassCard>
+            ))}
+        </div>
+      </ContentSection>
+
+      <ContentSection
         id="love"
-        title="Love and relationships"
+        title={`${page.name} in Love, Feelings & Relationships`}
         icon={HeartHandshake}
         paragraphs={page.love}
       />
+
       <ContentSection
-        id="career"
-        title="Career and work"
+        id="career-finances"
+        title={`${page.name} in Career & Finances`}
         icon={Briefcase}
-        paragraphs={page.career}
-      />
-      <ContentSection
-        id="finance"
-        title="Money and finances"
-        icon={Coins}
-        paragraphs={page.finance}
-      />
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          <GlassCard className="p-6">
+            <h3 className="font-display text-lg text-[var(--gold)]">Career &amp; Work</h3>
+            <div className="mt-3 space-y-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.career.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </GlassCard>
+          <GlassCard className="p-6">
+            <h3 className="font-display text-lg text-[var(--gold)]">Money &amp; Finances</h3>
+            <div className="mt-3 space-y-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.finance.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </GlassCard>
+        </div>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Asking about a role change, promotion, or financial timing? Pull a free 3-card{" "}
+          <Link to="/career-tarot-reading" className="text-[color:var(--gold)] hover:underline">
+            Career Tarot Reading
+          </Link>
+          .
+        </p>
+      </ContentSection>
+
       <ContentSection
         id="health"
         title="Health and wellbeing"
@@ -129,21 +274,24 @@ export function TarotCardScreen() {
         paragraphs={page.spiritual}
       />
 
-      <ContentSection id="yes-no" title="Yes or no?" icon={HelpCircle}>
-        <GlassCard className="p-6">
-          <p className="font-display text-3xl aurora-text">{VERDICT_LABEL[page.yesNo]}</p>
-          <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">{page.yesNoText}</p>
-        </GlassCard>
-      </ContentSection>
-
-      <ContentSection id="timeline" title="Past, present and future positions" icon={Timer}>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {page.timeline.map((t) => (
-            <GlassCard key={t.label} className="p-5">
-              <h3 className="font-display text-base text-[var(--gold)]">{t.label}</h3>
-              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{t.text}</p>
-            </GlassCard>
-          ))}
+      <ContentSection id="yes-no" title={`${page.name} Yes or No verdict`} icon={HelpCircle}>
+        <div className="grid gap-6 md:grid-cols-2">
+          <GlassCard className="p-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">When Upright</p>
+            <p className="mt-1 font-display text-3xl aurora-text">{VERDICT_LABEL[page.yesNo]}</p>
+            <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.yesNoText}
+            </p>
+          </GlassCard>
+          <GlassCard className="p-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">When Reversed</p>
+            <p className="mt-1 font-display text-3xl text-[color:var(--aurora-1)]">
+              {VERDICT_LABEL[page.yesNoReversed]}
+            </p>
+            <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
+              {page.yesNoReversedText}
+            </p>
+          </GlassCard>
         </div>
       </ContentSection>
 
@@ -209,24 +357,24 @@ export function TarotCardScreen() {
       <KeepExploring
         links={[
           {
-            to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: `Compare ${page.name} with the wider ${page.suit ? page.suitLabel : "Major Arcana"} and element of ${page.element}.`,
+            to: "/major-arcana-tarot-cards-meanings",
+            label: "Major Arcana 22-card table",
+            blurb: "See all 22 Major Arcana archetypes and Three Stages of The Fool's Journey.",
           },
           {
-            to: "/guide/tarot-spreads",
-            label: "Tarot spreads explained",
-            blurb: `See which spread places ${page.name} in the most clarifying position.`,
+            to: "/what-do-reversed-tarot-cards-mean",
+            label: "Reversed tarot cards guide",
+            blurb: "Learn how upside-down cards modify outcomes through four practical lenses.",
           },
           {
-            to: "/guide/tarot-card-meanings",
-            label: "Quick meanings reference",
-            blurb: "Deck architecture, four elements, and upright vs. reversed guidance.",
+            to: "/yes-no-tarot",
+            label: "Free Yes or No Tarot Oracle",
+            blurb: `Test ${page.name} alongside a live Yes / No / Maybe oracle card pull.`,
           },
           {
             to: "/numerology",
-            label: "Numerology library",
-            blurb: `Pair ${page.name}'s themes with your personal Mulank and Life Path numbers.`,
+            label: "Mulank & Bhagyank Calculator",
+            blurb: `Pair ${page.name}'s themes with your Vedic Psychic and Destiny numbers.`,
           },
         ]}
       />

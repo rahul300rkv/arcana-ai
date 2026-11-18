@@ -1,9 +1,9 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 
-const PAGE_TITLE = "Numerology Calculator — Free Mulank, Personal Year & Month";
+const PAGE_TITLE = "Mulank & Bhagyank Calculator by Date of Birth (Free Moolank Checker)";
 const PAGE_DESC =
-  "Free numerology calculator: enter your date of birth to get your Mulank (birth number), Personal Year and Personal Month, each mapped to its tarot archetype with practical guidance.";
+  "Free Mulank & Bhagyank calculator by date of birth: check your Psychic (Birth) Number, Destiny (Life Path) Number, ruling planet, friendly numbers, and 1–31 lookup chart instantly.";
 const PAGE_URL = `${SITE_URL}/numerology`;
 
 export const Route = createFileRoute("/numerology/")({
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/numerology/")({
       {
         name: "keywords",
         content:
-          "numerology calculator, free numerology calculator, indian numerology calculator, numerology calculator by date of birth, mulank calculator, birth number calculator, personal year number, personal month number, moolank",
+          "mulank calculator, bhagyank calculator, moolank checker, mulank and bhagyank calculator by date of birth, psychic number, destiny number, mulank kaise nikale, vedic numerology calculator, ank shastra",
       },
       { property: "og:title", content: PAGE_TITLE },
       { property: "og:description", content: PAGE_DESC },
@@ -44,10 +44,10 @@ export const Route = createFileRoute("/numerology/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          name: "Numerology Calculator",
+          name: "Mulank & Bhagyank Calculator",
           url: PAGE_URL,
           datePublished: "2026-07-15",
-          dateModified: "2026-11-16",
+          dateModified: "2026-11-18",
           applicationCategory: "LifestyleApplication",
           operatingSystem: "Any",
           description: PAGE_DESC,
@@ -62,10 +62,26 @@ export const Route = createFileRoute("/numerology/")({
           mainEntity: [
             {
               "@type": "Question",
-              name: "What is Mulank?",
+              name: "What is Mulank called in English?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Mulank is the birth number that comes from reducing the day of birth to a single digit, such as 24-08-1999 becoming 2 + 4 = 6.",
+                text: "In English numerology, Mulank (Moolank) is called the Psychic Number, Birth Number, Driver Number, or Radical Number. It reflects your core temperament based solely on the calendar day of your birth.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How to calculate Mulank and Bhagyank?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "To calculate Mulank, sum only the digits of your birth day (1–31) until you get a single digit between 1 and 9 (for example, born on the 24th gives 2 + 4 = 6). To calculate Bhagyank (Destiny Number), add every digit of your complete date of birth (DD + MM + YYYY) and reduce to a single digit 1–9 or Master Number 11, 22, or 33.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Mulank kaise nikale?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1 — yani aapka Mulank 1 hai.",
               },
             },
             {
@@ -97,7 +113,7 @@ export const Route = createFileRoute("/numerology/")({
               name: "How is Personal Year calculated?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Personal Year is calculated by adding your birth day and birth month to the target year and reducing the total to a single digit.",
+                text: "Personal Year is computed by reducing the sum of your birth day, birth month, and target year to a single digit.",
               },
             },
             {
@@ -106,22 +122,6 @@ export const Route = createFileRoute("/numerology/")({
               acceptedAnswer: {
                 "@type": "Answer",
                 text: "Name numerology is a separate calculation called Namank, which uses letters and a different system than Mulank.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is numerology scientific?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Numerology is a symbolic tradition and reflective framework rather than a scientifically validated predictive system.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is AstroFree free?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Yes. AstroFree offers free educational numerology tools, tarot content, and calculators without a paywall.",
               },
             },
           ],

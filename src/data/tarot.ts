@@ -1,6 +1,14 @@
 import { DECK } from "@/lib/tarot/engine";
 import type { TarotCard } from "@/lib/tarot/types";
+import {
+  getReversedYesNo,
+  getUprightYesNo,
+  getYesNoExplanation,
+  type YesNo,
+} from "@/lib/tarot/yesNo";
 import { UNIQUE_CARD_COPY } from "./tarot-cards";
+
+export type { YesNo };
 
 /**
  * Structured content layer for the 78 `/tarot/[slug]` pages.
@@ -10,8 +18,6 @@ import { UNIQUE_CARD_COPY } from "./tarot-cards";
  * editorial essays in `src/data/tarot-cards/`, combined with structured card
  * metadata from `src/data/cards/deck.json` and astronomical correspondences.
  */
-
-export type YesNo = "yes" | "no" | "maybe";
 
 export interface TarotFaq {
   question: string;
@@ -38,6 +44,8 @@ export interface TarotPage {
   zodiac: string;
   archetype: string;
   cardKeywords: string[];
+  uprightKeywords: string[];
+  reversedKeywords: string[];
   overview: string[];
   upright: string[];
   reversed: string[];
@@ -48,6 +56,10 @@ export interface TarotPage {
   spiritual: string[];
   yesNo: YesNo;
   yesNoText: string;
+  yesNoReversed: YesNo;
+  yesNoReversedText: string;
+  outcomeUpright: string;
+  outcomeReversed: string;
   timeline: { label: string; text: string }[];
   advice: string[];
   journalPrompts: string[];
@@ -61,7 +73,7 @@ export interface TarotPage {
 }
 
 /** Last editorial review date for the tarot library (page-specific, not build time). */
-const TAROT_UPDATED = "2026-08-04";
+const TAROT_UPDATED = "2026-11-18";
 
 const SUIT_LABEL: Record<string, string> = {
   wands: "Suit of Wands",
@@ -171,24 +183,83 @@ const COURT_RANK: Record<string, { label: string; index: number }> = {
   king: { label: "King", index: 14 },
 };
 
-/** Cards that answer clearly one way in a yes/no pull. Everything else is conditional. */
-const YES_IDS = new Set([
-  "major-00", "major-01", "major-03", "major-04", "major-06", "major-07", "major-08",
-  "major-10", "major-14", "major-17", "major-19", "major-20", "major-21",
-  "wands-ace", "wands-three", "wands-four", "wands-six", "wands-eight",
-  "cups-ace", "cups-two", "cups-three", "cups-six", "cups-nine", "cups-ten",
-  "swords-ace", "swords-six",
-  "pentacles-ace", "pentacles-three", "pentacles-six", "pentacles-eight",
-  "pentacles-nine", "pentacles-ten",
-]);
+/** Curated 4–6 keyword overrides ensuring clear Upright & Reversed tags for priority and Major Arcana cards. */
+const KEYWORD_OVERRIDES: Record<string, { upright: string[]; reversed: string[] }> = {
+  "major-00": {
+    upright: ["New beginnings", "Leap of faith", "Innocence", "Spontaneity", "Open potential"],
+    reversed: ["Recklessness", "Naivety", "Fear of risk", "Hesitation", "Poor judgment"],
+  },
+  "major-01": {
+    upright: ["Manifestation", "Resourcefulness", "Personal power", "Inspired action", "Skill"],
+    reversed: ["Manipulation", "Untapped talent", "Scattered focus", "Trickery", "Self-doubt"],
+  },
+  "major-02": {
+    upright: ["Intuition", "Inner knowing", "Mystery", "Stillness", "Subconscious insight"],
+    reversed: ["Hidden secrets", "Ignored intuition", "Emotional withdrawal", "Surface noise", "Silence"],
+  },
+  "major-06": {
+    upright: ["Mutual attraction", "Aligned values", "Choice", "Partnership", "Heartfelt union"],
+    reversed: ["Disharmony", "Misaligned values", "Indecision", "Cold feet", "Imbalance"],
+  },
+  "major-11": {
+    upright: ["Fairness", "Truth", "Cause and effect", "Accountability", "Objective balance"],
+    reversed: ["Unfairness", "Bias", "Dodging accountability", "Dishonesty", "Legal delay"],
+  },
+  "major-13": {
+    upright: ["Transformation", "Clean ending", "Renewal", "Letting go", "Rebirth"],
+    reversed: ["Resistance to change", "Stagnation", "Clinging to the past", "Fear of transition", "Delayed closure"],
+  },
+  "major-15": {
+    upright: ["Attachment", "Temptation", "Shadow self", "Control", "Materialism"],
+    reversed: ["Breaking free", "Reclaiming power", "Awakening", "Detachment", "Honest release"],
+  },
+  "major-17": {
+    upright: ["Hope", "Renewal", "Quiet faith", "Inspiration", "Serenity"],
+    reversed: ["Self-doubt", "Discouragement", "Creative fatigue", "Blocked optimism", "Disconnection"],
+  },
+  "swords-nine": {
+    upright: ["Overthinking", "Nighttime worry", "Anxiety", "Guilt", "Mental strain"],
+    reversed: ["Easing dread", "Seeking support", "Morning clarity", "Hidden guilt", "Recovery"],
+  },
+  "swords-ten": {
+    upright: ["Painful ending", "Rock bottom", "Exhaustion", "Finality", "Clear slate"],
+    reversed: ["Surviving the worst", "Slow recovery", "Resisting closure", "Relief", "Dawn breaking"],
+  },
+};
 
-const NO_IDS = new Set([
-  "major-12", "major-13", "major-15", "major-16", "major-18",
-  "wands-five", "wands-seven", "wands-ten",
-  "cups-five", "cups-eight",
-  "swords-three", "swords-five", "swords-seven", "swords-eight", "swords-nine", "swords-ten",
-  "pentacles-five",
-]);
+const SUIT_UPRIGHT_EXTRAS: Record<string, string[]> = {
+  wands: ["initiative", "creative drive", "momentum", "courage"],
+  cups: ["emotional flow", "empathy", "connection", "intuition"],
+  swords: ["mental clarity", "discernment", "truth", "decisiveness"],
+  pentacles: ["grounded effort", "practical value", "steadiness", "craft"],
+};
+
+const SUIT_REVERSED_EXTRAS: Record<string, string[]> = {
+  wands: ["scattered energy", "creative block", "impatience", "burnout risk"],
+  cups: ["emotional blockage", "guarded heart", "moodiness", "inward processing"],
+  swords: ["mental fog", "overanalysis", "miscommunication", "self-doubt"],
+  pentacles: ["financial caution", "stalled progress", "overwork", "missed grounding"],
+};
+
+function capFirst(text: string): string {
+  const clean = text.trim();
+  if (!clean) return clean;
+  return clean.charAt(0).toUpperCase() + clean.slice(1);
+}
+
+function buildKeywordList(raw: string[], extras: string[], min = 4, max = 6): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const item of [...raw, ...extras]) {
+    const clean = capFirst(item.replace(/[.]+$/, ""));
+    const key = clean.toLowerCase();
+    if (!clean || seen.has(key)) continue;
+    seen.add(key);
+    out.push(clean);
+    if (out.length >= max) break;
+  }
+  return out.slice(0, Math.max(min, out.length));
+}
 
 export function slugify(name: string): string {
   return name
@@ -320,13 +391,34 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
   }
 
   const a = attributionFor(card);
-  const yesNoValue: YesNo = YES_IDS.has(card.id)
-    ? "yes"
-    : NO_IDS.has(card.id)
-      ? "no"
-      : "maybe";
+  const yesNoValue: YesNo = getUprightYesNo(card.id);
+  const yesNoRevValue: YesNo = getReversedYesNo(card.id);
   const slug = slugify(card.name);
   const suitLabel = card.suit ? SUIT_LABEL[card.suit] : "Major Arcana";
+
+  const override = KEYWORD_OVERRIDES[card.id];
+  const suitUpExtras = card.suit ? SUIT_UPRIGHT_EXTRAS[card.suit] : ["archetypal turning point", "life lesson", "conscious shift"];
+  const suitRevExtras = card.suit ? SUIT_REVERSED_EXTRAS[card.suit] : ["blocked energy", "inward lesson", "delayed momentum", "shadow work"];
+
+  const uprightKeywords = override
+    ? override.upright
+    : buildKeywordList(
+        card.keywords,
+        [...card.uprightMeaning.split(","), ...suitUpExtras],
+        4,
+        5,
+      );
+  const reversedKeywords = override
+    ? override.reversed
+    : buildKeywordList(
+        card.reversedMeaning.split(","),
+        suitRevExtras,
+        4,
+        5,
+      );
+
+  const outcomeUpright = `${unique.timeline[2]} In an upright future position, ${card.name} channels ${uprightKeywords.slice(0, 3).join(", ").toLowerCase()} into forward momentum.`;
+  const outcomeReversed = `When ${card.name} lands reversed in a future or outcome slot, the trajectory turns inward or slows down—expect themes of ${reversedKeywords.slice(0, 3).join(", ").toLowerCase()} until the underlying block is addressed cleanly.`;
 
   const base: Omit<TarotPage, "wordCount" | "readingMinutes"> = {
     id: card.id,
@@ -354,6 +446,8 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     zodiac: a.zodiac,
     archetype: a.archetype,
     cardKeywords: card.keywords,
+    uprightKeywords,
+    reversedKeywords,
     overview: [...unique.overview],
     upright: [...unique.upright],
     reversed: [...unique.reversed],
@@ -364,6 +458,10 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     spiritual: [...unique.spiritual],
     yesNo: yesNoValue,
     yesNoText: unique.yesNoText,
+    yesNoReversed: yesNoRevValue,
+    yesNoReversedText: getYesNoExplanation(card, true, yesNoRevValue),
+    outcomeUpright,
+    outcomeReversed,
     timeline: [
       { label: "Past", text: unique.timeline[0] },
       { label: "Present", text: unique.timeline[1] },

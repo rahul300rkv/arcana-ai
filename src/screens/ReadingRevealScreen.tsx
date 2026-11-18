@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { RefreshCw } from "lucide-react";
 import { AppShell } from "@/components/app/AppShell";
 import { TarotCard } from "@/components/tarot/TarotCard";
 import { RevealAnimation } from "@/components/tarot/RevealAnimation";
@@ -27,6 +28,7 @@ export function ReadingRevealScreen() {
   if (!spread || !reading.cards.length) return null;
 
   const allRevealed = revealed.size === reading.cards.length;
+  const hasRevealedReversed = reading.cards.some((c, i) => revealed.has(i) && c.reversed);
 
   function toggle(i: number) {
     setRevealed((prev) => {
@@ -107,6 +109,24 @@ export function ReadingRevealScreen() {
           );
         })}
       </div>
+
+      {hasRevealedReversed && (
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[color-mix(in_oklab,var(--aurora-1)_40%,transparent)] bg-[color-mix(in_oklab,var(--aurora-1)_10%,transparent)] px-5 py-4 text-sm">
+          <div className="flex items-start gap-2.5 text-foreground/90">
+            <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--aurora-1)]" aria-hidden />
+            <span>
+              Notice a <strong>reversed card</strong>? Upside-down pulls highlight blocked,
+              internalized, or delayed energy rather than automatic bad news.
+            </span>
+          </div>
+          <Link
+            to="/what-do-reversed-tarot-cards-mean"
+            className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"
+          >
+            What Do Reversed Tarot Cards Mean? →
+          </Link>
+        </div>
+      )}
 
       {allRevealed && (
         <div className="mt-10">

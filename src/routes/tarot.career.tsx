@@ -1,10 +1,10 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 
-const PATH = "/tarot/career";
-const TITLE = "Career Tarot Reading — Free Work & Path Guidance";
+const CANONICAL_PATH = "/career-tarot-reading";
+const TITLE = "Free Career Tarot Reading Online: Job, Money & Future Spread";
 const DESCRIPTION =
-  "Free career tarot reading: draw four cards for Where You Are, Challenge, Advice, and Outcome to get AI-guided clarity on your work, path, or calling.";
+  "Get a free career tarot reading online: draw cards for your current role, career obstacle, strategic action, and job or financial outlook — instant guidance, no signup.";
 
 export const Route = createFileRoute("/tarot/career")({
   loader: async () => {
@@ -17,9 +17,10 @@ export const Route = createFileRoute("/tarot/career")({
   },
   head: ({ loaderData }) => ({
     meta: buildContentMeta({
-      path: PATH,
+      path: CANONICAL_PATH,
       title: TITLE,
       description: DESCRIPTION,
+      exactTitle: true,
       keywords: [
         "career tarot reading",
         "career tarot",
@@ -28,20 +29,20 @@ export const Route = createFileRoute("/tarot/career")({
         "free tarot reading",
       ],
     }),
-    links: [{ rel: "canonical", href: `https://astrofree.vercel.app${PATH}` }],
+    links: [{ rel: "canonical", href: `https://astrofree.vercel.app${CANONICAL_PATH}` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify(
           buildContentJsonLd({
-            path: PATH,
+            path: CANONICAL_PATH,
             title: TITLE,
             description: DESCRIPTION,
             published: loaderData?.published ?? "2026-08-16",
             updated: loaderData?.updated ?? "2026-11-16",
             crumbs: [
               { name: "Tarot", path: "/tarot" },
-              { name: "Career Reading", path: PATH },
+              { name: "Career Reading", path: CANONICAL_PATH },
             ],
             faqs: loaderData?.faqs ?? [],
           }),

@@ -267,7 +267,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
   ],
   relatedCards: [
     {
-      slug: "the-wheel-of-fortune",
+      slug: "wheel-of-fortune",
       name: "Wheel of Fortune",
       subtitle: "Cycles, change, turning points",
       base: "/tarot/$slug",
@@ -460,7 +460,7 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
       blurb: "Browse the full major and minor arcana library.",
     },
     {
-      to: "/tarot/career",
+      to: "/career-tarot-reading",
       label: "Career Reading",
       blurb: "Get clarity on work and direction with the same 4-card structure.",
     },
@@ -479,7 +479,7 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
 };
 
 export const YES_NO_CONFIG: ReadingLandingConfig = {
-  path: "/tarot/yes-no",
+  path: "/yes-no-tarot",
   spreadId: "single",
   eyebrow: "Yes or No Reading",
   h1: "Yes or No Tarot Reading",
@@ -613,7 +613,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
 };
 
 export const CAREER_CONFIG: ReadingLandingConfig = {
-  path: "/tarot/career",
+  path: "/career-tarot-reading",
   spreadId: "career",
   eyebrow: "Career Reading",
   h1: "Career Tarot Reading",
@@ -780,10 +780,72 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
   eyebrow: "Celtic Cross Reading",
   h1: "Celtic Cross Tarot Reading",
   intro:
-    "The Celtic Cross is the most well-known tarot spread in the world: ten cards covering the present situation, the challenge crossing it, its roots, the recent past and near future, your own self-image, outside influences, hopes and fears, and the likely outcome. It's the spread to reach for when a question is layered, high-stakes, or hard to untangle in a quick pull.",
+    "The Celtic Cross is the most well-known tarot spread in the world: ten cards covering the present situation, the challenge crossing it, its past roots, near future, conscious aims, subconscious drivers, advice, external influences, hopes and fears, and the likely outcome. It's the spread to reach for when a question is layered, high-stakes, or hard to untangle in a quick pull.",
   published: "2026-08-16",
-  updated: "2026-11-16",
+  updated: "2026-11-18",
   readingTime: "8 min read",
+  positionsBreakdown: [
+    {
+      number: 1,
+      label: "Present",
+      focus: "Heart of the matter",
+      description: "Where you stand right now — the immediate atmosphere, core tension, or primary theme surrounding your question.",
+    },
+    {
+      number: 2,
+      label: "Challenge",
+      focus: "Crossing influence",
+      description: "What intersects or complicates the Present card — an obstacle, competing priority, or lesson asking to be integrated.",
+    },
+    {
+      number: 3,
+      label: "Past",
+      focus: "Root pattern",
+      description: "Earlier events, beliefs, or habits that built the foundation beneath today's situation and continue shaping it.",
+    },
+    {
+      number: 4,
+      label: "Future",
+      focus: "Approaching shift",
+      description: "Where energy is leaning next over the coming weeks if current momentum stays on its present track.",
+    },
+    {
+      number: 5,
+      label: "Conscious",
+      focus: "Stated goal",
+      description: "Your conscious hopes, logical plan, and the best outcome you are openly aiming toward.",
+    },
+    {
+      number: 6,
+      label: "Subconscious",
+      focus: "Hidden driver",
+      description: "Unspoken instincts, gut feelings, or deeper emotional motivations operating below conscious awareness.",
+    },
+    {
+      number: 7,
+      label: "Advice",
+      focus: "Recommended posture",
+      description: "The constructive attitude, boundary, or action most likely to move the situation forward cleanly.",
+    },
+    {
+      number: 8,
+      label: "External Influences",
+      focus: "Environment & others",
+      description: "Other people, timing, workplace conditions, or outside factors influencing the path around you.",
+    },
+    {
+      number: 9,
+      label: "Hopes / Fears",
+      focus: "Inner expectations",
+      description: "What you quietly desire — or secretly dread — happening as this chapter unfolds.",
+    },
+    {
+      number: 10,
+      label: "Outcome",
+      focus: "Culminating trajectory",
+      description: "The likely synthesis and direction of all nine preceding positions if you follow the guidance shown in Position 7.",
+    },
+  ],
   sections: [
     {
       id: "how-it-works",
@@ -881,7 +943,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
   ],
   relatedCards: [
     {
-      slug: "the-wheel-of-fortune",
+      slug: "wheel-of-fortune",
       name: "Wheel of Fortune",
       subtitle: "Cycles, fate, turning points",
       base: "/tarot/$slug",

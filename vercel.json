@@ -1,5 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/tarot/career", "destination": "/career-tarot-reading", "permanent": true },
+    { "source": "/tarot/yes-no", "destination": "/yes-no-tarot", "permanent": true },
+    {
+      "source": "/guide/major-arcana-meanings",
+      "destination": "/major-arcana-tarot-cards-meanings",
+      "permanent": true
+    },
+    {
+      "source": "/guide/reversed-tarot-cards",
+      "destination": "/what-do-reversed-tarot-cards-mean",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },

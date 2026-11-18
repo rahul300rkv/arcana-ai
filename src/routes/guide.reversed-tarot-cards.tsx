@@ -3,10 +3,11 @@ import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 
 const PATH = "/guide/reversed-tarot-cards";
-const TITLE = "How to Interpret Reversed Tarot Cards";
+const CANONICAL_PATH = "/what-do-reversed-tarot-cards-mean";
+const TITLE = "What Do Reversed Tarot Cards Mean? How to Interpret Upside-Down Cards";
 const DESCRIPTION =
-  "A practical guide to reading reversed tarot cards — what a reversal actually changes, the four common interpretations, and worked examples across Major and Minor Arcana.";
-const UPDATED = "2026-08-14";
+  "What do reversed tarot cards mean? Learn how to read upside-down cards using the four practical lenses: blocked energy, internalized meaning, delay, and shadow aspect.";
+const UPDATED = "2026-11-18";
 
 const FAQS = [
   {
@@ -40,30 +41,31 @@ const FAQS = [
 export const Route = createFileRoute("/guide/reversed-tarot-cards")({
   head: () => ({
     meta: buildContentMeta({
-      path: PATH,
+      path: CANONICAL_PATH,
       title: TITLE,
       description: DESCRIPTION,
+      exactTitle: true,
       keywords: [
+        "what do reversed tarot cards mean",
         "reversed tarot cards",
         "how to read reversed tarot",
         "reversed tarot meanings",
-        "tarot reversals explained",
         "upside down tarot card meaning",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
+    links: [{ rel: "canonical", href: `${SITE_URL}${CANONICAL_PATH}` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify(
           buildContentJsonLd({
-            path: PATH,
+            path: CANONICAL_PATH,
             title: TITLE,
             description: DESCRIPTION,
             updated: UPDATED,
             crumbs: [
               { name: "Guides", path: "/guide" },
-              { name: "Reversed Tarot Cards", path: PATH },
+              { name: "Reversed Tarot Cards", path: CANONICAL_PATH },
             ],
             faqs: FAQS,
           }),

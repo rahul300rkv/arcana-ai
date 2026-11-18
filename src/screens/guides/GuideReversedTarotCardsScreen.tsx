@@ -16,9 +16,9 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
 
-const PATH = "/guide/reversed-tarot-cards";
-const TITLE = "How to Interpret Reversed Tarot Cards";
-const UPDATED = "2026-08-14";
+const PATH = "/what-do-reversed-tarot-cards-mean";
+const TITLE = "What Do Reversed Tarot Cards Mean?";
+const UPDATED = "2026-11-18";
 
 const FAQS = [
   {
@@ -51,24 +51,24 @@ const FAQS = [
 
 const APPROACHES = [
   {
-    title: "Blocked or delayed energy",
+    title: "Blocked energy",
     detail:
-      "The upright meaning is present but obstructed — progress is slower, permission hasn't been granted yet, or an external factor is holding things up. A reversed Six of Wands, for example, suggests recognition or victory that's been delayed rather than denied.",
+      "The upright theme wants to move forward but meets resistance — hesitation, missing preparation, or a boundary bottleneck. A reversed Magician often signals untapped skills or scattered focus rather than an inability to act.",
   },
   {
-    title: "Internalised energy",
+    title: "Internalized meaning",
     detail:
-      "The card's theme is happening inside the person rather than visibly in the world. A reversed Three of Cups might describe private joy or an inner circle rather than a public celebration.",
+      "Instead of playing out visibly around you, the card's energy turns inward into private processing, emotion, or reflection. A reversed Three of Cups often points to quiet gratitude or guarded social energy rather than a public party.",
   },
   {
-    title: "Shadow or excess expression",
+    title: "Delay & timing friction",
     detail:
-      "The upright quality has tipped into its unhealthy extreme. A reversed Strength can describe self-doubt or forcing control through domination rather than patience, while a reversed Emperor can point to rigidity or an abuse of authority.",
+      "The answer is 'not yet' rather than a permanent rejection. A reversed Six of Wands or Wheel of Fortune marks momentum that simply needs patience, clearer timing, or one unresolved step finished first.",
   },
   {
-    title: "The lesson not yet learned",
+    title: "Shadow aspect (excess or deficiency)",
     detail:
-      "The upright card's growth hasn't landed yet — the person is still working through the lesson rather than having integrated it. A reversed Eight of Swords suggests the person hasn't yet recognised the self-imposed limits described by the upright card.",
+      "The upright quality tips too far or fades too thin. A reversed Emperor may warn against rigid control or lack of structure, while a reversed Devil signals breaking free from an unhealthy attachment.",
   },
 ];
 
@@ -195,24 +195,24 @@ export function GuideReversedTarotCardsScreen() {
       <KeepExploring
         links={[
           {
+            to: "/major-arcana-tarot-cards-meanings",
+            label: "Major Arcana 22-card table",
+            blurb: "See upright and reversed keywords for all 22 Major Arcana cards.",
+          },
+          {
+            to: "/yes-no-tarot",
+            label: "Free Yes or No Tarot Oracle",
+            blurb: "See how reversed pulls affect Yes, No, and Maybe oracle answers.",
+          },
+          {
+            to: "/career-tarot-reading",
+            label: "Free Career Tarot Spread",
+            blurb: "Pull a 3-card work spread with live upright & reversed interpretations.",
+          },
+          {
             to: "/guide/tarot-for-beginners",
             label: "Complete guide to tarot for beginners",
             blurb: "Start here if upright meanings still feel unfamiliar.",
-          },
-          {
-            to: "/guide/major-arcana-meanings",
-            label: "22 Major Arcana explained",
-            blurb: "Every Major Arcana card with real-life examples, upright and reversed.",
-          },
-          {
-            to: "/guide/tarot-card-meanings",
-            label: "All 78 tarot card meanings",
-            blurb: "The full reference library — upright and reversed for every card.",
-          },
-          {
-            to: "/reading",
-            label: "Free AI tarot reading",
-            blurb: "Draw a live spread and see reversed cards interpreted for you.",
           },
         ]}
       />

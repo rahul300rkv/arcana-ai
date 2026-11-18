@@ -1,10 +1,10 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 
-const PATH = "/tarot/yes-no";
-const TITLE = "Yes or No Tarot Reading — Free Instant Answer";
+const CANONICAL_PATH = "/yes-no-tarot";
+const TITLE = "Free Yes or No Tarot Reading Online (Instant Oracle Answer)";
 const DESCRIPTION =
-  "Free yes or no tarot reading: draw a single card and get a clear yes, no, or maybe lean, plus an AI-guided explanation of why — always free, no signup.";
+  "Get a free yes or no tarot reading online: ask your question, draw a card, and reveal an instant Yes, No, or Maybe oracle answer with clear reasoning — no signup.";
 
 export const Route = createFileRoute("/tarot/yes-no")({
   loader: async () => {
@@ -17,9 +17,10 @@ export const Route = createFileRoute("/tarot/yes-no")({
   },
   head: ({ loaderData }) => ({
     meta: buildContentMeta({
-      path: PATH,
+      path: CANONICAL_PATH,
       title: TITLE,
       description: DESCRIPTION,
+      exactTitle: true,
       keywords: [
         "yes or no tarot reading",
         "yes no tarot",
@@ -28,20 +29,20 @@ export const Route = createFileRoute("/tarot/yes-no")({
         "free tarot reading",
       ],
     }),
-    links: [{ rel: "canonical", href: `https://astrofree.vercel.app${PATH}` }],
+    links: [{ rel: "canonical", href: `https://astrofree.vercel.app${CANONICAL_PATH}` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify(
           buildContentJsonLd({
-            path: PATH,
+            path: CANONICAL_PATH,
             title: TITLE,
             description: DESCRIPTION,
             published: loaderData?.published ?? "2026-08-16",
             updated: loaderData?.updated ?? "2026-11-16",
             crumbs: [
               { name: "Tarot", path: "/tarot" },
-              { name: "Yes or No Reading", path: PATH },
+              { name: "Yes or No Reading", path: CANONICAL_PATH },
             ],
             faqs: loaderData?.faqs ?? [],
           }),

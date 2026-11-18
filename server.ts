@@ -239,6 +239,15 @@ app.get("/ads.txt", (_req, res) => {
   }
 });
 
+app.get("/tarot/career", (_req, res) => res.redirect(301, "/career-tarot-reading"));
+app.get("/tarot/yes-no", (_req, res) => res.redirect(301, "/yes-no-tarot"));
+app.get("/guide/major-arcana-meanings", (_req, res) =>
+  res.redirect(301, "/major-arcana-tarot-cards-meanings"),
+);
+app.get("/guide/reversed-tarot-cards", (_req, res) =>
+  res.redirect(301, "/what-do-reversed-tarot-cards-mean"),
+);
+
 // Vite middleware or static serving
 async function startServer() {
   if (process.env.NODE_ENV === "production") {

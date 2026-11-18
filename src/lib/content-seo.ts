@@ -9,9 +9,10 @@ interface JsonLdArgs {
   updated: string;
   crumbs: { name: string; path: string }[];
   faqs: { question: string; answer: string }[];
+  webApp?: { name: string; category?: string };
 }
 
-/** WebPage + Article + BreadcrumbList + FAQPage graph for a content page. */
+/** WebPage + Article + BreadcrumbList + FAQPage (+ optional WebApplication) graph for a content page. */
 export function buildContentJsonLd({
   path,
   title,
@@ -21,60 +22,77 @@ export function buildContentJsonLd({
   updated,
   crumbs,
   faqs,
+  webApp,
 }: JsonLdArgs) {
   const url = `${SITE_URL}${path}`;
   const publishedDate = published ?? updated;
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "WebPage",
+      "@id": url,
+      url,
+      name: title,
+      description,
+      datePublished: publishedDate,
+      dateModified: updated,
+      inLanguage: "en",
+      isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
+    },
+    {
+      "@type": "Article",
+      headline: title,
+      description,
+      ...(image ? { image: `${SITE_URL}${image}` } : {}),
+      dateModified: updated,
+      datePublished: publishedDate,
+      mainEntityOfPage: url,
+      author: { "@type": "Organization", name: `${SITE_NAME} Editorial Desk`, url: SITE_URL },
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.webp` },
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        ...crumbs.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 2,
+          name: c.name,
+          item: `${SITE_URL}${c.path}`,
+        })),
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+  ];
+
+  if (webApp) {
+    graph.push({
+      "@type": "WebApplication",
+      name: webApp.name,
+      url,
+      datePublished: publishedDate,
+      dateModified: updated,
+      applicationCategory: webApp.category ?? "LifestyleApplication",
+      operatingSystem: "Any",
+      description,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    });
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": url,
-        url,
-        name: title,
-        description,
-        datePublished: publishedDate,
-        dateModified: updated,
-        inLanguage: "en",
-        isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
-      },
-      {
-        "@type": "Article",
-        headline: title,
-        description,
-        ...(image ? { image: `${SITE_URL}${image}` } : {}),
-        dateModified: updated,
-        datePublished: publishedDate,
-        mainEntityOfPage: url,
-        author: { "@type": "Organization", name: `${SITE_NAME} Editorial Desk`, url: SITE_URL },
-        publisher: {
-          "@type": "Organization",
-          name: SITE_NAME,
-          url: SITE_URL,
-          logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.webp` },
-        },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-          ...crumbs.map((c, i) => ({
-            "@type": "ListItem",
-            position: i + 2,
-            name: c.name,
-            item: `${SITE_URL}${c.path}`,
-          })),
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.question,
-          acceptedAnswer: { "@type": "Answer", text: f.answer },
-        })),
-      },
-    ],
+    "@graph": graph,
   };
 }
 
@@ -85,17 +103,19 @@ export function buildContentMeta({
   description,
   keywords,
   image,
+  exactTitle = false,
 }: {
   path: string;
   title: string;
   description: string;
   keywords: string[];
   image?: string;
+  exactTitle?: boolean;
 }) {
   const url = `${SITE_URL}${path}`;
   const absoluteImage = image ? `${SITE_URL}${image}` : undefined;
   return [
-    { title: `${title} | ${SITE_NAME}` },
+    { title: exactTitle ? title : `${title} | ${SITE_NAME}` },
     { name: "description", content: description },
     { name: "keywords", content: keywords.join(", ") },
     { name: "robots", content: "index, follow, max-image-preview:large" },

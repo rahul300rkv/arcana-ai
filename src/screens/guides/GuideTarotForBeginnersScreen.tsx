@@ -225,7 +225,7 @@ export function GuideTarotForBeginnersScreen() {
         </ol>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Reversed cards (drawn upside down) add a fifth layer once you're ready for it — see{" "}
-          <Link to="/guide/reversed-tarot-cards" className="text-[var(--gold)] hover:underline">
+          <Link to="/what-do-reversed-tarot-cards-mean" className="text-[var(--gold)] hover:underline">
             AstroFree's guide to reversed tarot cards
           </Link>{" "}
           for how to work them into this same four-step process.
@@ -277,13 +277,13 @@ export function GuideTarotForBeginnersScreen() {
       <KeepExploring
         links={[
           {
-            to: "/guide/major-arcana-meanings",
+            to: "/major-arcana-tarot-cards-meanings",
             label: "22 Major Arcana explained",
             blurb: "Every Major Arcana card with real-life examples of how it tends to show up.",
           },
           {
-            to: "/guide/reversed-tarot-cards",
-            label: "How to interpret reversed tarot cards",
+            to: "/what-do-reversed-tarot-cards-mean",
+            label: "What do reversed tarot cards mean?",
             blurb: "A practical method for reading upside-down cards without guessing.",
           },
           {
