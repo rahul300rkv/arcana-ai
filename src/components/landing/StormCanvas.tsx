@@ -2,10 +2,7 @@ import { useEffect, useRef, type RefObject } from "react";
 import * as THREE from "three";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
-import { GammaCorrectionShader } from "three/addons/shaders/GammaCorrectionShader.js";
-import { CopyShader } from "three/addons/shaders/CopyShader.js";
 
 const CONFIG = {
   bgColor: "#1a0418",
@@ -85,16 +82,11 @@ export default function StormCanvas({
     let isVisible = true;
 
     let renderer: THREE.WebGLRenderer | null = null;
-    let torusComposer: EffectComposer | null = null;
-    let bloomComposer: EffectComposer | null = null;
     let finalComposer: EffectComposer | null = null;
-    let torusBloomPass: UnrealBloomPass | null = null;
-    let bloomPass: UnrealBloomPass | null = null;
     let stormGeo: THREE.BufferGeometry | null = null;
     let stormMat: THREE.ShaderMaterial | null = null;
     let atmoGeo: THREE.BufferGeometry | null = null;
     let atmoMat: THREE.ShaderMaterial | null = null;
-    let emptyHaloTex: THREE.DataTexture | null = null;
 
     try {
       const getSize = () => ({
@@ -142,35 +134,10 @@ export default function StormCanvas({
 
       const renderScene = new RenderPass(scene, camera);
 
-      torusComposer = new EffectComposer(renderer);
-      torusComposer.renderToScreen = false;
-      torusComposer.setPixelRatio(dpr);
-      torusComposer.setSize(initW, initH);
-      torusComposer.addPass(renderScene);
-      torusComposer.addPass(new ShaderPass(GammaCorrectionShader));
-      torusBloomPass = new UnrealBloomPass(new THREE.Vector2(initW, initH), 0.22, 0.2, 0);
-      torusComposer.addPass(torusBloomPass);
-      torusComposer.addPass(new ShaderPass(CopyShader));
-
-      bloomComposer = new EffectComposer(renderer);
-      bloomComposer.renderToScreen = false;
-      bloomComposer.setPixelRatio(dpr);
-      bloomComposer.setSize(initW, initH);
-      bloomComposer.addPass(renderScene);
-      bloomPass = new UnrealBloomPass(new THREE.Vector2(initW, initH), 0.4, 0.55, 0);
-      bloomComposer.addPass(bloomPass);
-      bloomComposer.addPass(new ShaderPass(GammaCorrectionShader));
-
-      emptyHaloTex = new THREE.DataTexture(new Uint8Array([0, 0, 0, 0]), 1, 1);
-      emptyHaloTex.needsUpdate = true;
-
       const FinalPass = {
         uniforms: {
           iTime: { value: 0 },
           tDiffuse: { value: null },
-          torusTexture: { value: null },
-          bloomTexture: { value: null },
-          haloTexture: { value: emptyHaloTex },
           uBg: { value: hexToVec3(CONFIG.bgColor) },
           uFlameA: { value: hexToVec3(CONFIG.flameColor) },
           uFlameB: { value: hexToVec3(CONFIG.flameColor2) },
@@ -180,9 +147,6 @@ export default function StormCanvas({
         fragmentShader: `
           uniform float iTime;
           uniform sampler2D tDiffuse;
-          uniform sampler2D bloomTexture;
-          uniform sampler2D torusTexture;
-          uniform sampler2D haloTexture;
           uniform vec3 uBg;
           uniform vec3 uFlameA;
           uniform vec3 uFlameB;
@@ -224,9 +188,6 @@ export default function StormCanvas({
 
           void main() {
             vec4 base = texture2D(tDiffuse, vUv);
-            vec4 bloom = texture2D(bloomTexture, vUv);
-            vec4 torus = texture2D(torusTexture, vUv);
-            vec4 halo = texture2D(haloTexture, vUv);
 
             vec2 centered = vUv - 0.5;
             float cornerMask = smoothstep(0.22, 0.78, length(centered));
@@ -243,7 +204,7 @@ export default function StormCanvas({
             vec3 flame = mix(uFlameA, uFlameB, smoothstep(0.25, 0.8, nB)) * (0.45 + 0.85 * nA) * cornerGlow;
 
             vec3 bg = uBg + flame * uFlameAmt;
-            vec3 col = bg + base.rgb + bloom.rgb + torus.rgb + halo.rgb;
+            vec3 col = bg + base.rgb;
             gl_FragColor = vec4(col, 1.0);
           }
         `,
@@ -254,11 +215,9 @@ export default function StormCanvas({
       finalComposer.setSize(initW, initH);
       finalComposer.addPass(renderScene);
       const finalPass = new ShaderPass(FinalPass);
-      finalPass.uniforms.bloomTexture.value = bloomComposer.readBuffer.texture;
-      finalPass.uniforms.torusTexture.value = torusComposer.readBuffer.texture;
       finalComposer.addPass(finalPass);
 
-      const count = 50000;
+      const count = 24000;
       const radius = 2.5;
       const positions = new Float32Array(count * 3);
       const scales = new Float32Array(count);
@@ -511,10 +470,6 @@ void main() {
         renderer?.setPixelRatio(nextDpr);
         renderer?.setSize(w, h);
 
-        torusComposer?.setPixelRatio(nextDpr);
-        torusComposer?.setSize(w, h);
-        bloomComposer?.setPixelRatio(nextDpr);
-        bloomComposer?.setSize(w, h);
         finalComposer?.setPixelRatio(nextDpr);
         finalComposer?.setSize(w, h);
 
@@ -563,7 +518,7 @@ void main() {
 
       const tick = () => {
         if (disposed || !isVisible || document.hidden) return;
-        if (!renderer || !torusComposer || !bloomComposer || !finalComposer) return;
+        if (!renderer || !finalComposer) return;
 
         const dt = Math.min(clock.getDelta(), 0.05);
         elapsedTime += dt;
@@ -606,14 +561,6 @@ void main() {
 
         uniforms.uTime.value = elapsedTime;
         updatePointer();
-
-        camera.layers.set(LAYERS.TORUS_SCENE);
-        torusComposer.render();
-        finalPass.uniforms.torusTexture.value = torusComposer.readBuffer.texture;
-
-        camera.layers.set(LAYERS.BLOOM_SCENE);
-        bloomComposer.render();
-        finalPass.uniforms.bloomTexture.value = bloomComposer.readBuffer.texture;
 
         camera.layers.set(LAYERS.ENTIRE_SCENE);
         finalComposer.render();
@@ -679,11 +626,6 @@ void main() {
         stormMat?.dispose();
         atmoGeo?.dispose();
         atmoMat?.dispose();
-        emptyHaloTex?.dispose();
-        torusBloomPass?.dispose();
-        bloomPass?.dispose();
-        torusComposer?.dispose();
-        bloomComposer?.dispose();
         finalComposer?.dispose();
         renderer?.dispose();
         if (host) {

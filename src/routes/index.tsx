@@ -273,7 +273,7 @@ function LandingPage() {
         </section>
 
         {/* 6. Comprehensive Educational Content: The Architecture of Tarot */}
-        <section className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#120307]/55">
+        <section className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#120307]/55 [content-visibility:auto] [contain-intrinsic-size:auto_780px]">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
@@ -378,7 +378,7 @@ function LandingPage() {
         </section>
 
         {/* 7. Comprehensive Educational Content: The Vedic Science of Ank Shastra */}
-        <section className="relative py-20 border-t border-[#f5e7d0]/15">
+        <section className="relative py-20 border-t border-[#f5e7d0]/15 [content-visibility:auto] [contain-intrinsic-size:auto_780px]">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
@@ -502,7 +502,7 @@ function LandingPage() {
         </section>
 
         {/* 8. Comprehensive Editorial Treatise: The Synthesis of Tarot and Vedic Numerology (800+ Words for AdSense Quality Compliance) */}
-        <section className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#17040a]/80">
+        <section className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#17040a]/80 [content-visibility:auto] [contain-intrinsic-size:auto_1400px]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
@@ -592,7 +592,7 @@ function LandingPage() {
         </section>
 
         {/* 9. Substantive In-Depth FAQ Section */}
-        <section id="faq" className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#120307]/55">
+        <section id="faq" className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#120307]/55 [content-visibility:auto] [contain-intrinsic-size:auto_680px]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="mx-auto max-w-2xl text-center mb-12">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">

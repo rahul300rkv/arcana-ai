@@ -59,7 +59,7 @@ export function LandingNav() {
                 aria-label="Language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as Language)}
-                className="h-7 w-[108px] cursor-pointer appearance-none bg-transparent pr-5 text-xs text-[#faf2e4] focus:outline-none"
+                className="h-7 w-[108px] cursor-pointer appearance-none rounded-full bg-transparent pr-5 text-xs text-[#faf2e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f5e7d0]/70"
               >
                 {LANGUAGE_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value} className="bg-[#23080f] text-[#faf2e4]">

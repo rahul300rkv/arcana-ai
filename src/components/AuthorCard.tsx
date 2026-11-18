@@ -28,7 +28,7 @@ export function AuthorCard({
   return (
     <div
       className={cn(
-        "rounded-2xl liquid-chrome-card p-6 shadow-2xl md:backdrop-blur-xl",
+        "rounded-2xl liquid-chrome-card p-6 shadow-2xl",
         className,
       )}
     >

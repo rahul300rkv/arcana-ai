@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307] md:bg-[#120307]/95 py-12 sm:py-16 md:backdrop-blur-xl">
+    <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307] py-12 sm:py-16 [content-visibility:auto] [contain-intrinsic-size:auto_420px]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand Col */}

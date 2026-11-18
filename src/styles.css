@@ -1,5 +1,14 @@
 @import "tailwindcss" source(none);
 @source "../src";
+@source not "../src/components/ui";
+@source "../src/components/ui/accordion.tsx";
+@source "../src/components/ui/dialog.tsx";
+@source "../src/components/ui/input.tsx";
+@source "../src/components/ui/label.tsx";
+@source "../src/components/ui/radio-group.tsx";
+@source "../src/components/ui/select.tsx";
+@source "../src/components/ui/separator.tsx";
+@source "../src/components/ui/switch.tsx";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -158,14 +167,16 @@
   background: linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, #cbb38b);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: #faf2e4;
+  -webkit-text-fill-color: transparent;
 }
 
 @utility aurora-text {
   background: linear-gradient(120deg, var(--gold-soft), var(--gold) 50%, #e4c6a0);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: #faf2e4;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Crimson Burgundy & Warm Ivory Cream Satin System */
@@ -173,7 +184,8 @@
   background: linear-gradient(135deg, #fffdf8 0%, #eadac1 20%, #fffaf0 42%, #cbb494 64%, #f5e9d5 84%, #fffdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: #faf2e4;
+  -webkit-text-fill-color: transparent;
   @media (min-width: 768px) {
     filter: drop-shadow(0 2px 14px rgba(250, 240, 224, 0.22));
   }
@@ -183,7 +195,8 @@
   background: linear-gradient(135deg, #fffdf7 0%, #eed7b2 22%, #fffaf0 45%, #bfa074 68%, #f8ebd3 86%, #fffdf7 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: #faf2e4;
+  -webkit-text-fill-color: transparent;
   @media (min-width: 768px) {
     filter: drop-shadow(0 2px 14px rgba(242, 226, 196, 0.28));
   }
@@ -193,7 +206,8 @@
   background: linear-gradient(110deg, #fffaf0 0%, #d8c2a3 20%, #fffdf8 42%, #b89c79 65%, #f5ead8 84%, #fffdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: #faf2e4;
+  -webkit-text-fill-color: transparent;
   @media (min-width: 768px) {
     filter: drop-shadow(0 2px 10px rgba(250, 240, 224, 0.18));
   }
@@ -207,13 +221,12 @@
     inset 0 -1px 1px 0 rgba(12, 2, 5, 0.75),
     0 16px 36px -14px rgba(10, 1, 4, 0.85);
   @media (min-width: 768px) {
-    background: radial-gradient(130% 120% at 50% 0%, rgba(250, 238, 218, 0.08) 0%, rgba(44, 10, 19, 0.84) 52%, rgba(20, 4, 9, 0.96) 100%);
+    background: radial-gradient(130% 120% at 50% 0%, rgba(250, 238, 218, 0.08) 0%, rgba(44, 10, 19, 0.9) 52%, rgba(20, 4, 9, 0.97) 100%);
     box-shadow:
       inset 0 1px 1px 0 rgba(255, 248, 235, 0.34),
       inset 0 -1px 1px 0 rgba(12, 2, 5, 0.75),
       0 20px 45px -15px rgba(10, 1, 4, 0.88),
       0 0 28px -6px rgba(155, 28, 54, 0.25);
-    backdrop-filter: blur(24px) saturate(140%);
   }
 }
 

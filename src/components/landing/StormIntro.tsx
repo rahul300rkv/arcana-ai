@@ -4,6 +4,23 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 
 const StormCanvas = lazy(() => import("./StormCanvas"));
 
+function hasHardwareWebGL(): boolean {
+  try {
+    const probe = document.createElement("canvas");
+    const gl =
+      (probe.getContext("webgl2") as WebGL2RenderingContext | null) ||
+      (probe.getContext("webgl") as WebGLRenderingContext | null);
+    if (!gl) return false;
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+    const param = ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER;
+    const gpu = String(gl.getParameter(param) ?? "");
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+    return !/SwiftShader|llvmpipe|softpipe|Software|Basic Render/i.test(gpu);
+  } catch {
+    return false;
+  }
+}
+
 export function StormIntro() {
   const wrapperRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -35,22 +52,38 @@ export function StormIntro() {
       setWebglReady(false);
       return;
     }
-    if (isMobile) {
+    if (isMobile || !hasHardwareWebGL()) {
       setWebglReady(false);
       return;
     }
 
-    // Defer loading Three.js cleanly on desktop so first paint & hydration stay unblocked.
-    const w = window as unknown as {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
+    let triggered = false;
+    let timerId: number | undefined;
+    const events: Array<keyof WindowEventMap> = ["pointermove", "wheel", "scroll", "keydown"];
+
+    const activate = () => {
+      if (triggered) return;
+      triggered = true;
+      cleanup();
+      setWebglReady(true);
     };
-    if (typeof w.requestIdleCallback === "function") {
-      const id = w.requestIdleCallback(() => setWebglReady(true), { timeout: 600 });
-      return () => w.cancelIdleCallback?.(id);
+
+    const cleanup = () => {
+      for (const ev of events) {
+        window.removeEventListener(ev, activate);
+      }
+      if (timerId !== undefined) {
+        window.clearTimeout(timerId);
+        timerId = undefined;
+      }
+    };
+
+    for (const ev of events) {
+      window.addEventListener(ev, activate, { once: true, passive: true });
     }
-    const timer = window.setTimeout(() => setWebglReady(true), 120);
-    return () => window.clearTimeout(timer);
+    timerId = window.setTimeout(activate, 1800);
+
+    return cleanup;
   }, []);
 
   return (
