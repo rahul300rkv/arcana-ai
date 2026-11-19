@@ -10,5 +10,6 @@ Disallow: /profile
 Disallow: /settings
 Disallow: /reading
 Disallow: /reading/
+Disallow: /*?*
 
 Sitemap: https://astrofree.vercel.app/sitemap.xml

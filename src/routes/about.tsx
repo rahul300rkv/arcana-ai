@@ -5,19 +5,31 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About AstroFree — Editorial Mission" },
+      { title: "About AstroFree — Mission, Editorial Standards & Privacy" },
       {
         name: "description",
         content:
-          "Learn how AstroFree creates free tarot and numerology education, why we combine AI with editorial review, and how we keep guidance responsible and privacy-first.",
+          "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
       },
-      { property: "og:title", content: "About AstroFree — Editorial Mission" },
+      {
+        property: "og:title",
+        content: "About AstroFree — Mission, Editorial Standards & Privacy",
+      },
       {
         property: "og:description",
         content:
-          "AstroFree is a free educational tarot and numerology platform built for reflection, clarity, and responsible learning.",
+          "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
       },
       { property: "og:url", content: `${SITE_URL}/about` },
+      {
+        name: "twitter:title",
+        content: "About AstroFree — Mission, Editorial Standards & Privacy",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
+      },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
     scripts: [
@@ -26,9 +38,9 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/about",
-            title: "About AstroFree — Our Story & Mission",
+            title: "About AstroFree — Mission, Editorial Standards & Privacy",
             description:
-              "Who builds AstroFree, why the app is free, and how we approach tarot and numerology content.",
+              "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
             crumbs: [
               {
                 name: "About",

@@ -32,7 +32,7 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
       {
         name: "description",
         content:
-          "A free guide to tarot spreads: what each position means in the Single Card, Three Card, Love, Career, Money, Decision, Celtic Cross, and Year Ahead spreads, and when to use each one.",
+          "Explore 8 tarot spreads from Single Card to the 10-card Celtic Cross. Learn every card position for Love, Career, Decision, and Year Ahead draws.",
       },
       {
         name: "keywords",
@@ -40,7 +40,18 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
           "tarot spreads, celtic cross spread, three card tarot spread, love tarot spread, career tarot spread, year ahead tarot spread, tarot spread meanings",
       },
       { property: "og:title", content: "Tarot Spreads Explained — Single Card to Celtic Cross" },
+      {
+        property: "og:description",
+        content:
+          "Explore 8 tarot spreads from Single Card to the 10-card Celtic Cross. Learn every card position for Love, Career, Decision, and Year Ahead draws.",
+      },
       { property: "og:url", content: `${SITE_URL}/guide/tarot-spreads` },
+      { name: "twitter:title", content: "Tarot Spreads Explained — Single Card to Celtic Cross" },
+      {
+        name: "twitter:description",
+        content:
+          "Explore 8 tarot spreads from Single Card to the 10-card Celtic Cross. Learn every card position for Love, Career, Decision, and Year Ahead draws.",
+      },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/guide/tarot-spreads` }],
     scripts: [

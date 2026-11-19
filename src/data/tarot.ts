@@ -453,7 +453,11 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
 
   const displayPair = altName ? `${altName} (${card.name})` : card.name;
   const title = `${displayPair} Meaning: Card of the Day, Upright & Reversed`;
-  const description = `${displayPair} Card of the Day & tarot meaning: ${card.uprightMeaning.toLowerCase()} upright and ${card.reversedMeaning.toLowerCase()} reversed. Love, career, future & Yes/No.`;
+  const rawDescription = `${displayPair} Card of the Day & tarot meaning: ${card.uprightMeaning.toLowerCase()} upright vs. ${card.reversedMeaning.toLowerCase()} reversed. Love, career & Yes/No.`;
+  const description =
+    rawDescription.length <= 160
+      ? rawDescription
+      : `${displayPair} Card of the Day meaning: ${card.uprightMeaning.toLowerCase()} upright; ${card.reversedMeaning.toLowerCase()} reversed.`;
   const intro = altName
     ? `${altName} — also known as ${card.name} — brings themes of ${card.keywords.join(", ").toLowerCase()} through Rider–Waite–Smith symbolism, ${a.element} energy, and ${a.planet} in ${a.zodiac}.`
     : `${card.name} — ${card.keywords.join(", ").toLowerCase()} — explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`;

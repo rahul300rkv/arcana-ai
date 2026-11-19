@@ -43,7 +43,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800"
+          "value": "public, max-age=0, must-revalidate"
         },
         {
           "key": "X-Content-Type-Options",
@@ -68,8 +68,25 @@
       ]
     },
     {
+      "source": "/(reading|dashboard|journal|profile|settings)(/.*)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/api/(.*)",
       "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
         {
           "key": "Cache-Control",
           "value": "no-store"
