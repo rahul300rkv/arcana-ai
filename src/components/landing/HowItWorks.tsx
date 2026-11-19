@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "./Features";
-import { ArrowRight, Compass, Sparkles, Wand2 } from "lucide-react";
+import { ArrowRight, Compass, Sparkles, Wand2 } from "@/components/icons";
 
 const steps = [
   {
     n: "01",
     icon: Compass,
     title: "Frame Your Sacred Intention",
-    body: "Begin with a quiet breath. Focus on your query — love, career, crossroads, or general spiritual alignment — and choose the spread tailored to your inquiry.",
+    body: "Begin with a quiet breath. Focus on your question across love, career, crossroads, or personal direction, and choose the spread tailored to your inquiry.",
   },
   {
     n: "02",

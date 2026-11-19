@@ -1,11 +1,11 @@
-/** A reduced numerology digit — always 1 through 9 (see `reduceToSingleDigit`). */
+/** A reduced numerology digit: always 1 through 9 (see `reduceToSingleDigit`). */
 export type RootNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 /**
  * Active (1,3,5,8): action, starting, networking, bold moves.
  * Reflective (2,4,7,9): planning, organizing, auditing, wrapping up.
  * Harmony (6): home, relationships, commitments.
- * Only meaningful for a Personal Month — null for a yearly-only forecast.
+ * Only meaningful for a Personal Month: null for a yearly-only forecast.
  */
 export type Pacing = "active" | "reflective" | "harmony";
 

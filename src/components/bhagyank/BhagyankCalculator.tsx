@@ -1,6 +1,6 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlertTriangle, Calculator, RotateCcw, Sparkles, Star } from "lucide-react";
+import { AlertTriangle, Calculator, RotateCcw, Sparkles, Star } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { StepTrail } from "@/components/arcana/StepTrail";
@@ -234,7 +234,7 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
                   transition={{ delay: 0.3 }}
                   className="mt-1 text-xs text-[var(--gold)]"
                 >
-                  This is a Master Number — read as carrying extra intensity in numerological
+                  This is a Master Number, read as carrying extra intensity in numerological
                   tradition.
                 </motion.p>
               )}
@@ -285,7 +285,7 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
               </button>
             </motion.div>
 
-            {/* Display ad — sits below the result, outside the reading flow */}
+            {/* Display ad: sits below the result, outside the reading flow */}
             <div className="mt-8">
               <DisplayAd />
             </div>

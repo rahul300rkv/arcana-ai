@@ -27,7 +27,7 @@ const LANGUAGE_INSTRUCTION: Record<Language, string> = {
   en: "Write the entire reading in English.",
   hi: "Write the entire reading in Hindi, using the Devanagari script throughout.",
   hinglish:
-    "Write the entire reading in Hinglish — natural, casual Hindi-English code-mixed prose written in the Latin/Roman alphabet (not Devanagari), the way many Indians text and speak day to day.",
+    "Write the entire reading in Hinglish: natural, casual Hindi-English code-mixed prose written in the Latin/Roman alphabet (not Devanagari), the way many Indians text and speak day to day.",
   bn: "Write the entire reading in Bengali, using the Bengali script throughout.",
   te: "Write the entire reading in Telugu, using the Telugu script throughout.",
   mr: "Write the entire reading in Marathi, using the Devanagari script throughout.",
@@ -47,13 +47,13 @@ function buildPrompt(spreadId: SpreadId, question: string, cards: DrawnCard[], l
       const card = getCardById(c.cardId);
       const position = spread.positions[i];
       if (!card || !position) return null;
-      return `${i + 1}. Position "${position.name}" (${position.meaning}): ${card.name}${c.reversed ? " — Reversed" : " — Upright"}. Keywords: ${card.keywords.join(", ")}.`;
+      return `${i + 1}. Position "${position.name}" (${position.meaning}): ${card.name}${c.reversed ? " (Reversed" : ") Upright"}. Keywords: ${card.keywords.join(", ")}.`;
     })
     .filter(Boolean)
     .join("\n");
 
   return `You are a warm, insightful tarot reader. A seeker drew the "${spread.name}" spread (${spread.description}).
-${question ? `Their question: "${question}"` : "They did not share a specific question — offer general guidance."}
+${question ? `Their question: "${question}"` : "They did not share a specific question: offer general guidance."}
 
 Cards drawn:
 ${cardLines}
@@ -64,7 +64,7 @@ Write a tarot reading interpretation with:
 
 ${LANGUAGE_INSTRUCTION[language]} Card names (e.g. "${cards[0] ? getCardById(cards[0].cardId)?.name : "The Fool"}") may stay in English even within Hindi/Hinglish sentences, as is standard practice.
 
-Keep the tone grounded, compassionate, and specific — avoid vague platitudes. Do not use markdown headers. Return plain prose paragraphs only, separated by blank lines, in this exact order: one paragraph per card (in spread order), then the synthesis paragraph last.`;
+Keep the tone grounded, compassionate, and specific: avoid vague platitudes. Do not use markdown headers. Return plain prose paragraphs only, separated by blank lines, in this exact order: one paragraph per card (in spread order), then the synthesis paragraph last.`;
 }
 
 function parseAiResponse(
@@ -79,7 +79,7 @@ function parseAiResponse(
     .filter(Boolean);
 
   if (paragraphs.length < cards.length + 1) {
-    // Model didn't follow the format closely enough to parse reliably — fall back.
+    // Model didn't follow the format closely enough to parse reliably: fall back.
     throw new Error("Unexpected AI response shape");
   }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Compass, RefreshCw, RotateCcw, Sparkles } from "lucide-react";
+import { Compass, RefreshCw, RotateCcw, Sparkles } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
@@ -82,7 +82,7 @@ function buildPositionInterpretation(
     if (index === 1) {
       return `${card.name} reversed in the Present invites quiet recalibration around ${reversedSummary} before committing externally.`;
     }
-    return `Reversed in the Future position, ${card.name} flags temporary delay around ${reversedSummary} — adjusting your Present posture redirects this smoothly.`;
+    return `Reversed in the Future position, ${card.name} flags temporary delay around ${reversedSummary}: adjusting your Present posture redirects this smoothly.`;
   }
 
   if (framing === "troubleshoot") {
@@ -305,7 +305,7 @@ function InteractiveThreeCardSpread() {
                   aria-hidden
                 />
                 <span>
-                  A <strong>reversed card</strong> appeared in your 3-card spread — reversals point
+                  A <strong>reversed card</strong> appeared in your 3-card spread: reversals point
                   to internalized energy, delays, or shadow lessons waiting for gentle adjustment.
                 </span>
               </div>

@@ -2,7 +2,7 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 
 const PATH = "/tarot/one-card";
-const TITLE = "One Card Tarot Reading — Free Daily Card Pull";
+const TITLE = "One Card Tarot Reading: Free Daily Card Pull";
 const DESCRIPTION =
   "Draw one tarot card for a focused, free AI-guided reading. A quick single-card pull for daily check-ins, yes/no questions, or a clear message right now.";
 

@@ -12,7 +12,7 @@ import {
   Sparkles,
   Users,
   Wand2,
-} from "lucide-react";
+} from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { InfoGrid } from "@/components/content/InfoGrid";
@@ -68,7 +68,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
           ))}
         </div>
         <p className="mt-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
-          Your Mulank uses only the day of the month. Add its digits until one digit remains — the
+          Your Mulank uses only the day of the month. Add its digits until one digit remains, since the
           month and year belong to your{" "}
           <Link
             to="/numerology/$slug"
@@ -117,7 +117,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.strengths.map((s) => (
-                <li key={s}>— {s}</li>
+                <li key={s} className="flex gap-2">
+                  <span aria-hidden className="text-[var(--gold)]">•</span>
+                  <span>{s}</span>
+                </li>
               ))}
             </ul>
           </GlassCard>
@@ -125,7 +128,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             <h3 className="font-display text-lg">Challenges</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.weaknesses.map((s) => (
-                <li key={s}>— {s}</li>
+                <li key={s} className="flex gap-2">
+                  <span aria-hidden className="text-muted-foreground/70">•</span>
+                  <span>{s}</span>
+                </li>
               ))}
             </ul>
           </GlassCard>
@@ -210,7 +216,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             <h3 className="font-display text-lg">Journal prompts</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.journalPrompts.map((p, i) => (
-                <li key={i}>— {p}</li>
+                <li key={i} className="flex gap-2">
+                  <span aria-hidden className="text-[var(--gold)]">•</span>
+                  <span>{p}</span>
+                </li>
               ))}
             </ul>
           </GlassCard>

@@ -7,7 +7,7 @@ import { GoldButton } from "@/components/arcana/GoldButton";
 import { drawCards } from "@/lib/tarot/engine";
 import { getSpread } from "@/lib/tarot/spreads";
 import { readingStore, useReading } from "@/lib/tarot/store";
-import { Shuffle } from "lucide-react";
+import { Shuffle } from "@/components/icons";
 
 export function ReadingShuffleScreen() {
   const reading = useReading();

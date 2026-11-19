@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, Calculator, Compass, HelpCircle, Sparkles } from "lucide-react";
+import { BookOpen, Calculator, Compass, HelpCircle, Sparkles } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -15,7 +15,7 @@ export function NamankHubScreen() {
       crumbs={[{ label: "Numerology", to: "/numerology" }, { label: "Namank" }]}
       eyebrow="Numerology Guide"
       title="Namank: your name number, explained"
-      intro="Namank — also called the Name Number — is derived from the letters of your full name using the Chaldean numerology system. It describes the energy your name carries and how it shapes both your personality and how others perceive you. This guide covers how to calculate it and what each name number 1–9 represents."
+      intro="Namank (also called the Name Number) is derived from the letters of your full name using the Chaldean numerology system. It describes the energy your name carries and how it shapes both your personality and how others perceive you. This guide covers how to calculate it and what each name number 1–9 represents."
       url={`${SITE_URL}/numerology/namank`}
       updated={NAMANK_UPDATED}
       readingMinutes={10}
@@ -32,8 +32,8 @@ export function NamankHubScreen() {
         icon={BookOpen}
         paragraphs={[
           "Namank is the single digit you get by adding together the numerical values of each letter in your full name, using the Chaldean system of numerology. In this system, each letter A through Z is assigned a value from 1 to 8, and the digits are then reduced until a single number remains.",
-          "While Mulank (your birth number) describes your everyday instinctive personality and Bhagyank (your destiny number) describes your broader life path, Namank describes the energy your name carries — how it shapes the way you present yourself and how others naturally perceive you. Many numerologists consider the three together for a complete picture: Mulank is how you act, Bhagyank is where you're headed, and Namank is how you're perceived.",
-          "Some people find that their Namank resonates deeply with their personality, while others discover it describes more how they're typically seen in the world — there's often a feedback loop between a name's vibration and the identity it helps create. This is why some parents research name numbers when choosing a child's name, and why some people explore changing their name numerologically later in life.",
+          "While Mulank (your birth number) describes your everyday instinctive personality and Bhagyank (your destiny number) describes your broader life path, Namank describes the energy your name carries: how it shapes the way you present yourself and how others naturally perceive you. Many numerologists consider the three together for a complete picture: Mulank is how you act, Bhagyank is where you're headed, and Namank is how you're perceived.",
+          "Some people find that their Namank resonates deeply with their personality, while others discover it describes more how they're typically seen in the world: there's often a feedback loop between a name's vibration and the identity it helps create. This is why some parents research name numbers when choosing a child's name, and why some people explore changing their name numerologically later in life.",
         ]}
       />
 
@@ -111,7 +111,7 @@ export function NamankHubScreen() {
         title="How to use your name number"
         icon={Sparkles}
         paragraphs={[
-          "Your Namank is one layer of your numerology chart. Unlike your Bhagyank, which never changes (it's tied to your birth date), your Namank can shift if you legally change your name — which is why some people use numerology to choose names that align with specific intentions.",
+          "Your Namank is one layer of your numerology chart. Unlike your Bhagyank, which never changes (it's tied to your birth date), your Namank can shift if you legally change your name, which is why some people use numerology to choose names that align with specific intentions.",
           "A common practice is calculating what Namank you'd like to cultivate, then working backward to find names that add up to that number. Parents sometimes research this when choosing a child's name, and some adults experiment with name changes or pen names based on their Namank resonance.",
           "When reading your full numerology profile, compare your Namank with your Mulank and Bhagyank. You might be a Mulank 5 (restless and adaptable) with a Bhagyank 4 (needing structure and discipline) and a Namank 1 (leader energy). This combination explains why you come across as more authoritative than you feel, and why settling into routine is genuinely difficult even when you know it's what you need.",
         ]}

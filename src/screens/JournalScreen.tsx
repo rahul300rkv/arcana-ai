@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, Clock, Sparkles, Trash2 } from "lucide-react";
+import { BookOpen, Clock, Sparkles, Trash2 } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
@@ -57,7 +57,7 @@ export function JournalScreen() {
                     <div className="min-w-0">
                       <div className="truncate text-sm">
                         {getSpread(r.spreadId).name}
-                        {r.question ? ` — ${r.question}` : ""}
+                        {r.question ? `: ${r.question}` : ""}
                       </div>
                       <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" /> {relativeTime(r.createdAt)}

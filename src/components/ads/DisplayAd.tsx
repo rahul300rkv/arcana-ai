@@ -30,7 +30,7 @@ function AdSlot({ client, slot, className }: { client: string; slot: string; cla
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      // Ad blocker or delayed script fill — gracefully ignore.
+      // Ad blocker or delayed script fill: gracefully ignore.
     }
   }, []);
 

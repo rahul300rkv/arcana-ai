@@ -208,7 +208,7 @@ export function redrawDailyCard(): DailyCardState {
 
 /**
  * Bundles everything stored locally (readings, journal, streak/stats) into
- * one JSON object and triggers a real browser download — no server or
+ * one JSON object and triggers a real browser download: no server or
  * account involved, since all of this data already lives in localStorage.
  */
 export function exportDataAsJson(): void {
@@ -255,7 +255,7 @@ function getSnapshot(): ArcanaSnapshot {
   return cachedSnapshot;
 }
 
-// Stable module-level constant — must be the same reference across calls,
+// Stable module-level constant: must be the same reference across calls,
 // or useSyncExternalStore treats every render as a store change on the server.
 const SERVER_SNAPSHOT: ArcanaSnapshot = {
   history: [],

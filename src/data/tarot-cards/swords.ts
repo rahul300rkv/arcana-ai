@@ -8,14 +8,14 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright delivers a razor-sharp mental awakening: seeing clean through flattering illusions, winning an overdue intellectual debate, signing clear contracts, framing an unmistakable creative breakthrough, or deciding once and for all what deserves your loyalty.",
-      "Double-edged blades require disciplined stewardship—cut cleanly toward justice and clarity rather than scoring impulsive rhetorical points.",
+      "Double-edged blades require disciplined stewardship: cut cleanly toward justice and clarity rather than scoring impulsive rhetorical points.",
     ],
     reversed: [
       "Reversed drops the point downward through storm haze: tangled brain fog, cruel unspoken resentment, words twisted into sarcastic weapons, delayed paperwork, or realizing your brilliant thesis ignored basic emotional reality.",
       "Put down sharp verdicts briefly; slow down, verify every assumption with fresh facts, and speak only once your breath steadies.",
     ],
     love: [
-      "In romance, Ace of Swords demands refreshing honesty—naming relationship expectations plainly, dissolving tense ambiguities through direct dialogue, or realizing intellectually whether values genuinely align long-term.",
+      "In romance, Ace of Swords demands refreshing honesty: naming relationship expectations plainly, dissolving tense ambiguities through direct dialogue, or realizing intellectually whether values genuinely align long-term.",
       "Reversed alerts against cold fault-finding, cutting verbal jabs disguised as candor, or stony silence hiding real vulnerability.",
     ],
     career: [
@@ -31,11 +31,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed mirrors racing midnight thoughts disrupting deep restorative sleep or ignored stress headaches.",
     ],
     spiritual: [
-      "Spiritually, that olive branch and palm flanking the crown symbolize peace earned after honest discernment—truth frees conscience cleanly from denial.",
+      "Spiritually, that olive branch and palm flanking the crown symbolize peace earned after honest discernment: truth frees conscience cleanly from denial.",
       "Cut illusion lovingly without cruelty toward yourself.",
     ],
     yesNoText:
-      "Ace of Swords answers Yes—sharp clarity, clean truth, and focused conviction support decisive action now.",
+      "Ace of Swords answers Yes: sharp clarity, clean truth, and focused conviction support decisive action now.",
     timeline: [
       "Cutting loose from muddled indecision cleared space for sharp new direction.",
       "A clear conversation, sudden insight, or crisp decision strips fog away today.",
@@ -59,7 +59,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why does the sword pierce a crown in the Ace of Swords?",
         answer:
-          "The golden crown represents sovereignty of mind and victory, draped with an olive branch of peace and a palm frond of endurance—reminding readers that clear intellect serves lasting order rather than needless combat.",
+          "The golden crown represents sovereignty of mind and victory, draped with an olive branch of peace and a palm frond of endurance: reminding readers that clear intellect serves lasting order rather than needless combat.",
       },
       {
         question: "Does Ace of Swords mean harsh conflict?",
@@ -69,7 +69,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does Ace of Swords indicate in legal or academic readings?",
         answer:
-          "Strongly positive upright—expect strong arguments, crisp thesis framing, objective evidence prevailing, or clear contractual breakthroughs.",
+          "Strongly positive upright: expect strong arguments, crisp thesis framing, objective evidence prevailing, or clear contractual breakthroughs.",
       },
       {
         question: "How should I interpret Ace of Swords reversed?",
@@ -80,7 +80,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "swords-two": {
     overview: [
-      "A blindfolded woman seated upright on a rigid stone bench holds two heavy silver swords crossed neatly across her heart while dark calm waters behind her lap softly beneath a thin waxing crescent moon. Notice the rocky islets rising quietly off in the distance—neither side threatens immediate attack, yet she freezes tightly rather than risk choosing.",
+      "A blindfolded woman seated upright on a rigid stone bench holds two heavy silver swords crossed neatly across her heart while dark calm waters behind her lap softly beneath a thin waxing crescent moon. Notice the rocky islets rising quietly off in the distance: neither side threatens immediate attack, yet she freezes tightly rather than risk choosing.",
       "Ruled by Moon in Libra, Card 2 freezes logic and intuition into tense truce: refusing to look closely keeps peace temporarily, even as silence grows heavier by the hour.",
     ],
     upright: [
@@ -92,7 +92,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Resist knee-jerk panic; sort verifiable evidence calmly before committing either direction.",
     ],
     love: [
-      "In love, unspoken standoffs prevail—both partners sidestepping a genuine concern to keep surface peace, or guarding bruised hearts strictly behind polite small talk.",
+      "In love, unspoken standoffs prevail: both partners sidestepping a genuine concern to keep surface peace, or guarding bruised hearts strictly behind polite small talk.",
       "Reversed marks stalled tension tipping into blunt honesty or messy indecision between two attractions.",
     ],
     career: [
@@ -100,7 +100,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights leaks, broken diplomatic truces, or paralysis costing key momentum.",
     ],
     finance: [
-      "Financially, freezing large discretionary spending while comparing full quotes calmly makes sense—avoid committing big capital while blindspots remain.",
+      "Financially, freezing large discretionary spending while comparing full quotes calmly makes sense: avoid committing big capital while blindspots remain.",
       "Reversed warns against ignoring overdue bills hoping complexity magically evaporates.",
     ],
     health: [
@@ -108,18 +108,18 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed nudges facing diagnostic results squarely rather than delaying follow-up care.",
     ],
     spiritual: [
-      "Spiritually, behind her closed eyes calm lunar waters pulse gently—stillness offers wise sanctuary only until avoidance masquerades as serenity.",
+      "Spiritually, behind her closed eyes calm lunar waters pulse gently: stillness offers wise sanctuary only until avoidance masquerades as serenity.",
       "Step forward gently even without 100% guarantees.",
     ],
     yesNoText:
-      "Two of Swords answers Conditional—decision remains suspended until hidden information surfaces cleanly.",
+      "Two of Swords answers Conditional: decision remains suspended until hidden information surfaces cleanly.",
     timeline: [
       "You chose tense stillness rather than rush prematurely into messy conflict.",
       "A careful stalemate demands honest inspection rather than prolonged evasion today.",
       "Once your blindfold drops, decisive alignment breaks loose quickly.",
     ],
     advice: [
-      "List the exact missing facts you truly need—not endless perfection—to decide.",
+      "List the exact missing facts you truly need, not endless perfection, to decide.",
       "Name quietly what worst-case outcome makes lowering your guard feel unsafe.",
       "Set an explicit calendar date when stalemate ends cleanly.",
     ],
@@ -136,7 +136,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is the figure blindfolded in Two of Swords?",
         answer:
-          "The blindfold symbolizes self-imposed neutrality or deliberate denial—shutting out external facts in an effort to maintain internal composure.",
+          "The blindfold symbolizes self-imposed neutrality or deliberate denial: shutting out external facts in an effort to maintain internal composure.",
       },
       {
         question: "What does the ocean behind her mean?",
@@ -162,7 +162,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright brings unmistakable heartache: a candid breakup, painful third-party interference, brutal career rejection, mourned loss, or cold words slicing clean through cherished optimism.",
-      "Swords wound sharply yet cleanly—refusing numb pretending allows deep genuine healing to begin honestly from zero.",
+      "Swords wound sharply yet cleanly: refusing numb pretending allows deep genuine healing to begin honestly from zero.",
     ],
     reversed: [
       "Reversed pulls steel gingerly backward: slow quiet recovery emerging beyond raw shock, overdue sincere forgiveness softening hardened bitterness, or clinging painfully inside half-hearted denials after truth already settled.",
@@ -177,7 +177,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed notes easing workplace gloom once honest feedback settles constructively.",
     ],
     finance: [
-      "Financially, absorbing an unpleasant loss cleanly—broken agreement, unexpected bill, or sunk investment—stops deeper bleeding right away.",
+      "Financially, absorbing an unpleasant loss cleanly (broken agreement, unexpected bill, or sunk investment) stops deeper bleeding right away.",
       "Reversed signals stabilizing budgets steadily after rough unexpected adjustments.",
     ],
     health: [
@@ -185,11 +185,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed traces restorative recovery when emotional tension begins lifting genuinely.",
     ],
     spiritual: [
-      "Spiritually, storm rain washes false attachments cleanly away—sharp sorrow carves rare empathy, humility, and spacious honesty inside human hearts.",
+      "Spiritually, storm rain washes false attachments cleanly away: sharp sorrow carves rare empathy, humility, and spacious honesty inside human hearts.",
       "Pain felt cleanly passes cleanly.",
     ],
     yesNoText:
-      "Three of Swords answers No—sharp disappointment, misfit timing, or painful disruption makes forcing this risky.",
+      "Three of Swords answers No: sharp disappointment, misfit timing, or painful disruption makes forcing this risky.",
     timeline: [
       "An unsparing disappointment bruised old optimism deeply.",
       "Naming hurt plainly frees trapped energy and clears storm air today.",
@@ -213,7 +213,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Three of Swords always mean romantic cheating?",
         answer:
-          "No—while it can point to third-party interference, it equally signifies any painful separation, rejection, sharp disagreement, bereavement, or harsh wake-up call.",
+          "No. While it can point to third-party interference, it equally signifies any painful separation, rejection, sharp disagreement, bereavement, or harsh wake-up call.",
       },
       {
         question: "Why are there no people shown in Three of Swords?",
@@ -228,7 +228,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What follows Three of Swords in the Suit of Swords?",
         answer:
-          "Four of Swords—rest, sanctuary, convalescence, and mental quiet needed to recover from heartbreak.",
+          "Four of Swords: rest, sanctuary, convalescence, and mental quiet needed to recover from heartbreak.",
       },
     ],
   },
@@ -239,7 +239,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright commands deliberate stepping back: taking real sick leave, logging completely offline, declining optional arguments, meditating calmly, or protecting silent recuperation before tackling big upcoming sprints.",
-      "Notice the knight has not surrendered permanently—his armor remains clean and swords close at hand, ready after rest restores clear edge.",
+      "Notice the knight has not surrendered permanently: his armor remains clean and swords close at hand, ready after rest restores clear edge.",
     ],
     reversed: [
       "Reversed rattles restless exhaustion: burnout refusing basic bedtime, edgy insomnia over old slights, rushing hastily back into high pressure too soon, or stirring stagnant apathy into gentle renewed motion.",
@@ -254,7 +254,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights frantic overwork, back-to-back burnout sprints, or feeling sidelined restlessly.",
     ],
     finance: [
-      "Financially, resting quietly without risky speculation lets savings recover calmly—keep monthly routines simple and steady.",
+      "Financially, resting quietly without risky speculation lets savings recover calmly: keep monthly routines simple and steady.",
       "Reversed warns against impulsive comfort spending from sheer exhaustion or neglected statements.",
     ],
     health: [
@@ -262,11 +262,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed mirrors insomnia, jaw tension, restless fatigue, or ignoring recovery guidelines.",
     ],
     spiritual: [
-      "Spiritually, stained glass above the knight reminds us stillness holds sacred medicine—quiet sanctuary turns harsh trials cleanly into wisdom.",
+      "Spiritually, stained glass above the knight reminds us stillness holds sacred medicine: quiet sanctuary turns harsh trials cleanly into wisdom.",
       "Silence answers questions logic wears thin chasing.",
     ],
     yesNoText:
-      "Four of Swords answers Conditional—wait patiently and rest completely before forcing clear answers.",
+      "Four of Swords answers Conditional: wait patiently and rest completely before forcing clear answers.",
     timeline: [
       "Heavy prolonged strain wore clear reserves dangerously thin.",
       "Quiet sacred retreat and unplugged deep rest restore balanced focus today.",
@@ -290,7 +290,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Four of Swords about death or stillness?",
         answer:
-          "Stillness and recovery—the figure mirrors peaceful effigy art inside a sunlit church, representing voluntary retreat and mental healing rather than tragedy.",
+          "Stillness and recovery: the figure mirrors peaceful effigy art inside a sunlit church, representing voluntary retreat and mental healing rather than tragedy.",
       },
       {
         question: "What does the stained glass window show in Four of Swords?",
@@ -320,7 +320,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     reversed: [
       "Reversed walks cleanly off poisoned battlefields: refusing petty escalation, offering sincere disarming humility after rash flare-ups, uncovering dirty unfair play transparently, or realizing lingering resentment only hurts you now.",
-      "Lay ego down deliberately—real dignity thrives beyond scoreboard grudges.",
+      "Lay ego down deliberately: real dignity thrives beyond scoreboard grudges.",
     ],
     love: [
       "In love, ugly scorekeeping, sharp sarcasm meant subtly to wound, silent cold contempt, or stubborn battles over who apologized last.",
@@ -331,7 +331,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed calls for diplomatic reset, transparent mediation, or stepping smartly away from rigged competition.",
     ],
     finance: [
-      "Financially, guard contracts vigilantly against opportunistic fees, aggressive collections, or sneaky hidden carve-outs—never skip careful verification.",
+      "Financially, guard contracts vigilantly against opportunistic fees, aggressive collections, or sneaky hidden carve-outs: never skip careful verification.",
       "Reversed favors settling lingering fee disputes constructively rather than burning legal costs over pride.",
     ],
     health: [
@@ -339,11 +339,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed invites forgiving grudges cleanly so nervous tension dissolves genuinely.",
     ],
     spiritual: [
-      "Spiritually, Card 5 exposes how hollow ego victory tastes alone—lasting integrity chooses truth paired gently with mercy.",
+      "Spiritually, Card 5 exposes how hollow ego victory tastes alone: lasting integrity chooses truth paired gently with mercy.",
       "Drop weapons you never needed swinging.",
     ],
     yesNoText:
-      "Five of Swords answers No—ego battles, broken trust, and hollow wins undermine meaningful progress right now.",
+      "Five of Swords answers No: ego battles, broken trust, and hollow wins undermine meaningful progress right now.",
     timeline: [
       "Bitter power friction bruised clean trust on both sides.",
       "Choosing dignified boundaries over petty score-settling shifts everything today.",
@@ -367,7 +367,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What is the core lesson of Five of Swords?",
         answer:
-          "Recognize when winning an argument or competition costs trust, peace, and community—sometimes walking away cleanly preserves more strength than fighting.",
+          "Recognize when winning an argument or competition costs trust, peace, and community: sometimes walking away cleanly preserves more strength than fighting.",
       },
       {
         question: "Does Five of Swords always mean I am the victim?",
@@ -393,7 +393,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals steady clear passage: relocating to calmer neighborhoods, changing chaotic jobs quietly, structured therapy easing raw panic, gentle study trips, or crossing steadily from acute conflict onto orderly calm ground.",
-      "Notice nobody cheers noisily—healing journeys often begin silently before sunrise with baggage packed modestly beside quiet resolve.",
+      "Notice nobody cheers noisily: healing journeys often begin silently before sunrise with baggage packed modestly beside quiet resolve.",
     ],
     reversed: [
       "Reversed stalls boats against rocky inlets: clinging nervously inside draining habits because uncertainty feels scary, unresolved arguments dragging smoothly into new chapters, or frustrating travel delays postponing clear departure.",
@@ -408,11 +408,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed flags dragged-out notice periods, stalling transitions, or carrying burnout cynically into fresh roles.",
     ],
     finance: [
-      "Financially, steadily clearing rough debt toward boring predictable calm—structured payment plans, prudent rebalancing, and quiet geographic savings shifts.",
+      "Financially, steadily clearing rough debt toward boring predictable calm: structured payment plans, prudent rebalancing, and quiet geographic savings shifts.",
       "Reversed warns against repeating leaky old budget habits while expecting brand-new stability.",
     ],
     health: [
-      "Physically, Air over Water soothes recovery steadily—post-crisis convalescence, therapeutic routines, supportive rehab walks, and clearing mental fog cleanly.",
+      "Physically, Air over Water soothes recovery steadily: post-crisis convalescence, therapeutic routines, supportive rehab walks, and clearing mental fog cleanly.",
       "Reversed calls for patience when chronic symptoms improve nonlinearly.",
     ],
     spiritual: [
@@ -420,7 +420,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Peace deepens steadily with every quiet stroke.",
     ],
     yesNoText:
-      "Six of Swords answers Yes—steady patient transition carries you smoothly toward calmer, clearer ground.",
+      "Six of Swords answers Yes: steady patient transition carries you smoothly toward calmer, clearer ground.",
     timeline: [
       "Sharp chaotic turbulence pushed you toward quiet deliberate departure.",
       "Steady gradual transition carries you serenely onto calmer waters today.",
@@ -444,7 +444,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Six of Swords a card of travel or moving?",
         answer:
-          "Yes—frequently it marks literal relocation, purposeful travel, or mental and emotional transition away from stressful circumstances toward peace.",
+          "Yes. Frequently it marks literal relocation, purposeful travel, or mental and emotional transition away from stressful circumstances toward peace.",
       },
       {
         question: "Why do the passengers look somber in Six of Swords?",
@@ -466,11 +466,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
   "swords-seven": {
     overview: [
       "Stepping lightly on bright tiptoe outside lively colorful military tents, a sly smiling figure glances backward carefully clutching five shiny stolen swords snugly against his shoulder while two heavier blades remain planted clearly inside turf behind him. Every gesture oozes stealth, clever improvisation, and calculated risk.",
-      "Ruled by Moon in Aquarius, Card 7 tests smart strategy versus shady corner-cutting: slipping smoothly past rigid bullies cleverly—or fooling yourself gently while sneaking past honest accountability.",
+      "Ruled by Moon in Aquarius, Card 7 tests smart strategy versus shady corner-cutting: slipping smoothly past rigid bullies cleverly, or fooling yourself gently while sneaking past honest accountability.",
     ],
     upright: [
       "Upright signals covert strategy: independent tactical thinking, quiet unannounced exits from hostile workplaces, safeguarding proprietary ideas discreetly, subtle bluffing, or spotty dishonesty hiding inconvenient truths.",
-      "Notice those two unclaimed blades left behind—hasty stealth rarely completes clean thorough solutions; examine whether diplomacy beats sneakiness.",
+      "Notice those two unclaimed blades left behind: hasty stealth rarely completes clean thorough solutions; examine whether diplomacy beats sneakiness.",
     ],
     reversed: [
       "Reversed snaps bright floodlights squarely onto shadows: sly lies surfacing embarrassingly quickly, impostor self-doubt undermining honest merit, clean confession easing heavy guilt, or ditching exhausting masks for bold authenticity.",
@@ -493,11 +493,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed welcomes dropping exhausting facade bravado cleanly with trusted doctors.",
     ],
     spiritual: [
-      "Spiritually, true resourcefulness harmonizes wit with conscience—clever detours fail miserably whenever tricking your own integrity.",
+      "Spiritually, true resourcefulness harmonizes wit with conscience: clever detours fail miserably whenever tricking your own integrity.",
       "Walk openly in truth whenever safe.",
     ],
     yesNoText:
-      "Seven of Swords answers No—hidden motives, incomplete strategy, or unexamined shortcuts undercut lasting trust.",
+      "Seven of Swords answers No: hidden motives, incomplete strategy, or unexamined shortcuts undercut lasting trust.",
     timeline: [
       "Careful secretive maneuvering shaped quiet guarded habits.",
       "Sharp scrutiny spot-checks hidden motives, loose corners, and honest strategy today.",
@@ -526,7 +526,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why does the figure leave two swords behind?",
         answer:
-          "Symbolizing incomplete execution—hasty stealth or cut corners rarely achieve lasting total mastery.",
+          "Symbolizing incomplete execution: hasty stealth or cut corners rarely achieve lasting total mastery.",
       },
       {
         question: "How does Seven of Swords relate to impostor syndrome?",
@@ -551,7 +551,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     reversed: [
       "Reversed loosens stiff bindings decisively: sharp sudden realization shattering old helplessness, testing tiny brave boundaries outside stale rules, seeking clear objective counseling, or lifting self-imposed blindfolds into crisp freedom.",
-      "Step forward carefully through muddy water even slowly—movement melts rigid helplessness quickly.",
+      "Step forward carefully through muddy water even slowly: movement melts rigid helplessness quickly.",
     ],
     love: [
       "In love, feeling needlessly trapped inside cold assumptions, biting back genuine desires to avoid abandonment, or clinging shyly inside stale scripts.",
@@ -562,11 +562,11 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed sparks updating resumes boldly, pitching calmly, or dismantling rigid limiting rules.",
     ],
     finance: [
-      "Financially, paralysis ignoring overdue statements worsens manageable debts—clear small concrete numbers calmly dissolve panic.",
+      "Financially, paralysis ignoring overdue statements worsens manageable debts: clear small concrete numbers calmly dissolve panic.",
       "Reversed opens realistic debt solutions, extra side skills, and empowered budget control.",
     ],
     health: [
-      "Physically, Eight of Swords mirrors claustrophobic panic cycles, shallow chest breathing, and nervous freeze—slow physical movement unlocks calm cognition cleanly.",
+      "Physically, Eight of Swords mirrors claustrophobic panic cycles, shallow chest breathing, and nervous freeze: slow physical movement unlocks calm cognition cleanly.",
       "Reversed signals gradual steady relief from anxious loops.",
     ],
     spiritual: [
@@ -574,7 +574,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Freedom starts one brave centimeter past old fear.",
     ],
     yesNoText:
-      "Eight of Swords answers No—fearful limiting narratives block realistic movement until mental blindfolds drop.",
+      "Eight of Swords answers No: fearful limiting narratives block realistic movement until mental blindfolds drop.",
     timeline: [
       "Prolonged harsh stress convinced cautious instincts safety required total shrinking.",
       "Challenging one unproven limiting fear loosens invisible bindings today.",
@@ -598,7 +598,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why aren't the woman's feet tied in Eight of Swords?",
         answer:
-          "Because her entrapment is primarily mental rather than absolute—the blindfold and fear prevent her from noticing clear gaps between the swords.",
+          "Because her entrapment is primarily mental rather than absolute: the blindfold and fear prevent her from noticing clear gaps between the swords.",
       },
       {
         question: "Does Eight of Swords mean external obstacles aren't real?",
@@ -624,7 +624,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals crushing worry spirals: replaying every awkward past syllable at midnight, escalating minor risks into ruinous fantasies, severe anxiety overload, or enduring agonizing silence alone.",
-      "Remember the quilt below stays warm and woven—midnight distortion shrinks every fearful monster cleanly once crisp sunrise reality enters conversation.",
+      "Remember the quilt below stays warm and woven: midnight distortion shrinks every fearful monster cleanly once crisp sunrise reality enters conversation.",
     ],
     reversed: [
       "Reversed switches dim nightlight back into perspective: confessing secret dread aloud to caring allies, noticing exaggerated fears failing calmly under daylight verification, or stepping intentionally out of grueling guilt traps.",
@@ -639,19 +639,19 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed restores calm prioritization, realistic help-seeking, and quiet perspective.",
     ],
     finance: [
-      "Financially, middle-of-the-night scarcity panic rarely matches cold daylight math—write real figures cleanly under natural sunlight.",
+      "Financially, middle-of-the-night scarcity panic rarely matches cold daylight math: write real figures cleanly under natural sunlight.",
       "Reversed shifts helpless fiscal doom into sober actionable budgets.",
     ],
     health: [
-      "Physically, Air at peak friction hits sleep quality, migraines, gut anxiety, and adrenal fatigue—treat sleep sanctuaries fiercely and lean cleanly on real therapists or doctors.",
+      "Physically, Air at peak friction hits sleep quality, migraines, gut anxiety, and adrenal fatigue: treat sleep sanctuaries fiercely and lean cleanly on real therapists or doctors.",
       "Reversed tracks gradual calming recovery.",
     ],
     spiritual: [
-      "Spiritually, guilt teaches clean course-correction—not endless torture. Morning light breaks sleepless isolation effortlessly once shared.",
+      "Spiritually, guilt teaches clean course-correction, not endless torture. Morning light breaks sleepless isolation effortlessly once shared.",
       "Speak nightmares out loud so shadow dissolves cleanly.",
     ],
     yesNoText:
-      "Nine of Swords answers No—acute anxiety distortion clouds objective judgment right now.",
+      "Nine of Swords answers No: acute anxiety distortion clouds objective judgment right now.",
     timeline: [
       "Accumulated silent worry escalated unchecked behind bright brave smiles.",
       "Naming hidden dread openly under calm daylight breaks sleepless isolation today.",
@@ -680,36 +680,36 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does the carved panel below the bed show in Nine of Swords?",
         answer:
-          "Two figures locked in combat alongside rose and astrological patchwork on the quilt—hinting that old conflict and colorful living sit close beneath anxiety.",
+          "Two figures locked in combat alongside rose and astrological patchwork on the quilt: hinting that old conflict and colorful living sit close beneath anxiety.",
       },
       {
         question: "Does Nine of Swords predict literal disaster?",
         answer:
-          "Usually far worse exists inside anxious imagination than actual physical reality—its primary warning concerns acute stress and exhaustion.",
+          "Usually far worse exists inside anxious imagination than actual physical reality: its primary warning concerns acute stress and exhaustion.",
       },
       {
         question: "What does 9 of Swords (Nine of Swords) mean in love or daily life?",
         answer:
-          "Whether written as 9 of Swords or Nine of Swords, the card flags anxious overthinking, restless sleep, and replaying worst-case scenarios—reminding you to test fears in calm daylight.",
+          "Whether written as 9 of Swords or Nine of Swords, the card flags anxious overthinking, restless sleep, and replaying worst-case scenarios: reminding you to test fears in calm daylight.",
       },
     ],
     cardOfTheDay: {
       energy:
         "Heightened mental worry, late-night overthinking, and anxious worst-case loops outrunning clear daylight facts.",
       leanInto:
-        "Gain grounded perspective—write down what is genuinely in your control today and talk one heavy worry through with someone steady.",
+        "Gain grounded perspective: write down what is genuinely in your control today and talk one heavy worry through with someone steady.",
       watchOutFor:
         "Making big emotional calls while exhausted, rehearsing imagined disasters, or blaming yourself endlessly past honest repair.",
     },
   },
   "swords-ten": {
     overview: [
-      "Stretched flat along dark rocky shore under pitch-black night clouds, a fallen cloak-draped figure lies completely still pierced symmetrically by ten upright steel blades along his back—yet look right across that quiet flat water toward the horizon: crisp golden dawn breaks cleanly through clearing black sky.",
+      "Stretched flat along dark rocky shore under pitch-black night clouds, a fallen cloak-draped figure lies completely still pierced symmetrically by ten upright steel blades along his back, yet look right across that quiet flat water toward the horizon: crisp golden dawn breaks cleanly through clearing black sky.",
       "Ruled by Sun in Gemini, Card 10 slams every exhausting drama shut at absolute rock bottom: total unambiguous ending leaving zero naive illusions intact so brand-new morning finally clears.",
     ],
     upright: [
       "Upright delivers undeniable finality: an unsalvageable project collapsing cleanly, bitter toxic ties ending abruptly, rock-bottom exhaustion snapping bad habits cold, or melodramatic hyperbole demanding grounded realism.",
-      "As dark as the foreground looks, notice nothing worse remains possible—every single sword already landed, and pale daylight quietly shines ahead.",
+      "As dark as the foreground looks, notice nothing worse remains possible: every single sword already landed, and pale daylight quietly shines ahead.",
     ],
     reversed: [
       "Reversed draws swords gingerly upward toward slow resurrection: surviving brutal lowest setbacks steadily stronger, narrowly dodging devastating ruin, learning decisive resilience, or stubbornly refusing peaceful closure on chapters already dead.",
@@ -724,19 +724,19 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights gradual career reinvention emerging resiliently from old wreckage.",
     ],
     finance: [
-      "Financially, cutting sunk dead losses sharply today halts further ruin cleanly—write off rotten deals and restart carefully on fresh clear terms.",
+      "Financially, cutting sunk dead losses sharply today halts further ruin cleanly: write off rotten deals and restart carefully on fresh clear terms.",
       "Reversed marks bottoming out debt spirals and crawling cleanly back into black.",
     ],
     health: [
-      "Physically, heed acute spinal fatigue, immune crash, and burnout sirens seriously—stop running on empty immediately and prioritize clear deep recuperation.",
+      "Physically, heed acute spinal fatigue, immune crash, and burnout sirens seriously: stop running on empty immediately and prioritize clear deep recuperation.",
       "Reversed traces steady encouraging medical recovery beyond rough flare-ups.",
     ],
     spiritual: [
-      "Spiritually, absolute surrender ends desperate futile bargaining cleanly—new sun rises effortlessly when false structures collapse completely.",
+      "Spiritually, absolute surrender ends desperate futile bargaining cleanly: new sun rises effortlessly when false structures collapse completely.",
       "You survived what scared you most.",
     ],
     yesNoText:
-      "Ten of Swords answers No—this particular path has reached clean finality so fresh dawn can break elsewhere.",
+      "Ten of Swords answers No: this particular path has reached clean finality so fresh dawn can break elsewhere.",
     timeline: [
       "Drawn-out strain collapsed suddenly into unmistakable rock bottom.",
       "Final clear closure ends anxious lingering doubt and reveals quiet dawn today.",
@@ -760,22 +760,22 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Ten of Swords a literal omen of physical harm?",
         answer:
-          "Almost never in modern tarot—it symbolizes complete finality, burnout, painful disillusionment, betrayal, or hitting rock bottom emotionally or professionally.",
+          "Almost never in modern tarot: it symbolizes complete finality, burnout, painful disillusionment, betrayal, or hitting rock bottom emotionally or professionally.",
       },
       {
         question: "Why is there golden light on the horizon in Ten of Swords?",
         answer:
-          "Because the darkest hour ends completely—once an unhealthy cycle hits full closure, nothing worse remains and renewal becomes inevitable.",
+          "Because the darkest hour ends completely: once an unhealthy cycle hits full closure, nothing worse remains and renewal becomes inevitable.",
       },
       {
         question: "What is the subtle humor or drama in Ten of Swords?",
         answer:
-          "Readers often notice ten swords feel comically excessive for one body—highlighting moments where stress feels apocalyptic yet survival remains intact.",
+          "Readers often notice ten swords feel comically excessive for one body: highlighting moments where stress feels apocalyptic yet survival remains intact.",
       },
       {
         question: "What does 10 of Swords mean as Card of the Day?",
         answer:
-          "As Card of the Day, 10 of Swords (Ten of Swords) signals mental exhaustion hitting its limit and an overdue chapter closing cleanly—bringing quiet relief and a fresh dawn after a tough stretch.",
+          "As Card of the Day, 10 of Swords (Ten of Swords) signals mental exhaustion hitting its limit and an overdue chapter closing cleanly: bringing quiet relief and a fresh dawn after a tough stretch.",
       },
     ],
     cardOfTheDay: {
@@ -813,15 +813,15 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed flags sloppy budget typos, impulsive tips, or gossipy stock noise.",
     ],
     health: [
-      "Physically, watch restless screen fatigue, shallow anxious breathing, and quick edgy tension—fresh breezy walks clear busy minds smoothly.",
+      "Physically, watch restless screen fatigue, shallow anxious breathing, and quick edgy tension: fresh breezy walks clear busy minds smoothly.",
       "Reversed cautions against frantic medical googling over clear professional advice.",
     ],
     spiritual: [
-      "Spiritually, fresh beginner's eye cuts stale dogma cleanly open—ask honest curious questions fearlessly without becoming cynically cold.",
+      "Spiritually, fresh beginner's eye cuts stale dogma cleanly open: ask honest curious questions fearlessly without becoming cynically cold.",
       "Stay alert cleanly without hardening.",
     ],
     yesNoText:
-      "Page of Swords answers Conditional—investigate details keenly and ask sharp questions before committing.",
+      "Page of Swords answers Conditional: investigate details keenly and ask sharp questions before committing.",
     timeline: [
       "Fresh alertness opened curious inquiry where blind assumption once ruled.",
       "Crisp observation, unexpected news, or sharp honest questions sharpen perspective today.",
@@ -840,17 +840,17 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     meditation:
       "Feel crisp highland wind lifting stale cobwebs cleanly clear as bright watchful eyes survey wide horizons peacefully.",
     affirmation:
-      "I stay curious, observant, and fair—asking clear questions with keen truth and steady kindness.",
+      "I stay curious, observant, and fair: asking clear questions with keen truth and steady kindness.",
     faqs: [
       {
         question: "What personality does Page of Swords represent?",
         answer:
-          "A sharp, communicative, observant thinker—curious, truthful, quick-witted, sometimes cautious or overly analytical, and eager to investigate everything.",
+          "A sharp, communicative, observant thinker: curious, truthful, quick-witted, sometimes cautious or overly analytical, and eager to investigate everything.",
       },
       {
         question: "Does Page of Swords mean news or messages?",
         answer:
-          "Frequently yes—expect blunt emails, candid updates, intellectual news, legal notices, or sudden clarity requiring quick review.",
+          "Frequently yes: expect blunt emails, candid updates, intellectual news, legal notices, or sudden clarity requiring quick review.",
       },
       {
         question: "What does the flock of birds mean in Page of Swords?",
@@ -871,7 +871,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright brings exhilarating velocity: charging decisively onto stuck challenges, delivering fearless candid feedback cleanly, crushing intensive study sprints, winning sharp debates rapidly, or rushing straight into urgent breakthroughs.",
-      "Just verify direction sharply before spurring maximum speed—reckless blunt force without empathy bulldozes valuable allies accidentally.",
+      "Just verify direction sharply before spurring maximum speed: reckless blunt force without empathy bulldozes valuable allies accidentally.",
     ],
     reversed: [
       "Reversed throws hooves sharply sideways into sand: impulsive reckless rants, ruthless bullying disguised as efficiency, manic scattershot rushing without brakes, or completely stalling sharp ambitions behind nervous hesitation.",
@@ -886,19 +886,19 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights abrasive hasty emails, burnt bridges, or chaotic scope pivots crashing deadlines.",
     ],
     finance: [
-      "Financially, rapid clear decisions excel on urgent debt clearing or clean paperwork sprints—guard firmly against hot-headed impulsive trading or snapping up aggressive contracts.",
+      "Financially, rapid clear decisions excel on urgent debt clearing or clean paperwork sprints: guard firmly against hot-headed impulsive trading or snapping up aggressive contracts.",
       "Reversed warns clearly against hasty unvetted deals costing steep exit penalties.",
     ],
     health: [
-      "Physically, blistering adrenaline burns hot nervous energy quickly—pair fierce sprints cleanly with intentional breathwork, hydration, and posture awareness.",
+      "Physically, blistering adrenaline burns hot nervous energy quickly: pair fierce sprints cleanly with intentional breathwork, hydration, and posture awareness.",
       "Reversed mirrors high-strung agitation, snappy short tempers, or careless physical clumsiness.",
     ],
     spiritual: [
-      "Spiritually, fearless intellect champions truth boldly against intimidation—pair blazing clarity steadily with deep compassionate listening.",
+      "Spiritually, fearless intellect champions truth boldly against intimidation: pair blazing clarity steadily with deep compassionate listening.",
       "Speed serves mission cleanly when conscience steers.",
     ],
     yesNoText:
-      "Knight of Swords answers Conditional—fast decisive action succeeds only if disciplined preparation matches blazing speed.",
+      "Knight of Swords answers Conditional: fast decisive action succeeds only if disciplined preparation matches blazing speed.",
     timeline: [
       "Pent-up impatient clarity surged suddenly past polite cautious delays.",
       "Fast candid action, bold arguments, or rapid breakthroughs dominate today.",
@@ -922,7 +922,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "How fast is Knight of Swords compared to other Knights?",
         answer:
-          "Easily the fastest Knight in tarot—he represents lightning mental breakthroughs, swift travel, urgent messages, and uncompromising forward charge.",
+          "Easily the fastest Knight in tarot: he represents lightning mental breakthroughs, swift travel, urgent messages, and uncompromising forward charge.",
       },
       {
         question: "Is Knight of Swords positive in relationship spreads?",
@@ -948,7 +948,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright commands calm clear authority: evaluating delicate messes objectively without cold cruelty, delivering candid fair counsel, cutting gracefully free of manipulative noise, negotiating cleanly on pure facts, and honoring hard-won independence with steady poise.",
-      "Notice her outstretched left hand—she welcomes sincere honest adults smoothly yet refuses manipulative flattery flatly.",
+      "Notice her outstretched left hand: she welcomes sincere honest adults smoothly yet refuses manipulative flattery flatly.",
     ],
     reversed: [
       "Reversed cools wisdom stiffly into frost: bitter unforgiving cynicism after unmourned hurt, nitpicking icy judgment, slicing others painfully with smug sarcasm, or suppressing tender human warmth completely beneath armored intellect.",
@@ -967,15 +967,15 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against overly harsh scarcity rigidity or unguarded naive trust.",
     ],
     health: [
-      "Physically, pursue direct clear diagnostics boldly rather than settling vaguely for polite dismissals—stress softens cleanly inside calm honest truth.",
+      "Physically, pursue direct clear diagnostics boldly rather than settling vaguely for polite dismissals: stress softens cleanly inside calm honest truth.",
       "Reversed mirrors stiff guarded posture and jaw tension from holding resentments.",
     ],
     spiritual: [
-      "Spiritually, grief survived honestly forges serene crystal clarity—she sees cleanly straight through illusion without losing quiet grace.",
+      "Spiritually, grief survived honestly forges serene crystal clarity: she sees cleanly straight through illusion without losing quiet grace.",
       "Truth spoken calmly heals far deeper than soft flattering lies.",
     ],
     yesNoText:
-      "Queen of Swords answers Conditional—objective truth, independent boundaries, and unsentimental clear thinking decide wisely.",
+      "Queen of Swords answers Conditional: objective truth, independent boundaries, and unsentimental clear thinking decide wisely.",
     timeline: [
       "Hard candid life lessons forged sharp perceptive clear wisdom.",
       "Calm objective clarity, firm fair boundaries, and crisp honest decisions serve cleanly today.",
@@ -999,7 +999,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Queen of Swords cold or unkind?",
         answer:
-          "No—upright she is objective, principled, witty, and fair rather than cruel; her realism often protects genuine integrity after surviving past illusions.",
+          "No. Upright she is objective, principled, witty, and fair rather than cruel; her realism often protects genuine integrity after surviving past illusions.",
       },
       {
         question: "What does the open left hand in Queen of Swords represent?",
@@ -1025,14 +1025,14 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals steady principled mastery: unbiased ethical judgment, crisp high-level strategy, trusted legal/medical/technical counsel, clear steady leadership during hot panic, and honoring verified truth completely above personal bias.",
-      "Consult expert disciplined specialists cleanly—or embody fair cool reason yourself right where chaos runs loud.",
+      "Consult expert disciplined specialists cleanly, or embody fair cool reason yourself right where chaos runs loud.",
     ],
     reversed: [
       "Reversed bends bright intellect brutally dark: ruthless manipulative bureaucracy, cold tyrannical gaslighting, rigid dogmatic cruelty devoid of basic empathy, or agonizing indecisive analysis paralyzed by cold doubt.",
       "True authority uplifts rational order gently without mistaking cold dominance for wisdom.",
     ],
     love: [
-      "In love, intellectual stimulation, rock-steady reliable honesty, calm respectful debate, and loyal commitment built soundly on shared principles—remember warm affection matters alongside crisp reason.",
+      "In love, intellectual stimulation, rock-steady reliable honesty, calm respectful debate, and loyal commitment built soundly on shared principles: remember warm affection matters alongside crisp reason.",
       "Reversed highlights cold dismissive lecturing, manipulative quiet control, or icy detachment.",
     ],
     career: [
@@ -1052,7 +1052,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Ethics unite sharp intellect gracefully with compassion.",
     ],
     yesNoText:
-      "King of Swords answers Conditional—disciplined impartial evidence and ethical clear judgment anchor strong decisions.",
+      "King of Swords answers Conditional: disciplined impartial evidence and ethical clear judgment anchor strong decisions.",
     timeline: [
       "Consistent clear study and steady impartial integrity earned respected authority.",
       "Sober principled reason, authoritative counsel, and fair crisp structure prevail today.",
@@ -1081,7 +1081,7 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does King of Swords signify a lawyer, doctor, or specialist?",
         answer:
-          "Very frequently—he represents seasoned analytical authorities such as attorneys, judges, senior physicians, architects, or strategic leaders.",
+          "Very frequently: he represents seasoned analytical authorities such as attorneys, judges, senior physicians, architects, or strategic leaders.",
       },
       {
         question: "Why does his sword lean slightly rather than point straight up?",

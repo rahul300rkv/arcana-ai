@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Compass, Sparkles, BookOpen, ArrowRight, ShieldCheck, Moon } from "lucide-react";
+import { Compass, Sparkles, BookOpen, ArrowRight, ShieldCheck, Moon } from "@/components/icons";
 
 export function Features() {
   return (
@@ -44,7 +44,7 @@ export function Features() {
                 8 Sacred Tarot Spreads for Every Seeking
               </h3>
               <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
-                Whether you seek the comprehensive 10-position Celtic Cross, romantic clarity with the Love &amp; Soulmate spread, or concise daily direction — each card draw honors traditional position symbolism and archetypal resonance.
+                Whether you seek the comprehensive 10-position Celtic Cross, romantic clarity with the Love &amp; Soulmate spread, or concise daily direction, each card draw honors traditional position symbolism and archetypal resonance.
               </p>
 
               {/* Spread Quick Launchers */}
@@ -112,7 +112,7 @@ export function Features() {
                 Mulank, Bhagyank &amp; Namank
               </h3>
               <p className="mt-2 text-base sm:text-sm text-[#e3cfb6]/95 leading-relaxed">
-                Unlock your root number, planetary lord, life destiny path, and name vibration — mapped directly to corresponding Major Arcana tarot cards.
+                Reveal your root number, planetary lord, life destiny path, and name vibration, mapped directly to corresponding Major Arcana tarot cards.
               </p>
             </div>
 
@@ -177,7 +177,7 @@ export function Features() {
                 Private Journal &amp; Daily Card Ritual
               </h3>
               <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
-                Begin each morning by drawing a single card to anchor your intention. Review your personal reading history, spot recurring archetypes, and observe your energetic cycles over months and years — 100% confidential in your local storage.
+                Begin each morning by drawing a single card to anchor your intention. Review your personal reading history, spot recurring archetypes, and observe your cycles over months and years, stored privately in your browser.
               </p>
 
               <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">

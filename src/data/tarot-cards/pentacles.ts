@@ -8,14 +8,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals fertile material breakthroughs: funded startup grants, crisp job offers with real benefits, solid property leads, unexpected cash bonuses, restored physical vitality, and planting durable lifelong habits that compound reliably.",
-      "Treat this golden coin less like lottery luck and more like prime heirloom seed—clear care turns initial promise into lasting prosperity.",
+      "Treat this golden coin less like lottery luck and more like prime heirloom seed: clear care turns initial promise into lasting prosperity.",
     ],
     reversed: [
       "Reversed slips that shimmering coin between distracted fingers: missing prime investment timing via dithering, wasteful impulse leaks, underpriced freelance work, or discovering hidden structural costs lurking beneath shiny real-world pitches.",
       "Inspect exact budgets, paperwork, and physical stamina calmly before committing fresh cash.",
     ],
     love: [
-      "In love, grounded affectionate steadiness shines—shared practical milestones, comforting thoughtful acts of service, moving smoothly into welcoming homes, and trustworthy loyalty built soundly over flashy illusions.",
+      "In love, grounded affectionate steadiness shines: shared practical milestones, comforting thoughtful acts of service, moving smoothly into welcoming homes, and trustworthy loyalty built soundly over flashy illusions.",
       "Reversed warns against selfish stingy scorekeeping, letting exhausting workloads starve intimacy, or building love strictly on financial dependency.",
     ],
     career: [
@@ -27,15 +27,15 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed urges careful inspection against hidden maintenance fees or premature risky splurges.",
     ],
     health: [
-      "Physically, Earth anchors concrete vitality—wholesome nutritious food, outdoor walks through green gardens, crisp strength routines, and steady reliable sleep regenerating sturdy stamina.",
+      "Physically, Earth anchors concrete vitality: wholesome nutritious food, outdoor walks through green gardens, crisp strength routines, and steady reliable sleep regenerating sturdy stamina.",
       "Reversed cautions against sluggish sedentary traps or skimping badly on essential body care.",
     ],
     spiritual: [
-      "Spiritually, that arched floral hedge reveals sacred beauty blooms right inside humble physical craft—caring faithfully for bodies, gardens, and communities honors divine presence tangibly.",
+      "Spiritually, that arched floral hedge reveals sacred beauty blooms right inside humble physical craft: caring faithfully for bodies, gardens, and communities honors divine presence tangibly.",
       "Tangible stewardship transforms everyday work into quiet ritual.",
     ],
     yesNoText:
-      "Ace of Pentacles answers Yes—tangible resources, practical timing, and durable ground strongly favor building right now.",
+      "Ace of Pentacles answers Yes: tangible resources, practical timing, and durable ground strongly favor building right now.",
     timeline: [
       "Patient steady groundwork earned tangible material credibility.",
       "A real promising offer, fresh income seed, or grounded health lift arrives visibly today.",
@@ -59,7 +59,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Ace of Pentacles always mean unexpected windfall money?",
         answer:
-          "Often it points to concrete opportunities—a job offer, client retainer, grant, investment opening, or improved physical health—whose lasting wealth grows through consistent stewardship.",
+          "Often it points to concrete opportunities (a job offer, client retainer, grant, investment opening, or improved physical health) whose lasting wealth grows through consistent stewardship.",
       },
       {
         question: "Why is there an archway leading toward mountains in Ace of Pentacles?",
@@ -69,7 +69,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "How does Ace of Pentacles read in health questions?",
         answer:
-          "Very encouragingly—pointing to renewed physical stamina, effective tangible treatments, nourishing meals, and steady grounded routines.",
+          "Very encouragingly: pointing to renewed physical stamina, effective tangible treatments, nourishing meals, and steady grounded routines.",
       },
       {
         question: "What does Ace of Pentacles reversed indicate?",
@@ -85,7 +85,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright rewards agile flexibility: orchestrating two vibrant revenue lanes seamlessly, pivoting smoothly between shifting family needs and busy career demands, managing fluid cashflow carefully, and keeping playful balance atop rolling sea swells.",
-      "Notice those dancing ships ride rising waves lightly rather than fighting water stiffly—adaptability beats rigid perfection.",
+      "Notice those dancing ships ride rising waves lightly rather than fighting water stiffly: adaptability beats rigid perfection.",
     ],
     reversed: [
       "Reversed snaps that smooth infinity loop tangled tight: overbooked calendars cracking sleep, missed overdue invoices, frantic juggling masking silent burnout, or dropping essential relationships purely out of chaotic disorganization.",
@@ -100,19 +100,19 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed signals scattered burnout, broken deadlines, and urgent need to trim overloaded task lists.",
     ],
     finance: [
-      "Financially, attentive dynamic cash management handles variable bills smoothly—automate recurring bills cleanly so timing dips never trigger sloppy penalties.",
+      "Financially, attentive dynamic cash management handles variable bills smoothly: automate recurring bills cleanly so timing dips never trigger sloppy penalties.",
       "Reversed flags mounting juggling debts or sneaky hidden subscriptions slipping past distracted review.",
     ],
     health: [
-      "Physically, watch dynamic nervous equilibrium—balanced sleep/work boundaries, light nimble stretching, and playful joyful movement stabilize busy high-output weeks.",
+      "Physically, watch dynamic nervous equilibrium: balanced sleep/work boundaries, light nimble stretching, and playful joyful movement stabilize busy high-output weeks.",
       "Reversed warns against skipping regular meals or exhausting sleep debt.",
     ],
     spiritual: [
-      "Spiritually, that vibrant infinity cord honors rhythmic natural flux—wisdom stays rooted calmly in steady breath even when seasons shift rapidly underneath.",
+      "Spiritually, that vibrant infinity cord honors rhythmic natural flux: wisdom stays rooted calmly in steady breath even when seasons shift rapidly underneath.",
       "Playful flexibility keeps joy alive.",
     ],
     yesNoText:
-      "Two of Pentacles answers Conditional—success arrives if agile balance and crisp prioritization hold firm.",
+      "Two of Pentacles answers Conditional: success arrives if agile balance and crisp prioritization hold firm.",
     timeline: [
       "Shifting practical responsibilities demanded fast cheerful creative adaptation.",
       "Smart agile prioritization balances competing priorities cleanly through dynamic change today.",
@@ -136,12 +136,12 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does the infinity symbol around the coins mean in Two of Pentacles?",
         answer:
-          "It represents perpetual ebb and flow—income, energy, time, and responsibilities move dynamically, thriving through agile rhythm rather than rigid stagnation.",
+          "It represents perpetual ebb and flow: income, energy, time, and responsibilities move dynamically, thriving through agile rhythm rather than rigid stagnation.",
       },
       {
         question: "Is Two of Pentacles good for career multitasking?",
         answer:
-          "Upright yes—showing graceful adaptability and strong juggling skill, provided you do not quietly slide toward chronic overextension.",
+          "Upright yes: showing graceful adaptability and strong juggling skill, provided you do not quietly slide toward chronic overextension.",
       },
       {
         question: "Why are ships tossing on huge waves behind the juggler?",
@@ -151,7 +151,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What changes when Two of Pentacles is reversed?",
         answer:
-          "Overwhelm sets in—dropped commitments, financial disorganization, exhaustion, or an urgent cue to narrow priorities quickly.",
+          "Overwhelm sets in: dropped commitments, financial disorganization, exhaustion, or an urgent cue to narrow priorities quickly.",
       },
     ],
   },
@@ -169,7 +169,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Clarify concrete specs, roles, and shared quality bars cleanly before pouring fresh cement.",
     ],
     love: [
-      "In love, deliberate steady team-building—sharing household labor fairly, navigating couples counseling constructively, planning long-range home projects joyfully together, and deepening practical mutual respect.",
+      "In love, deliberate steady team-building: sharing household labor fairly, navigating couples counseling constructively, planning long-range home projects joyfully together, and deepening practical mutual respect.",
       "Reversed highlights uneven domestic labor, stubborn uncommunicative pride, or outside in-laws cluttering shared blueprints.",
     ],
     career: [
@@ -177,19 +177,19 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed flags disorganized teamwork, conflicting specs, lack of team appreciation, or rushed corner-cutting.",
     ],
     finance: [
-      "Financially, steady craftsmanship compounds cleanly—pay fair market rates for skilled specialists rather than skimping cheaply on structural maintenance or legal/tax experts.",
+      "Financially, steady craftsmanship compounds cleanly: pay fair market rates for skilled specialists rather than skimping cheaply on structural maintenance or legal/tax experts.",
       "Reversed warns against unreliable contractors or uncoordinated joint expenses.",
     ],
     health: [
-      "Physically, coordinated multidisciplinary care wins cleanly—combining nutritionists, skilled trainers, physical therapists, or collaborative coaching builds durable resilience.",
+      "Physically, coordinated multidisciplinary care wins cleanly: combining nutritionists, skilled trainers, physical therapists, or collaborative coaching builds durable resilience.",
       "Reversed nudges quitting haphazard isolated guesswork for proven structured guidance.",
     ],
     spiritual: [
-      "Spiritually, timeless stone cathedrals never rise alone from solitary fever—sacred craft joins humble patience warmly with cooperative human service.",
+      "Spiritually, timeless stone cathedrals never rise alone from solitary fever: sacred craft joins humble patience warmly with cooperative human service.",
       "Shared excellence outlasts fleeting personal applause.",
     ],
     yesNoText:
-      "Three of Pentacles answers Yes—skilled craftsmanship, clear feedback, and disciplined teamwork carry plans to proud fruition.",
+      "Three of Pentacles answers Yes: skilled craftsmanship, clear feedback, and disciplined teamwork carry plans to proud fruition.",
     timeline: [
       "Early solitary groundwork proved worthy of wider serious investment.",
       "Constructive teamwork, helpful mentorship, and disciplined detail lift work visibly higher today.",
@@ -213,17 +213,17 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Who are the three figures in Three of Pentacles?",
         answer:
-          "A skilled artisan crafting stone, alongside a monk and noblewoman holding architectural plans—representing execution, spiritual/design vision, and practical sponsorship working in harmony.",
+          "A skilled artisan crafting stone, alongside a monk and noblewoman holding architectural plans: representing execution, spiritual/design vision, and practical sponsorship working in harmony.",
       },
       {
         question: "Does Three of Pentacles predict career recognition?",
         answer:
-          "Yes—especially recognition earned through tangible competence, reliable collaboration, study credentials, or early proof of steady excellence.",
+          "Yes. Especially recognition earned through tangible competence, reliable collaboration, study credentials, or early proof of steady excellence.",
       },
       {
         question: "What does Three of Pentacles mean in relationship spreads?",
         answer:
-          "Building love intentionally like partners on a shared project—equal effort, clear communication, and investing time carefully in long-term stability.",
+          "Building love intentionally like partners on a shared project: equal effort, clear communication, and investing time carefully in long-term stability.",
       },
       {
         question: "What does Three of Pentacles reversed indicate?",
@@ -235,11 +235,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
   "pentacles-four": {
     overview: [
       "Seated squarely atop a heavy solid stone cube outside distant lively city walls, a crowned merchant clutches one bright coin tightly across his broad chest, balances a second carefully atop his heavy golden crown, and pins two more firmly beneath flat sturdy boots so zero breeze shakes loose a single penny.",
-      "Ruled by Sun in Capricorn, Card 4 guards hard-earned stability tightly: prudent frugal defense and steady safety—until tight defensive hoarding slowly freezes warm generosity, innovation, and open joy altogether.",
+      "Ruled by Sun in Capricorn, Card 4 guards hard-earned stability tightly: prudent frugal defense and steady safety: until tight defensive hoarding slowly freezes warm generosity, innovation, and open joy altogether.",
     ],
     upright: [
       "Upright signals firm protective holding: building disciplined savings cushions after lean years, defending intellectual property strictly, living deliberately beneath means, safeguarding cautious retirement funds, or refusing reckless speculative noise.",
-      "Notice locking both arms stiffly across his chest leaves zero open grip for fresh unexpected gifts—healthy prudence stays nimble enough to circulate gently.",
+      "Notice locking both arms stiffly across his chest leaves zero open grip for fresh unexpected gifts: healthy prudence stays nimble enough to circulate gently.",
     ],
     reversed: [
       "Reversed unlocks cramped knuckles noticeably: easing paranoid scarcity fear smoothly into joyful generous living, finally funding needed structural upgrades, or tumbling carelessly straight from tight over-saving into impulsive reckless spending.",
@@ -258,15 +258,15 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights either relieving unhealthy money anxiety cleanly or overspending recklessly once tight dams crack.",
     ],
     health: [
-      "Physically, tight defensive bracing locks stiff neck tension, slow sluggish circulation, and shallow breath—stretching and open play restore brisk vital flow.",
+      "Physically, tight defensive bracing locks stiff neck tension, slow sluggish circulation, and shallow breath: stretching and open play restore brisk vital flow.",
       "Reversed welcomes releasing chronic tension calmly.",
     ],
     spiritual: [
-      "Spiritually, true wealth circulates naturally like clear living water—clenching possessions tightly against life drains living wonder silently dry.",
+      "Spiritually, true wealth circulates naturally like clear living water: clenching possessions tightly against life drains living wonder silently dry.",
       "Security frees generosity rather than tightening fear.",
     ],
     yesNoText:
-      "Four of Pentacles answers Conditional—cautious consolidation protects stability safely, while overly rigid clinging resists healthy expansion.",
+      "Four of Pentacles answers Conditional: cautious consolidation protects stability safely, while overly rigid clinging resists healthy expansion.",
     timeline: [
       "Past volatility taught cautious tight habits around money and trust.",
       "Calm examination reveals where protective discipline shifts subtly into cramped scarcity today.",
@@ -290,7 +290,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Four of Pentacles good or bad for money?",
         answer:
-          "Mixed—it strongly validates saving, budgeting, debt discipline, and guarding resources against waste, yet warns against fear-driven hoarding or refusing smart reinvestment.",
+          "Mixed: it strongly validates saving, budgeting, debt discipline, and guarding resources against waste, yet warns against fear-driven hoarding or refusing smart reinvestment.",
       },
       {
         question: "Why is the figure sitting outside the city in Four of Pentacles?",
@@ -311,16 +311,16 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "pentacles-five": {
     overview: [
-      "Trudging bent and shivering barefoot beside pale wrapped crutches through heavy white winter snow, two ragged travelers limp past a brightly glowing arched stained-glass church window glittering warmly with five gleaming golden coins right beside their chilly shoulders—never once glancing inward toward open help shining inches away.",
+      "Trudging bent and shivering barefoot beside pale wrapped crutches through heavy white winter snow, two ragged travelers limp past a brightly glowing arched stained-glass church window glittering warmly with five gleaming golden coins right beside their chilly shoulders: never once glancing inward toward open help shining inches away.",
       "Ruled by Mercury in Taurus, Card 5 depicts acute hardship deepened sharply by isolated pride: rough financial shortfalls, lonely winter illness, or feeling starkly shut outside belonging while unseen warmth actually waits right beside your path.",
     ],
     upright: [
       "Upright names painful lean chapters frankly: tough unanticipated bills, stressful layoffs, draining winter health crashes, cold feelings of financial alienation, or enduring proud silence rather than knocking cleanly on trusted doors.",
-      "Notice both travelers still trudge side by side, and bright sanctuary light waits immediately beside them—isolation exaggerates bleak despair infinitely worse than reality warrants.",
+      "Notice both travelers still trudge side by side, and bright sanctuary light waits immediately beside them: isolation exaggerates bleak despair infinitely worse than reality warrants.",
     ],
     reversed: [
       "Reversed pushes thick wooden sanctuary doors warmly wide open: urgent bridge relief arriving smoothly, turning corners steadily beyond harsh financial winters, humble courage asking real friends for aid, or healing bitter alienation.",
-      "Accept warm practical help gratefully—even fierce proud oaks survive rough blizzards alongside sheltered forests.",
+      "Accept warm practical help gratefully, even fierce proud oaks survive rough blizzards alongside sheltered forests.",
     ],
     love: [
       "In love, bleak chilly loneliness even beside someone close, severe money stress straining tender patience, or shared grit enduring tough lean winters loyally together.",
@@ -339,11 +339,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed tracks gradual reassuring physical stabilization.",
     ],
     spiritual: [
-      "Spiritually, never mistake transient lean pockets for unworthiness—bright stained glass reminds bruised hearts sacred warmth never locks desperate guests outside.",
+      "Spiritually, never mistake transient lean pockets for unworthiness: bright stained glass reminds bruised hearts sacred warmth never locks desperate guests outside.",
       "Look up cleanly and step inside.",
     ],
     yesNoText:
-      "Five of Pentacles answers No—scarce resources, fatigue, or overlooked support make pushing forward prematurely tough.",
+      "Five of Pentacles answers No: scarce resources, fatigue, or overlooked support make pushing forward prematurely tough.",
     timeline: [
       "An unexpected winter setback rattled basic material ease and confidence.",
       "Dropping defensive pride to ask directly for real help warms cold struggle today.",
@@ -372,7 +372,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Five of Pentacles always predict poverty?",
         answer:
-          "No—it frequently describes temporary tight cashflow, feeling emotionally left out in the cold, poor health, or mental scarcity fear rather than permanent ruin.",
+          "No. It frequently describes temporary tight cashflow, feeling emotionally left out in the cold, poor health, or mental scarcity fear rather than permanent ruin.",
       },
       {
         question: "What is encouraging about the stained-glass window in Five of Pentacles?",
@@ -393,14 +393,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals clean graceful exchange: fair raises matching real contributions, gracious generous scholarships or grants, splitting shared household costs honestly, helpful mentorship opening key doors, and lending cleanly within sustainable means.",
-      "Hold those merchant scales thoughtfully—genuine generosity empowers lasting independence rather than trapping recipients inside subtle guilt obligations.",
+      "Hold those merchant scales thoughtfully: genuine generosity empowers lasting independence rather than trapping recipients inside subtle guilt obligations.",
     ],
     reversed: [
       "Reversed tips brass balance beams crooked: hidden conditional strings buried under flashy favors, chronically one-sided giving draining quiet helpers dry, stingy wage theft, or reckless unwise lending enabling bad habits.",
-      "Audit every exchange candidly—who gives consistently while others purely collect silently?",
+      "Audit every exchange candidly, who gives consistently while others purely collect silently?",
     ],
     love: [
-      "In love, heartwarming balanced kindness—trading turns patiently on busy weeks, caring generously for stressed partners cleanly, and honoring equal partnership dignity.",
+      "In love, heartwarming balanced kindness: trading turns patiently on busy weeks, caring generously for stressed partners cleanly, and honoring equal partnership dignity.",
       "Reversed highlights toxic scorekeeping, lopsided emotional labor, or financial manipulation.",
     ],
     career: [
@@ -416,23 +416,23 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed cautions against sacrificing your own basic wellbeing tirelessly rescuing everyone else.",
     ],
     spiritual: [
-      "Spiritually, both giving joyfully and receiving graciously share one sacred circulation loop—humility dissolves harsh ego walls cleanly at either end of those scales.",
+      "Spiritually, both giving joyfully and receiving graciously share one sacred circulation loop: humility dissolves harsh ego walls cleanly at either end of those scales.",
       "Generosity thrives best alongside crisp dignified boundaries.",
     ],
     yesNoText:
-      "Six of Pentacles answers Yes—fair mutual exchange, timely support, and balanced generosity align smoothly right now.",
+      "Six of Pentacles answers Yes: fair mutual exchange, timely support, and balanced generosity align smoothly right now.",
     timeline: [
       "Past lean scarcity taught deep empathy around timely fair support.",
       "Clean mutual help, timely funding, or dignified balanced exchange levels uneven ground today.",
       "Healthy reciprocal abundance and trusted shared generosity sustain calmly ahead.",
     ],
     advice: [
-      "Give warmly strictly from honest clean overflow—never quiet bitter martyrdom.",
+      "Give warmly strictly from honest clean overflow: never quiet bitter martyrdom.",
       "Accept respectful support graciously today without turning modest gratitude into awkward guilt.",
       "Spell out clear repayment terms politely in writing before lending cash to close allies.",
     ],
     journalPrompts: [
-      "Where in relationships or career does mutual effort feel wonderfully fair—or subtly tilted?",
+      "Where in relationships or career does mutual effort feel wonderfully fair, or subtly tilted?",
       "Am I letting stubborn awkward pride block graceful helpful offers today?",
       "How can I share abundance clearly without enabling unhealthy dependency?",
     ],
@@ -444,12 +444,12 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Am I the giver or the receiver in Six of Pentacles?",
         answer:
-          "Context decides—you may be offering resources, mentoring, or fair raises, or gratefully accepting a timely grant, loan, or helping hand. Healthy cycles place everyone on both ends across life.",
+          "Context decides: you may be offering resources, mentoring, or fair raises, or gratefully accepting a timely grant, loan, or helping hand. Healthy cycles place everyone on both ends across life.",
       },
       {
         question: "Why does the merchant carry scales in Six of Pentacles?",
         answer:
-          "True generosity requires discernment, fairness, and sustainable balance—giving wisely keeps both benefactor and recipient dignified and stable.",
+          "True generosity requires discernment, fairness, and sustainable balance, giving wisely keeps both benefactor and recipient dignified and stable.",
       },
       {
         question: "What is the shadow side of Six of Pentacles reversed?",
@@ -459,7 +459,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "How does Six of Pentacles apply to job negotiations?",
         answer:
-          "Expect fair compensation discussions where value given and reward received align cleanly—advocate confidently for equitable market rates.",
+          "Expect fair compensation discussions where value given and reward received align cleanly: advocate confidently for equitable market rates.",
       },
     ],
   },
@@ -470,14 +470,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals steady unhurried cultivation: pausing honestly midway through multi-quarter investments, auditing slow organic business traction fairly, adjusting pruning strategy subtly before heavy autumn harvest, and honoring patient cumulative growth over overnight viral miracles.",
-      "Notice he hasn't quit digging—calm assessment lets diligent gardeners refine soil smartly rather than wasting years watering barren weeds.",
+      "Notice he hasn't quit digging: calm assessment lets diligent gardeners refine soil smartly rather than wasting years watering barren weeds.",
     ],
     reversed: [
       "Reversed uproots young shoots prematurely: anxious frantic pivot-hopping right before seeds bloom, sunk-cost stubbornness pouring precious time into visibly dead soil, or sour resentful burnout staring impatiently at empty slow patches.",
       "Distinguish healthy slow compound growth cleanly from sterile habits going nowhere.",
     ],
     love: [
-      "In love, slow respectful relational investment maturing warmly over genuine months—pausing thoughtfully to check whether shared mutual effort matches shared values.",
+      "In love, slow respectful relational investment maturing warmly over genuine months: pausing thoughtfully to check whether shared mutual effort matches shared values.",
       "Reversed warns against impatient instant-gratification quitting or exhausting endless wait inside stagnant half-hearted ties.",
     ],
     career: [
@@ -493,18 +493,18 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against frantic program-hopping before slow sustainable progress registers.",
     ],
     spiritual: [
-      "Spiritually, nature never hurries slow winter roots upward overnight—sacred patience couples sharp realistic pruning calmly with deep faith in slow ripening seasons.",
+      "Spiritually, nature never hurries slow winter roots upward overnight: sacred patience couples sharp realistic pruning calmly with deep faith in slow ripening seasons.",
       "Tend faithfully while trusting honest harvest.",
     ],
     yesNoText:
-      "Seven of Pentacles answers Conditional—slow organic results require patient thoughtful pruning rather than rushed shortcuts.",
+      "Seven of Pentacles answers Conditional: slow organic results require patient thoughtful pruning rather than rushed shortcuts.",
     timeline: [
       "Consistent quiet hard work planted durable long-horizon seeds early on.",
       "Candid calm mid-point review distinguishes real compound promise from wasted toil today.",
       "Rich substantial harvest rewards patient faithful tending cleanly ahead.",
     ],
     advice: [
-      "Measure concrete long-horizon metrics calmly once weekly—stop digging anxiously every hour.",
+      "Measure concrete long-horizon metrics calmly once weekly: stop digging anxiously every hour.",
       "Prune one sluggish underperforming habit cleanly so prime winners get better water.",
       "Honor honest slow compounding calmly wherever deep solid roots need extra winter time.",
     ],
@@ -526,7 +526,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Seven of Pentacles say give up or keep going?",
         answer:
-          "Neither automatically—it asks for an honest mid-project audit. Stay patient with genuinely healthy long-term roots, while redirecting energy away from visibly fruitless paths.",
+          "Neither automatically: it asks for an honest mid-project audit. Stay patient with genuinely healthy long-term roots, while redirecting energy away from visibly fruitless paths.",
       },
       {
         question: "How does Seven of Pentacles relate to investments?",
@@ -547,14 +547,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals rewarding immersive skill-building: deep concentrated code sprints, structured certification courses, refined artisan precision, steady reliable freelance bookings, and upgrading daily technique cleanly piece by careful piece.",
-      "Look at that distant quiet town—disciplined focus stepping softly outside noisy crowds produces extraordinary dependable craftsmanship.",
+      "Look at that distant quiet town: disciplined focus stepping softly outside noisy crowds produces extraordinary dependable craftsmanship.",
     ],
     reversed: [
       "Reversed slips hammer precision crooked: numb assembly-line drudgery draining heart completely, sloppy careless rushing just to invoice fast, obsessive paralyzing nitpicking over tiny pixels, or skipping crucial boring fundamentals chasing clever shortcuts.",
-      "Restore pride cleanly inside honest steady practice—or examine whether dull busywork masks misalignment altogether.",
+      "Restore pride cleanly inside honest steady practice, or examine whether dull busywork masks misalignment altogether.",
     ],
     love: [
-      "In love, reliable steady effort builds deep lasting intimacy—remembering thoughtful small routines, showing up patiently when romance settles comfortably past early fireworks, and practicing kinder everyday listening.",
+      "In love, reliable steady effort builds deep lasting intimacy: remembering thoughtful small routines, showing up patiently when romance settles comfortably past early fireworks, and practicing kinder everyday listening.",
       "Reversed warns against neglecting attentive care through hectic overwork or treating love mechanically like sterile checklists.",
     ],
     career: [
@@ -562,19 +562,19 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights burnout boredom, corner-cutting mistakes, or paralyzed perfectionism delaying solid releases.",
     ],
     finance: [
-      "Financially, consistent reliable income earned cleanly through indispensable hard-won skill outlasts brittle hype—keep clean receipts and sharpen rare expertise steadily.",
+      "Financially, consistent reliable income earned cleanly through indispensable hard-won skill outlasts brittle hype: keep clean receipts and sharpen rare expertise steadily.",
       "Reversed warns against sloppy billing habits, underpricing skilled labor, or risky quick-rich traps.",
     ],
     health: [
-      "Physically, watch repetitive strain along hands, wrists, and hunched upper backs during deep desk focus—micro-breaks and clean daily movement protect crisp longevity.",
+      "Physically, watch repetitive strain along hands, wrists, and hunched upper backs during deep desk focus: micro-breaks and clean daily movement protect crisp longevity.",
       "Reversed signals burnout fatigue from grinding mindlessly past limits.",
     ],
     spiritual: [
-      "Spiritually, mindful craft transforms daily labor silently into calm moving meditation—each crisp intentional stroke honors quality without frantic ego comparison.",
+      "Spiritually, mindful craft transforms daily labor silently into calm moving meditation: each crisp intentional stroke honors quality without frantic ego comparison.",
       "Mastery whispers humbly inside steady repetition.",
     ],
     yesNoText:
-      "Eight of Pentacles answers Yes—focused steady practice, technical precision, and diligent care guarantee crisp lasting progress.",
+      "Eight of Pentacles answers Yes: focused steady practice, technical precision, and diligent care guarantee crisp lasting progress.",
     timeline: [
       "Early bold inspiration settled cleanly into disciplined structured learning.",
       "Focused unhurried technical repetition refines raw talent rapidly into reliable mastery today.",
@@ -598,12 +598,12 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Eight of Pentacles mean hard boring work?",
         answer:
-          "It signifies dedicated, focused effort and apprenticeship—often deeply satisfying craft, continuous learning, and steady skill refinement rather than meaningless drudgery.",
+          "It signifies dedicated, focused effort and apprenticeship: often deeply satisfying craft, continuous learning, and steady skill refinement rather than meaningless drudgery.",
       },
       {
         question: "What does Eight of Pentacles mean in love?",
         answer:
-          "Willingness to put consistent, thoughtful everyday work into a relationship—nurturing trust, habits, and communication patiently.",
+          "Willingness to put consistent, thoughtful everyday work into a relationship: nurturing trust, habits, and communication patiently.",
       },
       {
         question: "How is Eight of Pentacles different from Three of Pentacles?",
@@ -624,14 +624,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright celebrates flourishing independent harvest: enjoying debt-free breathing room, owning serene tidy living sanctuaries, thriving dignified solo businesses, disciplined gracious self-control taming wild appetites cleanly, and resting proudly amidst beautiful things funded directly through clear steady craft.",
-      "Notice that alert hooded falcon—true leisure springs from sharp disciplined mastery holding clear calm rein over impulses.",
+      "Notice that alert hooded falcon: true leisure springs from sharp disciplined mastery holding clear calm rein over impulses.",
     ],
     reversed: [
       "Reversed frays quiet luxury uneasily: exhausting overspending just to stage curated online illusions, lonely isolated hustle behind golden cages, living nervously beyond true earnings, or failing to enjoy real hard-won abundance cleanly out of persistent guilt.",
-      "Ground real self-worth honestly inside solid balance sheets—not shiny borrowed status symbols.",
+      "Ground real self-worth honestly inside solid balance sheets, not shiny borrowed status symbols.",
     ],
     love: [
-      "In love, magnetic dignified self-sufficiency—choosing equal healthy companionship cleanly out of sincere delight rather than panicked loneliness, or honoring gracious private breathing space inside thriving relationships.",
+      "In love, magnetic dignified self-sufficiency: choosing equal healthy companionship cleanly out of sincere delight rather than panicked loneliness, or honoring gracious private breathing space inside thriving relationships.",
       "Reversed highlights shallow trophy chasing, cold aloof unavailability, or financial co-dependence.",
     ],
     career: [
@@ -639,7 +639,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed alerts against exhausting hustle theater, leaky prestige spending, or imposter guilt undermining rightful fees.",
     ],
     finance: [
-      "Financially, vibrant healthy net-worth independence—prudent asset stewardship, smart enjoyable upgrades cleanly funded via surplus, and serene confident financial boundaries.",
+      "Financially, vibrant healthy net-worth independence: prudent asset stewardship, smart enjoyable upgrades cleanly funded via surplus, and serene confident financial boundaries.",
       "Reversed cautions strictly against deceptive credit vanity purchases or risky unguarded scams.",
     ],
     health: [
@@ -647,11 +647,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed calls for checking hidden burnout behind sleek composed outward composure.",
     ],
     spiritual: [
-      "Spiritually, serene gratitude turns clean physical enjoyment into quiet grace—you earned safe peaceful ground through years of honest steady discipline.",
+      "Spiritually, serene gratitude turns clean physical enjoyment into quiet grace: you earned safe peaceful ground through years of honest steady discipline.",
       "Savor real simple luxury gently right now.",
     ],
     yesNoText:
-      "Nine of Pentacles answers Yes—self-reliant mastery, solid resources, and poised mature discernment flourish effortlessly.",
+      "Nine of Pentacles answers Yes: self-reliant mastery, solid resources, and poised mature discernment flourish effortlessly.",
     timeline: [
       "Years of focused disciplined independent labor quietly built strong resilient foundations.",
       "Poised earned autonomy, rich comfort, and serene grounded pride surround daily routines today.",
@@ -675,12 +675,12 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Nine of Pentacles mean single and happy?",
         answer:
-          "Frequently yes—it radiates complete self-sufficiency, enjoying one's own company, autonomy, and comfort without rushing into compromise purely from loneliness.",
+          "Frequently yes: it radiates complete self-sufficiency, enjoying one's own company, autonomy, and comfort without rushing into compromise purely from loneliness.",
       },
       {
         question: "What does the hooded falcon symbolize in Nine of Pentacles?",
         answer:
-          "Disciplined mastery over raw instinct—wealth, refinement, and calm independence sustained cleanly through smart focused self-control.",
+          "Disciplined mastery over raw instinct: wealth, refinement, and calm independence sustained cleanly through smart focused self-control.",
       },
       {
         question: "How is Nine of Pentacles different from Ten of Pentacles?",
@@ -701,14 +701,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals monumental grounded permanence: closing lifelong homesteads cleanly, flourishing multi-year businesses generating reliable dividends, heartwarming multi-generational family reunions, smart trusts/wills safeguarding loved ones respectfully, and timeless community institutions built solidly upon real integrity.",
-      "Notice those coins mirror Kabbalistic sacred order—real lasting prosperity balances clear ethics, shared heritage, and tangible shelter cleanly.",
+      "Notice those coins mirror Kabbalistic sacred order: real lasting prosperity balances clear ethics, shared heritage, and tangible shelter cleanly.",
     ],
     reversed: [
       "Reversed fractures courtyard peace awkwardly: bitter sibling estate squabbles, suffocating rigid family expectations dictating personal paths, short-sighted debt gambling away hard-built safety nets, or lonely sterile wealth missing warm genuine trust.",
       "Put difficult transparent estate/values conversations gently onto calm tables early before painful silence fractures close bonds.",
     ],
     love: [
-      "In love, deeply rooted enduring devotion—welcoming warm extended families harmoniously, establishing sturdy long-term shared homes, honoring loyal marriage milestones, and prioritizing generational warmth cleanly over fragile drama.",
+      "In love, deeply rooted enduring devotion: welcoming warm extended families harmoniously, establishing sturdy long-term shared homes, honoring loyal marriage milestones, and prioritizing generational warmth cleanly over fragile drama.",
       "Reversed alerts against intrusive toxic in-law friction, rigid family pressure, or fighting nastily over shared money.",
     ],
     career: [
@@ -724,11 +724,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed nudges updating stubborn outdated family dietary or lifestyle myths kindly.",
     ],
     spiritual: [
-      "Spiritually, timeless wisdom lives vividly inside honest loving lineage—receiving generous heritage thoughtfully while sculpting gentler, wiser roots for descendants ahead.",
+      "Spiritually, timeless wisdom lives vividly inside honest loving lineage: receiving generous heritage thoughtfully while sculpting gentler, wiser roots for descendants ahead.",
       "Permanent grace grows cleanly inside ordinary loving duty.",
     ],
     yesNoText:
-      "Ten of Pentacles answers Yes—deep stability, family strength, and lasting tangible legacy support full long-term commitment.",
+      "Ten of Pentacles answers Yes: deep stability, family strength, and lasting tangible legacy support full long-term commitment.",
     timeline: [
       "Faithful durable foundations laid steadily over long honest years created rare permanence.",
       "Enduring security, supportive trusted community, and multigenerational abundance anchor life warmly today.",
@@ -752,7 +752,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why are the coins arranged in a special pattern in Ten of Pentacles?",
         answer:
-          "They mirror the ten Sephirot of the Kabbalistic Tree of Life—symbolizing complete material order aligned gracefully with enduring spiritual wholeness.",
+          "They mirror the ten Sephirot of the Kabbalistic Tree of Life: symbolizing complete material order aligned gracefully with enduring spiritual wholeness.",
       },
       {
         question: "Does Ten of Pentacles guarantee an inheritance?",
@@ -762,7 +762,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does Ten of Pentacles mean in career readings?",
         answer:
-          "Stable long-term career architecture—established corporations, family businesses, pension-backed security, partnerships, or building a respected lasting institution.",
+          "Stable long-term career architecture: established corporations, family businesses, pension-backed security, partnerships, or building a respected lasting institution.",
       },
       {
         question: "What does Ten of Pentacles reversed indicate?",
@@ -778,14 +778,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals fertile diligent beginnings: starting structured new degrees or coding bootcamps, securing promising entry apprenticeships, launching modest lean cashflow side projects smartly, booking pragmatic financial advising, or steadily embracing joyful health habits.",
-      "Stay delightfully teachable—careful unhurried curiosity right at step one spares expensive hasty blunders down the road.",
+      "Stay delightfully teachable: careful unhurried curiosity right at step one spares expensive hasty blunders down the road.",
     ],
     reversed: [
       "Reversed lets attention drop that bright coin clumsily into weeds: lazy procrastination dodging dull foundation work, bouncing aimlessly across expensive uncompleted courses, failing basic money follow-through, or talking grandly without sketching clean budgets.",
       "Close distracting shiny browser tabs cleanly today; log thirty honest minutes finishing one foundational lesson.",
     ],
     love: [
-      "In love, shy dependable attentive sweetness—remembering small helpful practical details, planning thoughtful affordable dates carefully, and learning patient reliable commitment cleanly together.",
+      "In love, shy dependable attentive sweetness: remembering small helpful practical details, planning thoughtful affordable dates carefully, and learning patient reliable commitment cleanly together.",
       "Reversed highlights immature flakiness, lazy distracted neglect, or shallow fixation strictly on flashy status.",
     ],
     career: [
@@ -797,15 +797,15 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against naive get-rich-quick noise or ignoring simple monthly expense leaks.",
     ],
     health: [
-      "Physically, crisp practical beginnings shine—starting beginner mobility plans thoughtfully, tracking sleep/water smoothly, and consulting clear evidence-backed wellness teachers.",
+      "Physically, crisp practical beginnings shine: starting beginner mobility plans thoughtfully, tracking sleep/water smoothly, and consulting clear evidence-backed wellness teachers.",
       "Reversed warns against abandoning sensible health goals swiftly past week one.",
     ],
     spiritual: [
-      "Spiritually, humble beginner awe transforms ordinary craft cleanly into reverent wonder—respect every quiet slow brick carefully.",
+      "Spiritually, humble beginner awe transforms ordinary craft cleanly into reverent wonder: respect every quiet slow brick carefully.",
       "Honest steady learning stays endlessly rich.",
     ],
     yesNoText:
-      "Page of Pentacles answers Yes—diligent practical preparation, eager study, and grounded small beginnings build strong traction.",
+      "Page of Pentacles answers Yes: diligent practical preparation, eager study, and grounded small beginnings build strong traction.",
     timeline: [
       "Fresh pragmatic curiosity spotted tangible realistic avenues worth careful effort.",
       "Organized humble study, helpful financial plans, or steady concrete pilots launch cleanly today.",
@@ -829,7 +829,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What news or opportunity does Page of Pentacles bring?",
         answer:
-          "Concrete practical announcements—scholarships, job offers, paid training programs, positive financial notices, loan approvals, or clear business ideas.",
+          "Concrete practical announcements: scholarships, job offers, paid training programs, positive financial notices, loan approvals, or clear business ideas.",
       },
       {
         question: "How is Page of Pentacles different from Page of Wands?",
@@ -839,7 +839,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What personality does Page of Pentacles represent?",
         answer:
-          "A studious, loyal, grounded, observant learner—perhaps slightly cautious or shy yet deeply reliable once committed to clear tangible goals.",
+          "A studious, loyal, grounded, observant learner: perhaps slightly cautious or shy yet deeply reliable once committed to clear tangible goals.",
       },
       {
         question: "What does Page of Pentacles reversed signal?",
@@ -855,14 +855,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals steady unstoppable progress: executing daunting long-horizon builds meticulously without skipping tiny compliance steps, dependable loyal protection, clearing massive debts relentlessly penny by penny, and delivering quality cleanly ahead of promises.",
-      "Never judge this slow horse impatiently—methodical endurance crosses punishing marathons intact long after dramatic horses collapse.",
+      "Never judge this slow horse impatiently: methodical endurance crosses punishing marathons intact long after dramatic horses collapse.",
     ],
     reversed: [
       "Reversed bogs heavy hooves cleanly inside stubborn mud: rigid boring joyless ruts, obsessive perfectionist dithering paralyzing launches completely, stale inflexible dogmatism hating fresh upgrades, or slumping unexpectedly into lazy unmotivated slumps.",
       "Keep reliable steady backbone warmly flexible so boring discipline still serves living joyful purpose.",
     ],
     love: [
-      "In love, rock-solid trustworthy devotion—remembering car inspections, cooking quiet nourishing meals calmly, showing up loyally across grueling seasons, and keeping steady sincere promises effortlessly.",
+      "In love, rock-solid trustworthy devotion: remembering car inspections, cooking quiet nourishing meals calmly, showing up loyally across grueling seasons, and keeping steady sincere promises effortlessly.",
       "Reversed warns against predictable stale boredom, stubborn emotional walls, or treating loving affection strictly like chore rosters.",
     ],
     career: [
@@ -878,11 +878,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against stiff unchanging workout plateaus or sinking slowly into sluggish apathy.",
     ],
     spiritual: [
-      "Spiritually, sacred endurance sanctifies ordinary honest plowing—daily patience carves mountains effortlessly over quiet steady years.",
+      "Spiritually, sacred endurance sanctifies ordinary honest plowing: daily patience carves mountains effortlessly over quiet steady years.",
       "Faithfulness shines steadily inside small repeated vows.",
     ],
     yesNoText:
-      "Knight of Pentacles answers Yes—patient thorough preparation and unshakeable steady discipline deliver reliable lasting results.",
+      "Knight of Pentacles answers Yes: patient thorough preparation and unshakeable steady discipline deliver reliable lasting results.",
     timeline: [
       "Consistent quiet daily repetition steadily built tough dependable trust.",
       "Methodical patient execution moves complex long-haul foundations soundly forward today.",
@@ -906,7 +906,7 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is Knight of Pentacles the only Knight sitting still?",
         answer:
-          "Because he favors deliberate endurance, thorough planning, and dependable consistency over impulsive sprints—once moving, he rarely abandons course.",
+          "Because he favors deliberate endurance, thorough planning, and dependable consistency over impulsive sprints: once moving, he rarely abandons course.",
       },
       {
         question: "Is Knight of Pentacles good in love readings?",
@@ -932,14 +932,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright radiates warm grounded nourishment: prosperous down-to-earth leadership balancing healthy revenue effortlessly alongside loyal thriving teams, gorgeous practical welcoming homes, savvy nurturing financial stewardship, and restorative self-care rooted happily inside real everyday comforts.",
-      "Notice her coin sits gracefully open inside gentle cupped fingers—abundance serves living people generously rather than hoarding cold status.",
+      "Notice her coin sits gracefully open inside gentle cupped fingers: abundance serves living people generously rather than hoarding cold status.",
     ],
     reversed: [
       "Reversed scatters tender care unevenly: running endlessly dry rescuing messy colleagues while letting crisp personal health collapse silently, chaotic cluttered finances, smothering nervous over-parenting, or neglecting practical maintenance completely under anxious work overload.",
-      "Nurture yourself cleanly right beside every loved one—empty wells never quench thirsty gardens.",
+      "Nurture yourself cleanly right beside every loved one: empty wells never quench thirsty gardens.",
     ],
     love: [
-      "In love, sensual comforting loyal tenderness—homecooked shared sanctuary dinners, supportive practical backing behind dreams, grounded steadfast affection, and peaceful sensual warmth thriving gently daily.",
+      "In love, sensual comforting loyal tenderness: homecooked shared sanctuary dinners, supportive practical backing behind dreams, grounded steadfast affection, and peaceful sensual warmth thriving gently daily.",
       "Reversed highlights exhausting domestic martyrdom, nagging anxious control, or neglecting partner closeness beneath endless household chores.",
     ],
     career: [
@@ -947,19 +947,19 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against disorganized over-commitment, blurry boundaries, and burnout fatigue.",
     ],
     finance: [
-      "Financially, balanced comforting realism shines—investing soundly in cozy appreciating homes, sensible ethical brands, warm generous hosting well inside neat realistic budgets.",
+      "Financially, balanced comforting realism shines: investing soundly in cozy appreciating homes, sensible ethical brands, warm generous hosting well inside neat realistic budgets.",
       "Reversed flags comfort-shopping leaks, neglected messy receipts, or overly generous bailing out irresponsible friends.",
     ],
     health: [
-      "Physically, natural wholesome grounding heals gently—rich leafy whole meals, quiet warm baths, forest gardening air, restorative massage, and attentive sensory calm.",
+      "Physically, natural wholesome grounding heals gently: rich leafy whole meals, quiet warm baths, forest gardening air, restorative massage, and attentive sensory calm.",
       "Reversed alerts gently when endless caregiving depletes basic core stamina.",
     ],
     spiritual: [
-      "Spiritually, sacred presence dwells intimately inside swept quiet kitchens, blooming window boxes, and tender unhurried physical care—practical love itself stands holy.",
+      "Spiritually, sacred presence dwells intimately inside swept quiet kitchens, blooming window boxes, and tender unhurried physical care: practical love itself stands holy.",
       "Nourish bodies gracefully right where earth holds steady.",
     ],
     yesNoText:
-      "Queen of Pentacles answers Yes—grounded wise stewardship, nurturing care, and sound practical resources flourish warmly.",
+      "Queen of Pentacles answers Yes: grounded wise stewardship, nurturing care, and sound practical resources flourish warmly.",
     timeline: [
       "Patient compassionate attention cultivated deep reliable trust across communities and homes.",
       "Warm practical generosity, thriving calm productivity, and restorative physical ease surround today.",
@@ -1009,14 +1009,14 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     upright: [
       "Upright signals accomplished grounded mastery: closing major capital partnerships cleanly, presiding steadily over thriving profitable enterprises, durable appreciating property portfolios, generous calm reliability anchoring extended circles securely, and harvesting dignified prosperity earned patiently through ethical unshakable discipline.",
-      "Look closely down near his armored foot tucked quietly beneath rich robes—true practical builders stay humbly battle-ready beneath polished luxury.",
+      "Look closely down near his armored foot tucked quietly beneath rich robes: true practical builders stay humbly battle-ready beneath polished luxury.",
     ],
     reversed: [
       "Reversed stiffens steady stewardship awkwardly: cold materialistic greed measuring human worth strictly by bank statements, stubborn outdated bosses refusing smart innovation, over-leveraged greedy real estate bets cracking under pressure, or miserly hoarding terrified of healthy change.",
-      "True sovereign abundance elevates communities warmly—never mistake cold net worth alone for clean honorable leadership.",
+      "True sovereign abundance elevates communities warmly: never mistake cold net worth alone for clean honorable leadership.",
     ],
     love: [
-      "In love, steadfast rock-solid protection—devoted trustworthy loyalty shown through reliable thoughtful provision, calm grounded emotional stability amid noisy crises, and building secure enduring long-range lives serenely together.",
+      "In love, steadfast rock-solid protection: devoted trustworthy loyalty shown through reliable thoughtful provision, calm grounded emotional stability amid noisy crises, and building secure enduring long-range lives serenely together.",
       "Reversed warns against transactional rigid control, emotional stinginess covered by expensive gifts, or letting endless empire-building freeze affectionate presence.",
     ],
     career: [
@@ -1032,11 +1032,11 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed cautions against sedentary stress stiffness or stubbornly ignoring sensible doctors.",
     ],
     spiritual: [
-      "Spiritually, mature practical stewardship turns earthly mastery humbly into quiet service—tending rich vineyards faithfully so thriving shade shelters communities cleanly.",
+      "Spiritually, mature practical stewardship turns earthly mastery humbly into quiet service: tending rich vineyards faithfully so thriving shade shelters communities cleanly.",
       "Steady grounded character crowns honest success cleanly.",
     ],
     yesNoText:
-      "King of Pentacles answers Yes—proven competence, solid steady resources, and sound patient strategy deliver lasting durable success.",
+      "King of Pentacles answers Yes: proven competence, solid steady resources, and sound patient strategy deliver lasting durable success.",
     timeline: [
       "Years of principled disciplined building established unmistakable credibility and real equity.",
       "Authoritative steady guidance, sound commercial traction, and quiet enduring safety anchor work today.",
@@ -1060,17 +1060,17 @@ export const PENTACLES_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What kind of person does King of Pentacles describe?",
         answer:
-          "A dependable, prosperous, business-savvy, loyal, and protective figure—often a seasoned founder, mentor, investor, or provider who values tangible quality and steady trust.",
+          "A dependable, prosperous, business-savvy, loyal, and protective figure: often a seasoned founder, mentor, investor, or provider who values tangible quality and steady trust.",
       },
       {
         question: "Why are bulls carved on King of Pentacles' throne and robes?",
         answer:
-          "The bull links directly to Taurus—symbolizing steady determination, wealth stewardship, physical strength, fertile growth, and uncompromising patience.",
+          "The bull links directly to Taurus: symbolizing steady determination, wealth stewardship, physical strength, fertile growth, and uncompromising patience.",
       },
       {
         question: "Is King of Pentacles positive for entrepreneurship?",
         answer:
-          "One of the strongest cards in tarot for sustainable business success—signaling solid revenue architecture, long-term vision, and calm operational mastery.",
+          "One of the strongest cards in tarot for sustainable business success, signaling solid revenue architecture, long-term vision, and calm operational mastery.",
       },
       {
         question: "What does King of Pentacles reversed represent?",

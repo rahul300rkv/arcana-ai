@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { CalendarClock, Clock, Layers, Sparkles } from "lucide-react";
+import { CalendarClock, Clock, Layers, Sparkles } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -220,7 +220,7 @@ export function ReadingLanding({
 
           <ContentSection id="disclaimer" title="A note on responsible use" as="h3">
             <p className="text-base leading-relaxed text-muted-foreground">
-              This reading is a reflective, symbolic tool for self-exploration — not a deterministic
+              This reading is a reflective, symbolic tool for self-exploration, not a deterministic
               prediction. It is not a substitute for professional medical, legal, or financial
               advice. Use it as a prompt for your own judgement, not a replacement for it.
             </p>

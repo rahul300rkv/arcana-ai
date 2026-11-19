@@ -302,7 +302,7 @@ function attributionFor(card: TarotCard): Attribution {
       planet: m.planet,
       zodiac: m.zodiac,
       archetype: m.archetype,
-      numberLabel: `${card.number} — ${ordinal(card.number + 1)} card of the Major Arcana`,
+      numberLabel: `${card.number}: ${ordinal(card.number + 1)} card of the Major Arcana`,
     };
   }
 
@@ -320,7 +320,7 @@ function attributionFor(card: TarotCard): Attribution {
       planet: rank === "page" ? "Elemental (earth of the suit)" : "Elemental court",
       zodiac,
       archetype: court.label,
-      numberLabel: `${court.label} — court card of the ${SUIT_LABEL[suit]}`,
+      numberLabel: `${court.label}: court card of the ${SUIT_LABEL[suit]}`,
     };
   }
 
@@ -330,7 +330,7 @@ function attributionFor(card: TarotCard): Attribution {
       planet: "Elemental root",
       zodiac: SUIT_SIGNS[suit].join(", "),
       archetype: "The Root",
-      numberLabel: `Ace — the root of ${element}`,
+      numberLabel: `Ace: the root of ${element}`,
     };
   }
 
@@ -340,7 +340,7 @@ function attributionFor(card: TarotCard): Attribution {
     planet,
     zodiac,
     archetype: `The ${ordinal(card.number)} step`,
-    numberLabel: `${card.number} — pip card of the ${SUIT_LABEL[suit]}`,
+    numberLabel: `${card.number}: pip card of the ${SUIT_LABEL[suit]}`,
   };
 }
 
@@ -405,7 +405,7 @@ function buildCardOfTheDay(
   return {
     energy: unique.timeline[1],
     leanInto: unique.advice[0],
-    watchOutFor: `${reversedKeywords.slice(0, 2).join(" or ")} — stay mindful if tension pulls you toward ${card.reversedMeaning.toLowerCase()}.`,
+    watchOutFor: `${reversedKeywords.slice(0, 2).join(" or ")}: stay mindful if tension pulls you toward ${card.reversedMeaning.toLowerCase()}.`,
   };
 }
 
@@ -449,7 +449,7 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     : `${card.name} as Card of the Day`;
 
   const outcomeUpright = `${unique.timeline[2]} In an upright future position, ${card.name} channels ${uprightKeywords.slice(0, 3).join(", ").toLowerCase()} into forward momentum.`;
-  const outcomeReversed = `When ${card.name} lands reversed in a future or outcome slot, the trajectory turns inward or slows down—expect themes of ${reversedKeywords.slice(0, 3).join(", ").toLowerCase()} until the underlying block is addressed cleanly.`;
+  const outcomeReversed = `When ${card.name} lands reversed in a future or outcome slot, the trajectory turns inward or slows down: expect themes of ${reversedKeywords.slice(0, 3).join(", ").toLowerCase()} until the underlying block is addressed cleanly.`;
 
   const displayPair = altName ? `${altName} (${card.name})` : card.name;
   const title = `${displayPair} Meaning: Card of the Day, Upright & Reversed`;
@@ -459,8 +459,8 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
       ? rawDescription
       : `${displayPair} Card of the Day meaning: ${card.uprightMeaning.toLowerCase()} upright; ${card.reversedMeaning.toLowerCase()} reversed.`;
   const intro = altName
-    ? `${altName} — also known as ${card.name} — brings themes of ${card.keywords.join(", ").toLowerCase()} through Rider–Waite–Smith symbolism, ${a.element} energy, and ${a.planet} in ${a.zodiac}.`
-    : `${card.name} — ${card.keywords.join(", ").toLowerCase()} — explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`;
+    ? `${altName} (also known as ${card.name}) brings themes of ${card.keywords.join(", ").toLowerCase()} through Rider–Waite–Smith symbolism, ${a.element} energy, and ${a.planet} in ${a.zodiac}.`
+    : `${card.name} (${card.keywords.join(", ").toLowerCase()}) explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`;
 
   const hasDailyFaq = unique.faqs.some((f) => /card of the day/i.test(f.question));
   const faqs = hasDailyFaq

@@ -11,7 +11,7 @@ const GUIDE_HUB_FAQS = [
   {
     question: "How do AstroFree's tarot and Vedic numerology guides fit together?",
     answer:
-      "Tarot captures the texture of immediate circumstances and personal choices, while Indian Ank Shastra (Mulank, Bhagyank, and Namank) maps temperament and multi-year timing cycles—pair both to compare daily nuance against longer life arcs.",
+      "Tarot captures the texture of immediate circumstances and personal choices, while Indian Ank Shastra (Mulank, Bhagyank, and Namank) maps temperament and multi-year timing cycles: pair both to compare daily nuance against longer life arcs.",
   },
   {
     question: "Are all AstroFree study guides free without account registration?",
@@ -21,20 +21,20 @@ const GUIDE_HUB_FAQS = [
   {
     question: "Why does AstroFree include reversed card guidance?",
     answer:
-      "Reversals prevent one-dimensional fatalistic readings by highlighting when a card's core energy sits internalized, blocked, overdue, or subtly overexpressed—helpful context covered step by step in Reversed Tarot Cards.",
+      "Reversals prevent one-dimensional fatalistic readings by highlighting when a card's core energy sits internalized, blocked, overdue, or subtly overexpressed: helpful context covered step by step in Reversed Tarot Cards.",
   },
 ];
 
 export const Route = createFileRoute("/guide/")({
   head: () => ({
     meta: [
-      { title: "Tarot & Numerology Guides — AstroFree" },
+      { title: "Tarot & Numerology Guides | AstroFree" },
       {
         name: "description",
         content:
           "Free tarot and numerology guides covering 78 card meanings, tarot spreads, Mulank vs Bhagyank calculation, and Personal Year explanations.",
       },
-      { property: "og:title", content: "Tarot & Numerology Guides — AstroFree" },
+      { property: "og:title", content: "Tarot & Numerology Guides | AstroFree" },
       {
         property: "og:description",
         content:
@@ -51,9 +51,9 @@ export const Route = createFileRoute("/guide/")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/guide",
-            title: "Tarot & Numerology Guides — AstroFree",
+            title: "Tarot & Numerology Guides | AstroFree",
             description:
-              "Free tarot and numerology guides — 78 card meanings, spreads, and Mulank calculations.",
+              "Free tarot and numerology guides: 78 card meanings, spreads, and Mulank calculations.",
             crumbs: [
               {
                 name: "Guides",

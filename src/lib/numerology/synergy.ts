@@ -11,7 +11,7 @@ export interface CardSynergyMatch {
 
 /**
  * A tarot card "resonates" with a Personal Month number when its own numeric
- * rank matches it — a Major Arcana card numbered 1–9 (these are exactly the
+ * rank matches it: a Major Arcana card numbered 1–9 (these are exactly the
  * archetypes in ARCHETYPES: 1 = The Magician ... 9 = The Hermit), or a Minor
  * Arcana card of that rank (Ace through Nine of any suit; Ten and court
  * cards never match a single digit, which is correct).
@@ -24,7 +24,7 @@ function cardMatchesNumber(cardId: string, target: RootNumber): boolean {
 /**
  * Looks through the user's locally-saved reading history for any reading
  * drawn during the target year/month whose cards resonate with that
- * month's Personal Month number — i.e. "you drew a card that's already in
+ * month's Personal Month number, i.e. "you drew a card that's already in
  * sync with this month's energy."
  *
  * Runs entirely client-side against localStorage; never touches the server.

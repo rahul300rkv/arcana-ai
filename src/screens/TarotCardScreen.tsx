@@ -12,7 +12,7 @@ import {
   RefreshCw,
   Sparkles,
   Timer,
-} from "lucide-react";
+} from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { InfoGrid } from "@/components/content/InfoGrid";
@@ -235,7 +235,7 @@ export function TarotCardScreen() {
         <div className="grid gap-6 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">
-              Future / Outcome — Upright
+              Future / Outcome (Upright)
             </h3>
             <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.outcomeUpright}
@@ -243,7 +243,7 @@ export function TarotCardScreen() {
           </GlassCard>
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[color:var(--aurora-1)]">
-              Future / Outcome — Reversed
+              Future / Outcome (Reversed)
             </h3>
             <p className="mt-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.outcomeReversed}
@@ -358,7 +358,10 @@ export function TarotCardScreen() {
             <h3 className="font-display text-lg">Journal prompts</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.journalPrompts.map((p, i) => (
-                <li key={i}>— {p}</li>
+                <li key={i} className="flex gap-2">
+                  <span aria-hidden className="text-[var(--gold)]">•</span>
+                  <span>{p}</span>
+                </li>
               ))}
             </ul>
           </GlassCard>

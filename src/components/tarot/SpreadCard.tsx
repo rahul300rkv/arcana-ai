@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkle, Hourglass, Heart, Briefcase, Coins, Scale, Cross, CalendarDays, Layers } from "lucide-react";
+import { ArrowRight, Sparkle, Hourglass, Heart, Briefcase, Coins, Scale, Cross, CalendarDays, Layers } from "@/components/icons";
 import type { Spread } from "@/lib/tarot/types";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";

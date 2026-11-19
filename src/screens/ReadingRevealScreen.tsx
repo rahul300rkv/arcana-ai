@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { TarotCard } from "@/components/tarot/TarotCard";
 import { RevealAnimation } from "@/components/tarot/RevealAnimation";

@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { Bell, Lock, Palette, User } from "lucide-react";
+import { Bell, Lock, Palette, User } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";

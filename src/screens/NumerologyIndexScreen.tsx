@@ -14,7 +14,7 @@ import {
   Sparkles,
   Star,
   Wand2,
-} from "lucide-react";
+} from "@/components/icons";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
@@ -598,7 +598,7 @@ export function NumerologyIndexScreen() {
     {
       question: "Mulank kaise nikale?",
       answer:
-        "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1 — yani aapka Mulank 1 hai.",
+        "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1: yani aapka Mulank 1 hai.",
     },
     {
       question: "Is Mulank different from zodiac?",
@@ -871,7 +871,7 @@ export function NumerologyIndexScreen() {
               <p className="text-sm leading-relaxed text-muted-foreground">
                 To calculate your <strong className="text-foreground">Mulank</strong> (Psychic
                 Number), take only your calendar day of birth (1–31) and sum its digits until a
-                single digit (1–9) remains—for example, 19 becomes 1 + 9 = 10, then 1 + 0 = 1. For{" "}
+                single digit (1–9) remains, for example, 19 becomes 1 + 9 = 10, then 1 + 0 = 1. For{" "}
                 <strong className="text-foreground">Bhagyank</strong> (Destiny Number), add all
                 digits of your full birth date (DD + MM + YYYY), preserving Master Numbers 11, 22,
                 and 33.
@@ -1185,7 +1185,7 @@ export function NumerologyIndexScreen() {
                         transition={{ delay: 0.2 + i * 0.05 }}
                         className="flex gap-2"
                       >
-                        <span className="text-[color:var(--gold)]">✦</span>
+                        <span aria-hidden className="text-[color:var(--gold)]">•</span>
                         <span>{a}</span>
                       </motion.li>
                     ))}
@@ -1211,10 +1211,10 @@ export function NumerologyIndexScreen() {
                         key={i}
                         initial={{ opacity: 0, x: -6 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.25 + i * 0.05 }}
+                        transition={{ delay: 0.27 + i * 0.05 }}
                         className="flex gap-2"
                       >
-                        <span className="text-[color:var(--aurora-1)]">◆</span>
+                        <span aria-hidden className="text-[color:var(--aurora-1)]">•</span>
                         <span>{c}</span>
                       </motion.li>
                     ))}
@@ -1419,7 +1419,7 @@ export function NumerologyIndexScreen() {
                 Mulank 7 Deep-Dive Guide (7, 16, 25)
               </h3>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                Ruled by Ketu — explore intuition, research careers, love dynamics, and remedies.
+                Ruled by Ketu: explore intuition, research careers, love dynamics, and remedies.
               </p>
             </Link>
             <Link

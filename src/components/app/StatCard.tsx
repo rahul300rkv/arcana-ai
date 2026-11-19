@@ -2,13 +2,13 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from "fram
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { GlassCard } from "@/components/arcana/GlassCard";
-import type { LucideIcon } from "lucide-react";
+import type { AppIcon } from "@/components/icons";
 
 type Props = {
   label: string;
   value: string;
   hint?: string;
-  icon: LucideIcon;
+  icon: AppIcon;
   className?: string;
 };
 

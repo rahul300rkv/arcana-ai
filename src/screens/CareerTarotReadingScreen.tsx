@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Briefcase, RefreshCw, RotateCcw, Sparkles } from "lucide-react";
+import { Briefcase, RefreshCw, RotateCcw, Sparkles } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
@@ -117,7 +117,7 @@ function buildCareerPositionNote(
     return `If you follow through on this momentum, ${card.name} upright points to an outcome shaped by ${card.uprightMeaning.toLowerCase()}. ${fin}.`;
   }
   if (positionIndex === 0) {
-    return `Reversed in your current position, ${card.name} warns of ${card.reversedMeaning.toLowerCase()}—an internal block or stalled workflow asking for honest recalibration before pushing harder.`;
+    return `Reversed in your current position, ${card.name} warns of ${card.reversedMeaning.toLowerCase()}: an internal block or stalled workflow asking for honest recalibration before pushing harder.`;
   }
   if (positionIndex === 1) {
     return `${card.name} reversed advises slowing down to address ${card.reversedMeaning.toLowerCase()} first. Tighten details around ${fin.toLowerCase()} before committing.`;
@@ -282,7 +282,7 @@ function InteractiveCareerSpread() {
               <div className="flex items-start gap-2.5 text-foreground/90">
                 <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--aurora-1)]" aria-hidden />
                 <span>
-                  You drew a <strong>reversed card</strong> in this career spread — reversals highlight
+                  You drew a <strong>reversed card</strong> in this career spread: reversals highlight
                   blocked momentum, burnout cues, or hidden workplace resistance rather than flat bad luck.
                 </span>
               </div>

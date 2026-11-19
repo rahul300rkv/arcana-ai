@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { CalendarClock, Sparkles, Heart, Briefcase, Coins, Flame } from "lucide-react";
+import { CalendarClock, Sparkles, Heart, Briefcase, Coins, Flame } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -22,12 +22,12 @@ const MEANINGS_FAQS = [
   {
     question: "What does a reversed tarot card mean?",
     answer:
-      "A reversed card usually softens, delays, blocks, or turns inward the upright archetype — signaling where energy feels internalized, resisted, or overdue for balanced adjustment rather than signifying automatic doom.",
+      "A reversed card usually softens, delays, blocks, or turns inward the upright archetype, signaling where energy feels internalized, resisted, or overdue for balanced adjustment rather than automatic doom.",
   },
   {
     question: "Which tarot deck are these meanings based on?",
     answer:
-      "All meanings follow the classic 1909 Rider–Waite–Smith pictorial system illustrated by Pamela Colman Smith under Arthur Edward Waite, chosen for its clear narrative scenes across every pip card.",
+      "All meanings follow the classic 1909 Rider-Waite-Smith pictorial system illustrated by Pamela Colman Smith under Arthur Edward Waite, chosen for its clear narrative scenes across every pip card.",
   },
   {
     question: "How do the four Minor Arcana suits map to daily life?",
@@ -42,11 +42,11 @@ const MEANINGS_FAQS = [
 ];
 
 const SUIT_INTRO: Record<string, string> = {
-  wands: "Wands govern passion, ambition, creativity, and action — the fire suit of the tarot.",
-  cups: "Cups govern emotion, relationships, intuition, and the heart — the water suit of the tarot.",
-  swords: "Swords govern thought, conflict, truth, and communication — the air suit of the tarot.",
+  wands: "Wands govern passion, ambition, creativity, and action as the fire suit of the tarot.",
+  cups: "Cups govern emotion, relationships, intuition, and the heart as the water suit of the tarot.",
+  swords: "Swords govern thought, conflict, truth, and communication as the air suit of the tarot.",
   pentacles:
-    "Pentacles govern money, work, the body, and material security — the earth suit of the tarot.",
+    "Pentacles govern money, work, the body, and material security as the earth suit of the tarot.",
 };
 
 const SUIT_ORDER = ["wands", "cups", "swords", "pentacles"] as const;
@@ -56,11 +56,11 @@ const SUIT_LABEL: Record<string, string> = {
   swords: "Swords",
   pentacles: "Pentacles",
 };
-const SUIT_GLYPH: Record<string, string> = {
-  wands: "🜂",
-  cups: "🜄",
-  swords: "🜁",
-  pentacles: "🜃",
+const SUIT_ELEMENT: Record<string, string> = {
+  wands: "Fire",
+  cups: "Water",
+  swords: "Air",
+  pentacles: "Earth",
 };
 
 function CardEntry({ card }: { card: TarotCard; index?: number }) {
@@ -201,9 +201,9 @@ export function GuideTarotCardMeaningsScreen() {
             Tarot card <span className="aurora-text">meanings</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
-            Every tarot card carries an upright expression and a reversed expression — the same
+            Every tarot card carries an upright expression and a reversed expression: the same
             living archetype moving smoothly outward or pausing inward for recalibration. Below is
-            the entire 78-card Rider–Waite–Smith deck organized by Major Arcana and the four Minor
+            the entire 78-card Rider-Waite-Smith deck organized by Major Arcana and the four Minor
             Arcana suits, alongside love, career, money, and spiritual prompts. If you want these
             symbols synthesized around a specific question, launch AstroFree&apos;s{" "}
             <Link to="/reading" className="underline underline-offset-4 hover:text-foreground">
@@ -231,7 +231,7 @@ export function GuideTarotCardMeaningsScreen() {
             <p className="text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               Understanding deck architecture eliminates brute rote memorization. The 22{" "}
               <strong className="text-foreground">Major Arcana</strong> trump cards trace sweeping
-              developmental chapters — courage, disillusionment, moral choice, loss, and renewal —
+              developmental chapters (courage, disillusionment, moral choice, loss, and renewal),
               marking turning points that outlast any single busy week. When several Major cards
               dominate one spread, pay close attention: you are standing at a pivotal crossroads
               rather than navigating ordinary administrative chores.
@@ -255,7 +255,7 @@ export function GuideTarotCardMeaningsScreen() {
               accelerate craft or speed; and Tens close cycles completely before renewal starts.
             </p>
             <p className="text-base sm:text-[15px] leading-relaxed text-muted-foreground">
-              Above the tens sit four <strong className="text-foreground">Court Cards</strong> —
+              Above the tens sit four <strong className="text-foreground">Court Cards</strong>.
               Pages embody curious learners or unexpected news, Knights rush outward with focused
               drive, Queens steward elemental wisdom intuitively from within, and Kings govern
               mature outward order. When any card lands{" "}
@@ -269,9 +269,10 @@ export function GuideTarotCardMeaningsScreen() {
         <nav className="mt-8 flex flex-wrap gap-2 text-sm">
           <a
             href="#major-arcana"
-            className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-[color-mix(in_oklab,var(--gold)_25%,transparent)] bg-white/[0.03] px-4 py-2 sm:px-3.5 sm:py-1.5 transition hover:bg-white/[0.08] hover:shadow-glow-gold"
+            className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 rounded-full border border-[color-mix(in_oklab,var(--gold)_25%,transparent)] bg-white/[0.03] px-4 py-2 sm:px-3.5 sm:py-1.5 transition hover:bg-white/[0.08] hover:shadow-glow-gold"
           >
-            ✦ Major Arcana
+            <Sparkles className="h-3.5 w-3.5 text-[var(--gold)]" aria-hidden />
+            Major Arcana
           </a>
           {SUIT_ORDER.map((suit) => (
             <a
@@ -279,10 +280,7 @@ export function GuideTarotCardMeaningsScreen() {
               href={`#${suit}`}
               className="inline-flex min-h-11 sm:min-h-0 items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 sm:px-3.5 sm:py-1.5 transition hover:border-[color-mix(in_oklab,var(--gold)_30%,transparent)] hover:bg-white/[0.08]"
             >
-              <span className="mr-1 text-[color-mix(in_oklab,var(--gold)_85%,white)]">
-                {SUIT_GLYPH[suit]}
-              </span>
-              {SUIT_LABEL[suit]}
+              {SUIT_LABEL[suit]} ({SUIT_ELEMENT[suit]})
             </a>
           ))}
         </nav>
@@ -291,7 +289,7 @@ export function GuideTarotCardMeaningsScreen() {
           <SectionHeader
             eyebrow="22 cards"
             title="Major Arcana"
-            body="From The Fool (0) to The World (XXI), a symbolic journey through life's biggest lessons — new beginnings, hard choices, endings, transformation. When one shows up, something significant is at play."
+            body="From The Fool (0) to The World (XXI), a symbolic journey through life's biggest lessons: new beginnings, hard choices, endings, and transformation. When one shows up, something significant is at play."
           />
           <div className="mt-8 grid gap-5">
             {major.map((card, i) => (
@@ -303,7 +301,7 @@ export function GuideTarotCardMeaningsScreen() {
         {SUIT_ORDER.map((suit) => (
           <section key={suit} id={suit} className="mt-16 scroll-mt-24">
             <SectionHeader
-              eyebrow={`14 cards · ${SUIT_GLYPH[suit]}`}
+              eyebrow={`14 cards · ${SUIT_ELEMENT[suit]}`}
               title={SUIT_LABEL[suit]}
               body={SUIT_INTRO[suit]}
             />

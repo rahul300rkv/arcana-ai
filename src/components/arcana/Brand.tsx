@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
+import { Sparkles } from "@/components/icons";
 
 export function Brand({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const iconSize = size === "sm" ? "h-8 w-8" : size === "lg" ? "h-11 w-11" : "h-9 w-9";

@@ -96,8 +96,8 @@ export function PrivacyScreen() {
 
           <Section title="5. Server Logs & Aggregate Analytics">
             Like standard web applications, our hosting infrastructure may automatically record basic
-            technical diagnostics in transient server logs — such as browser user-agent, anonymized
-            IP region, requested URL path, and response latency — strictly to maintain uptime,
+            technical diagnostics in transient server logs, such as browser user-agent, anonymized
+            IP region, requested URL path, and response latency: strictly to maintain uptime,
             prevent automated abuse, and monitor page performance. We do not sell, rent, or trade
             visitor logs or personal information to data brokers.
           </Section>
@@ -122,8 +122,8 @@ export function PrivacyScreen() {
           </Section>
 
           <Section title="8. International Privacy Rights & Data Control">
-            Depending on your jurisdiction — including under India's Digital Personal Data
-            Protection (DPDP) framework, the European Union's GDPR, or California's CCPA/CPRA — you
+            Depending on your jurisdiction, including under India's Digital Personal Data
+            Protection (DPDP) framework, the European Union's GDPR, or California's CCPA/CPRA: you
             have the right to know what personal data is processed, request correction or deletion of
             any message you have submitted to us, and control cookie tracking through browser settings
             or ad opt-out tools. To export or wipe your local reading history at any time, use the

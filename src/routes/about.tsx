@@ -5,7 +5,7 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About AstroFree — Mission, Editorial Standards & Privacy" },
+      { title: "About AstroFree | Mission, Editorial Standards & Privacy" },
       {
         name: "description",
         content:
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
       },
       {
         property: "og:title",
-        content: "About AstroFree — Mission, Editorial Standards & Privacy",
+        content: "About AstroFree | Mission, Editorial Standards & Privacy",
       },
       {
         property: "og:description",
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:url", content: `${SITE_URL}/about` },
       {
         name: "twitter:title",
-        content: "About AstroFree — Mission, Editorial Standards & Privacy",
+        content: "About AstroFree | Mission, Editorial Standards & Privacy",
       },
       {
         name: "twitter:description",
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/about",
-            title: "About AstroFree — Mission, Editorial Standards & Privacy",
+            title: "About AstroFree | Mission, Editorial Standards & Privacy",
             description:
               "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
             crumbs: [

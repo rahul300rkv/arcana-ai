@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CardFront, type CardFrontCard } from "@/components/tarot/CardFront";
-import { Sparkles, Eye } from "lucide-react";
+import { Sparkles, Eye } from "@/components/icons";
 
 const STEP = "clamp(55px, 15vw, 130px)";
 
@@ -119,7 +119,7 @@ export function FloatingCards() {
             <button
               type="button"
               aria-expanded={isActive}
-              aria-label={`${card.name} — ${card.keywords.slice(0, 3).join(", ")}`}
+              aria-label={`${card.name}: ${card.keywords.slice(0, 3).join(", ")}`}
               onMouseEnter={() => setActive(card.id)}
               onMouseLeave={() => setActive((v) => (v === card.id ? null : v))}
               onFocus={() => setActive(card.id)}

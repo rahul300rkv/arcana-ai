@@ -17,22 +17,22 @@ const FAQS = [
   {
     question: "Does drawing a lot of Major Arcana cards in one spread mean something?",
     answer:
-      "Many readers treat a spread dominated by Major Arcana as a sign the question touches something significant — a real turning point rather than routine day-to-day matters — while a Minor-Arcana-heavy spread points to more immediate, practical circumstances.",
+      "Many readers treat a spread dominated by Major Arcana as a sign the question touches something significant (a real turning point rather than routine day-to-day matters) while a Minor-Arcana-heavy spread points to more immediate, practical circumstances.",
   },
   {
     question: "Are Death and The Tower always bad cards?",
     answer:
-      "No. Both describe necessary, often overdue change rather than literal disaster. Death marks an ending that clears space for growth, and The Tower marks the fast collapse of something unstable — disruptive, but usually clarifying rather than purely negative.",
+      "No. Both describe necessary, often overdue change rather than literal disaster. Death marks an ending that clears space for growth, and The Tower marks the fast collapse of something unstable: disruptive, but usually clarifying rather than purely negative.",
   },
   {
     question: "Is there a correct order to learn the Major Arcana in?",
     answer:
-      "The numbered sequence (0 to 21) is often read as a symbolic journey — The Fool's Journey — where each card represents a stage of growth. Learning them in that order can help the meanings build on each other logically.",
+      "The numbered sequence (0 to 21) is often read as a symbolic journey (The Fool's Journey) where each card represents a stage of growth. Learning them in that order can help the meanings build on each other logically.",
   },
   {
     question: "Do Major Arcana meanings change much when reversed?",
     answer:
-      "The core theme stays the same, but reversed Major Arcana cards typically describe that theme as blocked, delayed, or turned inward rather than reversed outright — see AstroFree's dedicated guide to reversed tarot cards for the full method.",
+      "The core theme stays the same, but reversed Major Arcana cards typically describe that theme as blocked, delayed, or turned inward rather than reversed outright: see AstroFree's dedicated guide to reversed tarot cards for the full method.",
   },
 ];
 

@@ -5,14 +5,14 @@ import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 const PATH = "/guide/tarot-for-beginners";
 const TITLE = "Complete Guide to Tarot Reading for Beginners";
 const DESCRIPTION =
-  "A step-by-step beginner's guide to tarot reading — the deck structure, how to shuffle and draw, your first spreads, and how to actually interpret a card instead of just memorising meanings.";
+  "A step-by-step beginner's guide to tarot reading: the deck structure, how to shuffle and draw, your first spreads, and how to actually interpret a card instead of just memorising meanings.";
 const UPDATED = "2026-08-14";
 
 const FAQS = [
   {
     question: "Do I need a special deck to start reading tarot?",
     answer:
-      "No. Any standard 78-card Rider–Waite–Smith style deck works, and even a well-illustrated app deck is fine while you're learning. What matters more than the deck is consistency — using the same one while you build familiarity with its imagery.",
+      "No. Any standard 78-card Rider–Waite–Smith style deck works, and even a well-illustrated app deck is fine while you're learning. What matters more than the deck is consistency: using the same one while you build familiarity with its imagery.",
   },
   {
     question: "How long does it take to learn tarot?",

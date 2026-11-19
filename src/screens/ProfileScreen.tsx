@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Award, Flame, Sparkles, Star } from "lucide-react";
+import { Award, Flame, Sparkles, Star } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
@@ -49,7 +49,7 @@ export function ProfileScreen() {
       <div className="mt-5 grid gap-5 sm:grid-cols-3">
         <StatCard
           label="Streak"
-          value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "—"}
+          value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "0 days"}
           hint="Keep the ritual alive"
           icon={Flame}
         />

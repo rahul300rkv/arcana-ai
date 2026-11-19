@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, Calculator, Compass, HelpCircle, Sparkles } from "lucide-react";
+import { BookOpen, Calculator, Compass, HelpCircle, Sparkles } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -15,7 +15,7 @@ export function BhagyankHubScreen() {
       crumbs={[{ label: "Numerology", to: "/numerology" }, { label: "Bhagyank" }]}
       eyebrow="Numerology Guide"
       title="Bhagyank: your Destiny Number, explained"
-      intro="Bhagyank — commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number — comes from your complete date of birth. It describes your broader life direction, natural talents, and the kinds of challenges you're likely to encounter. This guide covers how to calculate it, what each number 1–9 and Master Number represents, and how the terminology compares across traditions."
+      intro="Bhagyank: commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number: comes from your complete date of birth. It describes your broader life direction, natural talents, and the kinds of challenges you're likely to encounter. This guide covers how to calculate it, what each number 1–9 and Master Number represents, and how the terminology compares across traditions."
       url={`${SITE_URL}/numerology/bhagyank`}
       updated={BHAGYANK_UPDATED}
       readingMinutes={12}
@@ -31,9 +31,9 @@ export function BhagyankHubScreen() {
         title="What is Bhagyank?"
         icon={BookOpen}
         paragraphs={[
-          "Bhagyank is the single digit — or Master Number — you get by adding every digit of your complete date of birth together, repeatedly reducing until one digit remains, unless the intermediate sum is 11, 22, or 33, which numerological tradition preserves unreduced.",
-          "Where Mulank (your birth number, derived only from the day) describes your instinctive, everyday personality, Bhagyank describes your broader life path — the longer arc of your development and the kinds of challenges and gifts you're likely to meet along the way. Most practitioners read the two together: Mulank is how you naturally act; Bhagyank is what life is asking of you.",
-          "Each Bhagyank carries both gifts and shadow sides. A Bhagyank 1 person is naturally inclined toward leadership and independence, but must learn not to steamroll others. A Bhagyank 2 has natural empathy and diplomacy, but can struggle to speak their own needs. The work lies in developing the gifts while managing the shadows — and that's a lifelong process, not a fixed identity.",
+          "Bhagyank is the single digit, or Master Number, you get by adding every digit of your complete date of birth together, repeatedly reducing until one digit remains, unless the intermediate sum is 11, 22, or 33, which numerological tradition preserves unreduced.",
+          "Where Mulank (your birth number, derived only from the day) describes your instinctive, everyday personality, Bhagyank describes your broader life path: the longer arc of your development and the kinds of challenges and gifts you're likely to meet along the way. Most practitioners read the two together: Mulank is how you naturally act; Bhagyank is what life is asking of you.",
+          "Each Bhagyank carries both gifts and shadow sides. A Bhagyank 1 person is naturally inclined toward leadership and independence, but must learn not to steamroll others. A Bhagyank 2 has natural empathy and diplomacy, but can struggle to speak their own needs. The work lies in developing the gifts while managing the shadows, and that's a lifelong process, not a fixed identity.",
         ]}
       />
 
@@ -42,7 +42,7 @@ export function BhagyankHubScreen() {
         title="How to calculate your Bhagyank"
         icon={Calculator}
         paragraphs={[
-          "Write your date of birth as day, month, and full four-digit year. Add every single digit together. If the total is more than one digit, add those digits together, and keep going until you reach a single digit — unless you land on 11, 22, or 33, in which case tradition says you stop there, as these are treated as Master Numbers with their own separate meanings.",
+          "Write your date of birth as day, month, and full four-digit year. Add every single digit together. If the total is more than one digit, add those digits together, and keep going until you reach a single digit: unless you land on 11, 22, or 33, in which case tradition says you stop there, as these are treated as Master Numbers with their own separate meanings.",
           "The process is the same whether you were born in 1975 or 2005. A person born 23 August 1995 would calculate: 2+3+0+8+1+9+9+5 = 37, then 3+7 = 10, then 1+0 = 1. That person's Bhagyank is 1.",
         ]}
       >
@@ -116,9 +116,9 @@ export function BhagyankHubScreen() {
         title="How to use your Life Path number"
         icon={Sparkles}
         paragraphs={[
-          "Your Bhagyank is not a prediction of your future — it is a map of your natural tendencies and likely growth edges. The number describes both gifts and challenges. A Bhagyank 8 person naturally understands power and money, but needs to guard against losing themselves in ambition. A Bhagyank 7 naturally seeks depth and truth, but can isolate themselves through over-analysis.",
+          "Your Bhagyank is not a prediction of your future: it is a map of your natural tendencies and likely growth edges. The number describes both gifts and challenges. A Bhagyank 8 person naturally understands power and money, but needs to guard against losing themselves in ambition. A Bhagyank 7 naturally seeks depth and truth, but can isolate themselves through over-analysis.",
           "The practical use is recognising these patterns in yourself: if you know you're a Bhagyank 4, you can leverage your natural discipline and consistency, while deliberately building in flexibility. If you're a Bhagyank 5, you can plan for your restlessness rather than being blindsided by it repeatedly.",
-          "Pair your Bhagyank with your Mulank (birth number) to see the fuller picture: Mulank is your everyday instinct; Bhagyank is your life's longer direction. You might have Mulank 1 drive with Bhagyank 2 empathy, which creates an interesting internal dynamic — you want to lead, but you naturally read people's feelings. Understanding both helps you use these gifts consciously rather than letting them conflict.",
+          "Pair your Bhagyank with your Mulank (birth number) to see the fuller picture: Mulank is your everyday instinct; Bhagyank is your life's longer direction. You might have Mulank 1 drive with Bhagyank 2 empathy, which creates an interesting internal dynamic: you want to lead, but you naturally read people's feelings. Understanding both helps you use these gifts consciously rather than letting them conflict.",
         ]}
       />
 

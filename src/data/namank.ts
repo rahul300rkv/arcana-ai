@@ -1,7 +1,7 @@
 /**
  * Content layer for the Namank (Name Number) calculator at
  * `/namank-calculator`. Namank is derived from the letters of the full
- * name using the Chaldean system — deliberately different from Mulank
+ * name using the Chaldean system: deliberately different from Mulank
  * (day of birth) and Bhagyank (full date of birth).
  * See `src/lib/numerology/namank.ts` for the maths.
  */
@@ -24,10 +24,10 @@ export interface NamankMeaning {
 export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   1: {
     number: 1,
-    title: "Namank 1 — The Leader",
+    title: "Namank 1 | The Leader",
     archetype: "Independence and initiative",
     meaning:
-      "Namank 1 is traditionally read as a name vibration built around leadership, originality and self-reliance. In Chaldean tradition, 1 carries solar energy — it is the number of a strong personal identity and a natural instinct to lead rather than follow, whatever the name's owner's day-to-day role may be.",
+      "Namank 1 is traditionally read as a name vibration built around leadership, originality and self-reliance. In Chaldean tradition, 1 carries solar energy: it is the number of a strong personal identity and a natural instinct to lead rather than follow, whatever the name's owner's day-to-day role may be.",
     personality: [
       "Confident and quick to take charge when a situation calls for direction",
       "Strong individuality; resists being lumped in with the crowd",
@@ -46,11 +46,11 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
       "Can chafe inside rigid hierarchies that reward tenure over initiative",
     ],
     relationships:
-      "Namank 1 names are said to carry an independent streak in relationships — needing a partner who respects autonomy rather than expecting constant closeness. Affection tends to be shown through action rather than words.",
+      "Namank 1 names are said to carry an independent streak in relationships: needing a partner who respects autonomy rather than expecting constant closeness. Affection tends to be shown through action rather than words.",
     financial:
-      "Chaldean tradition links this vibration to income earned through individual effort — business, commission or self-directed work — with a caution against under-diversifying due to strong self-belief.",
+      "Chaldean tradition links this vibration to income earned through individual effort (business, commission or self-directed work) with a caution against under-diversifying due to strong self-belief.",
     lifePurpose:
-      "The traditional reading is of a name built to originate rather than maintain — to start ventures, ideas or bodies of work that did not exist before.",
+      "The traditional reading is of a name built to originate rather than maintain: to start ventures, ideas or bodies of work that did not exist before.",
     guidance: [
       "Aim competitiveness at a clear goal instead of constant comparison with others",
       "Practice sharing ownership of small tasks to build trust in a team",
@@ -59,10 +59,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   2: {
     number: 2,
-    title: "Namank 2 — The Diplomat",
+    title: "Namank 2 | The Diplomat",
     archetype: "Balance and cooperation",
     meaning:
-      "Namank 2 is associated with the Moon in Chaldean tradition — sensitivity, intuition and a gift for bringing people together. Names carrying this vibration are read as naturally attuned to the feelings of others and inclined toward partnership over solo pursuit.",
+      "Namank 2 is associated with the Moon in Chaldean tradition: sensitivity, intuition and a gift for bringing people together. Names carrying this vibration are read as naturally attuned to the feelings of others and inclined toward partnership over solo pursuit.",
     personality: [
       "Empathetic and quick to sense tension in a room",
       "Prefers collaboration to going it alone",
@@ -81,11 +81,11 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
       "Can be undervalued in cultures that reward loud self-promotion",
     ],
     relationships:
-      "Namank 2 is traditionally read as deeply relational — seeking harmony, closeness and mutual give-and-take. The risk is over-accommodating a partner at the cost of one's own needs.",
+      "Namank 2 is traditionally read as deeply relational: seeking harmony, closeness and mutual give-and-take. The risk is over-accommodating a partner at the cost of one's own needs.",
     financial:
       "Steadier, partnership-based income (joint ventures, salaried teamwork) is favoured over solo risk-taking, according to tradition.",
     lifePurpose:
-      "Read as being here to bring people together — to mediate, connect and build bridges between differing views.",
+      "Read as being here to bring people together: to mediate, connect and build bridges between differing views.",
     guidance: [
       "Practice stating a preference clearly before defaulting to compromise",
       "Set boundaries even when it risks short-term friction",
@@ -94,14 +94,14 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   3: {
     number: 3,
-    title: "Namank 3 — The Communicator",
+    title: "Namank 3 | The Communicator",
     archetype: "Creativity and expression",
     meaning:
-      "Namank 3 is linked to Jupiter in Chaldean tradition — expansion, optimism and expressive talent. Names carrying this vibration are traditionally read as naturally creative, sociable and drawn to communication in some form.",
+      "Namank 3 is linked to Jupiter in Chaldean tradition: expansion, optimism and expressive talent. Names carrying this vibration are traditionally read as naturally creative, sociable and drawn to communication in some form.",
     personality: [
       "Expressive and comfortable in front of an audience, large or small",
       "Optimistic outlook, quick to find the silver lining",
-      "Drawn to creative or communicative outlets — writing, speech, performance",
+      "Drawn to creative or communicative outlets: writing, speech, performance",
       "Can scatter energy across too many projects at once",
     ],
     strengths: ["Creativity", "Charisma", "Optimism", "Verbal fluency"],
@@ -120,7 +120,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition associates 3 with income drawn from creative or communicative skill, though it warns against inconsistent follow-through with money as with projects.",
     lifePurpose:
-      "Read as being here to express and uplift — through words, art or performance that lifts the mood of a room.",
+      "Read as being here to express and uplift: through words, art or performance that lifts the mood of a room.",
     guidance: [
       "Finish one project before starting the next, even briefly",
       "Balance sociability with dedicated quiet time to recharge",
@@ -129,7 +129,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   4: {
     number: 4,
-    title: "Namank 4 — The Builder",
+    title: "Namank 4 | The Builder",
     archetype: "Discipline and stability",
     meaning:
       "Namank 4 is linked to Rahu (the Lunar North Node) in Chaldean tradition and is read as the most grounded, structure-seeking of the core numbers. Names with this vibration are traditionally associated with discipline, practicality and a preference for solid foundations over shortcuts.",
@@ -153,9 +153,9 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     relationships:
       "Namank 4 is read as loyal and steady in relationships, showing love through consistency and reliability rather than grand gestures.",
     financial:
-      "Tradition favours slow, methodical wealth-building — savings and steady work — over speculative risk for this vibration.",
+      "Tradition favours slow, methodical wealth-building (savings and steady work) over speculative risk for this vibration.",
     lifePurpose:
-      "Read as being here to build lasting structures — institutions, systems or foundations that outlast the person who built them.",
+      "Read as being here to build lasting structures: institutions, systems or foundations that outlast the person who built them.",
     guidance: [
       "Schedule deliberate flexibility into otherwise rigid plans",
       "Delegate occasionally rather than controlling every detail",
@@ -164,10 +164,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   5: {
     number: 5,
-    title: "Namank 5 — The Explorer",
+    title: "Namank 5 | The Explorer",
     archetype: "Freedom and adaptability",
     meaning:
-      "Namank 5 is linked to Mercury in Chaldean tradition — versatility, curiosity and a love of movement. Names carrying this vibration are traditionally read as quick-thinking, adaptable and drawn to variety over routine.",
+      "Namank 5 is linked to Mercury in Chaldean tradition: versatility, curiosity and a love of movement. Names carrying this vibration are traditionally read as quick-thinking, adaptable and drawn to variety over routine.",
     personality: [
       "Curious, quick-witted and easily bored by repetition",
       "Comfortable with change; often the first to embrace something new",
@@ -186,7 +186,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
       "Thrives where quick thinking is rewarded over slow deliberation",
     ],
     relationships:
-      "Namank 5 is read as needing room to breathe in relationships — a partner who doesn't mistake independence for disinterest.",
+      "Namank 5 is read as needing room to breathe in relationships: a partner who doesn't mistake independence for disinterest.",
     financial:
       "Tradition associates 5 with variable, opportunity-driven income, with a caution against impulsive spending during high-energy periods.",
     lifePurpose:
@@ -199,10 +199,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   6: {
     number: 6,
-    title: "Namank 6 — The Nurturer",
+    title: "Namank 6 | The Nurturer",
     archetype: "Harmony and responsibility",
     meaning:
-      "Namank 6 is linked to Venus in Chaldean tradition — harmony, beauty and care for others. Names with this vibration are traditionally read as naturally responsible, aesthetically minded and oriented toward home and community.",
+      "Namank 6 is linked to Venus in Chaldean tradition: harmony, beauty and care for others. Names with this vibration are traditionally read as naturally responsible, aesthetically minded and oriented toward home and community.",
     personality: [
       "Caring and quick to take on responsibility for others",
       "Appreciates beauty, comfort and harmonious surroundings",
@@ -225,7 +225,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition links 6 to comfortable, home-oriented spending, with a caution against overspending on others at the expense of personal savings.",
     lifePurpose:
-      "Read as being here to nurture — building homes, communities and relationships that others can rely on.",
+      "Read as being here to nurture: building homes, communities and relationships that others can rely on.",
     guidance: [
       "Practice saying no without guilt when already stretched thin",
       "Set clear boundaries between helping and controlling",
@@ -234,10 +234,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   7: {
     number: 7,
-    title: "Namank 7 — The Seeker",
+    title: "Namank 7 | The Seeker",
     archetype: "Wisdom and introspection",
     meaning:
-      "Namank 7 is linked to Ketu (the Lunar South Node) in Chaldean tradition — introspection, analysis and a pull toward deeper understanding. Names carrying this vibration are traditionally read as thoughtful, private and drawn to knowledge over surface appearances.",
+      "Namank 7 is linked to Ketu (the Lunar South Node) in Chaldean tradition: introspection, analysis and a pull toward deeper understanding. Names carrying this vibration are traditionally read as thoughtful, private and drawn to knowledge over surface appearances.",
     personality: [
       "Analytical and inclined to research before acting",
       "Values privacy and can seem reserved to new acquaintances",
@@ -260,7 +260,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition favours careful, research-driven financial decisions for this vibration, with a caution against isolating from trusted advice.",
     lifePurpose:
-      "Read as being here to seek and share deeper understanding — through study, reflection or specialised knowledge.",
+      "Read as being here to seek and share deeper understanding: through study, reflection or specialised knowledge.",
     guidance: [
       "Set a decision deadline to prevent analysis from stalling action",
       "Share more of the internal process with people who care, even briefly",
@@ -269,10 +269,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   8: {
     number: 8,
-    title: "Namank 8 — The Achiever",
+    title: "Namank 8 | The Achiever",
     archetype: "Power and material success",
     meaning:
-      "Namank 8 is linked to Saturn in Chaldean tradition — discipline, ambition and long-term achievement. Names carrying this vibration are traditionally read as the most outcome- and authority-oriented of the core numbers, associated with sustained effort toward material success.",
+      "Namank 8 is linked to Saturn in Chaldean tradition: discipline, ambition and long-term achievement. Names carrying this vibration are traditionally read as the most outcome- and authority-oriented of the core numbers, associated with sustained effort toward material success.",
     personality: [
       "Ambitious and comfortable with responsibility and authority",
       "Organised, results-driven and persistent through setbacks",
@@ -304,10 +304,10 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   9: {
     number: 9,
-    title: "Namank 9 — The Humanitarian",
+    title: "Namank 9 | The Humanitarian",
     archetype: "Compassion and service",
     meaning:
-      "Namank 9 is traditionally treated as the number of completion and universal compassion in Chaldean numerology — notably, no letter maps directly to 9, so it typically appears only as a reduced total. Names that resolve to 9 are read as carrying broad concern for others and a pull toward service beyond the self.",
+      "Namank 9 is traditionally treated as the number of completion and universal compassion in Chaldean numerology: notably, no letter maps directly to 9, so it typically appears only as a reduced total. Names that resolve to 9 are read as carrying broad concern for others and a pull toward service beyond the self.",
     personality: [
       "Compassionate and drawn to causes bigger than personal gain",
       "Comfortable letting go of what no longer serves them",
@@ -330,19 +330,19 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition associates 9 with generosity that can undercut personal financial stability, and recommends structured giving over impulsive giving.",
     lifePurpose:
-      "Read as being here to serve a cause larger than the individual self — humanitarian work, art with a message, or broad compassion in action.",
+      "Read as being here to serve a cause larger than the individual self: humanitarian work, art with a message, or broad compassion in action.",
     guidance: [
-      "Set clear limits on giving — time, money and energy — to sustain it long-term",
+      "Set clear limits on giving (time, money and energy) to sustain it long-term",
       "Pair big ideals with a concrete, practical next step",
       "Make space for close, individual relationships alongside broader causes",
     ],
   },
   11: {
     number: 11,
-    title: "Namank 11 — The Illuminator (Master Number)",
+    title: "Namank 11 | The Illuminator (Master Number)",
     archetype: "Intuition and inspiration, intensified",
     meaning:
-      "Namank 11 is a Master Number, traditionally read as an intensified version of 2 — heightened intuition, sensitivity and the potential to inspire others, carried with greater pressure and higher stakes than the base number.",
+      "Namank 11 is a Master Number, traditionally read as an intensified version of 2: heightened intuition, sensitivity and the potential to inspire others, carried with greater pressure and higher stakes than the base number.",
     personality: [
       "Highly intuitive, sometimes to the point of feeling overwhelmed by others' emotions",
       "Idealistic and drawn to meaningful, inspiring work",
@@ -365,7 +365,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition suggests pairing intuitive opportunity-spotting with a practical plan, since 11's instincts are strong but follow-through needs structure.",
     lifePurpose:
-      "Read as being here to inspire and illuminate — carrying insight that, when grounded, can genuinely uplift others.",
+      "Read as being here to inspire and illuminate: carrying insight that, when grounded, can genuinely uplift others.",
     guidance: [
       "Build a practical support system to turn intuition into action",
       "Protect personal energy with deliberate rest and boundaries",
@@ -374,13 +374,13 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
   },
   22: {
     number: 22,
-    title: "Namank 22 — The Master Builder (Master Number)",
+    title: "Namank 22 | The Master Builder (Master Number)",
     archetype: "Large-scale achievement, intensified",
     meaning:
-      "Namank 22 is a Master Number, traditionally read as an intensified version of 4 — the discipline and structure of the Builder combined with the ambition to create on a much larger scale, often described as the most powerful of the Master Numbers.",
+      "Namank 22 is a Master Number, traditionally read as an intensified version of 4: the discipline and structure of the Builder combined with the ambition to create on a much larger scale, often described as the most powerful of the Master Numbers.",
     personality: [
       "Highly disciplined with an unusually large-scale vision",
-      "Practical and idealistic at once — wants to build something that lasts and matters",
+      "Practical and idealistic at once: wants to build something that lasts and matters",
       "Comfortable with long timelines and complex undertakings",
       "Can feel intense pressure to deliver on big potential",
     ],
@@ -400,7 +400,7 @@ export const NAMANK_MEANINGS: Record<number, NamankMeaning> = {
     financial:
       "Tradition treats 22 as capable of building substantial, lasting wealth through structured, large-scale effort, with a caution against overextending resources too early.",
     lifePurpose:
-      "Read as being here to build something of lasting, large-scale significance — an institution, movement or body of work that benefits many.",
+      "Read as being here to build something of lasting, large-scale significance: an institution, movement or body of work that benefits many.",
     guidance: [
       "Break big visions into staged, achievable milestones",
       "Delegate operational detail to focus energy on the larger structure",
@@ -466,7 +466,7 @@ export const NAMANK_FAQS: NamankFaq[] = [
   {
     question: "How is Namank calculated?",
     answer:
-      "Every letter in the name is assigned a value from 1–8 using the Chaldean system, those values are added together, and the total is reduced by adding its digits until a single digit remains — unless the intermediate sum is 11 or 22, in which case tradition holds these Master Numbers are preserved unreduced.",
+      "Every letter in the name is assigned a value from 1–8 using the Chaldean system, those values are added together, and the total is reduced by adding its digits until a single digit remains: unless the intermediate sum is 11 or 22, in which case tradition holds these Master Numbers are preserved unreduced.",
   },
   {
     question: "Why does Chaldean numerology skip the number 9?",
@@ -476,10 +476,10 @@ export const NAMANK_FAQS: NamankFaq[] = [
   {
     question: "Is Namank the same as Mulank or Bhagyank?",
     answer:
-      "No. Mulank and Bhagyank are both calculated from the date of birth — the day alone, or the complete date respectively. Namank is calculated entirely from the letters of the name. Many practitioners read all three together for a fuller picture, since Namank reflects the name's energy while the other two reflect the birth date's.",
+      "No. Mulank and Bhagyank are both calculated from the date of birth: the day alone, or the complete date respectively. Namank is calculated entirely from the letters of the name. Many practitioners read all three together for a fuller picture, since Namank reflects the name's energy while the other two reflect the birth date's.",
   },
   {
-    question: "Which name should I use — full legal name or the name I go by?",
+    question: "Which name should I use: full legal name or the name I go by?",
     answer:
       "Traditional practice most commonly uses the full name as given at birth, though some practitioners also calculate the Namank for a commonly used name or nickname to compare the two. There's no single universally agreed rule, so it can be useful to try both and see which resonates.",
   },
@@ -491,7 +491,7 @@ export const NAMANK_FAQS: NamankFaq[] = [
   {
     question: "Does changing my name change my Namank?",
     answer:
-      "Yes — because Namank is calculated purely from the letters used, any change to spelling, a name change after marriage, or the addition of a middle name will change the resulting number. This is one reason some numerologists suggest reviewing name spellings as part of a reading.",
+      "Yes. Because Namank is calculated purely from the letters used, any change to spelling, a name change after marriage, or the addition of a middle name will change the resulting number. This is one reason some numerologists suggest reviewing name spellings as part of a reading.",
   },
   {
     question: "Is Namank numerology scientifically proven?",
@@ -507,7 +507,7 @@ export const NAMANK_HUB_FAQS: NamankFaq[] = [
   {
     question: "What is Namank in numerology?",
     answer:
-      "Namank — also called the Name Number — is a single digit derived from the letters of your full name using the Chaldean numerology system. Each letter has a value (A=1, B=2, etc.), and adding them together until one digit remains gives your Namank. It describes the energy your name carries and how it shapes how others perceive you.",
+      "Namank (also called the Name Number) is a single digit derived from the letters of your full name using the Chaldean numerology system. Each letter has a value (A=1, B=2, etc.), and adding them together until one digit remains gives your Namank. It describes the energy your name carries and how it shapes how others perceive you.",
   },
   {
     question: "How is Namank calculated?",
@@ -522,17 +522,17 @@ export const NAMANK_HUB_FAQS: NamankFaq[] = [
   {
     question: "Can I change my Namank?",
     answer:
-      "Yes. If you legally change your name, your Namank recalculates based on your new name. Some people use numerology to choose names — for a child, a business, or a pen name — that align with the energy they want to cultivate.",
+      "Yes. If you legally change your name, your Namank recalculates based on your new name. Some people use numerology to choose names (for a child, a business, or a pen name) that align with the energy they want to cultivate.",
   },
   {
     question: "Is Namank the same as Chaldean numerology?",
     answer:
-      "Chaldean is the system used to calculate Namank — it's the most common method for name number calculation. Pythagorean numerology assigns different values and is sometimes used for Namank instead, though Chaldean is more traditional for name-based calculations.",
+      "Chaldean is the system used to calculate Namank: it's the most common method for name number calculation. Pythagorean numerology assigns different values and is sometimes used for Namank instead, though Chaldean is more traditional for name-based calculations.",
   },
   {
     question: "Does Namank affect my personality or just how others see me?",
     answer:
-      "Tradition holds that your name carries a vibration that both reflects and shapes your personality — there's a feedback loop. Some people report that their Namank resonates with how they naturally express themselves, while others find their Namank describes how they're typically perceived, even if it differs from their inner nature.",
+      "Tradition holds that your name carries a vibration that both reflects and shapes your personality: there's a feedback loop. Some people report that their Namank resonates with how they naturally express themselves, while others find their Namank describes how they're typically perceived, even if it differs from their inner nature.",
   },
   {
     question: "What if my Namank is different from my Mulank and Bhagyank?",

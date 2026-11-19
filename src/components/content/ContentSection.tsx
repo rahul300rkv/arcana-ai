@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import type { LucideIcon } from "lucide-react";
+import type { AppIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 interface Props {
   id: string;
   title: string;
-  icon?: LucideIcon;
+  icon?: AppIcon;
   /** Renders as h2 by default; pass "h3" for nested sections. */
   as?: "h2" | "h3";
   paragraphs?: string[];

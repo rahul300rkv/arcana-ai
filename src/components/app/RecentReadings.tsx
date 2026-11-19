@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ChevronRight, Clock } from "lucide-react";
+import { ChevronRight, Clock } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { useArcanaData } from "@/lib/tarot/history";
 import { getSpread } from "@/lib/tarot/spreads";
@@ -31,9 +31,9 @@ export function RecentReadings() {
       </div>
       {recent.length === 0 ? (
         <p className="mt-4 text-sm text-muted-foreground">
-          No readings yet —{" "}
+          No readings yet.{" "}
           <Link to="/reading" className="underline underline-offset-4">
-            start your first one
+            Start your first one
           </Link>
           .
         </p>
@@ -64,7 +64,7 @@ export function RecentReadings() {
                   <div className="relative min-w-0">
                     <div className="truncate text-sm text-foreground transition-colors group-hover:text-[color-mix(in_oklab,var(--gold)_75%,white)]">
                       {spread.name}
-                      {r.question ? ` — ${r.question}` : ""}
+                      {r.question ? `: ${r.question}` : ""}
                     </div>
                     <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
                       <Clock className="h-3 w-3" /> {relativeTime(r.createdAt)}

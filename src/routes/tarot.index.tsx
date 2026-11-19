@@ -2,7 +2,7 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
 
-const TITLE = "Free AI Tarot Reading & Tarot Card Meanings — All 78 Cards";
+const TITLE = "Free AI Tarot Reading & Tarot Card Meanings: All 78 Cards";
 const DESCRIPTION =
   "Start a free AI tarot reading, or browse in-depth meanings for all 78 tarot cards: upright and reversed interpretations, love, career, money, and yes/no answers.";
 
@@ -10,7 +10,7 @@ const TAROT_FAQS = [
   {
     question: "Is the AI tarot reading really free?",
     answer:
-      "Yes — every reading, every spread, and the full 78-card meanings library are free, with no signup required.",
+      "Yes. Every reading, every spread, and the full 78-card meanings library are free, with no signup required.",
   },
   {
     question: "What's the difference between this page and the Tarot Card Meanings guide?",
@@ -25,7 +25,7 @@ const TAROT_FAQS = [
   {
     question: "Are tarot readings predictions?",
     answer:
-      "No — AstroFree frames tarot as a reflective, symbolic tool for self-exploration, not a deterministic forecast or a substitute for professional advice.",
+      "No | AstroFree frames tarot as a reflective, symbolic tool for self-exploration, not a deterministic forecast or a substitute for professional advice.",
   },
 ];
 

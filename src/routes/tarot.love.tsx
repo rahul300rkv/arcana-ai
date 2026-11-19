@@ -2,9 +2,9 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 
 const PATH = "/tarot/love";
-const TITLE = "Love Tarot Reading — Free Relationship Tarot";
+const TITLE = "Love Tarot Reading: Free Relationship Tarot";
 const DESCRIPTION =
-  "Free love tarot reading: draw four cards for You, Partner, The Relationship, and Future to explore the dynamics between you and someone else — AI-guided and always free.";
+  "Free love tarot reading: draw four cards for You, Partner, The Relationship, and Future to explore the dynamics between you and someone else: AI-guided and always free.";
 
 export const Route = createFileRoute("/tarot/love")({
   loader: async () => {

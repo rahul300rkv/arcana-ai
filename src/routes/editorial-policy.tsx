@@ -5,13 +5,13 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/editorial-policy")({
   head: () => ({
     meta: [
-      { title: "Editorial Policy — AstroFree" },
+      { title: "Editorial Policy | AstroFree" },
       {
         name: "description",
         content:
           "How AstroFree researches, writes, and maintains its tarot and numerology guides, including our use of AI in content production.",
       },
-      { property: "og:title", content: "Editorial Policy — AstroFree" },
+      { property: "og:title", content: "Editorial Policy | AstroFree" },
       {
         property: "og:description",
         content:
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/editorial-policy")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/editorial-policy",
-            title: "Editorial Policy — AstroFree",
+            title: "Editorial Policy | AstroFree",
             description:
               "How AstroFree writes, reviews, and corrects its tarot and numerology content, and the sources our interpretations follow.",
             crumbs: [

@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — AstroFree" },
+      { title: "Terms of Service | AstroFree" },
       {
         name: "description",
         content:
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/terms")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/terms",
-            title: "Terms of Service — AstroFree",
+            title: "Terms of Service | AstroFree",
             description:
               "The terms that govern your use of AstroFree's free tarot readings, numerology calculator, and journal.",
             crumbs: [

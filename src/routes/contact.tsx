@@ -5,13 +5,13 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact AstroFree — Get in Touch" },
+      { title: "Contact AstroFree | Get in Touch" },
       {
         name: "description",
         content:
           "Reach out to the AstroFree team securely for support, feedback, content corrections, or business inquiries.",
       },
-      { property: "og:title", content: "Contact AstroFree — Get in Touch" },
+      { property: "og:title", content: "Contact AstroFree | Get in Touch" },
       {
         property: "og:description",
         content: "Secure contact form for support, feedback, and inquiries.",
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/contact",
-            title: "Contact AstroFree — Get in Touch",
+            title: "Contact AstroFree | Get in Touch",
             description:
               "Secure contact form for support, feedback, bug reports, and content enquiries.",
             crumbs: [

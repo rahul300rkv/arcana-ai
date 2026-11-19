@@ -11,7 +11,7 @@ import {
   Heart,
   RotateCcw,
   ChevronRight,
-} from "lucide-react";
+} from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -332,8 +332,8 @@ export function GuideNumerologyScreen() {
             Mulank numerology, <span className="aurora-text">explained</span>
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Mulank numerology reduces your birth date to a set of single-digit numbers — 1 through 9
-            — each mapped to a Major Arcana tarot archetype. Unlike sun-sign astrology, it doesn't
+            Mulank numerology reduces your birth date to a set of single-digit numbers: 1 through 9
+           : each mapped to a Major Arcana tarot archetype. Unlike sun-sign astrology, it doesn't
             need your birth time or location, just the date. This guide walks through exactly how
             each number is calculated, with worked examples, so you can check the math yourself or
             just understand what AstroFree's{" "}
@@ -377,7 +377,7 @@ export function GuideNumerologyScreen() {
               <h2 className="mt-1 font-display text-2xl sm:text-3xl">The reduction rule</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Every calculation below comes down to the same operation: add up the digits, and if
-                the result is more than one digit, add those digits again — repeat until you're left
+                the result is more than one digit, add those digits again: repeat until you're left
                 with a single digit from 1 to 9.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3 font-mono text-sm">
@@ -415,7 +415,7 @@ export function GuideNumerologyScreen() {
               </>
             }
           >
-            Your Mulank is the reduction of the day you were born — nothing else. It captures your
+            Your Mulank is the reduction of the day you were born: nothing else. It captures your
             core operating mode: how you instinctively think and react, independent of any
             particular year.
           </StepCard>
@@ -436,7 +436,7 @@ export function GuideNumerologyScreen() {
             }
           >
             Add your birth day and birth month to whichever calendar year you're asking about, then
-            reduce. It describes the overarching theme running through that year — a cycle, not a
+            reduce. It describes the overarching theme running through that year: a cycle, not a
             fixed trait.
           </StepCard>
 
@@ -473,7 +473,7 @@ export function GuideNumerologyScreen() {
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Whether it's your Mulank, Personal Year, or Personal Month, the number itself always
-            maps to the same archetype and general theme — only the layer it's describing changes.
+            maps to the same archetype and general theme: only the layer it's describing changes.
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -522,7 +522,7 @@ export function GuideNumerologyScreen() {
             <span className="gold-text">The pacing system</span>
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            For a Personal Month specifically, each number also carries a pacing signal — a
+            For a Personal Month specifically, each number also carries a pacing signal: a
             practical cue for what kind of energy the month favors.
           </p>
 
@@ -583,7 +583,7 @@ export function GuideNumerologyScreen() {
               celestial influences (Navagraha): Sun (1), Moon (2), Jupiter (3), Rahu (4), Mercury (5),
               Venus (6), Ketu (7), Saturn (8), and Mars (9). While Western Pythagorean numerology
               often focuses first on the full Life Path sum, Indian practice begins with the Mulank
-              — the day of birth alone — because it reveals how your mind instinctively greets the
+              (the day of birth alone) because it reveals how your mind instinctively greets the
               world every morning.
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -602,7 +602,7 @@ export function GuideNumerologyScreen() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Think of your three core numerology numbers like weather layered over climate. Your{" "}
               <strong className="text-foreground">Mulank</strong> is your permanent psychological
-              climate — it never changes across your lifetime. Your{" "}
+              climate: it never changes across your lifetime. Your{" "}
               <strong className="text-foreground">Personal Year</strong> describes the annual season
               you are walking through from January to December, explaining why certain themes (like
               career rebuilding in a Year 4 or quiet study in a Year 7) suddenly take center stage.
@@ -658,8 +658,8 @@ export function GuideNumerologyScreen() {
             <div className="relative py-6">
               <h3 className="font-display text-2xl sm:text-3xl">Skip the manual math</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Enter your birth date and get your full Mulank, Personal Year, and Personal Month —
-                free, no signup.
+                Enter your birth date and get your full Mulank, Personal Year, and Personal Month,
+                free with no signup.
               </p>
               <div className="mt-5 flex justify-center">
                 <Link to="/numerology">

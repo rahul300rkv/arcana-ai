@@ -7,7 +7,7 @@ import {
   ShieldQuestion,
   HelpCircle,
   BookOpen,
-} from "lucide-react";
+} from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -24,17 +24,17 @@ const FAQS = [
   {
     question: "Does a reversed card always mean something negative?",
     answer:
-      "No. A reversal usually signals that the card's energy is blocked, internal, delayed, or being expressed in its shadow form — not that the outcome is automatically bad. Some reversed cards, like a reversed Tower, can even soften a difficult upright meaning.",
+      "No. A reversal usually signals that the card's energy is blocked, internal, delayed, or being expressed in its shadow form, not that the outcome is automatically bad. Some reversed cards, like a reversed Tower, can even soften a difficult upright meaning.",
   },
   {
     question: "Do I have to read reversed cards at all?",
     answer:
-      "No — reading every card upright is a completely valid, common approach, especially for beginners. Many experienced readers choose to read upright-only for clarity and add reversals later once the 78 upright meanings feel automatic.",
+      "No. Reading every card upright is a completely valid, common approach, especially for beginners. Many experienced readers choose to read upright-only for clarity and add reversals later once the 78 upright meanings feel automatic.",
   },
   {
     question: "How do I decide if a card is reversed when shuffling?",
     answer:
-      'Shuffle so some cards naturally flip during the process — for example, by including a few reversed cuts, or using a "riffle" or "overhand" shuffle without straightening the deck. Whatever orientation a card lands in when drawn is read as-is.',
+      'Shuffle so some cards naturally flip during the process, for example, by including a few reversed cuts, or using a "riffle" or "overhand" shuffle without straightening the deck. Whatever orientation a card lands in when drawn is read as-is.',
   },
   {
     question:
@@ -45,7 +45,7 @@ const FAQS = [
   {
     question: "Can two people read the same reversed card differently?",
     answer:
-      "Yes, and that's expected — reversed meanings depend heavily on the surrounding cards and the question asked, more so than upright meanings do. Consistency comes from picking one interpretive framework (see the four approaches below) and applying it the same way every time.",
+      "Yes, and that's expected: reversed meanings depend heavily on the surrounding cards and the question asked, more so than upright meanings do. Consistency comes from picking one interpretive framework (see the four approaches below) and applying it the same way every time.",
   },
 ];
 
@@ -53,7 +53,7 @@ const APPROACHES = [
   {
     title: "Blocked energy",
     detail:
-      "The upright theme wants to move forward but meets resistance — hesitation, missing preparation, or a boundary bottleneck. A reversed Magician often signals untapped skills or scattered focus rather than an inability to act.",
+      "The upright theme wants to move forward but meets resistance: hesitation, missing preparation, or a boundary bottleneck. A reversed Magician often signals untapped skills or scattered focus rather than an inability to act.",
   },
   {
     title: "Internalized meaning",
@@ -78,7 +78,7 @@ export function GuideReversedTarotCardsScreen() {
       crumbs={[{ label: "Guides", to: "/guide" }, { label: "Reversed Tarot Cards" }]}
       eyebrow="Tarot · Interpretation"
       title={TITLE}
-      intro="A reversed card isn't a different card with a scary new meaning — it's the same card, viewed through one of four practical lenses. Here's how to tell which one applies."
+      intro="A reversed card isn't a different card with a scary new meaning: it's the same card, viewed through one of four practical lenses. Here's how to tell which one applies."
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={9}
@@ -92,14 +92,14 @@ export function GuideReversedTarotCardsScreen() {
       <ContentSection id="what-changes" title="What a reversal actually changes" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           When a card is drawn upside down, its core theme doesn't disappear or flip into its exact
-          opposite — that's a common misconception that leads new readers to treat every reversal as
+          opposite: that's a common misconception that leads new readers to treat every reversal as
           bad news. Instead, a reversal usually adjusts <em>how</em> the card's energy is showing
           up: turned inward instead of outward, delayed instead of active, or expressed as excess or
           deficiency rather than balance.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Think of the upright meaning as the card's default setting, and the reversal as a modifier
-          applied on top of it — not a replacement. That's why the fastest way to learn reversed
+          applied on top of it, not a replacement. That's why the fastest way to learn reversed
           meanings is to know the upright meaning cold first; the reversal almost always makes sense
           once you understand what it's a variation of. AstroFree's full{" "}
           <Link to="/guide/tarot-card-meanings" className="text-[var(--gold)] hover:underline">
@@ -134,10 +134,10 @@ export function GuideReversedTarotCardsScreen() {
         <ol className="mt-2 space-y-3">
           {[
             "Recall the upright meaning first, in plain language, before anything else.",
-            "Ask which of the four lenses (blocked, internal, shadow, unlearned lesson) fits the context of the question best — don't default to the same lens for every card.",
+            "Ask which of the four lenses (blocked, internal, shadow, unlearned lesson) fits the context of the question best: don't default to the same lens for every card.",
             'Check the position it landed in. A reversed card in a "past" slot often just describes something that has already resolved or faded, while the same reversal in an "outcome" position is more of a live warning.',
             "Weigh it against the surrounding cards. Several reversals clustered together often points to one root blockage affecting the whole spread, rather than several unrelated problems.",
-            "Only after all of that, consider whether the situation is genuinely negative — most reversals describe friction or delay, not disaster.",
+            "Only after all of that, consider whether the situation is genuinely negative: most reversals describe friction or delay, not disaster.",
           ].map((step, i) => (
             <li key={step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span className="font-display text-base text-[var(--gold)]">{i + 1}.</span>
@@ -152,19 +152,19 @@ export function GuideReversedTarotCardsScreen() {
           {[
             {
               card: "The Tower, reversed",
-              read: "Rather than a sudden collapse, this often describes a crisis you saw coming and prepared for, or disruption you're actively resisting — delaying the fall rather than avoiding the lesson.",
+              read: "Rather than a sudden collapse, this often describes a crisis you saw coming and prepared for, or disruption you're actively resisting: delaying the fall rather than avoiding the lesson.",
             },
             {
               card: "Two of Cups, reversed",
-              read: "A connection that's imbalanced, one-sided, or going through miscommunication — the upright's mutual harmony is present in intent but not yet in practice.",
+              read: "A connection that's imbalanced, one-sided, or going through miscommunication: the upright's mutual harmony is present in intent but not yet in practice.",
             },
             {
               card: "Ten of Pentacles, reversed",
-              read: "Family or financial stability that feels fragile, or success that hasn't reached the wider family yet — the foundation described upright is still being built.",
+              read: "Family or financial stability that feels fragile, or success that hasn't reached the wider family yet: the foundation described upright is still being built.",
             },
             {
               card: "The Sun, reversed",
-              read: "Joy or success delayed or dimmed rather than absent — often read as temporary low confidence rather than the reversal of good fortune.",
+              read: "Joy or success delayed or dimmed rather than absent: often read as temporary low confidence rather than the reversal of good fortune.",
             },
           ].map((e) => (
             <GlassCard key={e.card} className="p-5">
@@ -178,12 +178,12 @@ export function GuideReversedTarotCardsScreen() {
       <ContentSection id="should-i" title="Should you read reversals at all?" icon={ShieldQuestion}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           There's no rule that says you must. Reading every card upright is a legitimate, widely
-          used approach — it simplifies interpretation and is often recommended for beginners still
+          used approach: it simplifies interpretation and is often recommended for beginners still
           building fluency with the 78 upright meanings covered in AstroFree's{" "}
           <Link to="/guide/tarot-for-beginners" className="text-[var(--gold)] hover:underline">
             beginner's guide
           </Link>
-          . Once those feel automatic, adding reversals is simply a way to add nuance — not a more
+          . Once those feel automatic, adding reversals is simply a way to add nuance, not a more
           "advanced" or "correct" way to read.
         </p>
       </ContentSection>
@@ -219,7 +219,7 @@ export function GuideReversedTarotCardsScreen() {
 
       <CTASection
         title="See reversed meanings in a live reading"
-        body="Draw a free spread and get an instant explanation of every card — upright or reversed — in plain language."
+        body="Draw a free spread and get an instant explanation of every card (upright or reversed) in plain language."
         ctaLabel="Start a free reading"
         to="/reading"
       />

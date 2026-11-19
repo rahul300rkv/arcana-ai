@@ -1,4 +1,4 @@
-import { CalendarClock, Sparkles, UserRound } from "lucide-react";
+import { CalendarClock, Sparkles, UserRound } from "@/components/icons";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 

@@ -1,10 +1,10 @@
 /**
- * Structured content layer for the 11 `/numerology/[slug]` pages —
+ * Structured content layer for the 11 `/numerology/[slug]` pages:
  * Life Path 1–9 plus Master Numbers 11 and 22.
  *
  * Every number carries uniquely written essays across core meaning,
  * personality, career, relationships, marriage, money, health, spiritual path,
- * pairwise compatibility commentary, prompts, and FAQs — zero shared boilerplate.
+ * pairwise compatibility commentary, prompts, and FAQs: zero shared boilerplate.
  */
 
 export interface NumerologyFaq {
@@ -110,17 +110,17 @@ const SEEDS: NumberSeed[] = [
     quickAnswer:
       "Life Path Number 1 (The Pioneer) signifies independence, leadership, and original initiative. Ruled by the Sun and aligned with Fire energy, people with life number 1 thrive when starting ventures from scratch, taking clear ownership, and pairing bold confidence with collaborative delegation.",
     calculationNote:
-      "Add every digit of your full birth date (DD-MM-YYYY) and reduce to 1 — for example, 19-03-1995 reduces as 1+9+0+3+1+9+9+5 = 37 -> 3+7 = 10 -> 1.",
+      "Add every digit of your full birth date (DD-MM-YYYY) and reduce to 1, for example, 19-03-1995 reduces as 1+9+0+3+1+9+9+5 = 37 -> 3+7 = 10 -> 1.",
     description:
       "Life Path Number 1 meaning (The Pioneer): independent psychology, leadership careers, love dynamics, money habits, calculation formula, and compatibility.",
     meaning: [
       "Unit 1 sits right at origin zero-to-one: unbroken line before geometry splits into angles or compromise. When full birth dates reduce to 1, your overarching life curriculum revolves repeatedly around initiating fresh ground nobody cleared before you arrived.",
-      "Sun governs 1 like noon spotlight—warm, generative, impossible to ignore smoothly yet unforgiving when swollen pride blocks honest feedback from competent teammates.",
+      "Sun governs 1 like noon spotlight: warm, generative, impossible to ignore smoothly yet unforgiving when swollen pride blocks honest feedback from competent teammates.",
       "Its shadow plays out symmetrically: either tyrannical micro-management shouting down quieter allies, or paralyzed imposter timidity hoarding half-baked ventures permanently inside secret notebooks out of dread of looking foolish.",
     ],
     personality: [
       "Walk beside any mature Life Path 1 for five minutes and three hallmarks surface effortlessly: brisk decisive tempo, allergy toward needless bureaucracy, and instinctual urge to steer stuck rooms straight toward ownership.",
-      "Young 1s routinely confuse self-reliance with lonely heroism—refusing practical help cleanly out of stubborn pride until exhaustion forces painful delegation lessons during midlife transitions.",
+      "Young 1s routinely confuse self-reliance with lonely heroism: refusing practical help cleanly out of stubborn pride until exhaustion forces painful delegation lessons during midlife transitions.",
       "Once seasoned through setbacks, this pioneer drops brittle defensiveness completely: calm confidence attracts fiercely loyal builders excited to follow transparent bold clarity.",
     ],
     strengths: [
@@ -139,7 +139,7 @@ const SEEDS: NumberSeed[] = [
     ],
     career: [
       "Autonomy fuels crisp peak output far above gilded titles. Roles holding clear P&L accountability, founding launches, solo consulting practices, or decisive product ownership unlock sustained brilliance quickly.",
-      "Corporate hierarchies stuffed with four permission layers extinguish Life Path 1 vitality within eighteen months—either hand this pioneer crisp sandbox freedom or watch them launch a rival studio quietly over weekends.",
+      "Corporate hierarchies stuffed with four permission layers extinguish Life Path 1 vitality within eighteen months: either hand this pioneer crisp sandbox freedom or watch them launch a rival studio quietly over weekends.",
       "Keep one candid non-political advisor beside key strategic sprints so rapid bold conviction doesn't gallop right over subtle operational blindspots.",
     ],
     careerPaths: [
@@ -157,15 +157,15 @@ const SEEDS: NumberSeed[] = [
     ],
     marriage: [
       "Long-lasting vows survive brightly whenever two distinct sovereign domains stay clearly respected: shared dreams in the living room, uninterrupted studio autonomy behind separate desks.",
-      "Watch closely around competitive power tugs during busy career peaks—choosing who bends patiently first over minor domestic logistics protects massive lifelong warmth.",
+      "Watch closely around competitive power tugs during busy career peaks: choosing who bends patiently first over minor domestic logistics protects massive lifelong warmth.",
     ],
     money: [
       "Earning leaps steeply whenever income links transparently to personal initiative, intellectual equity, or direct client results rather than slow seniority escalators.",
-      "Primary financial trap? Funding glossy brand concepts ahead of verified buyer demand—test lean cash-flowing prototypes steadily before risking emergency buffers.",
+      "Primary financial trap? Funding glossy brand concepts ahead of verified buyer demand: test lean cash-flowing prototypes steadily before risking emergency buffers.",
     ],
     health: [
       "High solar drive runs hot physiologically: elevated blood pressure, temple tension headaches, eye strain from midnight screens, and inflammatory flare-ups from skipped recovery weeks.",
-      "Competitive solo cardio—trail running, brisk swimming, martial arts—burns surplus restless heat far faster than passive couch scrolling.",
+      "Competitive solo cardio (trail running, brisk swimming, martial arts) burns surplus restless heat far faster than passive couch scrolling.",
     ],
     spiritual: [
       "Sacred stewardship shifts 1 cleanly beyond noisy personal trophy cases: true solar radiance warms surrounding saplings instead of scorching dry soil underneath.",
@@ -175,13 +175,13 @@ const SEEDS: NumberSeed[] = [
     days: ["Sunday", "Monday"],
     numbers: [1, 10, 19, 28],
     compatibility: [
-      { number: "3", verdict: "high", note: "1 supplies bold crisp ignition while 3 brings infectious storytelling, charm, and lively social lift—energetic co-creators." },
+      { number: "3", verdict: "high", note: "1 supplies bold crisp ignition while 3 brings infectious storytelling, charm, and lively social lift: energetic co-creators." },
       { number: "5", verdict: "high", note: "Both crave brisk independence, adventure, and rapid adaptation without smothering domestic guilt trips." },
-      { number: "9", verdict: "high", note: "Dynamic start meets humanitarian scale—1 pioneers cleanly where 9 helps widen compassionate collective impact." },
+      { number: "9", verdict: "high", note: "Dynamic start meets humanitarian scale: 1 pioneers cleanly where 9 helps widen compassionate collective impact." },
       { number: "1", verdict: "medium", note: "Mutual mutual respect runs high once shared territory splits cleanly; otherwise expect noisy ego clashes over steering wheel control." },
       { number: "2", verdict: "medium", note: "Warm yin-yang complement when 1 honors tender subtle listening instead of bulldozing quiet diplomacy." },
       { number: "6", verdict: "medium", note: "6 brings nurturing sanctuary home while 1 charges outward; balance career ambition thoughtfully against domestic appreciation." },
-      { number: "4", verdict: "growth", note: "Visionary sprint meets cautious structural brakes—immense mutual building power whenever impatient hurry respects meticulous checklists." },
+      { number: "4", verdict: "growth", note: "Visionary sprint meets cautious structural brakes: immense mutual building power whenever impatient hurry respects meticulous checklists." },
       { number: "8", verdict: "growth", note: "Two formidable alpha drives test negotiation humility constantly; united calmly, they forge historic empires." },
     ],
     famous: ["Walt Disney", "Charlie Chaplin", "Tom Hanks", "Miley Cyrus"],
@@ -215,7 +215,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Which tarot archetype pairs closest with Life Path 1?",
         answer:
-          "The Magician (Card I)—channeling clean unified willpower and focused craftsmanship straight from concept into tangible world reality.",
+          "The Magician (Card I): channeling clean unified willpower and focused craftsmanship straight from concept into tangible world reality.",
       },
     ],
   },
@@ -230,18 +230,18 @@ const SEEDS: NumberSeed[] = [
     quickAnswer:
       "Life Path Number 2 (The Diplomat) represents cooperation, emotional intelligence, and quiet intuitive mediation. Ruled by the Moon, people with life number 2 excel at harmonizing teams, reading subtle social dynamics, and building lasting trust once they protect clear personal boundaries.",
     calculationNote:
-      "Sum every digit of your full birth date until reaching 2 (without stopping at 11) — for example, 02-02-1960 equals 0+2+0+2+1+9+6+0 = 20 -> 2+0 = 2.",
+      "Sum every digit of your full birth date until reaching 2 (without stopping at 11), for example, 02-02-1960 equals 0+2+0+2+1+9+6+0 = 20 -> 2+0 = 2.",
     description:
       "Life Path Number 2 meaning (The Diplomat): intuitive empathy, collaborative careers, love dynamics, money habits, calculation formula, and compatibility.",
     meaning: [
       "Number 2 opens duality cleanly: once solitary 1 speaks, 2 listens closely between every word for harmony, nuance, and hidden unspoken emotion.",
       "Ruled cleanly by shifting lunar tides, Life Path 2 notices subtle body posture drops across quiet conference rooms effortlessly long before loud teammates catch friction brewing.",
-      "Its defining lifetime tension? Trading silent self-erasure smoothly for candid kindness—discovering authentic peace includes stating personal boundaries plainly out loud instead of swallowing quiet resentments for decades.",
+      "Its defining lifetime tension? Trading silent self-erasure smoothly for candid kindness: discovering authentic peace includes stating personal boundaries plainly out loud instead of swallowing quiet resentments for decades.",
     ],
     personality: [
       "Friends consistently call 2 first during tangled heartbreak or delicate family transitions because warm unhurried attention creates instantaneous emotional safety.",
       "Notice subtle detail orientation: crisp interior comfort, remembered birthday details, smooth verbal mediation turning defensive ego camps back toward rational calm.",
-      "Whenever pushed hastily under blunt hostility, ungrounded 2s retreat sideways into passive silence or torturous second-guessing—clean direct solitude restores lunar compass alignment smoothly.",
+      "Whenever pushed hastily under blunt hostility, ungrounded 2s retreat sideways into passive silence or torturous second-guessing: clean direct solitude restores lunar compass alignment smoothly.",
     ],
     strengths: [
       "Piercing emotional and somatic radar",
@@ -259,7 +259,7 @@ const SEEDS: NumberSeed[] = [
     ],
     career: [
       "Behind great visible founders routinely sits an indispensable Life Path 2 chief of staff, creative producer, clinical therapist, or strategic partnership lead holding complex relationships seamlessly tight.",
-      "Avoid sterile cold transactional sales boiler-rooms prioritizing cutthroat internal rankings—your genuine empathy becomes competitive gold wherever deep client trust drives retention across years.",
+      "Avoid sterile cold transactional sales boiler-rooms prioritizing cutthroat internal rankings: your genuine empathy becomes competitive gold wherever deep client trust drives retention across years.",
       "Name deliverables and fee raises proactively on paper rather than waiting quietly hoping generous fairness notices extra unpaid overtime.",
     ],
     careerPaths: [
@@ -271,7 +271,7 @@ const SEEDS: NumberSeed[] = [
       "UX ethnographic research",
     ],
     relationships: [
-      "Deep attentive devotion anchors romance effortlessly—tender memory, thoughtful tactile care, and genuine curiosity regarding a partner's emotional landscape.",
+      "Deep attentive devotion anchors romance effortlessly: tender memory, thoughtful tactile care, and genuine curiosity regarding a partner's emotional landscape.",
       "Danger waits gently in subtle codependency: rescuing fragile partners tirelessly while hiding authentic unmet desires quietly beneath smiling accommodation.",
       "Thriving bonds invite clear mutual emotional fluency where asking plainly directly replaces hopeful telepathic guessing games.",
     ],
@@ -280,11 +280,11 @@ const SEEDS: NumberSeed[] = [
       "Keep at least one independent creative friendship lane thriving strictly outside marriage duties so intimate empathy stays fresh rather than anxious.",
     ],
     money: [
-      "Steady risk-averse saving accumulates reassuring quiet buffers over patient decades—rarely swept easily into flashy reckless casino hype.",
+      "Steady risk-averse saving accumulates reassuring quiet buffers over patient decades: rarely swept easily into flashy reckless casino hype.",
       "Primary financial leak arrives via soft-hearted sympathy: lending tricky sums cleanly to unreliable acquaintances or discounting skilled fees nervously up front.",
     ],
     health: [
-      "Moon governs fluid cycles, digestive gut nerves, hormonal balance, and nocturnal sleep restoration—emotional stress hits stomachs cleanly inside twenty-four hours.",
+      "Moon governs fluid cycles, digestive gut nerves, hormonal balance, and nocturnal sleep restoration: emotional stress hits stomachs cleanly inside twenty-four hours.",
       "Water immersion, evening herbal decompression, and firm screen curfews rebuild quiet resilience rapidly.",
     ],
     spiritual: [
@@ -295,13 +295,13 @@ const SEEDS: NumberSeed[] = [
     days: ["Monday", "Friday"],
     numbers: [2, 11, 20, 29],
     compatibility: [
-      { number: "6", verdict: "high", note: "Tender lunar intuition hugs warm Venusian hospitality—cozy caring homes rich in mutual loyalty and beauty." },
+      { number: "6", verdict: "high", note: "Tender lunar intuition hugs warm Venusian hospitality: cozy caring homes rich in mutual loyalty and beauty." },
       { number: "8", verdict: "high", note: "Diplomatic grace stabilizes heavy executive ambition effortlessly while 8 provides steady sturdy material shelter." },
       { number: "9", verdict: "high", note: "Deeply compassionate alliance uniting quiet emotional listening smoothly beside grand humanitarian service." },
       { number: "2", verdict: "medium", note: "Uncanny comforting telepathy that shines gracefully once both consciously practice initiating blunt decisive honesty." },
       { number: "1", verdict: "medium", note: "Vibrant polarity flourishes whenever bold independence appreciates sensitive rhythmic subtlety rather than rushing fast." },
       { number: "3", verdict: "medium", note: "3 sparkles warmly across social dinners while 2 anchors thoughtful intimacy; check mutual attention balance gently." },
-      { number: "5", verdict: "growth", note: "Homebody depth crosses restless open horizons—teaches thrilling spacious independence alongside safe warm mooring." },
+      { number: "5", verdict: "growth", note: "Homebody depth crosses restless open horizons: teaches thrilling spacious independence alongside safe warm mooring." },
       { number: "7", verdict: "growth", note: "Feeling-first radar meets detached analytical solitude; rich mutual wisdom blossoms patiently once neither hides silently." },
     ],
     famous: ["Jennifer Aniston", "Tony Blair", "Diana Ross", "Keanu Reeves"],
@@ -325,7 +325,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Are Life Path 2 individuals naturally shy?",
         answer:
-          "Not always shy—many speak gracefully across stages—yet nearly all prioritize social atmosphere, harmony, and quiet observation ahead of brash solo posturing.",
+          "Not always shy (many speak gracefully across stages) yet nearly all prioritize social atmosphere, harmony, and quiet observation ahead of brash solo posturing.",
       },
       {
         question: "Why does career progress sometimes feel slower for Life Path 2?",
@@ -348,19 +348,19 @@ const SEEDS: NumberSeed[] = [
     element: "Fire",
     hero: "Sparkling creative imagination, buoyant emotional warmth, and rare gifts turning dense truth effortlessly into living story.",
     quickAnswer:
-      "Life Path Number 3 (The Communicator) embodies creative expression, optimism, and persuasive storytelling. Ruled by Jupiter, life number 3 thrives in writing, design, speaking, and people-centered roles—turning natural charisma into lasting achievement when paired with focused follow-through.",
+      "Life Path Number 3 (The Communicator) embodies creative expression, optimism, and persuasive storytelling. Ruled by Jupiter, life number 3 thrives in writing, design, speaking, and people-centered roles, turning natural charisma into lasting achievement when paired with focused follow-through.",
     calculationNote:
-      "Add all digits of your full date of birth and reduce to 3 — for example, 12-03-1995 calculates as 1+2+0+3+1+9+9+5 = 30 -> 3+0 = 3.",
+      "Add all digits of your full date of birth and reduce to 3, for example, 12-03-1995 calculates as 1+2+0+3+1+9+9+5 = 30 -> 3+0 = 3.",
     description:
       "Life Path Number 3 meaning (The Communicator): creative artistry, Jupiterian optimism, communication careers, love compatibility, and financial focus.",
     meaning: [
-      "When assertive 1 initiates and receptive 2 collaborates, 3 bursts cleanly upward like vibrant spring blossom—synthesis expressed vividly through language, color, humor, music, and unmistakable human charm.",
+      "When assertive 1 initiates and receptive 2 collaborates, 3 bursts cleanly upward like vibrant spring blossom: synthesis expressed vividly through language, color, humor, music, and unmistakable human charm.",
       "Jupiter amplifies everything touching Life Path 3: exuberant contagious wit, bold artistic reach, lightning pattern-sparking across diverse disciplines, and irrepressible emotional resilience lifting discouraged allies quickly.",
-      "Core developmental pivot? Choosing depth deliberately over dazzling distraction—learning patiently that shipping one polished masterpiece cleanly fulfills brilliance endlessly deeper than flirting endlessly across nine half-written notebooks.",
+      "Core developmental pivot? Choosing depth deliberately over dazzling distraction: learning patiently that shipping one polished masterpiece cleanly fulfills brilliance endlessly deeper than flirting endlessly across nine half-written notebooks.",
     ],
     personality: [
       "Lifelong conversational magnetism radiates smoothly around playful 3s: effortless icebreakers turn stiff networking receptions warm inside three crisp sentences.",
-      "Look gently underneath comedic buoyancy, however, and acute thin-skinned sensitivity often hides nervously—a casual sarcastic dismissal bruises self-trust far deeper than breezy jokes let show.",
+      "Look gently underneath comedic buoyancy, however, and acute thin-skinned sensitivity often hides nervously: a casual sarcastic dismissal bruises self-trust far deeper than breezy jokes let show.",
       "Mature 3 harnesses lively verbal brilliance responsibly beside crisp daily checklists, transforming charming chatter into genuine cultural leadership.",
     ],
     strengths: [
@@ -378,7 +378,7 @@ const SEEDS: NumberSeed[] = [
       "Gossipy chatter when bored restlessly",
     ],
     career: [
-      "Invisible cubicles divorced from live human reaction crush buoyant 3 spirit swiftly—thrive across creative agencies, narrative journalism, standup/film craft, crisp educational design, vibrant brand strategy, or persuasive keynote outreach.",
+      "Invisible cubicles divorced from live human reaction crush buoyant 3 spirit swiftly: thrive across creative agencies, narrative journalism, standup/film craft, crisp educational design, vibrant brand strategy, or persuasive keynote outreach.",
       "Pair cheerfully alongside methodical operational executors or structured co-producers who handle tedious shipping calendars while you focus brilliantly on voice, story, and big concept architecture.",
       "Guard creative mornings zealously against fragmented chatter so core flagship outputs finish cleanly.",
     ],
@@ -391,7 +391,7 @@ const SEEDS: NumberSeed[] = [
       "Event & community architect",
     ],
     relationships: [
-      "Mental sparkle drives genuine attraction straight away—playful banter, spontaneous daytrips, hilarious inside jokes, and expressive affection light fires fast.",
+      "Mental sparkle drives genuine attraction straight away: playful banter, spontaneous daytrips, hilarious inside jokes, and expressive affection light fires fast.",
       "Danger waits quietly when heavy mundane conflict arrives: dodging difficult vulnerability smoothly beneath distracting jokes erodes deep intimacy gradually.",
       "Enduring chemistry anchors playfully whenever joyful curiosity coexists comfortably beside unhurried honest stillness.",
     ],
@@ -408,20 +408,20 @@ const SEEDS: NumberSeed[] = [
       "Protect quiet tech-free walks, moderate cheerful indulgences wisely, and honor genuine deep voice/nervous rest.",
     ],
     spiritual: [
-      "True joy blooms authentically inside honest disciplined creation—refining beauty carefully cleanly outlasts fleeting clever applause.",
+      "True joy blooms authentically inside honest disciplined creation: refining beauty carefully cleanly outlasts fleeting clever applause.",
       "Playful wonder illuminates steady serious craft.",
     ],
     colours: ["Yellow", "Saffron", "Turquoise"],
     days: ["Thursday", "Tuesday"],
     numbers: [3, 12, 21, 30],
     compatibility: [
-      { number: "1", verdict: "high", note: "Electric creative chemistry—1 anchors brave original starts while 3 magnifies compelling public story and momentum." },
+      { number: "1", verdict: "high", note: "Electric creative chemistry: 1 anchors brave original starts while 3 magnifies compelling public story and momentum." },
       { number: "5", verdict: "high", note: "Sparkling social synergy fueled endlessly by lively adventure, clever wit, and buoyant open flexibility." },
       { number: "9", verdict: "high", note: "Expressive 3 creativity merges seamlessly beside generous compassionate vision, touching wide audiences deeply." },
       { number: "3", verdict: "medium", note: "Joyful dazzling social sparkle; pair gently with shared calendars so practical bills never drop between fun bursts." },
-      { number: "2", verdict: "medium", note: "Charming lighthearted contrast—warm dialogue deepens smoothly once lively 3 slows calmly to hear quiet feelings." },
+      { number: "2", verdict: "medium", note: "Charming lighthearted contrast: warm dialogue deepens smoothly once lively 3 slows calmly to hear quiet feelings." },
       { number: "6", verdict: "medium", note: "Creative expression harmonizes gracefully alongside beautiful homes, provided serious duties balance generous hospitality cleanly." },
-      { number: "4", verdict: "growth", note: "Spontaneous imagination challenges rigid structure daily—magnificent lasting output arrives whenever mutual sarcasm yields to respect." },
+      { number: "4", verdict: "growth", note: "Spontaneous imagination challenges rigid structure daily: magnificent lasting output arrives whenever mutual sarcasm yields to respect." },
       { number: "7", verdict: "growth", note: "Bright extroverted storytelling crosses quiet solitary truth-seeking; fascinating intellectual depth whenever silence feels unthreatening." },
     ],
     famous: ["David Bowie", "Snoop Dogg", "Katy Perry", "Hillary Clinton"],
@@ -440,7 +440,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Are all Life Path 3 people extroverted performers?",
         answer:
-          "No—many write quietly, paint indoors, or design systems away from bright stages; their unifying trait is needing genuine creative expression and engaging communication rather than cold isolation.",
+          "No. Many write quietly, paint indoors, or design systems away from bright stages; their unifying trait is needing genuine creative expression and engaging communication rather than cold isolation.",
       },
       {
         question: "Why does consistency feel challenging for Life Path 3?",
@@ -468,20 +468,20 @@ const SEEDS: NumberSeed[] = [
     element: "Earth",
     hero: "Unshakeable foundation engineering, steady disciplined grit, and turning lofty ambitious sketches cleanly into durable reality.",
     quickAnswer:
-      "Life Path Number 4 (The Builder) stands for structure, dependability, and methodical mastery. Guided by Saturn and Rahu, life number 4 builds lasting wealth, reliable systems, and deeply loyal homes—reaching peak strength when practical discipline welcomes healthy flexibility.",
+      "Life Path Number 4 (The Builder) stands for structure, dependability, and methodical mastery. Guided by Saturn and Rahu, life number 4 builds lasting wealth, reliable systems, and deeply loyal homes: reaching peak strength when practical discipline welcomes healthy flexibility.",
     calculationNote:
-      "Sum all birth-date digits down to 4 (unless your subtotal hits Master Number 22) — for example, 13-04-1994 gives 1+3+0+4+1+9+9+4 = 31 -> 3+1 = 4.",
+      "Sum all birth-date digits down to 4 (unless your subtotal hits Master Number 22), for example, 13-04-1994 gives 1+3+0+4+1+9+9+4 = 31 -> 3+1 = 4.",
     description:
       "Life Path Number 4 meaning (The Builder): systematic stamina, architectural reliability, career mastery, love compatibility, and steady wealth growth.",
     meaning: [
-      "Square four corners plant four crisp stakes permanently deep inside solid rock—where creative 3 improvises lively stories, Life Path 4 pulls measuring tape tight and builds bridges strong enough to survive harsh earthquakes.",
+      "Square four corners plant four crisp stakes permanently deep inside solid rock, where creative 3 improvises lively stories, Life Path 4 pulls measuring tape tight and builds bridges strong enough to survive harsh earthquakes.",
       "Governed rigorously by disciplined Saturnine gravity alongside inventive Rahu realism, 4 instinctively demands proof, structural integrity, transparent fairness, and sweat earned cleanly ahead of flashy status.",
-      "Core maturation test? Discovering that soft emotional flexibility fortifies durable engineering cleanly like seismic steel dampening—crisp control alone snaps painfully whenever unpredictable seasons blow past tidy charts.",
+      "Core maturation test? Discovering that soft emotional flexibility fortifies durable engineering cleanly like seismic steel dampening: crisp control alone snaps painfully whenever unpredictable seasons blow past tidy charts.",
     ],
     personality: [
-      "Show up beside a Life Path 4 during urgent technical breakdown and calm practical reassurance spreads rapidly—nobody panics noisily while clear orderly triage executes systematically line by line.",
+      "Show up beside a Life Path 4 during urgent technical breakdown and calm practical reassurance spreads rapidly: nobody panics noisily while clear orderly triage executes systematically line by line.",
       "Dry deadpan humor, unyielding personal ethics, fierce word-keeping, and deep discomfort with sloppy dishonest hype earn immense silent trust quickly.",
-      "When exhausted under relentless unappreciated loads, brittle rigid stubbornness clamps jaws closed—remembering planned gentle playtime sits strictly beside vital engineering duties keeps hearts alive.",
+      "When exhausted under relentless unappreciated loads, brittle rigid stubbornness clamps jaws closed: remembering planned gentle playtime sits strictly beside vital engineering duties keeps hearts alive.",
     ],
     strengths: [
       "Architectural methodical execution",
@@ -499,7 +499,7 @@ const SEEDS: NumberSeed[] = [
     ],
     career: [
       "Engineering architecture, institutional compliance, civil development, supply logistics, intricate financial systems, medical surgery, and precision craftsmanship showcase Life Path 4 mastery seamlessly.",
-      "You consistently become the indispensable backbone leadership refuses losing—yet step deliberately upward into strategic systems ownership cleanly rather than quietly absorbing everyone's messy manual chores indefinitely.",
+      "You consistently become the indispensable backbone leadership refuses losing, yet step deliberately upward into strategic systems ownership cleanly rather than quietly absorbing everyone's messy manual chores indefinitely.",
       "Document clear promotion milestones objectively rather than expecting silent loyalty alone to trigger raises.",
     ],
     careerPaths: [
@@ -512,7 +512,7 @@ const SEEDS: NumberSeed[] = [
     ],
     relationships: [
       "Practical caring acts speak volumes: fixed brakes, sorted taxes, calm steady attendance through messy family crises long after poetic flirters vanish quietly.",
-      "Silent devotion still thrives infinitely richer once voiced gently out loud—let loving words soften predictable reliable routines visibly every single week.",
+      "Silent devotion still thrives infinitely richer once voiced gently out loud: let loving words soften predictable reliable routines visibly every single week.",
       "Avoid vetting exciting fresh dates smoothly solely against twenty-item risk spreadsheets.",
     ],
     marriage: [
@@ -520,7 +520,7 @@ const SEEDS: NumberSeed[] = [
       "Carve spontaneous carefree Saturdays deliberately free from weekend repair chores so tender play doesn't slowly turn sterile.",
     ],
     money: [
-      "Natural patient stewardship treats reckless speculative manias with crisp healthy suspicion—compound steady savings, low-leverage real assets, and clean cash buffers accumulate quietly across decades.",
+      "Natural patient stewardship treats reckless speculative manias with crisp healthy suspicion: compound steady savings, low-leverage real assets, and clean cash buffers accumulate quietly across decades.",
       "Guard gently against fearful miserliness postponing deserved joyful experiences permanently into blurry retirement.",
     ],
     health: [
@@ -528,21 +528,21 @@ const SEEDS: NumberSeed[] = [
       "Consistent mobility stretching, mineral hydration, and deliberate unplugged rest protect strong durable stamina cleanly.",
     ],
     spiritual: [
-      "Sacred trust arrives peacefully once sturdy disciplined builders accept mystery smoothly—surrendering uncontrollable outcomes doesn't erase painstaking honest workmanship.",
+      "Sacred trust arrives peacefully once sturdy disciplined builders accept mystery smoothly: surrendering uncontrollable outcomes doesn't erase painstaking honest workmanship.",
       "Patience anchors silent quiet strength.",
     ],
     colours: ["Deep blue", "Slate grey", "Forest green"],
     days: ["Saturday", "Sunday"],
     numbers: [4, 13, 22, 31],
     compatibility: [
-      { number: "2", verdict: "high", note: "Tender empathetic warmth softens solid practical discipline smoothly—calm affectionate sanctuary built securely together." },
+      { number: "2", verdict: "high", note: "Tender empathetic warmth softens solid practical discipline smoothly: calm affectionate sanctuary built securely together." },
       { number: "6", verdict: "high", note: "Shared devotion toward family shelter, beauty, loyalty, and steady enduring domestic commitment." },
-      { number: "8", verdict: "high", note: "Respects hard work, tangible equity, and unflashy high integrity—formidable focused builders side by side." },
+      { number: "8", verdict: "high", note: "Respects hard work, tangible equity, and unflashy high integrity: formidable focused builders side by side." },
       { number: "4", verdict: "medium", note: "Unbreakable clean reliability; agree gracefully up front on vacation play before practical chores consume every weekend." },
       { number: "7", verdict: "medium", note: "Thoughtful privacy and solid depth click calmly whenever mutual respect welcomes occasional quiet emotional sharing." },
       { number: "9", verdict: "medium", note: "Grounded practical logistics empowers grand idealistic humanitarian impact once rigid pace loosens modestly." },
-      { number: "3", verdict: "growth", note: "Delightful spontaneous expression shakes stale rigid checklists free—magic ignites whenever mutual teasing drops harsh judgment." },
-      { number: "5", verdict: "growth", note: "Security collides cheerfully against nomadic surprise—powerful shared growth once flexible guardrails leave clean breathing room." },
+      { number: "3", verdict: "growth", note: "Delightful spontaneous expression shakes stale rigid checklists free: magic ignites whenever mutual teasing drops harsh judgment." },
+      { number: "5", verdict: "growth", note: "Security collides cheerfully against nomadic surprise: powerful shared growth once flexible guardrails leave clean breathing room." },
     ],
     famous: ["Margaret Thatcher", "Clint Eastwood", "Bill Belichick", "Usher"],
     lessons: [
@@ -560,7 +560,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why does Life Path 4 carry a reputation for hard work?",
         answer:
-          "Number 4 mirrors four solid square walls—nothing lasting stands straight without deep patient footing, so life repeatedly invites 4 to earn mastery tangibly rather than gliding through lucky shortcuts.",
+          "Number 4 mirrors four solid square walls: nothing lasting stands straight without deep patient footing, so life repeatedly invites 4 to earn mastery tangibly rather than gliding through lucky shortcuts.",
       },
       {
         question: "How is 4 related to Master Number 22?",
@@ -570,7 +570,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Can Life Path 4 thrive in creative professions?",
         answer:
-          "Exceptionally—consider film editing, precision architecture, typography, classical orchestration, engineering design, or technical illustration where rigorous craft elevates artistic imagination.",
+          "Exceptionally: consider film editing, precision architecture, typography, classical orchestration, engineering design, or technical illustration where rigorous craft elevates artistic imagination.",
       },
       {
         question: "What unlocks emotional ease fastest for Life Path 4?",
@@ -588,20 +588,20 @@ const SEEDS: NumberSeed[] = [
     element: "Air",
     hero: "Mercurial speed, fearless sensory curiosity, and agile pivot mastery turning volatile rapid change straight into exhilarating freedom.",
     quickAnswer:
-      "Life Path Number 5 (The Explorer) represents freedom, rapid adaptability, and versatile curiosity. Ruled by Mercury, life number 5 flourishes in dynamic careers involving travel, media, growth, and negotiation—unlocking deep satisfaction when open exploration is anchored by intentional focus.",
+      "Life Path Number 5 (The Explorer) represents freedom, rapid adaptability, and versatile curiosity. Ruled by Mercury, life number 5 flourishes in dynamic careers involving travel, media, growth, and negotiation: unlocking deep satisfaction when open exploration is anchored by intentional focus.",
     calculationNote:
-      "Add every digit of your full birth date and reduce to 5 — for example, 14-05-1993 reduces as 1+4+0+5+1+9+9+3 = 32 -> 3+2 = 5.",
+      "Add every digit of your full birth date and reduce to 5, for example, 14-05-1993 reduces as 1+4+0+5+1+9+9+3 = 32 -> 3+2 = 5.",
     description:
       "Life Path Number 5 meaning (The Explorer): adaptability, Mercury curiosity, dynamic careers, love dynamics, automated finance, and grounding.",
     meaning: [
-      "Squeezed strictly past square 4 symmetry, radiant 5 bursts directly outside boxed boundaries into open vibrant curiosity—representing five crisp human senses drinking lived experience firsthand without stuffy second-hand dogma.",
+      "Squeezed strictly past square 4 symmetry, radiant 5 bursts directly outside boxed boundaries into open vibrant curiosity: representing five crisp human senses drinking lived experience firsthand without stuffy second-hand dogma.",
       "Quick-footed Mercury electrifies Life Path 5: sharp improvisational wit, fluent adaptability across unfamiliar cities, magnetic persuasive instincts, and irrepressible appetite for vivid living.",
-      "Lifetime mastery edge? Choosing intentional meaningful focus cleanly over anxious restless escape—learning deeply that authentic loyalty to a worthy craft or beloved ally expands true freedom infinitely wider than endless shallow flitting.",
+      "Lifetime mastery edge? Choosing intentional meaningful focus cleanly over anxious restless escape: learning deeply that authentic loyalty to a worthy craft or beloved ally expands true freedom infinitely wider than endless shallow flitting.",
     ],
     personality: [
       "Drop a poised Life Path 5 smoothly onto unfamiliar airports, dynamic crisis desks, or eclectic social gatherings and watch instant rapport unfold effortlessly within quiet minutes.",
       "Predictable stagnant stagnation acts straight like subtle poison: repeat dull checklists verbatim for twelve straight months and spark fades rapidly into restless scrolling, sharp cynicism, or abrupt drastic quits.",
-      "Integrated mature 5 pairs exhilarating intellectual speed comfortably beside crisp commitment habits—creating thrilling varied days rooted securely upon rock-steady core anchors.",
+      "Integrated mature 5 pairs exhilarating intellectual speed comfortably beside crisp commitment habits: creating thrilling varied days rooted securely upon rock-steady core anchors.",
     ],
     strengths: [
       "Electric adaptability across sudden shifts",
@@ -618,7 +618,7 @@ const SEEDS: NumberSeed[] = [
       "Skittish dread around heavy long promises",
     ],
     career: [
-      "Monotonous static routine drains bright mercurial minds terribly fast—soar freely inside investigative media, strategic travel partnerships, nimble enterprise sales, dynamic product growth, bustling hospitality ventures, or live coaching circuits.",
+      "Monotonous static routine drains bright mercurial minds terribly fast: soar freely inside investigative media, strategic travel partnerships, nimble enterprise sales, dynamic product growth, bustling hospitality ventures, or live coaching circuits.",
       "Design portfolio careers blending dynamic varied client challenges calmly atop stable baseline retainers rather than choosing endlessly between crushing boredom and unstable chaos.",
       "Finish high-impact flagship sprints before snapping smoothly toward fresh shiny horizons.",
     ],
@@ -631,16 +631,16 @@ const SEEDS: NumberSeed[] = [
       "Cross-cultural technical consulting",
     ],
     relationships: [
-      "Electrifying intellectual chemistry ignites love fast—witty late debates, unplanned road trips, refreshing honesty, and spacious room protecting each partner's vivid independent friendships.",
+      "Electrifying intellectual chemistry ignites love fast: witty late debates, unplanned road trips, refreshing honesty, and spacious room protecting each partner's vivid independent friendships.",
       "Suffocating suspicious interrogation kills tender loyalty straight away; trust breathed naturally keeps agile 5 remarkably devoted by deliberate choice.",
       "Watch quietly for phantom exits whenever ordinary cozy intimacy deepens past breathless initial chase.",
     ],
     marriage: [
-      "Thriving lifelong marriages replace stale automatic scripts cleanly with fresh shared quests—creative travel rhythms, evolving shared hobbies, and candid lively curiosity sustaining playful spark cleanly across decades.",
+      "Thriving lifelong marriages replace stale automatic scripts cleanly with fresh shared quests: creative travel rhythms, evolving shared hobbies, and candid lively curiosity sustaining playful spark cleanly across decades.",
       "Protect reliable quiet anchor traditions carefully so thrilling freedom never morphs gently into emotional drift.",
     ],
     money: [
-      "Agile sales instinct and opportunity spotting pull crisp dynamic earnings effortlessly—yet shiny convenience splurges, travel upgrades, and impulsive treats drain loose cash just as rapidly.",
+      "Agile sales instinct and opportunity spotting pull crisp dynamic earnings effortlessly, yet shiny convenience splurges, travel upgrades, and impulsive treats drain loose cash just as rapidly.",
       "Automate blind payday transfers squarely into locked boring index vaults cleanly out of immediate tap reach.",
     ],
     health: [
@@ -648,7 +648,7 @@ const SEEDS: NumberSeed[] = [
       "Outdoor playful athletics, digital sunset boundaries, and steady breath anchors stabilize jagged anxious energy quickly.",
     ],
     spiritual: [
-      "Highest vibrant liberty breathes effortlessly inside deep loving presence—stopping still calmly opens endless universes richer than rushing across fifty stamped passports.",
+      "Highest vibrant liberty breathes effortlessly inside deep loving presence: stopping still calmly opens endless universes richer than rushing across fifty stamped passports.",
       "Depth reveals true wide sky.",
     ],
     colours: ["Emerald teal", "Silver-grey", "Sky blue"],
@@ -657,7 +657,7 @@ const SEEDS: NumberSeed[] = [
     compatibility: [
       { number: "1", verdict: "high", note: "Fearless mutual initiative plus agile vibrant speed create daring independent allies thriving past stale conventions." },
       { number: "3", verdict: "high", note: "Witty sparkling banter, playful travel dreams, and effortless expressive warmth fuel buoyant exciting life together." },
-      { number: "7", verdict: "high", note: "Vivid outer traveler exchanges brilliant questions smoothly alongside quiet solitary thinker—spacious mutual independence." },
+      { number: "7", verdict: "high", note: "Vivid outer traveler exchanges brilliant questions smoothly alongside quiet solitary thinker: spacious mutual independence." },
       { number: "5", verdict: "medium", note: "Exhilarating adventures abound; agree early calmly on shared fixed financial cushions and anchored quality time home." },
       { number: "6", verdict: "medium", note: "Warm domestic shelter welcomes agile exploration cleanly whenever affectionate reassurance honors restless solo hobbies." },
       { number: "9", verdict: "medium", note: "Broad open worldview unites inspiring curiosity gently beside deep compassionate humanitarian purpose." },
@@ -685,7 +685,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why is Hierophant linked numerologically with flexible Life Path 5?",
         answer:
-          "Major Arcana Card V explores teaching systems and lived truth—5 discovers lasting timeless wisdom actively by testing conventions against vivid real life rather than blind obedience.",
+          "Major Arcana Card V explores teaching systems and lived truth: 5 discovers lasting timeless wisdom actively by testing conventions against vivid real life rather than blind obedience.",
       },
       {
         question: "How can Life Path 5 avoid career hopping prematurely?",
@@ -708,20 +708,20 @@ const SEEDS: NumberSeed[] = [
     element: "Earth",
     hero: "Fierce protective devotion, exquisite aesthetic sanctuary building, and ethical community stewardship uniting warmth with clean balance.",
     quickAnswer:
-      "Life Path Number 6 (The Nurturer) symbolizes responsibility, harmony, family devotion, and protective leadership. Ruled by Venus, people with life path number 6 shine in healthcare, design, teaching, and advisory roles—experiencing deepest joy when caring for others stays balanced with healthy self-care.",
+      "Life Path Number 6 (The Nurturer) symbolizes responsibility, harmony, family devotion, and protective leadership. Ruled by Venus, people with life path number 6 shine in healthcare, design, teaching, and advisory roles: experiencing deepest joy when caring for others stays balanced with healthy self-care.",
     calculationNote:
-      "Add all digits of your full birth date and reduce to 6 — for example, 15-09-1998 calculates as 1+5+0+9+1+9+9+8 = 42 -> 4+2 = 6.",
+      "Add all digits of your full birth date and reduce to 6, for example, 15-09-1998 calculates as 1+5+0+9+1+9+9+8 = 42 -> 4+2 = 6.",
     description:
       "Life Path Number 6 meaning (The Nurturer): caring leadership, Venusian harmony, love and marriage compatibility, service careers, and healthy boundaries.",
     meaning: [
-      "Symmetrical 6 curves gracefully around welcoming center—marking numerology's most consciously responsible family builder, fierce neighborhood guardian, and dedicated aesthetic harmonizer.",
+      "Symmetrical 6 curves gracefully around welcoming center: marking numerology's most consciously responsible family builder, fierce neighborhood guardian, and dedicated aesthetic harmonizer.",
       "Venus imbues Life Path 6 deeply with sharp artistic discernment and undeniable emotional loyalty: stepping calmly inside cold disorganized spaces triggers irresistible natural instincts to warm rooms, feed weary friends, and stitch torn communities whole.",
-      "Essential lifetime threshold? Separating healthy chosen love cleanly from exhausting anxious rescuing—discovering gracefully that letting competent adults resolve their own messy mistakes respects human dignity infinitely deeper than quiet martyrdom.",
+      "Essential lifetime threshold? Separating healthy chosen love cleanly from exhausting anxious rescuing: discovering gracefully that letting competent adults resolve their own messy mistakes respects human dignity infinitely deeper than quiet martyrdom.",
     ],
     personality: [
       "Count cleanly on a seasoned 6 when unexpected emergencies strike: comforting warm broth arrives beside steady clear emotional triage before frantic bystanders organize guesses.",
       "Keen visual refinement shines effortlessly across curated clothing, inviting living rooms, generous unhurried hosting, and principled moral fairness standing gently beside vulnerable allies.",
-      "Watch gently whenever selfless helping tips subtly into controlling perfectionism—guilt-tripping loved ones quietly for failing unspoken standards strains closest ties gently down.",
+      "Watch gently whenever selfless helping tips subtly into controlling perfectionism: guilt-tripping loved ones quietly for failing unspoken standards strains closest ties gently down.",
     ],
     strengths: [
       "Rock-steady dependable devotion",
@@ -738,8 +738,8 @@ const SEEDS: NumberSeed[] = [
       "Struggles graciously receiving generous support",
     ],
     career: [
-      "Meaningless manipulative output drains 6 sharply regardless of shiny paycheck cushions—flourish vibrantly across integrative healthcare, compassionate counseling, architectural interior design, elevated hospitality, soulful culinary arts, progressive education, or principled civic community design.",
-      "Notice natural executive warmth frequently promotes diligent 6s straight toward cherished management seats—negotiate clear compensation boldly instead of donating endless unpaid care labor cleanly out of tender duty.",
+      "Meaningless manipulative output drains 6 sharply regardless of shiny paycheck cushions: flourish vibrantly across integrative healthcare, compassionate counseling, architectural interior design, elevated hospitality, soulful culinary arts, progressive education, or principled civic community design.",
+      "Notice natural executive warmth frequently promotes diligent 6s straight toward cherished management seats: negotiate clear compensation boldly instead of donating endless unpaid care labor cleanly out of tender duty.",
     ],
     careerPaths: [
       "Healthcare & integrative wellness",
@@ -750,12 +750,12 @@ const SEEDS: NumberSeed[] = [
       "Client care & trusted advisory",
     ],
     relationships: [
-      "Warm sensual steady devotion turns dating straight into cozy sanctuary—attentive affection, tasteful intimate gestures, loyal mutual backing, and zero flaky hot-cold mind games.",
+      "Warm sensual steady devotion turns dating straight into cozy sanctuary: attentive affection, tasteful intimate gestures, loyal mutual backing, and zero flaky hot-cold mind games.",
       "Core vulnerability hides inside unbalanced caretaking: silently adopting needy broken partners as secret rescue projects instead of demanding equal respectful adult partnerships.",
       "Flourish deeply beside balanced partners joyfully spoiling you gently right back without defensive deflection.",
     ],
     marriage: [
-      "Committed marriage frequently sits right at radiant heart of Life Path 6's meaning—nurturing joyful thriving households anchored lovingly on genuine comfort, aesthetic beauty, and mutual respect.",
+      "Committed marriage frequently sits right at radiant heart of Life Path 6's meaning: nurturing joyful thriving households anchored lovingly on genuine comfort, aesthetic beauty, and mutual respect.",
       "Protect crisp equal chores cleanly alongside unhurried couples nights strictly shielded away from extended family crises.",
     ],
     money: [
@@ -764,10 +764,10 @@ const SEEDS: NumberSeed[] = [
     ],
     health: [
       "Venusian sensitivity flags tense vocal throats, thyroid balance, metabolic sugar swings from emotional comforting snacks, and chest tightness carried politely for struggling neighbors.",
-      "Delightful sensory restoration—unhurried soaking baths, botanical walks, uplifting choir/music, and gentle firm boundaries—heals smoothly.",
+      "Delightful sensory restoration (unhurried soaking baths, botanical walks, uplifting choir/music, and gentle firm boundaries) heals smoothly.",
     ],
     spiritual: [
-      "Unconditional warm grace welcomes healthy limits seamlessly—tending your own serene spirit honestly keeps compassionate sanctuary genuinely joyful rather than bitter.",
+      "Unconditional warm grace welcomes healthy limits seamlessly: tending your own serene spirit honestly keeps compassionate sanctuary genuinely joyful rather than bitter.",
       "Love freely without rescuing endlessly.",
     ],
     colours: ["Rose pink", "Warm cream", "Emerald"],
@@ -780,7 +780,7 @@ const SEEDS: NumberSeed[] = [
       { number: "3", verdict: "medium", note: "Joyful playful spark delights warm Venusian hearts whenever creative flair shares practical family responsibilities evenly." },
       { number: "6", verdict: "medium", note: "Deep comfortable beauty and mutual kindness thrive gracefully once gentle honest communication replaces silent martyrdom." },
       { number: "8", verdict: "medium", note: "8 builds strong material protection around lush warm home life once mutual respect tunes tender time beside career hustle." },
-      { number: "1", verdict: "growth", note: "Fierce solo initiative crosses tight domestic loyalty—strong vibrant alignment blooms when autonomy feels treasured rather than threatening." },
+      { number: "1", verdict: "growth", note: "Fierce solo initiative crosses tight domestic loyalty: strong vibrant alignment blooms when autonomy feels treasured rather than threatening." },
       { number: "5", verdict: "growth", note: "Nurturing anchor meets nomadic wind; exciting lively evolution whenever trust skips jealous micromanagement completely." },
     ],
     famous: ["Albert Einstein", "Stevie Wonder", "Gal Gadot", "Michael Jackson"],
@@ -799,7 +799,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why is Life Path 6 linked to Tarot's Lovers card?",
         answer:
-          "Major Arcana Card VI centers conscious harmony, values alignment, and deliberate devotion—mirroring 6's core vocation around choosing loving integrity over hollow convenience.",
+          "Major Arcana Card VI centers conscious harmony, values alignment, and deliberate devotion: mirroring 6's core vocation around choosing loving integrity over hollow convenience.",
       },
       {
         question: "Do Life Path 6 people always prioritize parenting or marriage?",
@@ -814,7 +814,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why does financial generosity sometimes strain Life Path 6?",
         answer:
-          "Genuine tenderness occasionally clouds firm limits around chronic family bailouts—setting clear charitable percentages keeps giving joyful and sustainable.",
+          "Genuine tenderness occasionally clouds firm limits around chronic family bailouts: setting clear charitable percentages keeps giving joyful and sustainable.",
       },
       {
         question: "What does Life Path Number 6 mean in love and personality?",
@@ -832,20 +832,20 @@ const SEEDS: NumberSeed[] = [
     element: "Water",
     hero: "Unflinching truth investigation, quiet analytical solitude, and penetrating past hollow social illusions toward durable inner wisdom.",
     quickAnswer:
-      "Life Path Number 7 (The Seeker) signifies deep analytical intellect, spiritual inquiry, and quiet truth-seeking. Linked to Ketu and Neptune, people with life number 7 excel in research, diagnostics, strategy, and specialist craft—blending scientific skepticism with sharp inner intuition.",
+      "Life Path Number 7 (The Seeker) signifies deep analytical intellect, spiritual inquiry, and quiet truth-seeking. Linked to Ketu and Neptune, people with life number 7 excel in research, diagnostics, strategy, and specialist craft: blending scientific skepticism with sharp inner intuition.",
     calculationNote:
-      "Sum all digits of your full date of birth and reduce to 7 — for example, 16-07-1991 equals 1+6+0+7+1+9+9+1 = 34 -> 3+4 = 7.",
+      "Sum all digits of your full date of birth and reduce to 7, for example, 16-07-1991 equals 1+6+0+7+1+9+9+1 = 34 -> 3+4 = 7.",
     description:
       "Life Path Number 7 meaning (The Seeker): piercing intellect, contemplative stillness, specialist careers, love depth, and spiritual insight.",
     meaning: [
       "Standing apart subtly past practical sixfold harmony, sacred 7 climbs cool silent summits demanding direct authentic verification rather than swallowing cozy polite platitudes handed passively down by crowds.",
-      "Influenced cleanly by penetrating Ketu insight alongside misty Neptune mystery, Life Path 7 fuses razor-sharp scientific skepticism comfortably beside startling intuitive foresight—spot-checking surface claims naturally against underlying structure.",
-      "Defining evolutionary pivot? Stepping bravely outward from cool safe observatory towers straight back onto muddy human life—discovering gracefully that direct vulnerable experience teaches truths pure reading alone never reaches.",
+      "Influenced cleanly by penetrating Ketu insight alongside misty Neptune mystery, Life Path 7 fuses razor-sharp scientific skepticism comfortably beside startling intuitive foresight: spot-checking surface claims naturally against underlying structure.",
+      "Defining evolutionary pivot? Stepping bravely outward from cool safe observatory towers straight back onto muddy human life: discovering gracefully that direct vulnerable experience teaches truths pure reading alone never reaches.",
     ],
     personality: [
       "Watch sharp observant 7s silently assessing crowded conference calls before dropping one understated penetrating question that cleanly collapses thirty vague buzzword slides.",
       "Rich private internal worlds keep solitude joyfully alive: quiet library corners, focused deep engineering puzzles, solo forest trails, and unhurried contemplative tea restore batteries depleted by frantic small-talk chatter.",
-      "Under sharp burnout, distant aloof cynicism settles tightly across defensive faces—dropping protective emotional walls slowly around carefully vetted equals reveals astonishing dry humor and fierce tender loyalty.",
+      "Under sharp burnout, distant aloof cynicism settles tightly across defensive faces: dropping protective emotional walls slowly around carefully vetted equals reveals astonishing dry humor and fierce tender loyalty.",
     ],
     strengths: [
       "Surgical analytical pattern mastery",
@@ -862,7 +862,7 @@ const SEEDS: NumberSeed[] = [
       "Forgets basic spoken reassurance toward partners",
     ],
     career: [
-      "Depth decisively crushes shallow speed here—give Life Path 7 uninterrupted quiet focus tackling gnarly complex problems and expect category-leading breakthroughs across medical diagnostics, quantitative science, deep systems coding, philosophical writing, investigative analysis, or niche specialized advising.",
+      "Depth decisively crushes shallow speed here: give Life Path 7 uninterrupted quiet focus tackling gnarly complex problems and expect category-leading breakthroughs across medical diagnostics, quantitative science, deep systems coding, philosophical writing, investigative analysis, or niche specialized advising.",
       "Avoid high-churn noisy boiler-rooms celebrating superficial extrovert politicking over verified technical substance.",
       "Practice marketing refined hard-won mastery confidently instead of hiding quietly hoping pure quality markets itself automatically.",
     ],
@@ -875,16 +875,16 @@ const SEEDS: NumberSeed[] = [
       "Precision scientific engineering",
     ],
     relationships: [
-      "Shallow predictable charm bores observant 7 instantaneously—authentic curious depth, intelligent quiet humor, and profound respect for personal solitude magnetize slow genuine trust.",
+      "Shallow predictable charm bores observant 7 instantaneously: authentic curious depth, intelligent quiet humor, and profound respect for personal solitude magnetize slow genuine trust.",
       "Crucial emotional blindspot? Assuming attentive loving partners automatically read loving devotion straight out of quiet unspoken gazes without verbal warmth or affectionate presence.",
       "Slow intentional openings frequently evolve gracefully into remarkably faithful, unshakeable lifelong bonds.",
     ],
     marriage: [
-      "Thriving marriages build peaceful shared quiet sanctuaries comfortably side by side—respecting sacred personal study corners fiercely while carving honest vulnerable dinner conversations cleanly out of busy silent routines.",
+      "Thriving marriages build peaceful shared quiet sanctuaries comfortably side by side: respecting sacred personal study corners fiercely while carving honest vulnerable dinner conversations cleanly out of busy silent routines.",
       "Share anxious inner doubts candidly right before icy silent retreat turns puzzling to caring partners.",
     ],
     money: [
-      "Methodical research shields savings steadily away from flashy consumer herd traps or hollow get-rich traps—disciplined long-term rationality generally protects solid solvency cleanly.",
+      "Methodical research shields savings steadily away from flashy consumer herd traps or hollow get-rich traps: disciplined long-term rationality generally protects solid solvency cleanly.",
       "Primary income leakage hides cleanly underneath bashful undercharging: reluctant expert 7s routinely bill half true market value out of awkward discomfort with bold commercial pitching.",
     ],
     health: [
@@ -900,12 +900,12 @@ const SEEDS: NumberSeed[] = [
     numbers: [7, 16, 25],
     compatibility: [
       { number: "1", verdict: "high", note: "Clean mutual autonomy and crisp original intelligence spark bright independent respect free of clingy emotional drama." },
-      { number: "5", verdict: "high", note: "Curiosity unites seamlessly—agile lively traveler trades wide stories smoothly beside thoughtful deep thinker honoring quiet personal freedom." },
+      { number: "5", verdict: "high", note: "Curiosity unites seamlessly: agile lively traveler trades wide stories smoothly beside thoughtful deep thinker honoring quiet personal freedom." },
       { number: "7", verdict: "high", note: "Instant profound quiet recognition honoring private sanctuaries effortlessly; keep open tender verbal bridges lovingly lit daily." },
       { number: "3", verdict: "medium", note: "Buoyant storytelling brings light into thoughtful solitude whenever mutual humor respects alternating social vs. silent appetites." },
       { number: "4", verdict: "medium", note: "Unflashy grounded sincerity clicks smoothly across quiet orderly homes once unspoken affection warms practical steadiness." },
       { number: "9", verdict: "medium", note: "Wide thoughtful philosophical breadth connects easily whenever detached skepticism stays appreciative of passionate idealism." },
-      { number: "2", verdict: "growth", note: "Open emotional tenderness invites cool guarded analysis steadily downward into warm vulnerability—rewarding mutual growth with patience." },
+      { number: "2", verdict: "growth", note: "Open emotional tenderness invites cool guarded analysis steadily downward into warm vulnerability: rewarding mutual growth with patience." },
       { number: "8", verdict: "growth", note: "Solitary seeker crosses hard tangible material power; remarkable balanced synthesis once contemplative wisdom values real-world impact." },
     ],
     famous: ["Stephen Hawking", "Julia Roberts", "Muhammad Ali", "Bruce Lee"],
@@ -924,7 +924,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Are Life Path 7 individuals inherently religious?",
         answer:
-          "Often spiritual seekers rather than rigid conformists—7 relentlessly questions dogma to uncover firsthand genuine inner truth, whether framed scientifically, philosophically, or mystically.",
+          "Often spiritual seekers rather than rigid conformists: 7 relentlessly questions dogma to uncover firsthand genuine inner truth, whether framed scientifically, philosophically, or mystically.",
       },
       {
         question: "Why is Life Path 7 associated with Tarot's Chariot?",
@@ -934,7 +934,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Do Life Path 7 partners need extra alone time inside marriage?",
         answer:
-          "Consistently yes—decompression silence doesn't mean falling out of love; uninterrupted mental recovery restores patient warmth and presence effortlessly.",
+          "Consistently yes: decompression silence doesn't mean falling out of love; uninterrupted mental recovery restores patient warmth and presence effortlessly.",
       },
       {
         question: "What unlocks career momentum swiftly for Life Path 7?",
@@ -952,19 +952,19 @@ const SEEDS: NumberSeed[] = [
     element: "Earth",
     hero: "Unflinching institutional stamina, sharp strategic leverage, and forging enduring ethical power out of tough material trials.",
     quickAnswer:
-      "Life Path Number 8 (The Executive) governs material mastery, executive leadership, financial leverage, and karmic resilience. Ruled by Saturn, the 8 life path number rewards disciplined integrity, long-range strategy, and fair stewardship—turning early tests into enduring authority and abundance.",
+      "Life Path Number 8 (The Executive) governs material mastery, executive leadership, financial leverage, and karmic resilience. Ruled by Saturn, the 8 life path number rewards disciplined integrity, long-range strategy, and fair stewardship, turning early tests into enduring authority and abundance.",
     calculationNote:
-      "Add all digits of your full birth date and reduce to 8 — for example, 17-08-1990 calculates as 1+7+0+8+1+9+9+0 = 35 -> 3+5 = 8.",
+      "Add all digits of your full birth date and reduce to 8, for example, 17-08-1990 calculates as 1+7+0+8+1+9+9+0 = 35 -> 3+5 = 8.",
     description:
       "Life Path Number 8 meaning (The Executive): 8 life path number personality, wealth and Saturn resilience, executive careers, love, and compatibility.",
     meaning: [
-      "Stacked gracefully above double fourfold balance, infinite twin loops of 8 link upper invisible purpose cleanly down onto concrete marketplace results—declaring boldly that ideals mean little until balanced cleanly across spreadsheets, payrolls, and real human impact.",
+      "Stacked gracefully above double fourfold balance, infinite twin loops of 8 link upper invisible purpose cleanly down onto concrete marketplace results: declaring boldly that ideals mean little until balanced cleanly across spreadsheets, payrolls, and real human impact.",
       "Steered unflinchingly by testing Saturn, Life Path 8 routinely shoulders daunting early burdens forcing rare strategic spine long before peers take adult responsibility seriously.",
       "Core spiritual edge? Measuring clean dignity straight from principled generous stewardship rather than hoarding defensive bank scores purely to feel safe against old hidden vulnerability.",
     ],
     personality: [
       "Enter a sharp negotiating room alongside seasoned Life Path 8 leaders and immediate tactical gravity hits unmistakably: razor clear priorities, crisp intolerance of whining excuses, and magnetic poise under massive commercial stakes.",
-      "Beneath intimidating tough armor, authentic 8s show astonishing fierce quiet protection toward trusted inner circles—fixing terrifying external problems silently without bragging noisily.",
+      "Beneath intimidating tough armor, authentic 8s show astonishing fierce quiet protection toward trusted inner circles: fixing terrifying external problems silently without bragging noisily.",
       "When unbalanced, workaholic tunnel vision mistakes productive output strictly for loveable human worth, crushing soft rest ruthlessly beside harsh emotional walls.",
     ],
     strengths: [
@@ -983,7 +983,7 @@ const SEEDS: NumberSeed[] = [
     ],
     career: [
       "Built naturally to run sizable engines rather than tidy tiny cogs: institutional finance, executive governance, complex M&A law, commercial real estate development, large-scale entrepreneurship, or formidable industrial turnarounds elevate 8 steadily right toward influential apex seats.",
-      "Early career friction frequently humbles impatient pride cleanly—compounding giant rewards reliably land past mid-thirties once resilient grit marries tactical diplomacy.",
+      "Early career friction frequently humbles impatient pride cleanly: compounding giant rewards reliably land past mid-thirties once resilient grit marries tactical diplomacy.",
     ],
     careerPaths: [
       "Chief executive & board governor",
@@ -994,7 +994,7 @@ const SEEDS: NumberSeed[] = [
       "Philanthropic endowment director",
     ],
     relationships: [
-      "Loyal generous provision anchors romance tangibly—creating protected sanctuary safely through calm dependable crisis stewardship.",
+      "Loyal generous provision anchors romance tangibly: creating protected sanctuary safely through calm dependable crisis stewardship.",
       "Intimacy drops brittle transactional armor the exact evening you confess weary personal doubts cleanly to trustworthy partners rather than retreating coldly behind office monitors.",
       "Strong peers admiring genuine resilience cleanly outlast meek passive sycophants swiftly.",
     ],
@@ -1004,14 +1004,14 @@ const SEEDS: NumberSeed[] = [
     ],
     money: [
       "No root number carries sharper visceral intuition around capital dynamics, valuation risk, leverage cycles, and durable asset compounding than 8.",
-      "Massive energetic swings reward boring conservative liquidity buffers paired cleanly against ethical clear risk controls—never confuse risky leveraged ego flexing with sturdy sovereign security.",
+      "Massive energetic swings reward boring conservative liquidity buffers paired cleanly against ethical clear risk controls: never confuse risky leveraged ego flexing with sturdy sovereign security.",
     ],
     health: [
       "Saturnine endurance quietly buries exhaustion inside rigid joints, strained knees, stiff lumbar discs, clenched jawlines, and silent cardiovascular stress until mandatory stops land suddenly.",
       "Treat deliberate restorative sleep and light joyful outdoor strength play as non-negotiable executive asset protection.",
     ],
     spiritual: [
-      "Clean sovereign power heals broken ecosystems smoothly—true enduring prosperity empowers thriving communities comfortably alongside generous personal abundance.",
+      "Clean sovereign power heals broken ecosystems smoothly: true enduring prosperity empowers thriving communities comfortably alongside generous personal abundance.",
       "Strength shines purest blended gently beside mercy.",
     ],
     colours: ["Obsidian black", "Deep navy", "Warm bronze"],
@@ -1023,7 +1023,7 @@ const SEEDS: NumberSeed[] = [
       { number: "6", verdict: "high", note: "Protective material mastery crowns cozy warm family hospitality beautifully once quality relaxed time wins clear priority." },
       { number: "1", verdict: "medium", note: "Brilliant high-velocity ambition shines brightly once territory boundaries divide cleanly without constant turf battles." },
       { number: "8", verdict: "medium", note: "Formidable powerhouse duo sharing ruthless ambition; cultivate gentle vulnerable humor home so intimacy never mimics crisp boardrooms." },
-      { number: "9", verdict: "medium", note: "Executive execution joins noble humanitarian vision seamlessly—immense civic legacy once impatient profit meets deeper soul purpose." },
+      { number: "9", verdict: "medium", note: "Executive execution joins noble humanitarian vision seamlessly: immense civic legacy once impatient profit meets deeper soul purpose." },
       { number: "3", verdict: "growth", note: "Playful expressive warmth shakes dour workaholic seriousness wonderfully loose whenever mutual patience curbs harsh bluntness." },
       { number: "7", verdict: "growth", note: "External tangible impact confronts detached contemplative solitude; balanced mutual insight whenever slow patience bridges different rhythms." },
     ],
@@ -1043,17 +1043,17 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why are Life Path 8 careers linked with delayed compounding rewards?",
         answer:
-          "Saturn demands durable foundational proof before unlocking authoritative leverage—teaching resilient ethics and crisis composure across bumpy twenties so thirties and forties expand smoothly.",
+          "Saturn demands durable foundational proof before unlocking authoritative leverage: teaching resilient ethics and crisis composure across bumpy twenties so thirties and forties expand smoothly.",
       },
       {
         question: "Does Life Path 8 guarantee effortless wealth?",
         answer:
-          "Not automatically—8 amplifies financial lessons steeply in both directions, rewarding disciplined integrity and diversified prudence while testing greed or impulsive risk ruthlessly.",
+          "Not automatically: 8 amplifies financial lessons steeply in both directions, rewarding disciplined integrity and diversified prudence while testing greed or impulsive risk ruthlessly.",
       },
       {
         question: "How does Tarot relate both Strength and Justice to Life Path 8?",
         answer:
-          "Different classic decks place Strength and Justice interchangeably at VIII and XI—together they express 8's dual test: mastering fierce personal stamina cleanly inside fair karmic accountability.",
+          "Different classic decks place Strength and Justice interchangeably at VIII and XI: together they express 8's dual test: mastering fierce personal stamina cleanly inside fair karmic accountability.",
       },
       {
         question: "What relaxes high-achieving Life Path 8 people effectively?",
@@ -1076,18 +1076,18 @@ const SEEDS: NumberSeed[] = [
     element: "Fire",
     hero: "Compassionate universal perspective, fearless moral advocacy, and graceful completion freeing space for meaningful collective renewal.",
     quickAnswer:
-      "Life Path Number 9 (The Humanitarian) represents completion, universal compassion, creative depth, and purposeful service. Ruled by Mars and carrying lessons from numbers 1 through 8, life number 9 thrives in advocacy, healing, arts, and leadership—flourishing when generosity stays paired with clear boundaries.",
+      "Life Path Number 9 (The Humanitarian) represents completion, universal compassion, creative depth, and purposeful service. Ruled by Mars and carrying lessons from numbers 1 through 8, life number 9 thrives in advocacy, healing, arts, and leadership: flourishing when generosity stays paired with clear boundaries.",
     calculationNote:
-      "Sum all digits of your full birth date until reaching 9 — for example, 18-09-1998 equals 1+8+0+9+1+9+9+8 = 45 -> 4+5 = 9.",
+      "Sum all digits of your full birth date until reaching 9, for example, 18-09-1998 equals 1+8+0+9+1+9+9+8 = 45 -> 4+5 = 9.",
     description:
       "Life Path Number 9 meaning (The Humanitarian): life number 9 traits, Mars empathy, career purpose, love compatibility, finances, and spiritual lessons.",
     meaning: [
-      "Sitting gracefully right atop single-digit closure, generous 9 contains subtle traces from every preceding number 1 through 8—producing expansive compassionate elders able instinctively to spot shared human longing past surface borders, accents, or partisan walls.",
+      "Sitting gracefully right atop single-digit closure, generous 9 contains subtle traces from every preceding number 1 through 8: producing expansive compassionate elders able instinctively to spot shared human longing past surface borders, accents, or partisan walls.",
       "Guided paradoxically by fiery Mars alongside contemplative Hermit wisdom, Life Path 9 merges tender poetic empathy effortlessly beside fierce courage challenging systemic cruelty cleanly when pushed far enough.",
-      "Primary spiritual graduation test? Graceful clean release—dropping bitter dead grudges, expired relationships, or guilty savior overextension gently once chapters naturally conclude.",
+      "Primary spiritual graduation test? Graceful clean release: dropping bitter dead grudges, expired relationships, or guilty savior overextension gently once chapters naturally conclude.",
     ],
     personality: [
-      "Strangers unexpectedly share heartbreaking life stories effortlessly beside unhurried Life Path 9 listeners across noisy trains within ten gentle minutes—old soul breadth invites honest disarmament instantly.",
+      "Strangers unexpectedly share heartbreaking life stories effortlessly beside unhurried Life Path 9 listeners across noisy trains within ten gentle minutes: old soul breadth invites honest disarmament instantly.",
       "Creative theatrical flair, broad cultural hunger, quiet generosity, and fierce allergic reaction to petty narrow cruelty characterize mature 9 effortlessly.",
       "Hidden shadow creeps subtly inside suppressed martyr resentment: rescuing needy causes quietly without crisp boundaries until sudden explosive Mars anger or melancholic burnout breaks cleanly through.",
     ],
@@ -1106,7 +1106,7 @@ const SEEDS: NumberSeed[] = [
       "Avoids boring small daily personal bookkeeping",
     ],
     career: [
-      "Purely cynical extraction roles hollow vibrant Life Path 9 spirits visibly fast—pour bold fiery stamina squarely into public health breakthroughs, inspiring documentary arts, restorative legal advocacy, transformative philanthropy, ecological engineering, or empathetic large-scale teaching where real human relief shows visibly.",
+      "Purely cynical extraction roles hollow vibrant Life Path 9 spirits visibly fast: pour bold fiery stamina squarely into public health breakthroughs, inspiring documentary arts, restorative legal advocacy, transformative philanthropy, ecological engineering, or empathetic large-scale teaching where real human relief shows visibly.",
       "Remember respectfully that charging clean sustainable business margins funds expanded generosity endlessly longer than broke burnout martyrdom.",
     ],
     careerPaths: [
@@ -1123,7 +1123,7 @@ const SEEDS: NumberSeed[] = [
       "Heal gently past finished exes completely before inviting vibrant fresh chapters clearly onward.",
     ],
     marriage: [
-      "Remarkable durable marriages thrive vibrantly around shared noble purpose—hosting warm eclectic communities gracefully while prioritizing quiet restful retreats defending private tender energy.",
+      "Remarkable durable marriages thrive vibrantly around shared noble purpose: hosting warm eclectic communities gracefully while prioritizing quiet restful retreats defending private tender energy.",
       "Air mild small irritations honestly on warm Tuesday afternoons rather than stuffing years quietly underground.",
     ],
     money: [
@@ -1135,20 +1135,20 @@ const SEEDS: NumberSeed[] = [
       "Vigorous honest physical training paired steadily beside expressive emotional release heals body and spirit rapidly.",
     ],
     spiritual: [
-      "Every honorable ending clears rich fertile compost gracefully underneath budding spring mornings—honest mourning opens fearless wise detachment effortlessly.",
+      "Every honorable ending clears rich fertile compost gracefully underneath budding spring mornings: honest mourning opens fearless wise detachment effortlessly.",
       "Release old baggage gracefully outward into quiet peace.",
     ],
     colours: ["Crimson", "Coral", "Warm gold"],
     days: ["Tuesday", "Thursday"],
     numbers: [9, 18, 27],
     compatibility: [
-      { number: "1", verdict: "high", note: "Bold focused ignition unites inspiringly beside wide compassionate scale—dynamic champions creating meaningful lasting movements." },
-      { number: "2", verdict: "high", note: "Tender deep emotional care merges cleanly alongside selfless global empathy—gentlest compassionate sanctuary built carefully together." },
-      { number: "6", verdict: "high", note: "Cozy local nurturing anchors broad humanitarian dreams solidly cleanly—shared loyalty, beauty, and purposeful stewardship." },
+      { number: "1", verdict: "high", note: "Bold focused ignition unites inspiringly beside wide compassionate scale: dynamic champions creating meaningful lasting movements." },
+      { number: "2", verdict: "high", note: "Tender deep emotional care merges cleanly alongside selfless global empathy: gentlest compassionate sanctuary built carefully together." },
+      { number: "6", verdict: "high", note: "Cozy local nurturing anchors broad humanitarian dreams solidly cleanly: shared loyalty, beauty, and purposeful stewardship." },
       { number: "3", verdict: "high", note: "Captivating expressive creative spark reaches wide diverse audiences effortlessly alongside soulful heartfelt conviction." },
       { number: "5", verdict: "medium", note: "Open broad curiosity shares refreshing worldly perspective whenever playful freedom honors clear emotional presence." },
       { number: "9", verdict: "medium", note: "Profound soulful empathy; keep solid boring practical routines cleanly prioritized alongside saving the wide outside world." },
-      { number: "4", verdict: "growth", note: "Idealistic panoramic scale meets meticulous realistic budgets—powerful grounded impact whenever gentle patience softens mutual impatience." },
+      { number: "4", verdict: "growth", note: "Idealistic panoramic scale meets meticulous realistic budgets: powerful grounded impact whenever gentle patience softens mutual impatience." },
       { number: "8", verdict: "growth", note: "Soulful purpose tests hard strategic commerce constantly; magnificent transformative legacy when shared respect unites heart with leverage." },
     ],
     famous: ["Morgan Freeman", "Kurt Russell", "Adele", "Bob Marley"],
@@ -1167,12 +1167,12 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Why does Life Path 9 experience frequent major chapter endings?",
         answer:
-          "Because 9 stands at completion of the nine-number arc—repeatedly shedding stale habits, roles, and unequal ties keeps life open cleanly for wide meaningful service.",
+          "Because 9 stands at completion of the nine-number arc: repeatedly shedding stale habits, roles, and unequal ties keeps life open cleanly for wide meaningful service.",
       },
       {
         question: "Is Life Path 9 always suited exclusively to nonprofit charities?",
         answer:
-          "No—purpose thrives powerfully across principled architecture, honest sustainable commerce, transformative art, or mindful corporate mentoring whenever outcomes genuinely uplift real human dignity.",
+          "No. Purpose thrives powerfully across principled architecture, honest sustainable commerce, transformative art, or mindful corporate mentoring whenever outcomes genuinely uplift real human dignity.",
       },
       {
         question: "Why does Mars rule compassionate Life Path 9 alongside Tarot's Hermit?",
@@ -1208,18 +1208,18 @@ const SEEDS: NumberSeed[] = [
     quickAnswer:
       "Master Number 11 (The Illuminator) signifies heightened intuition, spiritual sensitivity, and visionary inspiration. Carrying the diplomacy of root 2 at double voltage under Moon and Uranus influences, Master 11 shines in creative, psychological, and mentoring paths when grounded in steady physical routines.",
     calculationNote:
-      "When adding your full birth-date digits totals 11 or 29 (2+9 = 11), keep 11 unreduced rather than reducing further to 2 — for example, 10-10-1989 sums to 1+0+1+0+1+9+8+9 = 29 -> 2+9 = 11.",
+      "When adding your full birth-date digits totals 11 or 29 (2+9 = 11), keep 11 unreduced rather than reducing further to 2, for example, 10-10-1989 sums to 1+0+1+0+1+9+8+9 = 29 -> 2+9 = 11.",
     description:
       "Master Number 11 meaning (The Illuminator): heightened intuition, nervous-system grounding, visionary careers, love compatibility, and FAQs.",
     meaning: [
-      "Two parallel pillars stand upright side by side without collapsing flat down into soft 2—marking numerology's purest intuitive tuning fork catching subtle collective shifts cleanly years ahead of mainstream headlines.",
+      "Two parallel pillars stand upright side by side without collapsing flat down into soft 2: marking numerology's purest intuitive tuning fork catching subtle collective shifts cleanly years ahead of mainstream headlines.",
       "Combining receptive lunar 2 sensitivity cleanly beneath sudden electric Uranian flashes, Master Number 11 routinely feels like carrying high-definition antennae right inside noisy ordinary supermarkets.",
-      "Central lifelong discipline? Grounding electric inspiration securely inside sturdy ordinary physical habits—because extraordinary vision burns brilliantly out inside anxious exhaustion unless anchored calmly into sleep, nutrition, and honest earthy boundaries.",
+      "Central lifelong discipline? Grounding electric inspiration securely inside sturdy ordinary physical habits: because extraordinary vision burns brilliantly out inside anxious exhaustion unless anchored calmly into sleep, nutrition, and honest earthy boundaries.",
     ],
     personality: [
-      "Conversations beside balanced 11s shimmer effortlessly with uncanny accuracy—pinpointing hidden root emotional truths cleanly within three gentle sentences before speakers even organize conscious thoughts.",
+      "Conversations beside balanced 11s shimmer effortlessly with uncanny accuracy: pinpointing hidden root emotional truths cleanly within three gentle sentences before speakers even organize conscious thoughts.",
       "Yet early twenties frequently wobble wildly across extreme confidence waves: breathtaking visionary clarity Monday mornings crashing sharply toward paralyzing self-doubt by quiet lonely Thursday evenings.",
-      "Seasoned mature Master 11s learn dialing back safely onto grounded root-2 calm whenever nervous channels spike hot—letting sustained luminous artistry speak quietly louder than frantic crisis brilliance.",
+      "Seasoned mature Master 11s learn dialing back safely onto grounded root-2 calm whenever nervous channels spike hot: letting sustained luminous artistry speak quietly louder than frantic crisis brilliance.",
     ],
     strengths: [
       "Uncanny early pattern & intuitive insight",
@@ -1236,8 +1236,8 @@ const SEEDS: NumberSeed[] = [
       "Absorbs collective despair painfully fast",
     ],
     career: [
-      "Sterile soul-deadening spreadsheet processing exhausts radiant Master 11 channels quickly—align vocations cleanly where clear visionary synthesis moves real people: incisive psychotherapy, visionary cinematography/music, pioneering systems ethics, charismatic inspiring education, or intuitive architectural leadership.",
-      "Notice pragmatic reliable administrative partners multiply output dramatically—let detailed coordinators schedule routine flights while you focus sharply on luminous conceptual breakthroughs.",
+      "Sterile soul-deadening spreadsheet processing exhausts radiant Master 11 channels quickly: align vocations cleanly where clear visionary synthesis moves real people: incisive psychotherapy, visionary cinematography/music, pioneering systems ethics, charismatic inspiring education, or intuitive architectural leadership.",
+      "Notice pragmatic reliable administrative partners multiply output dramatically: let detailed coordinators schedule routine flights while you focus sharply on luminous conceptual breakthroughs.",
     ],
     careerPaths: [
       "Visionary mentorship & speaking",
@@ -1248,12 +1248,12 @@ const SEEDS: NumberSeed[] = [
       "Diplomatic cultural mediation",
     ],
     relationships: [
-      "Electrifying soulful resonance draws fascinating intense connections quickly—yet volatile equally high-strung drama companions trigger exhausting nervous storms quickly over exciting months.",
+      "Electrifying soulful resonance draws fascinating intense connections quickly, yet volatile equally high-strung drama companions trigger exhausting nervous storms quickly over exciting months.",
       "Quiet grounded steady partners anchored comfortably inside ordinary warmth create pure gold: trusting steady safe arms unlocks breathtaking vulnerability cleanly.",
       "Explain quiet sensory decompression needs transparently rather than disappearing mysteriously mid-week.",
     ],
     marriage: [
-      "Shared soothing rituals—unhurried morning tea, screen-free evenings, safe steady communication—act straight like priceless nervous medicine keeping luminous love remarkably secure across decades.",
+      "Shared soothing rituals (unhurried morning tea, screen-free evenings, safe steady communication) act straight like priceless nervous medicine keeping luminous love remarkably secure across decades.",
       "Protect calm ordinary weekends gently right away from heavy public spotlight pressures.",
     ],
     money: [
@@ -1274,11 +1274,11 @@ const SEEDS: NumberSeed[] = [
     compatibility: [
       { number: "2", verdict: "high", note: "Tender quiet diplomatic warmth buffers high-voltage insight effortlessly without competitive ego clash or noisy drama." },
       { number: "6", verdict: "high", note: "Safe grounded nurturing home life settles overstimulated electric nerves smoothly back into serene comfortable rest." },
-      { number: "22", verdict: "high", note: "Rare electric master synergy—11 illuminates clear inspiring purpose while 22 engineers towering real-world infrastructure." },
+      { number: "22", verdict: "high", note: "Rare electric master synergy: 11 illuminates clear inspiring purpose while 22 engineers towering real-world infrastructure." },
       { number: "4", verdict: "medium", note: "Solid practical scaffolding anchors sparkling ethereal blueprints cleanly whenever gentle mutual patience honors opposite paces." },
       { number: "9", verdict: "medium", note: "Soulful visionary depth clicks quickly around humanitarian missions; protect quiet restful private recovery borders consistently." },
       { number: "11", verdict: "medium", note: "Extraordinary psychic resonance that dazzles brightly whenever grounded ordinary habits anchor two intense creative channels." },
-      { number: "1", verdict: "growth", note: "Charging solar independence speeds straight past delicate intuitive signals—mutual awe deepens smoothly once active listening settles calm." },
+      { number: "1", verdict: "growth", note: "Charging solar independence speeds straight past delicate intuitive signals: mutual awe deepens smoothly once active listening settles calm." },
       { number: "8", verdict: "growth", note: "Material corporate urgency challenges delicate visionary timing constantly; extraordinary shared success once trust respects quiet calibration." },
     ],
     famous: ["Wolfgang Amadeus Mozart", "Edgar Allan Poe", "Prince", "Jacqueline Kennedy"],
@@ -1297,7 +1297,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Does having Master Number 11 mean you never experience ordinary root-2 traits?",
         answer:
-          "Every Master 11 still integrates foundational diplomatic Life Path 2 qualities—frequently oscillating smoothly between quiet supportive root-2 stretches and heightened creative visionary surges.",
+          "Every Master 11 still integrates foundational diplomatic Life Path 2 qualities: frequently oscillating smoothly between quiet supportive root-2 stretches and heightened creative visionary surges.",
       },
       {
         question: "Why is Master Number 11 linked with anxiety or sleep fragility?",
@@ -1307,7 +1307,7 @@ const SEEDS: NumberSeed[] = [
       {
         question: "How is 11 linked to Tarot's Justice card?",
         answer:
-          "Card XI holds balanced impartial scales alongside sharp upright clarity—reflecting 11's mandate to align subtle intuitive truth cleanly with balanced ethical reality.",
+          "Card XI holds balanced impartial scales alongside sharp upright clarity: reflecting 11's mandate to align subtle intuitive truth cleanly with balanced ethical reality.",
       },
       {
         question: "What partner balance works best alongside Master Number 11?",
@@ -1324,22 +1324,22 @@ const SEEDS: NumberSeed[] = [
     tarotSlug: "the-fool",
     planet: "Saturn / Uranus",
     element: "Earth",
-    hero: "Architectural vision scaled safely across whole institutions—turning daring civic daydreams tangibly into durable brick-and-mortar reality.",
+    hero: "Architectural vision scaled safely across whole institutions, turning daring civic daydreams tangibly into durable brick-and-mortar reality.",
     quickAnswer:
       "Master Number 22 (The Master Builder) combines the visionary intuition of 11 with the practical discipline of root 4 to build lasting real-world institutions. Guided by Saturn and Uranus, Master 22 excels in large-scale architecture, engineering, policy, and entrepreneurship taken step by concrete step.",
     calculationNote:
-      "Keep totals of 22 unreduced when summing your full birth date (DD-MM-YYYY) — for example, 04-01-1970 adds up to 0+4+0+1+1+9+7+0 = 22.",
+      "Keep totals of 22 unreduced when summing your full birth date (DD-MM-YYYY), for example, 04-01-1970 adds up to 0+4+0+1+1+9+7+0 = 22.",
     description:
       "Master Number 22 meaning (The Master Builder): systemic vision, Saturnine execution, institutional careers, love grounding, and compatibility.",
     meaning: [
       "Doubling receptive intuition (11) cleanly down onto four-cornered practical foundation (4), Master Number 22 anchors numerology's most ambitious worldly synthesis: bold transformative imagination executing relentlessly through disciplined brick, code, policy, and capital.",
-      "Saturnine weight meets disruptive Uranian innovation smoothly inside 22—spotting flawed civic institutions effortlessly and sketching realistic fifty-year systems strong enough to shelter millions cleanly.",
+      "Saturnine weight meets disruptive Uranian innovation smoothly inside 22: spotting flawed civic institutions effortlessly and sketching realistic fifty-year systems strong enough to shelter millions cleanly.",
       "Crucial lifetime hazard? Crushing internal intimidation freezing brilliant young builders entirely still because towering early blueprints look terrifyingly impossible compared beside modest humble Step One.",
     ],
     personality: [
-      "Balanced Master 22 minds scan vast messy landscapes calmly like seasoned urban planners—grasping microscopic budget seams cleanly at identical speed alongside thirty-year geopolitical consequences.",
+      "Balanced Master 22 minds scan vast messy landscapes calmly like seasoned urban planners: grasping microscopic budget seams cleanly at identical speed alongside thirty-year geopolitical consequences.",
       "Remarkable durable resilience pulls massive multi-stakeholder coalitions smoothly along behind transparent calm integrity when flashy trend-chasers scatter rapidly.",
-      "Watch quietly whenever immense towering standards sour inwards into punishing self-criticism—celebrating humble concrete milestones cleanly keeps sustainable joy alive through long patient builds.",
+      "Watch quietly whenever immense towering standards sour inwards into punishing self-criticism: celebrating humble concrete milestones cleanly keeps sustainable joy alive through long patient builds.",
     ],
     strengths: [
       "Synthesizes sweeping vision beside gritty nuts-and-bolts",
@@ -1356,7 +1356,7 @@ const SEEDS: NumberSeed[] = [
       "Impatient brusque disdain around timid half-measures",
     ],
     career: [
-      "Tiny insular roles chafe restlessly against expansive 22 wings—step steadily forward into structural architecture, transformative healthcare/education system building, sustainable global infrastructure, platform engineering leadership, civic policy overhaul, or scaled social entrepreneurship leaving lasting institutions cleanly standing decades beyond retirement.",
+      "Tiny insular roles chafe restlessly against expansive 22 wings: step steadily forward into structural architecture, transformative healthcare/education system building, sustainable global infrastructure, platform engineering leadership, civic policy overhaul, or scaled social entrepreneurship leaving lasting institutions cleanly standing decades beyond retirement.",
       "Start honestly modestly today: vast enduring empires invariably lay brick one neatly before noon.",
     ],
     careerPaths: [
@@ -1368,24 +1368,24 @@ const SEEDS: NumberSeed[] = [
       "Scaled multi-market operations leadership",
     ],
     relationships: [
-      "Loyal trustworthy steadiness proves devotion tangibly across decades—yet grand tireless building pulls attention subtly past intimate small joys unless beloved companions gently claim grounded shared presence cleanly.",
+      "Loyal trustworthy steadiness proves devotion tangibly across decades, yet grand tireless building pulls attention subtly past intimate small joys unless beloved companions gently claim grounded shared presence cleanly.",
       "Unfazed supportive partners celebrating ambitious purpose while cheerfully shutting down stressful laptops every Sunday night become priceless stabilizing anchors.",
       "Share vulnerable doubts honestly rather than staging fearless monumental invincibility alone.",
     ],
     marriage: [
-      "Committed lifelong homes safeguard sanity wonderfully whenever ordinary affectionate tenderness—messy family pancakes, quiet dog walks, sincere lighthearted jokes—holds strict equal rank beside massive public missions.",
+      "Committed lifelong homes safeguard sanity wonderfully whenever ordinary affectionate tenderness (messy family pancakes, quiet dog walks, sincere lighthearted jokes) holds strict equal rank beside massive public missions.",
       "Protect spontaneous small warmth fiercely from endless heavy logistics chatter.",
     ],
     money: [
-      "Vast capital streams—project endowments, enterprise operating budgets, multi-partner real holdings—routinely move through skilled 22 hands across mature decades.",
+      "Vast capital streams (project endowments, enterprise operating budgets, multi-partner real holdings) routinely move through skilled 22 hands across mature decades.",
       "Separate personal family security conservatively cleanly apart from aggressive mission capital right up front using sober independent fiduciary governance.",
     ],
     health: [
       "Carrying giant institutional weight hits chronic spinal fatigue, stiff neck strain, depleted adrenal reserves, and stubborn insomnia straight down through neglected self-care.",
-      "Scheduled mandatory restorative downtime builds architectural durability—never sacrifice sturdy biological scaffolding carelessly for urgent tight milestones.",
+      "Scheduled mandatory restorative downtime builds architectural durability: never sacrifice sturdy biological scaffolding carelessly for urgent tight milestones.",
     ],
     spiritual: [
-      "Master 22 demonstrates gracefully that sacred reverence dwells smoothly inside honest concrete engineering—building clean safe roads, healthy clinics, and enduring honest tools embodies love tangibly.",
+      "Master 22 demonstrates gracefully that sacred reverence dwells smoothly inside honest concrete engineering: building clean safe roads, healthy clinics, and enduring honest tools embodies love tangibly.",
       "Begin modestly precisely wherever sturdy ground waits today.",
     ],
     colours: ["Cobalt blue", "Burnished gold", "Earth ochre"],
@@ -1417,17 +1417,17 @@ const SEEDS: NumberSeed[] = [
       {
         question: "Do all Master Number 22 people run giant global corporations?",
         answer:
-          "No—master builder energy shows equally powerfully transforming local school systems, pioneering accessible medical clinics, coding critical open tools, or raising resilient grounded extended communities.",
+          "No. Master builder energy shows equally powerfully transforming local school systems, pioneering accessible medical clinics, coding critical open tools, or raising resilient grounded extended communities.",
       },
       {
         question: "Why does Master Number 22 feel such intense pressure early in life?",
         answer:
-          "Because sensing vast latent capacity long before acquiring patient step-by-step operational maturity creates painful impatience—pressure eases dramatically once consistent incremental building starts cleanly.",
+          "Because sensing vast latent capacity long before acquiring patient step-by-step operational maturity creates painful impatience: pressure eases dramatically once consistent incremental building starts cleanly.",
       },
       {
         question: "How is Master Number 22 connected to Tarot's Fool card?",
         answer:
-          "In esoteric numbering Card 0 (or 22 at full cycle completion) marks fearless cosmic leap straight out into vast uncharted creation—reminding practical builders every giant monument starts with pure trust.",
+          "In esoteric numbering Card 0 (or 22 at full cycle completion) marks fearless cosmic leap straight out into vast uncharted creation: reminding practical builders every giant monument starts with pure trust.",
       },
       {
         question: "What distinguishes Master Number 22 from Life Path 4?",
@@ -1449,7 +1449,7 @@ function labelFor(seed: NumberSeed): string {
 function buildPage(seed: NumberSeed, all: NumberSeed[]): NumerologyPage {
   const slug = slugFor(seed);
   const label = labelFor(seed);
-  const name = `${label} — ${seed.archetype}`;
+  const name = `${label}: ${seed.archetype}`;
 
   const relatedSlugs = all
     .filter((s) => s.number !== seed.number)

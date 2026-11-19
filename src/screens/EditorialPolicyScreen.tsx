@@ -91,8 +91,8 @@ export function EditorialPolicyScreen() {
             rules contain off-by-one bugs or inconsistent Master Number handling. On AstroFree,
             Mulank, Bhagyank, Personal Year, Personal Month, and Chaldean Namank reductions run
             through deterministic, unit-checked TypeScript functions rather than LLM guesswork.
-            When a reading card displays a reduction breakdown — such as reducing a full birth date
-            while preserving 11, 22, or 33 — those arithmetic steps come straight from verified code,
+            When a reading card displays a reduction breakdown, such as reducing a full birth date
+            while preserving 11, 22, or 33: those arithmetic steps come straight from verified code,
             while language models only compose readable prose around the computed numbers.
           </Section>
 
@@ -111,7 +111,7 @@ export function EditorialPolicyScreen() {
             change, new calculators launch, or reader questions reveal unclear guidance, pages are
             updated and stamped with a refreshed last-modified date so visitors know the current
             status of every guide. We never delete helpful historical explanations silently if a
-            clarification resolves ambiguity — instead, nuances between Indian (Ank Shastra) and
+            clarification resolves ambiguity: instead, nuances between Indian (Ank Shastra) and
             Western Pythagorean/Chaldean conventions are documented side by side.
           </Section>
 

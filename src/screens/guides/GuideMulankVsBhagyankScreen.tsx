@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Hash, Calculator, Scale, Compass, Sparkles, HelpCircle, BookOpen } from "lucide-react";
+import { Hash, Calculator, Scale, Compass, Sparkles, HelpCircle, BookOpen } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -21,7 +21,7 @@ const FAQS = [
   {
     question: "Which number matters more, Mulank or Bhagyank?",
     answer:
-      "Neither outranks the other — they describe different layers. Mulank is closer to how you naturally behave day to day, while Bhagyank shapes the long-term direction and major turning points of your life. A full reading considers both together.",
+      "Neither outranks the other: they describe different layers. Mulank is closer to how you naturally behave day to day, while Bhagyank shapes the long-term direction and major turning points of your life. A full reading considers both together.",
   },
   {
     question: "Can Mulank and Bhagyank be the same number?",
@@ -31,20 +31,20 @@ const FAQS = [
   {
     question: "Is this the same as Western numerology's Life Path number?",
     answer:
-      "Bhagyank is calculated the same way as the Western Life Path number — reducing the full birth date to a single digit. Mulank has no exact Western equivalent; it's closer to, but not identical to, a birth-day or personality number used in some Western systems.",
+      "Bhagyank is calculated the same way as the Western Life Path number: reducing the full birth date to a single digit. Mulank has no exact Western equivalent; it's closer to, but not identical to, a birth-day or personality number used in some Western systems.",
   },
   {
     question: "Do master numbers 11 and 22 apply to Bhagyank?",
     answer:
-      "In most Indian numerology traditions, yes — a Bhagyank total of 11 or 22 is often kept unreduced and treated as a master number carrying amplified potential and responsibility, rather than being reduced further to 2 or 4.",
+      "In most Indian numerology traditions, yes: a Bhagyank total of 11 or 22 is often kept unreduced and treated as a master number carrying amplified potential and responsibility, rather than being reduced further to 2 or 4.",
   },
 ];
 
 const COMPARE = [
   {
     label: "Full name",
-    mulank: "Mulank (Moolank) — Birth Number / Root Number",
-    bhagyank: "Bhagyank — Destiny Number / Fate Number",
+    mulank: "Mulank (Moolank): Birth Number / Root Number",
+    bhagyank: "Bhagyank: Destiny Number / Fate Number",
   },
   {
     label: "Calculated from",
@@ -58,8 +58,8 @@ const COMPARE = [
   },
   {
     label: "Changes over a lifetime?",
-    mulank: "No — fixed for life",
-    bhagyank: "No — fixed for life",
+    mulank: "No. Fixed for life",
+    bhagyank: "No. Fixed for life",
   },
   { label: "Western equivalent", mulank: "No exact match", bhagyank: "Life Path Number" },
 ];
@@ -70,7 +70,7 @@ export function GuideMulankVsBhagyankScreen() {
       crumbs={[{ label: "Guides", to: "/guide" }, { label: "Mulank vs Bhagyank" }]}
       eyebrow="Numerology · Indian Tradition"
       title={TITLE}
-      intro="Indian numerology reads two core numbers from your birth date — Mulank, your instinctive personality, and Bhagyank, your life direction. Here's exactly how each is calculated and what they mean together."
+      intro="Indian numerology reads two core numbers from your birth date: Mulank, your instinctive personality, and Bhagyank, your life direction. Here's exactly how each is calculated and what they mean together."
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={11}
@@ -88,11 +88,11 @@ export function GuideMulankVsBhagyankScreen() {
           information: who you naturally are, and where your life is headed. Rather than collapsing
           a birth date into a single number the way some Western systems do, Indian numerology
           deliberately separates these into <strong className="text-foreground/90">Mulank</strong>{" "}
-          and <strong className="text-foreground/90">Bhagyank</strong> — and reads them as a pair,
+          and <strong className="text-foreground/90">Bhagyank</strong>, and reads them as a pair,
           not a substitute for one another.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Both numbers are derived using the same underlying technique, digit reduction — repeatedly
+          Both numbers are derived using the same underlying technique, digit reduction: repeatedly
           adding the digits of a number together until a single digit from 1 to 9 remains (with
           master numbers 11 and 22 sometimes kept intact). Where they differ is which digits of your
           birth date go into that calculation.
@@ -101,7 +101,7 @@ export function GuideMulankVsBhagyankScreen() {
 
       <ContentSection id="mulank" title="Mulank: the birth number" icon={Calculator}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Mulank, sometimes spelled Moolank, uses only your day of birth — nothing else. If you were
+          Mulank, sometimes spelled Moolank, uses only your day of birth: nothing else. If you were
           born on a single-digit day (1 through 9), that's already your Mulank. If you were born on
           a double-digit day (10 through 31), you reduce it to one digit.
         </p>
@@ -118,7 +118,7 @@ export function GuideMulankVsBhagyankScreen() {
         </GlassCard>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Because it draws only from the birth day, Mulank is considered the number closest to your
-          instinctive, unfiltered self — how you react before you've had time to think, your natural
+          instinctive, unfiltered self: how you react before you've had time to think, your natural
           strengths, and the traits people notice about you almost immediately. Every number 1
           through 9 has a detailed profile on AstroFree's{" "}
           <Link to="/numerology/mulank" className="text-[var(--gold)] hover:underline">
@@ -130,7 +130,7 @@ export function GuideMulankVsBhagyankScreen() {
 
       <ContentSection id="bhagyank" title="Bhagyank: the destiny number" icon={Compass}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Bhagyank draws from your entire date of birth — day, month, and year together — and is
+          Bhagyank draws from your entire date of birth (day, month, and year together) and is
           reduced the same way, digit by digit, until one number remains. Because it incorporates
           the full date, it's understood to describe something bigger than personality: the arc your
           life tends to follow, the lessons that recur across decades, and the broad direction your
@@ -139,7 +139,7 @@ export function GuideMulankVsBhagyankScreen() {
         <GlassCard className="mt-4 p-5">
           <h3 className="font-display text-base">Worked example</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born 28 November 1994: add every digit — 2+8+1+1+1+9+9+4 = 35, then 3+5 = 8. Bhagyank ={" "}
+            Born 28 November 1994: add every digit: 2+8+1+1+1+9+9+4 = 35, then 3+5 = 8. Bhagyank ={" "}
             <strong className="text-foreground/90">8</strong>.
           </p>
         </GlassCard>
@@ -179,12 +179,12 @@ export function GuideMulankVsBhagyankScreen() {
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           A complete Indian numerology profile always considers Mulank and Bhagyank as a pair, not a
           choice between them. Think of Mulank as your default operating mode and Bhagyank as the
-          terrain you're operating in — the two combine to explain both how you tend to act and what
+          terrain you're operating in: the two combine to explain both how you tend to act and what
           you tend to end up doing with your life.
         </p>
         <ul className="mt-4 space-y-3">
           {[
-            "When Mulank and Bhagyank match, personality and destiny reinforce each other — what you naturally are is also where life is steering you, often producing an unusually clear sense of purpose.",
+            "When Mulank and Bhagyank match, personality and destiny reinforce each other: what you naturally are is also where life is steering you, often producing an unusually clear sense of purpose.",
             "When they differ, there's often a gap to bridge: your instincts (Mulank) may pull one way while your larger path (Bhagyank) asks something else of you, which many readers interpret as the central growth challenge of that person's life.",
             "Some traditions also weigh a third figure, the Namank (name number), derived from the numerological value of your name, to see how it supports or conflicts with Mulank and Bhagyank.",
           ].map((p) => (
@@ -215,7 +215,7 @@ export function GuideMulankVsBhagyankScreen() {
           {
             to: "/numerology/mulank",
             label: "The complete Mulank guide",
-            blurb: "All nine Mulank numbers explained — traits, career, love, and remedies.",
+            blurb: "All nine Mulank numbers explained: traits, career, love, and remedies.",
           },
           {
             to: "/bhagyank-calculator",
@@ -237,7 +237,7 @@ export function GuideMulankVsBhagyankScreen() {
 
       <CTASection
         title="Calculate your Mulank and Bhagyank together"
-        body="Get both numbers instantly, mapped to their meanings and tarot archetypes — free, no signup required."
+        body="Get both numbers instantly, mapped to their meanings and tarot archetypes: free, no signup required."
         ctaLabel="Open the free calculator"
         to="/numerology"
       />

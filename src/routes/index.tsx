@@ -17,7 +17,7 @@ import {
   Coins,
   CheckCircle2,
   ChevronDown,
-} from "lucide-react";
+} from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { ParticleBackground } from "@/components/arcana/ParticleBackground";
 import { Spotlight } from "@/components/arcana/Spotlight";
@@ -117,7 +117,7 @@ const COMPREHENSIVE_FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators" },
+      { title: "AstroFree | Free AI Tarot Readings & Vedic Numerology Calculators" },
       {
         name: "description",
         content:
@@ -130,7 +130,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators",
+        content: "AstroFree | Free AI Tarot Readings & Vedic Numerology Calculators",
       },
       {
         property: "og:description",
@@ -141,7 +141,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: SITE_URL },
       {
         name: "twitter:title",
-        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators",
+        content: "AstroFree | Free AI Tarot Readings & Vedic Numerology Calculators",
       },
       {
         name: "twitter:description",
@@ -542,10 +542,10 @@ function LandingPage() {
                   1. Introduction: Bridging Western Hermeticism and Eastern Ank Shastra
                 </h3>
                 <p>
-                  For millennia, civilizations across East and West have sought systematic methods to decode the mysteries of human destiny, temperament, and personal timing. While Western esoteric traditions developed the rich pictorial language of the 78-card tarot deck, ancient Indian sages perfected <em className="text-[#faf2e4] italic">Ank Shastra</em>—the sacred science of Vedic numerology. At first glance, these two disciplines originate from distinct cultural paradigms: one relies on allegorical archetypes and visual resonance, while the other employs precise arithmetic reduction based on birth dates and phonetic vibrations.
+                  For millennia, civilizations across East and West have sought systematic methods to decode the mysteries of human destiny, temperament, and personal timing. While Western esoteric traditions developed the rich pictorial language of the 78-card tarot deck, ancient Indian sages perfected <em className="text-[#faf2e4] italic">Ank Shastra</em>, the sacred science of Vedic numerology. At first glance, these two disciplines originate from distinct cultural paradigms: one relies on allegorical archetypes and visual resonance, while the other employs precise arithmetic reduction based on birth dates and phonetic vibrations.
                 </p>
                 <p>
-                  However, when explored with a contemplative and open mind, tarot and Vedic numerology reveal a profound structural harmony. Both systems operate on the principle of correspondence—the ancient Hermetic axiom that "as above, so below; as within, so without." AstroFree was engineered to unite these complementary wisdom streams into a single, seamless digital sanctuary. By offering both instant 8-spread tarot divinations and robust Mulank/Bhagyank numerology calculators, our platform provides seekers with multifaceted lenses for deep introspection.
+                  However, when explored with a contemplative and open mind, tarot and Vedic numerology reveal a profound structural harmony. Both systems operate on the principle of correspondence: the ancient Hermetic axiom that "as above, so below; as within, so without." AstroFree unites these complementary wisdom streams in a single digital sanctuary. By offering both instant 8-spread tarot divinations and robust Mulank/Bhagyank numerology calculators, our platform provides seekers with multifaceted lenses for deep introspection.
                 </p>
               </div>
 
@@ -554,10 +554,10 @@ function LandingPage() {
                   2. The Psychological Mechanics of Tarot: Synchronicity and Archetypes
                 </h3>
                 <p>
-                  Skeptics often dismiss tarot as superstitious fortune-telling, overlooking its profound roots in analytical psychology. Swiss psychiatrist Carl Jung introduced the concept of <em className="text-[#faf2e4] italic">synchronicity</em>—meaningful coincidences that cannot be explained by cause and effect, but are instead bonded by shared meaning. When a seeker shuffles a deck of tarot cards and draws a specific spread, the images that appear are not random anomalies; they serve as external mirrors reflecting the internal, subconscious landscape of the querent at that exact moment in time.
+                  Skeptics often dismiss tarot as superstitious fortune-telling, overlooking its profound roots in analytical psychology. Swiss psychiatrist Carl Jung introduced the concept of <em className="text-[#faf2e4] italic">synchronicity</em>, meaning significant coincidences that cannot be explained by cause and effect, yet stay bonded by shared meaning. When a seeker shuffles a deck of tarot cards and draws a specific spread, the images that appear are not random anomalies; they serve as external mirrors reflecting the internal, subconscious landscape of the querent at that exact moment in time.
                 </p>
                 <p>
-                  The 22 Major Arcana cards depict universal human milestones—from the naive optimism of The Fool to the hard-won integration of The World. These archetypes reside deep within the collective unconscious. When a difficult card like The Tower or Death appears in a reading, it does not decree an unalterable catastrophe. Instead, it illuminates a psychological necessity: old, rigid structures must crumble to make room for authentic spiritual growth. By interpreting these symbols without fatalism, seekers gain clarity, emotional resilience, and agency over their life choices.
+                  The 22 Major Arcana cards depict universal human milestones, from the naive optimism of The Fool to the hard-won integration of The World. These archetypes reside deep within the collective unconscious. When a difficult card like The Tower or Death appears in a reading, it does not decree an unalterable catastrophe. Instead, it illuminates a psychological necessity: old, rigid structures must crumble to make room for authentic spiritual growth. By interpreting these symbols without fatalism, seekers gain clarity, emotional resilience, and agency over their life choices.
                 </p>
               </div>
 
@@ -601,7 +601,7 @@ function LandingPage() {
                   5. Conclusion: Empowering Free Will Through Esoteric Wisdom
                 </h3>
                 <p>
-                  Ultimately, neither tarot cards nor numerological charts dictate human destiny. Human beings are endowed with free will, consciousness, and moral agency. Esoteric systems are simply navigational instruments—like a mariner's astrolabe or a traveler's topographic map. They do not walk the path for you; they merely illuminate the terrain, highlight unseen obstacles, and remind you of your innate inner strength.
+                  Ultimately, neither tarot cards nor numerological charts dictate human destiny. Human beings are endowed with free will, consciousness, and moral agency. Esoteric systems serve as navigational instruments, much like a mariner's astrolabe or a traveler's topographic map. They do not walk the path for you; they illuminate the terrain, highlight unseen obstacles, and remind you of your innate inner strength.
                 </p>
                 <p>
                   AstroFree remains steadfastly committed to keeping these sacred tools free, accessible, private, and grounded in psychological depth. Whether you draw a single daily card for morning reflection or calculate your Personal Year forecast during a major life transition, may these insights serve as a faithful compass on your journey toward self-mastery.

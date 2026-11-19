@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/site";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — AstroFree" },
+      { title: "Privacy Policy | AstroFree" },
       {
         name: "description",
         content:
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/privacy",
-            title: "Privacy Policy — AstroFree",
+            title: "Privacy Policy | AstroFree",
             description:
               "How AstroFree handles your data: what we store on your device, what we never collect, and how cookies and advertising work.",
             crumbs: [

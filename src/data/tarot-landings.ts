@@ -23,16 +23,16 @@ export const ONE_CARD_CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How a one card tarot reading works",
       paragraphs: [
-        'You focus on a question or simply hold a general intention — "what do I need to know today?" is a common one — then draw a single card from the full 78-card deck. AstroFree shuffles the deck, deals the card upright or reversed, and generates a reflective interpretation that connects the card\'s traditional meaning to your question.',
+        'You focus on a question or simply hold a general intention ("what do I need to know today?" is a common one) then draw a single card from the full 78-card deck. AstroFree shuffles the deck, deals the card upright or reversed, and generates a reflective interpretation that connects the card\'s traditional meaning to your question.',
         "Because there's only one position to read, there's no layout to memorise and no competing card meanings to reconcile. The card's symbolism is the entire message, which makes this spread easy to interpret even on your very first reading. Yet simplicity does not mean shallowness: focusing all your attention on one archetype often uncovers nuances that get lost inside larger ten-card layouts.",
-        "Each of the 78 cards in a traditional Rider-Waite-Smith deck carries multiple layers of meaning — elemental energy (Fire, Water, Air, Earth), numerological momentum (from Aces of raw potential to Tens of culmination), and visual symbolism. With a single card pull, you have room to sit with those details rather than rushing past them to the next card.",
+        "Each of the 78 cards in a traditional Rider-Waite-Smith deck carries multiple layers of meaning: elemental energy (Fire, Water, Air, Earth), numerological momentum (from Aces of raw potential to Tens of culmination), and visual symbolism. With a single card pull, you have room to sit with those details rather than rushing past them to the next card.",
       ],
     },
     {
       id: "when-to-use",
       title: "When to use a single card tarot reading",
       paragraphs: [
-        "Reach for a single card pull when you want a quick check-in rather than a deep dive: a daily card ritual, a simple yes/no lean, or a fast read on how to approach the next few hours. It's also the right choice when your question is narrow and specific rather than sprawling across a relationship, career, or long time span — for those, a Three Card or Celtic Cross spread will usually serve you better.",
+        "Reach for a single card pull when you want a quick check-in rather than a deep dive: a daily card ritual, a simple yes/no lean, or a fast read on how to approach the next few hours. It's also the right choice when your question is narrow and specific rather than sprawling across a relationship, career, or long time span: for those, a Three Card or Celtic Cross spread will usually serve you better.",
         "Many experienced readers actually prefer single-card draws for emotionally charged moments. When your mind is spinning on a single dilemma, pulling five or ten cards can multiply your anxiety instead of settling it. Drawing one clear card acts like a focal point, giving you one concrete lens through which to examine your reaction and your next small step.",
       ],
     },
@@ -56,8 +56,8 @@ export const ONE_CARD_CONFIG: ReadingLandingConfig = {
       id: "daily-ritual",
       title: "Building a mindful daily one-card ritual",
       paragraphs: [
-        "The most rewarding way to learn tarot is consistency rather than complexity. Pulling a single card each morning over tea or coffee — and spending just two minutes noticing how its imagery mirrors what is on your mind — builds intuition far faster than memorizing flashcards. Over weeks, you begin recognizing your own recurring cards and personal patterns.",
-        "Try pairing your morning pull with a single sentence in a journal: 'Today's card is [Card Name], and the theme I notice is...' At the end of the evening, glance back at the card for thirty seconds. Often a detail you overlooked at 8:00 AM — a figure's posture, a cup held out, or a stormy sky behind a calm foreground — turns out to describe the turning point of your day.",
+        "The most rewarding way to learn tarot is consistency rather than complexity. Pulling a single card each morning over tea or coffee, and spending just two minutes noticing how its imagery mirrors what is on your mind, builds intuition far faster than memorizing flashcards. Over weeks, you begin recognizing your own recurring cards and personal patterns.",
+        "Try pairing your morning pull with a single sentence in a journal: 'Today's card is [Card Name], and the theme I notice is...' At the end of the evening, glance back at the card for thirty seconds. Often a detail you overlooked at 8:00 AM (a figure's posture, a cup held out, or a stormy sky behind a calm foreground) turns out to describe the turning point of your day.",
       ],
     },
     {
@@ -86,12 +86,12 @@ export const ONE_CARD_CONFIG: ReadingLandingConfig = {
     {
       question: "How is a one card tarot reading different from a daily card?",
       answer:
-        'They\'re the same mechanic — a single card drawn and interpreted. "Daily card" usually refers to doing this once a day as a ritual, while a one card reading can be drawn any time you have a specific question.',
+        'They\'re the same mechanic: a single card drawn and interpreted. "Daily card" usually refers to doing this once a day as a ritual, while a one card reading can be drawn any time you have a specific question.',
     },
     {
       question: "Can I ask a yes or no question with one card?",
       answer:
-        "Yes — a single card is commonly used for yes/no questions, reading upright cards as generally favourable and reversed cards as cautionary, alongside the card's specific meaning. For a reading framed explicitly around a yes/no question, see our Yes or No Tarot Reading.",
+        "Yes. A single card is commonly used for yes/no questions, reading upright cards as generally favourable and reversed cards as cautionary, alongside the card's specific meaning. For a reading framed explicitly around a yes/no question, see our Yes or No Tarot Reading.",
     },
     {
       question: "Is the interpretation the same every time I draw the same card?",
@@ -166,7 +166,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
   eyebrow: "Three Card Reading",
   h1: "3 Card Tarot Reading (Past, Present & Future)",
   intro:
-    "A 3 card tarot spread draws three sequential cards — Past, Present, and Future (or Situation, Challenge, and Advice) — to reveal the full narrative arc of your question in minutes rather than a single static snapshot.",
+    "A 3 card tarot spread draws three sequential cards (Past, Present, and Future (or Situation, Challenge, and Advice)) to reveal the full narrative arc of your question in minutes rather than a single static snapshot.",
   published: "2026-08-16",
   updated: "2026-11-18",
   readingTime: "6 min read",
@@ -185,7 +185,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
       label: "Present (or Challenge)",
       focus: "Active posture",
       description:
-        "Where energy sits right now — the emotional tone, opportunity, or immediate friction shaping today's decision.",
+        "Where energy sits right now: the emotional tone, opportunity, or immediate friction shaping today's decision.",
     },
     {
       number: 3,
@@ -209,7 +209,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
       id: "when-to-use",
       title: "When to use a three card tarot spread",
       paragraphs: [
-        "This spread suits situations that are unfolding rather than static — a relationship shifting, a project in motion, a personal transition, or a decision that's been building for a while. It's more revealing than a single card without the depth (and time) required by something like the Celtic Cross, which makes it the most popular general-purpose spread for everyday questions.",
+        "This spread suits situations that are unfolding rather than static: a relationship shifting, a project in motion, a personal transition, or a decision that's been building for a while. It's more revealing than a single card without the depth (and time) required by something like the Celtic Cross, which makes it the most popular general-purpose spread for everyday questions.",
         "If you feel stuck inside the middle of a story and cannot tell whether your current tension is old baggage or an incoming turning point, a three-card layout gives you immediate perspective. Seeing what belongs to the Past position helps you separate historical habits from what is actually happening in the Present.",
       ],
     },
@@ -218,7 +218,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
       title: "Alternative ways readers frame three cards",
       paragraphs: [
         "Although Past / Present / Future is the classic default used here, experienced tarot readers love the three-card structure because the same three slots can adapt to almost any inner question. Common variations include Situation / Challenge / Advice (great for practical troubleshooting), Mind / Body / Spirit (ideal for wellness and emotional check-ins), and What Helps / What Hinders / What Unfolds.",
-        "Even when using Past, Present, and Future, remember that the 'Future' card is never locked in stone. In reflective tarot practice, the third card shows the probable trajectory if nothing changes in your mindset or actions — meaning an uncomfortable third card acts as an early warning system you still have full agency to redirect.",
+        "Even when using Past, Present, and Future, remember that the 'Future' card is never locked in stone. In reflective tarot practice, the third card shows the probable trajectory if nothing changes in your mindset or actions, meaning an uncomfortable third card acts as an early warning system you still have full agency to redirect.",
       ],
     },
     {
@@ -234,7 +234,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
       title: "Questions and journaling prompts for three-card spreads",
       paragraphs: [
         "To get the sharpest reading, frame your prompt around movement or evolution: 'How is my approach to this project shifting right now?', 'What have I carried into this chapter from the past, and where can I grow next?', or 'What is the arc of my creative momentum over the coming month?'",
-        "After reading your synthesis, write down one sentence linking the Past card to the Present card — for example, 'Because I felt overextended (Ten of Wands) earlier, I am now pausing to re-evaluate (The Hermit).' Naming that bridge turns symbolic insight into genuine self-awareness.",
+        "After reading your synthesis, write down one sentence linking the Past card to the Present card, for example, 'Because I felt overextended (Ten of Wands) earlier, I am now pausing to re-evaluate (The Hermit).' Naming that bridge turns symbolic insight into genuine self-awareness.",
       ],
     },
   ],
@@ -257,7 +257,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
         position: "3 · Future",
         card: "Three of Pentacles (Upright)",
         reading:
-          "If you stay grounded and execute step by step, the project moves naturally into collaborative craftsmanship — inviting feedback from a peer, mentor, or early client who strengthens the work.",
+          "If you stay grounded and execute step by step, the project moves naturally into collaborative craftsmanship: inviting feedback from a peer, mentor, or early client who strengthens the work.",
       },
     ],
     synthesis:
@@ -267,7 +267,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
     {
       question: "Is the three card spread good for beginners?",
       answer:
-        "Yes — it's one of the two spreads we'd recommend starting with, alongside the One Card Reading. The fixed Past/Present/Future structure gives you a clear framework without the complexity of a ten-card layout.",
+        "Yes. It's one of the two spreads we'd recommend starting with, alongside the One Card Reading. The fixed Past/Present/Future structure gives you a clear framework without the complexity of a ten-card layout.",
     },
     {
       question: "Can I use the three card spread for love or career questions?",
@@ -277,7 +277,7 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
     {
       question: "What if two of my three cards seem to contradict each other?",
       answer:
-        "That's common and meaningful rather than a sign of error — it often reflects genuine tension in the situation. The synthesis paragraph in your reading is written to address exactly that kind of contrast.",
+        "That's common and meaningful rather than a sign of error: it often reflects genuine tension in the situation. The synthesis paragraph in your reading is written to address exactly that kind of contrast.",
     },
     {
       question: "Is the Future card in a three card reading permanent?",
@@ -352,7 +352,7 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
   eyebrow: "Love Reading",
   h1: "Love Tarot Reading",
   intro:
-    "The Love Tarot Reading lays out four cards — You, Partner, The Relationship, and Future — to illuminate the dynamics between you and another person, whether that's an existing relationship, a situationship, or someone you're still figuring out.",
+    "The Love Tarot Reading lays out four cards (You, Partner, The Relationship, and Future) to illuminate the dynamics between you and another person, whether that's an existing relationship, a situationship, or someone you're still figuring out.",
   published: "2026-08-16",
   updated: "2026-11-16",
   readingTime: "6 min read",
@@ -361,16 +361,16 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How the love reading works",
       paragraphs: [
-        "Four cards are drawn into four distinct positions: your own energy in the connection (You), the other person's energy as reflected through the cards (Partner), the shared dynamic between you (The Relationship), and where the bond appears to be heading (Future). Reading both people's positions side by side — rather than focusing solely on one person — is what makes this spread genuinely clarifying for interpersonal questions.",
+        "Four cards are drawn into four distinct positions: your own energy in the connection (You), the other person's energy as reflected through the cards (Partner), the shared dynamic between you (The Relationship), and where the bond appears to be heading (Future). Reading both people's positions side by side, rather than focusing solely on one person, is what makes this spread genuinely clarifying for interpersonal questions.",
         "AstroFree's AI interpretation reads each position against your stated question, notes whether cards appear upright or reversed, and then closes with a synthesis that names the relational pattern running through all four cards together.",
-        "Sometimes the contrast between Position 1 (You) and Position 2 (Partner) explains everything. One person might draw an open, emotional Cups card while the other draws a cautious, defensive Swords card — revealing a mismatch in communication style or pacing rather than a lack of feeling.",
+        "Sometimes the contrast between Position 1 (You) and Position 2 (Partner) explains everything. One person might draw an open, emotional Cups card while the other draws a cautious, defensive Swords card: revealing a mismatch in communication style or pacing rather than a lack of feeling.",
       ],
     },
     {
       id: "when-to-use",
       title: "When to use a relationship tarot reading",
       paragraphs: [
-        "This spread fits any question involving another person's energy alongside your own — a new connection you're unsure about, a long-term partnership moving through a quiet or strained chapter, or a question about whether to initiate an honest conversation. It's less suited to purely individual career or personal habit questions, where our Career Reading or Three Card spread reads more accurately.",
+        "This spread fits any question involving another person's energy alongside your own: a new connection you're unsure about, a long-term partnership moving through a quiet or strained chapter, or a question about whether to initiate an honest conversation. It's less suited to purely individual career or personal habit questions, where our Career Reading or Three Card spread reads more accurately.",
         "A love reading reflects emotional patterns and relational dynamics, never a guaranteed fate. Tarot cannot override another person's choices or promise what someone else will decide tomorrow; instead, it offers a calm mirror so you can see your own expectations, boundaries, and needs clearly.",
       ],
     },
@@ -378,7 +378,7 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
       id: "four-positions",
       title: "Understanding each of the four relationship positions",
       paragraphs: [
-        "Position 1 (You) shows what you are actively bringing into the bond — your hopes, emotional bandwidth, or unspoken fears. Position 2 (Partner) highlights the energy or posture the other person is displaying from your vantage point, whether that is enthusiasm, hesitation, distraction, or quiet care.",
+        "Position 1 (You) shows what you are actively bringing into the bond: your hopes, emotional bandwidth, or unspoken fears. Position 2 (Partner) highlights the energy or posture the other person is displaying from your vantage point, whether that is enthusiasm, hesitation, distraction, or quiet care.",
         "Position 3 (The Relationship) captures the 'third entity' you create together: the tone of your communication, shared values, or recurring friction. Finally, Position 4 (Future) maps the likely evolution of that shared dynamic if both people continue showing up in the same way.",
       ],
     },
@@ -418,7 +418,7 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
         position: "3 · The Relationship",
         card: "Two of Swords (Upright)",
         reading:
-          "Between you sits an unspoken stalemate — both sides avoiding a direct question for fear of saying the wrong thing and tipping the delicate balance.",
+          "Between you sits an unspoken stalemate: both sides avoiding a direct question for fear of saying the wrong thing and tipping the delicate balance.",
       },
       {
         position: "4 · Future",
@@ -428,33 +428,33 @@ export const LOVE_CONFIG: ReadingLandingConfig = {
       },
     ],
     synthesis:
-      "No lack of care is visible here — the stalemate in Position 3 stems from mutual caution rather than coldness. Open one calm, low-pressure conversation focused on listening rather than fixing everything in one sitting.",
+      "No lack of care is visible here: the stalemate in Position 3 stems from mutual caution rather than coldness. Open one calm, low-pressure conversation focused on listening rather than fixing everything in one sitting.",
   },
   faqs: [
     {
       question: "Can a love tarot reading tell me if someone likes me?",
       answer:
-        "It can offer a reflective read on the energy between you, but tarot describes patterns and possibilities, not certainties — it isn't a substitute for an honest conversation with the person.",
+        "It can offer a reflective read on the energy between you, but tarot describes patterns and possibilities, not certainties: it isn't a substitute for an honest conversation with the person.",
     },
     {
       question: "What if I'm not currently in a relationship?",
       answer:
-        "The spread still works for a situationship, a crush, or someone you're considering reconnecting with — just set your intention around that specific connection before drawing.",
+        "The spread still works for a situationship, a crush, or someone you're considering reconnecting with: just set your intention around that specific connection before drawing.",
     },
     {
       question: "Is this reading appropriate for a breakup or divorce question?",
       answer:
-        "Yes, many people use it that way — set your question around the relationship's current state or path forward rather than framing it as You vs Partner in conflict.",
+        "Yes, many people use it that way: set your question around the relationship's current state or path forward rather than framing it as You vs Partner in conflict.",
     },
     {
       question: "Does drawing The Tower or Death in a love reading mean a breakup?",
       answer:
-        "Not necessarily. In relationship spreads, Death almost always symbolizes a necessary transformation — leaving behind an outdated dynamic so a more honest chapter can begin — while The Tower often marks a sudden breakthrough conversation that clears stagnant air.",
+        "Not necessarily. In relationship spreads, Death almost always symbolizes a necessary transformation (leaving behind an outdated dynamic so a more honest chapter can begin) while The Tower often marks a sudden breakthrough conversation that clears stagnant air.",
     },
     {
       question: "Can I use the Love spread for friendships or family dynamics?",
       answer:
-        "Yes. Any close interpersonal bond — a close friend, sibling, or creative collaborator — maps cleanly onto You, Them, The Bond, and Future.",
+        "Yes. Any close interpersonal bond (a close friend, sibling, or creative collaborator) maps cleanly onto You, Them, The Bond, and Future.",
     },
   ],
   relatedCards: [
@@ -523,7 +523,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
       id: "how-it-works",
       title: "How a yes or no tarot reading works",
       paragraphs: [
-        'Phrase your question so it genuinely has a yes/no shape — "should I take this role?" reads much more cleanly than "what should I do about my career?" — then draw a single card from the 78-card deck. Traditionally, upright cards lean toward yes and reversed cards lean toward no or "not yet," though the card\'s actual archetype always outweighs orientation alone.',
+        'Phrase your question so it genuinely has a yes/no shape ("should I take this role?" reads much more cleanly than "what should I do about my career?") then draw a single card from the 78-card deck. Traditionally, upright cards lean toward yes and reversed cards lean toward no or "not yet," though the card\'s actual archetype always outweighs orientation alone.',
         "For instance, The Tower upright is still a signal to pause and examine unstable foundations, while The Star reversed may simply mean yes, provided you rebuild confidence first rather than rushing ahead.",
         'AstroFree\'s interpretation does not flatten tarot into a sterile coin flip. Instead of outputting a bare "yes" or "no," the reading explains the reasoning behind the directional lean using the card\'s symbolism, element, and timing cues so you understand the condition underneath the answer.',
       ],
@@ -532,7 +532,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
       id: "when-to-use",
       title: "When to use a yes/no tarot pull",
       paragraphs: [
-        'This spread works best for direct, timely questions where you want a quick directional read rather than a sweeping analysis — "is this week a good moment to pitch my idea?" or "should I attend this event?" For decisions involving two competing choices or deep emotional history, the Three Card Reading or Celtic Cross spread gives you the context a binary answer leaves out.',
+        'This spread works best for direct, timely questions where you want a quick directional read rather than a sweeping analysis: "is this week a good moment to pitch my idea?" or "should I attend this event?" For decisions involving two competing choices or deep emotional history, the Three Card Reading or Celtic Cross spread gives you the context a binary answer leaves out.',
         "A yes/no pull is also surprisingly helpful as a gut-check mirror: notice your instant emotional reaction the moment the card flips. If you draw a cautious 'no' and feel quietly relieved, your intuition already knew your true answer before you shuffled.",
       ],
     },
@@ -540,8 +540,8 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
       id: "yes-no-maybe-spectrum",
       title: "Understanding Yes, No, and Conditional 'Maybe' cards",
       paragraphs: [
-        "Experienced readers view yes/no tarot across a three-part spectrum rather than strict absolutes. Cards of expansion, clarity, and fruition — such as The Sun, Ace of Wands, Six of Wands, Nine of Cups, or Ten of Pentacles — naturally carry an enthusiastic 'Yes' lean when upright.",
-        "Cards associated with illusion, inner conflict, or suspension — like The Moon, Two of Swords, Seven of Cups, or The Hanged Man — commonly signal 'Maybe' or 'Wait for clearer facts.' Meanwhile, cards of sharp friction or depletion (Three of Swords, Five of Pentacles, Ten of Swords) or reversed momentum typically urge a protective 'No' or suggest changing your timing before acting.",
+        "Experienced readers view yes/no tarot across a three-part spectrum rather than strict absolutes. Cards of expansion, clarity, and fruition, such as The Sun, Ace of Wands, Six of Wands, Nine of Cups, or Ten of Pentacles, naturally carry an enthusiastic 'Yes' lean when upright.",
+        "Cards associated with illusion, inner conflict, or suspension (like The Moon, Two of Swords, Seven of Cups, or The Hanged Man) commonly signal 'Maybe' or 'Wait for clearer facts.' Meanwhile, cards of sharp friction or depletion (Three of Swords, Five of Pentacles, Ten of Swords) or reversed momentum typically urge a protective 'No' or suggest changing your timing before acting.",
       ],
     },
     {
@@ -556,7 +556,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
       id: "framing-questions",
       title: "How to phrase clear yes or no questions",
       paragraphs: [
-        "Avoid double-barreled or negative questions like 'Should I quit my job or stay until December?' — a single card cannot answer two different paths at once. Split compound questions into one clear proposition, such as 'Is leaving this role in the next month aligned with my growth?'",
+        "Avoid double-barreled or negative questions like 'Should I quit my job or stay until December?': a single card cannot answer two different paths at once. Split compound questions into one clear proposition, such as 'Is leaving this role in the next month aligned with my growth?'",
         "Equally important: avoid health diagnoses, legal outcomes, or high-stakes financial wagers. Treat a yes or no tarot draw as a thoughtful sounding board that clarifies your own priorities rather than a substitute for real-world verification.",
       ],
     },
@@ -566,24 +566,24 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
     positions: [
       {
         position: "Single Card · Directional Lean",
-        card: "Seven of Pentacles (Upright) — Conditional Yes",
+        card: "Seven of Pentacles (Upright): Conditional Yes",
         reading:
           "Seven of Pentacles leans yes, but with a patient, measured tempo. The groundwork you already invested is bearing quiet fruit; however, rushing a half-finished pitch tomorrow could undersell the value. Take one more week to gather concrete metrics before presenting.",
       },
     ],
     synthesis:
-      "Directional answer: Conditional Yes — prepare your supporting data carefully, then pitch from a position of calm patience rather than urgency.",
+      "Directional answer: Conditional Yes: prepare your supporting data carefully, then pitch from a position of calm patience rather than urgency.",
   },
   faqs: [
     {
       question: "How accurate is a yes or no tarot reading?",
       answer:
-        "Tarot doesn't predict outcomes with certainty — it reflects patterns and energy connected to your question. Treat the yes/no lean as a prompt for your own judgement, not a guaranteed forecast.",
+        "Tarot doesn't predict outcomes with certainty: it reflects patterns and energy connected to your question. Treat the yes/no lean as a prompt for your own judgement, not a guaranteed forecast.",
     },
     {
       question: "What if I get a card that doesn't clearly mean yes or no?",
       answer:
-        'Some cards are genuinely ambiguous by design — that\'s often the most useful answer, pointing to a "maybe, depending on X" rather than a clean binary. The written interpretation will explain the nuance.',
+        'Some cards are genuinely ambiguous by design: that\'s often the most useful answer, pointing to a "maybe, depending on X" rather than a clean binary. The written interpretation will explain the nuance.',
     },
     {
       question: "Can I ask the same yes/no question twice?",
@@ -598,7 +598,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
     {
       question: "Why not just flip a coin instead of drawing a tarot card?",
       answer:
-        "A coin only gives heads or tails without context. A tarot card pairs directional momentum with rich symbolism — showing you why a path feels aligned or what hidden obstacle deserves attention before you decide.",
+        "A coin only gives heads or tails without context. A tarot card pairs directional momentum with rich symbolism: showing you why a path feels aligned or what hidden obstacle deserves attention before you decide.",
     },
   ],
   relatedCards: [
@@ -612,7 +612,7 @@ export const YES_NO_CONFIG: ReadingLandingConfig = {
     {
       slug: "the-moon",
       name: "The Moon",
-      subtitle: "Unclear — more information needed",
+      subtitle: "Unclear | more information needed",
       base: "/tarot/$slug",
     },
     { slug: "the-star", name: "The Star", subtitle: "A hopeful, gentle yes", base: "/tarot/$slug" },
@@ -648,7 +648,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
   eyebrow: "Career Reading",
   h1: "Career Tarot Reading",
   intro:
-    "The Career Tarot Reading lays out four cards — Where You Are, Challenge, Advice, and Outcome — to bring clarity to work decisions: a stuck project, a job change you're weighing, or a general sense that your current path doesn't quite fit anymore.",
+    "The Career Tarot Reading lays out four cards, Where You Are, Challenge, Advice, and Outcome, to bring clarity to work decisions: a stuck project, a job change you're weighing, or a general sense that your current path doesn't quite fit anymore.",
   published: "2026-08-16",
   updated: "2026-11-16",
   readingTime: "6 min read",
@@ -659,7 +659,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
       paragraphs: [
         "Four cards are drawn into four structured positions: Where You Are (your current professional stance), Challenge (what is creating friction or holding momentum back), Advice (the practical posture or mindset most likely to unlock progress), and Outcome (where the trajectory leads if you apply that guidance).",
         "Because the layout moves deliberately from diagnosis to strategy, the reading concludes with something constructive you can act on rather than leaving you with vague observations about workplace stress.",
-        "AstroFree's AI interpretation connects each card directly to your stated work context — whether you are preparing for an interview, considering an industry pivot, negotiating responsibilities, or deciding whether to launch an independent venture.",
+        "AstroFree's AI interpretation connects each card directly to your stated work context: whether you are preparing for an interview, considering an industry pivot, negotiating responsibilities, or deciding whether to launch an independent venture.",
       ],
     },
     {
@@ -674,7 +674,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
       id: "four-positions-career",
       title: "Breaking down the four career positions",
       paragraphs: [
-        "Position 1 (Where You Are) often reveals an inner reality you haven't admitted yet — perhaps you look successful on paper (Nine of Pentacles) while feeling quietly restless (Four of Cups). Naming your starting point honestly makes every decision afterward clearer.",
+        "Position 1 (Where You Are) often reveals an inner reality you haven't admitted yet: perhaps you look successful on paper (Nine of Pentacles) while feeling quietly restless (Four of Cups). Naming your starting point honestly makes every decision afterward clearer.",
         "Position 2 (Challenge) distinguishes external obstacles (budget freezes, rigid hierarchy) from internal blockers (imposter syndrome, perfectionism, fear of visibility). Position 3 (Advice) then offers a direct counterweight, and Position 4 (Outcome) previews the realistic direction of that adjusted path.",
       ],
     },
@@ -682,8 +682,8 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
       id: "suits-at-work",
       title: "What the four tarot suits mean in a career spread",
       paragraphs: [
-        "Every suit maps cleanly onto real workplace dynamics. Pentacles govern income, craft, steady skill-building, and long-term security — cards like Eight of Pentacles or Three of Pentacles celebrate mastery and reliable teamwork. Wands represent ambition, entrepreneurship, leadership energy, and creative drive.",
-        "Swords highlight strategy, contracts, intellectual problem-solving, and clear communication — though reversed Swords can warn against burnout from overthinking. Cups reflect workplace culture, purpose, fulfillment, and how emotionally nourished you feel by what you build every day.",
+        "Every suit maps cleanly onto real workplace dynamics. Pentacles govern income, craft, steady skill-building, and long-term security: cards like Eight of Pentacles or Three of Pentacles celebrate mastery and reliable teamwork. Wands represent ambition, entrepreneurship, leadership energy, and creative drive.",
+        "Swords highlight strategy, contracts, intellectual problem-solving, and clear communication, though reversed Swords can warn against burnout from overthinking. Cups reflect workplace culture, purpose, fulfillment, and how emotionally nourished you feel by what you build every day.",
       ],
     },
     {
@@ -691,7 +691,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
       title: "Turning tarot insight into concrete work action",
       paragraphs: [
         "Once you finish reading your spread, translate the Advice card into one small action within 48 hours. If The Magician appears in Advice, update your portfolio or pitch the idea you've been sitting on; if Four of Swords shows up, protect an uninterrupted evening of rest before making any major resignation or contract call.",
-        "Pairing your Career Tarot Reading with your Personal Year number in our Numerology Calculator can also illuminate timing — showing whether this year favors bold expansion (Personal Year 1 or 5) or patient consolidation (Personal Year 4 or 7).",
+        "Pairing your Career Tarot Reading with your Personal Year number in our Numerology Calculator can also illuminate timing: showing whether this year favors bold expansion (Personal Year 1 or 5) or patient consolidation (Personal Year 4 or 7).",
       ],
     },
   ],
@@ -708,7 +708,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
         position: "2 · Challenge",
         card: "Six of Swords (Reversed)",
         reading:
-          "The friction comes from hesitation about leaving familiar territory — lingering comfort and fear of unfamiliar stakeholder politics make transition feel heavier than it actually is.",
+          "The friction comes from hesitation about leaving familiar territory: lingering comfort and fear of unfamiliar stakeholder politics make transition feel heavier than it actually is.",
       },
       {
         position: "3 · Advice",
@@ -730,12 +730,12 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
     {
       question: "Can a career tarot reading tell me if I'll get a job or promotion?",
       answer:
-        "No — it reflects the energy and patterns around your current path, not a guaranteed outcome. Use the Outcome card as a likely direction if things continue as they are, not a certainty.",
+        "No. It reflects the energy and patterns around your current path, not a guaranteed outcome. Use the Outcome card as a likely direction if things continue as they are, not a certainty.",
     },
     {
       question: "Is this reading suitable for business or entrepreneurship questions?",
       answer:
-        'Yes, the same four positions work well for business decisions — treat "Where you are" as your business\'s current state and "Outcome" as where that path is heading.',
+        'Yes, the same four positions work well for business decisions: treat "Where you are" as your business\'s current state and "Outcome" as where that path is heading.',
     },
     {
       question: "How specific should my career question be?",
@@ -745,7 +745,7 @@ export const CAREER_CONFIG: ReadingLandingConfig = {
     {
       question: "What if I draw Ten of Wands or Five of Pentacles in a career spread?",
       answer:
-        "Those cards rarely predict permanent failure — instead, they highlight overcommitment, under-compensation, or carrying responsibilities that belong elsewhere. In Advice or Challenge, they nudge you to delegate, renegotiate boundaries, or ask for support.",
+        "Those cards rarely predict permanent failure: instead, they highlight overcommitment, under-compensation, or carrying responsibilities that belong elsewhere. In Advice or Challenge, they nudge you to delegate, renegotiate boundaries, or ask for support.",
     },
     {
       question: "Can students or job-seekers use the career tarot spread?",
@@ -821,13 +821,13 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       number: 1,
       label: "Present",
       focus: "Heart of the matter",
-      description: "Where you stand right now — the immediate atmosphere, core tension, or primary theme surrounding your question.",
+      description: "Where you stand right now: the immediate atmosphere, core tension, or primary theme surrounding your question.",
     },
     {
       number: 2,
       label: "Challenge",
       focus: "Crossing influence",
-      description: "What intersects or complicates the Present card — an obstacle, competing priority, or lesson asking to be integrated.",
+      description: "What intersects or complicates the Present card: an obstacle, competing priority, or lesson asking to be integrated.",
     },
     {
       number: 3,
@@ -869,7 +869,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       number: 9,
       label: "Hopes / Fears",
       focus: "Inner expectations",
-      description: "What you quietly desire — or secretly dread — happening as this chapter unfolds.",
+      description: "What you quietly desire, or secretly dread, happening as this chapter unfolds.",
     },
     {
       number: 10,
@@ -884,7 +884,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       title: "How the Celtic Cross spread works",
       paragraphs: [
         "Ten cards are dealt into ten fixed positions, each illuminating a distinct layer of the situation: the heart of the matter (1), what crosses or challenges you (2), the hidden foundation beneath it (3), what is passing away (4), the highest potential or conscious goal (5), what is approaching next (6), how you see yourself (7), outside influences around you (8), your hopes and fears (9), and finally the likely outcome (10).",
-        "Because ten cards carry dramatically more nuance than a quick pull, AstroFree writes a dedicated paragraph for every position and then weaves all ten into a comprehensive closing synthesis — giving you a structured, readable narrative rather than ten disconnected dictionary entries.",
+        "Because ten cards carry dramatically more nuance than a quick pull, AstroFree writes a dedicated paragraph for every position and then weaves all ten into a comprehensive closing synthesis, giving you a structured, readable narrative rather than ten disconnected dictionary entries.",
         "For a full position-by-position reference with worked reading tips, see our companion step-by-step Celtic Cross guide.",
       ],
     },
@@ -892,7 +892,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       id: "when-to-use",
       title: "When to use the Celtic Cross",
       paragraphs: [
-        "Reach for the Celtic Cross when your question is complex, multi-layered, or carries real emotional stakes — a major career pivot, a long-term relationship crossroads, moving to a new city, or a chapter where shorter spreads have only scratched the surface.",
+        "Reach for the Celtic Cross when your question is complex, multi-layered, or carries real emotional stakes: a major career pivot, a long-term relationship crossroads, moving to a new city, or a chapter where shorter spreads have only scratched the surface.",
         "It is intentionally unhurried. If you only need a fast morning check-in or a single directional lean, the One Card or Three Card reading is lighter and easier to digest. Save the Celtic Cross for moments when you have ten or fifteen quiet minutes to reflect.",
       ],
     },
@@ -900,7 +900,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       id: "cross-and-staff",
       title: "Anatomy of the Cross (1–6) and the Staff (7–10)",
       paragraphs: [
-        "Most readers mentally divide the Celtic Cross into two halves. Positions 1 through 6 form the Cross: they examine the situation itself — the core tension between Positions 1 and 2, the timeline flowing horizontally from Position 4 (Recent Past) to Position 6 (Near Future), and the vertical axis connecting subconscious roots (Position 3) with conscious aspirations (Position 5).",
+        "Most readers mentally divide the Celtic Cross into two halves. Positions 1 through 6 form the Cross: they examine the situation itself: the core tension between Positions 1 and 2, the timeline flowing horizontally from Position 4 (Recent Past) to Position 6 (Near Future), and the vertical axis connecting subconscious roots (Position 3) with conscious aspirations (Position 5).",
         "Positions 7 through 10 form the Staff on the right side, shifting the lens toward psychology and context. Position 7 mirrors your inner attitude, Position 8 reflects people or external circumstances shaping the arena, Position 9 exposes what you secretly wish for or dread, and Position 10 integrates everything into the culminating trajectory.",
       ],
     },
@@ -908,7 +908,7 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       id: "pattern-spotting",
       title: "Spotting dominant suits, court cards, and Major Arcana",
       paragraphs: [
-        "After reading the ten positions in order, step back and look for repetition. If four or more cards belong to the same suit — say, Swords or Pentacles — that element names the true centerpiece of the issue, even if your question sounded like it belonged to another area of life.",
+        "After reading the ten positions in order, step back and look for repetition. If four or more cards belong to the same suit (say, Swords or Pentacles) that element names the true centerpiece of the issue, even if your question sounded like it belonged to another area of life.",
         "Similarly, three or more Court Cards (Pages, Knights, Queens, Kings) often indicate that multiple personalities, mentors, or competing roles are influencing the outcome. Multiple Major Arcana cards signal a milestone chapter where deeper personal growth matters just as much as immediate logistics.",
       ],
     },
@@ -955,22 +955,22 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
     {
       question: "Do I need tarot experience to read a Celtic Cross spread?",
       answer:
-        "No — AstroFree's AI interpretation writes out the meaning of every position in plain language, so you don't need to already know the traditional layout to follow the reading.",
+        "No | AstroFree's AI interpretation writes out the meaning of every position in plain language, so you don't need to already know the traditional layout to follow the reading.",
     },
     {
       question: "What's the difference between the Celtic Cross and a Three Card Reading?",
       answer:
-        "Both use a Past/Present/Future-style logic, but the Celtic Cross adds seven more positions — challenge, foundation, hopes and fears, outside influences, and more — for a far more detailed picture. Use the Three Card Reading for lighter questions and the Celtic Cross when you want the full depth.",
+        "Both use a Past/Present/Future-style logic, but the Celtic Cross adds seven more positions (challenge, foundation, hopes and fears, outside influences, and more) for a far more detailed picture. Use the Three Card Reading for lighter questions and the Celtic Cross when you want the full depth.",
     },
     {
-      question: "Why does Position 2 'cross' Position 1 — is it always negative?",
+      question: "Why does Position 2 'cross' Position 1: is it always negative?",
       answer:
         "No. Although Position 2 is often called the Challenge or Crossing card, it represents whatever intersects with the main situation. Sometimes a positive card there shows an opportunity you aren't sure how to integrate yet, or an asset you are overlooking.",
     },
     {
       question: "Can I revisit a Celtic Cross reading weeks later?",
       answer:
-        "Yes — in fact, the Celtic Cross rewards revisiting. Saving your reading to your local journal and re-reading Positions 6, 8, and 10 a month later is one of the best ways to notice how subtle symbols played out in real life.",
+        "Yes. In fact, the Celtic Cross rewards revisiting. Saving your reading to your local journal and re-reading Positions 6, 8, and 10 a month later is one of the best ways to notice how subtle symbols played out in real life.",
     },
     {
       question: "What is the 10-card tarot spread called and what does each position mean?",

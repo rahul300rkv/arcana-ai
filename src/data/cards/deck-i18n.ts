@@ -6,7 +6,7 @@
  * Scope note: this covers Hindi and Hinglish only. The other 10 supported
  * languages (Bengali, Telugu, Marathi, Tamil, Gujarati, Kannada, Malayalam,
  * Punjabi, Odia, Assamese) fall back to English for these two fields via
- * card-i18n.ts — translating all 78 cards accurately into 10 more scripts
+ * card-i18n.ts: translating all 78 cards accurately into 10 more scripts
  * is a substantial follow-on content project. Love/career/finance/
  * spirituality meanings remain English-only in every language for now.
  */

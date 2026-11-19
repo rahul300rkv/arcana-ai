@@ -32,8 +32,8 @@ export function DisclaimerScreen() {
             for entertainment, cultural literacy, and personal self-reflection. Both tarot symbolism
             and traditional numerology are centuries-old interpretive traditions designed to provoke
             thoughtful questioning rather than empirically proven predictive sciences. Nothing
-            displayed on this website — whether an individual card meaning, a spread synthesis, or a
-            numerological forecast — should be interpreted as absolute fact, guaranteed prophecy, or
+            displayed on this website: whether an individual card meaning, a spread synthesis, or a
+            numerological forecast: should be interpreted as absolute fact, guaranteed prophecy, or
             certainty regarding future events.
           </Section>
 
@@ -69,7 +69,7 @@ export function DisclaimerScreen() {
 
           <Section title="5. Personal Agency, Free Will & User Responsibility">
             The central philosophy of responsible tarot and Vedic numerology practice is that insight
-            supports human agency — it never replaces it. Any choice you pursue in love, career,
+            supports human agency: it never replaces it. Any choice you pursue in love, career,
             education, finances, or personal habits remains yours alone. AstroFree, its contributors,
             and its technology partners accept no liability for losses, misunderstandings, or outcomes
             arising directly or indirectly from actions taken after reading content on this platform.
@@ -116,8 +116,8 @@ export function DisclaimerScreen() {
             Year cycles) operate as structured lenses for storytelling, journaling, and noticing
             recurring personal habits. They do not measure physical probabilities, market returns,
             clinical diagnoses, compatibility guarantees, or future legal outcomes. When readers treat
-            spreads as prompts for self-observation — asking &ldquo;What pattern am I noticing in my
-            response?&rdquo; instead of &ldquo;What am I fated to endure?&rdquo; — reflective tools remain
+            spreads as prompts for self-observation: asking &ldquo;What pattern am I noticing in my
+            response?&rdquo; instead of &ldquo;What am I fated to endure?&rdquo;: reflective tools remain
             healthy, grounded, and empowering.
           </Section>
 

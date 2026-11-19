@@ -5,7 +5,7 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/guide/numerology")({
   head: () => ({
     meta: [
-      { title: "Mulank Numerology Guide — How Personal Year & Month Are Calculated | AstroFree" },
+      { title: "Mulank Numerology Guide | How Personal Year & Month Are Calculated | AstroFree" },
       {
         name: "description",
         content:
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/guide/numerology")({
       },
       {
         property: "og:title",
-        content: "Mulank Numerology Guide — How Personal Year & Month Are Calculated",
+        content: "Mulank Numerology Guide: How Personal Year & Month Are Calculated",
       },
       { property: "og:url", content: `${SITE_URL}/guide/numerology` },
     ],
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/guide/numerology")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/guide/numerology",
-            title: "Mulank Numerology Guide — How Personal Year & Month Are Calculated",
+            title: "Mulank Numerology Guide | How Personal Year & Month Are Calculated",
             description:
               "A free guide to Mulank (root number) numerology: how your Mulank, Personal Year, and Personal Month numbers are calculated, with worked examples.",
             crumbs: [

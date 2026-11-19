@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Star, Layers, Compass, HelpCircle, BookOpen } from "lucide-react";
+import { Star, Layers, Compass, HelpCircle, BookOpen } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -36,7 +36,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     meaning:
       "A leap into the unknown, taken with trust rather than a full plan. It marks the start of a journey before experience has shaped it.",
     example:
-      "Someone quitting a stable job to travel or start a business with no fixed roadmap often draws The Fool — not recklessness, but a willingness to begin before every detail is certain.",
+      "Someone quitting a stable job to travel or start a business with no fixed roadmap often draws The Fool, not recklessness, but a willingness to begin before every detail is certain.",
   },
   {
     number: 1,
@@ -49,7 +49,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     meaning:
       "Having every tool you need already in hand, and the will to use them. It's the card of turning an idea into a first concrete step.",
     example:
-      "A person launching a side project with the exact skills, contacts, and time they need — but who hasn't started yet — often pulls this card as a nudge to act.",
+      "A person launching a side project with the exact skills, contacts, and time they need, but who hasn't started yet, often pulls this card as a nudge to act.",
   },
   {
     number: 2,
@@ -60,7 +60,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Intuition, sacred knowledge, mystery, inner stillness",
     reversedKeywords: "Hidden secrets, ignored intuition, withdrawal, surface noise",
     meaning:
-      "Knowledge that hasn't surfaced into logic yet — a gut feeling worth trusting even without proof.",
+      "Knowledge that hasn't surfaced into logic yet: a gut feeling worth trusting even without proof.",
     example:
       "Someone who \"just knows\" a business partner isn't being upfront, despite no hard evidence, is often being pointed toward this card's message: trust the quiet signal before it becomes obvious.",
   },
@@ -72,7 +72,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     archetype: "The Mother",
     keywords: "Abundance, nurturing, creativity, sensory fertility",
     reversedKeywords: "Creative block, dependence, overprotectiveness, stagnation",
-    meaning: "Growth through care rather than force — fertility in the literal or creative sense.",
+    meaning: "Growth through care rather than force: fertility in the literal or creative sense.",
     example:
       "A creative project that's finally gaining momentum after a long incubation period, or a pregnancy, frequently draws The Empress in a reading about growth.",
   },
@@ -96,7 +96,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     archetype: "The Teacher",
     keywords: "Tradition, mentorship, shared belief, formal counsel",
     reversedKeywords: "Rebellion, breaking convention, personal doctrine, dogma",
-    meaning: "Guidance through established systems — mentorship, formal education, or convention.",
+    meaning: "Guidance through established systems: mentorship, formal education, or convention.",
     example:
       "A person considering a traditional path, such as a formal degree or a family-expected career, often sees The Hierophant as confirmation to work within the existing structure.",
   },
@@ -122,7 +122,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     reversedKeywords: "Lack of direction, scattered force, burnout, aggression",
     meaning: "Forward motion achieved by holding two opposing forces in disciplined balance.",
     example:
-      "A student juggling a demanding degree and a part-time job, pushing through by sheer determination, is a classic Chariot scenario — success through willpower, not ease.",
+      "A student juggling a demanding degree and a part-time job, pushing through by sheer determination, is a classic Chariot scenario: success through willpower, not ease.",
   },
   {
     number: 8,
@@ -132,7 +132,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     archetype: "The Tamer",
     keywords: "Courage, quiet patience, compassion, inner resilience",
     reversedKeywords: "Self-doubt, raw impulse, suppressed anger, fatigue",
-    meaning: "Power that persuades rather than dominates — inner resilience over brute force.",
+    meaning: "Power that persuades rather than dominates: inner resilience over brute force.",
     example:
       "Calmly working through a conflict with a difficult family member, without losing your temper, is textbook Strength energy: control exercised through patience, not confrontation.",
   },
@@ -157,9 +157,9 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Cycles, turning point, destiny, timing shift",
     reversedKeywords: "Resisting change, unexpected delay, repeating patterns",
     meaning:
-      "A shift set in motion by forces outside your control — luck turning, for better or worse.",
+      "A shift set in motion by forces outside your control: luck turning, for better or worse.",
     example:
-      "An unexpected job offer, a sudden diagnosis, or a chance encounter that reroutes someone's plans all point to the Wheel — a turning point you didn't engineer yourself.",
+      "An unexpected job offer, a sudden diagnosis, or a chance encounter that reroutes someone's plans all point to the Wheel: a turning point you didn't engineer yourself.",
   },
   {
     number: 11,
@@ -172,7 +172,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     meaning:
       "A situation resolving according to what's actually true and earned, not what's convenient.",
     example:
-      "A legal dispute, contract negotiation, or a moment of being held accountable for a past decision often draws Justice — consequences catching up with their cause.",
+      "A legal dispute, contract negotiation, or a moment of being held accountable for a past decision often draws Justice: consequences catching up with their cause.",
   },
   {
     number: 12,
@@ -185,7 +185,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     meaning:
       "Willingly stalling forward motion in order to see a situation from a completely different angle.",
     example:
-      "Someone stuck on a decision who finally stops forcing an answer and just waits — and gains clarity from the waiting itself — is living The Hanged Man.",
+      "Someone stuck on a decision who finally stops forcing an answer and just waits, and gains clarity from the waiting itself, is living The Hanged Man.",
   },
   {
     number: 13,
@@ -195,9 +195,9 @@ const MAJOR_ARCANA: MajorCard[] = [
     archetype: "The Transformer",
     keywords: "Transformation, clean ending, renewal, rebirth",
     reversedKeywords: "Resistance to change, stagnation, delayed closure, fear",
-    meaning: "A necessary ending that clears space for something new — almost never literal.",
+    meaning: "A necessary ending that clears space for something new: almost never literal.",
     example:
-      "The end of a long relationship, a career pivot, or the close of a life chapter that had clearly run its course is the classic — and most misunderstood — Death draw.",
+      "The end of a long relationship, a career pivot, or the close of a life chapter that had clearly run its course is the classic, and most misunderstood, Death draw.",
   },
   {
     number: 14,
@@ -222,7 +222,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     meaning:
       "A pattern, habit, or relationship that feels binding, even though the way out usually exists.",
     example:
-      "Staying in a draining job purely out of comfort, or a habit that's become hard to break, is the everyday face of The Devil — self-imposed limits mistaken for the only option.",
+      "Staying in a draining job purely out of comfort, or a habit that's become hard to break, is the everyday face of The Devil: self-imposed limits mistaken for the only option.",
   },
   {
     number: 16,
@@ -233,9 +233,9 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Sudden upheaval, truth revealed, structural collapse",
     reversedKeywords: "Averted shock, delayed reckoning, resisting upheaval",
     meaning:
-      "A fast, disruptive collapse of something built on a shaky foundation — jarring, but clarifying.",
+      "A fast, disruptive collapse of something built on a shaky foundation: jarring, but clarifying.",
     example:
-      "A sudden layoff, a relationship ending abruptly, or a plan falling apart overnight all fit The Tower — disruptive in the moment, but usually removing something that wasn't stable to begin with.",
+      "A sudden layoff, a relationship ending abruptly, or a plan falling apart overnight all fit The Tower: disruptive in the moment, but usually removing something that wasn't stable to begin with.",
   },
   {
     number: 17,
@@ -246,7 +246,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Hope, renewal, quiet faith, serene inspiration",
     reversedKeywords: "Self-doubt, discouragement, blocked optimism, fatigue",
     meaning:
-      "Calm optimism returning after a hard period — healing that's gentle rather than dramatic.",
+      "Calm optimism returning after a hard period: healing that's gentle rather than dramatic.",
     example:
       "The first sense of relief after a difficult breakup or illness, when things finally start feeling manageable again, is the moment The Star describes.",
   },
@@ -259,7 +259,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Illusion, subconscious fear, unclear path, intuition",
     reversedKeywords: "Revealed confusion, releasing anxiety, truth surfacing",
     meaning:
-      "Uncertainty and unclear information — things aren't fully visible yet, and anxiety can fill the gap.",
+      "Uncertainty and unclear information: things aren't fully visible yet, and anxiety can fill the gap.",
     example:
       "Waiting on test results, a decision from someone else, or any situation where key facts are still hidden, often produces The Moon's foggy, anxious energy.",
   },
@@ -272,7 +272,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     keywords: "Joy, clarity, vitality, unmistakable success",
     reversedKeywords: "Dimmed confidence, delayed happiness, temporary burnout",
     meaning:
-      "Clarity, confidence, and genuine good fortune — one of the most straightforwardly positive cards.",
+      "Clarity, confidence, and genuine good fortune: one of the most straightforwardly positive cards.",
     example:
       "A wedding, a long-awaited achievement, or simply a stretch of life where things are finally going well is the plain, uncomplicated territory of The Sun.",
   },
@@ -286,7 +286,7 @@ const MAJOR_ARCANA: MajorCard[] = [
     reversedKeywords: "Harsh self-criticism, avoiding the call, doubt",
     meaning: "A moment of honest self-assessment that leads to a decisive change in direction.",
     example:
-      "Reflecting on years in a career and finally admitting it's not the right fit, then acting on that realisation, is Judgement in practice — a wake-up call answered.",
+      "Reflecting on years in a career and finally admitting it's not the right fit, then acting on that realisation, is Judgement in practice: a wake-up call answered.",
   },
   {
     number: 21,
@@ -296,9 +296,9 @@ const MAJOR_ARCANA: MajorCard[] = [
     archetype: "The Completion",
     keywords: "Completion, wholeness, integration, achievement",
     reversedKeywords: "Unfinished closure, near completion, loose ends",
-    meaning: "A cycle closing successfully — everything that was in motion coming together.",
+    meaning: "A cycle closing successfully: everything that was in motion coming together.",
     example:
-      "Graduating, completing a major project, or reaching a long-term goal after years of effort is the natural home of The World — an ending that's also an arrival.",
+      "Graduating, completing a major project, or reaching a long-term goal after years of effort is the natural home of The World: an ending that's also an arrival.",
   },
 ];
 
@@ -307,7 +307,7 @@ const FOOLS_JOURNEY_STAGES = [
     stage: "Stage 1 · Cards 0–7",
     title: "The Outer World, Identity & Mastery",
     summary:
-      "From The Fool's innocent leap through The Chariot's disciplined drive, the first act builds practical agency in the material world — mentors, boundaries, values, and willpower.",
+      "From The Fool's innocent leap through The Chariot's disciplined drive, the first act builds practical agency in the material world: mentors, boundaries, values, and willpower.",
     range: [0, 7] as const,
   },
   {
@@ -335,22 +335,22 @@ const FAQS = [
   {
     question: "Does drawing a lot of Major Arcana cards in one spread mean something?",
     answer:
-      "Many readers treat a spread dominated by Major Arcana as a sign the question touches something significant — a real turning point rather than routine day-to-day matters — while a Minor-Arcana-heavy spread points to more immediate, practical circumstances.",
+      "Many readers treat a spread dominated by Major Arcana as a sign the question touches something significant (a real turning point rather than routine day-to-day matters) while a Minor-Arcana-heavy spread points to more immediate, practical circumstances.",
   },
   {
     question: "Are Death and The Tower always bad cards?",
     answer:
-      "No. Both describe necessary, often overdue change rather than literal disaster. Death marks an ending that clears space for growth, and The Tower marks the fast collapse of something unstable — disruptive, but usually clarifying rather than purely negative.",
+      "No. Both describe necessary, often overdue change rather than literal disaster. Death marks an ending that clears space for growth, and The Tower marks the fast collapse of something unstable: disruptive, but usually clarifying rather than purely negative.",
   },
   {
     question: "Is there a correct order to learn the Major Arcana in?",
     answer:
-      "The numbered sequence (0 to 21) is often read as a symbolic journey — The Fool's Journey — where each card represents a stage of growth across three acts (0–7, 8–14, and 15–21). Learning them in that order builds intuitive structure.",
+      "The numbered sequence (0 to 21) is often read as a symbolic journey (The Fool's Journey) where each card represents a stage of growth across three acts (0–7, 8–14, and 15–21). Learning them in that order builds intuitive structure.",
   },
   {
     question: "Do Major Arcana meanings change much when reversed?",
     answer:
-      "The core theme stays the same, but reversed Major Arcana cards typically describe that theme as blocked, delayed, or turned inward rather than reversed outright — see AstroFree's dedicated guide to reversed tarot cards for the full method.",
+      "The core theme stays the same, but reversed Major Arcana cards typically describe that theme as blocked, delayed, or turned inward rather than reversed outright: see AstroFree's dedicated guide to reversed tarot cards for the full method.",
   },
 ];
 
@@ -465,7 +465,7 @@ export function GuideMajorArcanaMeaningsScreen() {
         icon={BookOpen}
       >
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Of the 78 cards in a tarot deck, 22 belong to the Major Arcana — numbered 0 through 21,
+          Of the 78 cards in a tarot deck, 22 belong to the Major Arcana: numbered 0 through 21,
           from The Fool to The World. Where the 56 Minor Arcana cards describe the practical texture
           of everyday life, the Major Arcana describe archetypal forces: the kind of turning points,
           lessons, and life-shaping events that come along a handful of times, not every week.
@@ -512,7 +512,7 @@ export function GuideMajorArcanaMeaningsScreen() {
 
       <ContentSection id="using-examples" title="How to use these examples" icon={Compass}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The scenarios above are illustrations, not the only valid reading — the same card can
+          The scenarios above are illustrations, not the only valid reading: the same card can
           describe many different situations that share its underlying theme. When a Major Arcana
           card appears in your own spread, use the example as a starting point, then ask how that
           same theme (a beginning, a collapse, a pause, a resolution) might be showing up in the

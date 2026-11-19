@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Star } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SectionHeader } from "./Features";
 import { useTranslate } from "@/lib/i18n";

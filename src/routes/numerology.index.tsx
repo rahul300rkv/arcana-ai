@@ -81,7 +81,7 @@ export const Route = createFileRoute("/numerology/")({
               name: "Mulank kaise nikale?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1 — yani aapka Mulank 1 hai.",
+                text: "Mulank nikalne ke liye sirf apni janam tarikh (birth date 1–31) ke anko ko tab tak jodein jab tak 1 se 9 ke beech ek single digit na aa jaye. Jaise agar janam 19 tarikh ko hua hai toh 1 + 9 = 10, phir 1 + 0 = 1: yani aapka Mulank 1 hai.",
               },
             },
             {

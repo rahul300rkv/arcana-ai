@@ -1,5 +1,5 @@
 /**
- * Namank (Name Number) calculation engine — Chaldean numerology.
+ * Namank (Name Number) calculation engine: Chaldean numerology.
  *
  * Unlike Mulank and Bhagyank, which are derived from the date of birth,
  * Namank is derived from the letters of a person's full name. Each letter

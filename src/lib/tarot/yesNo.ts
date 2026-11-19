@@ -142,7 +142,7 @@ export function getYesNoExplanation(card: TarotCard, reversed: boolean, verdict:
     if (verdict === "no") {
       return `${card.name} upright leans toward No for now due to ${focus}. Pause before committing so unresolved friction or blind spots do not compound.`;
     }
-    return `${card.name} upright answers Maybe — the themes of ${focus} mean the outcome still depends on timing and deliberate follow-through. Gather clearer facts before deciding.`;
+    return `${card.name} upright answers Maybe: the themes of ${focus} mean the outcome still depends on timing and deliberate follow-through. Gather clearer facts before deciding.`;
   }
 
   if (verdict === "yes") {
@@ -151,5 +151,5 @@ export function getYesNoExplanation(card: TarotCard, reversed: boolean, verdict:
   if (verdict === "no") {
     return `${card.name} reversed leans toward No right now because ${focus} clouds your timing. Step back, address the underlying hesitation, and revisit the question once clarity returns.`;
   }
-  return `${card.name} reversed signals Maybe — either blocked energy is starting to ease or ${focus} needs conscious correction first. Wait for internal alignment before taking an irreversible step.`;
+  return `${card.name} reversed signals Maybe: either blocked energy is starting to ease or ${focus} needs conscious correction first. Wait for internal alignment before taking an irreversible step.`;
 }

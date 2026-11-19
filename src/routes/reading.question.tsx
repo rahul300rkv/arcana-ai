@@ -20,7 +20,7 @@ export const Route = createFileRoute("/reading/question")({
   }),
   head: () => ({
     meta: [
-      { title: "Ask Your Question — AstroFree" },
+      { title: "Ask Your Question | AstroFree" },
       {
         name: "description",
         content: "Focus your intention. Type the question you want the cards to speak to.",

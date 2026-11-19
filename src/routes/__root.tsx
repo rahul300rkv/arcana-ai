@@ -77,17 +77,17 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AstroFree — Free AI Tarot & Mulank Numerology" },
+      { title: "AstroFree | Free AI Tarot & Mulank Numerology" },
       {
         name: "description",
         content:
-          "AstroFree is India's first free AI tarot card reading app, now with a free Mulank numerology calculator. Get instant AI-guided tarot readings, your Personal Year & Personal Month forecast, a daily card ritual, and a private journal — always free.",
+          "AstroFree is India's first free AI tarot card reading app, now with a free Mulank numerology calculator. Get instant AI-guided tarot readings, your Personal Year & Personal Month forecast, a daily card ritual, and a private journal: always free.",
       },
       { name: "theme-color", content: "#19060b" },
       { property: "og:site_name", content: SITE_NAME },
       {
         property: "og:title",
-        content: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",
+        content: "AstroFree | Free AI Tarot Reading & Mulank Numerology Calculator",
       },
       {
         property: "og:description",
@@ -100,7 +100,7 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",
+        content: "AstroFree | Free AI Tarot Reading & Mulank Numerology Calculator",
       },
       {
         name: "twitter:description",

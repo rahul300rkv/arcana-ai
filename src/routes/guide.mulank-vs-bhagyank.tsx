@@ -5,7 +5,7 @@ import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 const PATH = "/guide/mulank-vs-bhagyank";
 const TITLE = "Mulank vs Bhagyank: Numerology in Indian Tradition";
 const DESCRIPTION =
-  "The difference between Mulank (birth number) and Bhagyank (destiny number) in Indian Vedic numerology — how each is calculated, what they govern, and how to read them together.";
+  "The difference between Mulank (birth number) and Bhagyank (destiny number) in Indian Vedic numerology: how each is calculated, what they govern, and how to read them together.";
 const UPDATED = "2026-08-14";
 
 const FAQS = [
@@ -17,7 +17,7 @@ const FAQS = [
   {
     question: "Which number matters more, Mulank or Bhagyank?",
     answer:
-      "Neither outranks the other — they describe different layers. Mulank is closer to how you naturally behave day to day, while Bhagyank shapes the long-term direction and major turning points of your life. A full reading considers both together.",
+      "Neither outranks the other: they describe different layers. Mulank is closer to how you naturally behave day to day, while Bhagyank shapes the long-term direction and major turning points of your life. A full reading considers both together.",
   },
   {
     question: "Can Mulank and Bhagyank be the same number?",
@@ -27,12 +27,12 @@ const FAQS = [
   {
     question: "Is this the same as Western numerology's Life Path number?",
     answer:
-      "Bhagyank is calculated the same way as the Western Life Path number — reducing the full birth date to a single digit. Mulank has no exact Western equivalent; it's closer to, but not identical to, a birth-day or personality number used in some Western systems.",
+      "Bhagyank is calculated the same way as the Western Life Path number: reducing the full birth date to a single digit. Mulank has no exact Western equivalent; it's closer to, but not identical to, a birth-day or personality number used in some Western systems.",
   },
   {
     question: "Do master numbers 11 and 22 apply to Bhagyank?",
     answer:
-      "In most Indian numerology traditions, yes — a Bhagyank total of 11 or 22 is often kept unreduced and treated as a master number carrying amplified potential and responsibility, rather than being reduced further to 2 or 4.",
+      "In most Indian numerology traditions, yes: a Bhagyank total of 11 or 22 is often kept unreduced and treated as a master number carrying amplified potential and responsibility, rather than being reduced further to 2 or 4.",
   },
 ];
 

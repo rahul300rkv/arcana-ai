@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CalendarClock, Clock, Layers } from "lucide-react";
+import { CalendarClock, Clock, Layers } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -14,7 +14,7 @@ const SPREADS_FAQS = [
   {
     question: "Which tarot spread should a beginner use?",
     answer:
-      "Start with the Single Card or Three Card spread — few positions, crisp narrative structure, and easy to cross-check against real-world events without overwhelm.",
+      "Start with the Single Card or Three Card spread: few positions, crisp narrative structure, and easy to cross-check against real-world events without overwhelm.",
   },
   {
     question: "What is the Celtic Cross spread?",
@@ -24,7 +24,7 @@ const SPREADS_FAQS = [
   {
     question: "Can I use any spread for any question?",
     answer:
-      "Yes, though tailored topic layouts deliver clearer contrast — Love spreads compare two partners evenly while Decision spreads illuminate blindspots between distinct paths.",
+      "Yes, though tailored topic layouts deliver clearer contrast: Love spreads compare two partners evenly while Decision spreads illuminate blindspots between distinct paths.",
   },
   {
     question: "How should I word questions before pulling a spread?",
@@ -37,16 +37,16 @@ const WHEN_TO_USE: Record<string, string> = {
   single:
     "Best for a quick daily check-in, or when you just need one clear, focused message rather than a full analysis.",
   "three-card":
-    "Good for understanding how a situation has developed and where it's likely heading — a simple before/now/next arc.",
+    "Good for understanding how a situation has developed and where it's likely heading: a simple before/now/next arc.",
   love: "Best when a relationship's dynamics feel unclear and you want to see both people's energy side by side, not just your own.",
   career:
-    "Suited to work decisions — a stuck project, a job change, or wanting a clearer sense of direction in your path.",
+    "Suited to work decisions: a stuck project, a job change, or wanting a clearer sense of direction in your path.",
   money:
     "Useful when finances feel blocked or uncertain and you want to see what's restricting flow versus what's opening up.",
   decision:
-    "Built for choosing between two real options — it surfaces a hidden factor neither option accounts for on its own.",
+    "Built for choosing between two real options: it surfaces a hidden factor neither option accounts for on its own.",
   "celtic-cross":
-    "The most thorough spread here — suited to a complex or high-stakes question where you want the full picture, not just a quick read.",
+    "The most thorough spread here: suited to a complex or high-stakes question where you want the full picture, not just a quick read.",
   "year-ahead":
     "A longer-range spread, one card per month, for a broad sense of the themes likely to show up across the coming year.",
 };
@@ -63,7 +63,7 @@ export function GuideTarotSpreadsScreen() {
           Tarot spreads, <span className="aurora-text">explained</span>
         </h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          A tarot spread is simply a layout — a fixed set of positions, each assigned its own
+          A tarot spread is simply a layout: a fixed set of positions, each assigned its own
           meaning, that cards are drawn into. The same card lands differently depending on which
           position it falls in: The Tower in a "Challenge" position reads very differently than The
           Tower in an "Outcome" position. Below are all eight spreads available in AstroFree&apos;s{" "}
@@ -128,7 +128,7 @@ export function GuideTarotSpreadsScreen() {
               )}
               {spread.count > 10 && (
                 <p className="mt-4 text-sm text-muted-foreground">
-                  One card per month, January through December — a broad-strokes forecast rather
+                  One card per month, January through December: a broad-strokes forecast rather
                   than a position-by-position breakdown.
                 </p>
               )}
@@ -152,7 +152,7 @@ export function GuideTarotSpreadsScreen() {
               Consider drawing the Eight of Swords inside a Challenge position versus an Advice
               position. As a Challenge, it points out where overthinking or self-imposed rules have
               convinced you that you have fewer options than you actually do. Inside an Advice slot,
-              however, it invites you to question unexamined assumptions immediately — noticing that
+              however, it invites you to question unexamined assumptions immediately: noticing that
               the blindfold in traditional artwork is tied loosely enough to remove yourself.
             </p>
           </GlassCard>
@@ -173,11 +173,11 @@ export function GuideTarotSpreadsScreen() {
               </li>
               <li>
                 <strong className="text-foreground">Three Card &amp; Decision Spreads (3–4 cards):</strong>{" "}
-                Best when you need narrative flow — seeing how yesterday&apos;s momentum shapes today&apos;s
+                Best when you need narrative flow: seeing how yesterday&apos;s momentum shapes today&apos;s
                 choice, or weighing two distinct options side by side.
               </li>
               <li>
-                <strong className="text-foreground">Topic Spreads (Love, Career, Money — 4 cards):</strong>{" "}
+                <strong className="text-foreground">Topic Spreads (Love, Career, Money: 4 cards):</strong>{" "}
                 Designed around dedicated interpersonal or practical lenses so you examine both internal
                 stance and external obstacles cleanly.
               </li>
@@ -203,7 +203,7 @@ export function GuideTarotSpreadsScreen() {
               Read mechanically, Seven of Swords might trigger alarm about betrayal. Read inside the
               spread arc, however, a calm narrative emerges: months of quiet private research (The
               Hermit) have taught you quietly to inspect fine print and keep your plans discreet until
-              ready (Seven of Swords — tactical discretion rather than deceit), paving cleanly toward
+              ready (Seven of Swords: tactical discretion rather than deceit), paving cleanly toward
               a solid, tangible offer or contract (Ace of Pentacles). Notice the shift from Air
               reflection to concrete Earth prosperity: discernment protects the seed.
             </p>
@@ -218,7 +218,7 @@ export function GuideTarotSpreadsScreen() {
               scan the whole layout for elemental balance: an abundance of Cups points to emotional
               sensitivity, Wands signals creative urgency, Swords reveals heavy mental analysis, and
               Pentacles anchors the question in tangible stability, craft, or finances. Next, note
-              how many Major Arcana cards appear — two or more suggest deeper life themes at play
+              how many Major Arcana cards appear: two or more suggest deeper life themes at play
               rather than minor passing moods. Finally, look at the first and last cards together as
               a headline summarizing where the energy starts and where it resolves.
             </p>

@@ -9,7 +9,7 @@ import {
   HelpCircle,
   Route as RouteIcon,
   Sparkles,
-} from "lucide-react";
+} from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -37,7 +37,7 @@ export function BhagyankCalculatorScreen() {
       crumbs={[{ label: "Bhagyank Calculator" }]}
       eyebrow="Numerology Calculator"
       title="Bhagyank Calculator – Calculate Your Destiny Number"
-      intro="Bhagyank — also called your Destiny Number or Life Path Number — comes from your complete date of birth, not just the day. Enter your birthdate below for an instant calculation, a transparent breakdown of the maths, and a full guide to what your number means."
+      intro="Bhagyank (also called your Destiny Number or Life Path Number) comes from your complete date of birth, not just the day. Enter your birthdate below for an instant calculation, a transparent breakdown of the maths, and a full guide to what your number means."
       url={`${SITE_URL}/bhagyank-calculator`}
       updated={BHAGYANK_UPDATED}
       readingMinutes={11}
@@ -60,7 +60,7 @@ export function BhagyankCalculatorScreen() {
         title="What is Bhagyank?"
         icon={BookOpen}
         paragraphs={[
-          "Bhagyank, also known as the Destiny Number or Life Path Number, is a core figure in numerological tradition, calculated by reducing every digit of your complete date of birth — day, month and year together — to a single number. Where Mulank looks only at the day you were born, Bhagyank is read as a wider signature drawn from your whole birthdate.",
+          "Bhagyank, also known as the Destiny Number or Life Path Number, is a core figure in numerological tradition, calculated by reducing every digit of your complete date of birth (day, month and year together) to a single number. Where Mulank looks only at the day you were born, Bhagyank is read as a wider signature drawn from your whole birthdate.",
           "In classical Pythagorean numerology and in Vedic numerology alike, Bhagyank is generally treated as one of the most significant numbers in a person's chart, said to describe overall direction, the kind of lessons a life tends to circle back to, and the broad shape of opportunity and challenge a person will likely encounter.",
           "It's worth being clear about what this actually is: a traditional, belief-based framework for reflection, not a scientifically validated predictor of outcomes. AstroFree presents Bhagyank as a tool for self-exploration and conversation-starting, in the same spirit as its tarot readings.",
         ]}
@@ -71,7 +71,7 @@ export function BhagyankCalculatorScreen() {
         title="How is Bhagyank Calculated?"
         icon={Calculator}
         paragraphs={[
-          "The method is simple: write out your date of birth as day, month, and full four-digit year, then add together every individual digit. If the result is more than one digit, add those digits together again — and repeat — until you reach a single digit. The one exception is if an intermediate sum lands on 11, 22, or 33: tradition holds that these Master Numbers are preserved rather than reduced further.",
+          "The method is simple: write out your date of birth as day, month, and full four-digit year, then add together every individual digit. If the result is more than one digit, add those digits together again, and repeat, until you reach a single digit. The one exception is if an intermediate sum lands on 11, 22, or 33: tradition holds that these Master Numbers are preserved rather than reduced further.",
         ]}
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -102,9 +102,9 @@ export function BhagyankCalculatorScreen() {
         title="Bhagyank vs Mulank: What's the Difference?"
         icon={Compass}
         paragraphs={[
-          "Mulank and Bhagyank are the two numbers people most often confuse, and the difference comes down to which part of your date of birth is used. Mulank — also called the birth, driver, or psychic number — is calculated from your day of birth alone. If you were born on the 23rd of any month, your Mulank is 5 (2 + 3), regardless of the month or year.",
-          "Bhagyank uses your complete date of birth: day, month, and year, all reduced together. It's a slower calculation because there's more to add, but it's traditionally read as the broader of the two figures — less about your instinctive, day-to-day personality (Mulank's territory) and more about the overall arc of your life: the kind of path you're on and the lessons that tend to recur across it.",
-          "Most practitioners treat the two as complementary rather than competing. Mulank is often described as how you show up; Bhagyank as where you're headed. Reading them together — rather than picking one — is the traditional approach.",
+          "Mulank and Bhagyank are the two numbers people most often confuse, and the difference comes down to which part of your date of birth is used. Mulank (also called the birth, driver, or psychic number) is calculated from your day of birth alone. If you were born on the 23rd of any month, your Mulank is 5 (2 + 3), regardless of the month or year.",
+          "Bhagyank uses your complete date of birth: day, month, and year, all reduced together. It's a slower calculation because there's more to add, but it's traditionally read as the broader of the two figures: less about your instinctive, day-to-day personality (Mulank's territory) and more about the overall arc of your life: the kind of path you're on and the lessons that tend to recur across it.",
+          "Most practitioners treat the two as complementary rather than competing. Mulank is often described as how you show up; Bhagyank as where you're headed. Reading them together, rather than picking one, is the traditional approach.",
         ]}
       >
         <Link
@@ -120,7 +120,7 @@ export function BhagyankCalculatorScreen() {
         title="Bhagyank and Career"
         icon={Briefcase}
         paragraphs={[
-          "Numerological tradition associates each Bhagyank number with a broad set of career tendencies — 1s toward founding and leading, 8s toward business and finance, 6s toward caregiving and service professions, and so on, as detailed number-by-number above. These associations come from centuries of numerological practice, not from labour-market data or psychometric research, and should be read as prompts for reflection rather than a career test.",
+          "Numerological tradition associates each Bhagyank number with a broad set of career tendencies: 1s toward founding and leading, 8s toward business and finance, 6s toward caregiving and service professions, and so on, as detailed number-by-number above. These associations come from centuries of numerological practice, not from labour-market data or psychometric research, and should be read as prompts for reflection rather than a career test.",
           "Used thoughtfully, a Bhagyank reading can be a useful mirror: a way to ask whether your current work draws on the strengths your number describes, or asks you to consistently work against your grain. It isn't a substitute for genuine career guidance, aptitude assessment, or professional counselling.",
         ]}
       />
@@ -130,8 +130,8 @@ export function BhagyankCalculatorScreen() {
         title="Bhagyank and Relationships"
         icon={Heart}
         paragraphs={[
-          "In numerological tradition, comparing two people's Bhagyank numbers is sometimes used as a lens on relationship dynamics — where two paths might naturally align, and where they might create friction that takes conscious effort to navigate. A 1 and a 2, for instance, are traditionally described as a study in contrasts: independence meeting a need for partnership.",
-          "These readings are best treated as general and non-deterministic. No number combination is described in serious numerological practice as guaranteeing compatibility or incompatibility — real relationships are shaped by communication, shared values, and effort far more than by any single calculation.",
+          "In numerological tradition, comparing two people's Bhagyank numbers is sometimes used as a lens on relationship dynamics, where two paths might naturally align, and where they might create friction that takes conscious effort to navigate. A 1 and a 2, for instance, are traditionally described as a study in contrasts: independence meeting a need for partnership.",
+          "These readings are best treated as general and non-deterministic. No number combination is described in serious numerological practice as guaranteeing compatibility or incompatibility: real relationships are shaped by communication, shared values, and effort far more than by any single calculation.",
         ]}
       />
 
@@ -154,7 +154,7 @@ export function BhagyankCalculatorScreen() {
           {
             to: "/numerology/mulank",
             label: "Mulank (Birth Number) Guide",
-            blurb: "The other core numerology number — calculated from your day of birth alone.",
+            blurb: "The other core numerology number: calculated from your day of birth alone.",
           },
           {
             to: "/numerology",

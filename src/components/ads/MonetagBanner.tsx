@@ -1,11 +1,11 @@
 /**
- * MonetagBanner — safe Monetag ad formats that do NOT intercept page clicks.
+ * MonetagBanner: safe Monetag ad formats that do NOT intercept page clicks.
  *
  * Use one of:
  *   <MonetagBanner type="inpage" zoneId="YOUR_ZONE_ID" />   ← notification-style, sticks to bottom
  *   <MonetagBanner type="banner" zoneId="YOUR_ZONE_ID" />   ← standard inline banner
  *
- * NEVER use the "onclick" or "popunder" zone types — those attach a
+ * NEVER use the "onclick" or "popunder" zone types: those attach a
  * document.onclick listener that breaks every button/link on the page.
  *
  * How to get your zone IDs:
@@ -22,7 +22,7 @@ interface MonetagBannerProps {
   /**
    * "inpage" = In-Page Push (small notification card, anchored bottom-right).
    *            The tag.min.js script in <head> handles rendering automatically
-   *            once data-type="inpage" is set — no extra component needed.
+   *            once data-type="inpage" is set: no extra component needed.
    *            Use this component only for "banner" zones.
    * "banner"  = Standard display banner, rendered inside this element.
    */

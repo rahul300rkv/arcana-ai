@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 
 export interface RelatedItem {
@@ -26,7 +26,7 @@ export function RelatedCards({ title, items }: { title: string; items: RelatedIt
                 {item.image && (
                   <img
                     src={item.image}
-                    alt={`${item.name} Rider–Waite–Smith tarot card illustration — ${item.subtitle}`}
+                    alt={`${item.name} Rider–Waite–Smith tarot card illustration: ${item.subtitle}`}
                     loading="lazy"
                     decoding="async"
                     width={64}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
@@ -32,7 +32,7 @@ export function DailyCard() {
 
   function onSaveReflection() {
     if (!note.trim() || !card) return;
-    addJournalEntry(note.trim(), `Daily card — ${card.name}`);
+    addJournalEntry(note.trim(), `Daily card: ${card.name}`);
     setNote("");
     setSaved(true);
     setReflecting(false);

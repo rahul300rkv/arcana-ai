@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 export interface Step {
   /** e.g. "1 + 5 + 0 + 8 + 1 + 9 + 9 + 5" */

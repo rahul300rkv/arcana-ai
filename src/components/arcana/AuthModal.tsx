@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { GoldButton } from "./GoldButton";
-import { Mail, User } from "lucide-react";
+import { Mail, User } from "@/components/icons";
 
 type Props = { open: boolean; onOpenChange: (o: boolean) => void };
 

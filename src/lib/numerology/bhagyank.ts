@@ -3,7 +3,7 @@
  *
  * Unlike Mulank (`engine.ts`), which reduces only the day of birth, Bhagyank
  * reduces every digit of the complete date of birth (DD + MM + YYYY) and
- * preserves 11, 22 and 33 as Master Numbers wherever they appear — including
+ * preserves 11, 22 and 33 as Master Numbers wherever they appear: including
  * at intermediate reduction steps, not just the final result.
  */
 
@@ -69,11 +69,11 @@ export function parseDob(iso: string): ParsedDob {
     throw new Error("Please enter a birth year of 1900 or later.");
   }
   if (month < 1 || month > 12) {
-    throw new Error("That month doesn't exist — please check your date.");
+    throw new Error("That month doesn't exist: please check your date.");
   }
   const daysInMonth = new Date(year, month, 0).getDate();
   if (day < 1 || day > daysInMonth) {
-    throw new Error("That day doesn't exist for the selected month — please check your date.");
+    throw new Error("That day doesn't exist for the selected month: please check your date.");
   }
 
   const today = new Date();

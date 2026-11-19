@@ -48,7 +48,7 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
 
   const appHtml = renderToString(<RouterProvider router={router} />);
 
-  let title = "AstroFree — Free AI Tarot & Vedic Numerology";
+  let title = "AstroFree | Free AI Tarot & Vedic Numerology";
   const metaMap = new Map<string, { attr: "name" | "property"; key: string; content: string }>();
   const ldJsonSeen = new Set<string>();
   const ldJsonBlocks: string[] = [];

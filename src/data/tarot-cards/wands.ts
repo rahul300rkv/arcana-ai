@@ -4,14 +4,14 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   "wands-ace": {
     overview: [
       "The Ace of Wands thrusts a living wooden staff straight out of a luminous cloud, sprouting fresh emerald leaves while tiny flames drift gently across green hills and distant castle walls. Here sits the pure primal spark of Fire before business plans, edits, or cautious committees step in.",
-      "Drawn upright or reversed, this Ace measures raw creative ignition—passion, bold initiative, erotic chemistry, entrepreneurial daring, and unmistakable gut urgency demanding a tangible first move.",
+      "Drawn upright or reversed, this Ace measures raw creative ignition: passion, bold initiative, erotic chemistry, entrepreneurial daring, and unmistakable gut urgency demanding a tangible first move.",
     ],
     upright: [
       "Upright delivers lightning inspiration: sudden job excitement, an irresistible creative concept, athletic vigor, or mutual romantic spark leaping alive across the table.",
-      "Strike while the wood is green—Aces hand you raw flame, not finished furniture. Draft the outline, send the pitch, or book the first lesson today.",
+      "Strike while the wood is green: Aces hand you raw flame, not finished furniture. Draft the outline, send the pitch, or book the first lesson today.",
     ],
     reversed: [
-      "Reversed feels like damp kindling—creative fatigue, half-lit ideas fizzling inside group chats, false starts launched purely to chase dopamine, or stalling out before taking step one.",
+      "Reversed feels like damp kindling: creative fatigue, half-lit ideas fizzling inside group chats, false starts launched purely to chase dopamine, or stalling out before taking step one.",
       "Do not force artificial hype when exhaustion rules the tank; rest two nights, then light one clean pilot experiment.",
     ],
     love: [
@@ -23,7 +23,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed flags uninspiring busywork draining natural ambition or premature launches lacking preparation.",
     ],
     finance: [
-      "Financially, seed-stage income ideas, skill monetization bursts, and enthusiastic risk appetite rise—pair brave bets with firm downside limits.",
+      "Financially, seed-stage income ideas, skill monetization bursts, and enthusiastic risk appetite rise: pair brave bets with firm downside limits.",
       "Reversed warns against chasing shiny get-rich impulses before checking cash reserves.",
     ],
     health: [
@@ -31,10 +31,10 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights temporary lethargy or stress headaches from stifled enthusiasm.",
     ],
     spiritual: [
-      "Spiritually, divine inspiration arrives as joyful warmth inside the belly—listen closely to what genuinely animates your spirit.",
+      "Spiritually, divine inspiration arrives as joyful warmth inside the belly: listen closely to what genuinely animates your spirit.",
       "Guard small fragile sparks before cynics inspect them.",
     ],
-    yesNoText: "Ace of Wands answers Yes—bold, creative, and energetic when met with swift immediate action.",
+    yesNoText: "Ace of Wands answers Yes: bold, creative, and energetic when met with swift immediate action.",
     timeline: [
       "A fresh burst of curiosity or creative excitement ignited beneath earlier stagnation.",
       "Pure inspired potential sits right in your palm ready to catch flame today.",
@@ -79,18 +79,18 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   "wands-two": {
     overview: [
       "Two of Wands places a prosperous figure upon stone castle battlements gazing over calm bays and distant blue hills, holding a miniature Earth globe comfortably in their right palm while gripping one anchored wand beside them. Rather than jumping blindly off cliffs like The Fool, Card 2 inspects two viable maps: staying comfortably inside familiar castle walls or sailing boldly toward uncharted markets.",
-      "Linked with Mars in Aries, this card rules deliberate strategic expansion—weighing trade-offs calmly at high altitude before booking the crossing.",
+      "Linked with Mars in Aries, this card rules deliberate strategic expansion: weighing trade-offs calmly at high altitude before booking the crossing.",
     ],
     upright: [
       "Upright signals high-leverage planning: evaluating international roles, drafting multi-quarter business strategy, comparing two serious paths, or deciding whether stable walls feel too small for next growth.",
-      "Having choices creates quiet power—map real milestones, pick a departure date, and move past endless horizon staring.",
+      "Having choices creates quiet power: map real milestones, pick a departure date, and move past endless horizon staring.",
     ],
     reversed: [
       "Reversed stalls at permanent planning tables: fear of leaving comfortable familiarity, sloppy risk estimates, or sudden travel snags disrupting grand expansion plans.",
       "Over-planning easily disguises safe procrastination.",
     ],
     love: [
-      "In love, consider future geography and long-range vision—can this relationship grow beyond your current comfort bubble, or does distant horizon tug differently on each person?",
+      "In love, consider future geography and long-range vision: can this relationship grow beyond your current comfort bubble, or does distant horizon tug differently on each person?",
       "Reversed exposes hesitating quietly at relationship crossroads afraid to pick.",
     ],
     career: [
@@ -110,7 +110,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Vision requires picking concrete trails down the stairs afterward.",
     ],
     yesNoText:
-      "Two of Wands leans Conditional / Yes—favoring global, bold expansion once you compare options clearly and commit to one departure date.",
+      "Two of Wands leans Conditional / Yes: favoring global, bold expansion once you compare options clearly and commit to one departure date.",
     timeline: [
       "Building solid early stability earned safe vantage overlooking broader worlds.",
       "Strategic mapping, bold vision, and weighing two distinct futures shape today.",
@@ -124,7 +124,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
     journalPrompts: [
       "What castle wall keeps me comfortable today yet quietly caps my real growth?",
       "If my plan succeeded cleanly across borders, what does life look like in two years?",
-      "Am I planning thoughtfully—or stalling behind endless spreadsheets?",
+      "Am I planning thoughtfully, or stalling behind endless spreadsheets?",
     ],
     meditation:
       "Look calmly over turquoise open waters from cool sunlit battlements, letting wide horizon expand cramped tunnel worries gently.",
@@ -143,7 +143,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can Two of Wands signal emigration or studying abroad?",
         answer:
-          "Frequently yes—it strongly aligns with planning international relocation, visas, remote expansion, and foreign partnerships.",
+          "Frequently yes: it strongly aligns with planning international relocation, visas, remote expansion, and foreign partnerships.",
       },
       {
         question: "What does Two of Wands reversed mean?",
@@ -155,11 +155,11 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   "wands-three": {
     overview: [
       "Three of Wands steps outside the stone castle altogether onto high sunlit cliffs watching golden ships sail smoothly across amber harbors toward distant shores. Back turned cleanly toward yesterday's shore, the traveler rests one hand steadily upon three rooted staves while watching early strategy blossom visibly into international commerce and active momentum.",
-      "Attributed to Sun in Aries, Card 3 turns bold plans into live ocean voyages—first results confirm the compass works.",
+      "Attributed to Sun in Aries, Card 3 turns bold plans into live ocean voyages: first results confirm the compass works.",
     ],
     upright: [
       "Upright signals expanding trade, thriving collaborations across regions, encouraging early metrics, overseas opportunities arriving warmly, and patience watching early ships glide cleanly toward port.",
-      "Keep eyes scanning horizon—your next upgrade sits past cozy domestic circles.",
+      "Keep eyes scanning horizon: your next upgrade sits past cozy domestic circles.",
     ],
     reversed: [
       "Reversed stalls supply lines: late shipments, postponed travel, underwhelming early launches, or expanding outward too broadly without steady local operations.",
@@ -186,7 +186,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Trust seeds already sailing outward.",
     ],
     yesNoText:
-      "Three of Wands answers Yes—momentum is underway, horizons expand smoothly, and initial efforts carry strong upside.",
+      "Three of Wands answers Yes: momentum is underway, horizons expand smoothly, and initial efforts carry strong upside.",
     timeline: [
       "Courageous initial launches sent bold ideas out beyond local limits.",
       "Early traction, far-reaching networking, and forward momentum confirm direction today.",
@@ -214,12 +214,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Three of Wands positive for business and freelancing?",
         answer:
-          "Strongly yes—it favors remote expansion, scaling distribution, international clients, and profitable trade.",
+          "Strongly yes: it favors remote expansion, scaling distribution, international clients, and profitable trade.",
       },
       {
         question: "Does Three of Wands predict travel?",
         answer:
-          "Often—especially purposeful business trips, long-distance visits, or expanding geographic footprint.",
+          "Often. Especially purposeful business trips, long-distance visits, or expanding geographic footprint.",
       },
       {
         question: "What does Three of Wands reversed mean?",
@@ -231,11 +231,11 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   "wands-four": {
     overview: [
       "Four of Wands raises an abundant floral garland tied high atop four sturdy wooden posts before a cheerful stone manor where smiling figures dance raising bouquets in crisp celebration. Where Card 3 gazed eagerly over oceans, Venus in Aries pauses gratefully on solid domestic turf to cheer genuine earned milestones.",
-      "This is tarot's card of joyful thresholds—housewarmings, engagements, graduation ceremonies, welcoming homecomings, and community warmth.",
+      "This is tarot's card of joyful thresholds: housewarmings, engagements, graduation ceremonies, welcoming homecomings, and community warmth.",
     ],
     upright: [
       "Upright signals stability worthy of public celebration: buying or moving into a welcoming home, milestone anniversaries, happy weddings, tight-knit team wins, or genuine inner relief landing firmly after rocky work.",
-      "Never rush straight past real celebrations to chase next worries—pause and savor supportive friends today.",
+      "Never rush straight past real celebrations to chase next worries: pause and savor supportive friends today.",
     ],
     reversed: [
       "Reversed dims public celebration into minor domestic friction: cramped holiday stress, delayed moving dates, private discomfort beneath polite social smiles, or feeling overlooked at community gatherings.",
@@ -262,7 +262,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Build welcoming shelters where tired friends exhale cleanly.",
     ],
     yesNoText:
-      "Four of Wands answers Yes—joyful, grounded, harmonious, and warmly supported by home and community.",
+      "Four of Wands answers Yes: joyful, grounded, harmonious, and warmly supported by home and community.",
     timeline: [
       "Consistent groundwork turned restless hustle into solid supportive territory.",
       "Celebration, joyful domestic peace, and proud milestone recognition brighten today.",
@@ -285,7 +285,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Four of Wands predict marriage or moving house?",
         answer:
-          "Very frequently yes—it represents weddings, engagements, buying a home, joyful moving days, and welcoming domestic harmony.",
+          "Very frequently yes: it represents weddings, engagements, buying a home, joyful moving days, and welcoming domestic harmony.",
       },
       {
         question: "Why are there four wands forming an archway?",
@@ -295,7 +295,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Four of Wands reversed negative?",
         answer:
-          "Usually mildly tense rather than catastrophic—delayed events, minor family bickering, or forgetting to celebrate private peace.",
+          "Usually mildly tense rather than catastrophic: delayed events, minor family bickering, or forgetting to celebrate private peace.",
       },
       {
         question: "What does Four of Wands mean in work readings?",
@@ -306,7 +306,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-five": {
     overview: [
-      "Five of Wands throws five spirited youths into chaotic dust clouds waving crossed wooden staffs—yet look closer at faces and clothing: nobody draws blood, zero swords pierce armor, and everyone wears lively clashing colors like rowdy teammates practicing sparring drills or debating brainstorms simultaneously without a referee.",
+      "Five of Wands throws five spirited youths into chaotic dust clouds waving crossed wooden staffs, yet look closer at faces and clothing: nobody draws blood, zero swords pierce armor, and everyone wears lively clashing colors like rowdy teammates practicing sparring drills or debating brainstorms simultaneously without a referee.",
       "Saturn in Leo turns Card 5 into healthy friction, noisy competition, clashing egos, and scrappy creative tension waiting for clear rules or steady leadership.",
     ],
     upright: [
@@ -314,7 +314,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Competing well means refusing petty ego bait while articulating clear structure cleanly above chatter.",
     ],
     reversed: [
-      "Reversed either cools squabbles back into polite cooperation—or hides simmering passive-aggressive resentment underneath icy fake harmony where real issues go unspoken.",
+      "Reversed either cools squabbles back into polite cooperation, or hides simmering passive-aggressive resentment underneath icy fake harmony where real issues go unspoken.",
       "Name hidden friction cleanly before tiny annoyances fester silently.",
     ],
     love: [
@@ -330,15 +330,15 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed eases budget friction slowly once hidden costs emerge.",
     ],
     health: [
-      "Physically, competitive adrenaline can fuel exhilarating group sports—just guard against minor sprains, vocal tension, or cortisol spikes from constant arguments.",
+      "Physically, competitive adrenaline can fuel exhilarating group sports: just guard against minor sprains, vocal tension, or cortisol spikes from constant arguments.",
       "Reversed links tight muscles to swallowed unspoken irritation.",
     ],
     spiritual: [
-      "Spiritually, real refinement strikes sparks like flint against steel—test ideas humbly without turning disagreement into identity warfare.",
+      "Spiritually, real refinement strikes sparks like flint against steel: test ideas humbly without turning disagreement into identity warfare.",
       "Choose clear focus over endless side skirmishes.",
     ],
     yesNoText:
-      "Five of Wands leans Conditional / No for effortless sailing—expect energetic competition, noisy debate, or friction needing firm structure first.",
+      "Five of Wands leans Conditional / No for effortless sailing: expect energetic competition, noisy debate, or friction needing firm structure first.",
     timeline: [
       "Crowded overlapping ambitions brought spirited personalities into close friction.",
       "Lively debate, competitive sparring, and competing priorities test composure now.",
@@ -361,12 +361,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Are the figures in Five of Wands trying to kill each other?",
         answer:
-          "No—traditionally it depicts lively sparring, competition, games, or noisy disagreement rather than lethal violence.",
+          "No. Traditionally it depicts lively sparring, competition, games, or noisy disagreement rather than lethal violence.",
       },
       {
         question: "What does Five of Wands mean in job hunting?",
         answer:
-          "Stiff competition from qualified peers—differentiate clearly through specific portfolio proof rather than generic applications.",
+          "Stiff competition from qualified peers: differentiate clearly through specific portfolio proof rather than generic applications.",
       },
       {
         question: "How does Five of Wands differ from Five of Swords?",
@@ -382,12 +382,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-six": {
     overview: [
-      "Six of Wands rides high astride a draped white horse clad in crimson cloak and victory laurel wreath, holding a laurel-crowned wand while cheering pedestrians raise staffs along a proud parade route. Jupiter in Leo turns Card 5's noisy scrappiness into undeniable public triumph—winning cleanly so both pride and peer respect stand intact.",
-      "Remember parades are fleeting bright scenes rather than finish lines—enjoy genuine acclaim gracefully without growing intoxicated by applause.",
+      "Six of Wands rides high astride a draped white horse clad in crimson cloak and victory laurel wreath, holding a laurel-crowned wand while cheering pedestrians raise staffs along a proud parade route. Jupiter in Leo turns Card 5's noisy scrappiness into undeniable public triumph: winning cleanly so both pride and peer respect stand intact.",
+      "Remember parades are fleeting bright scenes rather than finish lines: enjoy genuine acclaim gracefully without growing intoxicated by applause.",
     ],
     upright: [
       "Upright signals public awards, hard-earned promotions, passed exams, glowing client testimonials, viral project recognition, and rallying people naturally behind visible leadership.",
-      "Step onto the stage proudly—false modesty helps nobody when real craft earned applause.",
+      "Step onto the stage proudly: false modesty helps nobody when real craft earned applause.",
     ],
     reversed: [
       "Reversed dims spotlights or exposes hollow optics: overlooked effort lacking credit, delayed praise, fragile ego crashing at minor critique, or bragging loudly to mask private insecurity.",
@@ -413,7 +413,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, celebrate visible victories warmly while thanking silent hands who held horses steady behind scenes.",
       "Humility keeps crowns steady through tomorrow.",
     ],
-    yesNoText: "Six of Wands answers Yes—public success, confident progress, and earned recognition favor you cleanly.",
+    yesNoText: "Six of Wands answers Yes: public success, confident progress, and earned recognition favor you cleanly.",
     timeline: [
       "Outlasting noisy competition earlier forged undeniable mastery.",
       "Warm applause, visible triumph, and proud leadership momentum arrive cleanly today.",
@@ -441,7 +441,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Six of Wands good for exams and competitions?",
         answer:
-          "Exceptionally strong—one of tarot's clearest markers for passing tests, winning bids, awards, and confident advancement.",
+          "Exceptionally strong: one of tarot's clearest markers for passing tests, winning bids, awards, and confident advancement.",
       },
       {
         question: "Why does the horse look calmly steady in Six of Wands?",
@@ -457,12 +457,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-seven": {
     overview: [
-      "Seven of Wands catches a resolute defender balancing atop jagged rocky turf fighting off six opposing staffs thrust upward from lower valleys—notice he even wears mismatched shoes, pulled mid-stride straight into standing his ground before lacing perfectly! Mars in Leo shows that real visible success (Card 6) immediately attracts challengers testing your resolve.",
+      "Seven of Wands catches a resolute defender balancing atop jagged rocky turf fighting off six opposing staffs thrust upward from lower valleys: notice he even wears mismatched shoes, pulled mid-stride straight into standing his ground before lacing perfectly! Mars in Leo shows that real visible success (Card 6) immediately attracts challengers testing your resolve.",
       "Yet notice key tactical math: you already hold the steep high ridge! Nobody forces you downhill unless self-doubt hands back higher terrain.",
     ],
     upright: [
       "Upright signals defending earned standards against critics, maintaining clear boundaries under unfair pushback, outlasting market competitors, and holding true principles even when outnumbered momentarily.",
-      "You don't need flawless polish before defending healthy territory—mismatched shoes hold fine when conviction stands sturdy.",
+      "You don't need flawless polish before defending healthy territory: mismatched shoes hold fine when conviction stands sturdy.",
     ],
     reversed: [
       "Reversed feels exhausted by endless defensive fighting: giving ground just to stop noise, feeling overwhelmed by stacked demands, or picking needless defensive scraps when nobody actually attacked.",
@@ -489,7 +489,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Know precisely which values rest on high ground.",
     ],
     yesNoText:
-      "Seven of Wands leans Yes—you hold winning high ground if willing to defend your boundaries firmly without blinking.",
+      "Seven of Wands leans Yes: you hold winning high ground if willing to defend your boundaries firmly without blinking.",
     timeline: [
       "Rising visibility drew fresh scrutiny and competitive challenges upward.",
       "Resolute grit and defending honest high ground hold position cleanly right now.",
@@ -512,7 +512,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is the figure wearing two different shoes in Seven of Wands?",
         answer:
-          "Historically drawn to show being caught mid-action or unprepared—reminding you courage matters far more than waiting until everything looks polished.",
+          "Historically drawn to show being caught mid-action or unprepared: reminding you courage matters far more than waiting until everything looks polished.",
       },
       {
         question: "Does Seven of Wands mean people are plotting against me?",
@@ -533,12 +533,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-eight": {
     overview: [
-      "Eight of Wands clears every single human character cleanly out of bright sky—leaving eight straight wooden staffs streaking swiftly downward together toward peaceful river valleys and sunlit hills. Mercury in Sagittarius compresses slow sluggish weeks into pure airborne velocity.",
+      "Eight of Wands clears every single human character cleanly out of bright sky, leaving eight straight wooden staffs streaking swiftly downward together toward peaceful river valleys and sunlit hills. Mercury in Sagittarius compresses slow sluggish weeks into pure airborne velocity.",
       "Obstacles just dissolved; messages, flights, offers, insights, and chemistry move faster than slow second-guessing can schedule.",
     ],
     upright: [
       "Upright unleashes fast breakthroughs: rapid email approvals, whirlwind romance chemistry, sudden flight bookings, crisp alignment across stalled tasks, and urgent news arriving within days rather than quarters.",
-      "Prepare tidy landing pads immediately—hesitating now lets fast arrows overshoot.",
+      "Prepare tidy landing pads immediately: hesitating now lets fast arrows overshoot.",
     ],
     reversed: [
       "Reversed stalls in runway traffic: delayed flights, crossed text threads, frantic rushing causing sloppy mistakes, or scattered panic shooting energy cleanly in eight conflicting directions.",
@@ -564,7 +564,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, synchronicities cascade rapidly when inner resistance gets completely out of the sky.",
       "Ride bright wind cleanly without forcing clumsy steering.",
     ],
-    yesNoText: "Eight of Wands answers an immediate Yes—expect swift answers, crisp green lights, and rapid progress.",
+    yesNoText: "Eight of Wands answers an immediate Yes: expect swift answers, crisp green lights, and rapid progress.",
     timeline: [
       "Patient steady clearing opened unobstructed sky overhead.",
       "Fast messages, travel momentum, and swift green lights accelerate sharply now.",
@@ -592,12 +592,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "How fast is Eight of Wands timing?",
         answer:
-          "Often hours, days, or weeks—one of tarot's clearest markers of rapid communication, air travel, and swift updates.",
+          "Often hours, days, or weeks: one of tarot's clearest markers of rapid communication, air travel, and swift updates.",
       },
       {
         question: "Is Eight of Wands positive for love messages or reconciliation?",
         answer:
-          "Yes—it frequently accompanies sudden texts, spontaneous visits, fast-moving attraction, or rapid romantic progress.",
+          "Yes. It frequently accompanies sudden texts, spontaneous visits, fast-moving attraction, or rapid romantic progress.",
       },
       {
         question: "What does Eight of Wands reversed mean?",
@@ -608,19 +608,19 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-nine": {
     overview: [
-      "Nine of Wands portrays a battle-tested guardian bandaged across the brow leaning cautiously upon one sturdy wand while eight taller staves stand lined like a wooden palisade behind him. Moon in Sagittarius reveals the weary final mile right before harvest completion—scars earned honestly from Cards 5–8 make every rustling leaf sound suspicious.",
+      "Nine of Wands portrays a battle-tested guardian bandaged across the brow leaning cautiously upon one sturdy wand while eight taller staves stand lined like a wooden palisade behind him. Moon in Sagittarius reveals the weary final mile right before harvest completion: scars earned honestly from Cards 5–8 make every rustling leaf sound suspicious.",
       "Yet look cleanly: you are still standing vertical! One resolute last stretch carries your banner home without throwing away everything built across hard miles.",
     ],
     upright: [
       "Upright respects gritty endurance: keeping boundaries smartly tested without sliding into cynical paranoia, preserving core reserves for the final 10%, and trusting hard-won resilience one steady breath longer.",
-      "Rest your jaw tonight—smart armor defends without expecting betrayal behind every friendly knock.",
+      "Rest your jaw tonight: smart armor defends without expecting betrayal behind every friendly knock.",
     ],
     reversed: [
       "Reversed splits two ways: brittle exhaustion collapsing just short of victory, or rigid paranoia locking loving allies outside thick suspicious walls long after wars ended.",
       "Call in trusted reinforcement rather than pulling lonely solo guard duty endlessly.",
     ],
     love: [
-      "In love, cautious guardedness after earlier heartbreak slows trust naturally—distinguish smart pacing from punishing present partners for past exes' faults.",
+      "In love, cautious guardedness after earlier heartbreak slows trust naturally: distinguish smart pacing from punishing present partners for past exes' faults.",
       "Reversed highlights stubborn defensive walls blocking genuine closeness or pure relational exhaustion.",
     ],
     career: [
@@ -628,7 +628,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed signals burning clean out right before Q4 deadlines unless workload shifts smartly.",
     ],
     finance: [
-      "Financially, sturdy emergency reserves protecting hard-saved gains after bumpy seasons—stay disciplined right near savings targets.",
+      "Financially, sturdy emergency reserves protecting hard-saved gains after bumpy seasons: stay disciplined right near savings targets.",
       "Reversed warns against exhausted late compromises or paranoid hoarding stopping sensible growth.",
     ],
     health: [
@@ -636,11 +636,11 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed confirms pushing past empty reserves risks sharp relapse.",
     ],
     spiritual: [
-      "Spiritually, true strength softens armor safely once storms pass—wounds taught clear boundaries without killing tender hope.",
+      "Spiritually, true strength softens armor safely once storms pass: wounds taught clear boundaries without killing tender hope.",
       "Lean gratefully on steady staves when knees ache.",
     ],
     yesNoText:
-      "Nine of Wands leans Yes—you have stamina to finish cleanly, provided you pace reserves wisely and stay clear-eyed.",
+      "Nine of Wands leans Yes: you have stamina to finish cleanly, provided you pace reserves wisely and stay clear-eyed.",
     timeline: [
       "Testing hurdles left real lessons and earned sturdy outer defenses.",
       "Battle-tested resilience guards final crucial stretches right now.",
@@ -663,17 +663,17 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does the head bandage symbolize on Nine of Wands?",
         answer:
-          "Wisdom and caution earned from real previous setbacks—showing you survived earlier battles and know what truly matters.",
+          "Wisdom and caution earned from real previous setbacks: showing you survived earlier battles and know what truly matters.",
       },
       {
         question: "Does Nine of Wands mean give up?",
         answer:
-          "Almost never—it honors gritty persistence near the finish line while advising smart pacing rather than reckless burnout.",
+          "Almost never: it honors gritty persistence near the finish line while advising smart pacing rather than reckless burnout.",
       },
       {
         question: "How does Nine of Wands show up in love?",
         answer:
-          "Guarded trust after past hurt—asking for patience, emotional safety, and avoiding projecting old scars onto new partners.",
+          "Guarded trust after past hurt: asking for patience, emotional safety, and avoiding projecting old scars onto new partners.",
       },
       {
         question: "What does Nine of Wands reversed warn about?",
@@ -684,15 +684,15 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-ten": {
     overview: [
-      "Ten of Wands bends a determined worker sharply forward struggling to carry all ten bulky wooden staves strapped tightly inside cramped arms toward a distant town just ahead—vision completely blocked by heavy timber! Saturn in Sagittarius shows classic high-achiever overflow: saying yes out of noble responsibility until genuine creative fire turns into hunched thankless slog.",
-      "Notice the nearby village lights already shine close—put half those non-essential logs calmly onto carts before backbones snap meters from town gates.",
+      "Ten of Wands bends a determined worker sharply forward struggling to carry all ten bulky wooden staves strapped tightly inside cramped arms toward a distant town just ahead: vision completely blocked by heavy timber! Saturn in Sagittarius shows classic high-achiever overflow: saying yes out of noble responsibility until genuine creative fire turns into hunched thankless slog.",
+      "Notice the nearby village lights already shine close: put half those non-essential logs calmly onto carts before backbones snap meters from town gates.",
     ],
     upright: [
       "Upright names acute overwhelm: carrying teammates' slack, hoarding every detail because trusting feels slower, juggling excess clients simultaneously, or confusing heavy martyrdom with excellence.",
       "Completion sits right ahead, yet surviving it demands dropping unnecessary timber cleanly today.",
     ],
     reversed: [
-      "Reversed highlights two turning points: finally setting down crushing excess burdens honestly via delegation—or letting silent exhaustion crack abruptly into missed balls and resentful snapping.",
+      "Reversed highlights two turning points: finally setting down crushing excess burdens honestly via delegation, or letting silent exhaustion crack abruptly into missed balls and resentful snapping.",
       "Drop perfectionist pride before bodies force sudden drops.",
     ],
     love: [
@@ -701,7 +701,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     career: [
       "At work, unmanageable deadlines, bloated scope, failing to delegate junior tasks, or burning passion flat into administrative drudgery.",
-      "Reversed begs immediate pruning—handing off three non-core obligations today.",
+      "Reversed begs immediate pruning: handing off three non-core obligations today.",
     ],
     finance: [
       "Financially, heavy fixed overhead, stretched obligations, or carrying dependents blindly without renegotiating sustainable support.",
@@ -716,14 +716,14 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Set unnecessary wood gently down along the road.",
     ],
     yesNoText:
-      "Ten of Wands leans Conditional / No as currently framed—outcomes stay reachable only if you prune excess weight and delegate cleanly first.",
+      "Ten of Wands leans Conditional / No as currently framed: outcomes stay reachable only if you prune excess weight and delegate cleanly first.",
     timeline: [
       "Saying yes eagerly across growing seasons stacked overwhelming timber.",
       "Crushing heavy obligations demand urgent pruning and delegation right now.",
       "Blessed relief and clean unburdened strides await beyond dropped loads.",
     ],
     advice: [
-      "Cross three 'important' items off your weekly plate permanently—not merely postponed.",
+      "Cross three 'important' items off your weekly plate permanently, not merely postponed.",
       "Delegate or ask straight for help on one heavy chore today without martyring.",
       "Stretch your tight shoulders and actually look up at the road ahead.",
     ],
@@ -739,12 +739,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What is blocking the person's view in Ten of Wands?",
         answer:
-          "Their own heavy stack of staves—symbolizing how overcommitment hides clear perspective right before reaching goals.",
+          "Their own heavy stack of staves: symbolizing how overcommitment hides clear perspective right before reaching goals.",
       },
       {
         question: "Does Ten of Wands mean failure?",
         answer:
-          "No—the nearby village proves arrival is close, yet finishing gracefully requires pruning burdens and delegating promptly.",
+          "No. The nearby village proves arrival is close, yet finishing gracefully requires pruning burdens and delegating promptly.",
       },
       {
         question: "What does Ten of Wands mean in relationships?",
@@ -754,14 +754,14 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Ten of Wands reversed positive?",
         answer:
-          "Often releasing crushing burdens and regaining breath—or conversely signaling imminent breakdown if overload goes ignored.",
+          "Often releasing crushing burdens and regaining breath, or conversely signaling imminent breakdown if overload goes ignored.",
       },
     ],
   },
   "wands-page": {
     overview: [
-      "Page of Wands stands boldly amidst rolling golden desert sands clad in bright tunic speckled with fire salamanders, gazing upwards with infectious wonder at tiny green sprouts tipping a tall wooden staff. This is tarot's spirited student of inspiration—unfettered by cynical scar tissue, eager to test unfamiliar arts, travel boldly, and deliver exciting green-lit news.",
-      "Earth of Fire captures first sparks meeting playful curiosity—ideas sound thrilling before heavy budgets or perfectionist editing weigh them down.",
+      "Page of Wands stands boldly amidst rolling golden desert sands clad in bright tunic speckled with fire salamanders, gazing upwards with infectious wonder at tiny green sprouts tipping a tall wooden staff. This is tarot's spirited student of inspiration: unfettered by cynical scar tissue, eager to test unfamiliar arts, travel boldly, and deliver exciting green-lit news.",
+      "Earth of Fire captures first sparks meeting playful curiosity: ideas sound thrilling before heavy budgets or perfectionist editing weigh them down.",
     ],
     upright: [
       "Upright signals thrilling announcements, creative courses, travel invitations, enthusiastic flirting, playful brainstorming, and adopting fresh beginner's eagerness around daunting unfamiliar craft.",
@@ -784,14 +784,14 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed cautions against impulsive spending on bright hobby gear quickly abandoned.",
     ],
     health: [
-      "Physically, try joyful playful fitness—dance, climbing, pickup sports—treating movement as play rather than dreary punishment.",
+      "Physically, try joyful playful fitness (dance, climbing, pickup sports) treating movement as play rather than dreary punishment.",
       "Reversed links sluggish apathy directly to stale dreary routines.",
     ],
     spiritual: [
       "Spiritually, childlike delight in discovery beats stiff intellectual solemnity every time.",
       "Say 'tell me more!' cleanly to life today.",
     ],
-    yesNoText: "Page of Wands answers Yes—exciting news, playful creativity, and spirited first steps beckon warmly.",
+    yesNoText: "Page of Wands answers Yes: exciting news, playful creativity, and spirited first steps beckon warmly.",
     timeline: [
       "Playful curiosity planted bright seeds beneath ordinary routine.",
       "Encouraging messages, creative sparks, and brave beginner's energy bubble up today.",
@@ -819,7 +819,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can Page of Wands indicate literal messages or news?",
         answer:
-          "Yes—Pages act as classic tarot messengers bringing lively texts, job callbacks, creative invitations, or travel notices.",
+          "Yes: Pages act as classic tarot messengers bringing lively texts, job callbacks, creative invitations, or travel notices.",
       },
       {
         question: "How is Page of Wands different from Knight of Wands?",
@@ -835,8 +835,8 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-knight": {
     overview: [
-      "Knight of Wands bursts straight across rugged sands atop a rearing crimson-plumed stallion clad in shiny battle armor draped with black salamanders—every muscle coiled in breathless motion before hooves even settle down. Fire of Fire makes this Knight tarot's fastest adrenaline engine: magnetic daring, fearless travel, sudden romantic passion, and audacious charges straight into action.",
-      "Just beware the classic Knight trap: dashing off gloriously without mapping fresh water stations—passion outruns strategy unless steered steadily.",
+      "Knight of Wands bursts straight across rugged sands atop a rearing crimson-plumed stallion clad in shiny battle armor draped with black salamanders: every muscle coiled in breathless motion before hooves even settle down. Fire of Fire makes this Knight tarot's fastest adrenaline engine: magnetic daring, fearless travel, sudden romantic passion, and audacious charges straight into action.",
+      "Just beware the classic Knight trap: dashing off gloriously without mapping fresh water stations: passion outruns strategy unless steered steadily.",
     ],
     upright: [
       "Upright rockets projects out of limbo: thrilling business launches, whirlwind trips, sweeping romantic chemistry, fierce courage smashing obstacles, and infectious charisma mobilizing teams overnight.",
@@ -847,7 +847,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Cool down 24 hours before firing angry texts or quitting solid bases recklessly.",
     ],
     love: [
-      "In love, breathless passion, bold romantic pursuits, electric chemistry, and unforgettable adventures—just verify whether genuine patience accompanies fiery sparks.",
+      "In love, breathless passion, bold romantic pursuits, electric chemistry, and unforgettable adventures: just verify whether genuine patience accompanies fiery sparks.",
       "Reversed warns of hot-cold love-bombing, reckless jealousy, or disappearing once routine settles.",
     ],
     career: [
@@ -859,7 +859,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed strongly cautions against speculative adrenaline FOMO.",
     ],
     health: [
-      "Physically, explosive athletic vigor, thrilling outdoor conditioning, and bold stamina—balance sprints cleanly with intentional cooldown stretching.",
+      "Physically, explosive athletic vigor, thrilling outdoor conditioning, and bold stamina: balance sprints cleanly with intentional cooldown stretching.",
       "Reversed alerts against acute overheating, strains, or impatient rushing injuries.",
     ],
     spiritual: [
@@ -867,7 +867,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Pair fierce heart flames with calm steering.",
     ],
     yesNoText:
-      "Knight of Wands leans Yes—swift, passionate, and adventurous, provided you check essential safety details before galloping.",
+      "Knight of Wands leans Yes: swift, passionate, and adventurous, provided you check essential safety details before galloping.",
     timeline: [
       "Impatient restless sparks built thrilling pressure for sudden change.",
       "Fast bold moves, charismatic momentum, and sudden adventures roar into today.",
@@ -879,12 +879,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Finish what you launch before chasing next thrilling distractions.",
     ],
     journalPrompts: [
-      "Where is pure fearless action overdue right now—and where might reckless haste cost me?",
+      "Where is pure fearless action overdue right now, and where might reckless haste cost me?",
       "Do I crave real progress here, or merely thrilling drama?",
       "What bold leap scares me slightly for all the right reasons?",
     ],
     meditation:
-      "Feel explosive golden energy rushing smoothly down focused breath—powerful yet calmly steered cleanly along solid rails.",
+      "Feel explosive golden energy rushing smoothly down focused breath: powerful yet calmly steered cleanly along solid rails.",
     affirmation: "I pair fearless bold momentum with clear foresight, finishing strongly what I ignite.",
     faqs: [
       {
@@ -895,12 +895,12 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Knight of Wands mean someone is coming back?",
         answer:
-          "Often a rapid, passionate message or unexpected arrival—though lasting stability depends on grounded companion cards.",
+          "Often a rapid, passionate message or unexpected arrival, though lasting stability depends on grounded companion cards.",
       },
       {
         question: "Is Knight of Wands positive for entrepreneurship?",
         answer:
-          "Tremendous for early sales hustle, bold launches, and pitching—best paired with grounded Pentacles operations.",
+          "Tremendous for early sales hustle, bold launches, and pitching: best paired with grounded Pentacles operations.",
       },
       {
         question: "What does Knight of Wands reversed warn about?",
@@ -911,8 +911,8 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-queen": {
     overview: [
-      "Queen of Wands sits relaxed yet commanding upon twin lion-carved stone thrones under bright sun, cradling one blossoming wand firmly in her right hand and holding a bright golden sunflower in her left while a sleek black cat sits calmly alert right at her sandaled feet. Water of Fire turns bold outward flame into warm unforced magnetism—confident, witty, intensely intuitive, and effortlessly commanding rooms without bullying anyone.",
-      "She proves genuine presence needs neither apologetic shrinking nor loud bragging—radiant warmth pulls allies in naturally.",
+      "Queen of Wands sits relaxed yet commanding upon twin lion-carved stone thrones under bright sun, cradling one blossoming wand firmly in her right hand and holding a bright golden sunflower in her left while a sleek black cat sits calmly alert right at her sandaled feet. Water of Fire turns bold outward flame into warm unforced magnetism: confident, witty, intensely intuitive, and effortlessly commanding rooms without bullying anyone.",
+      "She proves genuine presence needs neither apologetic shrinking nor loud bragging: radiant warmth pulls allies in naturally.",
     ],
     upright: [
       "Upright radiates vibrant self-assurance: charismatic public leadership, flourishing creative businesses, fearless authenticity, fiercely loyal friendship, and trusting sharp intuitive instincts without dimming bright light to soothe insecure critics.",
@@ -939,10 +939,10 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed links irritable fatigue to over-giving without private joyful recharge.",
     ],
     spiritual: [
-      "Spiritually, trust that wise black cat beside your sandals—unconventional intuitive clarity walks gracefully alongside sunny practical warmth.",
+      "Spiritually, trust that wise black cat beside your sandals: unconventional intuitive clarity walks gracefully alongside sunny practical warmth.",
       "Shine clearly without asking permission.",
     ],
-    yesNoText: "Queen of Wands answers Yes—warm, magnetic, capable, and confidently aligned when you own your authentic presence.",
+    yesNoText: "Queen of Wands answers Yes: warm, magnetic, capable, and confidently aligned when you own your authentic presence.",
     timeline: [
       "Weathering trials built warm unforced self-respect and charismatic intuition.",
       "Vibrant confidence, creative leadership, and magnetic attraction light up today.",
@@ -951,7 +951,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
     advice: [
       "Show up visibly, boldly, and warmly today without apologizing for clear standards.",
       "Follow your sharpest unconventional gut hunch cleanly (listen to the black cat!).",
-      "Uplift another rising talent openly today—confident royalty celebrates peers.",
+      "Uplift another rising talent openly today: confident royalty celebrates peers.",
     ],
     journalPrompts: [
       "Where am I still dimming natural warmth or ambition merely so small rooms stay comfortable?",
@@ -986,7 +986,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "wands-king": {
     overview: [
-      "King of Wands leans decisively forward upon a crimson-draped throne embossed with lions and salamanders—wearing a spiked golden flame crown beneath scarlet robes, clutching one blooming staff with calm executive poise while a tiny green salamander bites its tail gently beside his boots. Fire of Fire tempered by mature wisdom shifts restless knight speed into enduring visionary leadership.",
+      "King of Wands leans decisively forward upon a crimson-draped throne embossed with lions and salamanders: wearing a spiked golden flame crown beneath scarlet robes, clutching one blooming staff with calm executive poise while a tiny green salamander bites its tail gently beside his boots. Fire of Fire tempered by mature wisdom shifts restless knight speed into enduring visionary leadership.",
       "He builds long-lasting movements not by doing every tiny chore himself, but by holding unmistakable strategic clarity that inspires capable teams forward.",
     ],
     upright: [
@@ -1014,10 +1014,10 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights high blood pressure, impatience stress, and ignoring wise rest advice.",
     ],
     spiritual: [
-      "Spiritually, real leadership serves future generations cleanly—transform restless personal ambition into enduring bright legacy.",
+      "Spiritually, real leadership serves future generations cleanly: transform restless personal ambition into enduring bright legacy.",
       "Stand noble without demanding sycophants.",
     ],
-    yesNoText: "King of Wands answers Yes—visionary bold leadership, clear courage, and disciplined ambition win strongly.",
+    yesNoText: "King of Wands answers Yes: visionary bold leadership, clear courage, and disciplined ambition win strongly.",
     timeline: [
       "Hands-on trials forged durable executive judgment and clear strategic instinct.",
       "Commanding vision, decisive leadership, and inspiring courage govern today.",
@@ -1025,7 +1025,7 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     advice: [
       "Make the brave executive strategic call you have weighed long enough.",
-      "Inspire collaborators around clear purpose—not detailed micromanagement.",
+      "Inspire collaborators around clear purpose, not detailed micromanagement.",
       "Consult one blunt calm voice before locking bold expansion budgets.",
     ],
     journalPrompts: [
@@ -1040,17 +1040,17 @@ export const WANDS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does the biting-tail salamander next to King of Wands signify?",
         answer:
-          "Alchemical ouroboros maturity—complete self-mastery over impulsive fire turned into lasting enduring wisdom.",
+          "Alchemical ouroboros maturity: complete self-mastery over impulsive fire turned into lasting enduring wisdom.",
       },
       {
         question: "Who is King of Wands in a love or career reading?",
         answer:
-          "A bold, charismatic, ambitious, protective leader or entrepreneur—warm and generous when upright, controlling or impatient when reversed.",
+          "A bold, charismatic, ambitious, protective leader or entrepreneur: warm and generous when upright, controlling or impatient when reversed.",
       },
       {
         question: "Is King of Wands good for starting a company?",
         answer:
-          "Exceptional—it highlights fearless leadership, inspiring storytelling, big-picture strategy, and natural magnetic authority.",
+          "Exceptional: it highlights fearless leadership, inspiring storytelling, big-picture strategy, and natural magnetic authority.",
       },
       {
         question: "What does King of Wands reversed warn against?",

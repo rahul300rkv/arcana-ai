@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Compass, Moon, Sun, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, Compass, Moon, Sun, Shield } from "@/components/icons";
 import { FloatingCards } from "@/components/arcana/FloatingCards";
 
 export function Hero() {
@@ -37,7 +37,7 @@ export function Hero() {
 
           {/* Subtitle in Warm Ivory Cream */}
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#e5d2ba]/95 leading-relaxed [text-wrap:balance]">
-            Step into an intuitive sanctuary for 78-card tarot divination and Vedic numerology archetypes. Guided by modern AI, rooted in sacred tradition — always private, reflective, and free.
+            Step into an intuitive sanctuary for 78-card tarot divination and Vedic numerology archetypes. Guided by modern AI and rooted in sacred tradition, every reading stays private, reflective, and free.
           </p>
 
           {/* Primary Actions */}

@@ -8,7 +8,7 @@ export function CardBack({
 }: {
   className?: string;
   /**
-   * Defaults to "" (purely decorative — e.g. a generic face-down deck).
+   * Defaults to "" (purely decorative, e.g. a generic face-down deck).
    * Pass real text when the card's identity is already known at render
    * time (e.g. a face-down card that's about to flip to reveal a specific
    * tarot card), so search engines and screen readers get meaningful

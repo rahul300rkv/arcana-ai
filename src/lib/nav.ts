@@ -1,4 +1,4 @@
-import { Home, Sparkles, User, Settings, BookOpen, Hash } from "lucide-react";
+import { Home, Sparkles, User, Settings, BookOpen, Hash } from "@/components/icons";
 import type { TranslationKey } from "./i18n";
 
 export type NavItem = {

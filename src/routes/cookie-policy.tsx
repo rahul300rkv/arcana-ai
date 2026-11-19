@@ -5,13 +5,13 @@ import { buildPageJsonLd } from "@/lib/content-seo";
 export const Route = createFileRoute("/cookie-policy")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy — AstroFree" },
+      { title: "Cookie Policy | AstroFree" },
       {
         name: "description",
         content:
           "How AstroFree uses cookies and local storage, including cookies set by Google AdSense, and how to manage your preferences.",
       },
-      { property: "og:title", content: "Cookie Policy — AstroFree" },
+      { property: "og:title", content: "Cookie Policy | AstroFree" },
       {
         property: "og:description",
         content:
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/cookie-policy")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/cookie-policy",
-            title: "Cookie Policy — AstroFree",
+            title: "Cookie Policy | AstroFree",
             description:
               "How AstroFree uses cookies and local storage, including advertising and analytics cookies, and how to control them.",
             crumbs: [

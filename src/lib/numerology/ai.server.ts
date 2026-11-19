@@ -16,7 +16,7 @@ const LANGUAGE_INSTRUCTION: Record<Language, string> = {
   en: "Write every string value in English.",
   hi: "Write every string value in Hindi, using the Devanagari script throughout.",
   hinglish:
-    "Write every string value in Hinglish — natural, casual Hindi-English code-mixed prose written in the Latin/Roman alphabet (not Devanagari).",
+    "Write every string value in Hinglish: natural, casual Hindi-English code-mixed prose written in the Latin/Roman alphabet (not Devanagari).",
   bn: "Write every string value in Bengali, using the Bengali script throughout.",
   te: "Write every string value in Telugu, using the Telugu script throughout.",
   mr: "Write every string value in Marathi, using the Devanagari script throughout.",
@@ -29,7 +29,7 @@ const LANGUAGE_INSTRUCTION: Record<Language, string> = {
   as: "Write every string value in Assamese, using the Bengali-Assamese script throughout.",
 };
 
-/** Only the text fields — the numbers/cards are computed by us and never trusted from the model. */
+/** Only the text fields: the numbers/cards are computed by us and never trusted from the model. */
 const aiContentSchema = z.object({
   energetic_layers: z.object({
     base_mindset: z.string(),
@@ -70,9 +70,9 @@ ${pacingNote ? `- Pacing: ${pacingNote}` : ""}
 Write a JSON object with exactly these keys and nothing else (no markdown fences, no commentary):
 {
   "energetic_layers": {
-    "base_mindset": string (2-3 sentences, tied to the Mulank archetype — this person's core operating mode),
-    "yearly_theme": string (2-3 sentences, tied to the Personal Year archetype — the overarching theme of this year),
-    "monthly_focus": ${isMonthly ? "string (1-2 sentences, tied to the Personal Month archetype — the specific flavor of this month)" : '""'}
+    "base_mindset": string (2-3 sentences, tied to the Mulank archetype: this person's core operating mode),
+    "yearly_theme": string (2-3 sentences, tied to the Personal Year archetype: the overarching theme of this year),
+    "monthly_focus": ${isMonthly ? "string (1-2 sentences, tied to the Personal Month archetype: the specific flavor of this month)" : '""'}
   },
   "guidance": {
     "recommended_actions": array of exactly 3 short, concrete, actionable strings for this ${isMonthly ? "month" : "year"},
@@ -82,7 +82,7 @@ Write a JSON object with exactly these keys and nothing else (no markdown fences
 
 ${LANGUAGE_INSTRUCTION[language]} Card/archetype names (e.g. "${ARCHETYPES[mulank as 1]}") may stay in English even within non-English sentences, as is standard practice.
 
-Keep the tone grounded and specific — no vague platitudes, no astrology-website filler. Return ONLY the JSON object.`;
+Keep the tone grounded and specific: no vague platitudes, no astrology-website filler. Return ONLY the JSON object.`;
 }
 
 export const generateNumerologyReading = async ({

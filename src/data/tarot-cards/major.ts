@@ -3,23 +3,23 @@ import type { UniqueCardCopy } from "./types";
 export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   "major-00": {
     overview: [
-      "The Fool (0) opens the Major Arcana at the edge of a rocky precipice bathed in bright morning sun. A young traveler tilts their chin skyward, holding a small white rose of purity in one hand and a modest bundle tied to a wand over the other shoulder. At their heels bounces a loyal white dog—half cheerleader, half warning bell—urging them to watch their step even as their spirit reaches outward. Numbered zero rather than one, The Fool carries infinite potential prior to labels, titles, or past failures.",
+      "The Fool (0) opens the Major Arcana at the edge of a rocky precipice bathed in bright morning sun. A young traveler tilts their chin skyward, holding a small white rose of purity in one hand and a modest bundle tied to a wand over the other shoulder. At their heels bounces a loyal white dog (half cheerleader, half warning bell) urging them to watch their step even as their spirit reaches outward. Numbered zero rather than one, The Fool carries infinite potential prior to labels, titles, or past failures.",
       "Associated with Air and the sudden awakening of Uranus, this archetype arrives right before a leap that cannot be guaranteed on paper. You do not need the entire ten-year blueprint visible before taking the first step; what matters is stepping off the ledge with open eyes, curiosity instead of arrogance, and willingness to learn directly from experience.",
     ],
     upright: [
       "Upright, The Fool marks a clean slate: switching cities, launching an unfamiliar project, releasing an outdated self-image, or entering a conversation without defensive armor. There is buoyancy here because you have not yet convinced yourself of all the reasons an idea might fail.",
-      "The card does not promise that zero bumps await down the trail—that rocky cliff drops sharply just ahead. Rather, it confirms that staying frozen inside stale safety carries a higher long-term cost than stepping forward with honest beginner's humility.",
+      "The card does not promise that zero bumps await down the trail: that rocky cliff drops sharply just ahead. Rather, it confirms that staying frozen inside stale safety carries a higher long-term cost than stepping forward with honest beginner's humility.",
     ],
     reversed: [
       "When The Fool turns upside down, the white dog's barking goes ignored or turns into paralysis. On one extreme, reversed Fool warns of impulsive signing without reading fine print, skipping due diligence, or mistaking adrenaline for genuine calling.",
-      "On the opposite extreme, it captures chronic hesitation—rehearsing every possible embarrassment in advance until a genuine window of opportunity quietly closes. Notice whether you are jumping blindly to escape boredom or refusing to step out at all out of pride.",
+      "On the opposite extreme, it captures chronic hesitation: rehearsing every possible embarrassment in advance until a genuine window of opportunity quietly closes. Notice whether you are jumping blindly to escape boredom or refusing to step out at all out of pride.",
     ],
     love: [
       "In romance, The Fool brings flirtatious freshness, spontaneous dates, and openness unburdened by old scorekeeping. For singles, someone unexpected may disrupt your usual 'type' in the best way. Inside existing partnerships, it encourages dropping stale roles and seeing each other with fresh curiosity.",
       "Inverted, watch for non-committal drift, mixed signals disguised as 'keeping things light,' or repeating blind trust after clear red flags have already appeared.",
     ],
     career: [
-      "Professionally, The Fool shines during career pivots, sabbaticals, fellowships, or early-stage startups where beginner's curiosity outperforms rigid routine. You may be entering a room where others hold seniority—ask the foundational questions everyone else is embarrassed to voice.",
+      "Professionally, The Fool shines during career pivots, sabbaticals, fellowships, or early-stage startups where beginner's curiosity outperforms rigid routine. You may be entering a room where others hold seniority: ask the foundational questions everyone else is embarrassed to voice.",
       "Reversed at work suggests either pitching an under-researched plan before checking core logistics, or clinging to an unfulfilling title simply because you already know the rules.",
     ],
     finance: [
@@ -27,15 +27,15 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Upside down, this card flags impulse purchases, speculative FOMO, or ignoring recurring budget leaks out of wishful optimism.",
     ],
     health: [
-      "In wellbeing, The Fool invites playful physical renewal—trying an unfamiliar sport, walking without headphones, or resetting sleep rhythm on a restorative trip. Lighthearted movement clears nervous stagnation faster than rigid optimization.",
+      "In wellbeing, The Fool invites playful physical renewal: trying an unfamiliar sport, walking without headphones, or resetting sleep rhythm on a restorative trip. Lighthearted movement clears nervous stagnation faster than rigid optimization.",
       "Reversed cautions against minor accidents from distraction, skipping warm-ups, or neglecting preventive checkups while assuming stamina is endless.",
     ],
     spiritual: [
-      "Spiritually, Zero embodies Shoshin—Zen beginner's mind—where wonder replaces dogma. Before formulas harden into orthodoxy, every path begins with simple awe and willingness not to know.",
+      "Spiritually, Zero embodies Shoshin (Zen beginner's mind) where wonder replaces dogma. Before formulas harden into orthodoxy, every path begins with simple awe and willingness not to know.",
       "Let the white dog remind you that spiritual openness thrives alongside earthly common sense.",
     ],
     yesNoText:
-      "The Fool leans toward Yes—especially when your question asks whether to begin, explore, relocate, or try an unfamiliar path. If reversed in your pull, pause long enough to verify basic practical safeguards before saying yes.",
+      "The Fool leans toward Yes, especially when your question asks whether to begin, explore, relocate, or try an unfamiliar path. If reversed in your pull, pause long enough to verify basic practical safeguards before saying yes.",
     timeline: [
       "A bold leap, unscripted choice, or naive first start set today's chain of events in motion.",
       "You stand at a threshold where outdated rules no longer bind you; fresh options are open right now.",
@@ -58,7 +58,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is The Fool numbered 0 instead of 1?",
         answer:
-          "Zero represents pure unmanifested potential—the container before any number takes shape. It allows The Fool to move through all 21 remaining Major Arcana cards as the pilgrim learning each human lesson.",
+          "Zero represents pure unmanifested potential: the container before any number takes shape. It allows The Fool to move through all 21 remaining Major Arcana cards as the pilgrim learning each human lesson.",
       },
       {
         question: "What does the white rose in The Fool signify?",
@@ -73,13 +73,13 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does The Fool upright mean someone is acting foolishly?",
         answer:
-          "Rarely—upright it honors holy curiosity and trust. Only when reversed or paired with reckless Swords/Wands does it warn against foolish oversight.",
+          "Rarely. Upright it honors holy curiosity and trust. Only when reversed or paired with reckless Swords/Wands does it warn against foolish oversight.",
       },
     ],
   },
   "major-01": {
     overview: [
-      "The Magician (I) stands grounded behind an altar holding all four suit emblems—a wand, a cup, a sword, and a pentacle—representing complete mastery over action, feeling, intellect, and tangible execution. One hand raises a double-ended wand toward heaven while the other points steadily to the earth: 'as above, so below.' Above their head gleams the golden lemniscate (infinity symbol), while crimson roses of passion and white lilies of pure thought bloom in the garden foreground.",
+      "The Magician (I) stands grounded behind an altar holding all four suit emblems (a wand, a cup, a sword, and a pentacle) representing complete mastery over action, feeling, intellect, and tangible execution. One hand raises a double-ended wand toward heaven while the other points steadily to the earth: 'as above, so below.' Above their head gleams the golden lemniscate (infinity symbol), while crimson roses of passion and white lilies of pure thought bloom in the garden foreground.",
       "Ruled by Mercury and Air, Key 1 shifts The Fool's unformed potential into focused personal agency. You are no longer waiting for external permission or lucky weather; every raw ingredient required for execution already rests within arm's reach on your table.",
     ],
     upright: [
@@ -87,11 +87,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Because all four tools sit ready simultaneously, scattered multitasking is your only foe. Choose one clear intention, line up your words with your daily schedule, and execute decisively.",
     ],
     reversed: [
-      "Reversed, The Magician exposes smoke-and-mirrors—either from someone charming who over-promises without substance, or from your own reluctance to deploy skills you already earned.",
+      "Reversed, The Magician exposes smoke-and-mirrors: either from someone charming who over-promises without substance, or from your own reluctance to deploy skills you already earned.",
       "Look closely at manipulative framing, half-baked schemes launched merely to impress, or imposter paralysis keeping finished work hidden inside drafts folders.",
     ],
     love: [
-      "In love, The Magician generates magnetic chemistry, witty banter, and unmistakable intention. When upright, actions match captivating words—someone is consciously creating momentum with you rather than leaving affection vague.",
+      "In love, The Magician generates magnetic chemistry, witty banter, and unmistakable intention. When upright, actions match captivating words: someone is consciously creating momentum with you rather than leaving affection vague.",
       "Reversed urges healthy skepticism around polished charm: notice whether sweet promises translate into consistent Tuesday-night presence.",
     ],
     career: [
@@ -99,7 +99,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed cautions against office politics, cutting corners to hit flashy optics, or under-selling your genuine portfolio.",
     ],
     finance: [
-      "Financially, The Magician rewards active skill monetization—freelance offers, contract rate negotiations, pricing adjustments, and structured resource allocation rather than passive wishing.",
+      "Financially, The Magician rewards active skill monetization: freelance offers, contract rate negotiations, pricing adjustments, and structured resource allocation rather than passive wishing.",
       "Reversed warns against slick financial pitches, hidden fees, or juggling multiple unmonitored accounts.",
     ],
     health: [
@@ -111,7 +111,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Let the roses and lilies remind you to pair burning enthusiasm with clean ethics.",
     ],
     yesNoText:
-      "The Magician gives a decisive Yes—provided you actively steer the outcome through focused preparation rather than waiting passively for favors.",
+      "The Magician gives a decisive Yes: provided you actively steer the outcome through focused preparation rather than waiting passively for favors.",
     timeline: [
       "A skill you cultivated earlier or a strategic conversation unlocked your current toolkit.",
       "Right now you possess direct leverage to translate concept into tangible output.",
@@ -134,7 +134,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why does The Magician point one hand up and one hand down?",
         answer:
-          "That posture illustrates the Hermetic principle 'as above, so below'—channeling abstract vision into physical, measurable reality.",
+          "That posture illustrates the Hermetic principle 'as above, so below', channeling abstract vision into physical, measurable reality.",
       },
       {
         question: "What do the four objects on The Magician's table mean?",
@@ -144,7 +144,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can The Magician reversed indicate deception?",
         answer:
-          "Yes—it can warn of slick manipulation, half-truths, or illusion, either from another party or via self-deception about a risky plan.",
+          "Yes. It can warn of slick manipulation, half-truths, or illusion, either from another party or via self-deception about a risky plan.",
       },
       {
         question: "How does The Magician differ from The Fool?",
@@ -155,7 +155,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-02": {
     overview: [
-      "The High Priestess (II) sits serene between two temple pillars—black Boaz and white Jachin—signaling the threshold between visible logic and quiet inner knowing. Draped in cool lunar blues with a horned crown of triple moon phases and a veil woven with pomegranates behind her, she cradles the scroll of Tora partially tucked inside her robe. At her feet rests a luminous crescent moon, ruling tides of dream, memory, and unspoken truth.",
+      "The High Priestess (II) sits serene between two temple pillars (black Boaz and white Jachin) signaling the threshold between visible logic and quiet inner knowing. Draped in cool lunar blues with a horned crown of triple moon phases and a veil woven with pomegranates behind her, she cradles the scroll of Tora partially tucked inside her robe. At her feet rests a luminous crescent moon, ruling tides of dream, memory, and unspoken truth.",
       "Governed by the Moon and Water, Key 2 asks you to pause external pushing. While The Magician acts outwardly in broad daylight, The High Priestess listens cleanly inside stillness where subtle contradictions, intuition, and unstated motives become unmistakable.",
     ],
     upright: [
@@ -163,11 +163,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Hold your cards close for now. Sharing premature plans invites unnecessary noise; quiet study, private observation, and patience let hidden facts surface naturally.",
     ],
     reversed: [
-      "Reversed suggests tuning out unmistakable gut alarms merely to keep surface harmony—or conversely, drowning in rumor, paranoia, and secretive withdrawal.",
+      "Reversed suggests tuning out unmistakable gut alarms merely to keep surface harmony, or conversely, drowning in rumor, paranoia, and secretive withdrawal.",
       "Hidden agendas or unreleased information may be distorting a situation, or emotional clutter is keeping you from hearing your own calm inner compass.",
     ],
     love: [
-      "In love, The High Priestess points to unspoken magnetic depth, telepathic sensitivity, and slow emotional unfolding. Read body language and consistency closely—much remains beneath casual small talk.",
+      "In love, The High Priestess points to unspoken magnetic depth, telepathic sensitivity, and slow emotional unfolding. Read body language and consistency closely: much remains beneath casual small talk.",
       "Reversed can flag emotional unavailability, guarded secrets, or third-party ambiguity where honest clarity is overdue.",
     ],
     career: [
@@ -175,7 +175,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against office gossip, buried compliance gaps, or ignoring red flags during interviews.",
     ],
     finance: [
-      "Financially, read fine print twice before signing contracts, partnerships, or loan disclosures—hidden fees or unmentioned contingencies reward thorough scrutiny.",
+      "Financially, read fine print twice before signing contracts, partnerships, or loan disclosures: hidden fees or unmentioned contingencies reward thorough scrutiny.",
       "Reversed cautions against secretive spending, murky joint arrangements, or trusting hype over verified statements.",
     ],
     health: [
@@ -187,7 +187,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Sit beside still water or keep a dream notebook by your bed this week.",
     ],
     yesNoText:
-      "The High Priestess leans toward Conditional / Wait—key facts remain veiled right now, so forcing a rapid verdict risks missing what is still emerging beneath the surface.",
+      "The High Priestess leans toward Conditional / Wait: key facts remain veiled right now, so forcing a rapid verdict risks missing what is still emerging beneath the surface.",
     timeline: [
       "Unspoken intuition or quiet background events subtly steered where you stand today.",
       "Silence and careful observation hold far greater leverage than public confrontation.",
@@ -210,7 +210,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What do the pillars B and J represent on The High Priestess?",
         answer:
-          "Derived from King Solomon's Temple, Boaz (black, B) and Jachin (white, J) represent opposing polarities—darkness and light, intuition and intellect—balanced by stillness at the center.",
+          "Derived from King Solomon's Temple, Boaz (black, B) and Jachin (white, J) represent opposing polarities (darkness and light, intuition and intellect) balanced by stillness at the center.",
       },
       {
         question: "Why is the scroll partially hidden in her robes?",
@@ -220,7 +220,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The High Priestess positive for love?",
         answer:
-          "It signals deep emotional attraction and soul resonance, though often accompanied by mystery—patience and honest emotional pacing matter.",
+          "It signals deep emotional attraction and soul resonance, though often accompanied by mystery: patience and honest emotional pacing matter.",
       },
       {
         question: "Does The High Priestess mean someone is keeping secrets?",
@@ -232,7 +232,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       energy:
         "Quiet intuition, emotional stillness, and reading beneath the surface before rushing outward action.",
       leanInto:
-        "Pause before reacting today—notice subtle tone shifts, trust your quiet inner radar, and let hidden context surface on its own.",
+        "Pause before reacting today: notice subtle tone shifts, trust your quiet inner radar, and let hidden context surface on its own.",
       watchOutFor:
         "Forcing immediate answers, sharing premature plans out loud, or overriding clear gut instincts just to keep surface peace.",
     },
@@ -240,7 +240,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   "major-03": {
     overview: [
       "The Empress (III) reclines effortlessly in lush wheat fields beneath a canopy of cypress trees and a flowing waterfall, wearing a twelve-star crown and a flowing gown patterned with ripe pomegranates. Venus's emblem rests beside her cushioned throne, linking her directly to Earth, sensuality, fertility, creative gestation, and abundant nourishment.",
-      "Ruled by Venus, Key 3 reminds us that real growth cannot be whipsawed into blooming overnight—it requires rich soil, warmth, patience, and genuine enjoyment of physical life.",
+      "Ruled by Venus, Key 3 reminds us that real growth cannot be whipsawed into blooming overnight: it requires rich soil, warmth, patience, and genuine enjoyment of physical life.",
     ],
     upright: [
       "Upright, The Empress blesses creative projects, flourishing relationships, hospitality, home comfort, and thriving financial harvests. What you have carefully tended begins ripening visibly.",
@@ -251,7 +251,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Watch for smothering affection, neglected bodily comfort, or comparing your slow organic timeline to frantic online highlight reels.",
     ],
     love: [
-      "In love, The Empress radiates warmth, sensuality, tenderness, and long-term partnership nourishment—frequent signs of commitment, pregnancy/family expansion, or joyful shared domestic rituals.",
+      "In love, The Empress radiates warmth, sensuality, tenderness, and long-term partnership nourishment: frequent signs of commitment, pregnancy/family expansion, or joyful shared domestic rituals.",
       "Reversed cautions against jealousy, needy clinging, or settling for unbalanced emotional caretaking.",
     ],
     career: [
@@ -267,11 +267,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed reminds you not to postpone gentle bodily care while tending everyone else.",
     ],
     spiritual: [
-      "Spiritually, The Empress reveals the sacredness inside ordinary sensory existence—sunlight on leaves, warm bread, laughter around a table.",
+      "Spiritually, The Empress reveals the sacredness inside ordinary sensory existence: sunlight on leaves, warm bread, laughter around a table.",
       "Gratitude turns modest daily rituals into sanctuary.",
     ],
     yesNoText:
-      "The Empress answers Yes—abundant, fertile, and warmly supportive when nurtured consistently over time.",
+      "The Empress answers Yes: abundant, fertile, and warmly supportive when nurtured consistently over time.",
     timeline: [
       "Patient investment, creative care, or loving attention planted strong roots.",
       "Abundance, comfort, and tangible warmth are blossoming cleanly in your present cycle.",
@@ -309,7 +309,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is Venus carved on The Empress's heart shield?",
         answer:
-          "Venus rules love, harmony, art, beauty, and physical enjoyment—core pillars of Key 3's abundant temperament.",
+          "Venus rules love, harmony, art, beauty, and physical enjoyment: core pillars of Key 3's abundant temperament.",
       },
     ],
   },
@@ -319,15 +319,15 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Ruled by Aries and Fire, Key 4 brings decisive structure: clean timelines, accountable governance, and protecting what matters without theatrical noise.",
     ],
     upright: [
-      "Upright, The Emperor asks you to step into calm authority—define clear standards, write the contract cleanly, own tough calls, and trust proven systems rather than shifting moods.",
+      "Upright, The Emperor asks you to step into calm authority: define clear standards, write the contract cleanly, own tough calls, and trust proven systems rather than shifting moods.",
       "Mentors, senior leaders, fathers, or disciplined personal frameworks often appear here to stabilize unsettled ground.",
     ],
     reversed: [
-      "Reversed tips structure into rigid micromanagement—or highlights an absence of leadership where boundaries collapse into procrastination.",
+      "Reversed tips structure into rigid micromanagement, or highlights an absence of leadership where boundaries collapse into procrastination.",
       "Notice whether stubborn pride keeps you refusing helpful feedback, or whether fear of conflict leaves you tolerating disrespect.",
     ],
     love: [
-      "In love, The Emperor brings fierce devotion, steady dependability, and protective follow-through—shown more reliably through steady actions than sweeping poetry.",
+      "In love, The Emperor brings fierce devotion, steady dependability, and protective follow-through: shown more reliably through steady actions than sweeping poetry.",
       "Reversed cautions against power struggles, icy silence during disagreements, or treating partnership like a hierarchy to manage.",
     ],
     career: [
@@ -347,7 +347,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Guard your core values with calm consistency rather than anxious force.",
     ],
     yesNoText:
-      "The Emperor answers Yes—solid and sustainable when supported by concrete rules, written structure, and accountable execution.",
+      "The Emperor answers Yes: solid and sustainable when supported by concrete rules, written structure, and accountable execution.",
     timeline: [
       "Firm boundaries, disciplined habits, or an influential authority figure shaped current order.",
       "Taking calm executive command of logistics gives you decisive stability now.",
@@ -360,7 +360,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "Where in my life would one firm boundary immediately eliminate repeated frustration?",
-      "Am I leading with calm clarity—or masking insecurity through rigid control?",
+      "Am I leading with calm clarity, or masking insecurity through rigid control?",
       "What long-term foundation deserves disciplined weekly bricklaying right now?",
     ],
     meditation:
@@ -392,14 +392,14 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   "major-05": {
     overview: [
       "The Hierophant (V) sits inside a stone sanctuary wearing papal scarlet and three-tiered golden crown, raising one hand in blessing while resting two crossed keys of spiritual and earthly lineage at the feet of kneeling acolytes. Associated with Taurus and Venus/Earth traditions, Key 5 governs formal institutions, sacred lineages, mentorship, ethical codes, weddings, universities, and time-tested bodies of craft.",
-      "After The Emperor builds earthly order, The Hierophant anchors cultural meaning—asking which inherited values still nourish genuine wisdom and which deserve thoughtful evolution.",
+      "After The Emperor builds earthly order, The Hierophant anchors cultural meaning: asking which inherited values still nourish genuine wisdom and which deserve thoughtful evolution.",
     ],
     upright: [
       "Upright, look toward established teachers, accredited certification, trusted family traditions, or honest community standards. Reinventing every wheel solo wastes valuable years when seasoned masters already mapped the path.",
-      "It also points toward formal commitments—marriages, licenses, degrees, ethical covenants, or honoring quiet moral integrity when shortcuts tempt.",
+      "It also points toward formal commitments: marriages, licenses, degrees, ethical covenants, or honoring quiet moral integrity when shortcuts tempt.",
     ],
     reversed: [
-      "Reversed marks healthy rebellion—breaking out of rigid dogma, suffocating family scripts, or outdated bureaucratic rules that prioritize appearances over living truth.",
+      "Reversed marks healthy rebellion: breaking out of rigid dogma, suffocating family scripts, or outdated bureaucratic rules that prioritize appearances over living truth.",
       "On the shadow side, check whether rejecting every rule leaves you rootless, or whether bad advice from a self-appointed guru needs sharp questioning.",
     ],
     love: [
@@ -412,7 +412,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     finance: [
       "Financially, Key 5 sticks to proven conservatism: regulated banks, indexed retirement funds, tax-advantaged accounts, and documented family wealth planning.",
-      "Reversed advises revisiting inherited money myths that keep you overly timid—or refusing predatory financial peer pressure.",
+      "Reversed advises revisiting inherited money myths that keep you overly timid, or refusing predatory financial peer pressure.",
     ],
     health: [
       "Physically, Taurus rules throat, neck, thyroid, and grounded routine. Respect evidence-based medicine alongside time-tested daily habits.",
@@ -423,7 +423,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Community worship or shared study circles steady solitary drifting.",
     ],
     yesNoText:
-      "The Hierophant leans Yes—especially for degrees, legal commitments, mentorship, and traditional paths; reversed points toward forging an independent route instead.",
+      "The Hierophant leans Yes, especially for degrees, legal commitments, mentorship, and traditional paths; reversed points toward forging an independent route instead.",
     timeline: [
       "Cultural upbringing, formal schooling, or trusted mentorship laid your baseline values.",
       "Respecting proven expertise or honoring clear ethical covenants serves you best today.",
@@ -432,7 +432,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     advice: [
       "Consult a qualified mentor, teacher, or certified specialist before improvising.",
       "Clarify your non-negotiable personal ethics before agreeing to a group decision.",
-      "Keep classic study tools close—read one foundational book over ten quick summaries.",
+      "Keep classic study tools close: read one foundational book over ten quick summaries.",
     ],
     journalPrompts: [
       "Which inherited tradition still genuinely supports my growth, and which one runs on autopilot?",
@@ -451,7 +451,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Hierophant always about religion?",
         answer:
-          "Not strictly—it covers any structured institution, university, marriage covenant, legal framework, mentorship, or shared cultural philosophy.",
+          "Not strictly: it covers any structured institution, university, marriage covenant, legal framework, mentorship, or shared cultural philosophy.",
       },
       {
         question: "Does The Hierophant reversed mean breaking up?",
@@ -467,8 +467,8 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-06": {
     overview: [
-      "The Lovers (VI) portrays two naked figures standing openly beneath radiant golden wings of Archangel Raphael inside Eden—behind one stands the Tree of Life ablaze with twelve flames, and behind the other rises the Tree of Knowledge encircled by the serpent. Ruled by Gemini and Air, Key 6 unites passionate attraction with moral choice: true union asks not only 'Do I desire this?' but 'Does this align cleanly with who I intend to become?'",
-      "Before modern readings narrowed Key 6 purely to romance, its historical title carried 'The Choice'—highlighting crossroads where values, partnerships, and authenticity meet.",
+      "The Lovers (VI) portrays two naked figures standing openly beneath radiant golden wings of Archangel Raphael inside Eden: behind one stands the Tree of Life ablaze with twelve flames, and behind the other rises the Tree of Knowledge encircled by the serpent. Ruled by Gemini and Air, Key 6 unites passionate attraction with moral choice: true union asks not only 'Do I desire this?' but 'Does this align cleanly with who I intend to become?'",
+      "Before modern readings narrowed Key 6 purely to romance, its historical title carried 'The Choice', highlighting crossroads where values, partnerships, and authenticity meet.",
     ],
     upright: [
       "Upright celebrates mutual magnetism, honest heart-to-heart alignment, ethical harmony, and clear-eyed commitment. Whether choosing a partner, co-founder, or life calling, you say yes cleanly with zero hidden resentment.",
@@ -479,7 +479,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "In partnerships, check for unspoken asymmetry, attraction pulling against long-term ethics, or reluctance to reconcile internal priorities.",
     ],
     love: [
-      "In love, The Lovers marks soul-level rapport, thrilling chemistry, and conscious choice to commit wholeheartedly—not out of loneliness, but mutual resonance.",
+      "In love, The Lovers marks soul-level rapport, thrilling chemistry, and conscious choice to commit wholeheartedly, not out of loneliness, but mutual resonance.",
       "Reversed highlights indecisive triangles, unaddressed communication gaps, or clinging to chemistry while ignoring clashing core values.",
     ],
     career: [
@@ -495,11 +495,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed links physical fatigue directly to ongoing internal stress from avoiding an overdue decision.",
     ],
     spiritual: [
-      "Spiritually, union starts inside—integrating intuition and intellect, shadow and light, desire and conscience.",
+      "Spiritually, union starts inside: integrating intuition and intellect, shadow and light, desire and conscience.",
       "Honor choices that let you sleep cleanly in full self-respect.",
     ],
     yesNoText:
-      "The Lovers leans Yes—when the choice reflects authentic mutual alignment and clean personal values rather than convenience.",
+      "The Lovers leans Yes, when the choice reflects authentic mutual alignment and clean personal values rather than convenience.",
     timeline: [
       "A meaningful meeting, shared attraction, or defining personal choice shaped recent months.",
       "You face a heartfelt crossroads where honesty and clear commitment carry full weight.",
@@ -522,7 +522,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why does The Lovers card feature a snake and two trees?",
         answer:
-          "They evoke the Garden of Eden choice between impulse, conscious knowledge, and responsibility—showing real love requires intentional integrity.",
+          "They evoke the Garden of Eden choice between impulse, conscious knowledge, and responsibility: showing real love requires intentional integrity.",
       },
       {
         question: "Does The Lovers always mean a romantic soulmate?",
@@ -532,27 +532,27 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does The Lovers reversed warn about?",
         answer:
-          "Alignment mismatch—either internal conflict over a crossroads, unkept vows, or choosing validation over genuine compatibility.",
+          "Alignment mismatch: either internal conflict over a crossroads, unkept vows, or choosing validation over genuine compatibility.",
       },
       {
         question: "Which zodiac sign rules The Lovers?",
         answer:
-          "Gemini (Air)—governing duality, honest dialogue, mirrors, and clear conscious decisions.",
+          "Gemini (Air): governing duality, honest dialogue, mirrors, and clear conscious decisions.",
       },
     ],
   },
   "major-07": {
     overview: [
-      "The Chariot (VII) drives forward under a starry blue canopy with golden armor adorned in crescent moons and a winged solar shield, gripping reins cleanly without holding whips or physical straps. Before the armored charioteer pull two sphinxes—one obsidian black, one alabaster white—representing untamed opposing drives harnessed solely through disciplined willpower and clear focal direction.",
-      "Ruled by Cancer and Water—ironically armored inside resolute momentum—Key 7 wins battles not by crushing emotion, but by keeping steady hands on conflicting urges while aiming toward a clear northern horizon.",
+      "The Chariot (VII) drives forward under a starry blue canopy with golden armor adorned in crescent moons and a winged solar shield, gripping reins cleanly without holding whips or physical straps. Before the armored charioteer pull two sphinxes (one obsidian black, one alabaster white) representing untamed opposing drives harnessed solely through disciplined willpower and clear focal direction.",
+      "Ruled by Cancer and Water (ironically armored inside resolute momentum) Key 7 wins battles not by crushing emotion, but by keeping steady hands on conflicting urges while aiming toward a clear northern horizon.",
     ],
     upright: [
       "Upright signals decisive victory, breakthrough travel, moving house, passing high-stakes tests, and forward drive breaking months of stagnation. Victory is realistic precisely because you refuse side detours.",
-      "Notice how the charioteer leaves walled city towers behind—progress requires stepping out of comfortable applause and trusting disciplined navigation.",
+      "Notice how the charioteer leaves walled city towers behind: progress requires stepping out of comfortable applause and trusting disciplined navigation.",
     ],
     reversed: [
       "Reversed shows opposing sphinxes pulling off-road: stalled projects, road rage, scattered ambition lacking direction, or forcing outcomes aggressively without alignment.",
-      "Pause trying to accelerate harder while steering feels crooked—recalibrate your destination first.",
+      "Pause trying to accelerate harder while steering feels crooked: recalibrate your destination first.",
     ],
     love: [
       "In love, upright Chariot means conquering distance, resolving long standoffs through honest momentum, or moving rapidly toward concrete shared milestones.",
@@ -575,7 +575,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Calm focus moves heavier mountains than frantic hustle.",
     ],
     yesNoText:
-      "The Chariot answers Yes—victory and momentum reward bold, focused determination without splitting your energy.",
+      "The Chariot answers Yes: victory and momentum reward bold, focused determination without splitting your energy.",
     timeline: [
       "Building internal resilience prepared you to steer competing pressures.",
       "Focused execution and decisive forward motion break logjams right now.",
@@ -584,7 +584,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     advice: [
       "Pick one primary target for the next two weeks and cancel optional side quests.",
       "Name both conflicting pulls inside you without shame so both harness together.",
-      "Check logistics—vehicles, travel docs, timelines—before hitting full throttle.",
+      "Check logistics (vehicles, travel docs, timelines) before hitting full throttle.",
     ],
     journalPrompts: [
       "Which two competing desires are pulling my chariot in opposite directions right now?",
@@ -603,23 +603,23 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What do the black and white sphinxes represent?",
         answer:
-          "Opposing dualities—reason and passion, light and shadow, caution and ambition—that only propel forward when balanced cleanly.",
+          "Opposing dualities (reason and passion, light and shadow, caution and ambition) that only propel forward when balanced cleanly.",
       },
       {
         question: "Can The Chariot indicate literal travel or relocation?",
         answer:
-          "Very often yes—especially career travel, buying a car, international moves, or crossing tangible milestones.",
+          "Very often yes, especially career travel, buying a car, international moves, or crossing tangible milestones.",
       },
       {
         question: "What does The Chariot reversed mean?",
         answer:
-          "Loss of traction, stalled travel, or aggressive pushing without clear direction—time to pause and realign goals.",
+          "Loss of traction, stalled travel, or aggressive pushing without clear direction: time to pause and realign goals.",
       },
     ],
   },
   "major-08": {
     overview: [
-      "Strength (VIII) steps barefoot onto golden hills clad in clean white linen wrapped with vibrant blossoms, gently closing the jaws of a crimson lion—not through spears or chains, but unruffled tenderness and quiet inner stillness. Above her serene brow shines the horizontal infinity lemniscate, linking Key 8 directly with Leo, Fire, raw vital instinct, and patient courage.",
+      "Strength (VIII) steps barefoot onto golden hills clad in clean white linen wrapped with vibrant blossoms, gently closing the jaws of a crimson lion, not through spears or chains, but unruffled tenderness and quiet inner stillness. Above her serene brow shines the horizontal infinity lemniscate, linking Key 8 directly with Leo, Fire, raw vital instinct, and patient courage.",
       "Unlike The Chariot's armored push, Strength reveals that lasting resilience looks like steady affection meeting primal fear without flinching or fighting.",
     ],
     upright: [
@@ -628,7 +628,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     reversed: [
       "Reversed spotlights exhausted willpower, biting back valid anger until self-doubt gnaws inward, or snapping reactively after holding too tight for too long.",
-      "Restore depleted vitality before trying to look heroic—gentle kindness toward your own limits unlocks genuine backbone.",
+      "Restore depleted vitality before trying to look heroic: gentle kindness toward your own limits unlocks genuine backbone.",
     ],
     love: [
       "In love, Key 8 brings magnetic passion tempered by deep patience, loyal tenderness, and healing old trust wounds gently over time.",
@@ -639,7 +639,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed signals imposter fatigue or under-valuing durable leadership.",
     ],
     finance: [
-      "Financially, steady discipline resists market panic and retail impulses alike—staying composed while compounding steadily pays off quietly.",
+      "Financially, steady discipline resists market panic and retail impulses alike: staying composed while compounding steadily pays off quietly.",
       "Reversed cautions against emotional stress-spending or second-guessing a sound long-term plan.",
     ],
     health: [
@@ -647,11 +647,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed signals adrenal burnout from ignoring quiet early fatigue.",
     ],
     spiritual: [
-      "Spiritually, shadow instincts aren't demons to slay—they are untamed energy waiting for compassionate leadership.",
+      "Spiritually, shadow instincts aren't demons to slay: they are untamed energy waiting for compassionate leadership.",
       "Courage breathes gently right alongside fear.",
     ],
     yesNoText:
-      "Strength answers Yes—achieved through steady patience, compassionate confidence, and sustained stamina rather than rushing.",
+      "Strength answers Yes: achieved through steady patience, compassionate confidence, and sustained stamina rather than rushing.",
     timeline: [
       "Quiet endurance through earlier pressure built deep unshakable backbone.",
       "Calm poise and compassionate patience give you unmistakable authority today.",
@@ -679,31 +679,31 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does the lion signify in Strength?",
         answer:
-          "Raw instinct, passion, pride, anger, and primal life force—powers that become loyal allies when met with compassionate patience rather than shame.",
+          "Raw instinct, passion, pride, anger, and primal life force: powers that become loyal allies when met with compassionate patience rather than shame.",
       },
       {
         question: "Is Strength upright a healing card for recovery?",
         answer:
-          "Yes—it consistently affirms gradual, sustainable physical and emotional recovery backed by quiet self-respect.",
+          "Yes. It consistently affirms gradual, sustainable physical and emotional recovery backed by quiet self-respect.",
       },
       {
         question: "What does Strength reversed usually point toward?",
         answer:
-          "Temporary self-doubt, depleted nerves, or inner criticism rather than actual weakness—restoration restores courage swiftly.",
+          "Temporary self-doubt, depleted nerves, or inner criticism rather than actual weakness: restoration restores courage swiftly.",
       },
     ],
   },
   "major-09": {
     overview: [
-      "The Hermit (IX) stands high atop a snow-covered ridge shrouded in slate cloak, holding a tall wooden staff in one hand and lifting a lantern glowing with a six-pointed Star of Solomon in the other. Rather than blinding spotlights, that lantern illuminates only one careful step ahead—and shines equally as a quiet beacon for fellow climbers below.",
-      "Governed by Virgo and Earth, Key 9 calls for intentional solitude—stepping briefly outside noisy peer consensus to verify your own genuine compass.",
+      "The Hermit (IX) stands high atop a snow-covered ridge shrouded in slate cloak, holding a tall wooden staff in one hand and lifting a lantern glowing with a six-pointed Star of Solomon in the other. Rather than blinding spotlights, that lantern illuminates only one careful step ahead, and shines equally as a quiet beacon for fellow climbers below.",
+      "Governed by Virgo and Earth, Key 9 calls for intentional solitude: stepping briefly outside noisy peer consensus to verify your own genuine compass.",
     ],
     upright: [
       "Upright signals a constructive season of inward audit, research, therapy, solo retreats, mentorship, or simplifying overstuffed commitments until core meaning stands clean.",
       "Solitude here is active wisdom, not bitter exile. One honest hour alone answers questions twenty rushed meetings only muddle.",
     ],
     reversed: [
-      "Reversed flags painful isolation—closing shutters out of hurt pride, doomscrolling alone past midnight, or refusing grounded community when support waits warmly.",
+      "Reversed flags painful isolation: closing shutters out of hurt pride, doomscrolling alone past midnight, or refusing grounded community when support waits warmly.",
       "Conversely, it can warn of avoiding solitude by filling every silence with noise.",
     ],
     love: [
@@ -727,7 +727,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Keep your lantern modest, steady, and lit.",
     ],
     yesNoText:
-      "The Hermit leans Conditional / Pause—step back briefly for solitary reflection before locking in an external answer.",
+      "The Hermit leans Conditional / Pause: step back briefly for solitary reflection before locking in an external answer.",
     timeline: [
       "Stepping back from noisy crowds earlier clarified essential priorities.",
       "Quiet introspection, study, or trusted solitary guidance holds your next clue today.",
@@ -740,7 +740,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "What external noise disappears when I sit completely quiet for twenty minutes?",
-      "Am I craving restorative solitude right now—or hiding behind isolation to stay safe?",
+      "Am I craving restorative solitude right now, or hiding behind isolation to stay safe?",
       "What single truth has my quiet intuition already confirmed?",
     ],
     meditation:
@@ -750,7 +750,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does The Hermit mean loneliness or breakup?",
         answer:
-          "Not usually—upright represents intentional reflection and inner clarity, which strengthens healthy relationships over superficial distraction.",
+          "Not usually: upright represents intentional reflection and inner clarity, which strengthens healthy relationships over superficial distraction.",
       },
       {
         question: "What shines inside The Hermit's lantern?",
@@ -765,18 +765,18 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What distinguishes The Hermit reversed?",
         answer:
-          "Excessive withdrawal into bitterness, social phobia, or avoiding healthy human connection—or conversely refusing any quiet self-examination.",
+          "Excessive withdrawal into bitterness, social phobia, or avoiding healthy human connection, or conversely refusing any quiet self-examination.",
       },
     ],
   },
   "major-10": {
     overview: [
-      "Wheel of Fortune (X) turns effortlessly amidst cobalt clouds surrounded by the four winged fixed signs—angel, eagle, lion, and bull—studying sacred books in the four corners. Around the golden rim appear the letters TARO / ROTA beside alchemical emblems of mercury, sulfur, salt, and water, while Typhon descends on the left, Anubis climbs on the right, and a steadfast sphinx balances calmly atop the axle.",
+      "Wheel of Fortune (X) turns effortlessly amidst cobalt clouds surrounded by the four winged fixed signs (angel, eagle, lion, and bull) studying sacred books in the four corners. Around the golden rim appear the letters TARO / ROTA beside alchemical emblems of mercury, sulfur, salt, and water, while Typhon descends on the left, Anubis climbs on the right, and a steadfast sphinx balances calmly atop the axle.",
       "Ruled by Jupiter and Fire, Key 10 is the great mid-deck pivot: life moves in seasons beyond personal control, yet your calm center atop the hub decides how cleanly you ride rising tides or passing dips.",
     ],
     upright: [
       "Upright announces decisive turning points, serendipitous meetings, unexpected breaks, karmic cycle completions, and fortunate shifts after months of effort.",
-      "Notice the message on timing: lean flexibly into rising doors while remembering no peak or valley stays permanent—stay humble in bright sun and hopeful in cloudbursts.",
+      "Notice the message on timing: lean flexibly into rising doors while remembering no peak or valley stays permanent: stay humble in bright sun and hopeful in cloudbursts.",
     ],
     reversed: [
       "Reversed spots unexpected delays, resisting inevitable change with white knuckles, or noticing the exact same relationship/work loop repeating under new names.",
@@ -791,7 +791,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against relying purely on luck or clinging to shrinking legacy roles.",
     ],
     finance: [
-      "Financially, income fluctuates cyclically—diversify buffers, capture upside windfalls wisely, and keep fixed costs modest for inevitable seasonal turns.",
+      "Financially, income fluctuates cyclically: diversify buffers, capture upside windfalls wisely, and keep fixed costs modest for inevitable seasonal turns.",
       "Reversed cautions against speculative gambling thinking momentum cannot reverse.",
     ],
     health: [
@@ -799,11 +799,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed signals recurring lifestyle habits returning until root routines evolve.",
     ],
     spiritual: [
-      "Spiritually, dharma rotates eternally—find unshakable stillness at the center axle rather than clinging wildly to the spinning rim.",
+      "Spiritually, dharma rotates eternally: find unshakable stillness at the center axle rather than clinging wildly to the spinning rim.",
       "Everything shifts in due time; stay awake to grace.",
     ],
     yesNoText:
-      "Wheel of Fortune leans Yes—fortunate momentum and timely change move in your favor, provided you adapt nimbly.",
+      "Wheel of Fortune leans Yes: fortunate momentum and timely change move in your favor, provided you adapt nimbly.",
     timeline: [
       "Prior seeds and shifting external cycles aligned to pivot your trajectory.",
       "An unmistakable inflection point or lucky opening is rotating into view right now.",
@@ -847,19 +847,19 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-11": {
     overview: [
-      "Justice (XI) sits upright between twin stone pillars before a suspended purple veil, holding a balanced brass scale in the left hand and a double-edged upright sword in the right. Clad in scarlet robes clasped with an emerald square, she meets your gaze head-on without blinkers—unlike blindfolded legal statues, Tarot Justice insists on seeing all facts plainly.",
+      "Justice (XI) sits upright between twin stone pillars before a suspended purple veil, holding a balanced brass scale in the left hand and a double-edged upright sword in the right. Clad in scarlet robes clasped with an emerald square, she meets your gaze head-on without blinkers: unlike blindfolded legal statues, Tarot Justice insists on seeing all facts plainly.",
       "Ruled by Libra and Air, Key 11 delivers strict fairness: every harvest traces straight back to seeds planted, signed clauses, and choices made in clear daylight.",
     ],
     upright: [
       "Upright rules contracts, court hearings, official approvals, transparent negotiations, equitable settlements, and personal accountability. If you acted cleanly and kept clean records, outcomes align fairly.",
-      "It equally asks for honest self-audit—weighing your own share in any dispute calmly without self-pity or finger-pointing.",
+      "It equally asks for honest self-audit: weighing your own share in any dispute calmly without self-pity or finger-pointing.",
     ],
     reversed: [
-      "Reversed uncovers skewed scales—unfair contracts, dodged accountability, self-serving bias, delayed rulings, or beating yourself up disproportionately over honest mistakes.",
+      "Reversed uncovers skewed scales: unfair contracts, dodged accountability, self-serving bias, delayed rulings, or beating yourself up disproportionately over honest mistakes.",
       "Audit documents closely and restore integrity privately before expecting fairness outward.",
     ],
     love: [
-      "In love, Justice demands genuine parity—shared labor, transparent communication, clean boundaries, and honest relationship agreements (including legal marriage or clean separation).",
+      "In love, Justice demands genuine parity: shared labor, transparent communication, clean boundaries, and honest relationship agreements (including legal marriage or clean separation).",
       "Reversed spots lopsided emotional ledger-keeping, lingering resentment, or avoiding clear responsibility for hurt.",
     ],
     career: [
@@ -875,11 +875,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed links stress directly to overworking one side of life while starving rest.",
     ],
     spiritual: [
-      "Spiritually, karma isn't cosmic vindictiveness—it is crystal-clear cause and effect teaching mature integrity.",
+      "Spiritually, karma isn't cosmic vindictiveness: it is crystal-clear cause and effect teaching mature integrity.",
       "Tell the plain unvarnished truth to yourself first.",
     ],
     yesNoText:
-      "Justice answers Fairly / Yes—if your intentions, facts, and paperwork align cleanly; if corners were cut, expect balanced correction first.",
+      "Justice answers Fairly / Yes: if your intentions, facts, and paperwork align cleanly; if corners were cut, expect balanced correction first.",
     timeline: [
       "Past contracts, documented effort, or honest choices established today's record.",
       "Clear truth, legal balance, or an overdue objective ruling weighs in now.",
@@ -891,7 +891,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Make one decision using objective facts rather than short-term guilt.",
     ],
     journalPrompts: [
-      "If an objective third party reviewed my choices here, what would look completely fair—and what wouldn't?",
+      "If an objective third party reviewed my choices here, what would look completely fair, and what wouldn't?",
       "Where am I demanding fairness outwardly while tipping scales privately?",
       "What overdue agreement needs clear black-and-white clarity?",
     ],
@@ -902,17 +902,17 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why isn't Justice blindfolded in traditional Rider-Waite tarot?",
         answer:
-          "Because higher fairness requires clear-eyed truth rather than blind guesswork—she looks directly at you to inspect reality unclouded.",
+          "Because higher fairness requires clear-eyed truth rather than blind guesswork: she looks directly at you to inspect reality unclouded.",
       },
       {
         question: "What does Justice mean for legal cases or contracts?",
         answer:
-          "Upright strongly favors fair legal resolutions, clean approvals, and honest contracts—provided facts and documentation are solid.",
+          "Upright strongly favors fair legal resolutions, clean approvals, and honest contracts: provided facts and documentation are solid.",
       },
       {
         question: "Is Justice positive in love?",
         answer:
-          "Yes—especially when partners commit to equal partnership, mutual respect, marriage clarity, or honest resolution of imbalances.",
+          "Yes. Especially when partners commit to equal partnership, mutual respect, marriage clarity, or honest resolution of imbalances.",
       },
       {
         question: "What does Justice reversed warn about?",
@@ -923,7 +923,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-12": {
     overview: [
-      "The Hanged Man (XII) hangs gracefully inverted by one ankle from a living T-shaped beam sprouted with green leaves, legs crossed casually in a calm figure-four while a luminous golden halo radiates effortlessly around his head. Notice zero struggle in his posture or brow—he chose this suspension willingly to trade frantic horizontal speed for radical inverted insight.",
+      "The Hanged Man (XII) hangs gracefully inverted by one ankle from a living T-shaped beam sprouted with green leaves, legs crossed casually in a calm figure-four while a luminous golden halo radiates effortlessly around his head. Notice zero struggle in his posture or brow: he chose this suspension willingly to trade frantic horizontal speed for radical inverted insight.",
       "Governed by Neptune and Water, Key 12 halts rushing precisely when pushing harder would only worsen a knot. Surrendering ego control reveals angles invisible from upright speed.",
     ],
     upright: [
@@ -931,7 +931,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Paradoxically, voluntary pause becomes real power here: stopping the fruitless battle lets outside conditions rearrange cleanly.",
     ],
     reversed: [
-      "Reversed captures fruitless martyrdom—stalling indefinitely out of fear while claiming nobility, or thrashing impatiently against natural waiting seasons.",
+      "Reversed captures fruitless martyrdom: stalling indefinitely out of fear while claiming nobility, or thrashing impatiently against natural waiting seasons.",
       "Ask honestly whether your sacrifice serves living purpose or merely avoids taking clear responsibility.",
     ],
     love: [
@@ -951,11 +951,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed reveals exhaustion worsened by fighting necessary recovery rest.",
     ],
     spiritual: [
-      "Spiritually, surrender dissolves stubborn tunnel vision—wisdom shines brightest the instant you quit forcing outcomes.",
+      "Spiritually, surrender dissolves stubborn tunnel vision: wisdom shines brightest the instant you quit forcing outcomes.",
       "Hang loose from urgency long enough to notice grace.",
     ],
     yesNoText:
-      "The Hanged Man leans No / Not Yet—forcing an immediate yes backfires right now; pause for fresh perspective first.",
+      "The Hanged Man leans No / Not Yet: forcing an immediate yes backfires right now; pause for fresh perspective first.",
     timeline: [
       "A deliberate pause or unavoidable bottleneck slowed earlier momentum.",
       "Suspending hasty action reveals an inverted perspective that shifts everything.",
@@ -968,7 +968,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "What truth can I notice only when I quit trying to win or rush this?",
-      "Am I resting in wise patience—or playing martyr to dodge a firm choice?",
+      "Am I resting in wise patience, or playing martyr to dodge a firm choice?",
       "What rigid expectation hurts most to loosen right now?",
     ],
     meditation:
@@ -978,17 +978,17 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Hanged Man a negative card?",
         answer:
-          "No—his golden halo and serene expression symbolize enlightened voluntary surrender and fresh breakthrough perspective after stillness.",
+          "No. His golden halo and serene expression symbolize enlightened voluntary surrender and fresh breakthrough perspective after stillness.",
       },
       {
         question: "Why does the wooden gallows sprout fresh green leaves?",
         answer:
-          "The living wood shows this pause is fertile rather than dead—growth quietly regenerates beneath temporary outward stillness.",
+          "The living wood shows this pause is fertile rather than dead: growth quietly regenerates beneath temporary outward stillness.",
       },
       {
         question: "What does The Hanged Man mean for timing?",
         answer:
-          "Expect delays, waiting periods, or re-evaluations—rushing prematurely usually costs extra effort.",
+          "Expect delays, waiting periods, or re-evaluations: rushing prematurely usually costs extra effort.",
       },
       {
         question: "How is The Hanged Man reversed different?",
@@ -1000,11 +1000,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   "major-13": {
     overview: [
       "Death (XIII) rides calmly across a barren plain clad in obsidian armor atop a pale white horse, carrying a black banner emblazoned with a five-petaled white rose of purity and renewal. Kings, clerics, and merchants yield before inevitable transition while beyond two distant twin towers the morning sun already rises golden across the horizon.",
-      "Governed by Scorpio and Water, Key 13 almost never signals literal mortality—it declares absolute structural transformation: an era, role, habit, or attachment has finished its living cycle so authentic new dawn can emerge.",
+      "Governed by Scorpio and Water, Key 13 almost never signals literal mortality: it declares absolute structural transformation: an era, role, habit, or attachment has finished its living cycle so authentic new dawn can emerge.",
     ],
     upright: [
       "Upright brings sweeping clean endings: retiring outdated careers, ending exhausted bonds respectfully, shedding stale identities, and clearing emotional clutter so real renewal breathes.",
-      "Trying to tape withered autumn leaves back onto bare branches only hurts—let finished chapters close cleanly.",
+      "Trying to tape withered autumn leaves back onto bare branches only hurts: let finished chapters close cleanly.",
     ],
     reversed: [
       "Reversed reveals white-knuckle resistance to overdue change: dragging out dead jobs, stale patterns, or half-ended conversations long past closure.",
@@ -1015,7 +1015,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against clinging out of fear of loneliness or recycling expired dynamics.",
     ],
     career: [
-      "At work, industries restructure, companies exit, or old roles conclude decisively—clearing space for true reinvention matching who you became.",
+      "At work, industries restructure, companies exit, or old roles conclude decisively: clearing space for true reinvention matching who you became.",
       "Reversed highlights clinging to obsolete skills out of comfort.",
     ],
     finance: [
@@ -1031,7 +1031,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Endings clear clean ground for unencumbered seeds.",
     ],
     yesNoText:
-      "Death leans No to preserving the status quo—or Yes only if your question embraces deep transformation and clean closure.",
+      "Death leans No to preserving the status quo, or Yes only if your question embraces deep transformation and clean closure.",
     timeline: [
       "Outdated foundations gradually lost vitality, bringing this chapter to maturity.",
       "Clear closure and radical shedding sweep dead weight away today.",
@@ -1039,7 +1039,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     advice: [
       "Say a clear, respectful goodbye to one dead commitment cluttering your week.",
-      "Clear physical space—donate clothes, archive finished projects, prune dead accounts.",
+      "Clear physical space: donate clothes, archive finished projects, prune dead accounts.",
       "Grieve honestly without dragging skeletons forward.",
     ],
     journalPrompts: [
@@ -1054,12 +1054,12 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does drawing the Death tarot card mean someone will die?",
         answer:
-          "Almost never literally—in classic Rider-Waite tarot it symbolizes transformative endings, closed chapters, rebirth, and shedding outgrown structures.",
+          "Almost never literally: in classic Rider-Waite tarot it symbolizes transformative endings, closed chapters, rebirth, and shedding outgrown structures.",
       },
       {
         question: "What does the rising sun between the twin towers signify?",
         answer:
-          "Guaranteed renewal and dawn waiting directly behind necessary change—endings always precede fresh daylight.",
+          "Guaranteed renewal and dawn waiting directly behind necessary change: endings always precede fresh daylight.",
       },
       {
         question: "Why is there a white rose on Death's black flag?",
@@ -1076,11 +1076,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   "major-14": {
     overview: [
       "Temperance (XIV) stands calmly with one bare foot planted on dry land and the other resting inside clear stream water, pouring bright silver-blue fluid smoothly between two golden chalices without spilling a single drop. Twin crimson angel wings rise behind a serene robe stamped with a fire triangle inside a square, while golden irises bloom along a winding path toward rising distant peaks.",
-      "Ruled by Sagittarius and Fire, Key 14 practices patient alchemy—blending mismatched elements slowly through steady moderation rather than extreme swings.",
+      "Ruled by Sagittarius and Fire, Key 14 practices patient alchemy: blending mismatched elements slowly through steady moderation rather than extreme swings.",
     ],
     upright: [
       "Upright signals healing equilibrium, diplomatic compromise, steady recovery, sustainable pacing, and mixing complementary talents into harmonious mastery.",
-      "Notice the angel mixes fire and water effortlessly—middle paths here aren't dull compromises, they are skilled synthesis creating stronger alloy.",
+      "Notice the angel mixes fire and water effortlessly: middle paths here aren't dull compromises, they are skilled synthesis creating stronger alloy.",
     ],
     reversed: [
       "Reversed tips balance into volatile swings: all-night sprints followed by crashes, caustic extremism, clumsy miscommunication, or impatience ruining delicate mixes.",
@@ -1096,7 +1096,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     finance: [
       "Financially, balanced allocation between safe liquidity, steady compounding, and mindful living eliminates stressful boom-bust swings.",
-      "Reversed cautions against impulsive extremes—wild overspending or rigid hoarding.",
+      "Reversed cautions against impulsive extremes: wild overspending or rigid hoarding.",
     ],
     health: [
       "Physically, Temperance governs hydration, nervous modulation, endocrine harmony, and gentle consistent pacing outlasting crash diets.",
@@ -1107,7 +1107,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Moderation turns raw sparks into lasting warmth.",
     ],
     yesNoText:
-      "Temperance answers Yes—steady harmony and gradual balanced progress bring reliable success over hasty leaps.",
+      "Temperance answers Yes: steady harmony and gradual balanced progress bring reliable success over hasty leaps.",
     timeline: [
       "Patient adjustment and learning healthy limits calmed earlier turbulence.",
       "Harmonious synthesis, healing balance, and diplomacy carry today cleanly.",
@@ -1140,7 +1140,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Temperance good for reconciliation or peace?",
         answer:
-          "Yes—it is one of tarot's clearest signals for patient diplomacy, forgiving dialogue, and harmonious compromise.",
+          "Yes. It is one of tarot's clearest signals for patient diplomacy, forgiving dialogue, and harmonious compromise.",
       },
       {
         question: "What does Temperance reversed warn against?",
@@ -1151,19 +1151,19 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-15": {
     overview: [
-      "The Devil (XV) perches atop a blackened stone pedestal before two chained naked figures mirroring The Lovers—yet look closely at their brass chains: the loops drape loosely around their necks, wide enough to lift overhead anytime they choose to walk away. Bat wings, inverted pentagram, torch, and shadowy Capricorn earth energy expose human bondage to comfort, addiction, toxic status games, or illusions of helplessness.",
-      "Ruled by Capricorn and Earth, Key 15 shines honest flashlights inside basements people prefer ignoring—revealing where unhealthy appetites or unexamined fears rent free room inside your decisions.",
+      "The Devil (XV) perches atop a blackened stone pedestal before two chained naked figures mirroring The Lovers, yet look closely at their brass chains: the loops drape loosely around their necks, wide enough to lift overhead anytime they choose to walk away. Bat wings, inverted pentagram, torch, and shadowy Capricorn earth energy expose human bondage to comfort, addiction, toxic status games, or illusions of helplessness.",
+      "Ruled by Capricorn and Earth, Key 15 shines honest flashlights inside basements people prefer ignoring: revealing where unhealthy appetites or unexamined fears rent free room inside your decisions.",
     ],
     upright: [
       "Upright confronts unhealthy attachments straight on: toxic work handcuffs kept for golden paychecks, codependent relationships built on drama, compulsive habits numbing stress, or limiting beliefs insisting 'I have no choice.'",
       "Yet remember Key 15 can equally unleash raw earthly ambition, unapologetic sexuality, and streetwise drive when wielded consciously rather than compulsively.",
     ],
     reversed: [
-      "Reversed marks real liberation—snapping open loose illusions, naming manipulative dynamics honestly, dropping draining habits, and stepping cleanly off the stone block.",
+      "Reversed marks real liberation: snapping open loose illusions, naming manipulative dynamics honestly, dropping draining habits, and stepping cleanly off the stone block.",
       "Alternatively, avoid stuffing honest shadow desires underground where shame makes them sneakier.",
     ],
     love: [
-      "In love, Key 15 sparks intoxicating physical magnetism—alongside warning flags if possessiveness, jealousy, or toxic trauma-bonding masquerade as passion.",
+      "In love, Key 15 sparks intoxicating physical magnetism: alongside warning flags if possessiveness, jealousy, or toxic trauma-bonding masquerade as passion.",
       "Reversed heralds breaking unhealthy cycles or reclaiming autonomous boundaries.",
     ],
     career: [
@@ -1183,7 +1183,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Light heals shadow the moment you look squarely without flinching.",
     ],
     yesNoText:
-      "The Devil leans No / Caution—check whether unhealthy attachment, fear, or short-term temptation motivates your question before proceeding.",
+      "The Devil leans No / Caution: check whether unhealthy attachment, fear, or short-term temptation motivates your question before proceeding.",
     timeline: [
       "Tempting shortcuts, comfort habits, or fear-based compromises built quiet chains.",
       "Looking squarely at loose shackles hands back genuine freedom of choice today.",
@@ -1206,28 +1206,28 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why are the chains around the people's necks loose on The Devil card?",
         answer:
-          "Because most psychological, financial, or relationship traps persist through habit and fear rather than real external locks—freedom starts with noticing.",
+          "Because most psychological, financial, or relationship traps persist through habit and fear rather than real external locks: freedom starts with noticing.",
       },
       {
         question: "Does The Devil always mean someone is evil?",
         answer:
-          "No—it symbolizes earthly shadow drives: compulsion, codependency, materialism, toxic fear, or raw unbridled passion waiting for conscious maturity.",
+          "No. It symbolizes earthly shadow drives: compulsion, codependency, materialism, toxic fear, or raw unbridled passion waiting for conscious maturity.",
       },
       {
         question: "Is The Devil reversed actually good news?",
         answer:
-          "Usually yes—it marks breaking addictions, escaping toxic environments, releasing limiting guilt, and reclaiming personal agency.",
+          "Usually yes: it marks breaking addictions, escaping toxic environments, releasing limiting guilt, and reclaiming personal agency.",
       },
       {
         question: "What does The Devil mean for ambition and money?",
         answer:
-          "Powerful drive toward wealth and status—helpful if channeled ethically, hazardous if debt or burnout controls you.",
+          "Powerful drive toward wealth and status: helpful if channeled ethically, hazardous if debt or burnout controls you.",
       },
     ],
   },
   "major-16": {
     overview: [
-      "The Tower (XVI) splits dramatically under golden lightning from stormy skies, blowing a gilded crown clean off a towering stone spire built upon shaky mountain crags as tumbling figures plunge into open night air. Yet notice those bright flickering golden yod sparks falling right alongside shock—divine wake-up lightning never strikes sound stone; it shatters only cramped structures built on denial.",
+      "The Tower (XVI) splits dramatically under golden lightning from stormy skies, blowing a gilded crown clean off a towering stone spire built upon shaky mountain crags as tumbling figures plunge into open night air. Yet notice those bright flickering golden yod sparks falling right alongside shock: divine wake-up lightning never strikes sound stone; it shatters only cramped structures built on denial.",
       "Governed by Mars and Fire, Key 16 brings brisk sudden disruption: unvarnished truth rupturing false security so fresh honest foundation can finally stand free.",
     ],
     upright: [
@@ -1235,7 +1235,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Do not waste energy clutching crumbling plaster; clear the dust swiftly and inspect solid bedrock uncovered beneath.",
     ],
     reversed: [
-      "Reversed shows internal tremors rather than public collapse—either narrowly dodging a disaster thanks to early course shifts, or exhausting yourself propping up a cracked wall nobody dares name.",
+      "Reversed shows internal tremors rather than public collapse: either narrowly dodging a disaster thanks to early course shifts, or exhausting yourself propping up a cracked wall nobody dares name.",
       "Voluntary controlled demolition always hurts less than forced collapse later.",
     ],
     love: [
@@ -1247,7 +1247,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed suggests quiet private restructuring before public announcements hit.",
     ],
     finance: [
-      "Financially, unexpected emergencies underscore why liquid safety reserves outperform stretched leverage—audit fragile risk exposures immediately.",
+      "Financially, unexpected emergencies underscore why liquid safety reserves outperform stretched leverage: audit fragile risk exposures immediately.",
       "Reversed hints at narrowly averting bigger loss through swift corrective action.",
     ],
     health: [
@@ -1255,11 +1255,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed encourages releasing chronic tension before bodies pull emergency brakes.",
     ],
     spiritual: [
-      "Spiritually, false crowns always tumble right before authentic freedom breathes—let proud illusions burn clean.",
+      "Spiritually, false crowns always tumble right before authentic freedom breathes: let proud illusions burn clean.",
       "Solid bedrock survives every lightning bolt intact.",
     ],
     yesNoText:
-      "The Tower leans No to unstable shortcuts—shaky premises crack quickly under pressure unless rebuilt on clean truth first.",
+      "The Tower leans No to unstable shortcuts: shaky premises crack quickly under pressure unless rebuilt on clean truth first.",
     timeline: [
       "Quiet cracks inside shaky structures accumulated tension under calm surfaces.",
       "Sudden revelation or overdue breakdown sweeps artificial crowns cleanly away.",
@@ -1282,7 +1282,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Tower the worst card in tarot?",
         answer:
-          "Intense, yes—worst, no. It removes false structures you outgrew too fast for comfortable bargaining, sparing wasted years inside dead cages.",
+          "Intense, yes: worst, no. It removes false structures you outgrew too fast for comfortable bargaining, sparing wasted years inside dead cages.",
       },
       {
         question: "What does the falling crown represent?",
@@ -1292,7 +1292,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can The Tower mean an exhilarating breakthrough instead of disaster?",
         answer:
-          "Absolutely—epiphanies, creative lightning, sudden liberation from toxic setups, and rapid paradigm shifts look identical in Key 16.",
+          "Absolutely: epiphanies, creative lightning, sudden liberation from toxic setups, and rapid paradigm shifts look identical in Key 16.",
       },
       {
         question: "What does The Tower reversed indicate?",
@@ -1303,12 +1303,12 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-17": {
     overview: [
-      "The Star (XVII) kneels naked beside a mirror-bright pool under crystal night skies lit by one blazing eight-pointed star and seven smaller companions. Holding twin clay jugs, she pours one shimmering stream steadily onto fertile earth—sprouting fresh green grass and carrying a watchful ibis perched in a quiet tree—while returning the second stream directly back into the water pool.",
+      "The Star (XVII) kneels naked beside a mirror-bright pool under crystal night skies lit by one blazing eight-pointed star and seven smaller companions. Holding twin clay jugs, she pours one shimmering stream steadily onto fertile earth (sprouting fresh green grass and carrying a watchful ibis perched in a quiet tree) while returning the second stream directly back into the water pool.",
       "Ruled by Aquarius and Air directly following The Tower's upheaval, Key 17 brings pure balm: quiet faith restored, transparent vulnerability without armor, and serene cosmic certainty that future harvests heal old scars cleanly.",
     ],
     upright: [
       "Upright signals steady physical recovery, artistic inspiration flowing unobstructed, healed hope after grief, transparent authenticity, and generous sharing that replenishes you simultaneously.",
-      "You do not have to rush recovery or dazzle crowds tonight—calm quiet steadiness shines across miles.",
+      "You do not have to rush recovery or dazzle crowds tonight: calm quiet steadiness shines across miles.",
     ],
     reversed: [
       "Reversed highlights temporary discouragement, creative dryness, harsh self-criticism drowning quiet faith, or feeling disconnected from deeper purpose during overcast stretches.",
@@ -1335,7 +1335,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Look upward at quiet stars when small worries feel loud.",
     ],
     yesNoText:
-      "The Star answers Yes—hopeful, healing, authentic, and warmly blessed across steady patient timelines.",
+      "The Star answers Yes: hopeful, healing, authentic, and warmly blessed across steady patient timelines.",
     timeline: [
       "Surviving sharp upheaval cleared clutter so quiet honesty survived intact.",
       "Gentle renewal, hopeful inspiration, and calm transparency soothe present days.",
@@ -1368,7 +1368,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Star good for health recovery?",
         answer:
-          "Yes—one of the deck's warmest indicators of physical and emotional healing, calm renewal, and steady vitality.",
+          "Yes. One of the deck's warmest indicators of physical and emotional healing, calm renewal, and steady vitality.",
       },
       {
         question: "What does The Star reversed indicate?",
@@ -1379,12 +1379,12 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-18": {
     overview: [
-      "The Moon (XVIII) illuminates a mysterious winding path emerging straight out of dark primordial waters—crawled by a cautious crayfish—passing between a domestic dog and an untamed wolf barking toward twin distant stone towers into shadowy mountain valleys. High overhead a somber face shines inside crescent light surrounded by falling dewdrops of mystery.",
+      "The Moon (XVIII) illuminates a mysterious winding path emerging straight out of dark primordial waters (crawled by a cautious crayfish) passing between a domestic dog and an untamed wolf barking toward twin distant stone towers into shadowy mountain valleys. High overhead a somber face shines inside crescent light surrounded by falling dewdrops of mystery.",
       "Governed by Pisces and Water, Key 18 governs twilight zones where logic dims: deep intuition, vivid dreams, unhealed anxieties, optical illusions, and half-truths hiding along foggy bends.",
     ],
     upright: [
       "Upright signals foggy uncertainty, misleading impressions, heightened emotional sensitivity, and hidden background currents requiring cautious footing rather than blind leaps.",
-      "Notice the narrow sunlit trail keeps winding safely past wolves and towers alike—walk steadily one calm step at a time while checking facts cleanly in daylight.",
+      "Notice the narrow sunlit trail keeps winding safely past wolves and towers alike: walk steadily one calm step at a time while checking facts cleanly in daylight.",
     ],
     reversed: [
       "Reversed shines sharp morning sun across lingering fog: buried truths surface, creeping paranoia lifts cleanly, confusing lies unravel, or long-denied feelings finally break free.",
@@ -1407,11 +1407,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed lifts sluggish mental fog cleanly.",
     ],
     spiritual: [
-      "Spiritually, twilight deepens intuitive artistry and symbolic sight—respect both wild instinct (wolf) and loyal steadiness (dog) without surrendering panic control.",
+      "Spiritually, twilight deepens intuitive artistry and symbolic sight: respect both wild instinct (wolf) and loyal steadiness (dog) without surrendering panic control.",
       "Night mists always lift gently toward golden morning.",
     ],
     yesNoText:
-      "The Moon leans Conditional / Wait—key illusions, vague info, or fearful guesswork cloud reliable verdicts until facts sharpen cleanly.",
+      "The Moon leans Conditional / Wait: key illusions, vague info, or fearful guesswork cloud reliable verdicts until facts sharpen cleanly.",
     timeline: [
       "Subtle dreams, anxieties, or half-hidden variables shaped unspoken undercurrents.",
       "Walking gently through foggy ambiguity demands honest checks over rushed leaps.",
@@ -1439,7 +1439,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does The Moon mean someone is lying to me?",
         answer:
-          "Not always maliciously—often it reflects confusion, self-deception, hidden feelings, or incomplete data needing calm verification.",
+          "Not always maliciously: often it reflects confusion, self-deception, hidden feelings, or incomplete data needing calm verification.",
       },
       {
         question: "Why is a crayfish climbing out of the water?",
@@ -1449,7 +1449,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Moon reversed positive?",
         answer:
-          "Frequently yes—fog lifts, buried truths emerge cleanly, and clarity replaces haunting anxiety.",
+          "Frequently yes: fog lifts, buried truths emerge cleanly, and clarity replaces haunting anxiety.",
       },
     ],
   },
@@ -1463,7 +1463,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Enjoy genuine brightness cleanly without waiting suspiciously for storms around corners.",
     ],
     reversed: [
-      "Reversed rarely breaks sunlight completely—rather, passing clouds dampen shine through temporary burnout, bruised ego, inflated showiness hiding doubts, or delays dimming immediate applause.",
+      "Reversed rarely breaks sunlight completely: rather, passing clouds dampen shine through temporary burnout, bruised ego, inflated showiness hiding doubts, or delays dimming immediate applause.",
       "Reclaim unforced warmth rather than chasing toxic perfectionism.",
     ],
     love: [
@@ -1483,11 +1483,11 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed advises pacing exposure and rest so bright output stays playful rather than exhausting.",
     ],
     spiritual: [
-      "Spiritually, enlightenment laughs easily—innocent delight honors sacred life far cleaner than dour pride.",
+      "Spiritually, enlightenment laughs easily: innocent delight honors sacred life far cleaner than dour pride.",
       "Stand warmly inside open daylight.",
     ],
     yesNoText:
-      "The Sun answers Yes—unambiguous, vibrant, honest, and warmly rewarding across every dimension.",
+      "The Sun answers Yes: unambiguous, vibrant, honest, and warmly rewarding across every dimension.",
     timeline: [
       "Emerging steadily from complex testing chapters cleared crisp sky overhead.",
       "Warmth, undeniable recognition, joyful energy, and clear truth light today.",
@@ -1510,7 +1510,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is The Sun the luckiest card in tarot?",
         answer:
-          "It is widely considered the brightest, clearest positive card in the deck—symbolizing vitality, success, transparency, and joy.",
+          "It is widely considered the brightest, clearest positive card in the deck: symbolizing vitality, success, transparency, and joy.",
       },
       {
         question: "What do the four sunflowers behind the wall represent?",
@@ -1520,7 +1520,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can The Sun reversed still be positive?",
         answer:
-          "Yes—its underlying energy remains hopeful and warm, signaling merely temporary delays, mild fatigue, or needing humility.",
+          "Yes. Its underlying energy remains hopeful and warm, signaling merely temporary delays, mild fatigue, or needing humility.",
       },
       {
         question: "What does The Sun mean in relationship spreads?",
@@ -1531,7 +1531,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-20": {
     overview: [
-      "Judgement (XX) resounds with Archangel Gabriel's golden trumpet breaking open tranquil clouds, waving a bright white banner scored with a red cross while awakened families rise joyfully from gray stone tombs resting smoothly upon calm blue sea. Crucially, notice zero judgmental wrath or courtroom fear—these awakened figures lift open arms in ecstatic gratitude, ready at last to answer an unmistakable inner calling.",
+      "Judgement (XX) resounds with Archangel Gabriel's golden trumpet breaking open tranquil clouds, waving a bright white banner scored with a red cross while awakened families rise joyfully from gray stone tombs resting smoothly upon calm blue sea. Crucially, notice zero judgmental wrath or courtroom fear: these awakened figures lift open arms in ecstatic gratitude, ready at last to answer an unmistakable inner calling.",
       "Ruled by Pluto and Fire/Water renewal, Key 20 marks absolution, clean reckoning, decisive rebirth, and leaving old dead shells behind to embrace your larger life vocation.",
     ],
     upright: [
@@ -1543,7 +1543,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Forgiveness opens doors shame insists on padlocking.",
     ],
     love: [
-      "In love, Key 20 resolves past chapters cleanly—either profound honest reconciliation after mutual accountability, or dignified release setting both souls joyfully free.",
+      "In love, Key 20 resolves past chapters cleanly: either profound honest reconciliation after mutual accountability, or dignified release setting both souls joyfully free.",
       "Reversed warns against dragging stale grudges or ducking an overdue honest talk.",
     ],
     career: [
@@ -1563,7 +1563,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Rise cleanly when inner conscience calls your true name.",
     ],
     yesNoText:
-      "Judgement leans Yes—especially for important decisions, clean fresh starts, reconciliations built on accountability, and answering your true calling.",
+      "Judgement leans Yes, especially for important decisions, clean fresh starts, reconciliations built on accountability, and answering your true calling.",
     timeline: [
       "Accumulated lessons, quiet reflections, and past choices matured toward reckoning.",
       "A clear awakening call asks for honest forgiveness and resolute response today.",
@@ -1586,12 +1586,12 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Judgement mean someone is judging or punishing me?",
         answer:
-          "In Rider-Waite tarot it signifies awakening, spiritual rebirth, self-absolution, and answering a higher calling—not harsh condemnation.",
+          "In Rider-Waite tarot it signifies awakening, spiritual rebirth, self-absolution, and answering a higher calling, not harsh condemnation.",
       },
       {
         question: "Can Judgement predict a reunion or ex returning?",
         answer:
-          "Frequently—when honest accountability and genuine forgiveness open space for clean second chances.",
+          "Frequently, when honest accountability and genuine forgiveness open space for clean second chances.",
       },
       {
         question: "What does Judgement mean for exams, interviews, or boards?",
@@ -1607,7 +1607,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "major-21": {
     overview: [
-      "The World (XXI) completes the Fool's Journey framed inside a triumphal laurel wreath bound cleanly with crimson infinity ribbons, guarded in all four corners by the same cosmic angel, eagle, lion, and bull seen first in Wheel of Fortune. Dancing freely at center holding twin wands, the figure embodies integrated mastery—no longer chasing missing pieces outside, because every trial from Zero through Twenty weaves harmoniously inside one whole life.",
+      "The World (XXI) completes the Fool's Journey framed inside a triumphal laurel wreath bound cleanly with crimson infinity ribbons, guarded in all four corners by the same cosmic angel, eagle, lion, and bull seen first in Wheel of Fortune. Dancing freely at center holding twin wands, the figure embodies integrated mastery: no longer chasing missing pieces outside, because every trial from Zero through Twenty weaves harmoniously inside one whole life.",
       "Ruled by Saturn and Earth, Key 21 celebrates earned completion: graduation, global horizons, major projects delivered cleanly, and standing whole at the end of a long worthy climb before fresh horizons beckon.",
     ],
     upright: [
@@ -1631,15 +1631,15 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against leaving accounts untidy or failing to close final financial settlements.",
     ],
     health: [
-      "Physically, integrated holistic balance—mind, nervous rhythm, strength, and sustainable endurance humming cleanly together.",
+      "Physically, integrated holistic balance: mind, nervous rhythm, strength, and sustainable endurance humming cleanly together.",
       "Reversed flags lingering recovery loose ends or skipping restful integration after hard pushes.",
     ],
     spiritual: [
-      "Spiritually, you become both pilgrim and home simultaneously—dancing calmly inside cosmic wholeness before Step Zero invites new wonders.",
+      "Spiritually, you become both pilgrim and home simultaneously: dancing calmly inside cosmic wholeness before Step Zero invites new wonders.",
       "Breathe in earned completion proudly.",
     ],
     yesNoText:
-      "The World answers an emphatic Yes—earned fulfillment, successful closure, global reach, and holistic harmony align cleanly.",
+      "The World answers an emphatic Yes: earned fulfillment, successful closure, global reach, and holistic harmony align cleanly.",
     timeline: [
       "Patient steady steps across long seasons woven through trials built durable mastery.",
       "Fulfillment, proud completion, and wide global integration crown your present chapter.",
@@ -1672,7 +1672,7 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can The World predict travel or moving abroad?",
         answer:
-          "Yes—it is one of tarot's clearest markers for global outreach, relocation, foreign work, and expanding beyond familiar borders.",
+          "Yes. It is one of tarot's clearest markers for global outreach, relocation, foreign work, and expanding beyond familiar borders.",
       },
       {
         question: "What does The World reversed mean?",

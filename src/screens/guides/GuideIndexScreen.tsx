@@ -11,7 +11,7 @@ import {
   Star,
   Cross,
   Scale,
-} from "lucide-react";
+} from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -30,7 +30,7 @@ const GUIDE_HUB_FAQS = [
   {
     question: "How do AstroFree's tarot and Vedic numerology guides fit together?",
     answer:
-      "Tarot captures the texture of immediate circumstances and personal choices, while Indian Ank Shastra (Mulank, Bhagyank, and Namank) maps temperament and multi-year timing cycles—pair both to compare daily nuance against longer life arcs.",
+      "Tarot captures the texture of immediate circumstances and personal choices, while Indian Ank Shastra (Mulank, Bhagyank, and Namank) maps temperament and multi-year timing cycles: pair both to compare daily nuance against longer life arcs.",
   },
   {
     question: "Are all AstroFree study guides free without account registration?",
@@ -40,7 +40,7 @@ const GUIDE_HUB_FAQS = [
   {
     question: "Why does AstroFree include reversed card guidance?",
     answer:
-      "Reversals prevent one-dimensional fatalistic readings by highlighting when a card's core energy sits internalized, blocked, overdue, or subtly overexpressed—helpful context covered step by step in Reversed Tarot Cards.",
+      "Reversals prevent one-dimensional fatalistic readings by highlighting when a card's core energy sits internalized, blocked, overdue, or subtly overexpressed: helpful context covered step by step in Reversed Tarot Cards.",
   },
 ];
 
@@ -49,7 +49,7 @@ const guides = [
     to: "/guide/tarot-card-meanings",
     icon: BookOpen,
     title: "Tarot Card Meanings",
-    body: "Upright and reversed meanings for all 78 cards — the 22 Major Arcana and all four Minor Arcana suits — plus what each card suggests for love, career, finances, and spiritual growth.",
+    body: "Upright and reversed meanings for all 78 cards (the 22 Major Arcana and all four Minor Arcana suits) plus what each card suggests for love, career, finances, and spiritual growth.",
     readingMinutes: 16,
     anchor: "tarot-card-meanings",
   },
@@ -57,7 +57,7 @@ const guides = [
     to: "/guide/tarot-spreads",
     icon: LayoutGrid,
     title: "Tarot Spreads Explained",
-    body: "How each spread works and what its positions mean — from a quick Single Card pull to the ten-position Celtic Cross and the twelve-card Year Ahead spread.",
+    body: "How each spread works and what its positions mean: from a quick Single Card pull to the ten-position Celtic Cross and the twelve-card Year Ahead spread.",
     readingMinutes: 10,
     anchor: "tarot-spreads",
   },
@@ -73,7 +73,7 @@ const guides = [
     to: "/guide/tarot-for-beginners",
     icon: GraduationCap,
     title: "Tarot for Beginners",
-    body: "The complete starting guide — deck structure, how to shuffle and draw, your first spreads, and a repeatable method for interpreting any card.",
+    body: "The complete starting guide: deck structure, how to shuffle and draw, your first spreads, and a repeatable method for interpreting any card.",
     readingMinutes: 14,
     anchor: "tarot-for-beginners",
   },
@@ -129,7 +129,7 @@ export function GuideIndexScreen() {
             Learn tarot <span className="aurora-text">&amp; numerology</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            These reference guides go deeper than any single reading — a plain-language explanation
+            These reference guides go deeper than any single reading: a plain-language explanation
             of what every tarot card means, how each spread is laid out, and the exact math behind
             Mulank numerology. Everything here is free to read, no signup required.
           </p>
@@ -267,7 +267,7 @@ export function GuideIndexScreen() {
             </h2>
             <p className="text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               Many readers approach tarot and numerology as unrelated hobbies, yet the two systems
-              share deep structural symmetry. Tarot excels at illuminating immediate dilemmas — what
+              share deep structural symmetry. Tarot excels at illuminating immediate dilemmas: what
               is unfolding in a specific relationship, creative effort, or crossroads decision right
               now. Vedic Ank Shastra zooms out across longer spans: your Mulank highlights native
               instinctive temperament driven by the calendar day of birth, while your Bhagyank and

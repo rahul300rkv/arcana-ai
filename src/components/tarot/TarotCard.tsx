@@ -15,7 +15,7 @@ interface Props {
 export function TarotCard({ card, reversed, revealed, onReveal, className }: Props) {
   const buttonLabel = revealed
     ? `${card.name}${reversed ? " (reversed)" : ""} tarot card revealed`
-    : "Face-down tarot card — tap to reveal";
+    : "Face-down tarot card: tap to reveal";
 
   return (
     <motion.button

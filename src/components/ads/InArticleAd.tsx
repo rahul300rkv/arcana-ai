@@ -53,7 +53,7 @@ function AdSlot({
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushedRef.current = true;
     } catch {
-      // Ad blocker or delayed script fill — gracefully ignore.
+      // Ad blocker or delayed script fill: gracefully ignore.
     }
   }, []);
 

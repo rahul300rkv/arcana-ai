@@ -50,7 +50,7 @@ export function CookiePolicyScreen() {
 
           <Section title="3. Essential Functional Technologies">
             Certain lightweight browser storage mechanisms are strictly necessary for basic site
-            operation — such as remembering your language toggle as you navigate from a tarot guide
+            operation, such as remembering your language toggle as you navigate from a tarot guide
             to a numerology calculator, keeping multi-step reading selections intact between the
             Question, Shuffle, Reveal, and Result screens, and preserving security headers.
           </Section>
@@ -58,7 +58,7 @@ export function CookiePolicyScreen() {
           <Section title="4. Advertising Cookies (Google AdSense)">
             AstroFree remains completely free to use thanks to non-intrusive display advertising
             served via Google AdSense. Google and its certified third-party ad networks may place
-            and read cookies — including the DoubleClick / NID / IDE cookies — or use web beacons to
+            and read cookies, including the DoubleClick / NID / IDE cookies, or use web beacons to
             serve ads tailored to your previous visits to this website or other sites across the web.
             These cookies also enforce frequency caps (so you do not see the exact same ad
             repeatedly), detect invalid click fraud, and report aggregate ad performance to
@@ -66,7 +66,7 @@ export function CookiePolicyScreen() {
           </Section>
 
           <Section title="5. Analytics & Performance Measurement">
-            We may utilize privacy-conscious aggregate analytics to understand broad usage patterns —
+            We may utilize privacy-conscious aggregate analytics to understand broad usage patterns,
             for example, identifying which tarot spreads, numerology calculators, or educational guides
             readers find most helpful, and diagnosing slow page loads on mobile devices. These
             metrics are analyzed in aggregate rather than used to construct individual consumer

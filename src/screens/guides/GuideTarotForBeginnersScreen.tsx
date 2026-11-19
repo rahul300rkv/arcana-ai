@@ -8,7 +8,7 @@ import {
   ListChecks,
   ShieldQuestion,
   HelpCircle,
-} from "lucide-react";
+} from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -25,7 +25,7 @@ const FAQS = [
   {
     question: "Do I need a special deck to start reading tarot?",
     answer:
-      "No. Any standard 78-card Rider–Waite–Smith style deck works, and even a well-illustrated app deck is fine while you're learning. What matters more than the deck is consistency — using the same one while you build familiarity with its imagery.",
+      "No. Any standard 78-card Rider–Waite–Smith style deck works, and even a well-illustrated app deck is fine while you're learning. What matters more than the deck is consistency: using the same one while you build familiarity with its imagery.",
   },
   {
     question: "How long does it take to learn tarot?",
@@ -55,7 +55,7 @@ export function GuideTarotForBeginnersScreen() {
       crumbs={[{ label: "Guides", to: "/guide" }, { label: "Tarot for Beginners" }]}
       eyebrow="Tarot · Beginner's Guide"
       title={TITLE}
-      intro="Everything you need to draw your first card with confidence — the deck, the shuffle, your first spreads, and a repeatable method for interpreting what you see instead of guessing."
+      intro="Everything you need to draw your first card with confidence: the deck, the shuffle, your first spreads, and a repeatable method for interpreting what you see instead of guessing."
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={14}
@@ -69,8 +69,8 @@ export function GuideTarotForBeginnersScreen() {
       <ContentSection id="what-is-tarot" title="What tarot actually is" icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           A tarot deck is a set of 78 illustrated cards split into two families: the 22 Major Arcana
-          and the 56 Minor Arcana. Each card carries a fixed core meaning — built from its imagery,
-          numerology, and elemental associations — but that meaning shifts depending on the question
+          and the 56 Minor Arcana. Each card carries a fixed core meaning: built from its imagery,
+          numerology, and elemental associations, but that meaning shifts depending on the question
           asked, the position it lands in within a spread, and the cards drawn beside it. Learning
           tarot is really learning two things at once: a vocabulary of 78 symbols, and a method for
           reading them together as a sentence rather than in isolation.
@@ -87,13 +87,13 @@ export function GuideTarotForBeginnersScreen() {
       <ContentSection id="deck-structure" title="Understanding the deck" icon={Layers}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           The <strong className="text-foreground/90">Major Arcana</strong> (numbered 0 through 21,
-          from The Fool to The World) represent significant life themes — turning points, lessons,
+          from The Fool to The World) represent significant life themes, turning points, lessons,
           and archetypal forces that tend to describe the bigger picture of a reading. When several
           Major Arcana appear in one spread, it's usually a sign the question touches something
           consequential rather than day-to-day.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The <strong className="text-foreground/90">Minor Arcana</strong> cover the everyday — the
+          The <strong className="text-foreground/90">Minor Arcana</strong> cover the everyday: the
           texture of daily life, small decisions, and short-term influences. They're split into four
           suits, each tied to an element and a life domain:
         </p>
@@ -119,7 +119,7 @@ export function GuideTarotForBeginnersScreen() {
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Within each suit, cards Ace through 10 describe a situation unfolding in stages, and the
           four court cards (Page, Knight, Queen, King) represent people, personality styles, or a
-          particular way of approaching the suit's theme — sometimes you, sometimes someone else in
+          particular way of approaching the suit's theme: sometimes you, sometimes someone else in
           the question.
         </p>
       </ContentSection>
@@ -131,11 +131,11 @@ export function GuideTarotForBeginnersScreen() {
         </p>
         <ul className="mt-4 space-y-3">
           {[
-            'Write your question down before you shuffle, in specific rather than yes/no terms — "What do I need to understand about this job offer?" gives more to work with than "Should I take the job?"',
+            'Write your question down before you shuffle, in specific rather than yes/no terms: "What do I need to understand about this job offer?" gives more to work with than "Should I take the job?"',
             "Shuffle for as long as feels right, cutting the deck once or twice. There's no required number of shuffles.",
-            "Draw with your non-dominant hand if that ritual helps you feel present, but it makes no difference to the outcome — pick what keeps you focused.",
+            "Draw with your non-dominant hand if that ritual helps you feel present, but it makes no difference to the outcome: pick what keeps you focused.",
             "Read cards in the order you laid them, not the order that feels most dramatic. Skipping around breaks the narrative a spread is built to tell.",
-            "Keep a simple reading journal — the question, the cards, and what you thought at the time. Beginners improve fastest by comparing early interpretations to how things actually played out.",
+            "Keep a simple reading journal: the question, the cards, and what you thought at the time. Beginners improve fastest by comparing early interpretations to how things actually played out.",
           ].map((tip) => (
             <li key={tip} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span
@@ -197,7 +197,7 @@ export function GuideTarotForBeginnersScreen() {
             {
               step: "Look before you label",
               detail:
-                'Notice what\'s actually happening in the image before recalling the "official" meaning — the number of figures, their posture, the weather, the objects in their hands. The Rider–Waite–Smith deck was designed so the picture alone carries most of the meaning.',
+                'Notice what\'s actually happening in the image before recalling the "official" meaning: the number of figures, their posture, the weather, the objects in their hands. The Rider–Waite–Smith deck was designed so the picture alone carries most of the meaning.',
             },
             {
               step: "Place it in position",
@@ -207,7 +207,7 @@ export function GuideTarotForBeginnersScreen() {
             {
               step: "Read it against its neighbours",
               detail:
-                "A card rarely stands alone. A frightening card next to gentle, supportive ones reads very differently than the same card surrounded by conflict. Look for repeated suits, numbers, or elements across the spread — that repetition is usually the real message.",
+                "A card rarely stands alone. A frightening card next to gentle, supportive ones reads very differently than the same card surrounded by conflict. Look for repeated suits, numbers, or elements across the spread: that repetition is usually the real message.",
             },
             {
               step: "Connect it to the question",
@@ -224,7 +224,7 @@ export function GuideTarotForBeginnersScreen() {
           ))}
         </ol>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Reversed cards (drawn upside down) add a fifth layer once you're ready for it — see{" "}
+          Reversed cards (drawn upside down) add a fifth layer once you're ready for it: see{" "}
           <Link to="/what-do-reversed-tarot-cards-mean" className="text-[var(--gold)] hover:underline">
             AstroFree's guide to reversed tarot cards
           </Link>{" "}
@@ -236,9 +236,9 @@ export function GuideTarotForBeginnersScreen() {
         <ul className="mt-2 space-y-3">
           {[
             "Treating every card in isolation instead of as part of a sentence the whole spread is telling.",
-            "Panicking at cards like Death or The Tower — both describe transformation and disruption, not literal endings, and are among the most misunderstood cards in the deck.",
+            "Panicking at cards like Death or The Tower: both describe transformation and disruption, not literal endings, and are among the most misunderstood cards in the deck.",
             "Re-asking the same question repeatedly until a preferred answer appears. One clear question, one reading, is more reliable than five contradictory ones.",
-            "Skipping the court cards because they feel harder — they're often the fastest way to identify who else is involved in a situation.",
+            "Skipping the court cards because they feel harder: they're often the fastest way to identify who else is involved in a situation.",
             "Reading for others before feeling settled reading for yourself. Confidence with your own spreads transfers directly to reading anyone else's.",
           ].map((m) => (
             <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
@@ -294,14 +294,14 @@ export function GuideTarotForBeginnersScreen() {
           {
             to: "/guide/tarot-card-meanings",
             label: "All 78 tarot card meanings",
-            blurb: "The full reference library — upright and reversed meanings for every card.",
+            blurb: "The full reference library: upright and reversed meanings for every card.",
           },
         ]}
       />
 
       <CTASection
         title="Practice with a free guided reading"
-        body="Draw a live spread and get an instant, plain-language interpretation of every card — a fast way to put this guide into practice."
+        body="Draw a live spread and get an instant, plain-language interpretation of every card: a fast way to put this guide into practice."
         ctaLabel="Start a free reading"
         to="/reading"
       />

@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
-import { Hash, Sparkles, ArrowRight, Star, Moon, Compass, Calendar } from "lucide-react";
+import { Hash, Sparkles, ArrowRight, Star, Moon, Compass, Calendar } from "@/components/icons";
 import { SectionHeader } from "./Features";
 
 const ARCHETYPE_MAP: Record<number, { name: string; planet: string; traits: string; tarot: string }> = {
@@ -50,7 +50,7 @@ export function Numerology() {
         <SectionHeader
           eyebrow="Vedic Science of Numbers"
           title="Instant Sacred Numerology Matrix"
-          subtitle="Discover your Mulank (birth root) and Bhagyank (destiny vibration) — test your birth date live right now."
+          subtitle="Discover your Mulank (birth root) and Bhagyank (destiny vibration). Test your birth date live right now."
         />
 
         {/* Live Interactive Matrix Container */}

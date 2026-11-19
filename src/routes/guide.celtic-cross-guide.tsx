@@ -5,14 +5,14 @@ import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 const PATH = "/guide/celtic-cross-guide";
 const TITLE = "10-Card Celtic Cross Tarot Spread: Step-by-Step Guide";
 const DESCRIPTION =
-  "A complete step-by-step walkthrough of the 10 card tarot spread (Celtic Cross) — what all 10 positions mean, how to lay them in order, and how to read them together.";
+  "A complete step-by-step walkthrough of the 10 card tarot spread (Celtic Cross): what all 10 positions mean, how to lay them in order, and how to read them together.";
 const UPDATED = "2026-11-18";
 
 const FAQS = [
   {
     question: "How long does a Celtic Cross reading take?",
     answer:
-      "Most readers spend 15 to 20 minutes on a full Celtic Cross — a few minutes to lay the ten cards, and the rest interpreting them individually and then together.",
+      "Most readers spend 15 to 20 minutes on a full Celtic Cross: a few minutes to lay the ten cards, and the rest interpreting them individually and then together.",
   },
   {
     question: "What's the correct order to lay the ten cards in?",
@@ -22,17 +22,17 @@ const FAQS = [
   {
     question: "Do I read the ten cards in the order they're laid, or some other order?",
     answer:
-      "Read them in position order (1 through 10) on your first pass to build the story chronologically, then read the spread again as a whole, looking for repeated suits, numbers, or themes across all ten cards — that's usually where the clearest message emerges.",
+      "Read them in position order (1 through 10) on your first pass to build the story chronologically, then read the spread again as a whole, looking for repeated suits, numbers, or themes across all ten cards: that's usually where the clearest message emerges.",
   },
   {
     question: "Is the Celtic Cross too advanced for beginners?",
     answer:
-      "It's more demanding than a Single Card or Three Card spread, but not off-limits to beginners — it simply rewards familiarity with upright and reversed card meanings first. Most readers try their first Celtic Cross after a few weeks of practice with smaller spreads.",
+      "It's more demanding than a Single Card or Three Card spread, but not off-limits to beginners: it simply rewards familiarity with upright and reversed card meanings first. Most readers try their first Celtic Cross after a few weeks of practice with smaller spreads.",
   },
   {
     question: "What if two positions seem to contradict each other?",
     answer:
-      "That's common and meaningful, not a sign of a bad reading — it usually reflects real tension in the situation, such as the Hopes & Fears position pulling one way while the Outcome pulls another. Sit with the contradiction rather than picking whichever card you prefer.",
+      "That's common and meaningful, not a sign of a bad reading: it usually reflects real tension in the situation, such as the Hopes & Fears position pulling one way while the Outcome pulls another. Sit with the contradiction rather than picking whichever card you prefer.",
   },
       {
         question: "What is the 10 card tarot spread called?",

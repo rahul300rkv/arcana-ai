@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { RefreshCw, RotateCcw, Sparkles } from "lucide-react";
+import { RefreshCw, RotateCcw, Sparkles } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
@@ -137,7 +137,7 @@ function InteractiveYesNoOracle() {
             {drawn.reversed && (
               <p className="flex flex-wrap items-center gap-2 rounded-xl border border-[color-mix(in_oklab,var(--aurora-1)_38%,transparent)] bg-[color-mix(in_oklab,var(--aurora-1)_10%,transparent)] px-3.5 py-2.5 text-xs text-foreground/90">
                 <RefreshCw className="h-3.5 w-3.5 shrink-0 text-[color:var(--aurora-1)]" aria-hidden />
-                <span>Pulled reversed — check</span>
+                <span>Pulled reversed: check</span>
                 <Link
                   to="/what-do-reversed-tarot-cards-mean"
                   className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"

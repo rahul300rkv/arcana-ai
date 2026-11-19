@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Link2, Share2 } from "lucide-react";
+import { Check, Link2, Share2 } from "@/components/icons";
 
 /** Native share where available, clipboard copy everywhere else. */
 export function ShareButtons({ title, url }: { title: string; url: string }) {
@@ -11,7 +11,7 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
         await navigator.share({ title, url });
         return;
       } catch {
-        // User dismissed the share sheet — fall through to copy.
+        // User dismissed the share sheet: fall through to copy.
       }
     }
     try {
@@ -39,7 +39,7 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
         {copied ? "Link copied" : "Share"}
       </button>
       <a
-        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${title} — ${url}`)}`}
+        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}: ${url}`)}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Share ${title} on WhatsApp`}

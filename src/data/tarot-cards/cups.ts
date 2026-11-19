@@ -3,7 +3,7 @@ import type { UniqueCardCopy } from "./types";
 export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   "cups-ace": {
     overview: [
-      "The Ace of Cups lifts an ornate golden chalice straight from luminous cloud hands—overflowing five crystalline streams into peaceful lily-covered water below while a pure white dove descends gently carrying a sacred wafer toward the bowl. Every ripple embodies Water's purest opening: unconditional love, overflowing compassion, fresh emotional vulnerability, and intuitive grace pouring effortlessly when dry defenses soften.",
+      "The Ace of Cups lifts an ornate golden chalice straight from luminous cloud hands: overflowing five crystalline streams into peaceful lily-covered water below while a pure white dove descends gently carrying a sacred wafer toward the bowl. Every ripple embodies Water's purest opening: unconditional love, overflowing compassion, fresh emotional vulnerability, and intuitive grace pouring effortlessly when dry defenses soften.",
       "Before heartbreak or guarded scorekeeping cools hearts shut, Card 1 invites welcoming tender feeling cleanly again.",
     ],
     upright: [
@@ -19,7 +19,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed highlights guarded coldness, unspoken hurt clogging closeness, or empty superficial chemistry.",
     ],
     career: [
-      "At work, inspired passion projects—arts, healing professions, hospitality, counseling, teaching—where genuine human care fuels proud craft.",
+      "At work, inspired passion projects (arts, healing professions, hospitality, counseling, teaching) where genuine human care fuels proud craft.",
       "Reversed flags creative numbness or drained emotional burnout in caregiving roles.",
     ],
     finance: [
@@ -31,10 +31,10 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed mirrors swallowed tears turning into heavy fatigue or sluggish immunity.",
     ],
     spiritual: [
-      "Spiritually, that descending dove brings grace straight to humble open hearts—compassion dissolves rigid mental friction effortlessly.",
+      "Spiritually, that descending dove brings grace straight to humble open hearts: compassion dissolves rigid mental friction effortlessly.",
       "Notice beauty clearly everywhere today.",
     ],
-    yesNoText: "Ace of Cups answers Yes—overflowing warmth, sincere love, healing clarity, and genuine emotional joy align cleanly.",
+    yesNoText: "Ace of Cups answers Yes: overflowing warmth, sincere love, healing clarity, and genuine emotional joy align cleanly.",
     timeline: [
       "Releasing cold defensive walls opened fresh capacity to feel deeply again.",
       "Loving tenderness, creative flow, and heart-opening grace arrive warmly today.",
@@ -62,7 +62,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Ace of Cups predict new love?",
         answer:
-          "Yes—it is one of tarot's clearest markers for new heartfelt romance, emotional renewal, deep intimacy, or joyful engagements.",
+          "Yes. It is one of tarot's clearest markers for new heartfelt romance, emotional renewal, deep intimacy, or joyful engagements.",
       },
       {
         question: "Why is there a dove carrying a wafer above the cup?",
@@ -78,12 +78,12 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-two": {
     overview: [
-      "Two of Cups captures two attentive figures clad in cheerful spring blossoms stepping forward toward one another across peaceful countryside, exchanging golden chalices gracefully under a winged crimson lion above a glowing Caduceus of Hermes. This is pure mutual recognition—two equals meeting cleanly without hierarchy, manipulation, or hiding.",
+      "Two of Cups captures two attentive figures clad in cheerful spring blossoms stepping forward toward one another across peaceful countryside, exchanging golden chalices gracefully under a winged crimson lion above a glowing Caduceus of Hermes. This is pure mutual recognition: two equals meeting cleanly without hierarchy, manipulation, or hiding.",
       "Venus in Cancer rules sincere partnership: love, co-founders, trusted friendships, peacemaking, and contracts signed warmly where both sides win equally.",
     ],
     upright: [
       "Upright seals deep mutual bonding: exciting mutual attraction, committed proposals, harmonious business partnerships, reconciling warm apologies, and rare conversations where someone truly hears every unspoken note.",
-      "Notice both hold their cups upright at equal height—healthy intimacy thrives on clean shared parity.",
+      "Notice both hold their cups upright at equal height: healthy intimacy thrives on clean shared parity.",
     ],
     reversed: [
       "Reversed tips balance askew: miscommunication creating icy misunderstanding, broken promises, silent tug-of-war asymmetry, unreciprocated feelings, or discovering mismatched core values beneath early charm.",
@@ -106,10 +106,10 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed links somatic stress directly to unresolved tension with a close person.",
     ],
     spiritual: [
-      "Spiritually, authentic human meeting mirrors divine harmony—seeing sacred dignity cleanly inside another's eyes.",
+      "Spiritually, authentic human meeting mirrors divine harmony: seeing sacred dignity cleanly inside another's eyes.",
       "Honor promises tenderly.",
     ],
-    yesNoText: "Two of Cups answers Yes—especially for romance, partnerships, agreements, and sincere mutual harmony.",
+    yesNoText: "Two of Cups answers Yes, especially for romance, partnerships, agreements, and sincere mutual harmony.",
     timeline: [
       "Quiet openness prepared space for genuine equal meeting.",
       "Warm mutual rapport, balanced synergy, and heartfelt commitment shine today.",
@@ -122,7 +122,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "What does clean emotional equality look and feel like inside my closest connections?",
-      "Where am I offering less—or asking silently for more—than I speak plainly?",
+      "Where am I offering less, or asking silently for more, than I speak plainly?",
       "Which partnership right now deserves an unhurried celebratory toast?",
     ],
     meditation:
@@ -142,7 +142,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Can Two of Cups apply to business or friendship?",
         answer:
-          "Yes—it blesses any balanced two-person alliance, co-founder contract, client rapport, or reconciliation.",
+          "Yes. It blesses any balanced two-person alliance, co-founder contract, client rapport, or reconciliation.",
       },
       {
         question: "What does Two of Cups reversed indicate?",
@@ -184,7 +184,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, joy multiplies geometrically when shared freely across grateful friends.",
       "Celebrate bright harvest fruit together gratefully.",
     ],
-    yesNoText: "Three of Cups answers Yes—joyful collaboration, happy celebrations, and warm social support favor you.",
+    yesNoText: "Three of Cups answers Yes: joyful collaboration, happy celebrations, and warm social support favor you.",
     timeline: [
       "Cultivating loyal genuine friendships built rich joyful safety nets.",
       "Festive gatherings, lively collaboration, and restorative laughter highlight today.",
@@ -217,7 +217,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Three of Cups good for teamwork and networking?",
         answer:
-          "Outstanding—expect energizing brainstorms, friendly referrals, supportive peer morale, and smooth launches.",
+          "Outstanding: expect energizing brainstorms, friendly referrals, supportive peer morale, and smooth launches.",
       },
       {
         question: "What does Three of Cups reversed mean?",
@@ -228,12 +228,12 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-four": {
     overview: [
-      "Four of Cups sits slumped beneath a leafy shade tree with tightly folded arms and lowered chin, staring moodily past three full upright cups planted firmly in grass—completely ignoring a luminous fourth cup floating straight through clouds within easy reaching distance. Moon in Cancer catches classic emotional numbness: quiet boredom, over-familiarity breeding apathy, and daydreaming over missed boats while missing live gifts resting inches from your sleeve.",
-      "Often it isn't cruelty darkening mood—merely prolonged emotional fatigue turning every fresh offer gray.",
+      "Four of Cups sits slumped beneath a leafy shade tree with tightly folded arms and lowered chin, staring moodily past three full upright cups planted firmly in grass: completely ignoring a luminous fourth cup floating straight through clouds within easy reaching distance. Moon in Cancer catches classic emotional numbness: quiet boredom, over-familiarity breeding apathy, and daydreaming over missed boats while missing live gifts resting inches from your sleeve.",
+      "Often it isn't cruelty darkening mood: merely prolonged emotional fatigue turning every fresh offer gray.",
     ],
     upright: [
       "Upright spots quiet stagnation: feeling uninspired despite comfortable security, turning down good invitations reflexively out of inertia, lingering disappointment over a past 'no', or tuning out while stuck inside familiar routines.",
-      "Look up cleanly off grass blades today—something quietly thoughtful keeps knocking gently right above knee level.",
+      "Look up cleanly off grass blades today: something quietly thoughtful keeps knocking gently right above knee level.",
     ],
     reversed: [
       "Reversed snaps sluggish boredom awake cleanly: climbing back onto trails eagerly, noticing previously overlooked blessings gratefully, accepting inspiring fresh offers, and breaking melancholic hibernation cleanly.",
@@ -252,15 +252,15 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed energizes smarter intentional money engagement.",
     ],
     health: [
-      "Physically, mild sluggish fatigue, low vitamin D moodiness, or over-sleeping out of emotional flatness—fresh outdoors walks lift heaviness fast.",
+      "Physically, mild sluggish fatigue, low vitamin D moodiness, or over-sleeping out of emotional flatness: fresh outdoors walks lift heaviness fast.",
       "Reversed restores pep and appetite cleanly.",
     ],
     spiritual: [
-      "Spiritually, boredom often wraps hidden stillness waiting to ask deeper questions—just don't confuse cynical numbness with genuine calm.",
+      "Spiritually, boredom often wraps hidden stillness waiting to ask deeper questions: just don't confuse cynical numbness with genuine calm.",
       "Practice counting three modest unforced wonders tonight.",
     ],
     yesNoText:
-      "Four of Cups leans No / Pause—apathy, closed arms, or overlooked angles dull enthusiasm unless you consciously lift eyes upward.",
+      "Four of Cups leans No / Pause: apathy, closed arms, or overlooked angles dull enthusiasm unless you consciously lift eyes upward.",
     timeline: [
       "Extended emotional noise or monotonous routine brought quiet flatness.",
       "Crossed arms risk missing fresh thoughtful offers hovering right beside you now.",
@@ -273,7 +273,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "What genuinely good gift or opportunity might I be ignoring because it didn't arrive wrapped my expected way?",
-      "Am I craving peaceful rest right now—or hiding inside sluggish boredom?",
+      "Am I craving peaceful rest right now, or hiding inside sluggish boredom?",
       "What modest small change brings mild curiosity back tomorrow morning?",
     ],
     meditation:
@@ -293,23 +293,23 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Four of Cups reversed a positive turn?",
         answer:
-          "Yes—it typically signals snapping out of apathy, renewing social warmth, and grabbing overlooked chances eagerly.",
+          "Yes. It typically signals snapping out of apathy, renewing social warmth, and grabbing overlooked chances eagerly.",
       },
       {
         question: "What does Four of Cups mean in career?",
         answer:
-          "Unfulfilling comfortable stasis—time either to redesign engaging challenges or look up cleanly toward fresh offers.",
+          "Unfulfilling comfortable stasis: time either to redesign engaging challenges or look up cleanly toward fresh offers.",
       },
     ],
   },
   "cups-five": {
     overview: [
-      "Five of Cups drapes a shadowed mourner in heavy black cloak staring bleakly down at three spilled chalices pooling wine across muddy banks—turned completely away from two unbroken, brimming cups standing steady directly behind their heels, plus an arched stone bridge leading safely over flowing river back toward sturdy home castles. Mars in Scorpio paints honest human grief cleanly.",
+      "Five of Cups drapes a shadowed mourner in heavy black cloak staring bleakly down at three spilled chalices pooling wine across muddy banks: turned completely away from two unbroken, brimming cups standing steady directly behind their heels, plus an arched stone bridge leading safely over flowing river back toward sturdy home castles. Mars in Scorpio paints honest human grief cleanly.",
       "Tarot never scolds sorrow cheaply: grieving real losses matters deeply, yet refusing to pivot after mourning ends strands you staring at dry mud beside surviving blessings.",
     ],
     upright: [
       "Upright acknowledges heartbreak, unmet expectations, painful regret, mourning lost friendships or failed ventures, and heavy disappointment coloring present view darker than full reality actually sits.",
-      "Cry honestly for the three broken hopes—then slowly pivot heels round toward what stays faithful right behind you.",
+      "Cry honestly for the three broken hopes: then slowly pivot heels round toward what stays faithful right behind you.",
     ],
     reversed: [
       "Reversed steps gracefully across that arched stone bridge: forgiving old errors cleanly, feeling heavy mourning lighten into quiet acceptance, cherishing surviving gifts warmly, and returning home refreshed.",
@@ -320,7 +320,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed supports clean healing, forgiving dialogue, and moving forward tenderly.",
     ],
     career: [
-      "At work, disappointment over missed roles, failed pitches, or lost income contracts—extract real lessons cleanly without forgetting valuable surviving skills and loyal allies.",
+      "At work, disappointment over missed roles, failed pitches, or lost income contracts: extract real lessons cleanly without forgetting valuable surviving skills and loyal allies.",
       "Reversed helps bounce back eagerly into promising pipelines.",
     ],
     finance: [
@@ -328,15 +328,15 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed welcomes gradual calm recovery and better focus on remaining assets.",
     ],
     health: [
-      "Physically, grief settles heavily in chests and exhausted sleep—gentle breathing, honest tears, and patient emotional therapy restore equilibrium safely.",
+      "Physically, grief settles heavily in chests and exhausted sleep: gentle breathing, honest tears, and patient emotional therapy restore equilibrium safely.",
       "Reversed lifts dense fog toward steadier appetite and peace.",
     ],
     spiritual: [
-      "Spiritually, grief honors what genuinely mattered while teaching radical detachment—what truly belongs within never spills away forever.",
+      "Spiritually, grief honors what genuinely mattered while teaching radical detachment: what truly belongs within never spills away forever.",
       "Turn gently around toward waiting bridges.",
     ],
     yesNoText:
-      "Five of Cups leans No for forcing present wishes unchanged—real disappointment needs honest acknowledgement before rebuilding forward.",
+      "Five of Cups leans No for forcing present wishes unchanged: real disappointment needs honest acknowledgement before rebuilding forward.",
     timeline: [
       "Painful loss, regret, or unmet hopes spilled sharp disappointment.",
       "Turning eyes slowly upward from loss uncovers surviving support right beside you now.",
@@ -369,7 +369,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Five of Cups always about breakups?",
         answer:
-          "Often grief, heartbreak, or regret over anything deeply valued—lost jobs, moves, dashed plans, or mourning expectations.",
+          "Often grief, heartbreak, or regret over anything deeply valued: lost jobs, moves, dashed plans, or mourning expectations.",
       },
       {
         question: "What does Five of Cups reversed signify?",
@@ -381,7 +381,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   "cups-six": {
     overview: [
       "Six of Cups softens sharp grief immediately inside warm sunlit village lanes: an older child bends kindly handing a smaller child a golden goblet overflowing with six fragrant white star-lilies, beside quiet stone towers where an armored guard walks calmly homeward. Sun in Scorpio shines tender warm nostalgia across innocent loyalty, childhood memories, comforting kindness, and sweet unconditional goodwill.",
-      "Here rests emotional shelter untouched by cynical adult calculations—just watch staying rooted pleasantly in today rather than drifting hopelessly backward.",
+      "Here rests emotional shelter untouched by cynical adult calculations: just watch staying rooted pleasantly in today rather than drifting hopelessly backward.",
     ],
     upright: [
       "Upright sparks heartwarming reunions with childhood friends or gentle past connections, generous gifts offered without strings attached, family warmth, revisiting soothing childhood haunts, and safe innocent tenderness.",
@@ -411,7 +411,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, remember what felt genuinely pure and joyful before loud fears taught cautious cynicism.",
       "Offer small anonymous kindness freely today.",
     ],
-    yesNoText: "Six of Cups leans Yes—especially for kindness, reunions, healing family ties, and simple sincere affection.",
+    yesNoText: "Six of Cups leans Yes, especially for kindness, reunions, healing family ties, and simple sincere affection.",
     timeline: [
       "Innocent shared roots and formative kindness shaped tender memory.",
       "Warm reunions, thoughtful goodwill, and soothing nostalgia touch today.",
@@ -420,7 +420,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
     advice: [
       "Reach out warmly to a trusted old friend just to share sincere appreciation.",
       "Offer small genuine kindness unconditionally today with zero expectation back.",
-      "Check honestly whether memory illuminates present joy—or merely hides from today's step.",
+      "Check honestly whether memory illuminates present joy, or merely hides from today's step.",
     ],
     journalPrompts: [
       "What simple innocent childhood joy still charges my heart cleanly whenever revisited?",
@@ -449,13 +449,13 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Six of Cups positive for family matters?",
         answer:
-          "Deeply warm—supporting reconciliations, comforting homecomings, joyful care for children, and family goodwill.",
+          "Deeply warm: supporting reconciliations, comforting homecomings, joyful care for children, and family goodwill.",
       },
     ],
   },
   "cups-seven": {
     overview: [
-      "Seven of Cups darkens a silhouette staring dazzled upward at seven misty chalices drifting inside twilight clouds—stuffed simultaneously with shimmering castles, laurel victory wreaths, jewels, glowing dragons, ghostly draped spirits, and snarling serpents! Venus in Scorpio reveals imagination running deliciously wild across endless shiny daydreams lacking firm earthly roots.",
+      "Seven of Cups darkens a silhouette staring dazzled upward at seven misty chalices drifting inside twilight clouds: stuffed simultaneously with shimmering castles, laurel victory wreaths, jewels, glowing dragons, ghostly draped spirits, and snarling serpents! Venus in Scorpio reveals imagination running deliciously wild across endless shiny daydreams lacking firm earthly roots.",
       "Creative brainstorming loves Card 7; actual decision-making flounders indefinitely until fantasy filters cleanly down to one real committed step.",
     ],
     upright: [
@@ -464,14 +464,14 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     reversed: [
       "Reversed snaps clear crisp morning focus back onto desks: sober reality cutting smoothly through shiny hype, eliminating seductive distractions decisively, or recovering fast from foolish over-promises.",
-      "Clarity sometimes feels less glamorous than fantasy—yet reality actually builds real shelter.",
+      "Clarity sometimes feels less glamorous than fantasy, yet reality actually builds real shelter.",
     ],
     love: [
       "In love, dizzying crushes, fantasy projections masking real flaws, keeping endless backup apps open instead of investing honestly in real intimacy, or romanticizing potential over verified behavior.",
       "Reversed sees partners clearly at last and commits cleanly or moves on.",
     ],
     career: [
-      "At work, rich ideation and vivid creative brainstorming—alongside dangerous scatter chasing ten shiny side ventures while shipping zero finished goods.",
+      "At work, rich ideation and vivid creative brainstorming: alongside dangerous scatter chasing ten shiny side ventures while shipping zero finished goods.",
       "Reversed locks crisp focus strictly onto top two ROI priorities.",
     ],
     finance: [
@@ -487,7 +487,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Test lofty dreams against humble earthly kindness.",
     ],
     yesNoText:
-      "Seven of Cups leans Conditional / Caution—illusions, scattered distractions, or unverified wishful thinking distort clear answers until options narrow.",
+      "Seven of Cups leans Conditional / Caution: illusions, scattered distractions, or unverified wishful thinking distort clear answers until options narrow.",
     timeline: [
       "Rich imagination and tempting open options multiplied intriguing possibilities.",
       "Cloudy illusions and tempting distractions demand sharp earthly discernment today.",
@@ -515,7 +515,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Seven of Cups good for artists and writers?",
         answer:
-          "Wonderful for pure imaginative brainstorming and vivid metaphor—just follow ideation tightly with editing discipline.",
+          "Wonderful for pure imaginative brainstorming and vivid metaphor: just follow ideation tightly with editing discipline.",
       },
       {
         question: "Why does Seven of Cups warn about illusions in love?",
@@ -531,7 +531,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-eight": {
     overview: [
-      "Eight of Cups depicts a quiet crimson-cloaked traveler gripping a sturdy walking stick, deliberately turning away from eight neatly stacked upright chalices gleaming beside calm water in fading eclipse light to trek uphill toward austere mountain ridges. Crucially, notice those cups aren't smashed or empty—you outgrew something technically 'fine' on paper that stopped nourishing your living soul.",
+      "Eight of Cups depicts a quiet crimson-cloaked traveler gripping a sturdy walking stick, deliberately turning away from eight neatly stacked upright chalices gleaming beside calm water in fading eclipse light to trek uphill toward austere mountain ridges. Crucially, notice those cups aren't smashed or empty: you outgrew something technically 'fine' on paper that stopped nourishing your living soul.",
       "Saturn in Pisces turns Card 8 into brave mature pilgrimage: walking softly away from stagnant success toward deeper truth even before guarantees gleam ahead.",
     ],
     upright: [
@@ -543,7 +543,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Ask clearly whether staying reflects genuine love or lazy inertia.",
     ],
     love: [
-      "In love, realizing politely that fond history alone cannot sustain emotional emptiness—or stepping bravely out of shallow situationships to seek genuine soulful resonance.",
+      "In love, realizing politely that fond history alone cannot sustain emotional emptiness, or stepping bravely out of shallow situationships to seek genuine soulful resonance.",
       "Reversed highlights agonizing waffling back and forth past clear expiry dates.",
     ],
     career: [
@@ -563,14 +563,14 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Honor quiet longing pulling upward bravely.",
     ],
     yesNoText:
-      "Eight of Cups leans Yes to moving on / leaving behind—and No to clinging passively inside exhausted comfort zones.",
+      "Eight of Cups leans Yes to moving on / leaving behind, and No to clinging passively inside exhausted comfort zones.",
     timeline: [
       "Outgrowing once-meaningful accomplishments slowly left quiet spiritual hunger.",
       "Turning calmly away from 'good enough' opens brave purposeful mountain trails today.",
       "Deeper personal authenticity and enduring higher meaning unfold uphill ahead.",
     ],
     advice: [
-      "Leave gracefully without smashing nice cups behind you—quiet closure respects shared pasts.",
+      "Leave gracefully without smashing nice cups behind you: quiet closure respects shared pasts.",
       "Pack sensible emotional and financial rations cleanly for transitional uphill miles.",
       "Admit plainly where you feel spiritually underfed despite impressive surface checks.",
     ],
@@ -586,12 +586,12 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is there one gap missing inside the stacked cups on Eight of Cups?",
         answer:
-          "That missing space signals an inner void—proof that outward achievements, however neat, no longer satisfy your deeper soul hunger.",
+          "That missing space signals an inner void: proof that outward achievements, however neat, no longer satisfy your deeper soul hunger.",
       },
       {
         question: "Does Eight of Cups always predict leaving a partner?",
         answer:
-          "Not strictly—it can mean leaving a draining city, stale job, outdated worldview, or shallow habit together to climb deeper.",
+          "Not strictly: it can mean leaving a draining city, stale job, outdated worldview, or shallow habit together to climb deeper.",
       },
       {
         question: "How does Eight of Cups differ from Five of Cups?",
@@ -607,12 +607,12 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-nine": {
     overview: [
-      "Nine of Cups reveals a cheerful host seated warmly with satisfied folded arms across a low velvet stool—beaming quietly beneath an arched blue drape lined brightly with nine gleaming golden goblets cleanly arranged like proud personal trophies. Known famously for centuries as Tarot's 'Wish Card,' Jupiter in Pisces brings genuine earned contentment, sensual luxury, fine meals, and happy abundance settled warmly inside ordinary life.",
+      "Nine of Cups reveals a cheerful host seated warmly with satisfied folded arms across a low velvet stool: beaming quietly beneath an arched blue drape lined brightly with nine gleaming golden goblets cleanly arranged like proud personal trophies. Known famously for centuries as Tarot's 'Wish Card,' Jupiter in Pisces brings genuine earned contentment, sensual luxury, fine meals, and happy abundance settled warmly inside ordinary life.",
       "Just verify wishes align genuinely with long-term values rather than shallow boastful bragging.",
     ],
     upright: [
       "Upright signals gratified dreams: crisp milestones answered warmly, joyful social feasts, proud emotional security, sensual pleasure enjoyed guilt-free, and comfortable heartfelt fulfillment.",
-      "Smile proudly tonight—you worked steadily for nine lined chalices.",
+      "Smile proudly tonight: you worked steadily for nine lined chalices.",
     ],
     reversed: [
       "Reversed turns satisfied grinning hollow: realizing shiny wishes tasted curiously flat once acquired, sneaky overindulgence blurring satisfaction, smug materialism, or secretly missing Card 10's shared emotional warmth.",
@@ -631,14 +631,14 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against wasteful status indulgence outrunning genuine goals.",
     ],
     health: [
-      "Physically, savor wholesome celebratory meals warmly—Jupiter cautions gently against excessive sugar, richness, or cozy inertia.",
+      "Physically, savor wholesome celebratory meals warmly: Jupiter cautions gently against excessive sugar, richness, or cozy inertia.",
       "Reversed highlights sluggish weight/slumber from heavy overindulgence.",
     ],
     spiritual: [
       "Spiritually, authentic gratitude savors warm gifts deeply without growing possessive over comfort.",
       "Enjoy bright life cleanly without apologetic guilt.",
     ],
-    yesNoText: "Nine of Cups answers an enthusiastic Yes—historically revered as tarot's classic Wish Card of happy fulfillment.",
+    yesNoText: "Nine of Cups answers an enthusiastic Yes: historically revered as tarot's classic Wish Card of happy fulfillment.",
     timeline: [
       "Patient dedication and steady craft arranged bright abundant cups behind you.",
       "Heartfelt wishes, joyful sensual pleasure, and proud fulfillment grace today.",
@@ -651,7 +651,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
     ],
     journalPrompts: [
       "Which long-awaited wish actually arrived in my life already that I keep rushing past without celebrating?",
-      "Would achieving my top current goal feel deeply nourishing—or merely impressive on paper?",
+      "Would achieving my top current goal feel deeply nourishing, or merely impressive on paper?",
       "How does simple grateful presence enrich today?",
     ],
     meditation:
@@ -671,7 +671,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Nine of Cups good for finances and luxury?",
         answer:
-          "Yes—celebrating earned comfort, bonuses, delicious hospitality, and solid financial satisfaction.",
+          "Yes. Celebrating earned comfort, bonuses, delicious hospitality, and solid financial satisfaction.",
       },
       {
         question: "What does Nine of Cups reversed mean?",
@@ -682,8 +682,8 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-ten": {
     overview: [
-      "Ten of Cups crowns the emotional journey beneath a luminous rainbow arcing ten radiant golden goblets cleanly over open green pastures, where happy parents hug warmly watching joyfully dancing children near a cozy white cottage beside flowing streams. Mars in Pisces moves Card 9's personal triumph straight into shared relational sanctuary—belonging, family peace, multi-generational goodwill, and home security.",
-      "Real happiness here isn't sterile fake perfection—it is loyal love showing up warmly across ordinary rainy and sunny days alike.",
+      "Ten of Cups crowns the emotional journey beneath a luminous rainbow arcing ten radiant golden goblets cleanly over open green pastures, where happy parents hug warmly watching joyfully dancing children near a cozy white cottage beside flowing streams. Mars in Pisces moves Card 9's personal triumph straight into shared relational sanctuary: belonging, family peace, multi-generational goodwill, and home security.",
+      "Real happiness here isn't sterile fake perfection: it is loyal love showing up warmly across ordinary rainy and sunny days alike.",
     ],
     upright: [
       "Upright signals loving marriage harmony, joyful family reunions, warm welcoming home sanctuary, aligned community belonging, emotional peace settling cleanly across household walls, and blessings felt together rather than alone.",
@@ -706,14 +706,14 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed warns against stretched domestic overhead or hidden family money arguments.",
     ],
     health: [
-      "Physically, warm safe belonging calms chronic stress deeply—family walks, unhurried shared meals, and soothing emotional peace bolster immunity richly.",
+      "Physically, warm safe belonging calms chronic stress deeply: family walks, unhurried shared meals, and soothing emotional peace bolster immunity richly.",
       "Reversed links persistent fatigue directly to noisy stressful household dynamics.",
     ],
     spiritual: [
-      "Spiritually, rainbows emerge precisely where clear sunlight shines gently straight through passing rain—grace sanctifies ordinary loving homes.",
+      "Spiritually, rainbows emerge precisely where clear sunlight shines gently straight through passing rain: grace sanctifies ordinary loving homes.",
       "Honor loyal love gently.",
     ],
-    yesNoText: "Ten of Cups answers an emphatic Yes—lasting emotional fulfillment, loving family harmony, and joyful peace align.",
+    yesNoText: "Ten of Cups answers an emphatic Yes: lasting emotional fulfillment, loving family harmony, and joyful peace align.",
     timeline: [
       "Shared loyalty and patient forgiveness built steady relational roots.",
       "Warm domestic peace, supportive belonging, and bright rainbow grace shine today.",
@@ -757,8 +757,8 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-page": {
     overview: [
-      "Page of Cups stands cheerfully beside dancing blue waves clad in vibrant floral tunic and flowing indigo beret, squinting delightedly at a small bright fish popping straight up out of an upright golden goblet! Earth of Water announces unexpected sweet creative whispers—daydreams, intuitive nudges, gentle romantic apologies, artistic sparks, and unguarded sweet wonder.",
-      "Never mock odd creative ideas merely because a fish showed up in a teacup—surprises deliver bright messages outside logical schedules.",
+      "Page of Cups stands cheerfully beside dancing blue waves clad in vibrant floral tunic and flowing indigo beret, squinting delightedly at a small bright fish popping straight up out of an upright golden goblet! Earth of Water announces unexpected sweet creative whispers: daydreams, intuitive nudges, gentle romantic apologies, artistic sparks, and unguarded sweet wonder.",
+      "Never mock odd creative ideas merely because a fish showed up in a teacup: surprises deliver bright messages outside logical schedules.",
     ],
     upright: [
       "Upright delivers tender happy news: heartfelt crush texts, sincere gentle apologies, surprising poetic sparks, invitations to celebrate creative work, or clear warm intuition breaking heavy overthinking.",
@@ -788,7 +788,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, synchronicity speaks via dreams, gentle animal messengers, music lyrics, and effortless poetic delight.",
       "Listen gently with wide open childlike ears.",
     ],
-    yesNoText: "Page of Cups leans Yes—sweet encouraging news, gentle feelings, and intuitive sparks arrive kindly.",
+    yesNoText: "Page of Cups leans Yes: sweet encouraging news, gentle feelings, and intuitive sparks arrive kindly.",
     timeline: [
       "Quiet sensitivity nurtured fresh artistic dreams below daily tasks.",
       "Sweet heartfelt messages, creative flashes, and gentle feelings surface brightly today.",
@@ -816,7 +816,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Does Page of Cups mean an apology or message from someone?",
         answer:
-          "Very often yes—especially tender heartfelt notes, romantic crushes reaching out gently, or creative good news.",
+          "Very often yes, especially tender heartfelt notes, romantic crushes reaching out gently, or creative good news.",
       },
       {
         question: "How is Page of Cups different from Page of Wands?",
@@ -832,7 +832,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-knight": {
     overview: [
-      "Knight of Cups rides effortlessly forward atop an unhurried white horse draped with bright red fish motifs—wearing winged silver helmet and winged boots gliding gracefully past gentle clear streams while lifting one gleaming chalice softly forward as an unhurried invitation. Air of Water blends chivalrous idealism with steady poetic grace: proposals, peacemaking gestures, artistic missions, and following your heart without reckless panic.",
+      "Knight of Cups rides effortlessly forward atop an unhurried white horse draped with bright red fish motifs: wearing winged silver helmet and winged boots gliding gracefully past gentle clear streams while lifting one gleaming chalice softly forward as an unhurried invitation. Air of Water blends chivalrous idealism with steady poetic grace: proposals, peacemaking gestures, artistic missions, and following your heart without reckless panic.",
       "Unlike roaring Knight of Wands, Knight of Cups charms gently through sincerity, romantic attentiveness, and authentic soul beauty.",
     ],
     upright: [
@@ -852,18 +852,18 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Reversed spots flaky disorganized dreamers failing realistic project deadlines.",
     ],
     finance: [
-      "Financially, appealing offers arrive smoothly—pause gently to check contract math alongside glowing creative enthusiasm.",
+      "Financially, appealing offers arrive smoothly: pause gently to check contract math alongside glowing creative enthusiasm.",
       "Reversed flags deceptive sleek pitches or naive wishful budgeting.",
     ],
     health: [
-      "Physically, graceful fluid movement—swimming, yoga, gentle dance—alongside protecting sensitive mood balance gently.",
+      "Physically, graceful fluid movement (swimming, yoga, gentle dance) alongside protecting sensitive mood balance gently.",
       "Reversed highlights emotional escapism draining steady sleep/diet routines.",
     ],
     spiritual: [
       "Spiritually, follow sacred beauty gently as a steady compass without losing grounded muddy boots.",
       "Seek sincere truth inside poetic beauty.",
     ],
-    yesNoText: "Knight of Cups leans Yes—romantic, artistic, gracious, and harmonious, provided real actions back charming words.",
+    yesNoText: "Knight of Cups leans Yes: romantic, artistic, gracious, and harmonious, provided real actions back charming words.",
     timeline: [
       "Sincere longing and creative dreams set tender momentum gracefully moving.",
       "Thoughtful invitations, romantic gestures, and inspiring offers approach today.",
@@ -891,7 +891,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Is Knight of Cups always a romantic knight in shining armor?",
         answer:
-          "Often he signals heartfelt courtship, proposals, or invitations—though in work he represents artistic pitches, diplomats, and compassionate allies.",
+          "Often he signals heartfelt courtship, proposals, or invitations, though in work he represents artistic pitches, diplomats, and compassionate allies.",
       },
       {
         question: "What is the shadow side of Knight of Cups reversed?",
@@ -901,13 +901,13 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "How fast is Knight of Cups compared to Knight of Wands?",
         answer:
-          "Deliberate, gentle, and unhurried—trot rather than reckless gallop.",
+          "Deliberate, gentle, and unhurried: trot rather than reckless gallop.",
       },
     ],
   },
   "cups-queen": {
     overview: [
-      "Queen of Cups sits calmly on a water-lapped throne carved with mermaids and scallops, gazing tenderly into an ornate closed chalice topped by cross-crowned angelic handles—the only closed cup across the entire deck, honoring sacred inner privacy alongside overflowing empathy. Water of Water creates tarot's deepest intuitive counselor: compassionate listener, clear-eyed empath, serene psychic clarity, and calm soothing shelter for anxious souls.",
+      "Queen of Cups sits calmly on a water-lapped throne carved with mermaids and scallops, gazing tenderly into an ornate closed chalice topped by cross-crowned angelic handles: the only closed cup across the entire deck, honoring sacred inner privacy alongside overflowing empathy. Water of Water creates tarot's deepest intuitive counselor: compassionate listener, clear-eyed empath, serene psychic clarity, and calm soothing shelter for anxious souls.",
       "Notice her toes brush ripples gently yet stay rooted solidly upon beach stone: true empathy stays grounded rather than drowning beside everyone's storms.",
     ],
     upright: [
@@ -938,14 +938,14 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, that closed gilded cup guards silent inner temple stillness where genuine psychic depth stays clean.",
       "Listen gently before speaking.",
     ],
-    yesNoText: "Queen of Cups leans Yes—trust quiet calm intuition, compassionate wisdom, and supportive emotional clarity.",
+    yesNoText: "Queen of Cups leans Yes: trust quiet calm intuition, compassionate wisdom, and supportive emotional clarity.",
     timeline: [
       "Deep emotional awareness and steady empathy weathered shifting tides wisely.",
       "Serene intuition, healing listening, and tender wisdom calm present currents today.",
       "Balanced emotional serenity and trusted deep bonds nurture peaceful growth ahead.",
     ],
     advice: [
-      "Trust your sharpest calm gut impression cleanly today—skip second-guessing it loudly.",
+      "Trust your sharpest calm gut impression cleanly today: skip second-guessing it loudly.",
       "Guard ten quiet silent minutes beside water or tea completely offline tonight.",
       "Offer warm listening freely without rushing inside to rescue adult choices.",
     ],
@@ -961,17 +961,17 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "Why is Queen of Cups holding the only closed lid cup in tarot?",
         answer:
-          "Because profound emotional intuition and sacred empathy require respectful inner boundaries—honoring subconscious depths gently rather than spilling everything publicly.",
+          "Because profound emotional intuition and sacred empathy require respectful inner boundaries: honoring subconscious depths gently rather than spilling everything publicly.",
       },
       {
         question: "Is Queen of Cups a good omen in love?",
         answer:
-          "Deeply affirmative—reflecting tender loyalty, emotional maturity, empathetic understanding, and safe vulnerability.",
+          "Deeply affirmative: reflecting tender loyalty, emotional maturity, empathetic understanding, and safe vulnerability.",
       },
       {
         question: "What does Queen of Cups mean for intuition?",
         answer:
-          "Peak psychic sensitivity, accurate empathetic radar, and clear dream or gut guidance—trust quiet calm impressions.",
+          "Peak psychic sensitivity, accurate empathetic radar, and clear dream or gut guidance: trust quiet calm impressions.",
       },
       {
         question: "What does Queen of Cups reversed warn against?",
@@ -982,7 +982,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
   },
   "cups-king": {
     overview: [
-      "King of Cups rests composed upon a massive stone throne floating undisturbed squarely atop rolling blue ocean swells—clutching a royal golden goblet in his right hand and scepter smoothly in his left while a leaping red fish and tall cargo ship pass calmly along choppy horizons. Fire of Water unites passionate emotional depth with cool steady diplomacy: he feels hurricanes deeply beneath robes yet never lets passing mood swells capsize ship steering.",
+      "King of Cups rests composed upon a massive stone throne floating undisturbed squarely atop rolling blue ocean swells: clutching a royal golden goblet in his right hand and scepter smoothly in his left while a leaping red fish and tall cargo ship pass calmly along choppy horizons. Fire of Water unites passionate emotional depth with cool steady diplomacy: he feels hurricanes deeply beneath robes yet never lets passing mood swells capsize ship steering.",
       "Here sits tarot's seasoned mentor, mediator, wise father figure, and calm therapist steadying anxious rooms with low voice and warm humor.",
     ],
     upright: [
@@ -1013,7 +1013,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       "Spiritually, real steadiness sits firmly inside deep oceans rather than insisting waters freeze completely flat.",
       "Anchor compassion firmly inside calm poise.",
     ],
-    yesNoText: "King of Cups answers Yes—calm maturity, wise diplomacy, and balanced emotional poise carry steady success.",
+    yesNoText: "King of Cups answers Yes: calm maturity, wise diplomacy, and balanced emotional poise carry steady success.",
     timeline: [
       "Navigating heavy emotional storms forged unruffled mature steadiness.",
       "Diplomatic poise, compassionate listening, and wise calm guidance anchor today.",
@@ -1041,7 +1041,7 @@ export const CUPS_UNIQUE: Record<string, UniqueCardCopy> = {
       {
         question: "What does King of Cups mean for a romantic partner?",
         answer:
-          "Devoted, emotionally steady, diplomatic, protective, gentle yet strong—someone calm in crises who listens warmly.",
+          "Devoted, emotionally steady, diplomatic, protective, gentle yet strong: someone calm in crises who listens warmly.",
       },
       {
         question: "How do Queen of Cups and King of Cups differ?",

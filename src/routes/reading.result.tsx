@@ -6,7 +6,7 @@ export const Route = createFileRoute("/reading/result")({
   }),
   head: () => ({
     meta: [
-      { title: "Your Reading — AstroFree" },
+      { title: "Your Reading | AstroFree" },
       { name: "description", content: "The synthesized interpretation of your tarot reading." },
       { name: "robots", content: "noindex, nofollow" },
     ],

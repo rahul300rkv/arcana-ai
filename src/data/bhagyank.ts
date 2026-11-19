@@ -1,7 +1,7 @@
 /**
  * Content layer for the Bhagyank (Destiny Number) calculator at
  * `/bhagyank-calculator`. Bhagyank is derived from the COMPLETE date of
- * birth (day + month + year) — deliberately different from Mulank, which
+ * birth (day + month + year): deliberately different from Mulank, which
  * uses only the day. See `src/lib/numerology/bhagyank.ts` for the maths.
  */
 
@@ -23,10 +23,10 @@ export interface BhagyankMeaning {
 export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   1: {
     number: 1,
-    title: "Bhagyank 1 — The Pioneer",
+    title: "Bhagyank 1 | The Pioneer",
     archetype: "Independence and initiative",
     meaning:
-      "Bhagyank 1 traditionally marks a life path built around leadership, self-reliance and starting things that didn't exist before. In classical Pythagorean and Vedic numerology alike, 1 is the number of origin — the first digit, ruled by the Sun — and people who carry it are described as being here to lead rather than follow, even when that role is thrust on them rather than chosen.",
+      "Bhagyank 1 traditionally marks a life path built around leadership, self-reliance and starting things that didn't exist before. In classical Pythagorean and Vedic numerology alike, 1 is the number of origin (the first digit, ruled by the Sun) and people who carry it are described as being here to lead rather than follow, even when that role is thrust on them rather than chosen.",
     personality: [
       "Decisive and comfortable making the first move when a group is stuck",
       "Strong sense of personal identity; dislikes being told how to do things",
@@ -52,9 +52,9 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "In relationships, Bhagyank 1 people are said to need a partner who respects their independence rather than one who expects constant togetherness. They show love through action and provision more naturally than through verbal reassurance, which can be misread as distance by more emotionally expressive partners.",
     financial:
-      "Numerological tradition links 1 to income earned through individual effort and risk-taking rather than steady salaried work — commissions, business ownership, or freelance income. The corresponding caution is a tendency to under-diversify because they trust their own judgment more than outside advice.",
+      "Numerological tradition links 1 to income earned through individual effort and risk-taking rather than steady salaried work: commissions, business ownership, or freelance income. The corresponding caution is a tendency to under-diversify because they trust their own judgment more than outside advice.",
     lifePurpose:
-      "The traditional reading of a 1 life path is that the person is here to build something original — a venture, an idea, a body of work — rather than to maintain what already exists. Restlessness in unoriginal work is treated as a signal rather than a flaw.",
+      "The traditional reading of a 1 life path is that the person is here to build something original (a venture, an idea, a body of work) rather than to maintain what already exists. Restlessness in unoriginal work is treated as a signal rather than a flaw.",
     guidance: [
       "Channel competitiveness into a defined goal rather than constant comparison with others",
       "Practice delegating one small task per week to build trust in a team",
@@ -63,10 +63,10 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   2: {
     number: 2,
-    title: "Bhagyank 2 — The Diplomat",
+    title: "Bhagyank 2 | The Diplomat",
     archetype: "Partnership and sensitivity",
     meaning:
-      "Bhagyank 2 is traditionally read as the number of cooperation, ruled by the Moon. Where 1 initiates, 2 is described as completing — the path of people whose gift lies in reading a room, mediating between opposing views, and making others feel heard. It's considered one of the more emotionally attuned life paths in the system.",
+      "Bhagyank 2 is traditionally read as the number of cooperation, ruled by the Moon. Where 1 initiates, 2 is described as completing: the path of people whose gift lies in reading a room, mediating between opposing views, and making others feel heard. It's considered one of the more emotionally attuned life paths in the system.",
     personality: [
       "Highly attuned to the moods and unspoken needs of people around them",
       "Prefers consensus to confrontation, sometimes at their own expense",
@@ -89,11 +89,11 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
       "Often thrives as the person who makes a team function, even without the loudest title",
     ],
     relationships:
-      "This is considered one of the most naturally partnership-oriented numbers — 2s are said to invest deeply in a relationship's small rituals and are highly responsive to their partner's emotional state, sometimes to the point of losing track of their own.",
+      "This is considered one of the most naturally partnership-oriented numbers: 2s are said to invest deeply in a relationship's small rituals and are highly responsive to their partner's emotional state, sometimes to the point of losing track of their own.",
     financial:
-      "Numerology associates 2 with steady, cooperative income — salaried work, partnerships, and joint ventures — rather than solo risk-taking. The caution is a reluctance to negotiate assertively on their own behalf.",
+      "Numerology associates 2 with steady, cooperative income (salaried work, partnerships, and joint ventures) rather than solo risk-taking. The caution is a reluctance to negotiate assertively on their own behalf.",
     lifePurpose:
-      "The traditional interpretation is that a 2 life path exists to build bridges — between people, ideas, or factions — and that their long-term fulfilment comes from relationships and collaborative work rather than solo achievement.",
+      "The traditional interpretation is that a 2 life path exists to build bridges (between people, ideas, or factions) and that their long-term fulfilment comes from relationships and collaborative work rather than solo achievement.",
     guidance: [
       "Practice stating a preference directly at least once a day, even in low-stakes situations",
       "Set one boundary explicitly rather than hoping it will be inferred",
@@ -102,14 +102,14 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   3: {
     number: 3,
-    title: "Bhagyank 3 — The Communicator",
+    title: "Bhagyank 3 | The Communicator",
     archetype: "Expression and creativity",
     meaning:
-      "Bhagyank 3 is traditionally linked to Jupiter and read as the number of self-expression — through words, performance, humour, or art. People on this path are described as natural communicators whose energy tends to lift the mood of a room, though the same expressiveness can scatter their focus across too many interests at once.",
+      "Bhagyank 3 is traditionally linked to Jupiter and read as the number of self-expression: through words, performance, humour, or art. People on this path are described as natural communicators whose energy tends to lift the mood of a room, though the same expressiveness can scatter their focus across too many interests at once.",
     personality: [
       "Articulate, often the person others go to for a clear explanation",
       "Optimistic outlook, quick to find the upside in a setback",
-      "Drawn to creative or social outlets — writing, performance, conversation",
+      "Drawn to creative or social outlets: writing, performance, conversation",
       "Can be easily bored by repetitive or purely administrative work",
     ],
     strengths: [
@@ -128,23 +128,23 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
       "Does best where variety and self-expression are part of the job description",
     ],
     relationships:
-      "3s are described as bringing lightness and humour into relationships, expressing affection openly and verbally. The corresponding challenge is emotional avoidance — using humour to deflect from harder conversations rather than working through them.",
+      "3s are described as bringing lightness and humour into relationships, expressing affection openly and verbally. The corresponding challenge is emotional avoidance: using humour to deflect from harder conversations rather than working through them.",
     financial:
-      "Numerological tradition ties 3 to income from creative or communicative work — writing, media, sales, teaching — with a caution around inconsistent follow-through on financial planning, since routine budgeting can feel tedious to this path.",
+      "Numerological tradition ties 3 to income from creative or communicative work (writing, media, sales, teaching) with a caution around inconsistent follow-through on financial planning, since routine budgeting can feel tedious to this path.",
     lifePurpose:
-      "The traditional reading is that a 3 life path exists to express and share ideas that might otherwise stay unspoken — through teaching, art, writing, or simply conversation that changes how someone else sees a problem.",
+      "The traditional reading is that a 3 life path exists to express and share ideas that might otherwise stay unspoken: through teaching, art, writing, or simply conversation that changes how someone else sees a problem.",
     guidance: [
       "Finish one small project fully before starting the next, even if a newer idea feels more exciting",
-      "Schedule quiet, unstructured time — 3s recharge less from socialising than it appears",
+      "Schedule quiet, unstructured time: 3s recharge less from socialising than it appears",
       "Use writing or journalling to process difficult emotions instead of only talking them out loud",
     ],
   },
   4: {
     number: 4,
-    title: "Bhagyank 4 — The Builder",
+    title: "Bhagyank 4 | The Builder",
     archetype: "Structure and discipline",
     meaning:
-      "Bhagyank 4 is traditionally ruled by Rahu/Uranus depending on the school of thought, and is read as the number of foundation-building. Where 3 expresses, 4 constructs — this path is associated with patience, methodical work, and a deep discomfort with shortcuts. It is often called the most reliable of the nine core numbers.",
+      "Bhagyank 4 is traditionally ruled by Rahu/Uranus depending on the school of thought, and is read as the number of foundation-building. Where 3 expresses, 4 constructs: this path is associated with patience, methodical work, and a deep discomfort with shortcuts. It is often called the most reliable of the nine core numbers.",
     personality: [
       "Highly organised, often the person who keeps a group or project on track",
       "Values proof and process over intuition or improvisation",
@@ -169,9 +169,9 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "4s are described as steady, dependable partners who show love through consistency and follow-through rather than grand gestures. The corresponding caution is a reluctance to express vulnerability, since it can feel like losing control.",
     financial:
-      "Numerology links 4 to slow, disciplined wealth-building — saving, real assets, long-term investment — rather than speculative risk. This is generally read as a financial strength, with the caution being excessive caution that delays reasonable opportunities.",
+      "Numerology links 4 to slow, disciplined wealth-building (saving, real assets, long-term investment) rather than speculative risk. This is generally read as a financial strength, with the caution being excessive caution that delays reasonable opportunities.",
     lifePurpose:
-      "The traditional interpretation is that a 4 life path exists to build something durable — an institution, a body of expertise, a stable home — valuing what lasts over what is merely exciting in the moment.",
+      "The traditional interpretation is that a 4 life path exists to build something durable (an institution, a body of expertise, a stable home) valuing what lasts over what is merely exciting in the moment.",
     guidance: [
       "Build in deliberate rest, since 4s under-recover more than most other paths",
       "Practice tolerating a small amount of disorder as a way of building flexibility",
@@ -180,10 +180,10 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   5: {
     number: 5,
-    title: "Bhagyank 5 — The Free Spirit",
+    title: "Bhagyank 5 | The Free Spirit",
     archetype: "Change and adaptability",
     meaning:
-      "Bhagyank 5 is traditionally ruled by Mercury and read as the number of movement — change, variety, and adaptability. This is considered the most restless of the nine core paths: people on it are drawn to new experiences and tend to feel confined by routine, structure, or long-term commitment made too early.",
+      "Bhagyank 5 is traditionally ruled by Mercury and read as the number of movement: change, variety, and adaptability. This is considered the most restless of the nine core paths: people on it are drawn to new experiences and tend to feel confined by routine, structure, or long-term commitment made too early.",
     personality: [
       "Curious and quick to adapt to new environments or information",
       "Values freedom and variety over stability and predictability",
@@ -203,9 +203,9 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "5s are described as exciting, spontaneous partners who bring energy and new experiences into a relationship. The corresponding caution is a fear of feeling trapped, which can surface as avoidance of commitment even in a relationship they value.",
     financial:
-      "Numerological tradition associates 5 with variable income tied to changing circumstances — commission-based work, multiple income streams, travel-related earning. The caution is inconsistent saving habits driven by a present-focused mindset.",
+      "Numerological tradition associates 5 with variable income tied to changing circumstances: commission-based work, multiple income streams, travel-related earning. The caution is inconsistent saving habits driven by a present-focused mindset.",
     lifePurpose:
-      "The traditional reading is that a 5 life path exists to experience breadth — many places, people, and forms of work — and to bring back what they learn, rather than to specialise deeply in one lane for life.",
+      "The traditional reading is that a 5 life path exists to experience breadth (many places, people, and forms of work) and to bring back what they learn, rather than to specialise deeply in one lane for life.",
     guidance: [
       "Build small, non-negotiable routines around health and finances even while keeping the rest of life flexible",
       "Before ending a commitment, distinguish boredom from a genuine mismatch",
@@ -214,10 +214,10 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   6: {
     number: 6,
-    title: "Bhagyank 6 — The Caregiver",
+    title: "Bhagyank 6 | The Caregiver",
     archetype: "Responsibility and harmony",
     meaning:
-      "Bhagyank 6 is traditionally ruled by Venus and read as the number of responsibility, domestic life, and care for others. This path is associated with a strong pull toward family, community, and beauty — people on it are often the ones who hold a household or group together, sometimes at real cost to their own needs.",
+      "Bhagyank 6 is traditionally ruled by Venus and read as the number of responsibility, domestic life, and care for others. This path is associated with a strong pull toward family, community, and beauty: people on it are often the ones who hold a household or group together, sometimes at real cost to their own needs.",
     personality: [
       "Naturally nurturing, often the one others turn to in a crisis",
       "Strong aesthetic sense and appreciation for a harmonious environment",
@@ -240,7 +240,7 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
       "Tends to find the most satisfaction in work that visibly helps or beautifies someone's life",
     ],
     relationships:
-      "6s are described as deeply devoted partners and parents, often defining themselves through their caregiving role. The corresponding caution is enmeshment — losing a sense of separate identity within a relationship or family responsibility.",
+      "6s are described as deeply devoted partners and parents, often defining themselves through their caregiving role. The corresponding caution is enmeshment: losing a sense of separate identity within a relationship or family responsibility.",
     financial:
       "Numerology links 6 to spending on home, family, and beauty, sometimes at the expense of personal savings. The traditional advice is to treat their own financial security as a form of care for the people who depend on them, not a selfish concern.",
     lifePurpose:
@@ -253,13 +253,13 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   7: {
     number: 7,
-    title: "Bhagyank 7 — The Seeker",
+    title: "Bhagyank 7 | The Seeker",
     archetype: "Introspection and analysis",
     meaning:
-      "Bhagyank 7 is traditionally ruled by Ketu/Neptune depending on the tradition, and read as the number of introspection, analysis, and the search for deeper meaning. This path is associated with a strong inner life — people on it are often more comfortable with solitude and ideas than with small talk or crowds.",
+      "Bhagyank 7 is traditionally ruled by Ketu/Neptune depending on the tradition, and read as the number of introspection, analysis, and the search for deeper meaning. This path is associated with a strong inner life: people on it are often more comfortable with solitude and ideas than with small talk or crowds.",
     personality: [
       "Analytical, often needing to understand the 'why' before acting",
-      "Comfortable with — and often needs — significant solitude",
+      "Comfortable with, and often needs, significant solitude",
       "Skeptical of surface explanations, drawn to research and depth",
       "Can appear reserved or hard to read to people who don't know them well",
     ],
@@ -292,10 +292,10 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   8: {
     number: 8,
-    title: "Bhagyank 8 — The Achiever",
+    title: "Bhagyank 8 | The Achiever",
     archetype: "Ambition and material mastery",
     meaning:
-      "Bhagyank 8 is traditionally ruled by Saturn and read as the number of ambition, authority, and material achievement. This is considered one of the most outcome-driven life paths — people on it are described as having a natural grasp of how power, money, and organisations work, along with the discipline to build large things over time.",
+      "Bhagyank 8 is traditionally ruled by Saturn and read as the number of ambition, authority, and material achievement. This is considered one of the most outcome-driven life paths: people on it are described as having a natural grasp of how power, money, and organisations work, along with the discipline to build large things over time.",
     personality: [
       "Goal-oriented, often measuring progress in concrete, visible terms",
       "Comfortable with authority and responsibility",
@@ -322,7 +322,7 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     financial:
       "Numerology treats 8 as the number most naturally aligned with wealth-building, business acumen, and long-term financial strategy. The traditional caution is that material success can be pursued as an end in itself rather than a means to a fuller life.",
     lifePurpose:
-      "The traditional interpretation is that an 8 life path exists to build material and organisational structures at scale — a business, an institution, significant wealth — and to use that influence responsibly rather than for its own sake.",
+      "The traditional interpretation is that an 8 life path exists to build material and organisational structures at scale (a business, an institution, significant wealth) and to use that influence responsibly rather than for its own sake.",
     guidance: [
       "Define what 'enough' looks like before chasing the next target",
       "Schedule personal relationships with the same seriousness as work commitments",
@@ -331,10 +331,10 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
   },
   9: {
     number: 9,
-    title: "Bhagyank 9 — The Humanitarian",
+    title: "Bhagyank 9 | The Humanitarian",
     archetype: "Compassion and completion",
     meaning:
-      "Bhagyank 9 is traditionally ruled by Mars and read as the number of completion and universal compassion — the last of the single digits, said to carry something of every number before it. People on this path are often drawn to causes larger than their own immediate circumstances, and are described as natural givers with a strong sense of justice.",
+      "Bhagyank 9 is traditionally ruled by Mars and read as the number of completion and universal compassion: the last of the single digits, said to carry something of every number before it. People on this path are often drawn to causes larger than their own immediate circumstances, and are described as natural givers with a strong sense of justice.",
     personality: [
       "Compassionate, often drawn to helping people outside their immediate circle",
       "Idealistic, with a strong internal sense of right and wrong",
@@ -359,21 +359,21 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "9s are described as generous, emotionally expansive partners who love broadly and deeply. The corresponding caution is a tendency to give more than is sustainable, and difficulty asking for reciprocal care in return.",
     financial:
-      "Numerological tradition links 9 to generosity that can undercut personal financial stability — giving away resources faster than they're replenished. The traditional advice is to build a giving budget rather than giving without limit.",
+      "Numerological tradition links 9 to generosity that can undercut personal financial stability, giving away resources faster than they're replenished. The traditional advice is to build a giving budget rather than giving without limit.",
     lifePurpose:
-      "The traditional reading is that a 9 life path exists to serve something beyond the self — a cause, a community, humanity broadly — and that their fulfilment tends to come through completion and release rather than accumulation.",
+      "The traditional reading is that a 9 life path exists to serve something beyond the self (a cause, a community, humanity broadly) and that their fulfilment tends to come through completion and release rather than accumulation.",
     guidance: [
-      "Set a defined limit on giving — of time or money — so generosity remains sustainable",
+      "Set a defined limit on giving (of time or money) so generosity remains sustainable",
       "Practice receiving help as an act of trust, not a debt to be repaid",
       "Let go of outcomes that were never within your control to begin with",
     ],
   },
   11: {
     number: 11,
-    title: "Bhagyank 11 — The Intuitive (Master Number)",
+    title: "Bhagyank 11 | The Intuitive (Master Number)",
     archetype: "Illumination and heightened sensitivity",
     meaning:
-      "11 is one of three Master Numbers that numerological tradition keeps unreduced, because it is believed to carry a more intense, less grounded version of its root number, 2 (1+1). Where a 2 seeks harmony, an 11 is described as carrying that same sensitivity turned up considerably — a strong intuitive or spiritual pull paired with real internal tension between idealism and the practical demands of daily life.",
+      "11 is one of three Master Numbers that numerological tradition keeps unreduced, because it is believed to carry a more intense, less grounded version of its root number, 2 (1+1). Where a 2 seeks harmony, an 11 is described as carrying that same sensitivity turned up considerably: a strong intuitive or spiritual pull paired with real internal tension between idealism and the practical demands of daily life.",
     personality: [
       "Highly perceptive, often picking up on things others miss entirely",
       "Idealistic, with a strong pull toward meaning and purpose",
@@ -396,23 +396,23 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
       "Often benefits from grounding practices to stay functional under the number's intensity",
     ],
     relationships:
-      "11s are described as deeply intuitive about a partner's unspoken feelings, sometimes to an almost unsettling degree. The corresponding caution is emotional overwhelm — absorbing a partner's moods so completely that their own needs get lost.",
+      "11s are described as deeply intuitive about a partner's unspoken feelings, sometimes to an almost unsettling degree. The corresponding caution is emotional overwhelm: absorbing a partner's moods so completely that their own needs get lost.",
     financial:
       "Because 11 carries 2's cooperative financial instincts at higher intensity, tradition suggests partnership-based income works well, paired with a deliberate practical routine, since the number's idealism can make routine budgeting feel uninspiring.",
     lifePurpose:
-      "The traditional reading holds that an 11 life path exists to illuminate — to notice what others don't and to communicate it in a way that shifts how people see something. This is generally considered a demanding path that requires real grounding to sustain.",
+      "The traditional reading holds that an 11 life path exists to illuminate: to notice what others don't and to communicate it in a way that shifts how people see something. This is generally considered a demanding path that requires real grounding to sustain.",
     guidance: [
-      "Build daily grounding habits — movement, routine, time outdoors — to manage heightened sensitivity",
+      "Build daily grounding habits (movement, routine, time outdoors) to manage heightened sensitivity",
       "Separate intuitive insight from anxiety by writing both down and reviewing later",
       "Work with a root-number-2 discipline: build partnerships that share the practical load",
     ],
   },
   22: {
     number: 22,
-    title: "Bhagyank 22 — The Master Builder (Master Number)",
+    title: "Bhagyank 22 | The Master Builder (Master Number)",
     archetype: "Vision realised at scale",
     meaning:
-      "22 is traditionally called the Master Builder — the combination of 11's heightened vision with 4's grounded, structural discipline (2+2=4). Numerological tradition treats it as the number of turning a large idea into something concrete and lasting: not just dreaming big, but having the practical capability to build it.",
+      "22 is traditionally called the Master Builder: the combination of 11's heightened vision with 4's grounded, structural discipline (2+2=4). Numerological tradition treats it as the number of turning a large idea into something concrete and lasting: not just dreaming big, but having the practical capability to build it.",
     personality: [
       "Ambitious on a large scale, thinking in systems rather than single steps",
       "Disciplined and practical despite an expansive vision",
@@ -437,21 +437,21 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "22s are described as committed, protective partners who bring the same long-range thinking to relationships as to their work. The corresponding caution is letting ambition crowd out present-moment connection with the people closest to them.",
     financial:
-      "Tradition links 22 to significant wealth-building potential through large, well-structured ventures, paired with a caution against over-leverage — the number's confidence in its own vision can outpace prudent risk management.",
+      "Tradition links 22 to significant wealth-building potential through large, well-structured ventures, paired with a caution against over-leverage: the number's confidence in its own vision can outpace prudent risk management.",
     lifePurpose:
-      "The traditional reading holds that a 22 life path exists to build something of lasting, structural value — an institution, a movement, a body of work — that outlives the individual effort that created it.",
+      "The traditional reading holds that a 22 life path exists to build something of lasting, structural value (an institution, a movement, a body of work) that outlives the individual effort that created it.",
     guidance: [
       "Break the large vision into a concrete first step and start there rather than waiting to see the whole path",
-      "Build a support team early — this number's scale is rarely meant to be carried alone",
+      "Build a support team early: this number's scale is rarely meant to be carried alone",
       "Schedule deliberate rest as part of the plan, not an afterthought",
     ],
   },
   33: {
     number: 33,
-    title: "Bhagyank 33 — The Master Teacher (Master Number)",
+    title: "Bhagyank 33 | The Master Teacher (Master Number)",
     archetype: "Selfless service and compassionate guidance",
     meaning:
-      "33 is the rarest of the three Master Numbers — traditionally called the Master Teacher, combining 6's caregiving instinct with the elevated intensity of the Master Number series (3+3=6). It is read as a life path centred on guiding, healing, or uplifting others on a significant scale, often through teaching, healing work, or community leadership.",
+      "33 is the rarest of the three Master Numbers: traditionally called the Master Teacher, combining 6's caregiving instinct with the elevated intensity of the Master Number series (3+3=6). It is read as a life path centred on guiding, healing, or uplifting others on a significant scale, often through teaching, healing work, or community leadership.",
     personality: [
       "Deeply compassionate, often extending care well beyond close family",
       "Naturally drawn to teaching, mentoring, or healing roles",
@@ -476,9 +476,9 @@ export const BHAGYANK_MEANINGS: Record<number, BhagyankMeaning> = {
     relationships:
       "33s are described as extraordinarily giving partners and parents, often extending the same nurturing energy from their family to their wider community. The corresponding caution is stretching that care so thin across so many people that closest relationships are underserved.",
     financial:
-      "Tradition treats 33 similarly to 6, with an amplified pull toward giving — the traditional advice is to formalise generosity through structured giving rather than open-ended, unsustainable support of others.",
+      "Tradition treats 33 similarly to 6, with an amplified pull toward giving: the traditional advice is to formalise generosity through structured giving rather than open-ended, unsustainable support of others.",
     lifePurpose:
-      "The traditional reading holds that a 33 life path exists to serve as a teacher or healer at a broader scale than an individual family — carrying real responsibility to guide others, balanced against an equally real need to protect their own capacity to keep doing so.",
+      "The traditional reading holds that a 33 life path exists to serve as a teacher or healer at a broader scale than an individual family: carrying real responsibility to guide others, balanced against an equally real need to protect their own capacity to keep doing so.",
     guidance: [
       "Set explicit limits on caregiving so it remains sustainable over decades, not just years",
       "Invest in your own healing and growth as seriously as you invest in others'",
@@ -544,17 +544,17 @@ export const BHAGYANK_FAQS: BhagyankFaq[] = [
   {
     question: "How is Bhagyank calculated?",
     answer:
-      "Write your date of birth as day, month, and full year, then add every individual digit together. If the total is more than one digit, add those digits together again, and repeat until you reach a single digit — unless that intermediate sum is 11, 22, or 33, in which case tradition holds you stop there, since these are treated as Master Numbers.",
+      "Write your date of birth as day, month, and full year, then add every individual digit together. If the total is more than one digit, add those digits together again, and repeat until you reach a single digit: unless that intermediate sum is 11, 22, or 33, in which case tradition holds you stop there, since these are treated as Master Numbers.",
   },
   {
     question: "Is Bhagyank the same as Mulank?",
     answer:
-      "No. Mulank uses only your day of birth, so it's a much faster calculation that reflects your instinctive, everyday personality. Bhagyank uses your complete date of birth — day, month, and year — and is traditionally read as a broader indicator of your overall life path. Most practitioners consider the two complementary rather than interchangeable.",
+      "No. Mulank uses only your day of birth, so it's a much faster calculation that reflects your instinctive, everyday personality. Bhagyank uses your complete date of birth (day, month, and year) and is traditionally read as a broader indicator of your overall life path. Most practitioners consider the two complementary rather than interchangeable.",
   },
   {
     question: "Can Bhagyank be 11, 22, or 33?",
     answer:
-      "Yes. These are called Master Numbers, and numerological tradition preserves them unreduced whenever they appear during calculation, rather than continuing to add their digits down to a single number. They're generally read as carrying a more intense version of their root digit — 11 relates to 2, 22 relates to 4, and 33 relates to 6.",
+      "Yes. These are called Master Numbers, and numerological tradition preserves them unreduced whenever they appear during calculation, rather than continuing to add their digits down to a single number. They're generally read as carrying a more intense version of their root digit: 11 relates to 2, 22 relates to 4, and 33 relates to 6.",
   },
   {
     question: "What does Bhagyank 1 mean?",
@@ -564,17 +564,17 @@ export const BHAGYANK_FAQS: BhagyankFaq[] = [
   {
     question: "What does Bhagyank 8 mean?",
     answer:
-      "Bhagyank 8 is traditionally linked to ambition, authority, and material achievement — considered the most outcome- and business-oriented of the nine core numbers. The corresponding caution is a tendency toward workaholism and over-identifying personal worth with results.",
+      "Bhagyank 8 is traditionally linked to ambition, authority, and material achievement: considered the most outcome- and business-oriented of the nine core numbers. The corresponding caution is a tendency toward workaholism and over-identifying personal worth with results.",
   },
   {
     question: "Can my Bhagyank change over time?",
     answer:
-      "No. Because it's calculated from your complete, fixed date of birth, your Bhagyank never changes — unlike numbers such as your Personal Year, which are recalculated against the current calendar year and do shift annually.",
+      "No. Because it's calculated from your complete, fixed date of birth, your Bhagyank never changes: unlike numbers such as your Personal Year, which are recalculated against the current calendar year and do shift annually.",
   },
   {
     question: "Which date should I use for the calculation?",
     answer:
-      "Always use your actual date of birth as it appears on your birth certificate or official documents — day, month, and full four-digit year. Using an approximate or incorrectly recorded date will produce an inaccurate result.",
+      "Always use your actual date of birth as it appears on your birth certificate or official documents: day, month, and full four-digit year. Using an approximate or incorrectly recorded date will produce an inaccurate result.",
   },
   {
     question: "Is numerology scientifically proven?",
@@ -590,7 +590,7 @@ export const BHAGYANK_HUB_FAQS: BhagyankFaq[] = [
   {
     question: "What is Bhagyank in numerology?",
     answer:
-      "Bhagyank — commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number — is the single digit (or Master Number) derived from your complete date of birth: day + month + full year added together until one digit remains, unless the sum is 11, 22, or 33, which are preserved as Master Numbers. It describes your broader life direction and natural strengths.",
+      "Bhagyank: commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number: is the single digit (or Master Number) derived from your complete date of birth: day + month + full year added together until one digit remains, unless the sum is 11, 22, or 33, which are preserved as Master Numbers. It describes your broader life direction and natural strengths.",
   },
   {
     question: "How do I calculate my Bhagyank?",
@@ -600,7 +600,7 @@ export const BHAGYANK_HUB_FAQS: BhagyankFaq[] = [
   {
     question: "What is the difference between Bhagyank and Mulank?",
     answer:
-      "Mulank uses only your day of birth and reflects your everyday, instinctive personality. Bhagyank uses your complete date of birth and describes your longer life direction. Most practitioners read them together — your Mulank tells you how you naturally act; your Bhagyank tells you what your life path is asking of you.",
+      "Mulank uses only your day of birth and reflects your everyday, instinctive personality. Bhagyank uses your complete date of birth and describes your longer life direction. Most practitioners read them together: your Mulank tells you how you naturally act; your Bhagyank tells you what your life path is asking of you.",
   },
   {
     question: "What is a Master Number (11, 22, 33)?",
@@ -610,17 +610,17 @@ export const BHAGYANK_HUB_FAQS: BhagyankFaq[] = [
   {
     question: "Can two people born on the same date have different readings?",
     answer:
-      "No — they would have the same Bhagyank. But they also have Personal Year numbers (recalculated each January 1st) and Personal Month numbers that shift with time. Additionally, Mulank (birth number) and Namank (name number) add other layers to the full numerology picture.",
+      "No. They would have the same Bhagyank. But they also have Personal Year numbers (recalculated each January 1st) and Personal Month numbers that shift with time. Additionally, Mulank (birth number) and Namank (name number) add other layers to the full numerology picture.",
   },
   {
     question: "Is Bhagyank astrology?",
     answer:
-      "No, though they complement each other. Bhagyank is calculated arithmetically from your birth date. Astrology is based on planetary positions at the moment you were born. Some numerologists pair both systems — the numbers describe your inner nature, while astrology describes the cosmic timing you were born into.",
+      "No, though they complement each other. Bhagyank is calculated arithmetically from your birth date. Astrology is based on planetary positions at the moment you were born. Some numerologists pair both systems: the numbers describe your inner nature, while astrology describes the cosmic timing you were born into.",
   },
   {
     question: "Does Bhagyank change if I change my name?",
     answer:
-      "No. Bhagyank comes from your birth date, which never changes. Your Namank — derived from the letters of your name — would change if you legally changed your name, but your core birth numbers (Bhagyank and Mulank) stay the same for life.",
+      "No. Bhagyank comes from your birth date, which never changes. Your Namank (derived from the letters of your name) would change if you legally changed your name, but your core birth numbers (Bhagyank and Mulank) stay the same for life.",
   },
   {
     question: "What should I do if Bhagyank describes me poorly?",

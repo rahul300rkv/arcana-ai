@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { CalendarClock, Clock, UserRound } from "lucide-react";
+import { CalendarClock, Clock, UserRound } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -29,7 +29,7 @@ interface Props {
 
 const AUTHOR = {
   name: "The AstroFree Editorial Desk",
-  bio: "Written and reviewed by the AstroFree editorial team — practising tarot readers and numerologists who maintain our 78-card and 11-number reference library. Our interpretations follow the Rider–Waite–Smith tradition and classical Pythagorean numerology. Readings are for reflection and entertainment, and are not a substitute for medical, legal, or financial advice.",
+  bio: "Written and reviewed by the AstroFree editorial team, practising tarot readers and numerologists who maintain our 78-card and 11-number reference library. Our interpretations follow the Rider–Waite–Smith tradition and classical Pythagorean numerology. Readings are for reflection and entertainment, and are not a substitute for medical, legal, or financial advice.",
 };
 
 function formatDate(iso: string): string {

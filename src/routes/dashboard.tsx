@@ -3,7 +3,7 @@ import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — AstroFree" },
+      { title: "Dashboard | AstroFree" },
       {
         name: "description",
         content: "Your daily card, recent readings, journal, and reading streak.",

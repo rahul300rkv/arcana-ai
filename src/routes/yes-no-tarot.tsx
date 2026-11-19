@@ -4,7 +4,7 @@ import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 const PATH = "/yes-no-tarot";
 const TITLE = "Free Yes or No Tarot Reading Online (Instant Oracle Answer)";
 const DESCRIPTION =
-  "Get a free yes or no tarot reading online: ask your question, draw a card, and reveal an instant Yes, No, or Maybe oracle answer with clear reasoning — no signup.";
+  "Get a free yes or no tarot reading online: ask your question, draw a card, and reveal an instant Yes, No, or Maybe oracle answer with clear reasoning: no signup.";
 
 export const Route = createFileRoute("/yes-no-tarot")({
   loader: async () => {

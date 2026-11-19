@@ -6,7 +6,7 @@ const SPREADS_FAQS = [
   {
     question: "Which tarot spread should a beginner use?",
     answer:
-      "Start with the Single Card or Three Card spread — few positions, crisp narrative structure, and easy to cross-check against real-world events without overwhelm.",
+      "Start with the Single Card or Three Card spread: few positions, crisp narrative structure, and easy to cross-check against real-world events without overwhelm.",
   },
   {
     question: "What is the Celtic Cross spread?",
@@ -16,7 +16,7 @@ const SPREADS_FAQS = [
   {
     question: "Can I use any spread for any question?",
     answer:
-      "Yes, though tailored topic layouts deliver clearer contrast — Love spreads compare two partners evenly while Decision spreads illuminate blindspots between distinct paths.",
+      "Yes, though tailored topic layouts deliver clearer contrast: Love spreads compare two partners evenly while Decision spreads illuminate blindspots between distinct paths.",
   },
   {
     question: "How should I word questions before pulling a spread?",
@@ -28,7 +28,7 @@ const SPREADS_FAQS = [
 export const Route = createFileRoute("/guide/tarot-spreads")({
   head: () => ({
     meta: [
-      { title: "Tarot Spreads Explained — Single Card to Celtic Cross | AstroFree" },
+      { title: "Tarot Spreads Explained | Single Card to Celtic Cross | AstroFree" },
       {
         name: "description",
         content:
@@ -39,14 +39,14 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
         content:
           "tarot spreads, celtic cross spread, three card tarot spread, love tarot spread, career tarot spread, year ahead tarot spread, tarot spread meanings",
       },
-      { property: "og:title", content: "Tarot Spreads Explained — Single Card to Celtic Cross" },
+      { property: "og:title", content: "Tarot Spreads Explained | Single Card to Celtic Cross" },
       {
         property: "og:description",
         content:
           "Explore 8 tarot spreads from Single Card to the 10-card Celtic Cross. Learn every card position for Love, Career, Decision, and Year Ahead draws.",
       },
       { property: "og:url", content: `${SITE_URL}/guide/tarot-spreads` },
-      { name: "twitter:title", content: "Tarot Spreads Explained — Single Card to Celtic Cross" },
+      { name: "twitter:title", content: "Tarot Spreads Explained | Single Card to Celtic Cross" },
       {
         name: "twitter:description",
         content:
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/guide/tarot-spreads",
-            title: "Tarot Spreads Explained — Single Card to Celtic Cross",
+            title: "Tarot Spreads Explained | Single Card to Celtic Cross",
             description:
               "A free guide to tarot spreads: what each position means in the Single Card, Three Card, Love, Career, Money, Decision, Celtic Cross, and Year Ahead spreads.",
             crumbs: [

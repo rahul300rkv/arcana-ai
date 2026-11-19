@@ -1,4 +1,4 @@
-import { ChevronRight, Home } from "lucide-react";
+import { ChevronRight, Home } from "@/components/icons";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 

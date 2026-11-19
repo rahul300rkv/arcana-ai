@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 
 interface Props {

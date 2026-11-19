@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { CalendarClock, Send, CheckCircle2, MessageSquare, Sparkles } from "lucide-react";
+import { CalendarClock, Send, CheckCircle2, MessageSquare, Sparkles } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
@@ -259,7 +259,7 @@ export function ContactScreen() {
                 </h3>
                 <p className="mt-1 leading-relaxed">
                   AstroFree is built as a self-serve, privacy-first educational and reflective
-                  platform — we do not sell private paid consultations via email. You can generate
+                  platform: we do not sell private paid consultations via email. You can generate
                   unlimited spreads for free anytime from our{" "}
                   <Link to="/tarot" className="underline underline-offset-4 hover:text-foreground">
                     Tarot Reading hub

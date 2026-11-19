@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Flame, Layers, Sparkles, BookOpen } from "lucide-react";
+import { Flame, Layers, Sparkles, BookOpen } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
@@ -52,7 +52,7 @@ export function DashboardScreen() {
         <div className="grid gap-5 sm:grid-cols-3">
           <StatCard
             label={t("stat.streak")}
-            value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "—"}
+            value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "0 days"}
             hint={t("stat.streakHint")}
             icon={Flame}
           />
@@ -64,7 +64,7 @@ export function DashboardScreen() {
           />
           <StatCard
             label={t("stat.favoriteSpread")}
-            value={stats.favoriteSpreadName ?? "—"}
+            value={stats.favoriteSpreadName ?? "None yet"}
             hint={
               stats.favoriteSpreadName
                 ? t("stat.favoriteSpreadHint")

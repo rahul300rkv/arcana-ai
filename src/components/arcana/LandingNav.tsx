@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Globe, Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Globe, Menu, X, ArrowRight, ChevronDown } from "@/components/icons";
 import { Brand } from "./Brand";
 import { useLanguage, type Language } from "@/lib/language";
 

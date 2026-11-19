@@ -94,7 +94,7 @@ export function AboutScreen() {
           <Section title="Multilingual Accessibility Without Paywalls">
             Reflective tools work best in the language you naturally think and journal in. Because
             AstroFree serves readers across India and worldwide, we designed our reading synthesis and
-            educational resources to support 13 Indian languages alongside English — including Hindi,
+            educational resources to support 13 Indian languages alongside English, including Hindi,
             Hinglish, Bengali, Telugu, Marathi, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia,
             and Assamese. Everything on the platform remains genuinely free: no trial counters, no
             locked reversals, and no surprise subscription tiers.

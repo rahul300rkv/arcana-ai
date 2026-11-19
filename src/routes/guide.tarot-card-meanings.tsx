@@ -11,7 +11,7 @@ const MEANINGS_FAQS = [
   {
     question: "What does a reversed tarot card mean?",
     answer:
-      "A reversed card usually softens, delays, blocks, or turns inward the upright archetype — signaling where energy feels internalized, resisted, or overdue for balanced adjustment rather than signifying automatic doom.",
+      "A reversed card usually softens, delays, blocks, or turns inward the upright archetype, signaling where energy feels internalized, resisted, or overdue for balanced adjustment rather than signifying automatic doom.",
   },
   {
     question: "Which tarot deck are these meanings based on?",
@@ -33,7 +33,7 @@ const MEANINGS_FAQS = [
 export const Route = createFileRoute("/guide/tarot-card-meanings")({
   head: () => ({
     meta: [
-      { title: "Tarot Card Meanings — All 78 Cards, Upright & Reversed | AstroFree" },
+      { title: "Tarot Card Meanings | All 78 Cards, Upright & Reversed | AstroFree" },
       {
         name: "description",
         content:
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
         content:
           "tarot card meanings, major arcana meanings, minor arcana meanings, tarot cards upright reversed, tarot card guide, wands cups swords pentacles meanings",
       },
-      { property: "og:title", content: "Tarot Card Meanings — All 78 Cards, Upright & Reversed" },
+      { property: "og:title", content: "Tarot Card Meanings | All 78 Cards, Upright & Reversed" },
       { property: "og:url", content: `${SITE_URL}/guide/tarot-card-meanings` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/guide/tarot-card-meanings` }],
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
         children: JSON.stringify(
           buildPageJsonLd({
             path: "/guide/tarot-card-meanings",
-            title: "Tarot Card Meanings — All 78 Cards, Upright & Reversed",
+            title: "Tarot Card Meanings | All 78 Cards, Upright & Reversed",
             description:
               "Free tarot card meanings for all 78 Rider-Waite-Smith cards, with upright and reversed interpretations and deck architecture guide.",
             crumbs: [

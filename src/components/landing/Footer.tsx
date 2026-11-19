@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Brand } from "@/components/arcana/Brand";
-import { Sparkles } from "lucide-react";
+import { Sparkles } from "@/components/icons";
 
 export function Footer() {
   return (

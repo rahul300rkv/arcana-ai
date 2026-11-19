@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { BookHeart, RefreshCw, RotateCcw, Sparkles, Wand2 } from "lucide-react";
+import { BookHeart, RefreshCw, RotateCcw, Sparkles, Wand2 } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";

@@ -4,7 +4,7 @@ import { buildContentMeta, buildContentJsonLd } from "@/lib/content-seo";
 const CANONICAL_PATH = "/career-tarot-reading";
 const TITLE = "Free Career Tarot Reading Online: Job, Money & Future Spread";
 const DESCRIPTION =
-  "Get a free career tarot reading online: draw cards for your current role, career obstacle, strategic action, and job or financial outlook — instant guidance, no signup.";
+  "Get a free career tarot reading online: draw cards for your current role, career obstacle, strategic action, and job or financial outlook: instant guidance, no signup.";
 
 export const Route = createFileRoute("/tarot/career")({
   loader: async () => {
