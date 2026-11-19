@@ -7,6 +7,7 @@ const STEP = "clamp(55px, 15vw, 130px)";
 
 interface HeroCardSlot {
   card: CardFrontCard;
+  slug: string;
   rotate: number;
   x: string;
   y: string;
@@ -24,6 +25,7 @@ const HERO_CARDS: HeroCardSlot[] = [
       height: 322,
       keywords: ["New beginnings", "innocence", "spontaneity", "a free spirit"],
     },
+    slug: "the-fool",
     rotate: -14,
     x: `calc(${STEP} * -2)`,
     y: "26px",
@@ -38,6 +40,7 @@ const HERO_CARDS: HeroCardSlot[] = [
       height: 330,
       keywords: ["Intuition", "sacred knowledge", "divine feminine", "subconscious"],
     },
+    slug: "the-high-priestess",
     rotate: -7,
     x: `calc(${STEP} * -1)`,
     y: "6px",
@@ -52,6 +55,7 @@ const HERO_CARDS: HeroCardSlot[] = [
       height: 331,
       keywords: ["Hope", "faith", "purpose", "renewal", "spirituality"],
     },
+    slug: "the-star",
     rotate: 0,
     x: "0px",
     y: "-10px",
@@ -66,6 +70,7 @@ const HERO_CARDS: HeroCardSlot[] = [
       height: 333,
       keywords: ["Manifestation", "resourcefulness", "power", "inspired action"],
     },
+    slug: "the-magician",
     rotate: 7,
     x: `calc(${STEP} * 1)`,
     y: "6px",
@@ -80,6 +85,7 @@ const HERO_CARDS: HeroCardSlot[] = [
       height: 331,
       keywords: ["Positivity", "fun", "warmth", "success", "vitality"],
     },
+    slug: "the-sun",
     rotate: 14,
     x: `calc(${STEP} * 2)`,
     y: "26px",
@@ -132,7 +138,7 @@ export function FloatingCards() {
                 />
 
                 <div className="relative h-full w-full rounded-xl overflow-hidden">
-                  <CardFront card={card} />
+                  <CardFront card={card} eager />
                 </div>
               </div>
             </button>
@@ -150,11 +156,11 @@ export function FloatingCards() {
                   {card.keywords.slice(0, 3).join(" · ")}
                 </div>
                 <Link
-                  to="/tarot"
+                  to={`/tarot/${c.slug}` as any}
                   className="mt-2 inline-flex min-h-12 sm:min-h-10 items-center gap-1.5 px-2 text-xs font-semibold text-[#fffaf0] hover:underline transition-colors"
                 >
                   <Eye className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>View Card Insight</span>
+                  <span>{card.name} Meaning</span>
                 </Link>
               </div>
             )}

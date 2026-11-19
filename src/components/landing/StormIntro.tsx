@@ -93,15 +93,15 @@ export function StormIntro() {
       aria-label="AstroFree Cosmic Introduction"
       className={
         reducedMotion
-          ? "relative w-full min-h-[68svh] md:min-h-[82svh] bg-[#1a0418] border-b border-white/10 md:border-b-0"
-          : "relative w-full min-h-[68svh] md:h-[145svh] md:min-h-[760px] bg-[#1a0418] border-b border-white/10 md:border-b-0"
+          ? "relative w-full min-h-[58svh] md:min-h-[76svh] bg-[#1a0418] border-b border-white/10 md:border-b-0"
+          : "relative w-full min-h-[58svh] md:h-[94svh] md:min-h-[620px] bg-[#1a0418] border-b border-white/10 md:border-b-0"
       }
     >
       <div
         className={
           reducedMotion
-            ? "relative w-full min-h-[68svh] md:min-h-[82svh] overflow-hidden"
-            : "relative w-full min-h-[68svh] md:sticky md:top-0 md:h-[100svh] overflow-hidden"
+            ? "relative w-full min-h-[58svh] md:min-h-[76svh] overflow-hidden"
+            : "relative w-full min-h-[58svh] md:sticky md:top-0 md:h-[94svh] overflow-hidden"
         }
       >
         <div
@@ -142,10 +142,15 @@ export function StormIntro() {
             Ancient Wisdom · Vedic Numerology · Compassionate AI
           </p>
 
-          <p className="mt-4 font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none">
-            <span className="chrome-text">Astro</span>
-            <span className="ml-1 font-light tracking-wide text-[#faf2e4]">Free</span>
-          </p>
+          <h1 className="mt-4 flex flex-col items-center">
+            <span className="font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none">
+              <span className="chrome-text">Astro</span>
+              <span className="ml-1 font-light tracking-wide text-[#faf2e4]">Free</span>
+            </span>
+            <span className="mt-3 max-w-xl font-display text-lg sm:text-2xl font-semibold tracking-wide text-[#faf2e4]/95">
+              Free AI Tarot Readings &amp; Vedic Numerology
+            </span>
+          </h1>
 
           <div
             aria-hidden="true"

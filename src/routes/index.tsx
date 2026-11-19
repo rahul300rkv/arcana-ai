@@ -140,6 +140,15 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
       {
+        name: "twitter:title",
+        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Explore AstroFree: free AI tarot readings, Card of the Day interpretations, Celtic Cross & Yes/No spreads, and instant Mulank & Bhagyank calculators.",
+      },
+      {
         "script:ld+json": {
           "@context": "https://schema.org",
           "@graph": [
@@ -152,20 +161,31 @@ export const Route = createFileRoute("/")({
               datePublished: "2026-07-15",
               dateModified: "2026-11-19",
               inLanguage: "en",
+              publisher: { "@id": `${SITE_URL}/#organization` },
             },
             {
               "@type": "WebApplication",
+              "@id": `${SITE_URL}/#webapp`,
               name: SITE_NAME,
               url: SITE_URL,
               datePublished: "2026-07-15",
               dateModified: "2026-11-19",
               applicationCategory: "LifestyleApplication",
               operatingSystem: "All",
+              description:
+                "Free AI tarot card reading platform with 8 spreads including Celtic Cross, Card of the Day insights, Yes/No oracle, and Mulank, Bhagyank & Namank Vedic numerology calculators.",
+              featureList: [
+                "AI-powered tarot card readings in 13 Indian languages",
+                "8 tarot spreads including 10-card Celtic Cross & Yes/No oracle",
+                "78-card Major & Minor Arcana interpretations with Card of the Day",
+                "Mulank, Bhagyank, Namank & Personal Year calculators",
+              ],
               offers: {
                 "@type": "Offer",
                 price: "0",
                 priceCurrency: "USD",
               },
+              publisher: { "@id": `${SITE_URL}/#organization` },
             },
             {
               "@type": "FAQPage",

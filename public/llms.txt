@@ -1,33 +1,32 @@
 # AstroFree
 
-> AstroFree is a free AI-powered tarot reading and Mulank numerology platform. It offers instant AI-guided tarot readings across 8 spreads (including the Celtic Cross), a daily tarot card ritual, a private journal, and a free numerology calculator for Mulank (root) number, Personal Year, and Personal Month forecasts — all with no signup required and support for 13 Indian languages.
+> AstroFree is a free AI-powered tarot reading and Vedic numerology platform. It offers instant AI-guided tarot readings across 8 spreads (including the 10-card Celtic Cross, 3-card spread, Career spread, and Yes/No oracle), Card of the Day meanings for all 78 cards, and free Mulank, Bhagyank, and Namank Vedic numerology calculators with support for 13 Indian languages and no signup required.
 
-AstroFree is built for people seeking personal insight, spiritual reflection, and lightweight decision support through tarot and numerology. All core features are free: no paywall, no credit card, no account required.
+All core features are completely free with no paywall, credit card, or account requirement.
 
-## Core Product
+## Core Tools & Spreads
 
-- [Home](https://astrofree.vercel.app/): Overview of AstroFree's tarot and numerology features.
-- [Start a Reading](https://astrofree.vercel.app/reading): Draw a card, choose a spread, and get an AI-guided tarot interpretation.
-- [Mulank Numerology Calculator](https://astrofree.vercel.app/numerology/mulank): Free calculator for Mulank (root) number, Personal Year, and Personal Month forecasts.
+- [AstroFree Home](https://astrofree.vercel.app/): Overview of tarot readings, Card of the Day insights, and Vedic numerology tools.
+- [Free Tarot Reading App](https://astrofree.vercel.app/reading): Draw cards interactively and receive AI-guided tarot interpretations.
+- [Celtic Cross 10-Card Tarot Spread](https://astrofree.vercel.app/tarot/celtic-cross): Instant 10-card spread with position breakdown and upright/reversed analysis.
+- [Three-Card Tarot Spread](https://astrofree.vercel.app/tarot/three-card): Past, Present, Future interactive 3-card reading.
+- [Career Tarot Reading](https://astrofree.vercel.app/career-tarot-reading): 3-card career & finances pull plus Life Path 1–9 career guide.
+- [Yes or No Tarot Oracle](https://astrofree.vercel.app/yes-no-tarot): Instant Yes, No, or Maybe single-card oracle answer.
+- [Mulank & Bhagyank Calculator](https://astrofree.vercel.app/numerology): Free Vedic numerology calculator by date of birth with 1–31 lookup tables.
 
-## Tarot Guides
+## Tarot & Numerology Pillars
 
-- [All 78 Tarot Cards](https://astrofree.vercel.app/tarot): Directory of every tarot card with meanings.
-- [Tarot Card Meanings Guide](https://astrofree.vercel.app/guide/tarot-card-meanings): Explanations of upright and reversed meanings across the deck.
-- [Tarot Spreads Explained](https://astrofree.vercel.app/guide/tarot-spreads): How to read single-card, three-card, Celtic Cross, and other spreads.
+- [Major Arcana Meanings (All 22 Cards)](https://astrofree.vercel.app/major-arcana-tarot-cards-meanings): Complete Major Arcana table and The Fool's Journey stages.
+- [All 78 Tarot Cards & Card of the Day](https://astrofree.vercel.app/tarot): Upright, reversed, love, career, and Card of the Day meanings for all 78 cards.
+- [Reversed Tarot Cards Guide](https://astrofree.vercel.app/what-do-reversed-tarot-cards-mean): How to interpret upside-down cards in spreads.
+- [Bhagyank Calculator](https://astrofree.vercel.app/bhagyank-calculator): Destiny number calculator by full date of birth.
+- [Namank Calculator](https://astrofree.vercel.app/namank-calculator): Chaldean name numerology calculator.
+- [Mulank vs Bhagyank Guide](https://astrofree.vercel.app/guide/mulank-vs-bhagyank): Difference between Birth Number and Destiny Number.
 
-## Numerology Guides
+## About & Trust
 
-- [Numerology Guide](https://astrofree.vercel.app/guide/numerology): How Mulank, Personal Year, and Personal Month numbers are calculated and interpreted.
-- [Numerology Number Directory](https://astrofree.vercel.app/numerology): Meanings for each Mulank/Life Path number.
-
-## Company
-
-- [About](https://astrofree.vercel.app/about): Background on AstroFree.
-- [Contact](https://astrofree.vercel.app/contact): How to reach the team.
-
-## Optional
-
+- [About AstroFree](https://astrofree.vercel.app/about)
+- [Contact](https://astrofree.vercel.app/contact)
 - [Privacy Policy](https://astrofree.vercel.app/privacy)
 - [Terms of Service](https://astrofree.vercel.app/terms)
-- [Disclaimer](https://astrofree.vercel.app/disclaimer): Tarot and numerology content is for reflection and entertainment purposes, not professional advice.
+- [Disclaimer](https://astrofree.vercel.app/disclaimer)

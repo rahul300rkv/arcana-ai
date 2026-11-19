@@ -239,6 +239,24 @@ app.get("/ads.txt", (_req, res) => {
   }
 });
 
+app.get("/llms.txt", (_req, res) => {
+  res.setHeader("Content-Type", "text/plain; charset=utf-8");
+  const llmsPath = path.resolve(process.cwd(), "public", "llms.txt");
+  if (fs.existsSync(llmsPath)) {
+    res.sendFile(llmsPath);
+  } else {
+    res.status(404).send("Not found");
+  }
+});
+
+app.use((req, res, next) => {
+  const hostHeader = String(req.hostname || "").toLowerCase();
+  if (hostHeader && hostHeader !== "astrofree.vercel.app") {
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  }
+  next();
+});
+
 app.get("/tarot/career", (_req, res) => res.redirect(301, "/career-tarot-reading"));
 app.get("/tarot/yes-no", (_req, res) => res.redirect(301, "/yes-no-tarot"));
 app.get("/guide/major-arcana-meanings", (_req, res) =>
@@ -262,8 +280,15 @@ async function startServer() {
       );
     }
     app.use(express.static(distDir, { maxAge: "7d" }));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(distDir, "index.html"));
+    app.get("*", (req, res) => {
+      const cleanPath = req.path.replace(/^\/+|\/+$/g, "");
+      if (cleanPath) {
+        const prerendered = path.join(distDir, cleanPath, "index.html");
+        if (fs.existsSync(prerendered)) {
+          return res.sendFile(prerendered);
+        }
+      }
+      return res.sendFile(path.join(distDir, "index.html"));
     });
   } else {
     const { createServer: createViteServer } = await import("vite");

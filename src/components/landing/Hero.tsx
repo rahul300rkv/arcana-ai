@@ -29,11 +29,11 @@ export function Hero() {
             <span>Compassionate AI</span>
           </div>
 
-          {/* Majestic Display Headline with Warm Ivory Satin Shine */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.08] [text-wrap:balance]">
+          {/* Majestic Display Sub-Headline with Warm Ivory Satin Shine */}
+          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.08] [text-wrap:balance]">
             <span>Unveil What the Stars &amp;</span>{" "}
             <span className="chrome-text">Arcana Whisper</span>
-          </h1>
+          </h2>
 
           {/* Subtitle in Warm Ivory Cream */}
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#e5d2ba]/95 leading-relaxed [text-wrap:balance]">

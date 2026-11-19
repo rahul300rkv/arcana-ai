@@ -84,6 +84,7 @@ export const Route = createRootRoute({
           "AstroFree is India's first free AI tarot card reading app, now with a free Mulank numerology calculator. Get instant AI-guided tarot readings, your Personal Year & Personal Month forecast, a daily card ritual, and a private journal — always free.",
       },
       { name: "theme-color", content: "#19060b" },
+      { property: "og:site_name", content: SITE_NAME },
       {
         property: "og:title",
         content: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",
@@ -95,7 +96,18 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}/logo.webp` },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "India's first free AI tarot card reading app, plus a free Mulank numerology calculator for your Personal Year & Month. Always free.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/logo.webp` },
       ...(GOOGLE_SITE_VERIFICATION
         ? [{ name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION }]
         : []),
@@ -123,36 +135,7 @@ export const Route = createRootRoute({
             "@type": "Place",
             name: "India",
           },
-          sameAs: [],
-        },
-      },
-      {
-        "script:ld+json": {
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: SITE_NAME,
-          alternateName: "AstroFree — Free AI Tarot Reading & Mulank Numerology Calculator",
-          url: SITE_URL,
-          applicationCategory: "LifestyleApplication",
-          operatingSystem: "Any",
-          description:
-            "India's first free AI tarot card reading app, with a free Mulank numerology calculator. Instant AI-guided tarot readings, Personal Year & Personal Month numerology forecasts, a daily card ritual, and a private journal.",
-          featureList: [
-            "AI-powered tarot card readings",
-            "8 tarot spreads including the Celtic Cross",
-            "Daily tarot card ritual",
-            "Private tarot journal",
-            "Mulank (root number) numerology calculator",
-            "Personal Year & Personal Month numerology forecast",
-            "Tarot-numerology card synergy insights",
-            "Support for 13 Indian languages",
-          ],
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "INR",
-          },
-          publisher: { "@id": `${SITE_URL}/#organization` },
+          sameAs: ["https://github.com/rahul300rkv/arcana-ai"],
         },
       },
     ],
