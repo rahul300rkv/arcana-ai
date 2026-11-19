@@ -3,10 +3,10 @@ import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 
 const PATH = "/guide/celtic-cross-guide";
-const TITLE = "Celtic Cross Spread: Step-by-Step Guide";
+const TITLE = "10-Card Celtic Cross Tarot Spread: Step-by-Step Guide";
 const DESCRIPTION =
-  "A complete, step-by-step walkthrough of the ten-card Celtic Cross tarot spread — what each position means, the order to lay and read them in, and how to weave all ten into one coherent answer.";
-const UPDATED = "2026-08-14";
+  "A complete step-by-step walkthrough of the 10 card tarot spread (Celtic Cross) — what all 10 positions mean, how to lay them in order, and how to read them together.";
+const UPDATED = "2026-11-18";
 
 const FAQS = [
   {
@@ -34,7 +34,12 @@ const FAQS = [
     answer:
       "That's common and meaningful, not a sign of a bad reading — it usually reflects real tension in the situation, such as the Hopes & Fears position pulling one way while the Outcome pulls another. Sit with the contradiction rather than picking whichever card you prefer.",
   },
-];
+      {
+        question: "What is the 10 card tarot spread called?",
+        answer:
+          "The classic 10 card tarot spread is called the Celtic Cross. Positions 1–6 form the Cross (Present, Challenge, Foundation, Recent Past, Crown, Near Future), and Positions 7–10 form the Staff (Self, Environment, Hopes & Fears, Outcome).",
+      },
+    ];
 
 export const Route = createFileRoute("/guide/celtic-cross-guide")({
   head: () => ({
@@ -43,11 +48,12 @@ export const Route = createFileRoute("/guide/celtic-cross-guide")({
       title: TITLE,
       description: DESCRIPTION,
       keywords: [
+        "10 card tarot spread",
+        "ten card tarot spread",
         "celtic cross spread",
         "celtic cross tarot guide",
         "how to read celtic cross",
         "celtic cross positions meaning",
-        "ten card tarot spread",
       ],
     }),
     links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],

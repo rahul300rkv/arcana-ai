@@ -177,6 +177,39 @@ export function StormIntro() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
+
+          <nav
+            aria-label="Popular AstroFree tools"
+            className="pointer-events-auto mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-medium text-[#ead9c3]/90"
+          >
+            <Link
+              to="/numerology"
+              className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
+            >
+              Mulank Calculator
+            </Link>
+            <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
+            <Link
+              to="/tarot/celtic-cross"
+              className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
+            >
+              Celtic Cross Tarot
+            </Link>
+            <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
+            <Link
+              to="/major-arcana-tarot-cards-meanings"
+              className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
+            >
+              Card of the Day / Major Arcana
+            </Link>
+            <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
+            <Link
+              to="/yes-no-tarot"
+              className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
+            >
+              Yes / No Tarot
+            </Link>
+          </nav>
         </div>
 
         <div

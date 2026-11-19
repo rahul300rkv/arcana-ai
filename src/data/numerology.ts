@@ -29,6 +29,8 @@ export interface NumerologyPage {
   description: string;
   keywords: string[];
   archetype: string;
+  quickAnswer: string;
+  calculationNote: string;
   tarotCard: string;
   tarotSlug: string;
   planet: string;
@@ -60,12 +62,14 @@ export interface NumerologyPage {
   updated: string;
 }
 
-const NUMEROLOGY_UPDATED = "2026-08-04";
+const NUMEROLOGY_UPDATED = "2026-11-18";
 
 interface NumberSeed {
   number: number;
   isMaster?: boolean;
   archetype: string;
+  quickAnswer: string;
+  calculationNote: string;
   tarotCard: string;
   tarotSlug: string;
   planet: string;
@@ -103,8 +107,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Sun",
     element: "Fire",
     hero: "Trailblazing autonomy, self-directed invention, and the courage to cast the very first stone across untested water.",
+    quickAnswer:
+      "Life Path Number 1 (The Pioneer) signifies independence, leadership, and original initiative. Ruled by the Sun and aligned with Fire energy, people with life number 1 thrive when starting ventures from scratch, taking clear ownership, and pairing bold confidence with collaborative delegation.",
+    calculationNote:
+      "Add every digit of your full birth date (DD-MM-YYYY) and reduce to 1 — for example, 19-03-1995 reduces as 1+9+0+3+1+9+9+5 = 37 -> 3+7 = 10 -> 1.",
     description:
-      "Life Path 1 — The Pioneer: meaning, independent psychology, leadership careers, love dynamics, money habits, health pointers and number pairings.",
+      "Life Path Number 1 meaning (The Pioneer): independent psychology, leadership careers, love dynamics, money habits, calculation formula, and compatibility.",
     meaning: [
       "Unit 1 sits right at origin zero-to-one: unbroken line before geometry splits into angles or compromise. When full birth dates reduce to 1, your overarching life curriculum revolves repeatedly around initiating fresh ground nobody cleared before you arrived.",
       "Sun governs 1 like noon spotlight—warm, generative, impossible to ignore smoothly yet unforgiving when swollen pride blocks honest feedback from competent teammates.",
@@ -219,8 +227,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Moon",
     element: "Water",
     hero: "Emotional radar, subtle bridge-building, and quiet patient endurance shaping lasting alliances beneath noisy rooms.",
+    quickAnswer:
+      "Life Path Number 2 (The Diplomat) represents cooperation, emotional intelligence, and quiet intuitive mediation. Ruled by the Moon, people with life number 2 excel at harmonizing teams, reading subtle social dynamics, and building lasting trust once they protect clear personal boundaries.",
+    calculationNote:
+      "Sum every digit of your full birth date until reaching 2 (without stopping at 11) — for example, 02-02-1960 equals 0+2+0+2+1+9+6+0 = 20 -> 2+0 = 2.",
     description:
-      "Life Path 2 — The Diplomat: intuitive empathy, collaborative leadership careers, tender intimacy dynamics, money prudence, and balanced lunar care.",
+      "Life Path Number 2 meaning (The Diplomat): intuitive empathy, collaborative careers, love dynamics, money habits, calculation formula, and compatibility.",
     meaning: [
       "Number 2 opens duality cleanly: once solitary 1 speaks, 2 listens closely between every word for harmony, nuance, and hidden unspoken emotion.",
       "Ruled cleanly by shifting lunar tides, Life Path 2 notices subtle body posture drops across quiet conference rooms effortlessly long before loud teammates catch friction brewing.",
@@ -335,8 +347,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Jupiter",
     element: "Fire",
     hero: "Sparkling creative imagination, buoyant emotional warmth, and rare gifts turning dense truth effortlessly into living story.",
+    quickAnswer:
+      "Life Path Number 3 (The Communicator) embodies creative expression, optimism, and persuasive storytelling. Ruled by Jupiter, life number 3 thrives in writing, design, speaking, and people-centered roles—turning natural charisma into lasting achievement when paired with focused follow-through.",
+    calculationNote:
+      "Add all digits of your full date of birth and reduce to 3 — for example, 12-03-1995 calculates as 1+2+0+3+1+9+9+5 = 30 -> 3+0 = 3.",
     description:
-      "Life Path 3 — The Communicator: expressive artistry, Jupiterian optimism, communication careers, lively romance, saving guardrails and creative focus.",
+      "Life Path Number 3 meaning (The Communicator): creative artistry, Jupiterian optimism, communication careers, love compatibility, and financial focus.",
     meaning: [
       "When assertive 1 initiates and receptive 2 collaborates, 3 bursts cleanly upward like vibrant spring blossom—synthesis expressed vividly through language, color, humor, music, and unmistakable human charm.",
       "Jupiter amplifies everything touching Life Path 3: exuberant contagious wit, bold artistic reach, lightning pattern-sparking across diverse disciplines, and irrepressible emotional resilience lifting discouraged allies quickly.",
@@ -451,8 +467,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Saturn / Rahu",
     element: "Earth",
     hero: "Unshakeable foundation engineering, steady disciplined grit, and turning lofty ambitious sketches cleanly into durable reality.",
+    quickAnswer:
+      "Life Path Number 4 (The Builder) stands for structure, dependability, and methodical mastery. Guided by Saturn and Rahu, life number 4 builds lasting wealth, reliable systems, and deeply loyal homes—reaching peak strength when practical discipline welcomes healthy flexibility.",
+    calculationNote:
+      "Sum all birth-date digits down to 4 (unless your subtotal hits Master Number 22) — for example, 13-04-1994 gives 1+3+0+4+1+9+9+4 = 31 -> 3+1 = 4.",
     description:
-      "Life Path 4 — The Builder: systematic stamina, architectural reliability, career mastery, loyal love, steady wealth growth and flexibility lessons.",
+      "Life Path Number 4 meaning (The Builder): systematic stamina, architectural reliability, career mastery, love compatibility, and steady wealth growth.",
     meaning: [
       "Square four corners plant four crisp stakes permanently deep inside solid rock—where creative 3 improvises lively stories, Life Path 4 pulls measuring tape tight and builds bridges strong enough to survive harsh earthquakes.",
       "Governed rigorously by disciplined Saturnine gravity alongside inventive Rahu realism, 4 instinctively demands proof, structural integrity, transparent fairness, and sweat earned cleanly ahead of flashy status.",
@@ -567,8 +587,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Mercury",
     element: "Air",
     hero: "Mercurial speed, fearless sensory curiosity, and agile pivot mastery turning volatile rapid change straight into exhilarating freedom.",
+    quickAnswer:
+      "Life Path Number 5 (The Explorer) represents freedom, rapid adaptability, and versatile curiosity. Ruled by Mercury, life number 5 flourishes in dynamic careers involving travel, media, growth, and negotiation—unlocking deep satisfaction when open exploration is anchored by intentional focus.",
+    calculationNote:
+      "Add every digit of your full birth date and reduce to 5 — for example, 14-05-1993 reduces as 1+4+0+5+1+9+9+3 = 32 -> 3+2 = 5.",
     description:
-      "Life Path 5 — The Explorer: boundless curiosity, rapid adaptability, dynamic careers, vibrant open love, automated finance and focused grounding.",
+      "Life Path Number 5 meaning (The Explorer): adaptability, Mercury curiosity, dynamic careers, love dynamics, automated finance, and grounding.",
     meaning: [
       "Squeezed strictly past square 4 symmetry, radiant 5 bursts directly outside boxed boundaries into open vibrant curiosity—representing five crisp human senses drinking lived experience firsthand without stuffy second-hand dogma.",
       "Quick-footed Mercury electrifies Life Path 5: sharp improvisational wit, fluent adaptability across unfamiliar cities, magnetic persuasive instincts, and irrepressible appetite for vivid living.",
@@ -683,8 +707,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Venus",
     element: "Earth",
     hero: "Fierce protective devotion, exquisite aesthetic sanctuary building, and ethical community stewardship uniting warmth with clean balance.",
+    quickAnswer:
+      "Life Path Number 6 (The Nurturer) symbolizes responsibility, harmony, family devotion, and protective leadership. Ruled by Venus, people with life path number 6 shine in healthcare, design, teaching, and advisory roles—experiencing deepest joy when caring for others stays balanced with healthy self-care.",
+    calculationNote:
+      "Add all digits of your full birth date and reduce to 6 — for example, 15-09-1998 calculates as 1+5+0+9+1+9+9+8 = 42 -> 4+2 = 6.",
     description:
-      "Life Path 6 — The Nurturer: caring leadership, Venusian harmony, service vocations, domestic depth, healthy boundaries and self-worth balance.",
+      "Life Path Number 6 meaning (The Nurturer): caring leadership, Venusian harmony, love and marriage compatibility, service careers, and healthy boundaries.",
     meaning: [
       "Symmetrical 6 curves gracefully around welcoming center—marking numerology's most consciously responsible family builder, fierce neighborhood guardian, and dedicated aesthetic harmonizer.",
       "Venus imbues Life Path 6 deeply with sharp artistic discernment and undeniable emotional loyalty: stepping calmly inside cold disorganized spaces triggers irresistible natural instincts to warm rooms, feed weary friends, and stitch torn communities whole.",
@@ -788,6 +816,11 @@ const SEEDS: NumberSeed[] = [
         answer:
           "Genuine tenderness occasionally clouds firm limits around chronic family bailouts—setting clear charitable percentages keeps giving joyful and sustainable.",
       },
+      {
+        question: "What does Life Path Number 6 mean in love and personality?",
+        answer:
+          "Life Path Number 6 blends Venusian warmth, artistic taste, and fierce protective loyalty. In personality and relationships, 6s naturally anchor family and community, thriving best alongside mutual partners who reciprocate care rather than taking silent support for granted.",
+      },
     ],
   },
   {
@@ -798,8 +831,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Ketu / Neptune",
     element: "Water",
     hero: "Unflinching truth investigation, quiet analytical solitude, and penetrating past hollow social illusions toward durable inner wisdom.",
+    quickAnswer:
+      "Life Path Number 7 (The Seeker) signifies deep analytical intellect, spiritual inquiry, and quiet truth-seeking. Linked to Ketu and Neptune, people with life number 7 excel in research, diagnostics, strategy, and specialist craft—blending scientific skepticism with sharp inner intuition.",
+    calculationNote:
+      "Sum all digits of your full date of birth and reduce to 7 — for example, 16-07-1991 equals 1+6+0+7+1+9+9+1 = 34 -> 3+4 = 7.",
     description:
-      "Life Path 7 — The Seeker: piercing intellect, contemplative stillness, specialist careers, private depth in love, grounded skepticism and peaceful intimacy.",
+      "Life Path Number 7 meaning (The Seeker): piercing intellect, contemplative stillness, specialist careers, love depth, and spiritual insight.",
     meaning: [
       "Standing apart subtly past practical sixfold harmony, sacred 7 climbs cool silent summits demanding direct authentic verification rather than swallowing cozy polite platitudes handed passively down by crowds.",
       "Influenced cleanly by penetrating Ketu insight alongside misty Neptune mystery, Life Path 7 fuses razor-sharp scientific skepticism comfortably beside startling intuitive foresight—spot-checking surface claims naturally against underlying structure.",
@@ -914,8 +951,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Saturn",
     element: "Earth",
     hero: "Unflinching institutional stamina, sharp strategic leverage, and forging enduring ethical power out of tough material trials.",
+    quickAnswer:
+      "Life Path Number 8 (The Executive) governs material mastery, executive leadership, financial leverage, and karmic resilience. Ruled by Saturn, the 8 life path number rewards disciplined integrity, long-range strategy, and fair stewardship—turning early tests into enduring authority and abundance.",
+    calculationNote:
+      "Add all digits of your full birth date and reduce to 8 — for example, 17-08-1990 calculates as 1+7+0+8+1+9+9+0 = 35 -> 3+5 = 8.",
     description:
-      "Life Path 8 — The Executive: material mastery, Saturnine resilience, executive finance leadership, loyal protection, balanced wealth and heart wisdom.",
+      "Life Path Number 8 meaning (The Executive): 8 life path number personality, wealth and Saturn resilience, executive careers, love, and compatibility.",
     meaning: [
       "Stacked gracefully above double fourfold balance, infinite twin loops of 8 link upper invisible purpose cleanly down onto concrete marketplace results—declaring boldly that ideals mean little until balanced cleanly across spreadsheets, payrolls, and real human impact.",
       "Steered unflinchingly by testing Saturn, Life Path 8 routinely shoulders daunting early burdens forcing rare strategic spine long before peers take adult responsibility seriously.",
@@ -1019,6 +1060,11 @@ const SEEDS: NumberSeed[] = [
         answer:
           "Scheduled screen-free retreats, physical strength sports, mentoring emerging builders transparently, and trusting competent lieutenants completely with delegated authority.",
       },
+      {
+        question: "What does the 8 Life Path Number mean in numerology?",
+        answer:
+          "The 8 Life Path Number symbolizes executive power, financial stewardship, and balance between material ambition and personal ethics. Ruled by Saturn, 8s learn through real-world responsibility and often reach their strongest career and wealth stride from their mid-thirties onward.",
+      },
     ],
   },
   {
@@ -1029,8 +1075,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Mars",
     element: "Fire",
     hero: "Compassionate universal perspective, fearless moral advocacy, and graceful completion freeing space for meaningful collective renewal.",
+    quickAnswer:
+      "Life Path Number 9 (The Humanitarian) represents completion, universal compassion, creative depth, and purposeful service. Ruled by Mars and carrying lessons from numbers 1 through 8, life number 9 thrives in advocacy, healing, arts, and leadership—flourishing when generosity stays paired with clear boundaries.",
+    calculationNote:
+      "Sum all digits of your full birth date until reaching 9 — for example, 18-09-1998 equals 1+8+0+9+1+9+9+8 = 45 -> 4+5 = 9.",
     description:
-      "Life Path 9 — The Humanitarian: global empathy, artistic catharsis, principled leadership careers, expansive love, wise detachment and boundary care.",
+      "Life Path Number 9 meaning (The Humanitarian): life number 9 traits, Mars empathy, career purpose, love compatibility, finances, and spiritual lessons.",
     meaning: [
       "Sitting gracefully right atop single-digit closure, generous 9 contains subtle traces from every preceding number 1 through 8—producing expansive compassionate elders able instinctively to spot shared human longing past surface borders, accents, or partisan walls.",
       "Guided paradoxically by fiery Mars alongside contemplative Hermit wisdom, Life Path 9 merges tender poetic empathy effortlessly beside fierce courage challenging systemic cruelty cleanly when pushed far enough.",
@@ -1134,6 +1184,16 @@ const SEEDS: NumberSeed[] = [
         answer:
           "Lock crisp fixed percentages automatically into savings and investments first, freeing deliberate intentional charitable impact guilt-free out of true overflow.",
       },
+      {
+        question: "What does Life Path Number 9 mean in numerology?",
+        answer:
+          "Life Path Number 9 (the Humanitarian) signifies completion, broad empathy, and impact-driven leadership. People with life number 9 absorb qualities from numbers 1–8, making them natural mentors, artists, and advocates who grow strongest once they let go of expired chapters and avoid over-giving.",
+      },
+      {
+        question: "Is Life Path 9 rare or lucky in love and money?",
+        answer:
+          "Life Path 9 occurs at a steady ~11% distribution across birth dates and attracts serendipitous opportunities when work serves a real human need. In love, 9s pair best with supportive, grounded partners like Life Path 1, 2, 3, or 6 who respect emotional depth.",
+      },
     ],
   },
   {
@@ -1145,8 +1205,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Moon / Uranus",
     element: "Air",
     hero: "High-voltage intuitive lightning, visionary artistic synthesis, and channeling subtle unspoken insight crisply into clear inspiring light.",
+    quickAnswer:
+      "Master Number 11 (The Illuminator) signifies heightened intuition, spiritual sensitivity, and visionary inspiration. Carrying the diplomacy of root 2 at double voltage under Moon and Uranus influences, Master 11 shines in creative, psychological, and mentoring paths when grounded in steady physical routines.",
+    calculationNote:
+      "When adding your full birth-date digits totals 11 or 29 (2+9 = 11), keep 11 unreduced rather than reducing further to 2 — for example, 10-10-1989 sums to 1+0+1+0+1+9+8+9 = 29 -> 2+9 = 11.",
     description:
-      "Master Number 11 — The Illuminator: heightened intuition, nervous-system mastery, visionary vocations, grounded intimacy, calm rhythms and self-trust.",
+      "Master Number 11 meaning (The Illuminator): heightened intuition, nervous-system grounding, visionary careers, love compatibility, and FAQs.",
     meaning: [
       "Two parallel pillars stand upright side by side without collapsing flat down into soft 2—marking numerology's purest intuitive tuning fork catching subtle collective shifts cleanly years ahead of mainstream headlines.",
       "Combining receptive lunar 2 sensitivity cleanly beneath sudden electric Uranian flashes, Master Number 11 routinely feels like carrying high-definition antennae right inside noisy ordinary supermarkets.",
@@ -1261,8 +1325,12 @@ const SEEDS: NumberSeed[] = [
     planet: "Saturn / Uranus",
     element: "Earth",
     hero: "Architectural vision scaled safely across whole institutions—turning daring civic daydreams tangibly into durable brick-and-mortar reality.",
+    quickAnswer:
+      "Master Number 22 (The Master Builder) combines the visionary intuition of 11 with the practical discipline of root 4 to build lasting real-world institutions. Guided by Saturn and Uranus, Master 22 excels in large-scale architecture, engineering, policy, and entrepreneurship taken step by concrete step.",
+    calculationNote:
+      "Keep totals of 22 unreduced when summing your full birth date (DD-MM-YYYY) — for example, 04-01-1970 adds up to 0+4+0+1+1+9+7+0 = 22.",
     description:
-      "Master Number 22 — The Master Builder: systemic visionary scale, Saturnine execution, institutional careers, steady intimate grounding and calm patience.",
+      "Master Number 22 meaning (The Master Builder): systemic vision, Saturnine execution, institutional careers, love grounding, and compatibility.",
     meaning: [
       "Doubling receptive intuition (11) cleanly down onto four-cornered practical foundation (4), Master Number 22 anchors numerology's most ambitious worldly synthesis: bold transformative imagination executing relentlessly through disciplined brick, code, policy, and capital.",
       "Saturnine weight meets disruptive Uranian innovation smoothly inside 22—spotting flawed civic institutions effortlessly and sketching realistic fifty-year systems strong enough to shelter millions cleanly.",
@@ -1395,11 +1463,20 @@ function buildPage(seed: NumberSeed, all: NumberSeed[]): NumerologyPage {
     isMaster: Boolean(seed.isMaster),
     label,
     name,
-    title: `${label}: ${seed.archetype} — Meaning, Career, Love & Compatibility`,
+    title: seed.isMaster
+      ? `Master Number ${seed.number} Meaning (${seed.archetype}): Personality, Career & Love`
+      : `Life Path Number ${seed.number} Meaning (${seed.archetype}): Personality, Career & Love`,
     description: seed.description,
     keywords: [
       `${label.toLowerCase()}`,
       `${label.toLowerCase()} meaning`,
+      ...(seed.isMaster
+        ? [`master ${seed.number} numerology`, `life path ${seed.number} meaning`]
+        : [
+            `life path number ${seed.number}`,
+            `${seed.number} life path number`,
+            `life number ${seed.number}`,
+          ]),
       `${label.toLowerCase()} personality`,
       `${label.toLowerCase()} career`,
       `${label.toLowerCase()} compatibility`,
@@ -1407,6 +1484,8 @@ function buildPage(seed: NumberSeed, all: NumberSeed[]): NumerologyPage {
       `${seed.archetype.toLowerCase()} numerology`,
     ],
     archetype: seed.archetype,
+    quickAnswer: seed.quickAnswer,
+    calculationNote: seed.calculationNote,
     tarotCard: seed.tarotCard,
     tarotSlug: seed.tarotSlug,
     planet: seed.planet,
@@ -1438,6 +1517,8 @@ function buildPage(seed: NumberSeed, all: NumberSeed[]): NumerologyPage {
 
   const wordCount = [
     base.hero,
+    base.quickAnswer,
+    base.calculationNote,
     ...base.meaning,
     ...base.personality,
     ...base.strengths,

@@ -47,6 +47,8 @@ export interface ReadingLandingConfig {
   updated: string;
   readingTime?: string;
   /** Optional clean position-by-position breakdown displayed directly below the spread area. */
+  positionsBreakdownEyebrow?: string;
+  positionsBreakdownHeading?: string;
   positionsBreakdown?: SpreadPositionBreakdownItem[];
   /** Rich sections explaining mechanics, nuances, and practical framing. */
   sections: { id: string; title: string; paragraphs: string[] }[];
@@ -137,13 +139,13 @@ export function ReadingLanding({
             className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-              Spread layout reference
+              {config.positionsBreakdownEyebrow ?? "Spread layout reference"}
             </p>
             <h2
               id="positions-breakdown-heading"
               className="mt-2 font-display text-2xl aurora-text sm:text-3xl"
             >
-              10 Celtic Cross positions explained
+              {config.positionsBreakdownHeading ?? "10 Celtic Cross positions explained"}
             </h2>
             <ol className="mt-6 grid gap-4 sm:grid-cols-2">
               {config.positionsBreakdown.map((pos) => (

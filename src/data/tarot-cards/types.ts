@@ -29,4 +29,10 @@ export interface UniqueCardCopy {
   affirmation: string;
   /** Four card-specific FAQs exploring imagery, combinations, or common questions. */
   faqs: Array<{ question: string; answer: string }>;
+  /** Optional curated Card of the Day takeaway override. */
+  cardOfTheDay?: {
+    energy: string;
+    leanInto: string;
+    watchOutFor: string;
+  };
 }

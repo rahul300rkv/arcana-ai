@@ -66,6 +66,13 @@ export interface TarotPage {
   meditation: string;
   affirmation: string;
   relatedSlugs: string[];
+  altName?: string;
+  cardOfTheDayTitle: string;
+  cardOfTheDay: {
+    energy: string;
+    leanInto: string;
+    watchOutFor: string;
+  };
   faqs: TarotFaq[];
   wordCount: number;
   readingMinutes: number;
@@ -73,7 +80,7 @@ export interface TarotPage {
 }
 
 /** Last editorial review date for the tarot library (page-specific, not build time). */
-const TAROT_UPDATED = "2026-11-18";
+const TAROT_UPDATED = "2026-11-19";
 
 const SUIT_LABEL: Record<string, string> = {
   wands: "Suit of Wands",
@@ -384,6 +391,24 @@ function countWords(page: Omit<TarotPage, "wordCount" | "readingMinutes">): numb
   return chunks.join(" ").split(/\s+/).filter(Boolean).length;
 }
 
+const ALT_NAME_MAP: Record<string, string> = {
+  "swords-nine": "9 of Swords",
+  "swords-ten": "10 of Swords",
+};
+
+function buildCardOfTheDay(
+  card: TarotCard,
+  unique: (typeof UNIQUE_CARD_COPY)[string],
+  reversedKeywords: string[],
+): { energy: string; leanInto: string; watchOutFor: string } {
+  if (unique.cardOfTheDay) return unique.cardOfTheDay;
+  return {
+    energy: unique.timeline[1],
+    leanInto: unique.advice[0],
+    watchOutFor: `${reversedKeywords.slice(0, 2).join(" or ")} — stay mindful if tension pulls you toward ${card.reversedMeaning.toLowerCase()}.`,
+  };
+}
+
 function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
   const unique = UNIQUE_CARD_COPY[card.id];
   if (!unique) {
@@ -395,6 +420,7 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
   const yesNoRevValue: YesNo = getReversedYesNo(card.id);
   const slug = slugify(card.name);
   const suitLabel = card.suit ? SUIT_LABEL[card.suit] : "Major Arcana";
+  const altName = ALT_NAME_MAP[card.id];
 
   const override = KEYWORD_OVERRIDES[card.id];
   const suitUpExtras = card.suit ? SUIT_UPRIGHT_EXTRAS[card.suit] : ["archetypal turning point", "life lesson", "conscious shift"];
@@ -417,18 +443,52 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
         5,
       );
 
+  const cardOfTheDay = buildCardOfTheDay(card, unique, reversedKeywords);
+  const cardOfTheDayTitle = altName
+    ? `${altName} (${card.name}) as Card of the Day`
+    : `${card.name} as Card of the Day`;
+
   const outcomeUpright = `${unique.timeline[2]} In an upright future position, ${card.name} channels ${uprightKeywords.slice(0, 3).join(", ").toLowerCase()} into forward momentum.`;
   const outcomeReversed = `When ${card.name} lands reversed in a future or outcome slot, the trajectory turns inward or slows down—expect themes of ${reversedKeywords.slice(0, 3).join(", ").toLowerCase()} until the underlying block is addressed cleanly.`;
+
+  const displayPair = altName ? `${altName} (${card.name})` : card.name;
+  const title = `${displayPair} Meaning: Card of the Day, Upright & Reversed`;
+  const description = `${displayPair} Card of the Day & tarot meaning: ${card.uprightMeaning.toLowerCase()} upright and ${card.reversedMeaning.toLowerCase()} reversed. Love, career, future & Yes/No.`;
+  const intro = altName
+    ? `${altName} — also known as ${card.name} — brings themes of ${card.keywords.join(", ").toLowerCase()} through Rider–Waite–Smith symbolism, ${a.element} energy, and ${a.planet} in ${a.zodiac}.`
+    : `${card.name} — ${card.keywords.join(", ").toLowerCase()} — explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`;
+
+  const hasDailyFaq = unique.faqs.some((f) => /card of the day/i.test(f.question));
+  const faqs = hasDailyFaq
+    ? unique.faqs
+    : [
+        ...unique.faqs,
+        {
+          question: `What does ${card.name} mean as Card of the Day?`,
+          answer: `${cardOfTheDay.energy} Focus on this today: ${cardOfTheDay.leanInto}`,
+        },
+      ];
 
   const base: Omit<TarotPage, "wordCount" | "readingMinutes"> = {
     id: card.id,
     slug,
     name: card.name,
-    title: `${card.name} Tarot Card Meaning — Upright, Reversed, Love & Career`,
-    description: `${card.name} tarot card meaning: ${card.uprightMeaning.toLowerCase()} upright and ${card.reversedMeaning.toLowerCase()} reversed. Love, career, money, health, yes/no and advice.`,
-    intro: `${card.name} — ${card.keywords.join(", ").toLowerCase()} — explored through Rider–Waite–Smith symbolism, ${a.element} dynamics, and ${a.planet} in ${a.zodiac}.`,
+    altName,
+    cardOfTheDayTitle,
+    cardOfTheDay,
+    title,
+    description,
+    intro,
     keywords: [
       `${card.name.toLowerCase()} tarot card`,
+      `${card.name.toLowerCase()} card of the day`,
+      ...(altName
+        ? [
+            `${altName.toLowerCase()} tarot`,
+            `${altName.toLowerCase()} card of the day`,
+            `${altName.toLowerCase()} meaning`,
+          ]
+        : []),
       `${card.name.toLowerCase()} meaning`,
       `${card.name.toLowerCase()} reversed`,
       `${card.name.toLowerCase()} love meaning`,
@@ -472,11 +532,15 @@ function buildPage(card: TarotCard, all: TarotCard[]): TarotPage {
     meditation: unique.meditation,
     affirmation: unique.affirmation,
     relatedSlugs: relatedFor(card, all),
-    faqs: unique.faqs,
+    faqs,
     updated: TAROT_UPDATED,
   };
 
-  const wordCount = countWords(base);
+  const wordCount =
+    countWords(base) +
+    `${cardOfTheDay.energy} ${cardOfTheDay.leanInto} ${cardOfTheDay.watchOutFor}`
+      .split(/\s+/)
+      .filter(Boolean).length;
   return { ...base, wordCount, readingMinutes: Math.max(4, Math.round(wordCount / 200)) };
 }
 

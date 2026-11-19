@@ -688,11 +688,19 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
           "Usually far worse exists inside anxious imagination than actual physical reality—its primary warning concerns acute stress and exhaustion.",
       },
       {
-        question: "What follows Nine of Swords in the deck?",
+        question: "What does 9 of Swords (Nine of Swords) mean in love or daily life?",
         answer:
-          "Ten of Swords—final closure and the clearing dawn brightening softly behind midnight darkness.",
+          "Whether written as 9 of Swords or Nine of Swords, the card flags anxious overthinking, restless sleep, and replaying worst-case scenarios—reminding you to test fears in calm daylight.",
       },
     ],
+    cardOfTheDay: {
+      energy:
+        "Heightened mental worry, late-night overthinking, and anxious worst-case loops outrunning clear daylight facts.",
+      leanInto:
+        "Gain grounded perspective—write down what is genuinely in your control today and talk one heavy worry through with someone steady.",
+      watchOutFor:
+        "Making big emotional calls while exhausted, rehearsing imagined disasters, or blaming yourself endlessly past honest repair.",
+    },
   },
   "swords-ten": {
     overview: [
@@ -765,11 +773,19 @@ export const SWORDS_UNIQUE: Record<string, UniqueCardCopy> = {
           "Readers often notice ten swords feel comically excessive for one body—highlighting moments where stress feels apocalyptic yet survival remains intact.",
       },
       {
-        question: "What does Ten of Swords reversed indicate?",
+        question: "What does 10 of Swords mean as Card of the Day?",
         answer:
-          "Gradual recovery after crisis, surviving worst-case fears, or resisting inevitable healthy closure.",
+          "As Card of the Day, 10 of Swords (Ten of Swords) signals mental exhaustion hitting its limit and an overdue chapter closing cleanly—bringing quiet relief and a fresh dawn after a tough stretch.",
       },
     ],
+    cardOfTheDay: {
+      energy:
+        "Mental exhaustion hitting a firm limit, closing a difficult chapter cleanly, and quiet relief emerging after a tough stretch.",
+      leanInto:
+        "Lay down drained over-effort today, accept clean finality around what has ended, and turn steadily toward recovery and fresh morning clarity.",
+      watchOutFor:
+        "Poking finished situations hoping they magically revive, catastrophizing temporary burnout, or refusing well-earned rest.",
+    },
   },
   "swords-page": {
     overview: [

@@ -47,11 +47,16 @@ export function TarotCardScreen() {
   const prev = index > 0 ? TAROT_PAGES[index - 1] : undefined;
   const next = index >= 0 && index < TAROT_PAGES.length - 1 ? TAROT_PAGES[index + 1] : undefined;
 
+  const headingName = page.altName ? `${page.altName} (${page.name})` : page.name;
+  const pageH1 = page.altName
+    ? `${page.altName} (${page.name}): Meaning & Card of the Day`
+    : `${page.name} Tarot Card Meaning & Card of the Day`;
+
   return (
     <ArticleLayout
       crumbs={[{ label: "Tarot Card Meanings", to: "/tarot" }, { label: page.name }]}
       eyebrow={`${page.arcanaLabel}${page.suit ? ` · ${page.suitLabel}` : ""}`}
-      title={`${page.name} Tarot Card Meaning`}
+      title={pageH1}
       intro={page.intro}
       url={`${SITE_URL}${path}`}
       updated={page.updated}
@@ -66,19 +71,25 @@ export function TarotCardScreen() {
       }
       afterHeader={
         <section
-          aria-label={`${page.name} quick reference keywords and yes or no verdict`}
+          aria-label={`${headingName} quick reference keywords, Yes or No verdict, and Card of the Day`}
           className="rounded-2xl border border-[color-mix(in_oklab,var(--gold)_42%,transparent)] bg-[color-mix(in_oklab,var(--bg-elevated,#14111d)_88%,transparent)] p-5 shadow-[0_12px_36px_-18px_rgba(212,175,55,0.35)] sm:p-6"
         >
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--gold)]">
               Quick-Reference Card Summary
             </p>
-            <div className="flex flex-wrap items-center gap-3 text-xs">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+              <Link
+                to="/tarot/one-card"
+                className="text-foreground/85 underline underline-offset-4 hover:text-[color:var(--gold)]"
+              >
+                Draw Card of the Day →
+              </Link>
               <Link
                 to="/yes-no-tarot"
                 className="text-foreground/85 underline underline-offset-4 hover:text-[color:var(--gold)]"
               >
-                Try live Yes/No Oracle →
+                Yes / No Oracle →
               </Link>
               <Link
                 to="/what-do-reversed-tarot-cards-mean"
@@ -126,6 +137,38 @@ export function TarotCardScreen() {
               </dd>
             </div>
           </dl>
+
+          <div className="mt-5 border-t border-white/10 pt-5">
+            <h2 className="font-display text-lg text-foreground sm:text-xl">
+              {page.cardOfTheDayTitle}
+            </h2>
+            <dl className="mt-3 grid gap-4 text-sm sm:grid-cols-3">
+              <div>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--gold)]">
+                  Today&apos;s Energy
+                </dt>
+                <dd className="mt-1 leading-relaxed text-muted-foreground">
+                  {page.cardOfTheDay.energy}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/90">
+                  Lean Into
+                </dt>
+                <dd className="mt-1 leading-relaxed text-muted-foreground">
+                  {page.cardOfTheDay.leanInto}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--aurora-1)]">
+                  Watch Out For
+                </dt>
+                <dd className="mt-1 leading-relaxed text-muted-foreground">
+                  {page.cardOfTheDay.watchOutFor}
+                </dd>
+              </div>
+            </dl>
+          </div>
         </section>
       }
     >
@@ -150,7 +193,7 @@ export function TarotCardScreen() {
 
       <ContentSection id="overview" title="Symbolism and overview" icon={BookOpen} paragraphs={page.overview} />
 
-      <ContentSection id="meaning" title={`${page.name} meaning: upright & reversed`} icon={Sparkles}>
+      <ContentSection id="meaning" title={`${headingName} meaning: upright & reversed`} icon={Sparkles}>
         <div className="grid gap-6 md:grid-cols-2">
           <GlassCard className="p-6">
             <h3 className="font-display text-lg text-[var(--gold)]">Upright meaning</h3>
@@ -186,7 +229,7 @@ export function TarotCardScreen() {
 
       <ContentSection
         id="future-outcome"
-        title={`${page.name} in the Future / Outcome Position`}
+        title={`${headingName} in the Future / Outcome Position`}
         icon={Timer}
       >
         <div className="grid gap-6 md:grid-cols-2">
@@ -224,14 +267,14 @@ export function TarotCardScreen() {
 
       <ContentSection
         id="love"
-        title={`${page.name} in Love, Feelings & Relationships`}
+        title={`${headingName} in Love, Feelings & Relationships`}
         icon={HeartHandshake}
         paragraphs={page.love}
       />
 
       <ContentSection
         id="career-finances"
-        title={`${page.name} in Career & Finances`}
+        title={`${headingName} in Career & Finances`}
         icon={Briefcase}
       >
         <div className="grid gap-6 md:grid-cols-2">
@@ -274,7 +317,7 @@ export function TarotCardScreen() {
         paragraphs={page.spiritual}
       />
 
-      <ContentSection id="yes-no" title={`${page.name} Yes or No verdict`} icon={HelpCircle}>
+      <ContentSection id="yes-no" title={`${headingName} Yes or No verdict`} icon={HelpCircle}>
         <div className="grid gap-6 md:grid-cols-2">
           <GlassCard className="p-6">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">When Upright</p>

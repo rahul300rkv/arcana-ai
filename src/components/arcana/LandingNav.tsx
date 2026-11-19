@@ -5,10 +5,10 @@ import { Brand } from "./Brand";
 import { useLanguage, type Language } from "@/lib/language";
 
 const navLinks = [
-  { label: "Tarot Spreads", to: "/tarot" as const },
-  { label: "Vedic Numerology", to: "/numerology" as const },
-  { label: "Card Meanings", to: "/guide/tarot-card-meanings" as const },
-  { label: "Sacred Guides", to: "/guide" as const },
+  { label: "Mulank Calculator", to: "/numerology" as const },
+  { label: "Celtic Cross", to: "/tarot/celtic-cross" as const },
+  { label: "Major Arcana", to: "/major-arcana-tarot-cards-meanings" as const },
+  { label: "Yes / No Tarot", to: "/yes-no-tarot" as const },
 ];
 
 const LANGUAGE_OPTIONS: { value: Language; label: string }[] = [

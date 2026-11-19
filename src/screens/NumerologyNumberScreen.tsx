@@ -46,11 +46,19 @@ export function NumerologyNumberScreen() {
   const next =
     index >= 0 && index < NUMEROLOGY_PAGES.length - 1 ? NUMEROLOGY_PAGES[index + 1] : undefined;
 
+  const headingTitle = page.isMaster
+    ? `${page.label}: ${page.archetype}`
+    : `Life Path Number ${page.number}: ${page.archetype}`;
+  const highMatches = page.compatibility
+    .filter((c) => c.verdict === "high")
+    .map((c) => c.number)
+    .join(", ");
+
   return (
     <ArticleLayout
       crumbs={[{ label: "Numerology", to: "/numerology" }, { label: page.label }]}
-      eyebrow={page.isMaster ? "Master Number" : "Life Path Number"}
-      title={`${page.label}: ${page.archetype}`}
+      eyebrow={page.isMaster ? "Master Number" : `Life Path Number ${page.number}`}
+      title={headingTitle}
       intro={page.hero}
       url={`${SITE_URL}${path}`}
       updated={page.updated}
@@ -58,8 +66,72 @@ export function NumerologyNumberScreen() {
       wordCount={page.wordCount}
       aside={
         <GlassCard className="grid aspect-square place-items-center p-6">
-          <span className="font-display text-6xl aurora-text">{page.number}</span>
+          <span className="font-display text-6xl aurora-text tabular-nums">{page.number}</span>
         </GlassCard>
+      }
+      afterHeader={
+        <section
+          aria-labelledby="quick-summary-heading"
+          className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-7"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)]">
+            Quick Meaning &amp; Formula
+          </p>
+          <h2 id="quick-summary-heading" className="mt-1 font-display text-xl text-foreground sm:text-2xl">
+            What Does {page.isMaster ? page.label : `Life Path Number ${page.number}`} Mean?
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-foreground/90">{page.quickAnswer}</p>
+
+          <dl className="mt-5 grid gap-4 border-t border-white/10 pt-5 text-sm sm:grid-cols-2">
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                How to calculate
+              </dt>
+              <dd className="mt-1 leading-relaxed text-muted-foreground">{page.calculationNote}</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Key profile
+              </dt>
+              <dd className="mt-1 leading-relaxed text-muted-foreground">
+                Ruling Planet: <strong className="text-foreground">{page.planet}</strong>
+                {highMatches ? (
+                  <>
+                    {" "}
+                    · Best Matches:{" "}
+                    <strong className="text-foreground tabular-nums">{highMatches}</strong>
+                  </>
+                ) : null}{" "}
+                · Tarot:{" "}
+                <Link
+                  to="/tarot/$slug"
+                  params={{ slug: page.tarotSlug }}
+                  className="text-[var(--gold)] hover:underline"
+                >
+                  {page.tarotCard}
+                </Link>
+              </dd>
+            </div>
+          </dl>
+
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4 text-sm">
+            <Link
+              to="/numerology"
+              className="font-semibold text-[var(--gold)] underline underline-offset-4 hover:opacity-85"
+            >
+              Check Your Life Path &amp; Mulank Free →
+            </Link>
+            {!page.isMaster && (
+              <Link
+                to="/numerology/$slug"
+                params={{ slug: `mulank-${page.number}` }}
+                className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
+              >
+                Compare with Mulank {page.number} (Birth Day Number) →
+              </Link>
+            )}
+          </div>
+        </section>
       }
     >
       <ContentSection id="correspondences" title="Number at a glance" icon={Compass}>
@@ -80,7 +152,7 @@ export function NumerologyNumberScreen() {
 
       <ContentSection
         id="meaning"
-        title={`${page.label} meaning`}
+        title={page.isMaster ? `${page.label} meaning` : `Life Path Number ${page.number} meaning`}
         icon={BookOpen}
         paragraphs={page.meaning}
       />

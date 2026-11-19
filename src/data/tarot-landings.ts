@@ -164,12 +164,37 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
   path: "/tarot/three-card",
   spreadId: "three-card",
   eyebrow: "Three Card Reading",
-  h1: "Three Card Tarot Reading",
+  h1: "3 Card Tarot Reading (Past, Present & Future)",
   intro:
-    "The Three Card Tarot Reading is the classic next step up from a single card pull: three cards drawn into Past, Present, and Future positions, giving you the arc of a situation rather than just a snapshot of it.",
+    "A 3 card tarot spread draws three sequential cards — Past, Present, and Future (or Situation, Challenge, and Advice) — to reveal the full narrative arc of your question in minutes rather than a single static snapshot.",
   published: "2026-08-16",
-  updated: "2026-11-16",
+  updated: "2026-11-18",
   readingTime: "6 min read",
+  positionsBreakdownEyebrow: "3-Card Spread Architecture",
+  positionsBreakdownHeading: "3 Card Tarot Spread Positions Explained",
+  positionsBreakdown: [
+    {
+      number: 1,
+      label: "Past (or Situation)",
+      focus: "Root pattern",
+      description:
+        "Earlier choices, memories, or unresolved influences that created the foundation beneath your current question.",
+    },
+    {
+      number: 2,
+      label: "Present (or Challenge)",
+      focus: "Active posture",
+      description:
+        "Where energy sits right now — the emotional tone, opportunity, or immediate friction shaping today's decision.",
+    },
+    {
+      number: 3,
+      label: "Future (or Advice)",
+      focus: "Next trajectory",
+      description:
+        "Where momentum points over the coming days or weeks if current habits hold steady, alongside practical guidance.",
+    },
+  ],
   sections: [
     {
       id: "how-it-works",
@@ -263,6 +288,11 @@ export const THREE_CARD_CONFIG: ReadingLandingConfig = {
       question: "How far back and ahead do Past and Future reach?",
       answer:
         "Timeframes in tarot depend on the scope of your question. If you ask about this week, Past and Future usually span days; if you ask about a career transition, they may reflect months of buildup and upcoming change.",
+    },
+    {
+      question: "What do the 3 cards in a 3-card tarot spread represent?",
+      answer:
+        "In a standard 3-card tarot reading, Card 1 represents the Past (or root Situation), Card 2 shows the Present (or active Challenge), and Card 3 reveals the likely Future (or strategic Advice). Readers also adapt the three slots to Mind, Body, and Spirit.",
     },
   ],
   relatedCards: [
@@ -784,6 +814,8 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
   published: "2026-08-16",
   updated: "2026-11-18",
   readingTime: "8 min read",
+  positionsBreakdownEyebrow: "10-Card Tarot Spread Layout",
+  positionsBreakdownHeading: "10-Card Tarot Spread Positions Explained (Celtic Cross 1–10)",
   positionsBreakdown: [
     {
       number: 1,
@@ -939,6 +971,11 @@ export const CELTIC_CROSS_CONFIG: ReadingLandingConfig = {
       question: "Can I revisit a Celtic Cross reading weeks later?",
       answer:
         "Yes — in fact, the Celtic Cross rewards revisiting. Saving your reading to your local journal and re-reading Positions 6, 8, and 10 a month later is one of the best ways to notice how subtle symbols played out in real life.",
+    },
+    {
+      question: "What is the 10-card tarot spread called and what does each position mean?",
+      answer:
+        "The classic 10-card tarot spread is called the Celtic Cross. Positions 1–6 form the central Cross (Present, Challenge, Past, Future, Conscious Goal, Subconscious), while Positions 7–10 form the vertical Staff (Advice, External Influences, Hopes/Fears, and Outcome).",
     },
   ],
   relatedCards: [

@@ -121,21 +121,21 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "AstroFree is India's premier free tarot and Vedic numerology platform. Experience 8 traditional tarot spreads, instant Mulank and Bhagyank calculations, 78 card meanings, and multi-language AI guidance.",
+          "AstroFree offers free AI tarot readings, Card of the Day meanings, Celtic Cross & Yes/No spreads, and instant Vedic Mulank & Bhagyank numerology calculators.",
       },
       {
         name: "keywords",
         content:
-          "free tarot reading, AI tarot, online tarot reading, celtic cross spread, tarot card meanings, love tarot, career tarot, mulank calculator, bhagyank calculator, namank name numerology, personal year numerology, tarot reading India, Vedic numerology",
+          "astrofree, free tarot reading, AI tarot, card of the day, celtic cross tarot, yes or no tarot, major arcana tarot meanings, mulank calculator, bhagyank calculator, namank name numerology, vedic numerology",
       },
       {
         property: "og:title",
-        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology",
+        content: "AstroFree — Free AI Tarot Readings & Vedic Numerology Calculators",
       },
       {
         property: "og:description",
         content:
-          "Explore free tarot card readings, 78 card archetype meanings, Vedic Mulank and Bhagyank calculators, and personal astrology guides.",
+          "Explore AstroFree: free AI tarot readings, Card of the Day interpretations, Celtic Cross & Yes/No spreads, and instant Mulank & Bhagyank calculators.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -150,7 +150,7 @@ export const Route = createFileRoute("/")({
               name: SITE_NAME,
               description: "Free AI Tarot Card Readings & Vedic Numerology Calculators",
               datePublished: "2026-07-15",
-              dateModified: "2026-11-16",
+              dateModified: "2026-11-19",
               inLanguage: "en",
             },
             {
@@ -158,7 +158,7 @@ export const Route = createFileRoute("/")({
               name: SITE_NAME,
               url: SITE_URL,
               datePublished: "2026-07-15",
-              dateModified: "2026-11-16",
+              dateModified: "2026-11-19",
               applicationCategory: "LifestyleApplication",
               operatingSystem: "All",
               offers: {
@@ -648,7 +648,7 @@ function LandingPage() {
         <section className="relative mx-auto max-w-4xl px-4 sm:px-6 py-16">
           <AuthorCard
             published="2026-07-15"
-            lastUpdated="2026-11-16"
+            lastUpdated="2026-11-19"
             category="Esoteric Research & Methodology"
             readingTime="12 min read"
           />

@@ -9,8 +9,8 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
 
 const PATH = "/guide/celtic-cross-guide";
-const TITLE = "Celtic Cross Spread: Step-by-Step Guide";
-const UPDATED = "2026-08-14";
+const TITLE = "10-Card Celtic Cross Tarot Spread: Step-by-Step Guide";
+const UPDATED = "2026-11-18";
 
 const POSITIONS = [
   {
@@ -111,23 +111,63 @@ const FAQS = [
     answer:
       "That's common and meaningful, not a sign of a bad reading — it usually reflects real tension in the situation, such as the Hopes & Fears position pulling one way while the Outcome pulls another. Sit with the contradiction rather than picking whichever card you prefer.",
   },
+  {
+    question: "What is the 10 card tarot spread called?",
+    answer:
+      "The classic 10 card tarot spread is called the Celtic Cross. Positions 1–6 form the Cross (Present, Challenge, Foundation, Recent Past, Crown, Near Future), and Positions 7–10 form the Staff (Self, Environment, Hopes & Fears, Outcome).",
+  },
 ];
 
 export function GuideCelticCrossScreen() {
   return (
     <ArticleLayout
       crumbs={[{ label: "Guides", to: "/guide" }, { label: "Celtic Cross Guide" }]}
-      eyebrow="Tarot · Spreads"
+      eyebrow="Tarot · 10-Card Spreads"
       title={TITLE}
-      intro="The Celtic Cross is the most detailed spread most readers ever learn — ten positions covering the present, the past, outside influences, and where things are heading. Here's exactly how to lay it and read it."
+      intro="The Celtic Cross is the classic 10 card tarot spread — ten fixed positions covering the present, the challenge crossing you, past roots, outside influences, and likely outcome. Here is how to lay and read all ten positions."
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={11}
-      wordCount={2540}
+      wordCount={2580}
       aside={
         <GlassCard className="grid aspect-square place-items-center p-6">
           <Cross className="h-16 w-16 text-[var(--gold)]" strokeWidth={1.2} />
         </GlassCard>
+      }
+      afterHeader={
+        <section
+          aria-labelledby="celtic-summary-heading"
+          className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-7"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)]">
+            Quick Summary · 10 Card Tarot Spread
+          </p>
+          <h2 id="celtic-summary-heading" className="mt-1 font-display text-xl text-foreground sm:text-2xl">
+            What Is a 10-Card Tarot Spread?
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            The <strong className="text-foreground">Celtic Cross</strong> is the standard 10-card tarot
+            spread used for layered questions about love, career, and major life transitions. Six
+            cards form the <strong className="text-foreground">Cross</strong> (Present, Challenge,
+            Past, Recent/Root, Conscious Goal, Near Future) and four form the{" "}
+            <strong className="text-foreground">Staff</strong> (Self, Environment, Hopes &amp; Fears,
+            Outcome).
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4 text-sm">
+            <Link
+              to="/tarot/celtic-cross"
+              className="font-semibold text-[var(--gold)] underline underline-offset-4 hover:opacity-85"
+            >
+              Try the Free Online 10-Card Celtic Cross Spread →
+            </Link>
+            <Link
+              to="/tarot/three-card"
+              className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              Need a faster pull? Try the 3 Card Tarot Spread →
+            </Link>
+          </div>
+        </section>
       }
     >
       <ContentSection id="what-is-it" title="What the Celtic Cross is for" icon={BookOpen}>
@@ -258,18 +298,18 @@ export function GuideCelticCrossScreen() {
             blurb: "A practical method for reading reversals in any position.",
           },
           {
-            to: "/reading",
-            label: "Free AI Celtic Cross reading",
-            blurb: "Draw all ten positions and get an instant, position-by-position reading.",
+            to: "/tarot/celtic-cross",
+            label: "Free 10-Card Celtic Cross Spread",
+            blurb: "Draw all ten positions online and get an instant, position-by-position AI reading.",
           },
         ]}
       />
 
       <CTASection
-        title="Try a guided Celtic Cross reading"
+        title="Try a guided 10-card Celtic Cross reading"
         body="Draw all ten positions and get an instant, plain-language explanation of each card and how they connect."
-        ctaLabel="Start a free reading"
-        to="/reading"
+        ctaLabel="Open the 10-Card Spread"
+        to="/tarot/celtic-cross"
       />
     </ArticleLayout>
   );

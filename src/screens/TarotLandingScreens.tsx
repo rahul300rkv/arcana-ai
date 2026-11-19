@@ -6,6 +6,7 @@ import {
   THREE_CARD_CONFIG,
 } from "@/data/tarot-landings";
 import { CareerTarotReadingScreen } from "./CareerTarotReadingScreen";
+import { ThreeCardTarotScreen } from "./ThreeCardTarotScreen";
 import { YesNoTarotScreen } from "./YesNoTarotScreen";
 
 export function OneCardReadingScreen() {
@@ -13,7 +14,7 @@ export function OneCardReadingScreen() {
 }
 
 export function ThreeCardReadingScreen() {
-  return <ReadingLanding config={THREE_CARD_CONFIG} />;
+  return <ThreeCardTarotScreen />;
 }
 
 export function LoveReadingScreen() {

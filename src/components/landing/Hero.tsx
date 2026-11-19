@@ -60,22 +60,45 @@ export function Hero() {
             </Link>
           </div>
 
-          {/* Quiet Trust Evidence Strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-[#d6bfa3]">
-            <div className="flex items-center gap-1.5">
+          {/* Crawlable Quick-Entry Strip */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-[#d6bfa3]">
+            <Link
+              to="/tarot/one-card"
+              className="inline-flex min-h-10 sm:min-h-0 items-center gap-1.5 hover:text-[#faf2e4] hover:underline underline-offset-4"
+            >
               <Sun className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
-              <span>8 Traditional Spreads</span>
-            </div>
+              <span>Card of the Day</span>
+            </Link>
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
-            <div className="flex items-center gap-1.5">
+            <Link
+              to="/tarot/celtic-cross"
+              className="inline-flex min-h-10 sm:min-h-0 items-center gap-1.5 hover:text-[#faf2e4] hover:underline underline-offset-4"
+            >
+              <span>Celtic Cross Tarot</span>
+            </Link>
+            <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
+            <Link
+              to="/major-arcana-tarot-cards-meanings"
+              className="inline-flex min-h-10 sm:min-h-0 items-center gap-1.5 hover:text-[#faf2e4] hover:underline underline-offset-4"
+            >
+              <span>Major Arcana</span>
+            </Link>
+            <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
+            <Link
+              to="/numerology"
+              className="inline-flex min-h-10 sm:min-h-0 items-center gap-1.5 hover:text-[#faf2e4] hover:underline underline-offset-4"
+            >
               <Sparkles className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
-              <span>Mulank, Bhagyank &amp; Namank</span>
-            </div>
+              <span>Mulank &amp; Bhagyank Calculator</span>
+            </Link>
             <span aria-hidden="true" className="text-[#f5e7d0]/25">·</span>
-            <div className="flex items-center gap-1.5">
+            <Link
+              to="/yes-no-tarot"
+              className="inline-flex min-h-10 sm:min-h-0 items-center gap-1.5 hover:text-[#faf2e4] hover:underline underline-offset-4"
+            >
               <Shield className="h-3.5 w-3.5 text-[#ead9c3]" aria-hidden="true" />
-              <span>100% Private · Free</span>
-            </div>
+              <span>Yes / No Tarot</span>
+            </Link>
           </div>
         </div>
 

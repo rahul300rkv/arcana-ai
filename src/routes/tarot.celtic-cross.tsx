@@ -25,6 +25,7 @@ export const Route = createFileRoute("/tarot/celtic-cross")({
         "free celtic cross tarot reading online",
         "celtic cross tarot reading",
         "celtic cross tarot spread",
+        "10 card tarot spread",
         "10 card tarot reading",
         "free tarot reading",
         "detailed tarot reading",

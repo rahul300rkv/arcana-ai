@@ -228,6 +228,14 @@ export const MAJOR_UNIQUE: Record<string, UniqueCardCopy> = {
           "Upright it more often signals natural discretion or privacy; reversed it can highlight withheld facts or deliberate ambiguity.",
       },
     ],
+    cardOfTheDay: {
+      energy:
+        "Quiet intuition, emotional stillness, and reading beneath the surface before rushing outward action.",
+      leanInto:
+        "Pause before reacting today—notice subtle tone shifts, trust your quiet inner radar, and let hidden context surface on its own.",
+      watchOutFor:
+        "Forcing immediate answers, sharing premature plans out loud, or overriding clear gut instincts just to keep surface peace.",
+    },
   },
   "major-03": {
     overview: [
