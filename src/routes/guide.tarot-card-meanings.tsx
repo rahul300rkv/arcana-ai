@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const MEANINGS_FAQS = [
   {
@@ -47,7 +48,10 @@ export const Route = createFileRoute("/guide/tarot-card-meanings")({
       { property: "og:title", content: "Tarot Card Meanings | All 78 Cards, Upright & Reversed" },
       { property: "og:url", content: `${SITE_URL}/guide/tarot-card-meanings` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/guide/tarot-card-meanings` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/guide/tarot-card-meanings` },
+      ...getAllHreflangLinks("/guide/tarot-card-meanings", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent, notFound } from "@tanstack/react-router";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/tarot/combinations/$slug")({
   loader: async ({ params }) => {
@@ -23,7 +24,10 @@ export const Route = createFileRoute("/tarot/combinations/$slug")({
         keywords: combo.keywords,
         image: combo.cardA.image,
       }),
-      links: [{ rel: "canonical", href: `${SITE_URL}${path}` }],
+      links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${path}` },
+      ...getAllHreflangLinks(path, "https://astrofree.vercel.app"),
+    ],
       scripts: [
         {
           type: "application/ld+json",

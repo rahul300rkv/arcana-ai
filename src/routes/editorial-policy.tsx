@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/editorial-policy")({
   head: () => ({
@@ -19,7 +20,10 @@ export const Route = createFileRoute("/editorial-policy")({
       },
       { property: "og:url", content: `${SITE_URL}/editorial-policy` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/editorial-policy` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/editorial-policy` },
+      ...getAllHreflangLinks("/editorial-policy", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

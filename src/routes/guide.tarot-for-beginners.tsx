@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const PATH = "/guide/tarot-for-beginners";
 const TITLE = "Complete Guide to Tarot Reading for Beginners";
@@ -51,7 +52,10 @@ export const Route = createFileRoute("/guide/tarot-for-beginners")({
         "first tarot spread",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${PATH}` },
+      ...getAllHreflangLinks(PATH, "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

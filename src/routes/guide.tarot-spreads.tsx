@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const SPREADS_FAQS = [
   {
@@ -53,7 +54,10 @@ export const Route = createFileRoute("/guide/tarot-spreads")({
           "Explore 8 tarot spreads from Single Card to the 10-card Celtic Cross. Learn every card position for Love, Career, Decision, and Year Ahead draws.",
       },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/guide/tarot-spreads` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/guide/tarot-spreads` },
+      ...getAllHreflangLinks("/guide/tarot-spreads", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const PATH = "/guide/reversed-tarot-cards";
 const CANONICAL_PATH = "/what-do-reversed-tarot-cards-mean";
@@ -53,7 +54,10 @@ export const Route = createFileRoute("/guide/reversed-tarot-cards")({
         "upside down tarot card meaning",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${CANONICAL_PATH}` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${CANONICAL_PATH}` },
+      ...getAllHreflangLinks(CANONICAL_PATH, "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const PATH = "/guide/mulank-vs-bhagyank";
 const TITLE = "Mulank vs Bhagyank: Numerology in Indian Tradition";
@@ -52,7 +53,10 @@ export const Route = createFileRoute("/guide/mulank-vs-bhagyank")({
         "birth number vs destiny number",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${PATH}` },
+      ...getAllHreflangLinks(PATH, "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

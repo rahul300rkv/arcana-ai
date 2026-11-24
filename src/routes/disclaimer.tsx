@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/disclaimer")({
   head: () => ({
@@ -18,7 +19,10 @@ export const Route = createFileRoute("/disclaimer")({
       },
       { property: "og:url", content: `${SITE_URL}/disclaimer` },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/disclaimer` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/disclaimer` },
+      ...getAllHreflangLinks("/disclaimer", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent, notFound } from "@tanstack/react-router";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/numerology/$slug")({
   loader: async ({ params }) => {
@@ -30,7 +31,10 @@ export const Route = createFileRoute("/numerology/$slug")({
           description: pair.description,
           keywords: pair.keywords,
         }),
-        links: [{ rel: "canonical", href: `${SITE_URL}${pPath}` }],
+        links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${pPath}` },
+      ...getAllHreflangLinks(pPath, "https://astrofree.vercel.app"),
+    ],
         scripts: [
           {
             type: "application/ld+json",
@@ -64,9 +68,7 @@ export const Route = createFileRoute("/numerology/$slug")({
         }),
         links: [
           { rel: "canonical", href: `${SITE_URL}${mPath}` },
-          { rel: "alternate", hrefLang: "en", href: `${SITE_URL}${mPath}` },
-          { rel: "alternate", hrefLang: "hi", href: `${SITE_URL}${hiPath}` },
-          { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${mPath}` },
+          ...getAllHreflangLinks(mPath, SITE_URL),
         ],
         scripts: [
           {
@@ -100,7 +102,10 @@ export const Route = createFileRoute("/numerology/$slug")({
         description: page.description,
         keywords: page.keywords,
       }),
-      links: [{ rel: "canonical", href: `${SITE_URL}${path}` }],
+      links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${path}` },
+      ...getAllHreflangLinks(path, "https://astrofree.vercel.app"),
+    ],
       scripts: [
         {
           type: "application/ld+json",

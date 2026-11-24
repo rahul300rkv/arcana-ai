@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const PATH = "/guide/celtic-cross-guide";
 const TITLE = "10-Card Celtic Cross Tarot Spread: Step-by-Step Guide";
@@ -56,7 +57,10 @@ export const Route = createFileRoute("/guide/celtic-cross-guide")({
         "celtic cross positions meaning",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${PATH}` },
+      ...getAllHreflangLinks(PATH, "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

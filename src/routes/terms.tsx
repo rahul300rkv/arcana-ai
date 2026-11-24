@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -12,7 +13,10 @@ export const Route = createFileRoute("/terms")({
           "The terms governing your use of AstroFree, India's first free AI tarot card reading app.",
       },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/terms` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/terms` },
+      ...getAllHreflangLinks("/terms", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

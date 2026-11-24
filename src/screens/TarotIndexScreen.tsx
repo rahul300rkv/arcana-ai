@@ -205,6 +205,38 @@ export function TarotIndexScreen() {
             </Link>
             .
           </p>
+          <div className="mt-4 flex flex-wrap gap-2 text-xs">
+            <Link
+              to="/tarot/combinations"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-muted-foreground hover:border-[color:var(--gold)]/45 hover:text-foreground"
+            >
+              {t("lfooter.s7")}
+            </Link>
+            <Link
+              to="/major-arcana-tarot-cards-meanings"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-muted-foreground hover:border-[color:var(--gold)]/45 hover:text-foreground"
+            >
+              {t("guideHub.g6Title")}
+            </Link>
+            <Link
+              to="/what-do-reversed-tarot-cards-mean"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-muted-foreground hover:border-[color:var(--gold)]/45 hover:text-foreground"
+            >
+              {t("guideHub.g5Title")}
+            </Link>
+            <Link
+              to="/guide/celtic-cross-guide"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-muted-foreground hover:border-[color:var(--gold)]/45 hover:text-foreground"
+            >
+              {t("guideHub.g7Title")}
+            </Link>
+            <Link
+              to="/guide/tarot-for-beginners"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-3.5 py-1.5 text-muted-foreground hover:border-[color:var(--gold)]/45 hover:text-foreground"
+            >
+              {t("guideHub.g4Title")}
+            </Link>
+          </div>
         </section>
 
         <div className="mt-12 flex flex-col gap-4">

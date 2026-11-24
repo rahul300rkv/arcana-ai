@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 const PATH = "/numerology/compatibility";
 const TITLE = "Mulank & Bhagyank Compatibility Matrix: All 81 Pairs (1–9 × 1–9)";
@@ -28,7 +29,10 @@ export const Route = createFileRoute("/numerology/compatibility")({
         "vedic numerology marriage compatibility",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}${PATH}` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app${PATH}` },
+      ...getAllHreflangLinks(PATH, "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",

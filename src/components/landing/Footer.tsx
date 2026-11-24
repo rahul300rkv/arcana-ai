@@ -1,12 +1,20 @@
+import { useRouterState } from "@tanstack/react-router";
 import { Link } from "@/components/LocalizedLink";
 import { Brand } from "@/components/arcana/Brand";
 import { Sparkles } from "@/components/icons";
 import { useLanguage, useTranslate } from "@/lib/i18n";
-import { ALL_LOCALES, localizePath } from "@/locales";
+import {
+  ALL_LOCALES,
+  isMirroredLocalizedPath,
+  localizePath,
+  stripLocalePrefix,
+} from "@/locales";
 
 export function Footer() {
   const t = useTranslate();
   const [language, setLanguage] = useLanguage();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const mirroredBase = isMirroredLocalizedPath(pathname) ? stripLocalePrefix(pathname) : "/";
 
   return (
     <footer className="relative border-t border-[#f5e7d0]/15 bg-[#120307] py-12 sm:py-16 [content-visibility:auto] [contain-intrinsic-size:auto_420px]">
@@ -27,6 +35,7 @@ export function Footer() {
           <FooterCol
             title={t("lfooter.spreadsCol")}
             items={[
+              { label: t("tarotHub.crumb"), to: localizePath("/tarot", language) },
               { label: t("lfooter.s1"), to: localizePath("/tarot/celtic-cross", language) },
               { label: t("lfooter.s2"), to: localizePath("/tarot/three-card", language) },
               { label: t("lfooter.s3"), to: localizePath("/tarot/love", language) },
@@ -46,6 +55,7 @@ export function Footer() {
               { label: t("lfooter.n4"), to: localizePath("/bhagyank-calculator", language) },
               { label: t("lfooter.n5"), to: localizePath("/namank-calculator", language) },
               { label: t("lfooter.n6"), to: localizePath("/guide/mulank-vs-bhagyank", language) },
+              { label: t("guideHub.g3Title"), to: localizePath("/guide/numerology", language) },
               { label: t("lfooter.n7"), to: "/hi", onClick: () => setLanguage("hi") },
             ]}
           />
@@ -56,9 +66,13 @@ export function Footer() {
               { label: t("lfooter.w1"), to: localizePath("/guide", language) },
               { label: t("lfooter.w2"), to: localizePath("/guide/tarot-card-meanings", language) },
               { label: t("lfooter.w3"), to: localizePath("/major-arcana-tarot-cards-meanings", language) },
+              { label: t("guideHub.g5Title"), to: localizePath("/what-do-reversed-tarot-cards-mean", language) },
+              { label: t("guideHub.g4Title"), to: localizePath("/guide/tarot-for-beginners", language) },
               { label: t("lfooter.w4"), to: localizePath("/about", language) },
+              { label: t("about.editorialLink"), to: localizePath("/editorial-policy", language) },
               { label: t("lfooter.w5"), to: localizePath("/contact", language) },
               { label: t("lfooter.w6"), to: localizePath("/privacy", language) },
+              { label: t("about.cookieLink"), to: localizePath("/cookie-policy", language) },
               { label: t("lfooter.w7"), to: localizePath("/terms", language) },
               { label: t("lfooter.w8"), to: localizePath("/disclaimer", language) },
             ]}
@@ -72,12 +86,13 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap gap-2">
             {ALL_LOCALES.map((loc) => {
-              const target = localizePath("/", loc.meta.code);
+              const target = localizePath(mirroredBase, loc.meta.code);
               const isActive = loc.meta.code === language;
               return (
                 <Link
                   key={loc.meta.code}
                   to={target as any}
+                  hrefLang={loc.meta.bcp47}
                   onClick={() => setLanguage(loc.meta.code)}
                   className={`inline-flex items-center rounded-full border px-3 py-1 text-xs transition-colors ${
                     isActive

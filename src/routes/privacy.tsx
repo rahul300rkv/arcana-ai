@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildPageJsonLd } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -12,7 +13,10 @@ export const Route = createFileRoute("/privacy")({
           "How AstroFree collects, uses, and protects your data, including our use of cookies and advertising.",
       },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/privacy` }],
+    links: [
+      { rel: "canonical", href: `https://astrofree.vercel.app/privacy` },
+      ...getAllHreflangLinks("/privacy", "https://astrofree.vercel.app"),
+    ],
     scripts: [
       {
         type: "application/ld+json",
