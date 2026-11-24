@@ -1,14 +1,17 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { GoldButton } from "./GoldButton";
 import { Mail, User } from "@/components/icons";
+import { useLanguage } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 type Props = { open: boolean; onOpenChange: (o: boolean) => void };
 
 export function AuthModal({ open, onOpenChange }: Props) {
+  const [language] = useLanguage();
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="glass border-0 sm:max-w-md">
@@ -44,7 +47,7 @@ export function AuthModal({ open, onOpenChange }: Props) {
           </form>
 
           <div className="pt-1">
-            <Link to="/dashboard" onClick={() => onOpenChange(false)}>
+            <Link to={localizePath("/dashboard", language) as any} onClick={() => onOpenChange(false)}>
               <GoldButton variant="ghost" className="w-full">
                 <User className="h-4 w-4" /> Continue as guest
               </GoldButton>

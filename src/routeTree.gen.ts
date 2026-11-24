@@ -55,6 +55,20 @@ import { Route as GuideNumerologyRouteImport } from './routes/guide.numerology'
 import { Route as GuideMulankVsBhagyankRouteImport } from './routes/guide.mulank-vs-bhagyank'
 import { Route as GuideMajorArcanaMeaningsRouteImport } from './routes/guide.major-arcana-meanings'
 import { Route as GuideCelticCrossGuideRouteImport } from './routes/guide.celtic-cross-guide'
+import { Route as HiIndexRouteImport } from './routes/hi.index'
+import { Route as HiNumerologyMulankRouteImport } from './routes/hi.numerology.mulank'
+import { Route as HiNumerologySlugRouteImport } from './routes/hi.numerology.$slug'
+import { Route as NumerologyCompatibilityRouteImport } from './routes/numerology.compatibility'
+import { Route as TarotCombinationsIndexRouteImport } from './routes/tarot.combinations.index'
+import { Route as TarotCombinationsSlugRouteImport } from './routes/tarot.combinations.$slug'
+import { Route as LangSplatRouteImport } from './routes/$lang.$'
+import { Route as LangIndexRouteImport } from './routes/$lang.index'
+import { Route as LangAboutRouteImport } from './routes/$lang.about'
+import { Route as LangTarotIndexRouteImport } from './routes/$lang.tarot.index'
+import { Route as LangReadingIndexRouteImport } from './routes/$lang.reading.index'
+import { Route as LangNumerologyIndexRouteImport } from './routes/$lang.numerology.index'
+import { Route as LangNumerologyMulankRouteImport } from './routes/$lang.numerology.mulank'
+import { Route as LangGuideIndexRouteImport } from './routes/$lang.guide.index'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -289,6 +303,76 @@ const GuideCelticCrossGuideRoute = GuideCelticCrossGuideRouteImport.update({
   path: '/guide/celtic-cross-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiIndexRoute = HiIndexRouteImport.update({
+  id: '/hi/',
+  path: '/hi/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HiNumerologyMulankRoute = HiNumerologyMulankRouteImport.update({
+  id: '/hi/numerology/mulank',
+  path: '/hi/numerology/mulank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HiNumerologySlugRoute = HiNumerologySlugRouteImport.update({
+  id: '/hi/numerology/$slug',
+  path: '/hi/numerology/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NumerologyCompatibilityRoute = NumerologyCompatibilityRouteImport.update({
+  id: '/numerology/compatibility',
+  path: '/numerology/compatibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotCombinationsIndexRoute = TarotCombinationsIndexRouteImport.update({
+  id: '/tarot/combinations/',
+  path: '/tarot/combinations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarotCombinationsSlugRoute = TarotCombinationsSlugRouteImport.update({
+  id: '/tarot/combinations/$slug',
+  path: '/tarot/combinations/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangSplatRoute = LangSplatRouteImport.update({
+  id: '/$lang/$',
+  path: '/$lang/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/$lang/',
+  path: '/$lang/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangAboutRoute = LangAboutRouteImport.update({
+  id: '/$lang/about',
+  path: '/$lang/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangTarotIndexRoute = LangTarotIndexRouteImport.update({
+  id: '/$lang/tarot/',
+  path: '/$lang/tarot/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangReadingIndexRoute = LangReadingIndexRouteImport.update({
+  id: '/$lang/reading/',
+  path: '/$lang/reading/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangNumerologyIndexRoute = LangNumerologyIndexRouteImport.update({
+  id: '/$lang/numerology/',
+  path: '/$lang/numerology/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangNumerologyMulankRoute = LangNumerologyMulankRouteImport.update({
+  id: '/$lang/numerology/mulank',
+  path: '/$lang/numerology/mulank',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangGuideIndexRoute = LangGuideIndexRouteImport.update({
+  id: '/$lang/guide/',
+  path: '/$lang/guide/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -334,9 +418,23 @@ export interface FileRoutesByFullPath {
   '/tarot/three-card': typeof TarotThreeCardRoute
   '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide/': typeof GuideIndexRoute
+  '/hi/': typeof HiIndexRoute
+  '/hi/numerology/$slug': typeof HiNumerologySlugRoute
+  '/hi/numerology/mulank': typeof HiNumerologyMulankRoute
+  '/numerology/compatibility': typeof NumerologyCompatibilityRoute
   '/numerology/': typeof NumerologyIndexRoute
   '/reading/': typeof ReadingIndexRoute
   '/tarot/': typeof TarotIndexRoute
+  '/tarot/combinations/': typeof TarotCombinationsIndexRoute
+  '/tarot/combinations/$slug': typeof TarotCombinationsSlugRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/tarot/': typeof LangTarotIndexRoute
+  '/$lang/reading/': typeof LangReadingIndexRoute
+  '/$lang/numerology/': typeof LangNumerologyIndexRoute
+  '/$lang/numerology/mulank': typeof LangNumerologyMulankRoute
+  '/$lang/guide/': typeof LangGuideIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -382,9 +480,23 @@ export interface FileRoutesByTo {
   '/tarot/three-card': typeof TarotThreeCardRoute
   '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide': typeof GuideIndexRoute
+  '/hi': typeof HiIndexRoute
+  '/hi/numerology/$slug': typeof HiNumerologySlugRoute
+  '/hi/numerology/mulank': typeof HiNumerologyMulankRoute
+  '/numerology/compatibility': typeof NumerologyCompatibilityRoute
   '/numerology': typeof NumerologyIndexRoute
   '/reading': typeof ReadingIndexRoute
   '/tarot': typeof TarotIndexRoute
+  '/tarot/combinations': typeof TarotCombinationsIndexRoute
+  '/tarot/combinations/$slug': typeof TarotCombinationsSlugRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/tarot': typeof LangTarotIndexRoute
+  '/$lang/reading': typeof LangReadingIndexRoute
+  '/$lang/numerology': typeof LangNumerologyIndexRoute
+  '/$lang/numerology/mulank': typeof LangNumerologyMulankRoute
+  '/$lang/guide': typeof LangGuideIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -431,9 +543,23 @@ export interface FileRoutesById {
   '/tarot/three-card': typeof TarotThreeCardRoute
   '/tarot/yes-no': typeof TarotYesNoRoute
   '/guide/': typeof GuideIndexRoute
+  '/hi/': typeof HiIndexRoute
+  '/hi/numerology/$slug': typeof HiNumerologySlugRoute
+  '/hi/numerology/mulank': typeof HiNumerologyMulankRoute
+  '/numerology/compatibility': typeof NumerologyCompatibilityRoute
   '/numerology/': typeof NumerologyIndexRoute
   '/reading/': typeof ReadingIndexRoute
   '/tarot/': typeof TarotIndexRoute
+  '/tarot/combinations/': typeof TarotCombinationsIndexRoute
+  '/tarot/combinations/$slug': typeof TarotCombinationsSlugRoute
+  '/$lang/$': typeof LangSplatRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/about': typeof LangAboutRoute
+  '/$lang/tarot/': typeof LangTarotIndexRoute
+  '/$lang/reading/': typeof LangReadingIndexRoute
+  '/$lang/numerology/': typeof LangNumerologyIndexRoute
+  '/$lang/numerology/mulank': typeof LangNumerologyMulankRoute
+  '/$lang/guide/': typeof LangGuideIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -481,9 +607,23 @@ export interface FileRouteTypes {
     | '/tarot/three-card'
     | '/tarot/yes-no'
     | '/guide/'
+    | '/hi/'
+    | '/hi/numerology/$slug'
+    | '/hi/numerology/mulank'
+    | '/numerology/compatibility'
     | '/numerology/'
     | '/reading/'
     | '/tarot/'
+    | '/tarot/combinations/'
+    | '/tarot/combinations/$slug'
+    | '/$lang/$'
+    | '/$lang/'
+    | '/$lang/about'
+    | '/$lang/tarot/'
+    | '/$lang/reading/'
+    | '/$lang/numerology/'
+    | '/$lang/numerology/mulank'
+    | '/$lang/guide/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -529,9 +669,23 @@ export interface FileRouteTypes {
     | '/tarot/three-card'
     | '/tarot/yes-no'
     | '/guide'
+    | '/hi'
+    | '/hi/numerology/$slug'
+    | '/hi/numerology/mulank'
+    | '/numerology/compatibility'
     | '/numerology'
     | '/reading'
     | '/tarot'
+    | '/tarot/combinations'
+    | '/tarot/combinations/$slug'
+    | '/$lang/$'
+    | '/$lang'
+    | '/$lang/about'
+    | '/$lang/tarot'
+    | '/$lang/reading'
+    | '/$lang/numerology'
+    | '/$lang/numerology/mulank'
+    | '/$lang/guide'
   id:
     | '__root__'
     | '/'
@@ -577,9 +731,23 @@ export interface FileRouteTypes {
     | '/tarot/three-card'
     | '/tarot/yes-no'
     | '/guide/'
+    | '/hi/'
+    | '/hi/numerology/$slug'
+    | '/hi/numerology/mulank'
+    | '/numerology/compatibility'
     | '/numerology/'
     | '/reading/'
     | '/tarot/'
+    | '/tarot/combinations/'
+    | '/tarot/combinations/$slug'
+    | '/$lang/$'
+    | '/$lang/'
+    | '/$lang/about'
+    | '/$lang/tarot/'
+    | '/$lang/reading/'
+    | '/$lang/numerology/'
+    | '/$lang/numerology/mulank'
+    | '/$lang/guide/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -626,9 +794,23 @@ export interface RootRouteChildren {
   TarotThreeCardRoute: typeof TarotThreeCardRoute
   TarotYesNoRoute: typeof TarotYesNoRoute
   GuideIndexRoute: typeof GuideIndexRoute
+  HiIndexRoute: typeof HiIndexRoute
+  HiNumerologyMulankRoute: typeof HiNumerologyMulankRoute
+  HiNumerologySlugRoute: typeof HiNumerologySlugRoute
+  NumerologyCompatibilityRoute: typeof NumerologyCompatibilityRoute
   NumerologyIndexRoute: typeof NumerologyIndexRoute
   ReadingIndexRoute: typeof ReadingIndexRoute
   TarotIndexRoute: typeof TarotIndexRoute
+  TarotCombinationsIndexRoute: typeof TarotCombinationsIndexRoute
+  TarotCombinationsSlugRoute: typeof TarotCombinationsSlugRoute
+  LangSplatRoute: typeof LangSplatRoute
+  LangIndexRoute: typeof LangIndexRoute
+  LangAboutRoute: typeof LangAboutRoute
+  LangTarotIndexRoute: typeof LangTarotIndexRoute
+  LangReadingIndexRoute: typeof LangReadingIndexRoute
+  LangNumerologyIndexRoute: typeof LangNumerologyIndexRoute
+  LangNumerologyMulankRoute: typeof LangNumerologyMulankRoute
+  LangGuideIndexRoute: typeof LangGuideIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -955,6 +1137,104 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuideCelticCrossGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi/': {
+      id: '/hi/'
+      path: '/hi'
+      fullPath: '/hi/'
+      preLoaderRoute: typeof HiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi/numerology/mulank': {
+      id: '/hi/numerology/mulank'
+      path: '/hi/numerology/mulank'
+      fullPath: '/hi/numerology/mulank'
+      preLoaderRoute: typeof HiNumerologyMulankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi/numerology/$slug': {
+      id: '/hi/numerology/$slug'
+      path: '/hi/numerology/$slug'
+      fullPath: '/hi/numerology/$slug'
+      preLoaderRoute: typeof HiNumerologySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/numerology/compatibility': {
+      id: '/numerology/compatibility'
+      path: '/numerology/compatibility'
+      fullPath: '/numerology/compatibility'
+      preLoaderRoute: typeof NumerologyCompatibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/combinations/': {
+      id: '/tarot/combinations/'
+      path: '/tarot/combinations'
+      fullPath: '/tarot/combinations/'
+      preLoaderRoute: typeof TarotCombinationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarot/combinations/$slug': {
+      id: '/tarot/combinations/$slug'
+      path: '/tarot/combinations/$slug'
+      fullPath: '/tarot/combinations/$slug'
+      preLoaderRoute: typeof TarotCombinationsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/$': {
+      id: '/$lang/$'
+      path: '/$lang/$'
+      fullPath: '/$lang/$'
+      preLoaderRoute: typeof LangSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/$lang'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/about': {
+      id: '/$lang/about'
+      path: '/$lang/about'
+      fullPath: '/$lang/about'
+      preLoaderRoute: typeof LangAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/tarot/': {
+      id: '/$lang/tarot/'
+      path: '/$lang/tarot'
+      fullPath: '/$lang/tarot/'
+      preLoaderRoute: typeof LangTarotIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/reading/': {
+      id: '/$lang/reading/'
+      path: '/$lang/reading'
+      fullPath: '/$lang/reading/'
+      preLoaderRoute: typeof LangReadingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/numerology/': {
+      id: '/$lang/numerology/'
+      path: '/$lang/numerology'
+      fullPath: '/$lang/numerology/'
+      preLoaderRoute: typeof LangNumerologyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/numerology/mulank': {
+      id: '/$lang/numerology/mulank'
+      path: '/$lang/numerology/mulank'
+      fullPath: '/$lang/numerology/mulank'
+      preLoaderRoute: typeof LangNumerologyMulankRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/guide/': {
+      id: '/$lang/guide/'
+      path: '/$lang/guide'
+      fullPath: '/$lang/guide/'
+      preLoaderRoute: typeof LangGuideIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1002,9 +1282,23 @@ const rootRouteChildren: RootRouteChildren = {
   TarotThreeCardRoute: TarotThreeCardRoute,
   TarotYesNoRoute: TarotYesNoRoute,
   GuideIndexRoute: GuideIndexRoute,
+  HiIndexRoute: HiIndexRoute,
+  HiNumerologyMulankRoute: HiNumerologyMulankRoute,
+  HiNumerologySlugRoute: HiNumerologySlugRoute,
+  NumerologyCompatibilityRoute: NumerologyCompatibilityRoute,
   NumerologyIndexRoute: NumerologyIndexRoute,
   ReadingIndexRoute: ReadingIndexRoute,
   TarotIndexRoute: TarotIndexRoute,
+  TarotCombinationsIndexRoute: TarotCombinationsIndexRoute,
+  TarotCombinationsSlugRoute: TarotCombinationsSlugRoute,
+  LangSplatRoute: LangSplatRoute,
+  LangIndexRoute: LangIndexRoute,
+  LangAboutRoute: LangAboutRoute,
+  LangTarotIndexRoute: LangTarotIndexRoute,
+  LangReadingIndexRoute: LangReadingIndexRoute,
+  LangNumerologyIndexRoute: LangNumerologyIndexRoute,
+  LangNumerologyMulankRoute: LangNumerologyMulankRoute,
+  LangGuideIndexRoute: LangGuideIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

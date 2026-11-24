@@ -1,13 +1,16 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Sparkles } from "@/components/icons";
+import { useLanguage } from "@/lib/language";
+import { localizePath } from "@/locales";
 
 export function Brand({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const [language] = useLanguage();
   const iconSize = size === "sm" ? "h-8 w-8" : size === "lg" ? "h-11 w-11" : "h-9 w-9";
   const textSize = size === "sm" ? "text-lg" : size === "lg" ? "text-2xl" : "text-xl";
 
   return (
     <Link
-      to="/"
+      to={localizePath("/", language) as any}
       className="group inline-flex min-h-12 sm:min-h-0 items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5e7d0]/60"
     >
       {/* Crimson & Warm Ivory Seal Emblem */}

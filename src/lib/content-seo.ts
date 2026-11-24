@@ -7,6 +7,8 @@ interface JsonLdArgs {
   image?: string;
   published?: string;
   updated: string;
+  inLanguage?: string;
+  homeLabel?: string;
   crumbs: { name: string; path: string }[];
   faqs: { question: string; answer: string }[];
   webApp?: { name: string; category?: string };
@@ -20,6 +22,8 @@ export function buildContentJsonLd({
   image,
   published,
   updated,
+  inLanguage = "en",
+  homeLabel = "Home",
   crumbs,
   faqs,
   webApp,
@@ -35,13 +39,14 @@ export function buildContentJsonLd({
       description,
       datePublished: publishedDate,
       dateModified: updated,
-      inLanguage: "en",
+      inLanguage,
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
     },
     {
       "@type": "Article",
       headline: title,
       description,
+      inLanguage,
       ...(image ? { image: `${SITE_URL}${image}` } : {}),
       dateModified: updated,
       datePublished: publishedDate,
@@ -57,7 +62,7 @@ export function buildContentJsonLd({
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 1, name: homeLabel, item: SITE_URL },
         ...crumbs.map((c, i) => ({
           "@type": "ListItem",
           position: i + 2,
@@ -68,6 +73,7 @@ export function buildContentJsonLd({
     },
     {
       "@type": "FAQPage",
+      inLanguage,
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.question,
@@ -81,6 +87,7 @@ export function buildContentJsonLd({
       "@type": "WebApplication",
       name: webApp.name,
       url,
+      inLanguage,
       datePublished: publishedDate,
       dateModified: updated,
       applicationCategory: webApp.category ?? "LifestyleApplication",
@@ -104,6 +111,7 @@ export function buildContentMeta({
   keywords,
   image,
   exactTitle = false,
+  locale,
 }: {
   path: string;
   title: string;
@@ -111,6 +119,7 @@ export function buildContentMeta({
   keywords: string[];
   image?: string;
   exactTitle?: boolean;
+  locale?: string;
 }) {
   const url = `${SITE_URL}${path}`;
   const absoluteImage = image ? `${SITE_URL}${image}` : undefined;
@@ -124,6 +133,7 @@ export function buildContentMeta({
     { property: "og:type", content: "article" },
     { property: "og:url", content: url },
     { property: "og:site_name", content: SITE_NAME },
+    ...(locale ? [{ property: "og:locale", content: locale }] : []),
     ...(absoluteImage ? [{ property: "og:image", content: absoluteImage }] : []),
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
@@ -136,6 +146,8 @@ interface PageJsonLdArgs {
   path: string;
   title: string;
   description: string;
+  inLanguage?: string;
+  homeLabel?: string;
   /** Breadcrumb trail after Home. */
   crumbs: { name: string; path: string }[];
   faqs?: { question: string; answer: string }[];
@@ -148,6 +160,8 @@ export function buildPageJsonLd({
   path,
   title,
   description,
+  inLanguage = "en",
+  homeLabel = "Home",
   crumbs,
   faqs,
   article,
@@ -162,13 +176,13 @@ export function buildPageJsonLd({
       name: title,
       description,
       ...(article ? { datePublished: publishedDate, dateModified: article.updated } : {}),
-      inLanguage: "en",
+      inLanguage,
       isPartOf: { "@type": "WebSite", name: SITE_NAME, url: SITE_URL },
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 1, name: homeLabel, item: SITE_URL },
         ...crumbs.map((c, i) => ({
           "@type": "ListItem",
           position: i + 2,
@@ -184,6 +198,7 @@ export function buildPageJsonLd({
       "@type": "Article",
       headline: title,
       description,
+      inLanguage,
       mainEntityOfPage: url,
       datePublished: publishedDate,
       dateModified: article.updated,
@@ -201,6 +216,7 @@ export function buildPageJsonLd({
   if (faqs && faqs.length > 0) {
     graph.push({
       "@type": "FAQPage",
+      inLanguage,
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.question,

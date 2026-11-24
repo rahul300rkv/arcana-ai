@@ -1,0 +1,117 @@
+import { lazy, Suspense } from "react";
+import { createFileRoute, lazyRouteComponent, notFound } from "@tanstack/react-router";
+import { LocaleProvider } from "@/lib/language";
+import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
+import { SITE_URL } from "@/lib/site";
+
+const HindiMulankNumberScreen = lazyRouteComponent(
+  () => import("@/screens/hi/HindiMulankNumberScreen"),
+  "HindiMulankNumberScreen",
+);
+
+const LazyNumerologyNumberScreen = lazy(() =>
+  import("@/screens/NumerologyNumberScreen").then((m) => ({
+    default: m.NumerologyNumberScreen,
+  })),
+);
+
+export const Route = createFileRoute("/hi/numerology/$slug")({
+  loader: async ({ params }) => {
+    const { getHindiMulankPage } = await import("@/data/hi-mulank");
+    const hiPage = getHindiMulankPage(params.slug);
+    if (hiPage) return { page: hiPage, pair: undefined, numPage: undefined };
+
+    const [{ getMulankBhagyankPair }, { getNumerologyPage }] = await Promise.all([
+      import("@/data/mulank-bhagyank-pairs"),
+      import("@/data/numerology"),
+    ]);
+    const pair = getMulankBhagyankPair(params.slug);
+    if (pair) return { page: undefined, pair, numPage: undefined };
+
+    const numPage = getNumerologyPage(params.slug);
+    if (numPage) return { page: undefined, pair: undefined, numPage };
+
+    throw notFound();
+  },
+  head: ({ params, loaderData }) => {
+    const page = loaderData?.page;
+    const pair = loaderData?.pair;
+    const numPage = loaderData?.numPage;
+    if (page) {
+      const path = `/hi/numerology/${params.slug}`;
+      const enPath = `/numerology/${page.enSlug}`;
+      return {
+        meta: buildContentMeta({
+          path,
+          title: page.title,
+          description: page.description,
+          keywords: page.keywords,
+          locale: "hi_IN",
+        }),
+        links: [
+          { rel: "canonical", href: `${SITE_URL}${path}` },
+          { rel: "alternate", hrefLang: "hi", href: `${SITE_URL}${path}` },
+          { rel: "alternate", hrefLang: "en", href: `${SITE_URL}${enPath}` },
+          { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${enPath}` },
+        ],
+        scripts: [
+          {
+            type: "application/ld+json",
+            children: JSON.stringify(
+              buildContentJsonLd({
+                path,
+                title: page.title,
+                description: page.description,
+                updated: page.updated,
+                inLanguage: "hi",
+                homeLabel: "मुख्य पृष्ठ",
+                crumbs: [
+                  { name: "हिंदी केंद्र", path: "/hi" },
+                  { name: "मूलांक", path: "/hi/numerology/mulank" },
+                  { name: page.label, path },
+                ],
+                faqs: page.faqs,
+              }),
+            ),
+          },
+        ],
+      };
+    }
+
+    const fallback = pair ?? numPage;
+    if (!fallback) {
+      return { meta: [{ title: "पृष्ठ उपलब्ध नहीं" }, { name: "robots", content: "noindex" }] };
+    }
+    const path = `/hi/numerology/${params.slug}`;
+    const enPath = `/numerology/${params.slug}`;
+    return {
+      meta: buildContentMeta({
+        path,
+        title: fallback.title,
+        description: fallback.description,
+        keywords: fallback.keywords,
+        locale: "hi_IN",
+      }),
+      links: [{ rel: "canonical", href: `${SITE_URL}${enPath}` }],
+    };
+  },
+  component: HindiNumerologySlugComponent,
+});
+
+function HindiNumerologySlugComponent() {
+  const data = Route.useLoaderData();
+  if (data.page) {
+    return (
+      <LocaleProvider lang="hi">
+        <HindiMulankNumberScreen />
+      </LocaleProvider>
+    );
+  }
+  return (
+    <LocaleProvider lang="hi">
+      <Suspense fallback={<div className="min-h-dvh bg-background" />}>
+        <LazyNumerologyNumberScreen />
+      </Suspense>
+    </LocaleProvider>
+  );
+}

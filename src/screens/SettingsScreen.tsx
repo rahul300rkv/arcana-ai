@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
-import { Bell, Lock, Palette, User } from "@/components/icons";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
+import { Bell, Globe, Lock, Palette, User } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
@@ -13,15 +14,32 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useThemePreference } from "@/lib/theme";
-import { useTranslate } from "@/lib/i18n";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { LANGUAGE_OPTIONS, type Language } from "@/lib/language";
 import { exportDataAsJson } from "@/lib/tarot/history";
+import { getLocaleFromPath, localizePath, stripLocalePrefix } from "@/locales";
 
 export function SettingsScreen() {
   const [theme, setTheme] = useThemePreference();
+  const [language, setLanguage] = useLanguage();
   const t = useTranslate();
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const pathLocale = getLocaleFromPath(pathname);
+  const selectValue: Language =
+    pathLocale.meta.routePrefix !== null ? pathLocale.meta.code : language;
   const [dailyReminder, setDailyReminder] = useState(true);
   const [productUpdates, setProductUpdates] = useState(false);
   const [privateJournal, setPrivateJournal] = useState(true);
+
+  function handleLanguageChange(next: Language) {
+    setLanguage(next);
+    const stripped = stripLocalePrefix(pathname);
+    void navigate({
+      to: localizePath(stripped, next),
+      search: true,
+    } as any);
+  }
 
   return (
     <AppShell>
@@ -31,6 +49,27 @@ export function SettingsScreen() {
       </div>
 
       <div className="grid gap-5">
+        <SettingsSection
+          icon={Globe}
+          title={t("settings.language")}
+          desc={t("settings.languageDesc")}
+        >
+          <Row label={t("settings.language")} hint={t("settings.languageDesc")}>
+            <Select value={selectValue} onValueChange={(v) => handleLanguageChange(v as Language)}>
+              <SelectTrigger className="min-h-12 sm:min-h-9 w-48 bg-white/5 border-white/10">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {LANGUAGE_OPTIONS.map((opt) => (
+                  <SelectItem key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </Row>
+        </SettingsSection>
+
         <SettingsSection
           icon={Palette}
           title={t("settings.appearance")}

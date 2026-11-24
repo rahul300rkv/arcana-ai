@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Flame, Layers, Sparkles, BookOpen } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
@@ -8,7 +8,8 @@ import { StatCard } from "@/components/app/StatCard";
 import { DailyCard } from "@/components/app/DailyCard";
 import { RecentReadings } from "@/components/app/RecentReadings";
 import { useArcanaData } from "@/lib/tarot/history";
-import { useTranslate, type TranslationKey } from "@/lib/i18n";
+import { useLanguage, useTranslate, type TranslationKey } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 function greetingKey(): TranslationKey {
   const h = new Date().getHours();
@@ -21,11 +22,14 @@ function greetingKey(): TranslationKey {
 export function DashboardScreen() {
   const { stats } = useArcanaData();
   const t = useTranslate();
+  const [language] = useLanguage();
   const [greeting, setGreeting] = useState<TranslationKey>("dashboard.greetingMorning");
 
   useEffect(() => {
     setGreeting(greetingKey());
   }, []);
+
+  const streakUnit = stats.streak === 1 ? t("dashboard.daySingular") : t("dashboard.dayPlural");
 
   return (
     <AppShell>
@@ -39,7 +43,7 @@ export function DashboardScreen() {
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.subtitle")}</p>
         </div>
-        <Link to="/reading">
+        <Link to={localizePath("/reading", language) as any}>
           <GoldButton>
             <Sparkles className="h-4 w-4" /> {t("dashboard.startReading")}
           </GoldButton>
@@ -52,7 +56,7 @@ export function DashboardScreen() {
         <div className="grid gap-5 sm:grid-cols-3">
           <StatCard
             label={t("stat.streak")}
-            value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "0 days"}
+            value={`${stats.streak} ${streakUnit}`}
             hint={t("stat.streakHint")}
             icon={Flame}
           />
@@ -64,7 +68,7 @@ export function DashboardScreen() {
           />
           <StatCard
             label={t("stat.favoriteSpread")}
-            value={stats.favoriteSpreadName ?? "None yet"}
+            value={stats.favoriteSpreadName ?? t("dashboard.noneYet")}
             hint={
               stats.favoriteSpreadName
                 ? t("stat.favoriteSpreadHint")
@@ -89,7 +93,11 @@ export function DashboardScreen() {
               <h3 className="mt-4 font-display text-xl">{t("dashboard.journalTitle")}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {stats.journalCount > 0
-                  ? `${stats.journalCount} reflection${stats.journalCount === 1 ? "" : "s"} saved so far.`
+                  ? `${stats.journalCount} ${
+                      stats.journalCount === 1
+                        ? t("dashboard.reflectionSingle")
+                        : t("dashboard.reflectionPrefix")
+                    }`
                   : t("dashboard.journalEmpty")}
               </p>
             </div>

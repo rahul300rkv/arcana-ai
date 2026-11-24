@@ -1,10 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import {
   BookOpen,
   Briefcase,
   CalendarDays,
   Coins,
   Compass,
+  Globe,
   HeartHandshake,
   HeartPulse,
   HelpCircle,
@@ -21,6 +22,7 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { MULANK_PAGES, getMulankPage, type MulankPage } from "@/data/mulank";
+import { setLanguage } from "@/lib/language";
 import { SITE_URL } from "@/lib/site";
 
 const VERDICT_LABEL = {
@@ -57,6 +59,32 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         <GlassCard className="grid aspect-square place-items-center p-6">
           <span className="font-display text-6xl aurora-text">{page.number}</span>
         </GlassCard>
+      }
+      afterHeader={
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/15 bg-white/[0.03] px-5 py-3.5 text-xs">
+          <span className="text-muted-foreground">
+            Ruled by <strong className="text-[var(--gold)]">{page.planet}</strong> · Dates:{" "}
+            <strong className="text-foreground">{page.dates.join(", ")}</strong>
+          </span>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              to="/hi/numerology/$slug"
+              params={{ slug: page.slug }}
+              onClick={() => setLanguage("hi")}
+              className="inline-flex items-center gap-1.5 font-semibold text-[var(--gold)] hover:underline"
+            >
+              <Globe className="h-3.5 w-3.5" aria-hidden />
+              हिंदी: मूलांक {page.number}
+            </Link>
+            <Link
+              to="/numerology/$slug"
+              params={{ slug: `mulank-${page.number}-bhagyank-${page.number}` }}
+              className="inline-flex items-center gap-1.5 font-semibold text-foreground hover:text-[var(--gold)] hover:underline"
+            >
+              Mulank {page.number} × Bhagyank {page.number} →
+            </Link>
+          </div>
+        </div>
       }
     >
       <ContentSection id="dates" title="Who has this Mulank" icon={CalendarDays}>

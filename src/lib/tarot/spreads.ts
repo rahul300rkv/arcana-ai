@@ -119,5 +119,48 @@ export const SPREADS: Record<SpreadId, Spread> = {
   },
 };
 
+import type { TranslationKey } from "@/locales";
+
 export const SPREAD_LIST: Spread[] = Object.values(SPREADS);
 export const getSpread = (id: SpreadId): Spread => SPREADS[id];
+
+const SPREAD_KEY_PREFIX: Record<SpreadId, string> = {
+  single: "single",
+  "three-card": "three",
+  love: "love",
+  career: "career",
+  money: "money",
+  decision: "decision",
+  "celtic-cross": "celtic",
+  "year-ahead": "year",
+};
+
+export function getLocalizedSpread(
+  spread: Spread,
+  t: (key: TranslationKey) => string,
+): Spread {
+  const prefix = SPREAD_KEY_PREFIX[spread.id];
+  if (!prefix) return spread;
+  if (spread.id === "year-ahead") {
+    return {
+      ...spread,
+      name: t("spread.year.name"),
+      description: t("spread.year.desc"),
+      positions: spread.positions.map((p, idx) => ({
+        ...p,
+        name: t(`lnum.month${idx + 1}` as TranslationKey),
+        meaning: `${t("spread.year.monthHint")} ${idx + 1}`,
+      })),
+    };
+  }
+  return {
+    ...spread,
+    name: t(`spread.${prefix}.name` as TranslationKey),
+    description: t(`spread.${prefix}.desc` as TranslationKey),
+    positions: spread.positions.map((p, idx) => ({
+      ...p,
+      name: t(`spread.${prefix}.p${idx}Name` as TranslationKey),
+      meaning: t(`spread.${prefix}.p${idx}Meaning` as TranslationKey),
+    })),
+  };
+}

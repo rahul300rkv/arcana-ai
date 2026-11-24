@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 const GUIDE_HUB_FAQS = [
   {
@@ -44,7 +45,10 @@ export const Route = createFileRoute("/guide/")({
       { property: "og:url", content: `${SITE_URL}/guide` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/guide` }],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/guide` },
+      ...getAllHreflangLinks("/guide", SITE_URL),
+    ],
     scripts: [
       {
         type: "application/ld+json",

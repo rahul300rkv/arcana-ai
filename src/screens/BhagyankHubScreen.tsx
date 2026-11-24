@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { BookOpen, Calculator, Compass, HelpCircle, Sparkles } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Briefcase, RefreshCw, RotateCcw, Sparkles } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";

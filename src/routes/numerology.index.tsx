@@ -1,5 +1,6 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 const PAGE_TITLE = "Mulank & Bhagyank Calculator by Date of Birth (Free Moolank Checker)";
 const PAGE_DESC =
@@ -37,7 +38,10 @@ export const Route = createFileRoute("/numerology/")({
       { name: "twitter:title", content: PAGE_TITLE },
       { name: "twitter:description", content: PAGE_DESC },
     ],
-    links: [{ rel: "canonical", href: PAGE_URL }],
+    links: [
+      { rel: "canonical", href: PAGE_URL },
+      ...getAllHreflangLinks("/numerology", SITE_URL),
+    ],
     scripts: [
       {
         type: "application/ld+json",

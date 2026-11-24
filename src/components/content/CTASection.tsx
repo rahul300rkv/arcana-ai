@@ -1,6 +1,8 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Sparkles, ArrowRight } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { isMirroredLocalizedPath, localizePath } from "@/locales";
 
 interface Props {
   title: string;
@@ -25,6 +27,10 @@ interface Props {
 
 /** Shared conversion block at the end of every content page. */
 export function CTASection({ title, body, ctaLabel, to }: Props) {
+  const t = useTranslate();
+  const [language] = useLanguage();
+  const resolvedTo = isMirroredLocalizedPath(to) ? localizePath(to, language) : to;
+
   return (
     <GlassCard className="relative overflow-hidden p-8 text-center">
       <div
@@ -34,14 +40,14 @@ export function CTASection({ title, body, ctaLabel, to }: Props) {
       <div className="relative">
         <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5 text-[var(--gold)]" aria-hidden />
-          Free, no signup
+          {t("common.freeNoSignup")}
         </span>
         <h2 className="mt-4 font-display text-2xl aurora-text sm:text-3xl">{title}</h2>
         <p className="mx-auto mt-3 max-w-xl text-base sm:text-sm leading-relaxed text-muted-foreground">
           {body}
         </p>
         <Link
-          to={to}
+          to={resolvedTo as any}
           className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--gold-soft),var(--gold)_55%,#cbb38b)] px-6 py-3 text-base sm:text-sm font-medium text-primary-foreground shadow-glow-gold transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {ctaLabel}

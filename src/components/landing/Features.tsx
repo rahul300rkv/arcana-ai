@@ -1,7 +1,12 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Compass, Sparkles, BookOpen, ArrowRight, ShieldCheck, Moon } from "@/components/icons";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 export function Features() {
+  const t = useTranslate();
+  const [language] = useLanguage();
+
   return (
     <section id="features" className="relative py-20 sm:py-28">
       {/* Background ambient gradient */}
@@ -12,14 +17,14 @@ export function Features() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
-          eyebrow="Sanctuary Capabilities"
-          title="Designed for Depth, Clarity & Sacred Reverence"
-          subtitle="Explore a complete suite of traditional esoteric tools unified with modern artificial intelligence."
+          eyebrow={t("lfeat.eyebrow")}
+          title={t("lfeat.title")}
+          subtitle={t("lfeat.subtitle")}
         />
 
-        {/* Crimson Burgundy & Ivory Asymmetric Bento Grid */}
+        {/* Crimson Burgundy & Ivory Asymmetric Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Bento Card 1: 2-column marquee - Sacred Tarot Spreads */}
+          {/* Card 1: 2-column marquee - Sacred Tarot Spreads */}
           <div className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between">
             {/* Background Image Scrim */}
             <div className="absolute inset-0 z-0">
@@ -38,57 +43,57 @@ export function Features() {
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                 <Compass className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                <span>The Oracle's Altar</span>
+                <span>{t("lfeat.c1Eye")}</span>
               </div>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
-                8 Sacred Tarot Spreads for Every Seeking
+                {t("lfeat.c1Title")}
               </h3>
               <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
-                Whether you seek the comprehensive 10-position Celtic Cross, romantic clarity with the Love &amp; Soulmate spread, or concise daily direction, each card draw honors traditional position symbolism and archetypal resonance.
+                {t("lfeat.c1Body")}
               </p>
 
               {/* Spread Quick Launchers */}
               <div className="mt-6 flex flex-wrap gap-2.5 text-sm sm:text-xs">
                 <Link
-                  to="/tarot/celtic-cross"
+                  to={localizePath("/tarot/celtic-cross", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/35 bg-[#f5e7d0]/15 px-4 py-2 sm:px-3.5 sm:py-1.5 font-medium text-[#fffaf0] shadow-[inset_0_1px_1px_rgba(255,248,235,0.3)] transition-all hover:bg-[#f5e7d0]/25 hover:border-[#f5e7d0]/60"
                 >
-                  Celtic Cross (10 Cards)
+                  {t("lnav.celtic")} (10)
                 </Link>
                 <Link
-                  to="/tarot/three-card"
+                  to={localizePath("/tarot/three-card", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
-                  Past · Present · Future
+                  {t("lfeat.threeCard")}
                 </Link>
                 <Link
-                  to="/tarot/love"
+                  to={localizePath("/tarot/love", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
-                  Love &amp; Connections
+                  {t("lfeat.loveConn")}
                 </Link>
                 <Link
-                  to="/career-tarot-reading"
+                  to={localizePath("/tarot/combinations", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] transition-colors hover:bg-[#521222]/80 hover:text-[#fffaf0]"
                 >
-                  Career Pathway
+                  {t("lfeat.combos")}
                 </Link>
               </div>
             </div>
 
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between gap-2">
-              <span className="text-xs text-[#d6bfa3]">78 Hand-crafted Major &amp; Minor Arcana</span>
+              <span className="text-xs text-[#d6bfa3]">{t("lfeat.c1Footer")}</span>
               <Link
-                to="/tarot"
+                to={localizePath("/tarot", language) as any}
                 className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
-                <span>Explore All Spreads</span>
+                <span>{t("lfeat.c1Cta")}</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          {/* Bento Card 2: 1-column - Vedic Numerology Wheel */}
+          {/* Card 2: 1-column - Vedic Numerology Wheel */}
           <div className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between">
             <div className="absolute inset-0 z-0">
               <img
@@ -106,28 +111,28 @@ export function Features() {
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                 <Moon className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                <span>Vedic Mathematics</span>
+                <span>{t("lfeat.c2Eye")}</span>
               </div>
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
-                Mulank, Bhagyank &amp; Namank
+                {t("lfeat.c2Title")}
               </h3>
               <p className="mt-2 text-base sm:text-sm text-[#e3cfb6]/95 leading-relaxed">
-                Reveal your root number, planetary lord, life destiny path, and name vibration, mapped directly to corresponding Major Arcana tarot cards.
+                {t("lfeat.c2Body")}
               </p>
             </div>
 
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
-                to="/numerology"
+                to={localizePath("/numerology", language) as any}
                 className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
-                <span>Calculate Your Numbers</span>
+                <span>{t("lfeat.c2Cta")}</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          {/* Bento Card 3: 1-column - Compassionate AI Oracle */}
+          {/* Card 3: 1-column - Compassionate AI Oracle */}
           <div className="group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-8 flex flex-col justify-between">
             <div className="absolute inset-0 z-0">
               <img
@@ -145,53 +150,53 @@ export function Features() {
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                 <Sparkles className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                <span>Modern Intelligence</span>
+                <span>{t("lfeat.c3Eye")}</span>
               </div>
               <h3 className="mt-3 font-display text-2xl font-extrabold text-[#faf2e4] tracking-tight">
-                Deep Contextual AI Synthesis
+                {t("lfeat.c3Title")}
               </h3>
               <p className="mt-2 text-base sm:text-sm text-[#e3cfb6]/95 leading-relaxed">
-                Readings weave together your question, card upright/reversed positions, and Vedic energy pacing into grounded, empathetic insights in 13 languages.
+                {t("lfeat.c3Body")}
               </p>
             </div>
 
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15">
               <Link
-                to="/reading"
+                to={localizePath("/reading", language) as any}
                 className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
-                <span>Ask The Oracle</span>
+                <span>{t("lfeat.c3Cta")}</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          {/* Bento Card 4: 2-column - Sacred Rituals & Private Journal */}
+          {/* Card 4: 2-column - Sacred Rituals & Private Journal */}
           <div className="md:col-span-2 group relative overflow-hidden rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 sm:p-9 flex flex-col justify-between">
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                 <BookOpen className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                <span>Sacred Rituals</span>
+                <span>{t("lfeat.c4Eye")}</span>
               </div>
               <h3 className="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-[#faf2e4] tracking-tight">
-                Private Journal &amp; Daily Card Ritual
+                {t("lfeat.c4Title")}
               </h3>
               <p className="mt-2.5 max-w-xl text-base text-[#e3cfb6]/95 leading-relaxed">
-                Begin each morning by drawing a single card to anchor your intention. Review your personal reading history, spot recurring archetypes, and observe your cycles over months and years, stored privately in your browser.
+                {t("lfeat.c4Body")}
               </p>
 
               <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="rounded-2xl border border-[#f5e7d0]/20 bg-[#3a0c18]/55 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                  <div className="text-[#faf2e4] font-display text-lg font-bold">Morning Ritual</div>
-                  <div className="text-xs text-[#d6bfa3] mt-0.5">One-card daily reflection</div>
+                  <div className="text-[#faf2e4] font-display text-lg font-bold">{t("lfeat.tile1Title")}</div>
+                  <div className="text-xs text-[#d6bfa3] mt-0.5">{t("lhero.quickDaily")}</div>
                 </div>
                 <div className="rounded-2xl border border-[#f5e7d0]/20 bg-[#3a0c18]/55 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                  <div className="text-[#faf2e4] font-display text-lg font-bold">Energy Pacing</div>
-                  <div className="text-xs text-[#d6bfa3] mt-0.5">Active, Reflective &amp; Harmony</div>
+                  <div className="text-[#faf2e4] font-display text-lg font-bold">{t("lfeat.tile2Title")}</div>
+                  <div className="text-xs text-[#d6bfa3] mt-0.5">{t("lfeat.tile2Desc")}</div>
                 </div>
                 <div className="rounded-2xl border border-[#f5e7d0]/20 bg-[#3a0c18]/55 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                  <div className="text-[#faf2e4] font-display text-lg font-bold">Zero Telemetry</div>
-                  <div className="text-xs text-[#d6bfa3] mt-0.5">Your reflections remain yours</div>
+                  <div className="text-[#faf2e4] font-display text-lg font-bold">{t("lfeat.tile3Title")}</div>
+                  <div className="text-xs text-[#d6bfa3] mt-0.5">{t("lfeat.c4Footer")}</div>
                 </div>
               </div>
             </div>
@@ -199,13 +204,13 @@ export function Features() {
             <div className="relative z-10 mt-8 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5 text-xs text-[#ead9c3]">
                 <ShieldCheck className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                <span>Protected by Client-Side Storage</span>
+                <span>{t("lfeat.c4Footer")}</span>
               </div>
               <Link
-                to="/journal"
+                to={localizePath("/journal", language) as any}
                 className="inline-flex min-h-12 sm:min-h-0 items-center gap-1.5 text-sm sm:text-xs font-semibold text-[#faf2e4] transition-colors hover:text-[#fffdf8]"
               >
-                <span>Open Sanctuary Journal</span>
+                <span>{t("lfeat.c4Cta")}</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
             </div>

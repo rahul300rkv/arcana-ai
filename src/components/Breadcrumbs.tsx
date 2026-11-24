@@ -1,6 +1,8 @@
 import { ChevronRight, Home } from "@/components/icons";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { cn } from "@/lib/utils";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { isMirroredLocalizedPath, localizePath } from "@/locales";
 
 export interface BreadcrumbItem {
   label: string;
@@ -13,7 +15,12 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
-  const crumbs = [{ label: "Home", to: "/" }, ...items];
+  const t = useTranslate();
+  const [language] = useLanguage();
+  const crumbs = [{ label: t("nav.home"), to: localizePath("/", language) }, ...items];
+
+  const resolveLink = (to: string) =>
+    isMirroredLocalizedPath(to) ? localizePath(to, language) : to;
 
   return (
     <nav aria-label="Breadcrumb" className={cn("mb-6", className)}>
@@ -26,7 +33,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               {index > 0 && <ChevronRight className="h-3.5 w-3.5 opacity-50" aria-hidden="true" />}
 
               {item.to && !isLast ? (
-                <Link to={item.to} className="inline-flex items-center gap-1 hover:text-foreground">
+                <Link to={resolveLink(item.to) as any} className="inline-flex items-center gap-1 hover:text-foreground">
                   {index === 0 && <Home className="h-3.5 w-3.5" aria-hidden="true" />}
                   <span>{item.label}</span>
                 </Link>

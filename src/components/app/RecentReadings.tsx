@@ -1,46 +1,51 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { motion } from "framer-motion";
 import { ChevronRight, Clock } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { useArcanaData } from "@/lib/tarot/history";
-import { getSpread } from "@/lib/tarot/spreads";
-
-function relativeTime(ts: number): string {
-  const diff = Date.now() - ts;
-  const mins = Math.round(diff / 60000);
-  if (mins < 1) return "just now";
-  if (mins < 60) return `${mins}m ago`;
-  const hours = Math.round(mins / 60);
-  if (hours < 24) return `${hours}h ago`;
-  const days = Math.round(hours / 24);
-  if (days < 7) return `${days}d ago`;
-  return new Date(ts).toLocaleDateString();
-}
+import { getLocalizedSpread, getSpread } from "@/lib/tarot/spreads";
+import { getBcp47 } from "@/lib/language";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 export function RecentReadings() {
   const { history } = useArcanaData();
+  const t = useTranslate();
+  const [language] = useLanguage();
   const recent = history.slice(0, 3);
+
+  function relativeTime(ts: number): string {
+    const diff = Date.now() - ts;
+    const mins = Math.round(diff / 60000);
+    if (mins < 1) return t("journal.justNow");
+    if (mins < 60) return `${mins}${t("journal.mAgo")}`;
+    const hours = Math.round(mins / 60);
+    if (hours < 24) return `${hours}${t("journal.hAgo")}`;
+    const days = Math.round(hours / 24);
+    if (days < 7) return `${days}${t("journal.dAgo")}`;
+    return new Date(ts).toLocaleDateString(getBcp47(language));
+  }
 
   return (
     <GlassCard>
       <div className="flex items-center justify-between">
-        <h3 className="font-display text-xl">Recent readings</h3>
+        <h3 className="font-display text-xl">{t("recent.title")}</h3>
         <Link to="/journal" className="text-xs text-muted-foreground hover:text-foreground">
-          View all
+          {t("recent.viewAll")}
         </Link>
       </div>
       {recent.length === 0 ? (
         <p className="mt-4 text-sm text-muted-foreground">
-          No readings yet.{" "}
-          <Link to="/reading" className="underline underline-offset-4">
-            Start your first one
+          {t("recent.emptyPrefix")}{" "}
+          <Link to={localizePath("/reading", language) as any} className="underline underline-offset-4">
+            {t("recent.emptyCta")}
           </Link>
           .
         </p>
       ) : (
         <ul className="mt-4 divide-y divide-white/5">
           {recent.map((r, i) => {
-            const spread = getSpread(r.spreadId);
+            const spread = getLocalizedSpread(getSpread(r.spreadId), t);
             return (
               <motion.li
                 key={r.id}
@@ -69,7 +74,7 @@ export function RecentReadings() {
                     <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
                       <Clock className="h-3 w-3" /> {relativeTime(r.createdAt)}
                       <span className="rounded-full glass px-2 py-0.5 text-[10px] uppercase tracking-widest">
-                        {r.cards.length} card{r.cards.length === 1 ? "" : "s"}
+                        {r.cards.length} {t("reading.cardsUnit")}
                       </span>
                     </div>
                   </div>

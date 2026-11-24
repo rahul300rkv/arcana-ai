@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
 const TITLE = "Free AI Tarot Reading & Tarot Card Meanings: All 78 Cards";
 const DESCRIPTION =
@@ -47,7 +48,10 @@ export const Route = createFileRoute("/tarot/")({
         "reversed tarot meanings",
       ],
     }),
-    links: [{ rel: "canonical", href: `${SITE_URL}/tarot` }],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/tarot` },
+      ...getAllHreflangLinks("/tarot", SITE_URL),
+    ],
     scripts: [
       {
         type: "application/ld+json",

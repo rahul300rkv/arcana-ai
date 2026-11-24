@@ -2,6 +2,8 @@ import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 import { renderToString } from "react-dom/server";
 import { createAppRouter } from "./router";
 import { SITE_URL } from "./lib/site";
+import { setSsrLanguage } from "./lib/language";
+import { getLocaleFromPath } from "./locales";
 
 export interface PrerenderResult {
   appHtml: string;
@@ -29,27 +31,31 @@ const SKIP_META_NAMES = new Set([
 
 export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
   const normalizedPath = urlPath === "/" ? "/" : urlPath.replace(/\/+$/, "");
-  const history = createMemoryHistory({ initialEntries: [normalizedPath] });
-  const { router } = createAppRouter({ history });
+  const routeLocale = getLocaleFromPath(normalizedPath);
+  setSsrLanguage(routeLocale.meta.code);
+  try {
+    const history = createMemoryHistory({ initialEntries: [normalizedPath] });
+    const { router } = createAppRouter({ history });
 
-  await router.load();
-  await Promise.all(
-    router.state.matches.map((m) => {
-      const route = (
-        router.routesById as unknown as Record<
-          string,
-          { options?: { component?: unknown } } | undefined
-        >
-      )?.[m.routeId];
-      const comp = route?.options?.component as { preload?: () => Promise<unknown> } | undefined;
-      return comp?.preload?.();
-    }),
-  );
+    await router.load();
+    await Promise.all(
+      router.state.matches.map((m) => {
+        const route = (
+          router.routesById as unknown as Record<
+            string,
+            { options?: { component?: unknown } } | undefined
+          >
+        )?.[m.routeId];
+        const comp = route?.options?.component as { preload?: () => Promise<unknown> } | undefined;
+        return comp?.preload?.();
+      }),
+    );
 
-  const appHtml = renderToString(<RouterProvider router={router} />);
+    const appHtml = renderToString(<RouterProvider router={router} />);
 
   let title = "AstroFree | Free AI Tarot & Vedic Numerology";
   const metaMap = new Map<string, { attr: "name" | "property"; key: string; content: string }>();
+  const alternateMap = new Map<string, { hreflang: string; href: string }>();
   const ldJsonSeen = new Set<string>();
   const ldJsonBlocks: string[] = [];
   let canonical = `${SITE_URL}${normalizedPath === "/" ? "" : normalizedPath}`;
@@ -108,6 +114,19 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
         if (!link || typeof link !== "object") continue;
         if (link.rel === "canonical" && typeof link.href === "string") {
           canonical = link.href;
+        } else if (link.rel === "alternate" && typeof link.href === "string") {
+          const rawLang =
+            typeof link.hrefLang === "string"
+              ? link.hrefLang
+              : typeof link.hreflang === "string"
+                ? link.hreflang
+                : null;
+          if (rawLang) {
+            alternateMap.set(`${rawLang}:${link.href}`, {
+              hreflang: rawLang,
+              href: link.href,
+            });
+          }
         }
       }
     }
@@ -140,6 +159,11 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
     headLines.push(`<meta ${attr}="${escapeHtml(key)}" content="${escapeHtml(content)}" />`);
   }
   headLines.push(`<link rel="canonical" href="${escapeHtml(canonical)}" />`);
+  for (const alt of alternateMap.values()) {
+    headLines.push(
+      `<link rel="alternate" hreflang="${escapeHtml(alt.hreflang)}" href="${escapeHtml(alt.href)}" />`,
+    );
+  }
   for (const block of ldJsonBlocks) {
     headLines.push(`<script type="application/ld+json">${escapeJsonLd(block)}</script>`);
   }
@@ -148,9 +172,12 @@ export async function renderRoute(urlPath: string): Promise<PrerenderResult> {
     (m) => m.status === "notFound" || m.status === "error",
   );
 
-  return {
-    appHtml,
-    headHtml: headLines.join("\n    "),
-    statusCode: hasNotFound ? 404 : 200,
-  };
+    return {
+      appHtml,
+      headHtml: headLines.join("\n    "),
+      statusCode: hasNotFound ? 404 : 200,
+    };
+  } finally {
+    setSsrLanguage(null);
+  }
 }

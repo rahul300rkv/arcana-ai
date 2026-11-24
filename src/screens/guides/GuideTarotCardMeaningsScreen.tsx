@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { motion } from "framer-motion";
 import { CalendarClock, Sparkles, Heart, Briefcase, Coins, Flame } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";

@@ -1,10 +1,5 @@
-import {
-  Outlet,
-  Link,
-  createRootRoute,
-  useRouter,
-  type ErrorComponentProps,
-} from "@tanstack/react-router";
+import { Outlet, createRootRoute, useRouter, type ErrorComponentProps } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -13,25 +8,31 @@ import { SITE_URL, SITE_NAME } from "../lib/site";
 import { initTheme } from "../lib/theme";
 import { ADSENSE_CLIENT_ID, scheduleAdsenseLoad } from "../lib/adsense";
 
+import { useTranslate, useLanguage } from "../lib/i18n";
+import { localizePath } from "../locales";
+
 const GOOGLE_SITE_VERIFICATION =
   (import.meta.env.VITE_GOOGLE_SITE_VERIFICATION as string | undefined) ||
   "RBbljzCIw3mPRaMp6kDl03gswB9HqiyYYwUSdhC8cEA";
 
 function NotFoundComponent() {
+  const t = useTranslate();
+  const [language] = useLanguage();
+
   return (
     <div className="flex min-h-dvh items-center justify-center px-4">
       <div className="glass max-w-md rounded-3xl p-10 text-center">
         <h1 className="font-display text-7xl aurora-text">404</h1>
-        <h2 className="mt-4 font-display text-2xl">This path is uncharted</h2>
+        <h2 className="mt-4 font-display text-2xl">{t("error.404Title")}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The card you drew doesn't exist here. Return to the constellation.
+          {t("error.404Body")}
         </p>
         <div className="mt-6">
           <Link
-            to="/"
+            to={localizePath("/", language) as any}
             className="inline-flex items-center justify-center rounded-full glass px-5 py-2.5 text-sm hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
           >
-            Go home
+            {t("error.goHome")}
           </Link>
         </div>
       </div>
@@ -42,6 +43,8 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
+  const t = useTranslate();
+  const [language] = useLanguage();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -49,9 +52,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-dvh items-center justify-center px-4">
       <div className="glass max-w-md rounded-3xl p-10 text-center">
-        <h1 className="font-display text-2xl">A wisp of static in the ether</h1>
+        <h1 className="font-display text-2xl">{t("error.errTitle")}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something interrupted the reading. Try again, or return home.
+          {t("error.errBody")}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -61,10 +64,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             }}
             className="rounded-full bg-[linear-gradient(135deg,var(--gold-soft),var(--gold))] px-5 py-2.5 text-sm text-primary-foreground shadow-glow-gold"
           >
-            Try again
+            {t("error.tryAgain")}
           </button>
-          <a href="/" className="rounded-full glass px-5 py-2.5 text-sm">
-            Go home
+          <a href={localizePath("/", language)} className="rounded-full glass px-5 py-2.5 text-sm">
+            {t("error.goHome")}
           </a>
         </div>
       </div>

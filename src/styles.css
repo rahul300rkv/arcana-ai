@@ -46,8 +46,8 @@
   --color-aurora-2: var(--aurora-2);
   --color-aurora-3: var(--aurora-3);
 
-  --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Noto Sans Devanagari", "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   --shadow-glow-gold: 0 0 40px -8px color-mix(in oklab, var(--gold) 45%, transparent);

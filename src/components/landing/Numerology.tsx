@@ -1,19 +1,9 @@
 import { useState, useMemo } from "react";
-import { Link } from "@tanstack/react-router";
-import { Hash, Sparkles, ArrowRight, Star, Moon, Compass, Calendar } from "@/components/icons";
+import { Link } from "@/components/LocalizedLink";
+import { Sparkles, ArrowRight, Calendar } from "@/components/icons";
 import { SectionHeader } from "./Features";
-
-const ARCHETYPE_MAP: Record<number, { name: string; planet: string; traits: string; tarot: string }> = {
-  1: { name: "The Pioneer & Originator", planet: "Sun (Surya)", traits: "Leadership, independence, raw initiative, willpower", tarot: "The Magician" },
-  2: { name: "The Intuitive Peacemaker", planet: "Moon (Chandra)", traits: "Deep empathy, sensitivity, diplomacy, harmony", tarot: "The High Priestess" },
-  3: { name: "The Creative Sage", planet: "Jupiter (Guru)", traits: "Wisdom, joyful expression, optimism, expansive speech", tarot: "The Empress" },
-  4: { name: "The Master Architect", planet: "Rahu", traits: "Structure, grounded logic, unconventional breakthrough", tarot: "The Emperor" },
-  5: { name: "The Dynamic Catalyst", planet: "Mercury (Budha)", traits: "Versatility, quick communication, adventure, freedom", tarot: "The Hierophant" },
-  6: { name: "The Harmonious Nurturer", planet: "Venus (Shukra)", traits: "Unconditional care, artistic grace, responsibility, beauty", tarot: "The Lovers" },
-  7: { name: "The Mystical Seeker", planet: "Ketu", traits: "Spiritual depth, contemplation, analytical intuition", tarot: "The Chariot" },
-  8: { name: "The Karmic Commander", planet: "Saturn (Shani)", traits: "Endurance, material mastery, karmic justice, resilience", tarot: "Strength / Justice" },
-  9: { name: "The Universal Healer", planet: "Mars (Mangal)", traits: "Courage, global compassion, completion, inner fire", tarot: "The Hermit" },
-};
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath, type TranslationKey } from "@/locales";
 
 function reduceToSingleDigit(num: number): number {
   while (num > 9) {
@@ -22,7 +12,15 @@ function reduceToSingleDigit(num: number): number {
   return num;
 }
 
+const MONTH_KEYS: TranslationKey[] = [
+  "lnum.month1", "lnum.month2", "lnum.month3", "lnum.month4",
+  "lnum.month5", "lnum.month6", "lnum.month7", "lnum.month8",
+  "lnum.month9", "lnum.month10", "lnum.month11", "lnum.month12",
+];
+
 export function Numerology() {
+  const t = useTranslate();
+  const [language] = useLanguage();
   const [day, setDay] = useState<number>(15);
   const [month, setMonth] = useState<number>(10);
   const [year, setYear] = useState<number>(1998);
@@ -31,12 +29,21 @@ export function Numerology() {
     const m = reduceToSingleDigit(day);
     const dateSum = day + month + year;
     const b = reduceToSingleDigit(dateSum);
+    const keyNum = (m >= 1 && m <= 9 ? m : 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
     return {
       mulank: m,
       bhagyank: b,
-      archetype: ARCHETYPE_MAP[m] || ARCHETYPE_MAP[1],
+      archetype: {
+        name: t(`lnum.p${keyNum}.name` as TranslationKey),
+        planet: t(`lnum.p${keyNum}.planet` as TranslationKey),
+        traits: t(`lnum.p${keyNum}.traits` as TranslationKey),
+        tarot: t(`lnum.p${keyNum}.tarot` as TranslationKey),
+      },
     };
-  }, [day, month, year]);
+  }, [day, month, year, t]);
+
+  const numerologyTo = localizePath("/numerology", language);
+  const mulankTo = localizePath("/numerology/mulank", language);
 
   return (
     <section id="numerology" className="relative py-20 sm:py-28 overflow-hidden">
@@ -48,9 +55,9 @@ export function Numerology() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
-          eyebrow="Vedic Science of Numbers"
-          title="Instant Sacred Numerology Matrix"
-          subtitle="Discover your Mulank (birth root) and Bhagyank (destiny vibration). Test your birth date live right now."
+          eyebrow={t("lnum.eyebrow")}
+          title={t("lnum.title")}
+          subtitle={t("lnum.subtitle")}
         />
 
         {/* Live Interactive Matrix Container */}
@@ -61,13 +68,13 @@ export function Numerology() {
               <div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
                   <Calendar className="h-4 w-4 text-[#faf2e4]" aria-hidden="true" />
-                  <span>Interactive Birth Date Test</span>
+                  <span>{t("lnum.kicker")}</span>
                 </div>
                 <h3 className="mt-2 font-display text-2xl font-extrabold text-[#faf2e4]">
-                  Select Your Date of Birth
+                  {t("lnum.selectDob")}
                 </h3>
                 <p className="mt-1 text-base sm:text-sm text-[#e3cfb6]/90">
-                  Your birth day determines your core personality (Mulank), while full birth date reveals your life purpose (Bhagyank).
+                  {t("lnum.subtitle")}
                 </p>
               </div>
 
@@ -75,7 +82,7 @@ export function Numerology() {
               <div className="grid grid-cols-3 gap-3">
                 <div>
                   <label htmlFor="birth-day" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
-                    Day
+                    {t("lnum.day")}
                   </label>
                   <select
                     id="birth-day"
@@ -93,7 +100,7 @@ export function Numerology() {
 
                 <div>
                   <label htmlFor="birth-month" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
-                    Month
+                    {t("lnum.month")}
                   </label>
                   <select
                     id="birth-month"
@@ -101,12 +108,9 @@ export function Numerology() {
                     onChange={(e) => setMonth(Number(e.target.value))}
                     className="w-full min-h-12 sm:min-h-10 rounded-xl border border-[#f5e7d0]/25 bg-[#2e0913]/80 px-3 py-2.5 text-base sm:text-sm text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)] focus:border-[#f5e7d0] focus:outline-none focus:ring-1 focus:ring-[#f5e7d0]/50"
                   >
-                    {[
-                      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-                    ].map((m, i) => (
-                      <option key={m} value={i + 1} className="bg-[#23070f] text-[#faf2e4]">
-                        {m} ({i + 1})
+                    {MONTH_KEYS.map((mk, i) => (
+                      <option key={mk} value={i + 1} className="bg-[#23070f] text-[#faf2e4]">
+                        {t(mk)} ({i + 1})
                       </option>
                     ))}
                   </select>
@@ -114,7 +118,7 @@ export function Numerology() {
 
                 <div>
                   <label htmlFor="birth-year" className="block text-sm sm:text-xs font-medium text-[#ead9c3] mb-1.5">
-                    Year
+                    {t("lnum.year")}
                   </label>
                   <select
                     id="birth-year"
@@ -134,22 +138,28 @@ export function Numerology() {
               {/* Calculator Deep-Dive Links */}
               <div className="pt-2 border-t border-[#f5e7d0]/15 flex flex-wrap gap-2 text-sm sm:text-xs">
                 <Link
-                  to="/numerology/mulank"
+                  to={mulankTo as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
-                  Mulank Guide
+                  {t("lnum.linkMulankGuide")}
                 </Link>
                 <Link
-                  to="/bhagyank-calculator"
+                  to={localizePath("/numerology/compatibility", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
-                  Bhagyank Calculator
+                  {t("lnum.linkCompat")}
                 </Link>
                 <Link
-                  to="/namank-calculator"
+                  to={localizePath("/bhagyank-calculator", language) as any}
                   className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
                 >
-                  Namank Name Numerology
+                  {t("lnum.linkBhagyank")}
+                </Link>
+                <Link
+                  to={localizePath("/namank-calculator", language) as any}
+                  className="inline-flex min-h-12 sm:min-h-0 items-center rounded-full border border-[#f5e7d0]/20 bg-[#3a0c18]/65 px-4 py-2 sm:px-3.5 sm:py-1.5 text-[#ead9c3] shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:text-[#fffaf0] hover:border-[#f5e7d0]/45 transition-colors"
+                >
+                  {t("lnum.linkNamank")}
                 </Link>
               </div>
             </div>
@@ -164,7 +174,7 @@ export function Numerology() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   <div className="rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
                     <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
-                      Mulank (Root)
+                      {t("lnum.mulankLabel")}
                     </span>
                     <span className="font-display text-4xl font-extrabold chrome-gold-text block mt-1">
                       {mulank}
@@ -176,25 +186,25 @@ export function Numerology() {
 
                   <div className="rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
                     <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
-                      Bhagyank (Destiny)
+                      {t("lnum.bhagyankLabel")}
                     </span>
                     <span className="font-display text-4xl font-extrabold chrome-text block mt-1">
                       {bhagyank}
                     </span>
                     <span className="text-xs text-[#ead9c3] block mt-0.5">
-                      Full Life Path
+                      {t("lnum.fullLifePath")}
                     </span>
                   </div>
 
                   <div className="col-span-2 sm:col-span-1 rounded-xl border border-[#f5e7d0]/20 bg-[#18040a]/75 p-3.5 text-center shadow-[inset_0_1px_1px_rgba(255,248,235,0.22)]">
                     <span className="text-xs font-semibold uppercase tracking-wider text-[#d6bfa3] block">
-                      Tarot Archetype
+                      {t("lnum.tarotArch")}
                     </span>
                     <span className="font-display text-lg font-bold text-[#faf2e4] block mt-1 leading-tight">
                       {archetype.tarot}
                     </span>
                     <span className="text-xs text-[#ead9c3] block mt-0.5">
-                      Major Arcana {mulank}
+                      {t("lnum.majorArcanaNum")} {mulank}
                     </span>
                   </div>
                 </div>
@@ -206,20 +216,32 @@ export function Numerology() {
                     <span>{archetype.name}</span>
                   </div>
                   <p className="mt-2 text-base sm:text-sm text-[#e8d7c0] leading-relaxed">
-                    Governed by <strong className="text-[#fffaf0]">{archetype.planet}</strong> and attuned to the archetype of <strong className="text-[#fffaf0]">{archetype.tarot}</strong>. Your innate energetic gifts center on <span className="text-[#ead9c3]">{archetype.traits}</span>.
+                    {t("lnum.govPrefix")} <strong className="text-[#fffaf0]">{archetype.planet}</strong> {t("lnum.govMid")} <strong className="text-[#fffaf0]">{archetype.tarot}</strong>. {t("lnum.govTraits")} <span className="text-[#ead9c3]">{archetype.traits}</span>.
                   </p>
                 </div>
 
                 {/* Action button */}
                 <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                  <span className="text-sm sm:text-xs text-[#d6bfa3]">
-                    Born on {day}/{month}/{year}
-                  </span>
                   <Link
-                    to="/numerology"
+                    to={
+                      (language === "en"
+                        ? "/numerology/$slug"
+                        : localizePath(`/numerology/mulank-${mulank}-bhagyank-${bhagyank}`, language)) as any
+                    }
+                    params={
+                      (language === "en"
+                        ? { slug: `mulank-${mulank}-bhagyank-${bhagyank}` }
+                        : undefined) as any
+                    }
+                    className="text-sm sm:text-xs font-semibold text-[#f5e7d0] hover:underline"
+                  >
+                    {t("lnum.readMatchPrefix")} {mulank} {t("lnum.readMatchMid")} {bhagyank} {t("lnum.readMatchSuffix")} →
+                  </Link>
+                  <Link
+                    to={numerologyTo as any}
                     className="liquid-chrome-btn inline-flex min-h-12 items-center gap-1.5 rounded-full px-5 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
                   >
-                    <span>View Complete Personal Forecast</span>
+                    <span>{t("lnum.cta")}</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>

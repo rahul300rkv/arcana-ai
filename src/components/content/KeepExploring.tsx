@@ -1,6 +1,8 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { ArrowUpRight } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { isMirroredLocalizedPath, localizePath } from "@/locales";
 
 type Hub =
   | "/tarot"
@@ -16,6 +18,8 @@ type Hub =
   | "/numerology/mulank"
   | "/numerology/bhagyank"
   | "/numerology/namank"
+  | "/numerology/compatibility"
+  | "/tarot/combinations"
   | "/bhagyank-calculator"
   | "/namank-calculator"
   | "/guide"
@@ -25,7 +29,9 @@ type Hub =
   | "/guide/tarot-for-beginners"
   | "/guide/celtic-cross-guide"
   | "/guide/mulank-vs-bhagyank"
-  | "/reading";
+  | "/reading"
+  | "/hi"
+  | "/hi/numerology/mulank";
 
 export interface HubLink {
   to: Hub;
@@ -35,15 +41,21 @@ export interface HubLink {
 
 /** Contextual hub links so every deep page links back into the main pillars. */
 export function KeepExploring({ links }: { links: HubLink[] }) {
+  const t = useTranslate();
+  const [language] = useLanguage();
+
+  const resolveLink = (to: string) =>
+    isMirroredLocalizedPath(to) ? localizePath(to, language) : to;
+
   return (
     <section aria-labelledby="keep-exploring-heading" className="scroll-mt-24">
       <h2 id="keep-exploring-heading" className="font-display text-2xl aurora-text sm:text-3xl">
-        Keep exploring
+        {t("common.keepExploring")}
       </h2>
       <ul className="mt-5 grid gap-4 sm:grid-cols-2">
         {links.map((l) => (
           <li key={l.to}>
-            <Link to={l.to} className="block h-full">
+            <Link to={resolveLink(l.to) as any} className="block h-full">
               <GlassCard className="flex h-full items-start gap-3 p-4">
                 <span className="min-w-0 flex-1">
                   <span className="block font-display text-base">{l.label}</span>

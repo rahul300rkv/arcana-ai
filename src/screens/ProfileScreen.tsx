@@ -1,31 +1,37 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Award, Flame, Sparkles, Star } from "@/components/icons";
 import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { StatCard } from "@/components/app/StatCard";
 import { useArcanaData } from "@/lib/tarot/history";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 export function ProfileScreen() {
   const { stats, history } = useArcanaData();
+  const t = useTranslate();
+  const [language] = useLanguage();
   const hasCelticCross = history.some((r) => r.spreadId === "celtic-cross");
 
   const achievements = [
     {
-      title: "First Light",
-      body: "Completed your first reading.",
+      title: t("profile.ach1Title"),
+      body: t("profile.ach1Body"),
       earned: stats.totalReadings >= 1,
     },
-    { title: "Seven Moons", body: "7-day reading streak.", earned: stats.streak >= 7 },
-    { title: "Deep Waters", body: "Completed a Celtic Cross spread.", earned: hasCelticCross },
+    { title: t("profile.ach2Title"), body: t("profile.ach2Body"), earned: stats.streak >= 7 },
+    { title: t("profile.ach3Title"), body: t("profile.ach3Body"), earned: hasCelticCross },
     {
-      title: "The Cartographer",
-      body: "Journal 30 reflections.",
+      title: t("profile.ach4Title"),
+      body: t("profile.ach4Body"),
       earned: stats.journalCount >= 30,
     },
-    { title: "Constellation", body: "50 readings completed.", earned: stats.totalReadings >= 50 },
-    { title: "The Oracle", body: "365-day streak.", earned: stats.streak >= 365 },
+    { title: t("profile.ach5Title"), body: t("profile.ach5Body"), earned: stats.totalReadings >= 50 },
+    { title: t("profile.ach6Title"), body: t("profile.ach6Body"), earned: stats.streak >= 365 },
   ];
+
+  const streakUnit = stats.streak === 1 ? t("dashboard.daySingular") : t("dashboard.dayPlural");
 
   return (
     <AppShell>
@@ -37,32 +43,32 @@ export function ProfileScreen() {
         </div>
         <div>
           <div className="text-xs uppercase tracking-widest text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-            Seeker
+            {t("profile.seeker")}
           </div>
-          <h1 className="mt-1 font-display text-3xl">Guest</h1>
+          <h1 className="mt-1 font-display text-3xl">{t("profile.guest")}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Your readings and journal are saved on this device.
+            {t("profile.localNote")}
           </p>
         </div>
       </GlassCard>
 
       <div className="mt-5 grid gap-5 sm:grid-cols-3">
         <StatCard
-          label="Streak"
-          value={stats.streak > 0 ? `${stats.streak} day${stats.streak === 1 ? "" : "s"}` : "0 days"}
-          hint="Keep the ritual alive"
+          label={t("profile.streak")}
+          value={`${stats.streak} ${streakUnit}`}
+          hint={t("profile.streakHint")}
           icon={Flame}
         />
         <StatCard
-          label="Readings"
+          label={t("profile.readings")}
           value={String(stats.totalReadings)}
-          hint="Total sessions"
+          hint={t("profile.readingsHint")}
           icon={Sparkles}
         />
         <StatCard
-          label="Journal"
+          label={t("profile.journal")}
           value={String(stats.journalCount)}
-          hint="Reflections written"
+          hint={t("profile.journalHint")}
           icon={Star}
         />
       </div>
@@ -70,7 +76,7 @@ export function ProfileScreen() {
       <section className="mt-8">
         <div className="mb-4 flex items-center gap-2">
           <Award className="h-4 w-4 text-[color-mix(in_oklab,var(--gold)_85%,white)]" />
-          <h2 className="font-display text-xl">Achievements</h2>
+          <h2 className="font-display text-xl">{t("profile.achievements")}</h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((a) => (
@@ -92,10 +98,10 @@ export function ProfileScreen() {
       {history.length === 0 && (
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            Your achievements unlock as you read. Ready to begin?
+            {t("profile.emptyNote")}
           </p>
-          <Link to="/reading" className="mt-3 inline-block">
-            <GoldButton size="sm">Start a reading</GoldButton>
+          <Link to={localizePath("/reading", language) as any} className="mt-3 inline-block">
+            <GoldButton size="sm">{t("profile.startReading")}</GoldButton>
           </Link>
         </div>
       )}

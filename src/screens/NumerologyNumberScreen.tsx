@@ -1,4 +1,5 @@
-import { Link, useLoaderData } from "@tanstack/react-router";
+import { useLoaderData } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import {
   BookOpen,
   Briefcase,
@@ -24,7 +25,9 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { getNumerologyPage, NUMEROLOGY_PAGES, type NumerologyPage } from "@/data/numerology";
 import type { MulankPage } from "@/data/mulank";
+import type { MulankBhagyankProfile } from "@/data/mulank-bhagyank-pairs";
 import { MulankArticle } from "@/components/content/MulankArticle";
+import { MulankBhagyankPairScreen } from "@/screens/MulankBhagyankPairScreen";
 import { SITE_URL } from "@/lib/site";
 
 const VERDICT_LABEL = {
@@ -37,7 +40,9 @@ export function NumerologyNumberScreen() {
   const data = useLoaderData({ strict: false }) as {
     page?: NumerologyPage;
     mulank?: MulankPage;
+    pair?: MulankBhagyankProfile;
   };
+  if (data.pair) return <MulankBhagyankPairScreen pair={data.pair} />;
   if (data.mulank) return <MulankArticle page={data.mulank} />;
   const page = data.page as NumerologyPage;
   const path = `/numerology/${page.slug}`;

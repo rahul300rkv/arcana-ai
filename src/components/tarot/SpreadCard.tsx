@@ -1,9 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkle, Hourglass, Heart, Briefcase, Coins, Scale, Cross, CalendarDays, Layers } from "@/components/icons";
 import type { Spread } from "@/lib/tarot/types";
+import { getLocalizedSpread } from "@/lib/tarot/spreads";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
+import { useTranslate } from "@/lib/i18n";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   sparkle: Sparkle, hourglass: Hourglass, heart: Heart, briefcase: Briefcase,
@@ -12,6 +14,9 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function SpreadCard({ spread, onSelect }: { spread: Spread; onSelect: () => void }) {
   const Icon = ICONS[spread.icon] ?? Layers;
+  const t = useTranslate();
+  const localized = getLocalizedSpread(spread, t);
+
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -23,19 +28,19 @@ export function SpreadCard({ spread, onSelect }: { spread: Spread; onSelect: () 
             <Icon className="h-6 w-6 text-[color:var(--gold)]" />
           </div>
           <div className="flex gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
-            <span>{spread.count} cards</span>
+            <span>{localized.count} {t("reading.cardsUnit")}</span>
             <span>·</span>
-            <span>{spread.minutes} min</span>
+            <span>{localized.minutes} {t("reading.minUnit")}</span>
           </div>
         </div>
         <div>
-          <h3 className="font-display text-2xl">{spread.name}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{spread.description}</p>
+          <h3 className="font-display text-2xl">{localized.name}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{localized.description}</p>
         </div>
         <div className="mt-auto pt-2">
-          <Link to="/reading/question" search={{ spread: spread.id }} onClick={onSelect}>
+          <Link to="/reading/question" search={{ spread: localized.id }} onClick={onSelect}>
             <GoldButton size="sm" className="w-full">
-              Begin <ArrowRight className="h-4 w-4" />
+              {t("reading.beginSpread")} <ArrowRight className="h-4 w-4" />
             </GoldButton>
           </Link>
         </div>

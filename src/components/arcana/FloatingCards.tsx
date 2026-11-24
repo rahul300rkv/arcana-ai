@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { CardFront, type CardFrontCard } from "@/components/tarot/CardFront";
 import { Sparkles, Eye } from "@/components/icons";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 const STEP = "clamp(55px, 15vw, 130px)";
 
@@ -94,6 +96,8 @@ const HERO_CARDS: HeroCardSlot[] = [
 
 export function FloatingCards() {
   const [active, setActive] = useState<string | null>(null);
+  const [language] = useLanguage();
+  const t = useTranslate();
 
   return (
     <div className="relative mx-auto h-[320px] w-full max-w-4xl sm:h-[400px]">
@@ -147,7 +151,7 @@ export function FloatingCards() {
               <div className="pointer-events-auto absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 translate-y-3 rounded-2xl border border-[#f5e7d0]/25 bg-[#1f060d]/95 p-3.5 text-center shadow-[0_20px_45px_rgba(10,1,4,0.92),inset_0_1px_1px_rgba(255,248,235,0.3)] md:backdrop-blur-xl">
                 <div className="flex items-center justify-center gap-1.5 text-[#ead9c3] text-xs font-semibold uppercase tracking-wider">
                   <Sparkles className="h-3 w-3 text-[#faf2e4]" aria-hidden="true" />
-                  <span>Arcana Archetype</span>
+                  <span>{language === "en" ? "Arcana Archetype" : t("numHub.archetypeLabel")}</span>
                 </div>
                 <div className="font-display text-base font-bold text-[#faf2e4] tracking-wide mt-0.5">
                   {card.name}
@@ -156,11 +160,13 @@ export function FloatingCards() {
                   {card.keywords.slice(0, 3).join(" · ")}
                 </div>
                 <Link
-                  to={`/tarot/${c.slug}` as any}
+                  to={localizePath(`/tarot/${c.slug}`, language) as any}
                   className="mt-2 inline-flex min-h-12 sm:min-h-10 items-center gap-1.5 px-2 text-xs font-semibold text-[#fffaf0] hover:underline transition-colors"
                 >
                   <Eye className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>{card.name} Meaning</span>
+                  <span>
+                    {language === "en" ? `${card.name} Meaning` : `${card.name} · ${t("common.readMore")}`}
+                  </span>
                 </Link>
               </div>
             )}

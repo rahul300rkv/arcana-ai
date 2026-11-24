@@ -1,6 +1,8 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { ArrowDown, ArrowRight } from "@/components/icons";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 const StormCanvas = lazy(() => import("./StormCanvas"));
 
@@ -22,6 +24,8 @@ function hasHardwareWebGL(): boolean {
 }
 
 export function StormIntro() {
+  const t = useTranslate();
+  const [language] = useLanguage();
   const wrapperRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const ctaRowRef = useRef<HTMLDivElement>(null);
@@ -139,7 +143,7 @@ export function StormIntro() {
           className="pointer-events-none relative z-20 flex min-h-[68svh] md:h-full w-full flex-col items-center justify-center px-5 pt-24 pb-14 md:px-4 md:pt-20 md:pb-20 text-center"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] md:tracking-[0.26em] text-[#ead9c3]">
-            Ancient Wisdom · Vedic Numerology · Compassionate AI
+            {t("lhero.k1")} · {t("lhero.k2")} · {t("lhero.k3")}
           </p>
 
           <h1 className="mt-4 flex flex-col items-center">
@@ -148,7 +152,9 @@ export function StormIntro() {
               <span className="ml-1 font-light tracking-wide text-[#faf2e4]">Free</span>
             </span>
             <span className="mt-3 max-w-xl font-display text-lg sm:text-2xl font-semibold tracking-wide text-[#faf2e4]/95">
-              Free AI Tarot Readings &amp; Vedic Numerology
+              {language === "en"
+                ? "Free AI Tarot Readings & Vedic Numerology"
+                : t("hero.titleSub")}
             </span>
           </h1>
 
@@ -158,7 +164,9 @@ export function StormIntro() {
           />
 
           <p className="mt-4 max-w-md text-base text-[#f5e7d0]/95 leading-relaxed [text-wrap:balance]">
-            Enter the sanctuary for free 78-card AI tarot readings and Vedic numerology insights.
+            {language === "en"
+              ? "Enter the sanctuary for free 78-card AI tarot readings and Vedic numerology insights."
+              : t("lhero.sub")}
           </p>
 
           <div
@@ -170,15 +178,15 @@ export function StormIntro() {
               onClick={scrollToSite}
               className="liquid-chrome-btn inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#24060e] cursor-pointer"
             >
-              <span>Enter Sanctuary</span>
+              <span>{language === "en" ? "Enter Sanctuary" : t("lfeat.c1Cta")}</span>
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </button>
 
             <Link
-              to="/reading"
+              to={localizePath("/reading", language) as any}
               className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#f5e7d0]/35 bg-[#2d0713]/90 px-6 py-3 text-base font-semibold text-[#faf2e4] transition-colors hover:border-[#f5e7d0]/65 hover:bg-[#490d20]/90"
             >
-              <span>Begin Tarot Reading</span>
+              <span>{language === "en" ? "Begin Tarot Reading" : t("lnav.beginReading")}</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -188,31 +196,31 @@ export function StormIntro() {
             className="pointer-events-auto mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-medium text-[#ead9c3]/90"
           >
             <Link
-              to="/numerology"
+              to={localizePath("/numerology", language) as any}
               className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
             >
-              Mulank Calculator
+              {t("lnav.mulank")}
             </Link>
             <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
             <Link
-              to="/tarot/celtic-cross"
+              to={localizePath("/tarot/celtic-cross", language) as any}
               className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
             >
-              Celtic Cross Tarot
+              {t("lnav.celtic")}
             </Link>
             <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
             <Link
-              to="/major-arcana-tarot-cards-meanings"
+              to={localizePath("/major-arcana-tarot-cards-meanings", language) as any}
               className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
             >
-              Card of the Day / Major Arcana
+              {language === "en" ? "Card of the Day / Major Arcana" : t("lnav.majorArcana")}
             </Link>
             <span aria-hidden="true" className="text-[#f5e7d0]/30">·</span>
             <Link
-              to="/yes-no-tarot"
+              to={localizePath("/yes-no-tarot", language) as any}
               className="inline-flex min-h-10 items-center whitespace-nowrap underline-offset-4 hover:text-[#fffaf0] hover:underline"
             >
-              Yes / No Tarot
+              {t("lnav.yesNo")}
             </Link>
           </nav>
         </div>

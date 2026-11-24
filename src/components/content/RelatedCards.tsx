@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { ArrowRight } from "@/components/icons";
 import { GlassCard } from "@/components/arcana/GlassCard";
 

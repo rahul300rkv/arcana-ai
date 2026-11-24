@@ -1,6 +1,7 @@
 import { createFileRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { buildPageJsonLd } from "@/lib/content-seo";
+import { getAllHreflangLinks } from "@/locales";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -31,7 +32,10 @@ export const Route = createFileRoute("/about")({
           "Discover how AstroFree builds free AI tarot readings and Vedic numerology guides with strict privacy, editorial review, and clear disclaimers.",
       },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/about` },
+      ...getAllHreflangLinks("/about", SITE_URL),
+    ],
     scripts: [
       {
         type: "application/ld+json",

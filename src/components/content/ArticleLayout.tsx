@@ -3,12 +3,13 @@ import { CalendarClock, Clock, UserRound } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
-import { GlassCard } from "@/components/arcana/GlassCard";
 import { AuthorCard } from "@/components/AuthorCard";
 import { Breadcrumb, type Crumb } from "./Breadcrumb";
 import { ShareButtons } from "./ShareButtons";
 import { InArticleAd } from "@/components/ads/InArticleAd";
 import { DisplayAd } from "@/components/ads/DisplayAd";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getBcp47 } from "@/lib/language";
 
 interface Props {
   crumbs: Crumb[];
@@ -29,11 +30,11 @@ interface Props {
 
 const AUTHOR = {
   name: "The AstroFree Editorial Desk",
-  bio: "Written and reviewed by the AstroFree editorial team, practising tarot readers and numerologists who maintain our 78-card and 11-number reference library. Our interpretations follow the Rider–Waite–Smith tradition and classical Pythagorean numerology. Readings are for reflection and entertainment, and are not a substitute for medical, legal, or financial advice.",
+  bio: "Written and reviewed by the AstroFree editorial team, practising tarot readers and numerologists who maintain our 78-card and 11-number reference library. Our interpretations follow the Rider-Waite-Smith tradition and classical Pythagorean numerology. Readings are for reflection and entertainment, and are not a substitute for medical, legal, or financial advice.",
 };
 
-function formatDate(iso: string): string {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+function formatDate(iso: string, locale: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -56,6 +57,10 @@ export function ArticleLayout({
   afterHeader,
   children,
 }: Props) {
+  const t = useTranslate();
+  const [language] = useLanguage();
+  const locale = getBcp47(language);
+
   return (
     <div className="relative min-h-dvh">
       <AuroraBackground />
@@ -75,21 +80,21 @@ export function ArticleLayout({
             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <UserRound className="h-3.5 w-3.5" aria-hidden />
-                {AUTHOR.name}
+                {t("author.desk")}
               </span>
               {published && published !== updated && (
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-                  Published <time dateTime={published}>{formatDate(published)}</time>
+                  {t("common.published")} <time dateTime={published}>{formatDate(published, locale)}</time>
                 </span>
               )}
               <span className="inline-flex items-center gap-1.5">
                 <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-                Updated <time dateTime={updated}>{formatDate(updated)}</time>
+                {t("common.updated")} <time dateTime={updated}>{formatDate(updated, locale)}</time>
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" aria-hidden />
-                {readingMinutes} min read · {wordCount.toLocaleString("en-GB")} words
+                {readingMinutes} {t("common.minRead")} · {wordCount.toLocaleString(locale)} {t("common.words")}
               </span>
             </div>
             <div className="mt-5">
@@ -110,7 +115,7 @@ export function ArticleLayout({
             published={published}
             lastUpdated={updated}
             category={eyebrow}
-            readingTime={`${readingMinutes} min read`}
+            readingTime={`${readingMinutes} ${t("common.minRead")}`}
           />
         </div>
       </main>

@@ -1,36 +1,41 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { SectionHeader } from "./Features";
 import { ArrowRight, Compass, Sparkles, Wand2 } from "@/components/icons";
-
-const steps = [
-  {
-    n: "01",
-    icon: Compass,
-    title: "Frame Your Sacred Intention",
-    body: "Begin with a quiet breath. Focus on your question across love, career, crossroads, or personal direction, and choose the spread tailored to your inquiry.",
-  },
-  {
-    n: "02",
-    icon: Wand2,
-    title: "Shuffle & Draw Sacred Cards",
-    body: "Engage the deck. Our randomized shuffle preserves the authentic probability of all 78 Major and Minor Arcana, including upright and reversed orientations.",
-  },
-  {
-    n: "03",
-    icon: Sparkles,
-    title: "Synthesize Divine Clarity",
-    body: "Read deep position-by-position interpretations synthesized by Gemini AI, followed by a cohesive summary that leaves you with clarity and empowered next steps.",
-  },
-];
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { localizePath } from "@/locales";
 
 export function HowItWorks() {
+  const t = useTranslate();
+  const [language] = useLanguage();
+
+  const steps = [
+    {
+      n: "01",
+      icon: Compass,
+      title: t("lhow.s1Title"),
+      body: t("numerologyLanding.step1Body"),
+    },
+    {
+      n: "02",
+      icon: Wand2,
+      title: t("lhow.s2Title"),
+      body: t("numerologyLanding.step2Body"),
+    },
+    {
+      n: "03",
+      icon: Sparkles,
+      title: t("lhow.s3Title"),
+      body: t("numerologyLanding.step3Body"),
+    },
+  ];
+
   return (
     <section id="how" className="relative py-20 sm:py-28">
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
-          eyebrow="The Sacred Ritual"
-          title="How AstroFree Divines Your Path"
-          subtitle="Three mindful steps designed to quiet modern noise and channel inner clarity."
+          eyebrow={t("lhow.eyebrow")}
+          title={t("lhow.title")}
+          subtitle={t("lhow.subtitle")}
         />
 
         <div className="relative mt-16 grid gap-6 md:grid-cols-3">
@@ -65,10 +70,10 @@ export function HowItWorks() {
 
         <div className="mt-12 text-center">
           <Link
-            to="/reading"
+            to={localizePath("/reading", language) as any}
             className="liquid-chrome-btn inline-flex min-h-12 items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#24060e]"
           >
-            <span>Begin Your Personal Ritual</span>
+            <span>{t("lhow.cta")}</span>
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>

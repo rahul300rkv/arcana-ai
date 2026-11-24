@@ -1,6 +1,9 @@
 import { CalendarClock, Sparkles, UserRound } from "@/components/icons";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { cn } from "@/lib/utils";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getBcp47 } from "@/lib/language";
+import { localizePath } from "@/locales";
 
 interface AuthorCardProps {
   published?: string;
@@ -10,8 +13,8 @@ interface AuthorCardProps {
   className?: string;
 }
 
-const formatDate = (value: string) =>
-  new Date(`${value}T00:00:00Z`).toLocaleDateString("en-GB", {
+const formatDate = (value: string, locale: string) =>
+  new Date(`${value}T00:00:00Z`).toLocaleDateString(locale, {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -25,6 +28,10 @@ export function AuthorCard({
   readingTime,
   className,
 }: AuthorCardProps) {
+  const t = useTranslate();
+  const [language] = useLanguage();
+  const locale = getBcp47(language);
+
   return (
     <div
       className={cn(
@@ -38,27 +45,27 @@ export function AuthorCard({
         </div>
 
         <div>
-          <p className="font-display text-xl font-bold text-[#faf2e4]">AstroFree Editorial Team</p>
+          <p className="font-display text-xl font-bold text-[#faf2e4]">{t("author.team")}</p>
           <p className="text-xs uppercase tracking-[0.2em] text-[#d6bfa3] font-medium">
-            Tarot & Numerology Research
+            {t("author.role")}
           </p>
         </div>
       </div>
 
       <p className="mt-3 text-sm leading-relaxed text-[#e3cfb6]/90">
-        Curated and reviewed for reflection and education by the AstroFree Editorial Team.
+        {t("author.shortBio")}
       </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-[0.16em] text-[#d6bfa3] font-medium">
         {published && published !== lastUpdated && (
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
-            Published <time dateTime={published}>{formatDate(published)}</time>
+            {t("common.published")} <time dateTime={published}>{formatDate(published, locale)}</time>
           </span>
         )}
         <span className="inline-flex items-center gap-1.5">
           <CalendarClock className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
-          Last updated <time dateTime={lastUpdated}>{formatDate(lastUpdated)}</time>
+          {t("common.lastUpdated")} <time dateTime={lastUpdated}>{formatDate(lastUpdated, locale)}</time>
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Sparkles className="h-3.5 w-3.5 text-[#faf2e4]" aria-hidden="true" />
@@ -72,16 +79,16 @@ export function AuthorCard({
 
       <div className="mt-4 flex flex-wrap gap-4 text-sm sm:text-xs text-[#ead9c3]">
         <Link
-          to="/editorial-policy"
+          to={localizePath("/editorial-policy", language) as any}
           className="inline-flex min-h-12 sm:min-h-0 items-center underline underline-offset-4 hover:text-[#fffaf0] transition-colors"
         >
-          Editorial Policy
+          {t("author.editorialPolicy")}
         </Link>
         <Link
-          to="/about"
+          to={localizePath("/about", language) as any}
           className="inline-flex min-h-12 sm:min-h-0 items-center underline underline-offset-4 hover:text-[#fffaf0] transition-colors"
         >
-          Methodology
+          {t("author.methodology")}
         </Link>
       </div>
     </div>

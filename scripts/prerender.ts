@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { getLocaleFromPath } from "../src/locales/index";
 
 const ROOT_DIR = process.cwd();
 const DIST_DIR = path.join(ROOT_DIR, "dist");
@@ -74,7 +75,12 @@ async function main() {
       continue;
     }
 
-    const withHead = templateHtml.replace(
+    const bcp47 = getLocaleFromPath(routePath).meta.bcp47;
+    const withLang =
+      bcp47 !== "en"
+        ? templateHtml.replace('<html lang="en">', `<html lang="${bcp47}">`)
+        : templateHtml;
+    const withHead = withLang.replace(
       HEAD_META_RE,
       `<!--HEAD_META_START-->\n    ${headHtml}\n    <!--HEAD_META_END-->`,
     );

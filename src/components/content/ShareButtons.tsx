@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Check, Link2, Share2 } from "@/components/icons";
+import { useTranslate } from "@/lib/i18n";
 
 /** Native share where available, clipboard copy everywhere else. */
 export function ShareButtons({ title, url }: { title: string; url: string }) {
+  const t = useTranslate();
   const [copied, setCopied] = useState(false);
 
   const share = async () => {
@@ -28,7 +30,7 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
       <button
         type="button"
         onClick={share}
-        aria-label={`Share ${title}`}
+        aria-label={`${t("common.share")} ${title}`}
         className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 text-sm sm:text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {copied ? (
@@ -36,17 +38,17 @@ export function ShareButtons({ title, url }: { title: string; url: string }) {
         ) : (
           <Share2 className="h-4 w-4" aria-hidden />
         )}
-        {copied ? "Link copied" : "Share"}
+        {copied ? t("common.linkCopied") : t("common.share")}
       </button>
       <a
         href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}: ${url}`)}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Share ${title} on WhatsApp`}
+        aria-label={`${t("common.share")} ${title} - ${t("common.whatsapp")}`}
         className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 text-sm sm:text-xs hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
       >
         <Link2 className="h-4 w-4" aria-hidden />
-        WhatsApp
+        {t("common.whatsapp")}
       </a>
     </div>
   );

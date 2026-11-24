@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import { Cross, ListChecks, Compass, ShieldQuestion, HelpCircle, BookOpen } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";

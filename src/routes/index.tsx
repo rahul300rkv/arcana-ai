@@ -1,21 +1,17 @@
 import { useState } from "react";
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import {
-  BookOpenText,
   BriefcaseBusiness,
   Compass,
   Heart,
-  Moon,
-  ShieldCheck,
   Sparkles,
-  Sun,
   Wand2,
   ArrowRight,
   Flame,
   Droplets,
   Wind,
   Coins,
-  CheckCircle2,
   ChevronDown,
 } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
@@ -30,56 +26,30 @@ import { HowItWorks } from "@/components/landing/HowItWorks";
 import { Footer } from "@/components/landing/Footer";
 import { AuthorCard } from "@/components/AuthorCard";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getAllHreflangLinks, localizePath, type TranslationKey } from "@/locales";
 
-const SPREADS = [
-  {
-    to: "/tarot/celtic-cross",
-    title: "Celtic Cross",
-    cards: "10 Cards",
-    description: "The premier traditional spread revealing conscious focus, subconscious roots, past foundation, immediate challenge, and destiny outcome.",
-    icon: Compass,
-    badge: "Most Comprehensive",
-  },
-  {
-    to: "/tarot/three-card",
-    title: "Past · Present · Future",
-    cards: "3 Cards",
-    description: "A classical timeline mapping the formative energies behind you, where you stand today, and the trajectory unfolding ahead.",
-    icon: Wand2,
-    badge: "Quick Clarity",
-  },
-  {
-    to: "/tarot/love",
-    title: "Love & Relationships",
-    cards: "5 Cards",
-    description: "Explore emotional dynamics, unspoken desires, mutual obstacles, and the spiritual potential between you and another soul.",
-    icon: Heart,
-    badge: "Deep Connection",
-  },
-  {
-    to: "/career-tarot-reading",
-    title: "Career & Abundance",
-    cards: "5 Cards",
-    description: "Incisive guidance on vocational decisions, leadership opportunities, financial timing, and practical professional momentum.",
-    icon: BriefcaseBusiness,
-    badge: "Strategic Vision",
-  },
-];
+const SPREAD_META = [
+  { to: "/tarot/celtic-cross", key: "spread1", icon: Compass },
+  { to: "/tarot/three-card", key: "spread2", icon: Wand2 },
+  { to: "/tarot/love", key: "spread3", icon: Heart },
+  { to: "/career-tarot-reading", key: "spread4", icon: BriefcaseBusiness },
+] as const;
 
-const MAJOR_CARDS = [
-  { name: "The Fool", slug: "the-fool", number: 0, theme: "New Beginnings & Spontaneity" },
-  { name: "The Magician", slug: "the-magician", number: 1, theme: "Willpower & Manifestation" },
-  { name: "The High Priestess", slug: "the-high-priestess", number: 2, theme: "Intuition & Inner Mysteries" },
-  { name: "The Empress", slug: "the-empress", number: 3, theme: "Abundance & Creative Nurturing" },
-  { name: "The Emperor", slug: "the-emperor", number: 4, theme: "Structure, Logic & Authority" },
-  { name: "The Hierophant", slug: "the-hierophant", number: 5, theme: "Spiritual Tradition & Wisdom" },
-  { name: "The Lovers", slug: "the-lovers", number: 6, theme: "Harmony, Values & Alignment" },
-  { name: "The Chariot", slug: "the-chariot", number: 7, theme: "Determination & Triumph" },
-  { name: "Strength", slug: "strength", number: 8, theme: "Patience, Courage & Grace" },
-  { name: "The Hermit", slug: "the-hermit", number: 9, theme: "Soul Searching & Solitude" },
-  { name: "Wheel of Fortune", slug: "wheel-of-fortune", number: 10, theme: "Karmic Turning Points" },
-  { name: "The Star", slug: "the-star", number: 17, theme: "Hope, Healing & Inspiration" },
-];
+const MAJOR_CARD_META = [
+  { slug: "the-fool", number: 0, key: "card0" },
+  { slug: "the-magician", number: 1, key: "card1" },
+  { slug: "the-high-priestess", number: 2, key: "card2" },
+  { slug: "the-empress", number: 3, key: "card3" },
+  { slug: "the-emperor", number: 4, key: "card4" },
+  { slug: "the-hierophant", number: 5, key: "card5" },
+  { slug: "the-lovers", number: 6, key: "card6" },
+  { slug: "the-chariot", number: 7, key: "card7" },
+  { slug: "strength", number: 8, key: "card8" },
+  { slug: "the-hermit", number: 9, key: "card9" },
+  { slug: "wheel-of-fortune", number: 10, key: "card10" },
+  { slug: "the-star", number: 17, key: "card17" },
+] as const;
 
 const COMPREHENSIVE_FAQS = [
   {
@@ -202,12 +172,33 @@ export const Route = createFileRoute("/")({
         },
       },
     ],
+    links: [
+      { rel: "canonical", href: SITE_URL },
+      ...getAllHreflangLinks("/", SITE_URL),
+    ],
   }),
-  component: LandingPage,
+  component: HomeScreen,
 });
 
-function LandingPage() {
+export function HomeScreen() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const t = useTranslate();
+  const [language, setLanguage] = useLanguage();
+
+  const localizedFaqs =
+    language === "en"
+      ? COMPREHENSIVE_FAQS
+      : [
+          { question: t("faq.q1"), answer: t("faq.a1") },
+          { question: t("faq.q6"), answer: t("faq.a6") },
+          { question: t("faq.q7"), answer: t("faq.a7") },
+          { question: t("faq.q2"), answer: t("faq.a2") },
+          { question: t("faq.q3"), answer: t("faq.a3") },
+          { question: t("faq.q4"), answer: t("faq.a4") },
+          { question: t("faq.q5"), answer: t("faq.a5") },
+        ];
+
+  const lordKeys = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
   return (
     <div className="relative min-h-dvh overflow-x-clip bg-background text-foreground antialiased selection:bg-[#6e1427]/60 selection:text-[#faf2e4]">
@@ -223,7 +214,7 @@ function LandingPage() {
         {/* 1. Hero with Interactive 3D Card Fan */}
         <Hero />
 
-        {/* 2. Asymmetric Bento Grid Capabilities */}
+        {/* 2. Asymmetric Grid Capabilities */}
         <Features />
 
         {/* 3. Live Interactive Vedic Numerology Matrix */}
@@ -237,21 +228,21 @@ function LandingPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
-                The Sacred Formations
+                {t("lhome.spreadsEye")}
               </div>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4] [text-wrap:balance]">
-                Choose Your Gateway of Divination
+                {t("lhome.spreadsTitle")}
               </h2>
               <p className="mt-4 text-sm sm:text-base text-[#e3cfb6]/90 max-w-xl mx-auto leading-relaxed [text-wrap:balance]">
-                Each spread is an energetic constellation arranged to illuminate different facets of your life journey.
+                {t("lfeat.subtitle")}
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {SPREADS.map((s) => (
+              {SPREAD_META.map((s) => (
                 <Link
                   key={s.to}
-                  to={s.to}
+                  to={localizePath(s.to, language) as any}
                   className="group relative flex flex-col justify-between rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-6"
                 >
                   <div>
@@ -260,32 +251,40 @@ function LandingPage() {
                         <s.icon className="h-5 w-5" aria-hidden="true" />
                       </div>
                       <span className="text-xs font-semibold text-[#ead9c3]">
-                        {s.cards}
+                        {t(`lhome.${s.key}.cards` as TranslationKey)}
                       </span>
                     </div>
 
                     <h3 className="mt-5 font-display text-xl font-bold text-[#faf2e4] group-hover:text-[#fffdf8] transition-colors">
-                      {s.title}
+                      {t(`lhome.${s.key}.title` as TranslationKey)}
                     </h3>
                     <p className="mt-2 text-base sm:text-sm text-[#dfd0bc]/90 leading-relaxed line-clamp-3">
-                      {s.description}
+                      {t(`lhome.${s.key}.desc` as TranslationKey)}
                     </p>
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15 flex items-center justify-between text-sm sm:text-xs font-semibold text-[#faf2e4]">
-                    <span>{s.badge}</span>
+                    <span>{t(`lhome.${s.key}.badge` as TranslationKey)}</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </Link>
               ))}
             </div>
 
-            <div className="mt-10 text-center">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-center">
               <Link
-                to="/tarot"
+                to={localizePath("/tarot", language) as any}
                 className="liquid-chrome-btn inline-flex min-h-12 items-center gap-2 rounded-full px-6 py-3 text-sm sm:text-xs font-bold uppercase tracking-wider text-[#24060e]"
               >
-                <span>Browse All 8 Tarot Spreads & Meanings</span>
+                <span>{t("lhome.browseSpreads")}</span>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                to="/hi"
+                onClick={() => setLanguage("hi")}
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[#f5e7d0]/30 bg-[#3a0c18]/75 px-6 py-3 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:border-[#f5e7d0]/60 transition-colors"
+              >
+                <span>{t("lhero.quickHindi")}</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -297,13 +296,13 @@ function LandingPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
-                Esoteric Foundations
+                {t("lhome.archEye")}
               </div>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4]">
-                The Symbolic Architecture of Tarot
+                {t("lhome.archTitle")}
               </h2>
               <p className="mt-4 text-base text-[#e3cfb6]/90 leading-relaxed">
-                Tarot is not a parlor trick or a superstitious decree; it is a 600-year-old symbolic system that maps the spectrum of human consciousness, psychological archetypes, and spiritual transformation.
+                {t("lhome.archSub")}
               </p>
             </div>
 
@@ -312,21 +311,21 @@ function LandingPage() {
                 <div className="flex items-center gap-3 text-[#faf2e4]">
                   <Sparkles className="h-5 w-5 text-[#ead9c3]" aria-hidden="true" />
                   <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                    The Major Arcana: The Soul's Pilgrimage
+                    {t("lhome.majorTitle")}
                   </h3>
                 </div>
                 <p className="mt-4 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
-                  The 22 cards of the Major Arcana (from 0 The Fool to XXI The World) represent the universal stages of spiritual maturation and psychological individuation. Often termed "The Fool's Journey," this sequence mirrors our passage through innocence, intellectual mastery, emotional union, worldly crisis, dark-night transformation, and cosmic enlightenment. When Major Arcana cards appear in your reading, they signal profound life themes, spiritual lessons, and karmic shifts that transcend temporary daily matters.
+                  {t("lhome.majorBody")}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2 text-xs">
                   <span className="rounded-full border border-[#f5e7d0]/25 bg-[#3a0c18]/65 px-3 py-1 font-medium text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                    22 Archetypal Keys
+                    {t("lhome.majorTag1")}
                   </span>
                   <span className="rounded-full border border-[#f5e7d0]/25 bg-[#3a0c18]/65 px-3 py-1 font-medium text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                    Karmic Lessons
+                    {t("lhome.majorTag2")}
                   </span>
                   <span className="rounded-full border border-[#f5e7d0]/25 bg-[#3a0c18]/65 px-3 py-1 font-medium text-[#faf2e4] shadow-[inset_0_1px_1px_rgba(255,248,235,0.2)]">
-                    Psychological Individuation
+                    {t("lhome.majorTag3")}
                   </span>
                 </div>
               </div>
@@ -335,35 +334,35 @@ function LandingPage() {
                 <div className="flex items-center gap-3 text-[#faf2e4]">
                   <Compass className="h-5 w-5 text-[#ead9c3]" aria-hidden="true" />
                   <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                    The Minor Arcana: Four Elemental Planes
+                    {t("lhome.minorTitle")}
                   </h3>
                 </div>
                 <p className="mt-4 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
-                  The 56 cards of the Minor Arcana reflect the daily fabric of human existence. Divided into four suits, each corresponds to a classical element and a distinct realm of life:
+                  {t("lhome.minorBody")}
                 </p>
                 <div className="mt-5 space-y-3 text-base sm:text-sm text-[#dfd0bc]">
                   <div className="flex items-start gap-2.5">
                     <Flame className="h-4 w-4 text-[#f6c49f] shrink-0 mt-1" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#faf2e4]">Suit of Wands (Fire):</strong> Willpower, creative passion, spiritual vigor, ambition, and career projects.
+                      <strong className="text-[#faf2e4]">{t("lhome.suit1Title")}</strong> {t("lhome.suit1Desc")}
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <Droplets className="h-4 w-4 text-[#f2d6c3] shrink-0 mt-1" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#faf2e4]">Suit of Cups (Water):</strong> Emotional depth, romantic bonding, intuitive wisdom, and healing.
+                      <strong className="text-[#faf2e4]">{t("lhome.suit2Title")}</strong> {t("lhome.suit2Desc")}
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <Wind className="h-4 w-4 text-[#faf2e4] shrink-0 mt-1" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#faf2e4]">Suit of Swords (Air):</strong> Intellect, ethical dilemmas, mental clarity, communication, and truth.
+                      <strong className="text-[#faf2e4]">{t("lhome.suit3Title")}</strong> {t("lhome.suit3Desc")}
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <Coins className="h-4 w-4 text-[#e9cea4] shrink-0 mt-1" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#faf2e4]">Suit of Pentacles (Earth):</strong> Material reality, finances, bodily health, craft, and grounded security.
+                      <strong className="text-[#faf2e4]">{t("lhome.suit4Title")}</strong> {t("lhome.suit4Desc")}
                     </div>
                   </div>
                 </div>
@@ -374,22 +373,28 @@ function LandingPage() {
             <div className="mt-12">
               <div className="flex items-center justify-between gap-4 mb-4">
                 <h4 className="font-display text-xl font-bold text-[#faf2e4]">
-                  Explore Major Arcana Meanings
+                  {t("lhome.majDirTitle")}
                 </h4>
-                <Link to="/major-arcana-tarot-cards-meanings" className="inline-flex min-h-12 sm:min-h-0 items-center text-sm sm:text-xs text-[#faf2e4] hover:underline font-semibold">
-                  View Full Archetype Index →
+                <Link to={localizePath("/major-arcana-tarot-cards-meanings", language) as any} className="inline-flex min-h-12 sm:min-h-0 items-center text-sm sm:text-xs text-[#faf2e4] hover:underline font-semibold">
+                  {t("lhome.majDirLink")} →
                 </Link>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm sm:text-xs">
-                {MAJOR_CARDS.map((card) => (
+                {MAJOR_CARD_META.map((card) => (
                   <Link
                     key={card.slug}
-                    to={`/tarot/${card.slug}` as any}
+                    to={localizePath(`/tarot/${card.slug}`, language) as any}
                     className="min-h-14 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/70 p-3 text-left shadow-[inset_0_1px_1px_rgba(255,248,235,0.18)] hover:border-[#f5e7d0]/45 hover:bg-[#3f0d1b]/80 transition-all"
                   >
-                    <div className="chrome-text font-mono text-xs font-bold">Key {card.number}</div>
-                    <div className="font-semibold text-[#faf2e4] mt-1 truncate">{card.name}</div>
-                    <div className="text-xs text-[#d6bfa3] mt-0.5 truncate">{card.theme}</div>
+                    <div className="chrome-text font-mono text-xs font-bold">
+                      {t("lhome.keyPrefix")} {card.number}
+                    </div>
+                    <div className="font-semibold text-[#faf2e4] mt-1 truncate">
+                      {t(`lhome.${card.key}.name` as TranslationKey)}
+                    </div>
+                    <div className="text-xs text-[#d6bfa3] mt-0.5 truncate">
+                      {t(`lhome.${card.key}.theme` as TranslationKey)}
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -402,13 +407,13 @@ function LandingPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
-                Ancient Indian Numerology
+                {t("lhome.triadEye")}
               </div>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4]">
-                The Sacred Triad: Mulank, Bhagyank & Namank
+                {t("lhome.triadTitle")}
               </h2>
               <p className="mt-4 text-base text-[#e3cfb6]/90 leading-relaxed">
-                Vedic Numerology (अंक शास्त्र) teaches that each number from 1 to 9 emits a cosmic vibration presided over by one of the nine celestial planetary forces (Navagraha).
+                {t("lhome.triadSub")}
               </p>
             </div>
 
@@ -416,18 +421,21 @@ function LandingPage() {
               <div className="rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 flex flex-col justify-between">
                 <div>
                   <div className="text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                    Core Personality
+                    {t("lhome.triad1Eye")}
                   </div>
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
-                    Mulank (Root Number / जन्मांक)
+                    {t("lhome.triad1Title")}
                   </h3>
                   <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
-                    Calculated solely from your birth date (1 to 31 reduced to a single digit). Mulank reflects your intrinsic nature, psychological temperament, personal tastes, and instinctual behavior when faced with challenges.
+                    {t("lhome.triad1Body")}
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/numerology/mulank" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
-                    <span>Mulank Master Guide</span>
+                  <Link
+                    to={localizePath("/numerology/mulank", language) as any}
+                    className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>{t("lhome.triad1Cta")}</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
@@ -436,18 +444,21 @@ function LandingPage() {
               <div className="rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 flex flex-col justify-between">
                 <div>
                   <div className="text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                    Life Mission
+                    {t("lhome.triad2Eye")}
                   </div>
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
-                    Bhagyank (Destiny Number / भाग्यांक)
+                    {t("lhome.triad2Title")}
                   </h3>
                   <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
-                    Calculated by summing all digits of your Day, Month, and Year of birth. Bhagyank governs your destiny trajectory, societal role, major karma, and the career challenges you must master to achieve fulfillment.
+                    {t("lhome.triad2Body")}
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/bhagyank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
-                    <span>Bhagyank Calculator</span>
+                  <Link
+                    to={localizePath("/bhagyank-calculator", language) as any}
+                    className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>{t("lhome.triad2Cta")}</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
@@ -456,18 +467,21 @@ function LandingPage() {
               <div className="rounded-3xl liquid-chrome-card liquid-chrome-card-hover p-7 flex flex-col justify-between">
                 <div>
                   <div className="text-xs font-semibold text-[#ead9c3] uppercase tracking-widest">
-                    Name Frequency
+                    {t("lhome.triad3Eye")}
                   </div>
                   <h3 className="mt-2 font-display text-2xl font-bold text-[#faf2e4]">
-                    Namank (Name Vibration / नामांक)
+                    {t("lhome.triad3Title")}
                   </h3>
                   <p className="mt-3 text-base sm:text-[15px] text-[#e3cfb6] leading-relaxed">
-                    Derived from ancient Chaldean sound vibration formulas that assign numeric weight to alphabet phonetics. A balanced Namank creates harmony between your inner desires and external life success.
+                    {t("lhome.triad3Body")}
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#f5e7d0]/15">
-                  <Link to="/namank-calculator" className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5">
-                    <span>Namank Calculator</span>
+                  <Link
+                    to={localizePath("/namank-calculator", language) as any}
+                    className="min-h-12 sm:min-h-0 text-sm sm:text-xs font-semibold text-[#faf2e4] hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>{t("lhome.triad3Cta")}</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                 </div>
@@ -477,135 +491,86 @@ function LandingPage() {
             {/* Nine Planets Overview Table */}
             <div className="mt-12 rounded-3xl liquid-chrome-card p-6 sm:p-8">
               <h4 className="font-display text-xl font-bold text-[#faf2e4] mb-4">
-                The 9 Planetary Lords & Their Core Vibration
+                {t("lhome.lordsTitle")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 1 · Surya (Sun)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Leadership, pioneering spirit, high self-respect, and vitality.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 2 · Chandra (Moon)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Emotional intelligence, diplomacy, imagination, and empathy.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 3 · Guru (Jupiter)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Spiritual wisdom, teaching, moral integrity, and eloquence.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 4 · Rahu</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Unconventional genius, disruptive strategy, and structural logic.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 5 · Budha (Mercury)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Commercial acumen, versatile communication, and quick wit.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 6 · Shukra (Venus)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Aesthetics, unconditional love, domestic harmony, and luxury.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 7 · Ketu</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Philosophical inquiry, mystical intuition, and analytical depth.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 8 · Shani (Saturn)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Karmic justice, organizational resilience, and enduring mastery.</span>
-                </div>
-                <div className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]">
-                  <strong className="chrome-text text-sm block">Number 9 · Mangal (Mars)</strong>
-                  <span className="text-[#e3cfb6] mt-1 block">Courage, humanitarian compassion, physical drive, and triumph.</span>
-                </div>
+                {lordKeys.map((num) => (
+                  <div
+                    key={num}
+                    className="p-3.5 rounded-xl border border-[#f5e7d0]/20 bg-[#2d0913]/65 shadow-[inset_0_1px_1px_rgba(255,248,235,0.16)]"
+                  >
+                    <strong className="chrome-text text-sm block">
+                      {t(`lhome.lord${num}Title` as TranslationKey)}
+                    </strong>
+                    <span className="text-[#e3cfb6] mt-1 block">
+                      {t(`lhome.lord${num}Desc` as TranslationKey)}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 8. Comprehensive Editorial Treatise: The Synthesis of Tarot and Vedic Numerology (800+ Words for AdSense Quality Compliance) */}
+        {/* 8. Comprehensive Editorial Treatise: The Synthesis of Tarot and Vedic Numerology */}
         <section className="relative py-20 border-t border-[#f5e7d0]/15 bg-[#17040a]/80 [content-visibility:auto] [contain-intrinsic-size:auto_1400px]">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="text-center">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
-                Comprehensive Editorial Treatise
+                {t("lhome.treatiseEye")}
               </div>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#faf2e4]">
-                The Convergence of Tarot Archetypes and Vedic Numerology
+                {t("lhome.treatiseTitle")}
               </h2>
               <p className="mt-4 text-sm sm:text-base text-[#e3cfb6]/90 max-w-2xl mx-auto leading-relaxed">
-                An exhaustive examination of symbolic psychology, planetary vibrations, and the enduring human quest for self-understanding through sacred esoteric frameworks.
+                {t("lhome.treatiseSub")}
               </p>
             </div>
 
             <div className="mt-14 space-y-10 text-base text-[#e3cfb6]/95 leading-relaxed">
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                  1. Introduction: Bridging Western Hermeticism and Eastern Ank Shastra
+                  {t("lhome.tSec1Title")}
                 </h3>
-                <p>
-                  For millennia, civilizations across East and West have sought systematic methods to decode the mysteries of human destiny, temperament, and personal timing. While Western esoteric traditions developed the rich pictorial language of the 78-card tarot deck, ancient Indian sages perfected <em className="text-[#faf2e4] italic">Ank Shastra</em>, the sacred science of Vedic numerology. At first glance, these two disciplines originate from distinct cultural paradigms: one relies on allegorical archetypes and visual resonance, while the other employs precise arithmetic reduction based on birth dates and phonetic vibrations.
-                </p>
-                <p>
-                  However, when explored with a contemplative and open mind, tarot and Vedic numerology reveal a profound structural harmony. Both systems operate on the principle of correspondence: the ancient Hermetic axiom that "as above, so below; as within, so without." AstroFree unites these complementary wisdom streams in a single digital sanctuary. By offering both instant 8-spread tarot divinations and robust Mulank/Bhagyank numerology calculators, our platform provides seekers with multifaceted lenses for deep introspection.
-                </p>
+                <p>{t("lhome.tSec1P1")}</p>
+                <p>{t("lhome.tSec1P2")}</p>
               </div>
 
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                  2. The Psychological Mechanics of Tarot: Synchronicity and Archetypes
+                  {t("lhome.tSec2Title")}
                 </h3>
-                <p>
-                  Skeptics often dismiss tarot as superstitious fortune-telling, overlooking its profound roots in analytical psychology. Swiss psychiatrist Carl Jung introduced the concept of <em className="text-[#faf2e4] italic">synchronicity</em>, meaning significant coincidences that cannot be explained by cause and effect, yet stay bonded by shared meaning. When a seeker shuffles a deck of tarot cards and draws a specific spread, the images that appear are not random anomalies; they serve as external mirrors reflecting the internal, subconscious landscape of the querent at that exact moment in time.
-                </p>
-                <p>
-                  The 22 Major Arcana cards depict universal human milestones, from the naive optimism of The Fool to the hard-won integration of The World. These archetypes reside deep within the collective unconscious. When a difficult card like The Tower or Death appears in a reading, it does not decree an unalterable catastrophe. Instead, it illuminates a psychological necessity: old, rigid structures must crumble to make room for authentic spiritual growth. By interpreting these symbols without fatalism, seekers gain clarity, emotional resilience, and agency over their life choices.
-                </p>
+                <p>{t("lhome.tSec2P1")}</p>
+                <p>{t("lhome.tSec2P2")}</p>
               </div>
 
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                  3. The Navagraha and the Nine Numbers of Vedic Numerology
+                  {t("lhome.tSec3Title")}
                 </h3>
-                <p>
-                  In Vedic numerology, numbers are living energetic forces rather than mere abstract quantities. Every number from 1 to 9 is governed by one of the <em className="text-[#faf2e4] italic">Navagraha</em> (celestial planetary forces), exerting subtle yet profound influences on human personality and life trajectory.
-                </p>
+                <p>{t("lhome.tSec3P1")}</p>
                 <ul className="list-disc pl-5 space-y-3 text-[#dfd0bc]">
-                  <li><strong className="text-[#faf2e4]">Number 1 (Surya / Sun):</strong> Radiates leadership, authority, creative independence, and high willpower.</li>
-                  <li><strong className="text-[#faf2e4]">Number 2 (Chandra / Moon):</strong> Embodies emotional intelligence, intuition, diplomacy, and nurturing empathy.</li>
-                  <li><strong className="text-[#faf2e4]">Number 3 (Guru / Jupiter):</strong> Governs expansion, wisdom, philosophical teaching, and moral optimism.</li>
-                  <li><strong className="text-[#faf2e4]">Number 4 (Rahu):</strong> Fosters unconventional genius, disruptive innovation, and sharp analytical strategy.</li>
-                  <li><strong className="text-[#faf2e4]">Number 5 (Budha / Mercury):</strong> Rules commercial acumen, versatile communication, adaptability, and wit.</li>
-                  <li><strong className="text-[#faf2e4]">Number 6 (Shukra / Venus):</strong> Inspires aesthetic refinement, unconditional love, harmony, and luxury.</li>
-                  <li><strong className="text-[#faf2e4]">Number 7 (Ketu):</strong> Directs mystical introspection, spiritual awakening, and deep philosophical inquiry.</li>
-                  <li><strong className="text-[#faf2e4]">Number 8 (Shani / Saturn):</strong> Presides over karmic discipline, endurance, organizational mastery, and justice.</li>
-                  <li><strong className="text-[#faf2e4]">Number 9 (Mangal / Mars):</strong> Empowers physical courage, humanitarian drive, protective leadership, and passion.</li>
+                  {lordKeys.map((num) => (
+                    <li key={num}>{t(`lhome.tSec3B${num}` as TranslationKey)}</li>
+                  ))}
                 </ul>
-                <p>
-                  Understanding whether a number manifests in its constructive <em className="text-[#faf2e4] italic">positive</em> frequency or its challenging <em className="text-[#faf2e4] italic">shadow</em> frequency allows individuals to navigate personal weaknesses with self-compassion and strategic awareness.
-                </p>
+                <p>{t("lhome.tSec3P2")}</p>
               </div>
 
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                  4. Cultivating a Contemplative Daily Divination Practice
+                  {t("lhome.tSec4Title")}
                 </h3>
-                <p>
-                  Divination achieves its highest utility when approached as a disciplined meditative ritual rather than a hasty impulse. To derive maximum value from AstroFree or any esoteric practice, seekers should cultivate a calm physical and mental environment. Begin by lighting a gentle candle or taking five unhurried, diaphragmatic breaths to quiet the analytical chatter of the mind.
-                </p>
-                <p>
-                  When formulating a query, avoid closed yes/no questions ("Will I get this job?"). Instead, frame inquiries openly to invite self-discovery ("What energy do I need to cultivate to succeed in my career transition?"). After receiving your AI-guided interpretation, record your reflections in a private journal. Over weeks and months, reviewing past entries reveals recurring life patterns, emotional maturation cycles, and the astonishing synchronicities between numerological forecasts and lived experience.
-                </p>
+                <p>{t("lhome.tSec4P1")}</p>
+                <p>{t("lhome.tSec4P2")}</p>
               </div>
 
               <div className="liquid-chrome-card rounded-3xl p-8 sm:p-10 space-y-5">
                 <h3 className="font-display text-2xl font-bold text-[#faf2e4]">
-                  5. Conclusion: Empowering Free Will Through Esoteric Wisdom
+                  {t("lhome.tSec5Title")}
                 </h3>
-                <p>
-                  Ultimately, neither tarot cards nor numerological charts dictate human destiny. Human beings are endowed with free will, consciousness, and moral agency. Esoteric systems serve as navigational instruments, much like a mariner's astrolabe or a traveler's topographic map. They do not walk the path for you; they illuminate the terrain, highlight unseen obstacles, and remind you of your innate inner strength.
-                </p>
-                <p>
-                  AstroFree remains steadfastly committed to keeping these sacred tools free, accessible, private, and grounded in psychological depth. Whether you draw a single daily card for morning reflection or calculate your Personal Year forecast during a major life transition, may these insights serve as a faithful compass on your journey toward self-mastery.
-                </p>
+                <p>{t("lhome.tSec5P1")}</p>
+                <p>{t("lhome.tSec5P2")}</p>
               </div>
             </div>
           </div>
@@ -616,18 +581,18 @@ function LandingPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="mx-auto max-w-2xl text-center mb-12">
               <div className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ead9c3]">
-                Frequently Asked Questions
+                {t("lhome.faqEye")}
               </div>
               <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-[#faf2e4]">
-                Everything You Need to Know About AstroFree
+                {t("lhome.faqTitle")}
               </h2>
               <p className="mt-3 text-base sm:text-sm text-[#e3cfb6]/90">
-                Detailed explanations regarding our methodology, privacy practices, and esoteric frameworks.
+                {t("lfeat.subtitle")}
               </p>
             </div>
 
             <div className="space-y-4">
-              {COMPREHENSIVE_FAQS.map((faq, index) => {
+              {localizedFaqs.map((faq, index) => {
                 const isOpen = openFaq === index;
                 const panelId = `home-faq-panel-${index}`;
                 return (
@@ -664,13 +629,13 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* 9. Author & Editorial Desk Transparency (E-E-A-T) */}
+        {/* 10. Author & Editorial Desk Transparency (E-E-A-T) */}
         <section className="relative mx-auto max-w-4xl px-4 sm:px-6 py-16">
           <AuthorCard
             published="2026-07-15"
             lastUpdated="2026-11-19"
-            category="Esoteric Research & Methodology"
-            readingTime="12 min read"
+            category={t("lhome.authorCat")}
+            readingTime={t("lhome.authorReadTime")}
           />
         </section>
       </main>

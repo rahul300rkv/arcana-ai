@@ -1,4 +1,5 @@
-import { Link, useLoaderData } from "@tanstack/react-router";
+import { useLoaderData } from "@tanstack/react-router";
+import { Link } from "@/components/LocalizedLink";
 import {
   BookOpen,
   Briefcase,
@@ -25,6 +26,7 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 import { CardFront } from "@/components/tarot/CardFront";
 import { getCardById } from "@/lib/tarot/engine";
 import { getTarotPage, TAROT_PAGES, type TarotPage, type YesNo } from "@/data/tarot";
+import { getCombinationsForCard } from "@/data/tarot-combinations";
 import { SITE_URL } from "@/lib/site";
 
 const VERDICT_LABEL: Record<YesNo, "Yes" | "No" | "Maybe"> = {
@@ -46,6 +48,7 @@ export function TarotCardScreen() {
   const index = TAROT_PAGES.findIndex((p) => p.slug === page.slug);
   const prev = index > 0 ? TAROT_PAGES[index - 1] : undefined;
   const next = index >= 0 && index < TAROT_PAGES.length - 1 ? TAROT_PAGES[index + 1] : undefined;
+  const combinations = getCombinationsForCard(page.slug);
 
   const headingName = page.altName ? `${page.altName} (${page.name})` : page.name;
   const pageH1 = page.altName
@@ -400,8 +403,56 @@ export function TarotCardScreen() {
         <FAQAccordion items={page.faqs} />
       </ContentSection>
 
+      {combinations.length > 0 && (
+        <ContentSection
+          id="combinations"
+          title={`${headingName} Tarot Combinations`}
+          icon={Compass}
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            {combinations.map((combo) => (
+              <Link
+                key={combo.slug}
+                to="/tarot/combinations/$slug"
+                params={{ slug: combo.slug }}
+                className="block h-full"
+              >
+                <GlassCard className="flex h-full flex-col justify-between p-5 transition-colors hover:border-[color-mix(in_oklab,var(--gold)_45%,transparent)]">
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                      {combo.themeBadge}
+                    </p>
+                    <h3 className="mt-1.5 font-display text-lg text-foreground">
+                      {combo.cardA.name} + {combo.cardB.name}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                      {combo.quickSummary}
+                    </p>
+                  </div>
+                  <span className="mt-3 text-xs font-semibold text-[var(--gold)]">
+                    Read combination meaning →
+                  </span>
+                </GlassCard>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Compare more two-card pairings in the{" "}
+            <Link to="/tarot/combinations" className="text-[var(--gold)] underline underline-offset-4">
+              Tarot Card Combinations Explorer
+            </Link>
+            .
+          </p>
+        </ContentSection>
+      )}
+
       <KeepExploring
         links={[
+          {
+            to: "/tarot/combinations",
+            label: "Tarot Combinations Explorer",
+            blurb: `Check what ${page.name} means when drawn next to any other card in a spread.`,
+          },
           {
             to: "/major-arcana-tarot-cards-meanings",
             label: "Major Arcana 22-card table",
