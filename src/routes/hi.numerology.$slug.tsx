@@ -1,35 +1,46 @@
-import { lazy, Suspense } from "react";
-import { createFileRoute, lazyRouteComponent, notFound } from "@tanstack/react-router";
+import type { ComponentType } from "react";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocaleProvider } from "@/lib/language";
 import { buildContentJsonLd, buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
+import { getAllHreflangLinks } from "@/locales";
 
-const HindiMulankNumberScreen = lazyRouteComponent(
-  () => import("@/screens/hi/HindiMulankNumberScreen"),
-  "HindiMulankNumberScreen",
-);
-
-const LazyNumerologyNumberScreen = lazy(() =>
-  import("@/screens/NumerologyNumberScreen").then((m) => ({
-    default: m.NumerologyNumberScreen,
-  })),
-);
+let cachedHindiMulankScreen: ComponentType | null = null;
+let cachedNumerologyNumberScreen: ComponentType | null = null;
 
 export const Route = createFileRoute("/hi/numerology/$slug")({
   loader: async ({ params }) => {
     const { getHindiMulankPage } = await import("@/data/hi-mulank");
     const hiPage = getHindiMulankPage(params.slug);
-    if (hiPage) return { page: hiPage, pair: undefined, numPage: undefined };
+    if (hiPage) {
+      if (!cachedHindiMulankScreen) {
+        const mod = await import("@/screens/hi/HindiMulankNumberScreen");
+        cachedHindiMulankScreen = mod.HindiMulankNumberScreen;
+      }
+      return { page: hiPage, pair: undefined, numPage: undefined };
+    }
 
     const [{ getMulankBhagyankPair }, { getNumerologyPage }] = await Promise.all([
       import("@/data/mulank-bhagyank-pairs"),
       import("@/data/numerology"),
     ]);
     const pair = getMulankBhagyankPair(params.slug);
-    if (pair) return { page: undefined, pair, numPage: undefined };
+    if (pair) {
+      if (!cachedNumerologyNumberScreen) {
+        const mod = await import("@/screens/NumerologyNumberScreen");
+        cachedNumerologyNumberScreen = mod.NumerologyNumberScreen;
+      }
+      return { page: undefined, pair, numPage: undefined };
+    }
 
     const numPage = getNumerologyPage(params.slug);
-    if (numPage) return { page: undefined, pair: undefined, numPage };
+    if (numPage) {
+      if (!cachedNumerologyNumberScreen) {
+        const mod = await import("@/screens/NumerologyNumberScreen");
+        cachedNumerologyNumberScreen = mod.NumerologyNumberScreen;
+      }
+      return { page: undefined, pair: undefined, numPage };
+    }
 
     throw notFound();
   },
@@ -50,9 +61,7 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
         }),
         links: [
           { rel: "canonical", href: `${SITE_URL}${path}` },
-          { rel: "alternate", hrefLang: "hi", href: `${SITE_URL}${path}` },
-          { rel: "alternate", hrefLang: "en", href: `${SITE_URL}${enPath}` },
-          { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${enPath}` },
+          ...getAllHreflangLinks(enPath, SITE_URL),
         ],
         scripts: [
           {
@@ -92,7 +101,10 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
         keywords: fallback.keywords,
         locale: "hi_IN",
       }),
-      links: [{ rel: "canonical", href: `${SITE_URL}${enPath}` }],
+      links: [
+        { rel: "canonical", href: `${SITE_URL}${path}` },
+        ...getAllHreflangLinks(enPath, SITE_URL),
+      ],
     };
   },
   component: HindiNumerologySlugComponent,
@@ -101,17 +113,19 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
 function HindiNumerologySlugComponent() {
   const data = Route.useLoaderData();
   if (data.page) {
+    const Screen = cachedHindiMulankScreen;
+    if (!Screen) return null;
     return (
       <LocaleProvider lang="hi">
-        <HindiMulankNumberScreen />
+        <Screen />
       </LocaleProvider>
     );
   }
+  const Screen = cachedNumerologyNumberScreen;
+  if (!Screen) return null;
   return (
     <LocaleProvider lang="hi">
-      <Suspense fallback={<div className="min-h-dvh bg-background" />}>
-        <LazyNumerologyNumberScreen />
-      </Suspense>
+      <Screen />
     </LocaleProvider>
   );
 }

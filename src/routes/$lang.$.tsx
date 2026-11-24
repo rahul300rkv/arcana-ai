@@ -4,7 +4,7 @@ import { t } from "@/lib/i18n";
 import { LocaleProvider } from "@/lib/language";
 import { buildContentMeta } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
-import { getLocaleByPrefix, localizePath } from "@/locales";
+import { getAllHreflangLinks, getLocaleByPrefix, localizePath } from "@/locales";
 import type { SpreadId } from "@/lib/tarot/types";
 
 const VALID_SPREADS = new Set<string>([
@@ -17,6 +17,191 @@ const VALID_SPREADS = new Set<string>([
   "celtic-cross",
   "year-ahead",
 ]);
+
+const STATIC_SCREEN_SEO: Record<string, { title: string; description: string }> = {
+  privacy: {
+    title: "Privacy Policy | AstroFree",
+    description:
+      "How AstroFree collects, uses, and protects your data, including our use of cookies and advertising.",
+  },
+  terms: {
+    title: "Terms of Use | AstroFree",
+    description:
+      "Terms governing the use of AstroFree's tarot readings, numerology calculators, and interpretive guides.",
+  },
+  disclaimer: {
+    title: "Disclaimer | AstroFree",
+    description:
+      "AstroFree offers reflective tarot and Vedic numerology readings for self-discovery, not professional medical, legal, or financial advice.",
+  },
+  "editorial-policy": {
+    title: "Editorial Policy & Interpretive Methodology | AstroFree",
+    description:
+      "How AstroFree researches, writes, and maintains 78 tarot card meanings, spreads, and Vedic numerology (Ank Shastra) guides.",
+  },
+  "cookie-policy": {
+    title: "Cookie Policy | AstroFree",
+    description:
+      "Details about browser storage, cookies, and ad preferences used on AstroFree.",
+  },
+  contact: {
+    title: "Contact AstroFree",
+    description:
+      "Get in touch with the AstroFree team for feedback, partnerships, corrections, or privacy inquiries.",
+  },
+  dashboard: {
+    title: "Dashboard | AstroFree",
+    description: "Your personal AstroFree tarot reading dashboard, daily card, and reading streaks.",
+  },
+  journal: {
+    title: "Tarot Journal | AstroFree",
+    description: "Review your saved tarot readings and personal card reflections in one private journal.",
+  },
+  profile: {
+    title: "Profile | AstroFree",
+    description: "Manage your AstroFree profile and reading history.",
+  },
+  settings: {
+    title: "Settings | AstroFree",
+    description: "Customize your language, theme, and privacy preferences on AstroFree.",
+  },
+  "bhagyank-calculator": {
+    title: "Bhagyank Calculator: Destiny Number & Life Path | AstroFree",
+    description:
+      "Calculate your Bhagyank (Destiny Number) from your full date of birth and discover your ruling planet, strengths, and career path.",
+  },
+  "namank-calculator": {
+    title: "Namank Calculator: Chaldean Name Number | AstroFree",
+    description:
+      "Calculate your Namank (Name Number) using Vedic & Chaldean numerology to check letter vibrations and compatibility with Mulank.",
+  },
+  "yes-no-tarot": {
+    title: "Yes or No Tarot Reading: Free Instant Oracle | AstroFree",
+    description:
+      "Draw a free Yes or No tarot card for instant upright or reversed clarity on love, career, and life decisions.",
+  },
+  "tarot/yes-no": {
+    title: "Yes or No Tarot Reading: Free Instant Oracle | AstroFree",
+    description:
+      "Draw a free Yes or No tarot card for instant upright or reversed clarity on love, career, and life decisions.",
+  },
+  "career-tarot-reading": {
+    title: "Free Career Tarot Reading & Work Guidance | AstroFree",
+    description:
+      "Draw a 3-card Career Tarot spread for guidance on job changes, promotions, finances, and vocational purpose.",
+  },
+  "tarot/career": {
+    title: "Free Career Tarot Reading & Work Guidance | AstroFree",
+    description:
+      "Draw a 3-card Career Tarot spread for guidance on job changes, promotions, finances, and vocational purpose.",
+  },
+  "major-arcana-tarot-cards-meanings": {
+    title: "Major Arcana Tarot Cards Meanings (0–XXI) | AstroFree",
+    description:
+      "Complete guide to all 22 Major Arcana tarot cards from The Fool to The World, including upright and reversed interpretations.",
+  },
+  "guide/major-arcana-meanings": {
+    title: "Major Arcana Tarot Cards Meanings (0–XXI) | AstroFree",
+    description:
+      "Complete guide to all 22 Major Arcana tarot cards from The Fool to The World, including upright and reversed interpretations.",
+  },
+  "what-do-reversed-tarot-cards-mean": {
+    title: "What Do Reversed Tarot Cards Mean? Complete Guide | AstroFree",
+    description:
+      "Learn how to interpret reversed tarot cards clearly across love, career, and yes/no readings without fear.",
+  },
+  "guide/reversed-tarot-cards": {
+    title: "What Do Reversed Tarot Cards Mean? Complete Guide | AstroFree",
+    description:
+      "Learn how to interpret reversed tarot cards clearly across love, career, and yes/no readings without fear.",
+  },
+  "tarot/one-card": {
+    title: "One Card Tarot Reading: Free Daily Card Pull | AstroFree",
+    description:
+      "Draw one tarot card for a focused, free AI-guided reading for daily check-ins, yes/no clarity, or reflection.",
+  },
+  "tarot/three-card": {
+    title: "Three Card Tarot Reading: Past, Present & Future | AstroFree",
+    description:
+      "Draw a free 3-card tarot spread for Past, Present, Future or Situation, Challenge, Advice.",
+  },
+  "tarot/love": {
+    title: "Free Love Tarot Reading: Relationships & Clarity | AstroFree",
+    description:
+      "Pull a free love tarot spread to explore relationship dynamics, mutual feelings, and emotional clarity.",
+  },
+  "tarot/celtic-cross": {
+    title: "Free Celtic Cross Tarot Reading (10-Card Spread) | AstroFree",
+    description:
+      "Draw a complete 10-card Celtic Cross tarot reading with upright and reversed interpretations.",
+  },
+  "tarot/combinations": {
+    title: "Tarot Card Combinations Meanings Library | AstroFree",
+    description:
+      "Explore powerful 2-card tarot combinations and interactive card pairing synthesis for love, career, and decisions.",
+  },
+  "numerology/compatibility": {
+    title: "Mulank & Bhagyank Compatibility Matrix (81 Pairs) | AstroFree",
+    description:
+      "Check how your Mulank (Birth Number) and Bhagyank (Destiny Number) interact across all 81 Vedic numerology combinations.",
+  },
+  "numerology/bhagyank": {
+    title: "Bhagyank (Destiny Number) Guide 1–9 | AstroFree",
+    description:
+      "Complete Vedic numerology guide to Bhagyank numbers 1 through 9, calculation formula, and life path meanings.",
+  },
+  "numerology/namank": {
+    title: "Namank (Name Number) Guide & Chaldean Chart | AstroFree",
+    description:
+      "Learn how Namank works in Chaldean and Vedic numerology, letter values, and name-number harmony.",
+  },
+  "reading/question": {
+    title: "Ask Your Question | Free Tarot Reading | AstroFree",
+    description: "Set your intention and choose a spread for your free AI-guided tarot reading.",
+  },
+  "reading/shuffle": {
+    title: "Shuffle & Draw Cards | AstroFree",
+    description: "Shuffle the 78-card deck and draw your cards intuitively.",
+  },
+  "reading/reveal": {
+    title: "Reveal Your Tarot Cards | AstroFree",
+    description: "Flip your drawn tarot cards and uncover upright or reversed insights.",
+  },
+  "reading/result": {
+    title: "Your Tarot Reading Interpretation | AstroFree",
+    description: "Read your full AI-guided tarot reading synthesis and save it to your journal.",
+  },
+  "guide/celtic-cross-guide": {
+    title: "Celtic Cross Tarot Spread Guide (All 10 Positions) | AstroFree",
+    description:
+      "Step-by-step guide to reading every position in the classic 10-card Celtic Cross tarot spread.",
+  },
+  "guide/mulank-vs-bhagyank": {
+    title: "Mulank vs Bhagyank: Key Differences Explained | AstroFree",
+    description:
+      "Understand the difference between Mulank (Birth Number) and Bhagyank (Destiny Number) in Vedic Ank Shastra.",
+  },
+  "guide/numerology": {
+    title: "Vedic Numerology (Ank Shastra) Complete Guide | AstroFree",
+    description:
+      "Learn Mulank, Bhagyank, Namank, Personal Year cycles, and how Vedic numbers map to tarot archetypes.",
+  },
+  "guide/tarot-card-meanings": {
+    title: "Tarot Card Meanings Quick Reference Guide | AstroFree",
+    description:
+      "Fast reference guide to all 78 Major and Minor Arcana tarot cards, upright and reversed.",
+  },
+  "guide/tarot-for-beginners": {
+    title: "Tarot for Beginners: How to Read Tarot Cards | AstroFree",
+    description:
+      "A clear, practical beginner's guide to tarot structure, suits, reversals, and reading for yourself.",
+  },
+  "guide/tarot-spreads": {
+    title: "Best Tarot Spreads & Layouts Guide | AstroFree",
+    description:
+      "Compare 1-card, 3-card, love, career, and 10-card Celtic Cross tarot spreads and when to use each.",
+  },
+};
 
 const STATIC_SCREEN_LOADERS: Record<string, () => Promise<ComponentType<any>>> = {
   privacy: () => import("@/screens/PrivacyScreen").then((m) => m.PrivacyScreen),
@@ -140,13 +325,15 @@ export const Route = createFileRoute("/$lang/$" as any)({
     const staticLoader = STATIC_SCREEN_LOADERS[sub];
     if (staticLoader) {
       await loadScreen(sub, staticLoader);
+      const seo = STATIC_SCREEN_SEO[sub];
+      const titleSuffix = ` (${locale.meta.nativeName})`;
       return {
         locale,
         kind: "static" as const,
         sub,
         screenKey: sub,
-        title: t("seo.home.title", locale.meta.code),
-        description: t("seo.home.desc", locale.meta.code),
+        title: seo ? `${seo.title}${titleSuffix}` : t("seo.home.title", locale.meta.code),
+        description: seo ? seo.description : t("seo.home.desc", locale.meta.code),
       };
     }
 
@@ -167,7 +354,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
             sub,
             screenKey: "__tarot_combo__",
             combo,
-            title: combo.title,
+            title: `${combo.title} (${locale.meta.nativeName})`,
             description: combo.description,
           };
         }
@@ -191,7 +378,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
             sub,
             screenKey: "__tarot_card__",
             page,
-            title: page.title,
+            title: `${page.title} (${locale.meta.nativeName})`,
             description: page.description,
           };
         }
@@ -220,7 +407,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair,
             mulank: undefined,
             page: undefined,
-            title: pair.title,
+            title: `${pair.title} (${locale.meta.nativeName})`,
             description: pair.description,
           };
         }
@@ -234,7 +421,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair: undefined,
             mulank,
             page: undefined,
-            title: mulank.title,
+            title: `${mulank.title} (${locale.meta.nativeName})`,
             description: mulank.description,
           };
         }
@@ -248,7 +435,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair: undefined,
             mulank: undefined,
             page,
-            title: page.title,
+            title: `${page.title} (${locale.meta.nativeName})`,
             description: page.description,
           };
         }
@@ -280,7 +467,10 @@ export const Route = createFileRoute("/$lang/$" as any)({
         locale: locale.meta.ogLocale,
         keywords: ["astrofree", locale.meta.englishName, sub],
       }),
-      links: [{ rel: "canonical", href: `${SITE_URL}${basePath}` }],
+      links: [
+        { rel: "canonical", href: `${SITE_URL}${path}` },
+        ...getAllHreflangLinks(basePath, SITE_URL),
+      ],
     };
   },
   component: LangSplatComponent,
