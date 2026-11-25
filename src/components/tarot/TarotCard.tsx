@@ -3,6 +3,8 @@ import { CardBack } from "./CardBack";
 import { CardFront } from "./CardFront";
 import type { TarotCard as TCard } from "@/lib/tarot/types";
 import { cn } from "@/lib/utils";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getLocalizedCardName } from "@/locales/card-terms";
 
 interface Props {
   card: TCard;
@@ -13,9 +15,12 @@ interface Props {
 }
 
 export function TarotCard({ card, reversed, revealed, onReveal, className }: Props) {
+  const [lang] = useLanguage();
+  const t = useTranslate();
+  const localName = getLocalizedCardName(card.name, lang);
   const buttonLabel = revealed
-    ? `${card.name}${reversed ? " (reversed)" : ""} tarot card revealed`
-    : "Face-down tarot card: tap to reveal";
+    ? `${localName}${reversed ? ` (${t("tarotUi.reversed")})` : ""}`
+    : t("tarotUi.tapReveal");
 
   return (
     <motion.button
@@ -37,7 +42,7 @@ export function TarotCard({ card, reversed, revealed, onReveal, className }: Pro
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         <div aria-hidden={Boolean(revealed)} className="absolute inset-0 [backface-visibility:hidden]">
-          <CardBack alt="Face-down tarot card back with celestial crimson and gold filigree pattern" />
+          <CardBack alt={t("tarotUi.cardBackAlt")} />
         </div>
         <div
           aria-hidden={!revealed}

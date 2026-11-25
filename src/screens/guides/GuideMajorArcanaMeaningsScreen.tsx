@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "@/components/LocalizedLink";
 import { Star, Layers, Compass, HelpCircle, BookOpen } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
@@ -7,9 +8,12 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { MAJOR_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
+import { getLocalizedCardNameBySlug } from "@/locales/card-terms";
 
 const PATH = "/major-arcana-tarot-cards-meanings";
-const TITLE = "Major Arcana Tarot Cards & Meanings: All 22 Cards Explained";
 const UPDATED = "2026-11-18";
 
 interface MajorCard {
@@ -302,31 +306,13 @@ const MAJOR_ARCANA: MajorCard[] = [
   },
 ];
 
-const FOOLS_JOURNEY_STAGES = [
-  {
-    stage: "Stage 1 · Cards 0–7",
-    title: "The Outer World, Identity & Mastery",
-    summary:
-      "From The Fool's innocent leap through The Chariot's disciplined drive, the first act builds practical agency in the material world: mentors, boundaries, values, and willpower.",
-    range: [0, 7] as const,
-  },
-  {
-    stage: "Stage 2 · Cards 8–14",
-    title: "Inner Reckoning, Surrender & Transformation",
-    summary:
-      "Strength through Temperance turn the mirror inward. Outgrown identities dissolve through solitude (The Hermit), justice, pause (The Hanged Man), and clean endings (Death).",
-    range: [8, 14] as const,
-  },
-  {
-    stage: "Stage 3 · Cards 15–21",
-    title: "Shadow Work, Illumination & Cosmic Completion",
-    summary:
-      "The final seven cards confront hidden attachments (The Devil) and false structures (The Tower) before opening into renewal (The Star), clarity (The Sun), and wholeness (The World).",
-    range: [15, 21] as const,
-  },
+const STAGE_RANGES: readonly [number, number][] = [
+  [0, 7],
+  [8, 14],
+  [15, 21],
 ];
 
-const FAQS = [
+const FAQS_EN = [
   {
     question: "What makes a card part of the Major Arcana rather than the Minor Arcana?",
     answer:
@@ -355,12 +341,28 @@ const FAQS = [
 ];
 
 export function GuideMajorArcanaMeaningsScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = MAJOR_GUIDE_I18N[language];
+
+  const faqs = useMemo(() => {
+    if (language === "en") return FAQS_EN;
+    return [
+      { question: loc.secWhatIs, answer: loc.whatIsParas.join(" ") },
+      {
+        question: loc.secJourney,
+        answer: loc.stages.map((s) => `${s.stage} (${s.title}): ${s.summary}`).join(" "),
+      },
+      { question: loc.secUsing, answer: loc.usingPara },
+    ];
+  }, [language, loc]);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Major Arcana Meanings" }]}
-      eyebrow="Tarot · Major Arcana"
-      title={TITLE}
-      intro="The 22 Major Arcana (0 The Fool to XXI The World) carry the deck's foundational turning points. Use the complete 22-card reference table, follow the three stages of The Fool's Journey, and explore real reading examples below."
+      crumbs={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: loc.crumb }]}
+      eyebrow={loc.eyebrow}
+      title={loc.title}
+      intro={loc.intro}
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={18}
@@ -373,46 +375,48 @@ export function GuideMajorArcanaMeaningsScreen() {
     >
       <ContentSection
         id="reference-table"
-        title="Complete Major Arcana meanings table (0–XXI)"
+        title={loc.secTable}
         icon={Layers}
       >
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Click any card name to open its dedicated guide covering love, career, finances, outcome
-          positions, and Yes/No verdicts.
+          {loc.tableIntro}
         </p>
         <div className="mt-5 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.04] text-xs uppercase tracking-[0.16em] text-[color:var(--gold)]">
-                <th className="px-4 py-3.5">Number</th>
-                <th className="px-4 py-3.5">Card Name</th>
-                <th className="px-4 py-3.5">Archetype</th>
-                <th className="px-4 py-3.5">Upright Keywords</th>
-                <th className="px-4 py-3.5">Reversed Keywords</th>
+                <th className="px-4 py-3.5">{loc.colNum}</th>
+                <th className="px-4 py-3.5">{loc.colName}</th>
+                <th className="px-4 py-3.5">{loc.colArchetype}</th>
+                <th className="px-4 py-3.5">{loc.colUpright}</th>
+                <th className="px-4 py-3.5">{loc.colReversed}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
-              {MAJOR_ARCANA.map((c) => (
-                <tr key={c.slug} className="hover:bg-white/[0.02]">
-                  <td className="whitespace-nowrap px-4 py-3 font-display text-[color:var(--gold)]">
-                    {c.roman} ({c.number})
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-3 font-display text-base">
-                    <Link
-                      to="/tarot/$slug"
-                      params={{ slug: c.slug }}
-                      className="text-foreground underline underline-offset-4 hover:text-[color:var(--gold)]"
-                    >
-                      {c.name}
-                    </Link>
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
-                    {c.archetype}
-                  </td>
-                  <td className="px-4 py-3 text-foreground/90">{c.keywords}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{c.reversedKeywords}</td>
-                </tr>
-              ))}
+              {MAJOR_ARCANA.map((c) => {
+                const locName = getLocalizedCardNameBySlug(c.slug, c.name, language);
+                return (
+                  <tr key={c.slug} className="hover:bg-white/[0.02]">
+                    <td className="whitespace-nowrap px-4 py-3 font-display text-[color:var(--gold)]">
+                      {c.roman} ({c.number})
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 font-display text-base">
+                      <Link
+                        to="/tarot/$slug"
+                        params={{ slug: c.slug }}
+                        className="text-foreground underline underline-offset-4 hover:text-[color:var(--gold)]"
+                      >
+                        {locName}
+                      </Link>
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
+                      {c.archetype}
+                    </td>
+                    <td className="px-4 py-3 text-foreground/90">{c.keywords}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{c.reversedKeywords}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -420,18 +424,17 @@ export function GuideMajorArcanaMeaningsScreen() {
 
       <ContentSection
         id="fools-journey"
-        title="The Three Stages of The Fool's Journey (0–21)"
+        title={loc.secJourney}
         icon={Compass}
       >
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Tarot teachers divide cards 0 through 21 into three consecutive groups of growth. Checking
-          which stage dominates a spread instantly tells you whether a question sits in outer
-          action (0–7), inner reckoning (8–14), or deep transformation and closure (15–21).
+          {loc.journeyIntro}
         </p>
         <div className="mt-5 grid gap-5 md:grid-cols-3">
-          {FOOLS_JOURNEY_STAGES.map((stage) => {
+          {loc.stages.map((stage, idx) => {
+            const range = STAGE_RANGES[idx] ?? [0, 21];
             const groupCards = MAJOR_ARCANA.filter(
-              (c) => c.number >= stage.range[0] && c.number <= stage.range[1],
+              (c) => c.number >= range[0] && c.number <= range[1],
             );
             return (
               <GlassCard key={stage.stage} className="flex flex-col p-5">
@@ -441,17 +444,20 @@ export function GuideMajorArcanaMeaningsScreen() {
                 <h3 className="mt-1.5 font-display text-lg text-foreground">{stage.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.summary}</p>
                 <ul className="mt-4 flex flex-wrap gap-2 border-t border-white/10 pt-3">
-                  {groupCards.map((c) => (
-                    <li key={c.slug}>
-                      <Link
-                        to="/tarot/$slug"
-                        params={{ slug: c.slug }}
-                        className="inline-block rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs text-foreground/90 transition-colors hover:border-[color:var(--gold)]/50 hover:text-[color:var(--gold)]"
-                      >
-                        {c.roman}. {c.name}
-                      </Link>
-                    </li>
-                  ))}
+                  {groupCards.map((c) => {
+                    const locName = getLocalizedCardNameBySlug(c.slug, c.name, language);
+                    return (
+                      <li key={c.slug}>
+                        <Link
+                          to="/tarot/$slug"
+                          params={{ slug: c.slug }}
+                          className="inline-block rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs text-foreground/90 transition-colors hover:border-[color:var(--gold)]/50 hover:text-[color:var(--gold)]"
+                        >
+                          {c.roman}. {locName}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </GlassCard>
             );
@@ -461,108 +467,99 @@ export function GuideMajorArcanaMeaningsScreen() {
 
       <ContentSection
         id="what-is-major-arcana"
-        title="What the Major Arcana represent"
+        title={loc.secWhatIs}
         icon={BookOpen}
       >
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Of the 78 cards in a tarot deck, 22 belong to the Major Arcana: numbered 0 through 21,
-          from The Fool to The World. Where the 56 Minor Arcana cards describe the practical texture
-          of everyday life, the Major Arcana describe archetypal forces: the kind of turning points,
-          lessons, and life-shaping events that come along a handful of times, not every week.
-        </p>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          You don't need to memorise esoteric correspondences to read the cards well, but knowing
-          the arc helps explain why card numbers matter: a low-numbered Major Arcana tends to
-          describe something initiating, while a high-numbered one marks major resolution.
-        </p>
+        {loc.whatIsParas.map((para, i) => (
+          <p
+            key={para}
+            className={`${i > 0 ? "mt-4 " : ""}text-sm leading-relaxed text-muted-foreground sm:text-base`}
+          >
+            {para}
+          </p>
+        ))}
       </ContentSection>
 
-      <ContentSection id="cards" title="All 22 cards, with real examples" icon={Layers}>
+      <ContentSection id="cards" title={loc.secAll22} icon={Layers}>
         <div className="grid gap-4 sm:grid-cols-2">
-          {MAJOR_ARCANA.map((c) => (
-            <GlassCard key={c.slug} id={c.slug} className="scroll-mt-24 p-5">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-lg">
-                  <Link
-                    to="/tarot/$slug"
-                    params={{ slug: c.slug }}
-                    className="hover:text-[var(--gold)]"
-                  >
-                    {c.roman} ({c.number}). {c.name}
-                  </Link>
-                </h3>
-                <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                  {c.archetype}
-                </span>
-              </div>
-              <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-                {c.keywords}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.meaning}</p>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/80">
-                <span className="text-xs uppercase tracking-wide text-muted-foreground">
-                  Real example:{" "}
-                </span>
-                {c.example}
-              </p>
-            </GlassCard>
-          ))}
+          {MAJOR_ARCANA.map((c) => {
+            const locName = getLocalizedCardNameBySlug(c.slug, c.name, language);
+            return (
+              <GlassCard key={c.slug} id={c.slug} className="scroll-mt-24 p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="font-display text-lg">
+                    <Link
+                      to="/tarot/$slug"
+                      params={{ slug: c.slug }}
+                      className="hover:text-[var(--gold)]"
+                    >
+                      {c.roman} ({c.number}). {locName}
+                    </Link>
+                  </h3>
+                  <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                    {c.archetype}
+                  </span>
+                </div>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
+                  {c.keywords}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.meaning}</p>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/80">
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">
+                    {loc.realExampleLabel}{" "}
+                  </span>
+                  {c.example}
+                </p>
+              </GlassCard>
+            );
+          })}
         </div>
       </ContentSection>
 
-      <ContentSection id="using-examples" title="How to use these examples" icon={Compass}>
+      <ContentSection id="using-examples" title={loc.secUsing} icon={Compass}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The scenarios above are illustrations, not the only valid reading: the same card can
-          describe many different situations that share its underlying theme. When a Major Arcana
-          card appears in your own spread, use the example as a starting point, then ask how that
-          same theme (a beginning, a collapse, a pause, a resolution) might be showing up in the
-          specific area your question was about.
+          {loc.usingPara}
         </p>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          It also helps to check the card against its position in the spread. The same Tower card
-          means something different landing in a "past" slot (a disruption that already happened and
-          shaped where you are now) than in an "outcome" slot (a warning about what's coming if the
-          current path continues). For a full breakdown of spread positions, see AstroFree's{" "}
           <Link to="/guide/tarot-spreads" className="text-[var(--gold)] hover:underline">
-            tarot spreads guide
+            {t("guideHub.g2Title")} →
           </Link>
-          .
         </p>
       </ContentSection>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
-        <FAQAccordion items={FAQS} />
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
+        <FAQAccordion items={faqs} />
       </ContentSection>
 
       <KeepExploring
         links={[
           {
             to: "/what-do-reversed-tarot-cards-mean",
-            label: "What do reversed tarot cards mean?",
-            blurb: "The four common ways a reversed card changes its upright meaning.",
+            label: t("guideHub.g5Title"),
+            blurb: t("guideHub.g5Body"),
           },
           {
             to: "/career-tarot-reading",
-            label: "Free Career Tarot Spread",
-            blurb: "Draw a 3-card career reading and compare Life Path 1–9 career paths.",
+            label: t("tarotHub.rt5Title"),
+            blurb: t("tarotHub.rt5Body"),
           },
           {
             to: "/yes-no-tarot",
-            label: "Free Yes or No Tarot Oracle",
-            blurb: "Ask the universe a direct question for an instant Yes, No, or Maybe answer.",
+            label: t("tarotHub.rt4Title"),
+            blurb: t("tarotHub.rt4Body"),
           },
           {
             to: "/tarot",
-            label: "Browse all 78 tarot cards",
-            blurb: "Every Major and Minor Arcana card with love, career, and outcome meanings.",
+            label: t("tarotUi.all78Cards"),
+            blurb: t("tarotHub.intro"),
           },
         ]}
       />
 
       <CTASection
-        title="See these cards in a live reading"
-        body="Draw a free spread and get an instant, plain-language interpretation of every Major Arcana card that appears."
-        ctaLabel="Start a free reading"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={loc.ctaLabel}
         to="/reading"
       />
     </ArticleLayout>

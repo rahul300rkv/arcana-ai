@@ -8,14 +8,21 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { BHAGYANK_MEANINGS, BHAGYANK_HUB_FAQS, BHAGYANK_UPDATED } from "@/data/bhagyank";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getBhagyankLocale } from "@/locales/guides-num-i18n";
 
 export function BhagyankHubScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getBhagyankLocale(language);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Numerology", to: "/numerology" }, { label: "Bhagyank" }]}
-      eyebrow="Numerology Guide"
-      title="Bhagyank: your Destiny Number, explained"
-      intro="Bhagyank: commonly known as the Destiny Number in Indian numerology, and often compared with the Western Life Path Number: comes from your complete date of birth. It describes your broader life direction, natural talents, and the kinds of challenges you're likely to encounter. This guide covers how to calculate it, what each number 1–9 and Master Number represents, and how the terminology compares across traditions."
+      crumbs={[{ label: BREADCRUMB_LABELS.numerology[language], to: "/numerology" }, { label: loc.hubCrumb }]}
+      eyebrow={loc.hubEyebrow}
+      title={loc.hubTitle}
+      intro={loc.hubIntro}
       url={`${SITE_URL}/numerology/bhagyank`}
       updated={BHAGYANK_UPDATED}
       readingMinutes={12}
@@ -28,7 +35,7 @@ export function BhagyankHubScreen() {
     >
       <ContentSection
         id="what-is-bhagyank"
-        title="What is Bhagyank?"
+        title={loc.secWhatIs}
         icon={BookOpen}
         paragraphs={[
           "Bhagyank is the single digit, or Master Number, you get by adding every digit of your complete date of birth together, repeatedly reducing until one digit remains, unless the intermediate sum is 11, 22, or 33, which numerological tradition preserves unreduced.",
@@ -39,7 +46,7 @@ export function BhagyankHubScreen() {
 
       <ContentSection
         id="how-to-calculate"
-        title="How to calculate your Bhagyank"
+        title={loc.secHowCalc}
         icon={Calculator}
         paragraphs={[
           "Write your date of birth as day, month, and full four-digit year. Add every single digit together. If the total is more than one digit, add those digits together, and keep going until you reach a single digit: unless you land on 11, 22, or 33, in which case tradition says you stop there, as these are treated as Master Numbers with their own separate meanings.",
@@ -53,7 +60,7 @@ export function BhagyankHubScreen() {
             </p>
             <p className="mt-2 text-sm text-muted-foreground">15 August 1995</p>
             <p className="mt-3 font-display text-lg aurora-text">1+5+0+8+1+9+9+5 = 38</p>
-            <p className="mt-2 text-sm text-muted-foreground">3 + 8 = 11 (Master Number)</p>
+            <p className="mt-2 text-sm text-muted-foreground">3 + 8 = 11 ({t("calcUi.masterNumber")})</p>
           </GlassCard>
 
           <GlassCard className="p-6">
@@ -78,13 +85,13 @@ export function BhagyankHubScreen() {
           to="/bhagyank-calculator"
           className="mt-6 inline-flex min-h-12 items-center text-sm text-[var(--gold)] hover:underline"
         >
-          Calculate your Bhagyank automatically →
+          {t("calcUi.openFreeCalc")} →
         </Link>
       </ContentSection>
 
       <ContentSection
         id="all-numbers"
-        title="All Bhagyank numbers 1–9 and Master Numbers"
+        title={loc.secAllNumbers}
         icon={Compass}
       >
         <ul className="grid gap-4 sm:grid-cols-2">
@@ -113,7 +120,7 @@ export function BhagyankHubScreen() {
 
       <ContentSection
         id="how-to-use"
-        title="How to use your Life Path number"
+        title={loc.secHowToUse}
         icon={Sparkles}
         paragraphs={[
           "Your Bhagyank is not a prediction of your future: it is a map of your natural tendencies and likely growth edges. The number describes both gifts and challenges. A Bhagyank 8 person naturally understands power and money, but needs to guard against losing themselves in ambition. A Bhagyank 7 naturally seeks depth and truth, but can isolate themselves through over-analysis.",
@@ -122,7 +129,7 @@ export function BhagyankHubScreen() {
         ]}
       />
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={BHAGYANK_HUB_FAQS} />
       </ContentSection>
 
@@ -130,37 +137,36 @@ export function BhagyankHubScreen() {
         links={[
           {
             to: "/bhagyank-calculator",
-            label: "Free Bhagyank calculator",
-            blurb: "Enter your complete date of birth to get your Destiny Number instantly.",
+            label: loc.calcCrumb,
+            blurb: loc.calcIntro,
           },
           {
             to: "/numerology/mulank",
-            label: "Mulank (Birth Number) guide",
-            blurb: "Learn how your day of birth shapes your everyday personality.",
+            label: `${BREADCRUMB_LABELS.mulank[language]} (1–9)`,
+            blurb: t("numerologyLanding.step1Body"),
           },
           {
             to: "/namank-calculator",
-            label: "Free Namank calculator",
-            blurb:
-              "Calculate your Name Number and discover how your name's letters shape your identity.",
+            label: t("numerologyLanding3.cta"),
+            blurb: t("numerologyLanding.step2Body"),
           },
           {
             to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb: "Master numbers, digit reduction, and the philosophy behind the system.",
+            label: `${BREADCRUMB_LABELS.guides[language]} · ${BREADCRUMB_LABELS.numerology[language]}`,
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: "The tarot archetypes that correspond to each Life Path number.",
+            label: t("tarotUi.all78Cards"),
+            blurb: t("tarotHub.intro"),
           },
         ]}
       />
 
       <CTASection
-        title="Discover your Life Path in seconds"
-        body="Enter your complete date of birth to get your Bhagyank, Personal Year number, and the tarot archetype that mirrors your path."
-        ctaLabel="Open the free calculator"
+        title={loc.hubCtaTitle}
+        body={loc.hubCtaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/bhagyank-calculator"
       />
     </ArticleLayout>

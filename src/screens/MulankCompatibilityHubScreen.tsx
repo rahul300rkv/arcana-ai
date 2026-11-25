@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "@/components/LocalizedLink";
-import { ArrowRight, Compass, HeartHandshake, HelpCircle, Sparkles } from "@/components/icons";
+import { ArrowRight, Compass, HeartHandshake, HelpCircle } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
@@ -12,7 +12,11 @@ import {
   PAIRS_UPDATED,
   type PairHarmony,
 } from "@/data/mulank-bhagyank-pairs";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
+import { getLocalizedPlanet } from "@/locales/card-terms";
+import { getNumerologyNumUi } from "@/locales/guides-num-i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
 
 export const COMPATIBILITY_HUB_FAQS = [
   {
@@ -46,6 +50,9 @@ const HARMONY_BADGE: Record<PairHarmony, string> = {
 };
 
 export function MulankCompatibilityHubScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getNumerologyNumUi(language);
   const [selectedMulank, setSelectedMulank] = useState<number>(1);
   const [selectedBhagyank, setSelectedBhagyank] = useState<number>(5);
 
@@ -54,15 +61,22 @@ export function MulankCompatibilityHubScreen() {
     [selectedMulank, selectedBhagyank],
   );
 
+  const harmonyLabel =
+    livePair.harmony === "synergy"
+      ? t("calcUi.friendly")
+      : livePair.harmony === "balanced"
+        ? t("calcUi.neutral")
+        : t("calcUi.growth");
+
   return (
     <ArticleLayout
       crumbs={[
-        { label: "Numerology", to: "/numerology" },
-        { label: "Mulank × Bhagyank Compatibility" },
+        { label: BREADCRUMB_LABELS.numerology[language], to: "/numerology" },
+        { label: BREADCRUMB_LABELS.compatibility[language] },
       ]}
-      eyebrow="81 Vedic Numerology Pairs"
-      title="Mulank & Bhagyank Compatibility Matrix (1–9 × 1–9)"
-      intro="Check how your Birth Number (Mulank) interacts with your Destiny Number (Bhagyank) across all 81 classical Navagraha planetary pairings. Select your two numbers below or explore the full 9×9 grid."
+      eyebrow={ui.compatEyebrow}
+      title={ui.compatTitle}
+      intro={ui.compatIntro}
       url={`${SITE_URL}/numerology/compatibility`}
       updated={PAIRS_UPDATED}
       readingMinutes={8}
@@ -72,7 +86,7 @@ export function MulankCompatibilityHubScreen() {
           <div>
             <span className="block font-display text-5xl aurora-text">81</span>
             <span className="mt-1 block text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Pair Matrix
+              {ui.compatPairMatrix}
             </span>
           </div>
         </GlassCard>
@@ -83,16 +97,16 @@ export function MulankCompatibilityHubScreen() {
           className="rounded-2xl border border-[color:var(--gold)]/40 bg-white/[0.03] p-5 sm:p-7"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-            Interactive Compatibility Checker
+            {t("calcUi.compatKicker")}
           </p>
           <h2 id="interactive-matcher-heading" className="mt-1 font-display text-xl sm:text-2xl">
-            Test Your Mulank + Bhagyank Combination
+            {t("calcUi.compatHeading")}
           </h2>
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="select-mulank" className="block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                Your Mulank (Birth Day 1–9)
+                {ui.compatSelectMulank}
               </label>
               <select
                 id="select-mulank"
@@ -102,14 +116,14 @@ export function MulankCompatibilityHubScreen() {
               >
                 {NUMBERS.map((n) => (
                   <option key={n} value={n}>
-                    Mulank {n}
+                    {BREADCRUMB_LABELS.mulank[language]} {n}
                   </option>
                 ))}
               </select>
             </div>
             <div>
               <label htmlFor="select-bhagyank" className="block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                Your Bhagyank (Destiny 1–9)
+                {ui.compatSelectBhagyank}
               </label>
               <select
                 id="select-bhagyank"
@@ -119,7 +133,7 @@ export function MulankCompatibilityHubScreen() {
               >
                 {NUMBERS.map((n) => (
                   <option key={n} value={n}>
-                    Bhagyank {n}
+                    {BREADCRUMB_LABELS.bhagyank[language]} {n}
                   </option>
                 ))}
               </select>
@@ -130,15 +144,15 @@ export function MulankCompatibilityHubScreen() {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="font-display text-lg sm:text-xl text-foreground">
-                  {livePair.headline}
+                  {BREADCRUMB_LABELS.mulank[language]} {livePair.mulank} × {BREADCRUMB_LABELS.bhagyank[language]} {livePair.bhagyank}
                 </p>
                 <p className="mt-0.5 text-xs text-muted-foreground">
-                  {livePair.mulankPlanet} × {livePair.bhagyankPlanet}
+                  {getLocalizedPlanet(livePair.mulankPlanet, language)} × {getLocalizedPlanet(livePair.bhagyankPlanet, language)}
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${HARMONY_BADGE[livePair.harmony]}`}>
-                  {livePair.harmonyLabel} · {livePair.score}/100
+                  {harmonyLabel} · {livePair.score}/100
                 </span>
               </div>
             </div>
@@ -149,14 +163,14 @@ export function MulankCompatibilityHubScreen() {
                 params={{ slug: livePair.slug }}
                 className="inline-flex items-center gap-1.5 font-semibold text-[color:var(--gold)] hover:underline"
               >
-                Read Full Mulank {livePair.mulank} &amp; Bhagyank {livePair.bhagyank} Guide
+                {ui.compatReadFull} {livePair.mulank} &amp; {BREADCRUMB_LABELS.bhagyank[language]} {livePair.bhagyank}
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden />
               </Link>
               <Link
                 to="/numerology"
                 className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
               >
-                Don&apos;t know your numbers? Calculate free →
+                {ui.compatCalcFree}
               </Link>
             </div>
           </GlassCard>
@@ -165,25 +179,23 @@ export function MulankCompatibilityHubScreen() {
     >
       <ContentSection
         id="matrix"
-        title="Complete 81-Pair Directory (Mulank 1–9 × Bhagyank 1–9)"
+        title={ui.compatDirectoryTitle}
         icon={Compass}
-        paragraphs={[
-          "Click any cell in the Vedic compatibility matrix below to open the dedicated full-length guide covering personality interplay, career roles, marriage dynamics, planetary remedies, and Tarot correspondence for that exact Mulank and Bhagyank pair.",
-        ]}
+        paragraphs={[ui.compatDirectoryDesc]}
       >
         <div className="space-y-4">
           {NUMBERS.map((m) => (
             <GlassCard key={m} className="p-4 sm:p-5">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
                 <h3 className="font-display text-lg text-[color:var(--gold)]">
-                  Mulank {m} Pairings
+                  {BREADCRUMB_LABELS.mulank[language]} {m} {ui.compatPairingsSuffix}
                 </h3>
                 <Link
                   to="/numerology/$slug"
                   params={{ slug: `mulank-${m}` }}
                   className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 >
-                  About Mulank {m} →
+                  {ui.compatAboutMulank} {m} →
                 </Link>
               </div>
               <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-9">
@@ -213,7 +225,7 @@ export function MulankCompatibilityHubScreen() {
 
       <ContentSection
         id="how-planetary-friendship-works"
-        title="How Vedic planetary friendship shapes your pair"
+        title={ui.compatPlanetaryTitle}
         icon={HeartHandshake}
         paragraphs={[
           "Traditional Indian Ank Shastra evaluates every Mulank and Bhagyank pair through the relationship of their ruling Navagraha lords. Harmonious combinations such as Sun (1) with Jupiter (3) or Venus (6) with Mercury (5) minimize internal self-sabotage so talent reaches its goal without unnecessary second-guessing.",
@@ -221,7 +233,7 @@ export function MulankCompatibilityHubScreen() {
         ]}
       />
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={COMPATIBILITY_HUB_FAQS} />
       </ContentSection>
 
@@ -229,31 +241,31 @@ export function MulankCompatibilityHubScreen() {
         links={[
           {
             to: "/numerology",
-            label: "Mulank & Bhagyank Calculator",
-            blurb: "Compute both your Birth Number and Destiny Number from one date of birth.",
+            label: t("numerologyLanding2.cta"),
+            blurb: t("calcUi.openFreeCalc"),
           },
           {
             to: "/guide/mulank-vs-bhagyank",
-            label: "Mulank vs. Bhagyank Guide",
-            blurb: "Detailed comparison of day-of-birth temperament vs full-date destiny.",
+            label: t("guideHub.g8Title"),
+            blurb: t("guideHub.g8Body"),
           },
           {
-            to: "/hi/numerology/mulank",
-            label: "हिंदी मूलांक मार्गदर्शिका",
-            blurb: "मूलांक 1 से 9 तक संपूर्ण विवरण हिंदी भाषा में पढ़ें।",
+            to: "/numerology/mulank",
+            label: ui.completeMulankGuide,
+            blurb: `${BREADCRUMB_LABELS.mulank[language]} 1–9`,
           },
           {
             to: "/tarot/combinations",
-            label: "Tarot Card Combinations Explorer",
-            blurb: "Interpret two tarot cards appearing together across love, work, and Yes/No.",
+            label: t("calcUi.comboCrumb"),
+            blurb: t("calcUi.comboHeading"),
           },
         ]}
       />
 
       <CTASection
-        title="Check your exact Mulank & Bhagyank"
-        body="Enter your date of birth to compute your Birth Number, Destiny Number, and Personal Year instantly."
-        ctaLabel="Open the free calculator"
+        title={ui.compatCtaTitle}
+        body={ui.compatCtaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/numerology"
       />
     </ArticleLayout>

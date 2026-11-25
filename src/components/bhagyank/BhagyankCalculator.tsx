@@ -14,6 +14,8 @@ import {
   type BhagyankResult,
 } from "@/lib/numerology/bhagyank";
 import { BHAGYANK_MEANINGS } from "@/data/bhagyank";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getBhagyankLocale } from "@/locales/guides-num-i18n";
 
 interface Props {
   onViewMeaning?: (value: number) => void;
@@ -21,6 +23,7 @@ interface Props {
 
 /** Live "your Bhagyank would be…" preview shown the moment a full date is picked. */
 function LivePreview({ dob }: { dob: string }) {
+  const t = useTranslate();
   const preview = useMemo(() => {
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dob.trim());
     if (!m) return null;
@@ -54,7 +57,7 @@ function LivePreview({ dob }: { dob: string }) {
           >
             <div className="flex items-center gap-2">
               <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                Your Bhagyank
+                {t("calcUi.yourBhagyank")}
               </span>
               <motion.span
                 key={preview.value}
@@ -66,7 +69,7 @@ function LivePreview({ dob }: { dob: string }) {
                 {preview.value}
               </motion.span>
               {preview.isMasterNumber && (
-                <span className="text-xs text-muted-foreground">· Master Number</span>
+                <span className="text-xs text-muted-foreground">· {t("calcUi.masterNumber")}</span>
               )}
             </div>
             <StepTrail steps={preview.steps} className="mt-2" />
@@ -79,6 +82,9 @@ function LivePreview({ dob }: { dob: string }) {
 
 export function BhagyankCalculator({ onViewMeaning }: Props) {
   const inputId = useId();
+  const [lang] = useLanguage();
+  const t = useTranslate();
+  const bhUi = getBhagyankLocale(lang);
   const [dobInput, setDobInput] = useState("");
   const [maxDate, setMaxDate] = useState("2026-12-31");
   const [error, setError] = useState<string | null>(null);
@@ -94,7 +100,7 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
     setError(null);
 
     if (!dobInput) {
-      setError("Please select your date of birth.");
+      setError(t("calcUi.errSelectDob"));
       setResult(null);
       return;
     }
@@ -105,7 +111,7 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
       setResult(calc);
       setSubmittedDob(dobInput);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : t("calcUi.errGeneric"));
       setResult(null);
     }
   }
@@ -121,12 +127,11 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
 
   return (
     <GlassCard className="relative overflow-hidden p-6 sm:p-8">
-      {/* top accent */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--gold)] to-transparent opacity-60" />
 
       <form onSubmit={onCalculate} className="grid gap-5" noValidate>
         <div>
-          <Label htmlFor={inputId}>Your date of birth</Label>
+          <Label htmlFor={inputId}>{t("calcUi.yourDob")}</Label>
           <Input
             id={inputId}
             type="date"
@@ -140,8 +145,8 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
           />
           {dobInput && !error && (
             <p className="mt-2 text-xs text-muted-foreground">
-              Selected: <span className="text-foreground/80">{formatDobIndian(dobInput)}</span>{" "}
-              (DD/MM/YYYY)
+              {t("calcUi.selected")}{" "}
+              <span className="text-foreground/80">{formatDobIndian(dobInput)}</span> (DD/MM/YYYY)
             </p>
           )}
           <LivePreview dob={dobInput} />
@@ -162,11 +167,11 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
         <div className="flex flex-col gap-3 sm:flex-row">
           <GoldButton type="submit" className="flex-1">
             <Calculator className="h-4 w-4" aria-hidden />
-            Calculate Bhagyank
+            {t("calcUi.calcBhagyank")}
           </GoldButton>
           <GoldButton type="button" variant="secondary" onClick={onReset} className="sm:w-auto">
             <RotateCcw className="h-4 w-4" aria-hidden />
-            Reset
+            {t("calcUi.reset")}
           </GoldButton>
         </div>
       </form>
@@ -186,10 +191,9 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
             >
               <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                 <Sparkles className="h-3 w-3 text-[var(--gold)]" aria-hidden />
-                Your Bhagyank
+                {t("calcUi.yourBhagyank")}
               </span>
 
-              {/* glowing number reveal, same treatment as the Mulank sigil */}
               <div className="relative mt-5">
                 <motion.div
                   aria-hidden
@@ -234,13 +238,11 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
                   transition={{ delay: 0.3 }}
                   className="mt-1 text-xs text-[var(--gold)]"
                 >
-                  This is a Master Number, read as carrying extra intensity in numerological
-                  tradition.
+                  {t("calcUi.masterNote")}
                 </motion.p>
               )}
             </motion.div>
 
-            {/* Calculation breakdown */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -248,16 +250,16 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
               className="mx-auto mt-6 max-w-sm rounded-xl glass p-4 text-center"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Calculation breakdown
+                {t("calcUi.calcBreakdown")}
               </p>
               <p className="mt-2 font-display text-sm text-foreground/90">
-                Date of Birth: {formatDobIndian(submittedDob)}
+                {t("numerology.dobLabel")}: {formatDobIndian(submittedDob)}
               </p>
               <div className="mt-2 flex justify-center">
                 <StepTrail steps={result.steps} className="justify-center sm:text-xs" />
               </div>
               <p className="mt-3 font-display text-sm text-[var(--gold)]">
-                Your Bhagyank is {result.value}
+                {t("calcUi.yourBhagyankIs")} {result.value}
               </p>
             </motion.div>
 
@@ -281,11 +283,10 @@ export function BhagyankCalculator({ onViewMeaning }: Props) {
                 onClick={() => onViewMeaning?.(result.value)}
                 className="inline-flex min-h-12 items-center gap-1.5 px-4 text-base sm:text-sm font-medium text-[var(--gold)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
               >
-                See the full Bhagyank {result.value} meaning ↓
+                {bhUi.seeFullPrefix} {result.value} ↓
               </button>
             </motion.div>
 
-            {/* Display ad: sits below the result, outside the reading flow */}
             <div className="mt-8">
               <DisplayAd />
             </div>

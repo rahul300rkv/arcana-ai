@@ -14,7 +14,11 @@ import {
   synthesizeTarotCombination,
   TAROT_PAGES,
 } from "@/data/tarot-combinations";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
+import { getLocalizedCardNameBySlug } from "@/locales/card-terms";
+import { COMBOS_I18N } from "@/locales/guides-tarot-i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
 
 export const COMBINATIONS_HUB_FAQS = [
   {
@@ -40,6 +44,9 @@ export const COMBINATIONS_HUB_FAQS = [
 ];
 
 export function TarotCombinationsHubScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = COMBOS_I18N[language];
   const [slugA, setSlugA] = useState("the-high-priestess");
   const [slugB, setSlugB] = useState("ten-of-swords");
 
@@ -51,6 +58,9 @@ export function TarotCombinationsHubScreen() {
     () => TAROT_PAGES.find((p) => p.slug === slugB) ?? TAROT_PAGES[59],
     [slugB],
   );
+
+  const locNameA = getLocalizedCardNameBySlug(cardA.slug, cardA.name, language);
+  const locNameB = getLocalizedCardNameBySlug(cardB.slug, cardB.name, language);
 
   const liveSynthesis = useMemo(() => {
     if (cardA.slug === cardB.slug) return null;
@@ -65,12 +75,12 @@ export function TarotCombinationsHubScreen() {
   return (
     <ArticleLayout
       crumbs={[
-        { label: "Tarot", to: "/tarot" },
-        { label: "Tarot Card Combinations" },
+        { label: t("nav.tarot"), to: "/tarot" },
+        { label: BREADCRUMB_LABELS.combinations[language] },
       ]}
-      eyebrow="78×78 Pair Explorer"
-      title="Tarot Card Combinations Meanings: Interactive 2-Card Guide"
-      intro="Real tarot readings speak through relationships between cards, not isolated keywords. Use the live 78-card pairing explorer below to synthesize any two tarot cards, or browse our curated flagship combinations."
+      eyebrow={ui.hubEyebrow}
+      title={ui.hubTitle}
+      intro={ui.hubIntro}
       url={`${SITE_URL}/tarot/combinations`}
       updated={COMBINATIONS_UPDATED}
       readingMinutes={8}
@@ -80,7 +90,7 @@ export function TarotCombinationsHubScreen() {
           <div>
             <span className="block font-display text-4xl aurora-text">78 × 78</span>
             <span className="mt-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              Live Synthesizer
+              {ui.hubBadgeSub}
             </span>
           </div>
         </GlassCard>
@@ -91,16 +101,16 @@ export function TarotCombinationsHubScreen() {
           className="rounded-2xl border border-[color:var(--gold)]/40 bg-white/[0.03] p-5 sm:p-7"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-            Live Two-Card Synthesizer
+            {t("calcUi.comboKicker")}
           </p>
           <h2 id="combo-explorer-heading" className="mt-1 font-display text-xl sm:text-2xl">
-            Pick Any Two Cards From the 78-Card Deck
+            {t("calcUi.comboHeading")}
           </h2>
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="combo-card-a" className="block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                First Card (Root / Theme)
+                {t("calcUi.firstCard")}
               </label>
               <select
                 id="combo-card-a"
@@ -110,14 +120,14 @@ export function TarotCombinationsHubScreen() {
               >
                 {TAROT_PAGES.map((p) => (
                   <option key={p.slug} value={p.slug}>
-                    {p.name}
+                    {getLocalizedCardNameBySlug(p.slug, p.name, language)}
                   </option>
                 ))}
               </select>
             </div>
             <div>
               <label htmlFor="combo-card-b" className="block text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                Second Card (Clarifier / Outcome)
+                {t("calcUi.secondCard")}
               </label>
               <select
                 id="combo-card-b"
@@ -127,7 +137,7 @@ export function TarotCombinationsHubScreen() {
               >
                 {TAROT_PAGES.map((p) => (
                   <option key={p.slug} value={p.slug}>
-                    {p.name}
+                    {getLocalizedCardNameBySlug(p.slug, p.name, language)}
                   </option>
                 ))}
               </select>
@@ -136,7 +146,7 @@ export function TarotCombinationsHubScreen() {
 
           {cardA.slug === cardB.slug ? (
             <GlassCard className="mt-5 p-5 text-sm text-muted-foreground">
-              Choose two distinct cards to see how their archetypes interact in a spread.
+              {t("calcUi.sameCardWarn")}
             </GlassCard>
           ) : (
             liveSynthesis && (
@@ -152,16 +162,16 @@ export function TarotCombinationsHubScreen() {
                   </div>
                   <div>
                     <span className="rounded-full border border-[color:var(--gold)]/45 bg-[color:var(--gold)]/12 px-3 py-1 text-[11px] font-semibold text-[color:var(--gold)]">
-                      {liveSynthesis.themeBadge} · Yes/No: {liveSynthesis.yesNoCombined.label}
+                      {liveSynthesis.themeBadge} · {t("tarotUi.yesNoVerdict")}: {liveSynthesis.yesNoCombined.label}
                     </span>
                     <h3 className="mt-3 font-display text-xl text-foreground">
-                      {liveSynthesis.headline}
+                      {language === "en" ? liveSynthesis.headline : `${locNameA} + ${locNameB}`}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                       {liveSynthesis.quickSummary}
                     </p>
                     <p className="mt-2 text-xs text-muted-foreground">
-                      <strong className="text-foreground">Elemental Synthesis:</strong>{" "}
+                      <strong className="text-foreground">{t("calcUi.elementalSynth")}</strong>{" "}
                       {liveSynthesis.elementalDynamic}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-4 text-xs">
@@ -170,7 +180,7 @@ export function TarotCombinationsHubScreen() {
                         params={{ slug: liveSynthesis.slug }}
                         className="inline-flex items-center gap-1.5 font-semibold text-[color:var(--gold)] hover:underline"
                       >
-                        Open Full {cardA.name} + {cardB.name} Page
+                        {t("calcUi.readCombo")}: {locNameA} + {locNameB}
                         <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                       </Link>
                     </div>
@@ -184,55 +194,53 @@ export function TarotCombinationsHubScreen() {
     >
       <ContentSection
         id="featured-combinations"
-        title="Curated Flagship Tarot Combinations"
+        title={ui.featuredTitle}
         icon={Sparkles}
-        paragraphs={[
-          "Explore detailed interpretations of tarot's most searched and emotionally charged two-card pairings, including key combinations around The High Priestess, Ten of Swords, Nine of Swords, The Lovers, and Justice.",
-        ]}
+        paragraphs={[ui.featuredIntro]}
       >
         <ul className="grid gap-4 sm:grid-cols-2">
-          {CURATED_TAROT_COMBINATIONS.map((combo) => (
-            <li key={combo.slug}>
-              <Link
-                to="/tarot/combinations/$slug"
-                params={{ slug: combo.slug }}
-                className="block h-full"
-              >
-                <GlassCard className="flex h-full flex-col justify-between p-5 transition-transform duration-300 hover:-translate-y-0.5">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--gold)]">
-                      <span>{combo.themeBadge}</span>
-                      <span>Yes/No: {combo.yesNoCombined.label}</span>
+          {CURATED_TAROT_COMBINATIONS.map((combo) => {
+            const nameA = getLocalizedCardNameBySlug(combo.cardASlug, combo.cardA.name, language);
+            const nameB = getLocalizedCardNameBySlug(combo.cardBSlug, combo.cardB.name, language);
+            return (
+              <li key={combo.slug}>
+                <Link
+                  to="/tarot/combinations/$slug"
+                  params={{ slug: combo.slug }}
+                  className="block h-full"
+                >
+                  <GlassCard className="flex h-full flex-col justify-between p-5 transition-transform duration-300 hover:-translate-y-0.5">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--gold)]">
+                        <span>{combo.themeBadge}</span>
+                        <span>{combo.yesNoCombined.label}</span>
+                      </div>
+                      <h3 className="mt-2 font-display text-lg text-foreground">
+                        {nameA} + {nameB}
+                      </h3>
+                      <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                        {combo.quickSummary}
+                      </p>
                     </div>
-                    <h3 className="mt-2 font-display text-lg text-foreground">
-                      {combo.cardA.name} + {combo.cardB.name}
-                    </h3>
-                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                      {combo.quickSummary}
-                    </p>
-                  </div>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[color:var(--gold)]">
-                    Read Combination Meaning <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                  </span>
-                </GlassCard>
-              </Link>
-            </li>
-          ))}
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[color:var(--gold)]">
+                      {t("calcUi.readCombo")} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                    </span>
+                  </GlassCard>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </ContentSection>
 
       <ContentSection
         id="how-combinations-work"
-        title="Three principles for reading card pairs accurately"
+        title={ui.principlesTitle}
         icon={BookOpen}
-        paragraphs={[
-          "First, trace the story direction from left to right. The opening card frames the underlying question or mental climate, while the second card points toward the pivot, challenge, or emerging resolution.",
-          "Second, watch elemental harmony and friction. Two cards sharing the same element (such as Swords with Swords, or Cups with The High Priestess) double down on one mode of experience. Contrasting elements show where instinct and logic must negotiate.",
-          "Third, check Major versus Minor Arcana weight. When a Major Arcana archetype pairs with a Minor pip card, the Major card supplies the larger spiritual theme while the Minor card reveals how it plays out in day-to-day reality.",
-        ]}
+        paragraphs={ui.principlesParas}
       />
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={COMBINATIONS_HUB_FAQS} />
       </ContentSection>
 
@@ -240,31 +248,31 @@ export function TarotCombinationsHubScreen() {
         links={[
           {
             to: "/tarot",
-            label: "All 78 Tarot Card Meanings",
-            blurb: "Search individual upright, reversed, love, and Yes/No meanings.",
+            label: t("tarotUi.all78Cards"),
+            blurb: t("tarotHub.rt1Body"),
           },
           {
-            to: "/reading",
-            label: "Pull a Free 3-Card Spread",
-            blurb: "Draw live cards and get instant AI synthesis across every card pair.",
+            to: "/tarot/three-card",
+            label: t("tarotHub.rt2Title"),
+            blurb: t("tarotHub.rt2Body"),
           },
           {
             to: "/tarot/one-card",
-            label: "Daily Card of the Day",
-            blurb: "Draw a single anchor card for calm morning clarity.",
+            label: t("tarotHub.rt1Title"),
+            blurb: t("tarotHub.rt1Body"),
           },
           {
             to: "/numerology/compatibility",
-            label: "Mulank × Bhagyank 81 Pairs",
-            blurb: "Explore how your Vedic birth and destiny numbers interact.",
+            label: BREADCRUMB_LABELS.compatibility[language],
+            blurb: t("calcUi.compatHeading"),
           },
         ]}
       />
 
       <CTASection
-        title="Test these cards in a live spread"
-        body="Draw cards interactively with full AI contextual synthesis across spread positions and your personal question."
-        ctaLabel="Start free tarot reading"
+        title={ui.ctaHubTitle}
+        body={ui.ctaHubBody}
+        ctaLabel={t("tarotUi.startFreeReading")}
         to="/reading"
       />
     </ArticleLayout>

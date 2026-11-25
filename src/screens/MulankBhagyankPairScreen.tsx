@@ -22,21 +22,43 @@ import {
   type MulankBhagyankProfile,
 } from "@/data/mulank-bhagyank-pairs";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate, setLanguage } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getNumerologyNumUi } from "@/locales/guides-num-i18n";
+import { getLocalizedCardNameBySlug, getLocalizedPlanet } from "@/locales/card-terms";
 
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
 export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile }) {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getNumerologyNumUi(language);
   const path = `/numerology/${pair.slug}`;
+
+  const mulankLabel = BREADCRUMB_LABELS.mulank[language];
+  const bhagyankLabel = BREADCRUMB_LABELS.bhagyank[language];
+  const mulankPlanet = getLocalizedPlanet(pair.mulankPlanet, language);
+  const bhagyankPlanet = getLocalizedPlanet(pair.bhagyankPlanet, language);
+  const mulankCard = getLocalizedCardNameBySlug(
+    pair.tarotBridge.mulankTarotSlug,
+    pair.tarotBridge.mulankCard,
+    language,
+  );
+  const bhagyankCard = getLocalizedCardNameBySlug(
+    pair.tarotBridge.bhagyankTarotSlug,
+    pair.tarotBridge.bhagyankCard,
+    language,
+  );
 
   return (
     <ArticleLayout
       crumbs={[
-        { label: "Numerology", to: "/numerology" },
-        { label: "Compatibility Matrix", to: "/numerology/compatibility" },
-        { label: `Mulank ${pair.mulank} × Bhagyank ${pair.bhagyank}` },
+        { label: BREADCRUMB_LABELS.numerology[language], to: "/numerology" },
+        { label: BREADCRUMB_LABELS.compatibility[language], to: "/numerology/compatibility" },
+        { label: `${mulankLabel} ${pair.mulank} × ${bhagyankLabel} ${pair.bhagyank}` },
       ]}
-      eyebrow={`${pair.mulankPlanet} × ${pair.bhagyankPlanet}`}
-      title={pair.headline}
+      eyebrow={`${mulankPlanet} × ${bhagyankPlanet}`}
+      title={`${mulankLabel} ${pair.mulank} × ${bhagyankLabel} ${pair.bhagyank}: ${pair.archetypeTitle}`}
       intro={pair.summary}
       url={`${SITE_URL}${path}`}
       updated={pair.updated}
@@ -49,7 +71,7 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
               {pair.mulank} · {pair.bhagyank}
             </span>
             <span className="mt-2 block text-xs uppercase tracking-[0.2em] text-[color:var(--gold)]">
-              {pair.score}/100 Match
+              {pair.score}/100 {ui.pairScoreMatch}
             </span>
           </div>
         </GlassCard>
@@ -62,7 +84,7 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <span className="text-xs uppercase tracking-[0.2em] text-[color:var(--gold)]">
-                Planetary Verdict
+                {t("calcUi.planetaryVerdict")}
               </span>
               <p className="mt-1 font-display text-lg text-foreground">
                 {pair.harmonyLabel} ({pair.score}/100)
@@ -74,50 +96,62 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
                 params={{ slug: `mulank-${pair.mulank}` }}
                 className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-foreground hover:border-[color:var(--gold)]/50"
               >
-                Mulank {pair.mulank} Guide
+                {ui.pairMulankGuide} {pair.mulank}
               </Link>
               <Link
                 to="/numerology/$slug"
                 params={{ slug: `life-path-${pair.bhagyank}` }}
                 className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-foreground hover:border-[color:var(--gold)]/50"
               >
-                Bhagyank / Life Path {pair.bhagyank}
+                {ui.pairBhagyankGuide} {pair.bhagyank}
               </Link>
-              <Link
-                to="/hi/numerology/$slug"
-                params={{ slug: `mulank-${pair.mulank}` }}
-                className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[color:var(--gold)] hover:border-[color:var(--gold)]/50"
-              >
-                हिंदी: मूलांक {pair.mulank}
-              </Link>
+              {language === "hi" ? (
+                <Link
+                  to="/numerology/$slug"
+                  params={{ slug: `mulank-${pair.mulank}` }}
+                  onClick={() => setLanguage("en")}
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[color:var(--gold)] hover:border-[color:var(--gold)]/50"
+                >
+                  English: Mulank {pair.mulank}
+                </Link>
+              ) : (
+                <Link
+                  to="/hi/numerology/$slug"
+                  params={{ slug: `mulank-${pair.mulank}` }}
+                  onClick={() => setLanguage("hi")}
+                  className="rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-[color:var(--gold)] hover:border-[color:var(--gold)]/50"
+                >
+                  हिंदी: मूलांक {pair.mulank}
+                </Link>
+              )}
             </div>
           </div>
         </section>
       }
     >
-      <ContentSection id="profile-at-a-glance" title="Combination profile at a glance" icon={Compass}>
+      <ContentSection id="profile-at-a-glance" title={ui.pairProfileGlance} icon={Compass}>
         <InfoGrid
           items={[
-            { label: "Mulank (Driver)", value: `${pair.mulank} (${pair.mulankPlanet})` },
-            { label: "Bhagyank (Destiny)", value: `${pair.bhagyank} (${pair.bhagyankPlanet})` },
-            { label: "Synergy rating", value: `${pair.harmonyLabel} (${pair.score}/100)` },
-            { label: "Archetype", value: pair.archetypeTitle },
-            { label: "Lucky days", value: pair.luckyDays.join(", ") },
-            { label: "Lucky colours", value: pair.luckyColours.join(", ") },
+            { label: ui.pairMulankDriver, value: `${pair.mulank} (${mulankPlanet})` },
+            { label: ui.pairBhagyankDestiny, value: `${pair.bhagyank} (${bhagyankPlanet})` },
+            { label: ui.pairSynergyRating, value: `${pair.harmonyLabel} (${pair.score}/100)` },
+            { label: t("tarotUi.archetype"), value: pair.archetypeTitle },
+            { label: t("calcUi.luckyDays"), value: pair.luckyDays.join(", ") },
+            { label: t("calcUi.luckyColours"), value: pair.luckyColours.join(", ") },
           ]}
         />
       </ContentSection>
 
       <ContentSection
         id="inner-vs-outer"
-        title={`Inner drive (Mulank ${pair.mulank}) vs. Life Destiny (Bhagyank ${pair.bhagyank})`}
+        title={`${ui.pairInnerVsOuter} (${mulankLabel} ${pair.mulank} × ${bhagyankLabel} ${pair.bhagyank})`}
         icon={BookOpen}
         paragraphs={pair.innerVsOuter}
       />
 
       <ContentSection
         id="career"
-        title="Career & financial direction"
+        title={ui.pairCareerDir}
         icon={Briefcase}
         paragraphs={pair.careerAlignment}
       >
@@ -132,19 +166,19 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
 
       <ContentSection
         id="love"
-        title="Love, marriage & partnership harmony"
+        title={ui.pairLoveHarmony}
         icon={HeartHandshake}
         paragraphs={pair.loveDynamics}
       />
 
       <ContentSection
         id="timing"
-        title="Money, maturity age & favorable timing"
+        title={ui.pairMoneyTiming}
         icon={Coins}
         paragraphs={pair.moneyAndTiming}
       />
 
-      <ContentSection id="tarot-bridge" title="Tarot archetypes for this chart" icon={Sparkles}>
+      <ContentSection id="tarot-bridge" title={ui.pairTarotBridge} icon={Sparkles}>
         <GlassCard className="p-6">
           <p className="text-base leading-relaxed text-muted-foreground">
             {pair.tarotBridge.synthesis}
@@ -155,20 +189,20 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
               params={{ slug: pair.tarotBridge.mulankTarotSlug }}
               className="font-semibold text-[color:var(--gold)] hover:underline"
             >
-              Mulank Card: {pair.tarotBridge.mulankCard} →
+              {ui.pairMulankCard} {mulankCard} →
             </Link>
             <Link
               to="/tarot/$slug"
               params={{ slug: pair.tarotBridge.bhagyankTarotSlug }}
               className="font-semibold text-[color:var(--gold)] hover:underline"
             >
-              Bhagyank Card: {pair.tarotBridge.bhagyankCard} →
+              {ui.pairBhagyankCard} {bhagyankCard} →
             </Link>
           </div>
         </GlassCard>
       </ContentSection>
 
-      <ContentSection id="remedies" title="Balancing remedies & daily habits" icon={Wand2}>
+      <ContentSection id="remedies" title={ui.pairRemedies} icon={Wand2}>
         <ul className="space-y-3">
           {pair.remedies.map((r) => (
             <li key={r} className="flex gap-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
@@ -181,7 +215,7 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
 
       <section aria-labelledby="sibling-pairs-heading" className="scroll-mt-24">
         <h2 id="sibling-pairs-heading" className="font-display text-2xl aurora-text sm:text-3xl">
-          Compare Mulank {pair.mulank} with every Bhagyank
+          {ui.pairComparePrefix} {pair.mulank} {ui.pairCompareSuffix}
         </h2>
         <div className="mt-4 grid grid-cols-3 gap-2.5 sm:grid-cols-9">
           {NUMBERS.map((b) => {
@@ -208,7 +242,7 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
         </div>
       </section>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={pair.faqs} />
       </ContentSection>
 
@@ -216,31 +250,31 @@ export function MulankBhagyankPairScreen({ pair }: { pair: MulankBhagyankProfile
         links={[
           {
             to: "/numerology/compatibility",
-            label: "Full 81-Pair Compatibility Matrix",
-            blurb: "Compare any Mulank (1–9) with any Bhagyank (1–9) interactively.",
+            label: t("calcUi.compatHubCrumb"),
+            blurb: ui.compatIntro,
           },
           {
             to: "/numerology",
-            label: "Mulank & Bhagyank Calculator",
-            blurb: "Verify your exact numbers and calculate your current Personal Year.",
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/guide/mulank-vs-bhagyank",
-            label: "Mulank vs. Bhagyank Explained",
-            blurb: "Learn why Birth Number and Destiny Number work together across life stages.",
+            label: `${mulankLabel} × ${bhagyankLabel}`,
+            blurb: t("numerologyLanding.subtitle"),
           },
           {
             to: "/tarot/combinations",
-            label: "Tarot Combinations Explorer",
-            blurb: "Explore paired tarot card meanings for love, work, and daily draws.",
+            label: t("calcUi.comboCrumb"),
+            blurb: t("calcUi.comboHeading"),
           },
         ]}
       />
 
       <CTASection
-        title="Verify your full Vedic chart"
-        body="Enter your date of birth to confirm your Mulank, Bhagyank, and current Personal Year & Month."
-        ctaLabel="Open the free calculator"
+        title={ui.compatCtaTitle}
+        body={ui.compatCtaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/numerology"
       />
     </ArticleLayout>

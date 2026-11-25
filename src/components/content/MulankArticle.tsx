@@ -23,16 +23,31 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { MULANK_PAGES, getMulankPage, type MulankPage } from "@/data/mulank";
 import { setLanguage } from "@/lib/language";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
-
-const VERDICT_LABEL = {
-  friend: "Friendly",
-  neutral: "Neutral",
-  challenge: "Growth",
-} as const;
+import { getLocalizedCardNameBySlug, getLocalizedElement, getLocalizedPlanet } from "@/locales/card-terms";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getNumerologyNumUi } from "@/locales/guides-num-i18n";
 
 /** Full article body for a single `/numerology/mulank-N` page. */
 export function MulankArticle({ page }: { page: MulankPage }) {
+  const [lang] = useLanguage();
+  const t = useTranslate();
+  const ui = getNumerologyNumUi(lang);
+
+  const verdictLabel = {
+    friend: t("calcUi.friendly"),
+    neutral: t("calcUi.neutral"),
+    challenge: t("calcUi.growth"),
+  } as const;
+
+  const mulankWord = BREADCRUMB_LABELS.mulank[lang];
+  const bhagyankWord = BREADCRUMB_LABELS.bhagyank[lang];
+  const localLabel = lang === "en" ? page.label : `${mulankWord} ${page.number}`;
+  const localPlanet = getLocalizedPlanet(page.planet, lang);
+  const localElement = getLocalizedElement(page.element, lang);
+  const localTarotCard = getLocalizedCardNameBySlug(page.tarotSlug, page.tarotCard, lang);
+
   const path = `/numerology/${page.slug}`;
   const index = MULANK_PAGES.findIndex((p) => p.slug === page.slug);
   const prev = index > 0 ? MULANK_PAGES[index - 1] : undefined;
@@ -44,12 +59,12 @@ export function MulankArticle({ page }: { page: MulankPage }) {
   return (
     <ArticleLayout
       crumbs={[
-        { label: "Numerology", to: "/numerology" },
-        { label: "Mulank", to: "/numerology/mulank" },
-        { label: page.label },
+        { label: t("numerology.navLabel"), to: "/numerology" },
+        { label: mulankWord, to: "/numerology/mulank" },
+        { label: localLabel },
       ]}
-      eyebrow="Mulank · Birth Number"
-      title={`${page.label}: ${page.archetype}`}
+      eyebrow={ui.mulankEyebrow}
+      title={`${localLabel}: ${page.archetype}`}
       intro={page.hero}
       url={`${SITE_URL}${path}`}
       updated={page.updated}
@@ -63,86 +78,97 @@ export function MulankArticle({ page }: { page: MulankPage }) {
       afterHeader={
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/15 bg-white/[0.03] px-5 py-3.5 text-xs">
           <span className="text-muted-foreground">
-            Ruled by <strong className="text-[var(--gold)]">{page.planet}</strong> · Dates:{" "}
+            {ui.ruledBy} <strong className="text-[var(--gold)]">{localPlanet}</strong> · {t("calcUi.datesLabel")}{" "}
             <strong className="text-foreground">{page.dates.join(", ")}</strong>
           </span>
           <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/hi/numerology/$slug"
-              params={{ slug: page.slug }}
-              onClick={() => setLanguage("hi")}
-              className="inline-flex items-center gap-1.5 font-semibold text-[var(--gold)] hover:underline"
-            >
-              <Globe className="h-3.5 w-3.5" aria-hidden />
-              हिंदी: मूलांक {page.number}
-            </Link>
+            {lang === "hi" ? (
+              <Link
+                to="/numerology/$slug"
+                params={{ slug: page.slug }}
+                onClick={() => setLanguage("en")}
+                className="inline-flex items-center gap-1.5 font-semibold text-[var(--gold)] hover:underline"
+              >
+                <Globe className="h-3.5 w-3.5" aria-hidden />
+                English: Mulank {page.number}
+              </Link>
+            ) : (
+              <Link
+                to="/hi/numerology/$slug"
+                params={{ slug: page.slug }}
+                onClick={() => setLanguage("hi")}
+                className="inline-flex items-center gap-1.5 font-semibold text-[var(--gold)] hover:underline"
+              >
+                <Globe className="h-3.5 w-3.5" aria-hidden />
+                हिंदी: मूलांक {page.number}
+              </Link>
+            )}
             <Link
               to="/numerology/$slug"
               params={{ slug: `mulank-${page.number}-bhagyank-${page.number}` }}
               className="inline-flex items-center gap-1.5 font-semibold text-foreground hover:text-[var(--gold)] hover:underline"
             >
-              Mulank {page.number} × Bhagyank {page.number} →
+              {mulankWord} {page.number} × {bhagyankWord} {page.number} →
             </Link>
           </div>
         </div>
       }
     >
-      <ContentSection id="dates" title="Who has this Mulank" icon={CalendarDays}>
+      <ContentSection id="dates" title={ui.whoHasMulank} icon={CalendarDays}>
         <div className="flex flex-wrap gap-2">
           {page.dates.map((d) => (
             <span key={d} className="rounded-full glass px-4 py-1.5 text-sm text-[var(--gold)]">
-              Born on the {d}
+              {t("calcUi.bornOnPrefix")} {d}
             </span>
           ))}
         </div>
         <p className="mt-4 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
-          Your Mulank uses only the day of the month. Add its digits until one digit remains, since the
-          month and year belong to your{" "}
+          {ui.mulankCalcNote1}{" "}
           <Link
             to="/numerology/$slug"
             params={{ slug: page.lifePathSlug }}
             className="text-[var(--gold)] hover:underline"
           >
-            Life Path {page.number}
+            {ui.lifePathWord} {page.number}
           </Link>{" "}
-          calculation instead.
+          {ui.mulankCalcNote2}
         </p>
       </ContentSection>
 
-      <ContentSection id="correspondences" title="Mulank at a glance" icon={Compass}>
+      <ContentSection id="correspondences" title={ui.mulankAtGlance} icon={Compass}>
         <InfoGrid
           items={[
-            { label: "Mulank", value: String(page.number) },
-            { label: "Archetype", value: page.archetype },
-            { label: "Ruling planet", value: page.planet },
-            { label: "Deity", value: page.deity },
-            { label: "Element", value: page.element },
-            { label: "Direction", value: page.direction },
-            { label: "Gemstone", value: page.gemstone },
-            { label: "Tarot archetype", value: page.tarotCard },
-            { label: "Birth dates", value: page.dates.join(", ") },
-            { label: "Lucky colours", value: page.luckyColours.join(", ") },
-            { label: "Lucky days", value: page.luckyDays.join(", ") },
+            { label: mulankWord, value: String(page.number) },
+            { label: t("tarotUi.archetype"), value: page.archetype },
+            { label: t("calcUi.rulingPlanet"), value: localPlanet },
+            { label: t("calcUi.deity"), value: page.deity },
+            { label: t("tarotUi.element"), value: localElement },
+            { label: t("calcUi.direction"), value: page.direction },
+            { label: t("calcUi.gemstone"), value: page.gemstone },
+            { label: ui.tarotArchetype.replace(/:$/, ""), value: localTarotCard },
+            { label: ui.birthDates, value: page.dates.join(", ") },
+            { label: t("calcUi.luckyColours"), value: page.luckyColours.join(", ") },
+            { label: t("calcUi.luckyDays"), value: page.luckyDays.join(", ") },
           ]}
         />
       </ContentSection>
 
       <ContentSection
         id="meaning"
-        title={`${page.label} meaning`}
+        title={`${localLabel} ${ui.meaningSuffix}`}
         icon={BookOpen}
         paragraphs={page.meaning}
       />
 
       <ContentSection
         id="personality"
-        title="Personality traits"
+        title={ui.personalityTraits}
         icon={Sparkles}
         paragraphs={page.personality}
       >
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
+            <h3 className="font-display text-lg text-[var(--gold)]">{t("calcUi.strengths")}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.strengths.map((s) => (
                 <li key={s} className="flex gap-2">
@@ -153,7 +179,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Challenges</h3>
+            <h3 className="font-display text-lg">{t("calcUi.challenges")}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.weaknesses.map((s) => (
                 <li key={s} className="flex gap-2">
@@ -168,7 +194,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
 
       <ContentSection
         id="career"
-        title="Career and business"
+        title={ui.careerAndBusiness}
         icon={Briefcase}
         paragraphs={page.career}
       >
@@ -183,7 +209,7 @@ export function MulankArticle({ page }: { page: MulankPage }) {
 
       <ContentSection
         id="love"
-        title="Love and compatibility"
+        title={ui.loveAndCompat}
         icon={HeartHandshake}
         paragraphs={page.love}
       >
@@ -197,14 +223,14 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             >
               <GlassCard className="h-full p-5 transition-colors hover:border-[color:var(--gold)]/45">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-display text-base">Mulank {c.number}</h3>
+                  <h3 className="font-display text-base">{mulankWord} {c.number}</h3>
                   <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
-                    {VERDICT_LABEL[c.verdict]}
+                    {verdictLabel[c.verdict]}
                   </span>
                 </div>
                 <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
                 <span className="mt-3 inline-block text-xs font-semibold text-[var(--gold)]">
-                  Explore Mulank {c.number} →
+                  {ui.exploreMulank} {c.number} →
                 </span>
               </GlassCard>
             </Link>
@@ -214,13 +240,13 @@ export function MulankArticle({ page }: { page: MulankPage }) {
 
       <ContentSection
         id="health"
-        title="Health and wellbeing"
+        title={t("tarotUi.healthHeading")}
         icon={HeartPulse}
         paragraphs={page.health}
       />
-      <ContentSection id="money" title="Money and finances" icon={Coins} paragraphs={page.money} />
+      <ContentSection id="money" title={t("calcUi.moneyFin")} icon={Coins} paragraphs={page.money} />
 
-      <ContentSection id="remedies" title="Remedies and practices" icon={Wand2}>
+      <ContentSection id="remedies" title={t("calcUi.remediesTitle")} icon={Wand2}>
         <ul className="space-y-3">
           {page.remedies.map((r) => (
             <li key={r} className="flex gap-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
@@ -233,12 +259,11 @@ export function MulankArticle({ page }: { page: MulankPage }) {
           ))}
         </ul>
         <p className="mt-4 text-sm sm:text-xs leading-relaxed text-muted-foreground">
-          Remedies are traditional practices for reflection and discipline, not medical, financial
-          or legal advice. Consult a qualified professional before wearing gemstones.
+          {ui.remediesNote}
         </p>
       </ContentSection>
 
-      <ContentSection id="famous" title="Famous people with this Mulank" icon={Users}>
+      <ContentSection id="famous" title={ui.famousMulank} icon={Users}>
         <div className="flex flex-wrap gap-2">
           {page.famous.map((f) => (
             <span key={f} className="rounded-full glass px-3 py-1 text-xs text-muted-foreground">
@@ -248,10 +273,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         </div>
       </ContentSection>
 
-      <ContentSection id="practice" title="Journal and affirmation" icon={NotebookPen}>
+      <ContentSection id="practice" title={t("calcUi.journalAffirm")} icon={NotebookPen}>
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Journal prompts</h3>
+            <h3 className="font-display text-lg">{ui.journalPrompts}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.journalPrompts.map((p, i) => (
                 <li key={i} className="flex gap-2">
@@ -262,18 +287,18 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Affirmation</h3>
+            <h3 className="font-display text-lg">{ui.affirmation}</h3>
             <p className="mt-3 text-base sm:text-[15px] italic leading-relaxed text-foreground/90">
               “{page.affirmation}”
             </p>
             <p className="mt-4 text-base sm:text-sm text-muted-foreground">
-              Tarot archetype:{" "}
+              {ui.tarotArchetype}{" "}
               <Link
                 to="/tarot/$slug"
                 params={{ slug: page.tarotSlug }}
                 className="text-[var(--gold)] hover:underline"
               >
-                {page.tarotCard}
+                {localTarotCard}
               </Link>
             </p>
           </GlassCard>
@@ -282,14 +307,16 @@ export function MulankArticle({ page }: { page: MulankPage }) {
 
       <section aria-labelledby="related-mulank-heading" className="scroll-mt-24">
         <h2 id="related-mulank-heading" className="font-display text-2xl aurora-text sm:text-3xl">
-          Related birth numbers
+          {t("calcUi.relatedBirthNumbers")}
         </h2>
         <ul className="mt-5 grid gap-4 sm:grid-cols-3">
           {related.map((r) => (
             <li key={r.slug}>
               <Link to="/numerology/$slug" params={{ slug: r.slug }} className="block h-full">
                 <GlassCard className="h-full p-4">
-                  <span className="block font-display text-base">{r.label}</span>
+                  <span className="block font-display text-base">
+                    {lang === "en" ? r.label : `${mulankWord} ${r.number}`}
+                  </span>
                   <span className="mt-1 block text-xs text-muted-foreground">{r.archetype}</span>
                 </GlassCard>
               </Link>
@@ -298,11 +325,11 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         </ul>
       </section>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={page.faqs} />
       </ContentSection>
 
-      <nav aria-label="More Mulank numbers" className="grid gap-4 sm:grid-cols-2">
+      <nav aria-label={ui.completeMulankGuide} className="grid gap-4 sm:grid-cols-2">
         <Link
           to={prev ? "/numerology/$slug" : "/numerology/mulank"}
           {...(prev ? { params: { slug: prev.slug } } : {})}
@@ -310,10 +337,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         >
           <GlassCard className="h-full p-4">
             <span className="block text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              {prev ? "Previous" : "Back to"}
+              {prev ? t("common.previous") : t("common.backTo")}
             </span>
             <span className="mt-1 block font-display text-sm">
-              {prev ? prev.label : "The complete Mulank guide"}
+              {prev ? (lang === "en" ? prev.label : `${mulankWord} ${prev.number}`) : ui.completeMulankGuide}
             </span>
           </GlassCard>
         </Link>
@@ -324,10 +351,10 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         >
           <GlassCard className="h-full p-4 text-right">
             <span className="block text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              {next ? "Next" : "Back to"}
+              {next ? t("common.next") : t("common.backTo")}
             </span>
             <span className="mt-1 block font-display text-sm">
-              {next ? next.label : "The complete Mulank guide"}
+              {next ? (lang === "en" ? next.label : `${mulankWord} ${next.number}`) : ui.completeMulankGuide}
             </span>
           </GlassCard>
         </Link>
@@ -337,41 +364,41 @@ export function MulankArticle({ page }: { page: MulankPage }) {
         links={[
           {
             to: "/numerology/mulank",
-            label: "The complete Mulank hub",
-            blurb: `Compare ${page.label} with all nine birth-day archetypes side by side.`,
+            label: t("mulankHub.title"),
+            blurb: t("numHub.rel1Body"),
           },
           {
             to: "/numerology/compatibility",
-            label: "Mulank × Bhagyank 81-Pair Matrix",
-            blurb: `See how ${page.label} interacts with every Destiny Number 1 through 9.`,
+            label: t("numHub.rel4Title"),
+            blurb: t("lfooter.n3"),
           },
           {
             to: "/bhagyank-calculator",
-            label: "Free Bhagyank calculator",
-            blurb: "Compute your full-date Destiny Number and pair it with your Mulank.",
+            label: t("numHub.rel2Title"),
+            blurb: t("numHub.rel2Body"),
           },
           {
             to: "/namank-calculator",
-            label: "Chaldean Namank calculator",
-            blurb: "Check how your name's vibration supports your Mulank energy.",
+            label: t("numHub.rel3Title"),
+            blurb: t("numHub.rel3Body"),
           },
           {
             to: "/guide/mulank-vs-bhagyank",
-            label: "Mulank vs. Bhagyank",
-            blurb: `See how ${page.label} driver energy interacts with full-date destiny paths.`,
+            label: t("lfooter.n6"),
+            blurb: t("numHub.rel4Body"),
           },
           {
             to: "/tarot",
-            label: `${page.tarotCard} & 78 cards`,
-            blurb: `Pair ${page.planet} birth traits with classic Rider–Waite–Smith imagery.`,
+            label: `${localTarotCard} · ${t("tarotUi.all78Cards")}`,
+            blurb: t("tarotHub.t1Body"),
           },
         ]}
       />
 
       <CTASection
-        title={`Explore your ${page.label} forecast`}
-        body={`Pair ${page.label} (${page.dates.join(", ")}) with your Personal Year and tarot archetype inside the free instant calculator.`}
-        ctaLabel="Open the free calculator"
+        title={`${localLabel} — ${t("numerology.title")}`}
+        body={`${t("mulankHub.ctaBody")}`}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/numerology"
       />
     </ArticleLayout>

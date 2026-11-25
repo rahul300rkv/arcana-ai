@@ -6,49 +6,22 @@ import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
 import { ReadingLanding } from "@/components/tarot/ReadingLanding";
 import { THREE_CARD_CONFIG } from "@/data/tarot-landings";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { drawCards, getCardById } from "@/lib/tarot/engine";
-import type { DrawnCard, TarotCard as TarotCardType } from "@/lib/tarot/types";
+import type { DrawnCard } from "@/lib/tarot/types";
+import {
+  getLocalizedArcana,
+  getLocalizedCardNameBySlug,
+  getLocalizedSuit,
+} from "@/locales/card-terms";
+import {
+  buildLocalizedThreeCardNote,
+  getThreeCardUi,
+} from "@/locales/spreads-i18n";
 
 type SpreadFramingId = "timeline" | "troubleshoot" | "wellness";
 
-interface SpreadPositionDef {
-  label: string;
-  subtitle: string;
-}
-
-const FRAMINGS: {
-  id: SpreadFramingId;
-  tabLabel: string;
-  positions: [SpreadPositionDef, SpreadPositionDef, SpreadPositionDef];
-}[] = [
-  {
-    id: "timeline",
-    tabLabel: "Past · Present · Future",
-    positions: [
-      { label: "1 · Past", subtitle: "What shaped this situation" },
-      { label: "2 · Present", subtitle: "Where you stand right now" },
-      { label: "3 · Future", subtitle: "Where current momentum leads" },
-    ],
-  },
-  {
-    id: "troubleshoot",
-    tabLabel: "Situation · Challenge · Advice",
-    positions: [
-      { label: "1 · Situation", subtitle: "The core dynamic in front of you" },
-      { label: "2 · Challenge", subtitle: "What creates tension or delay" },
-      { label: "3 · Advice", subtitle: "Your clearest practical next move" },
-    ],
-  },
-  {
-    id: "wellness",
-    tabLabel: "Mind · Body · Spirit",
-    positions: [
-      { label: "1 · Mind", subtitle: "Mental focus and thought patterns" },
-      { label: "2 · Body", subtitle: "Energy, routines, and grounded habits" },
-      { label: "3 · Spirit", subtitle: "Deeper alignment and intuition" },
-    ],
-  },
-];
+const FRAMING_IDS: SpreadFramingId[] = ["timeline", "troubleshoot", "wellness"];
 
 function cardSlug(name: string): string {
   return name
@@ -57,79 +30,16 @@ function cardSlug(name: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-function buildPositionInterpretation(
-  card: TarotCardType,
-  reversed: boolean,
-  framing: SpreadFramingId,
-  index: number,
-): string {
-  const uprightSummary = card.uprightMeaning.toLowerCase();
-  const reversedSummary = card.reversedMeaning.toLowerCase();
-
-  if (framing === "timeline") {
-    if (!reversed) {
-      if (index === 0) {
-        return `In your Past position, ${card.name} upright shows foundations shaped by ${uprightSummary}. Those earlier experiences still frame how you read today's choices.`;
-      }
-      if (index === 1) {
-        return `In your Present position, ${card.name} highlights active energy around ${uprightSummary}. Focus on ${card.spiritualityMeaning.toLowerCase()}.`;
-      }
-      return `Looking toward your Future, ${card.name} upright points toward ${uprightSummary} if current habits stay consistent.`;
-    }
-    if (index === 0) {
-      return `Reversed in the Past slot, ${card.name} reflects lingering lessons tied to ${reversedSummary} that are still clearing out.`;
-    }
-    if (index === 1) {
-      return `${card.name} reversed in the Present invites quiet recalibration around ${reversedSummary} before committing externally.`;
-    }
-    return `Reversed in the Future position, ${card.name} flags temporary delay around ${reversedSummary}: adjusting your Present posture redirects this smoothly.`;
-  }
-
-  if (framing === "troubleshoot") {
-    if (!reversed) {
-      if (index === 0) {
-        return `As the core Situation, ${card.name} upright surfaces themes of ${uprightSummary}.`;
-      }
-      if (index === 1) {
-        return `As the Challenge, ${card.name} shows where ${uprightSummary} feels overextended or untested right now.`;
-      }
-      return `For Advice, ${card.name} encourages leaning into ${card.spiritualityMeaning.toLowerCase()} while keeping practical momentum steady.`;
-    }
-    if (index === 0) {
-      return `Reversed in the Situation slot, ${card.name} points to hidden friction around ${reversedSummary}.`;
-    }
-    if (index === 1) {
-      return `As the Challenge, ${card.name} reversed signals resistance tied to ${reversedSummary}.`;
-    }
-    return `Reversed as Advice, ${card.name} urges slowing down to untangle ${reversedSummary} and reconnect with ${card.spiritualityMeaning.toLowerCase()}.`;
-  }
-
-  if (!reversed) {
-    if (index === 0) {
-      return `For Mind, ${card.name} upright mirrors thoughts centered on ${uprightSummary}.`;
-    }
-    if (index === 1) {
-      return `For Body & practical rhythm, ${card.name} highlights grounded energy around ${card.careerMeaning.toLowerCase()}.`;
-    }
-    return `For Spirit, ${card.name} upright illuminates alignment with ${card.spiritualityMeaning.toLowerCase()}.`;
-  }
-
-  if (index === 0) {
-    return `Reversed in Mind, ${card.name} points to mental noise or loops tied to ${reversedSummary}.`;
-  }
-  if (index === 1) {
-    return `Reversed in Body, ${card.name} asks for rest and pacing around ${reversedSummary}.`;
-  }
-  return `Reversed in Spirit, ${card.name} points inward to address ${reversedSummary} gently through ${card.spiritualityMeaning.toLowerCase()}.`;
-}
-
 function InteractiveThreeCardSpread() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getThreeCardUi(language);
   const [framingId, setFramingId] = useState<SpreadFramingId>("timeline");
   const [question, setQuestion] = useState("");
   const [drawn, setDrawn] = useState<DrawnCard[] | null>(null);
   const [revealed, setRevealed] = useState<boolean[]>([false, false, false]);
 
-  const activeFraming = FRAMINGS.find((f) => f.id === framingId) ?? FRAMINGS[0];
+  const activePositions = ui.positions[framingId] ?? ui.positions.timeline;
 
   function handleDraw() {
     const cards = drawCards(3);
@@ -159,10 +69,10 @@ function InteractiveThreeCardSpread() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-            Interactive 3-Card Tarot Pull
+            {ui.kicker}
           </p>
           <h2 className="mt-1 font-display text-2xl text-foreground sm:text-3xl">
-            Draw Your 3 Card Tarot Spread Now
+            {ui.heading}
           </h2>
         </div>
         <Link
@@ -170,36 +80,35 @@ function InteractiveThreeCardSpread() {
           search={{ spread: "three-card" }}
           className="text-xs font-medium text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
         >
-          Open Full AI 3-Card Synthesis →
+          {ui.fullAiLink}
         </Link>
       </div>
 
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Choose how you want your three cards framed, hold a question in mind, and pull three cards
-        instantly in your browser.
+        {ui.sub}
       </p>
 
       <div
         role="tablist"
-        aria-label="3-card spread framing"
+        aria-label={ui.heading}
         className="mt-4 inline-flex flex-wrap gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] p-1.5"
       >
-        {FRAMINGS.map((framing) => {
-          const active = framing.id === framingId;
+        {FRAMING_IDS.map((fid) => {
+          const active = fid === framingId;
           return (
             <button
-              key={framing.id}
+              key={fid}
               type="button"
               role="tab"
               aria-selected={active}
-              onClick={() => setFramingId(framing.id)}
+              onClick={() => setFramingId(fid)}
               className={`min-h-[40px] rounded-lg px-3.5 py-1.5 text-xs font-medium whitespace-nowrap transition-colors ${
                 active
                   ? "bg-white/15 text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {framing.tabLabel}
+              {ui.tabLabels[fid]}
             </button>
           );
         })}
@@ -207,19 +116,19 @@ function InteractiveThreeCardSpread() {
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <label htmlFor="three-card-question" className="sr-only">
-          Your 3-card tarot question (optional)
+          {t("tarotUi.focusedQuestion")}
         </label>
         <input
           id="three-card-question"
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Optional question (e.g., How is this relationship or project unfolding next?)"
+          placeholder={t("tarotUi.threeCardPlaceholder")}
           className="min-h-[48px] flex-1 rounded-full border border-white/15 bg-white/[0.04] px-5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-[color:var(--gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]/30"
         />
         <GoldButton size="lg" onClick={handleDraw} className="min-h-[48px] shrink-0">
           <Sparkles className="h-4 w-4" aria-hidden />
-          {drawn ? "Shuffle & Draw 3 Again" : "Draw 3 Tarot Cards"}
+          {drawn ? t("tarotUi.shuffleDraw3") : t("tarotUi.draw3Cards")}
         </GoldButton>
       </div>
 
@@ -227,19 +136,19 @@ function InteractiveThreeCardSpread() {
         <div className="mt-7 space-y-6">
           {question.trim() && (
             <p className="text-sm italic text-muted-foreground">
-              Focused question: “{question.trim()}”
+              {t("tarotUi.focusedQuestion")} “{question.trim()}”
             </p>
           )}
 
           {!allRevealed && (
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-muted-foreground">
-              <span>Tap each card to flip it, or reveal all three together.</span>
+              <span>{t("tarotUi.tapOrRevealAll")}</span>
               <button
                 type="button"
                 onClick={handleRevealAll}
                 className="min-h-[40px] rounded-full border border-[color-mix(in_oklab,var(--gold)_45%,transparent)] px-4 py-1.5 text-xs font-semibold text-[color:var(--gold)] transition-colors hover:bg-[color:var(--gold)]/10"
               >
-                Reveal all 3 cards
+                {t("tarotUi.revealAll3")}
               </button>
             </div>
           )}
@@ -247,9 +156,15 @@ function InteractiveThreeCardSpread() {
           <div className="grid gap-6 sm:grid-cols-3">
             {drawn.map((draw, i) => {
               const card = getCardById(draw.cardId);
-              const pos = activeFraming.positions[i];
+              const pos = activePositions[i];
               if (!card || !pos) return null;
               const isRevealed = revealed[i];
+              const slug = cardSlug(card.name);
+              const locName = getLocalizedCardNameBySlug(slug, card.name, language);
+              const locSuit =
+                card.arcana === "major"
+                  ? getLocalizedArcana("major", language)
+                  : getLocalizedSuit(card.suit, language);
               return (
                 <div
                   key={`${draw.cardId}-${i}`}
@@ -270,26 +185,26 @@ function InteractiveThreeCardSpread() {
                   {isRevealed ? (
                     <div className="mt-4 flex flex-1 flex-col justify-between space-y-3 text-center">
                       <div>
-                        <p className="font-display text-lg text-foreground">{card.name}</p>
+                        <p className="font-display text-lg text-foreground">{locName}</p>
                         <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[color:var(--gold)]">
-                          {draw.reversed ? "Reversed" : "Upright"} ·{" "}
-                          {card.arcana === "major" ? "Major Arcana" : card.suit}
+                          {draw.reversed ? t("tarotUi.reversed") : t("tarotUi.upright")} ·{" "}
+                          {locSuit}
                         </p>
                         <p className="mt-3 text-left text-sm leading-relaxed text-muted-foreground">
-                          {buildPositionInterpretation(card, draw.reversed, framingId, i)}
+                          {buildLocalizedThreeCardNote(card, draw.reversed, framingId, i, language)}
                         </p>
                       </div>
                       <Link
                         to="/tarot/$slug"
-                        params={{ slug: cardSlug(card.name) }}
+                        params={{ slug }}
                         className="inline-block text-xs font-medium text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
                       >
-                        Full {card.name} Card Meaning →
+                        {ui.fullMeaningPrefix} ({locName})
                       </Link>
                     </div>
                   ) : (
                     <p className="mt-4 text-center text-xs text-muted-foreground">
-                      Tap card to reveal
+                      {t("tarotUi.tapReveal")}
                     </p>
                   )}
                 </div>
@@ -304,16 +219,13 @@ function InteractiveThreeCardSpread() {
                   className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--aurora-1)]"
                   aria-hidden
                 />
-                <span>
-                  A <strong>reversed card</strong> appeared in your 3-card spread: reversals point
-                  to internalized energy, delays, or shadow lessons waiting for gentle adjustment.
-                </span>
+                <span>{ui.reversedAlert}</span>
               </div>
               <Link
                 to="/what-do-reversed-tarot-cards-mean"
                 className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"
               >
-                Read: What Do Reversed Cards Mean? →
+                {ui.reversedGuideLink}
               </Link>
             </div>
           )}
@@ -323,7 +235,7 @@ function InteractiveThreeCardSpread() {
               to="/numerology"
               className="text-xs font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
-              Pair with your Vedic Numerology Life Path &amp; Mulank →
+              {ui.pairNumerologyLink}
             </Link>
             <button
               type="button"
@@ -331,7 +243,7 @@ function InteractiveThreeCardSpread() {
               className="inline-flex min-h-[44px] items-center gap-1.5 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
               <RotateCcw className="h-3.5 w-3.5" aria-hidden />
-              Clear table
+              {t("tarotUi.clearTable")}
             </button>
           </div>
         </div>
@@ -341,6 +253,9 @@ function InteractiveThreeCardSpread() {
 }
 
 function ThreeCardAstroPairBox() {
+  const [language] = useLanguage();
+  const ui = getThreeCardUi(language);
+  const t = useTranslate();
   return (
     <section
       aria-labelledby="three-card-summary-heading"
@@ -349,32 +264,29 @@ function ThreeCardAstroPairBox() {
       <div className="flex items-center gap-2 text-[color:var(--gold)]">
         <Compass className="h-4 w-4" aria-hidden />
         <p className="text-xs font-semibold uppercase tracking-[0.22em]">
-          Quick Reference · Astrology &amp; 3-Card Tarot Timing
+          {ui.astroEyebrow}
         </p>
       </div>
       <h2
         id="three-card-summary-heading"
         className="mt-2 font-display text-2xl aurora-text sm:text-3xl"
       >
-        Combining 3-Card Tarot Spreads with Life Path Numerology
+        {ui.astroHeading}
       </h2>
       <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-        In classic 3-card tarot practice, Card 1 anchors your <strong className="text-foreground">Past</strong>{" "}
-        pattern, Card 2 illuminates your <strong className="text-foreground">Present</strong> choice,
-        and Card 3 previews the <strong className="text-foreground">Future</strong> direction. For deeper
-        timing context alongside your pull, pair the spread with your birth-date{" "}
+        {ui.positions.timeline[0].label} · {ui.positions.timeline[1].label} ·{" "}
+        {ui.positions.timeline[2].label} —{" "}
         <Link to="/numerology" className="text-[color:var(--gold)] hover:underline">
-          Mulank &amp; Bhagyank (Life Path) number
+          {t("numerologyLanding2.cta")}
         </Link>{" "}
-        or explore our{" "}
+        ·{" "}
         <Link to="/yes-no-tarot" className="text-[color:var(--gold)] hover:underline">
-          instant Yes/No Tarot Oracle
+          {t("tarotUi.yesNoOracle")}
         </Link>{" "}
-        and{" "}
+        ·{" "}
         <Link to="/tarot/celtic-cross" className="text-[color:var(--gold)] hover:underline">
-          10-Card Celtic Cross spread
+          {t("tarotHub.rt6Title")}
         </Link>
-        .
       </p>
     </section>
   );

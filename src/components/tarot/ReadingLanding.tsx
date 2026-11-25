@@ -13,8 +13,11 @@ import { RelatedCards, type RelatedItem } from "@/components/content/RelatedCard
 import { KeepExploring, type HubLink } from "@/components/content/KeepExploring";
 import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+import type { TarotLandingKey } from "@/data/tarot-landings";
 import type { SpreadId } from "@/lib/tarot/types";
-import { getSpread } from "@/lib/tarot/spreads";
+import { getLocalizedSpread, getSpread } from "@/lib/tarot/spreads";
+import { getBcp47, useLanguage, useTranslate } from "@/lib/i18n";
+import { getLocalizedReadingLanding } from "@/locales/spreads-i18n";
 
 export interface ReadingSamplePosition {
   position: string;
@@ -60,13 +63,22 @@ export interface ReadingLandingConfig {
   ctaLabel: string;
 }
 
-function formatDate(iso: string): string {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+function formatDate(iso: string, locale: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale, {
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+function pathToLandingKey(path: string): TarotLandingKey {
+  if (path === "/tarot/one-card") return "one-card";
+  if (path === "/tarot/three-card") return "three-card";
+  if (path === "/tarot/love") return "love";
+  if (path === "/yes-no-tarot") return "yes-no";
+  if (path === "/career-tarot-reading") return "career";
+  return "celtic-cross";
 }
 
 /**
@@ -82,34 +94,40 @@ export function ReadingLanding({
   interactiveSlot?: ReactNode;
   afterInteractiveSlot?: ReactNode;
 }) {
-  const spread = getSpread(config.spreadId);
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const bcp47 = getBcp47(language);
+  const localized = getLocalizedReadingLanding(pathToLandingKey(config.path), config, language, t);
+  const spread = getLocalizedSpread(getSpread(localized.spreadId), t);
 
   return (
     <div className="relative min-h-dvh overflow-hidden">
       <AuroraBackground />
       <LandingNav />
       <main className="relative mx-auto w-full max-w-4xl px-4 pb-24 pt-28 sm:px-6">
-        <Breadcrumb items={[{ label: "Tarot", to: "/tarot" }, { label: config.eyebrow }]} />
+        <Breadcrumb items={[{ label: t("nav.tarot"), to: "/tarot" }, { label: localized.eyebrow }]} />
 
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-          Free AI tarot reading
+          {t("tarotUi.freeAiReading")}
         </p>
         <h1 className="mt-2 font-display text-4xl leading-tight aurora-text sm:text-5xl">
-          {config.h1}
+          {localized.h1}
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          {config.intro}
+          {localized.intro}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
-          {config.published && config.published !== config.updated && (
+          {localized.published && localized.published !== localized.updated && (
             <span className="inline-flex items-center gap-1.5">
               <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-              Published <time dateTime={config.published}>{formatDate(config.published)}</time>
+              {t("common.published")}{" "}
+              <time dateTime={localized.published}>{formatDate(localized.published, bcp47)}</time>
             </span>
           )}
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-            Last updated <time dateTime={config.updated}>{formatDate(config.updated)}</time>
+            {t("common.lastUpdated")}{" "}
+            <time dateTime={localized.updated}>{formatDate(localized.updated, bcp47)}</time>
           </span>
         </div>
 
@@ -119,36 +137,37 @@ export function ReadingLanding({
           <GlassCard className="mt-8 flex flex-wrap items-center justify-between gap-4 p-6">
             <div className="flex items-center gap-6 text-xs text-muted-foreground">
               <span className="flex items-center gap-1.5">
-                <Layers className="h-3.5 w-3.5" /> {spread.count} card{spread.count > 1 ? "s" : ""}
+                <Layers className="h-3.5 w-3.5" /> {spread.count}{" "}
+                {spread.count === 1 ? t("tarotUi.cardUnit") : t("tarotUi.cardsUnit")}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} min
+                <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} {t("reading.minUnit")}
               </span>
             </div>
-            <Link to="/reading/question" search={{ spread: config.spreadId }}>
+            <Link to="/reading/question" search={{ spread: localized.spreadId }}>
               <GoldButton size="lg">
-                <Sparkles className="h-4 w-4" /> {config.ctaLabel}
+                <Sparkles className="h-4 w-4" /> {localized.ctaLabel}
               </GoldButton>
             </Link>
           </GlassCard>
         )}
 
-        {config.positionsBreakdown && config.positionsBreakdown.length > 0 && (
+        {localized.positionsBreakdown && localized.positionsBreakdown.length > 0 && (
           <section
             aria-labelledby="positions-breakdown-heading"
             className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-              {config.positionsBreakdownEyebrow ?? "Spread layout reference"}
+              {localized.positionsBreakdownEyebrow ?? t("tarotUi.spreadLayoutRef")}
             </p>
             <h2
               id="positions-breakdown-heading"
               className="mt-2 font-display text-2xl aurora-text sm:text-3xl"
             >
-              {config.positionsBreakdownHeading ?? "10 Celtic Cross positions explained"}
+              {localized.positionsBreakdownHeading ?? spread.name}
             </h2>
             <ol className="mt-6 grid gap-4 sm:grid-cols-2">
-              {config.positionsBreakdown.map((pos) => (
+              {localized.positionsBreakdown.map((pos) => (
                 <li
                   key={pos.number}
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
@@ -173,23 +192,23 @@ export function ReadingLanding({
         {afterInteractiveSlot && <div className="mt-12">{afterInteractiveSlot}</div>}
 
         <article className="mt-14 space-y-12">
-          {config.sections.map((s) => (
+          {localized.sections.map((s) => (
             <ContentSection key={s.id} id={s.id} title={s.title} paragraphs={s.paragraphs} />
           ))}
 
-          {config.samplePull && (
-            <ContentSection id="worked-example" title="Worked example spread walkthrough">
+          {localized.samplePull && (
+            <ContentSection id="worked-example" title={t("tarotUi.workedExample")}>
               <GlassCard className="space-y-5 p-6">
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--gold)]">
-                    Sample question asked
+                    {t("tarotUi.sampleQuestion")}
                   </p>
                   <p className="mt-1 font-display text-lg text-foreground">
-                    “{config.samplePull.question}”
+                    “{localized.samplePull.question}”
                   </p>
                 </div>
                 <div className="space-y-4">
-                  {config.samplePull.positions.map((pos) => (
+                  {localized.samplePull.positions.map((pos) => (
                     <div
                       key={pos.position}
                       className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
@@ -208,39 +227,37 @@ export function ReadingLanding({
                 </div>
                 <div className="border-t border-white/10 pt-4">
                   <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Synthesis takeaway
+                    {t("tarotUi.synthesisTakeaway")}
                   </p>
                   <p className="mt-1.5 text-base leading-relaxed text-foreground/90">
-                    {config.samplePull.synthesis}
+                    {localized.samplePull.synthesis}
                   </p>
                 </div>
               </GlassCard>
             </ContentSection>
           )}
 
-          <ContentSection id="disclaimer" title="A note on responsible use" as="h3">
+          <ContentSection id="disclaimer" title={t("tarotUi.responsibleTitle")} as="h3">
             <p className="text-base leading-relaxed text-muted-foreground">
-              This reading is a reflective, symbolic tool for self-exploration, not a deterministic
-              prediction. It is not a substitute for professional medical, legal, or financial
-              advice. Use it as a prompt for your own judgement, not a replacement for it.
+              {t("tarotUi.responsibleBody")}
             </p>
           </ContentSection>
 
-          {config.faqs.length > 0 && (
-            <ContentSection id="faq" title="Frequently asked questions">
-              <FAQAccordion items={config.faqs} />
+          {localized.faqs.length > 0 && (
+            <ContentSection id="faq" title={t("common.faqHeading")}>
+              <FAQAccordion items={localized.faqs} />
             </ContentSection>
           )}
 
           <AuthorCard
-            published={config.published}
-            lastUpdated={config.updated}
-            category={`Tarot Spread · ${config.eyebrow}`}
-            readingTime={config.readingTime ?? "6 min read"}
+            published={localized.published}
+            lastUpdated={localized.updated}
+            category={`${t("nav.tarot")} · ${localized.eyebrow}`}
+            readingTime={localized.readingTime ?? `6 ${t("common.minRead")}`}
           />
 
-          <RelatedCards title="Related tarot cards" items={config.relatedCards} />
-          <KeepExploring links={config.relatedLinks} />
+          <RelatedCards title={t("tarotUi.relatedTarotCards")} items={localized.relatedCards} />
+          <KeepExploring links={localized.relatedLinks} />
         </article>
 
         <InArticleAd />

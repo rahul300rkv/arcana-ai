@@ -1,17 +1,22 @@
+import { useMemo } from "react";
 import { Link } from "@/components/LocalizedLink";
 import { CalendarClock, Clock, Layers } from "@/components/icons";
 import { AuroraBackground } from "@/components/arcana/AuroraBackground";
 import { LandingNav } from "@/components/arcana/LandingNav";
 import { Footer } from "@/components/landing/Footer";
 import { GlassCard } from "@/components/arcana/GlassCard";
-import { SPREAD_LIST } from "@/lib/tarot/spreads";
+import { SPREAD_LIST, getLocalizedSpread } from "@/lib/tarot/spreads";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
 import { KeepExploring } from "@/components/content/KeepExploring";
 import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+import { getBcp47, useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { GUIDE_COMMON, SPREADS_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
+import { CELTIC_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
 
-const SPREADS_FAQS = [
+const SPREADS_FAQS_EN = [
   {
     question: "Which tarot spread should a beginner use?",
     answer:
@@ -34,73 +39,99 @@ const SPREADS_FAQS = [
   },
 ];
 
-const WHEN_TO_USE: Record<string, string> = {
-  single:
-    "Best for a quick daily check-in, or when you just need one clear, focused message rather than a full analysis.",
-  "three-card":
-    "Good for understanding how a situation has developed and where it's likely heading: a simple before/now/next arc.",
-  love: "Best when a relationship's dynamics feel unclear and you want to see both people's energy side by side, not just your own.",
-  career:
-    "Suited to work decisions: a stuck project, a job change, or wanting a clearer sense of direction in your path.",
-  money:
-    "Useful when finances feel blocked or uncertain and you want to see what's restricting flow versus what's opening up.",
-  decision:
-    "Built for choosing between two real options: it surfaces a hidden factor neither option accounts for on its own.",
-  "celtic-cross":
-    "The most thorough spread here: suited to a complex or high-stakes question where you want the full picture, not just a quick read.",
-  "year-ahead":
-    "A longer-range spread, one card per month, for a broad sense of the themes likely to show up across the coming year.",
-};
-
 export function GuideTarotSpreadsScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = SPREADS_GUIDE_I18N[language];
+  const celticLoc = CELTIC_GUIDE_I18N[language];
+  const bcp47 = getBcp47(language);
+
+  const formatUtcDate = (iso: string) =>
+    new Intl.DateTimeFormat(bcp47, {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(`${iso}T00:00:00Z`));
+
+  const localizedSpreads = useMemo(
+    () => SPREAD_LIST.map((spread) => getLocalizedSpread(spread, t)),
+    [t],
+  );
+
+  const faqs = useMemo(() => {
+    if (language === "en") return SPREADS_FAQS_EN;
+    return [
+      {
+        question: t("tarotHub.faq3Q"),
+        answer: t("tarotHub.faq3A"),
+      },
+      {
+        question: celticLoc.summaryTitle,
+        answer: celticLoc.summaryBody,
+      },
+      {
+        question: ui.secSizeTitle,
+        answer: [
+          `${t("spread.single.name")}: ${ui.whenToUse.single}`,
+          `${t("spread.three.name")}: ${ui.whenToUse["three-card"]}`,
+          `${t("spread.celtic.name")}: ${ui.whenToUse["celtic-cross"]}`,
+        ].join(" "),
+      },
+      {
+        question: t("tarotHub.faq4Q"),
+        answer: t("tarotHub.faq4A"),
+      },
+    ];
+  }, [language, t, celticLoc, ui]);
+
   return (
     <div className="relative min-h-dvh overflow-hidden">
       <AuroraBackground />
       <LandingNav />
       <main className="relative mx-auto max-w-4xl px-4 pb-24 pt-36">
-        <Breadcrumb items={[{ label: "Guides", to: "/guide" }, { label: "Tarot Spreads" }]} />
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Free guide</p>
+        <Breadcrumb items={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: ui.crumb }]} />
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {GUIDE_COMMON.freeGuide[language]}
+        </p>
         <h1 className="mt-2 font-display text-4xl sm:text-5xl">
-          Tarot spreads, <span className="aurora-text">explained</span>
+          {ui.titlePrefix} <span className="aurora-text">{ui.titleAccent}</span>
         </h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          A tarot spread is simply a layout: a fixed set of positions, each assigned its own
-          meaning, that cards are drawn into. The same card lands differently depending on which
-          position it falls in: The Tower in a "Challenge" position reads very differently than The
-          Tower in an "Outcome" position. Below are all eight spreads available in AstroFree&apos;s{" "}
+          {ui.intro}{" "}
           <Link to="/reading" className="underline underline-offset-4 hover:text-foreground">
-            free AI tarot reading
+            {t("tarotUi.freeAiReading")} →
           </Link>
-          , what each position means, and when each spread is the right fit.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-            Published <time dateTime="2026-08-07">7 August 2026</time>
+            {t("common.published")} <time dateTime="2026-08-07">{formatUtcDate("2026-08-07")}</time>
           </span>
           <span className="inline-flex items-center gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-            Last updated <time dateTime="2026-11-16">16 November 2026</time>
+            {t("common.lastUpdated")} <time dateTime="2026-11-16">{formatUtcDate("2026-11-16")}</time>
           </span>
         </div>
 
         <div className="mt-12 space-y-8">
-          {SPREAD_LIST.map((spread) => (
+          {localizedSpreads.map((spread) => (
             <GlassCard key={spread.id} id={spread.id} className="scroll-mt-24">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h2 className="font-display text-2xl">{spread.name}</h2>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Layers className="h-3.5 w-3.5" /> {spread.count} cards
+                    <Layers className="h-3.5 w-3.5" /> {spread.count} {ui.cardsUnit}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} min
+                    <Clock className="h-3.5 w-3.5" /> ~{spread.minutes} {t("reading.minUnit")}
                   </span>
                 </div>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">{spread.description}</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                <span className="text-foreground/90">When to use it:</span> {WHEN_TO_USE[spread.id]}
+                <span className="text-foreground/90">{ui.whenToUseLabel}</span>{" "}
+                {ui.whenToUse[spread.id]}
               </p>
 
               {spread.count <= 10 ? (
@@ -117,20 +148,17 @@ export function GuideTarotSpreadsScreen() {
               ) : null}
               {spread.id === "celtic-cross" && (
                 <p className="mt-4 text-sm text-muted-foreground">
-                  Want the full walkthrough?{" "}
                   <Link
                     to="/guide/celtic-cross-guide"
                     className="text-[var(--gold)] hover:underline"
                   >
-                    Read the step-by-step Celtic Cross guide
+                    {ui.celticGuideLink}
                   </Link>
-                  , with worked detail on every position and how to read them together.
                 </p>
               )}
               {spread.count > 10 && (
                 <p className="mt-4 text-sm text-muted-foreground">
-                  One card per month, January through December: a broad-strokes forecast rather
-                  than a position-by-position breakdown.
+                  {ui.yearAheadNote}
                 </p>
               )}
             </GlassCard>
@@ -140,94 +168,96 @@ export function GuideTarotSpreadsScreen() {
         <section className="mt-14 space-y-8">
           <GlassCard className="p-6 sm:p-8 space-y-4">
             <h2 className="font-display text-2xl sm:text-3xl">
-              How Position Context Transforms Every Card
+              {ui.secContextTitle}
             </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Beginners often treat tarot cards as fixed flashcards: The Sun equals joy, Five of
-              Pentacles equals hardship, Three of Swords equals heartbreak. In practice, a spread&apos;s
-              architecture acts like grammar in a sentence. A card acts as a noun or verb, while the
-              position it lands in decides whether that energy describes a past habit, an unseen ally,
-              a present obstacle, or an emerging solution.
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Consider drawing the Eight of Swords inside a Challenge position versus an Advice
-              position. As a Challenge, it points out where overthinking or self-imposed rules have
-              convinced you that you have fewer options than you actually do. Inside an Advice slot,
-              however, it invites you to question unexamined assumptions immediately: noticing that
-              the blindfold in traditional artwork is tied loosely enough to remove yourself.
-            </p>
+            {language === "en" ? (
+              <>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Beginners often treat tarot cards as fixed flashcards: The Sun equals joy, Five of
+                  Pentacles equals hardship, Three of Swords equals heartbreak. In practice, a spread&apos;s
+                  architecture acts like grammar in a sentence. A card acts as a noun or verb, while the
+                  position it lands in decides whether that energy describes a past habit, an unseen ally,
+                  a present obstacle, or an emerging solution.
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Consider drawing the Eight of Swords inside a Challenge position versus an Advice
+                  position. As a Challenge, it points out where overthinking or self-imposed rules have
+                  convinced you that you have fewer options than you actually do. Inside an Advice slot,
+                  however, it invites you to question unexamined assumptions immediately: noticing that
+                  the blindfold in traditional artwork is tied loosely enough to remove yourself.
+                </p>
+              </>
+            ) : (
+              <p className="text-sm leading-relaxed text-muted-foreground">{ui.intro}</p>
+            )}
           </GlassCard>
 
           <GlassCard className="p-6 sm:p-8 space-y-4">
             <h2 className="font-display text-2xl sm:text-3xl">
-              Choosing the Right Spread Size for Your Question
+              {ui.secSizeTitle}
             </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              More cards do not automatically produce a better reading. Matching spread complexity to
-              the real scope of your question keeps interpretations crisp and actionable:
-            </p>
             <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground list-disc pl-5">
               <li>
-                <strong className="text-foreground">Single Card (1 card):</strong> Ideal for morning
-                intentions, emotional temperature checks, and direct yes/no leans where excessive
-                detail only clouds your intuition.
+                <strong className="text-foreground">{t("spread.single.name")} (1 {t("tarotUi.cardUnit")}):</strong>{" "}
+                {ui.whenToUse.single}
               </li>
               <li>
-                <strong className="text-foreground">Three Card &amp; Decision Spreads (3–4 cards):</strong>{" "}
-                Best when you need narrative flow: seeing how yesterday&apos;s momentum shapes today&apos;s
-                choice, or weighing two distinct options side by side.
+                <strong className="text-foreground">{t("spread.three.name")} &amp; {t("spread.decision.name")} (3–5 {ui.cardsUnit}):</strong>{" "}
+                {ui.whenToUse["three-card"]} {ui.whenToUse.decision}
               </li>
               <li>
-                <strong className="text-foreground">Topic Spreads (Love, Career, Money: 4 cards):</strong>{" "}
-                Designed around dedicated interpersonal or practical lenses so you examine both internal
-                stance and external obstacles cleanly.
+                <strong className="text-foreground">{t("spread.love.name")}, {t("spread.career.name")}, {t("spread.money.name")} (4 {ui.cardsUnit}):</strong>{" "}
+                {ui.whenToUse.love} {ui.whenToUse.career}
               </li>
               <li>
-                <strong className="text-foreground">Celtic Cross &amp; Year Ahead (10–12 cards):</strong>{" "}
-                Best saved for major life transitions, long-horizon planning, or multi-layered
-                dilemmas where psychological roots and external influences both matter.
+                <strong className="text-foreground">{t("spread.celtic.name")} &amp; {t("spread.year.name")} (10–12 {ui.cardsUnit}):</strong>{" "}
+                {ui.whenToUse["celtic-cross"]}
               </li>
             </ul>
           </GlassCard>
 
-          <GlassCard className="p-6 sm:p-8 space-y-4">
-            <h2 className="font-display text-2xl sm:text-3xl">
-              Worked Example: Synthesizing a Three Card Pull
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Suppose a reader asks, &ldquo;How should I approach a possible job transition next
-              quarter?&rdquo; and draws <strong className="text-foreground">The Hermit</strong> (Past),{" "}
-              <strong className="text-foreground">Seven of Swords</strong> (Present), and{" "}
-              <strong className="text-foreground">Ace of Pentacles</strong> (Future).
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Read mechanically, Seven of Swords might trigger alarm about betrayal. Read inside the
-              spread arc, however, a calm narrative emerges: months of quiet private research (The
-              Hermit) have taught you quietly to inspect fine print and keep your plans discreet until
-              ready (Seven of Swords: tactical discretion rather than deceit), paving cleanly toward
-              a solid, tangible offer or contract (Ace of Pentacles). Notice the shift from Air
-              reflection to concrete Earth prosperity: discernment protects the seed.
-            </p>
-          </GlassCard>
+          {language === "en" && (
+            <>
+              <GlassCard className="p-6 sm:p-8 space-y-4">
+                <h2 className="font-display text-2xl sm:text-3xl">
+                  {ui.secExampleTitle}
+                </h2>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Suppose a reader asks, &ldquo;How should I approach a possible job transition next
+                  quarter?&rdquo; and draws <strong className="text-foreground">The Hermit</strong> (Past),{" "}
+                  <strong className="text-foreground">Seven of Swords</strong> (Present), and{" "}
+                  <strong className="text-foreground">Ace of Pentacles</strong> (Future).
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Read mechanically, Seven of Swords might trigger alarm about betrayal. Read inside the
+                  spread arc, however, a calm narrative emerges: months of quiet private research (The
+                  Hermit) have taught you quietly to inspect fine print and keep your plans discreet until
+                  ready (Seven of Swords: tactical discretion rather than deceit), paving cleanly toward
+                  a solid, tangible offer or contract (Ace of Pentacles). Notice the shift from Air
+                  reflection to concrete Earth prosperity: discernment protects the seed.
+                </p>
+              </GlassCard>
 
-          <GlassCard className="p-6 sm:p-8 space-y-4">
-            <h2 className="font-display text-2xl sm:text-3xl">
-              Synthesizing Multi-Card Spreads Without Overwhelm
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              When staring at four to ten cards at once, resist reading each one in isolation. First,
-              scan the whole layout for elemental balance: an abundance of Cups points to emotional
-              sensitivity, Wands signals creative urgency, Swords reveals heavy mental analysis, and
-              Pentacles anchors the question in tangible stability, craft, or finances. Next, note
-              how many Major Arcana cards appear: two or more suggest deeper life themes at play
-              rather than minor passing moods. Finally, look at the first and last cards together as
-              a headline summarizing where the energy starts and where it resolves.
-            </p>
-          </GlassCard>
+              <GlassCard className="p-6 sm:p-8 space-y-4">
+                <h2 className="font-display text-2xl sm:text-3xl">
+                  {ui.secSynthTitle}
+                </h2>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  When staring at four to ten cards at once, resist reading each one in isolation. First,
+                  scan the whole layout for elemental balance: an abundance of Cups points to emotional
+                  sensitivity, Wands signals creative urgency, Swords reveals heavy mental analysis, and
+                  Pentacles anchors the question in tangible stability, craft, or finances. Next, note
+                  how many Major Arcana cards appear: two or more suggest deeper life themes at play
+                  rather than minor passing moods. Finally, look at the first and last cards together as
+                  a headline summarizing where the energy starts and where it resolves.
+                </p>
+              </GlassCard>
+            </>
+          )}
 
           <div className="space-y-4">
-            <h2 className="font-display text-2xl sm:text-3xl">Frequently asked questions</h2>
-            <FAQAccordion items={SPREADS_FAQS} />
+            <h2 className="font-display text-2xl sm:text-3xl">{ui.faqTitle}</h2>
+            <FAQAccordion items={faqs} />
           </div>
         </section>
 
@@ -236,33 +266,33 @@ export function GuideTarotSpreadsScreen() {
             links={[
               {
                 to: "/tarot/one-card",
-                label: "One Card Daily Pull",
-                blurb: "Fast daily energy check-in or focused reflection card.",
+                label: t("tarotHub.rt1Title"),
+                blurb: t("tarotHub.rt1Body"),
               },
               {
                 to: "/tarot/three-card",
-                label: "Three Card Spread",
-                blurb: "Past, Present, and Future or Situation, Challenge, Advice.",
+                label: t("tarotHub.rt2Title"),
+                blurb: t("tarotHub.rt2Body"),
               },
               {
                 to: "/tarot/celtic-cross",
-                label: "10-Card Celtic Cross Spread",
-                blurb: "Deep multi-angle spread for complex turning points.",
+                label: t("tarotHub.rt6Title"),
+                blurb: t("tarotHub.rt6Body"),
               },
               {
                 to: "/guide/celtic-cross-guide",
-                label: "Celtic Cross Position Guide",
-                blurb: "Detailed breakdown of Cross (1–6) and Staff (7–10) slots.",
+                label: t("guideHub.g7Title"),
+                blurb: t("guideHub.g7Body"),
               },
               {
                 to: "/tarot/combinations",
-                label: "Tarot Card Combinations",
-                blurb: "Learn how neighboring cards modify one another in any layout.",
+                label: t("calcUi.comboCrumb"),
+                blurb: t("lfeat.combos"),
               },
               {
                 to: "/yes-no-tarot",
-                label: "Free Yes or No Oracle",
-                blurb: "Get an instant Yes, No, or Maybe answer from a live pull.",
+                label: t("tarotHub.rt4Title"),
+                blurb: t("tarotHub.rt4Body"),
               },
             ]}
           />
@@ -272,8 +302,8 @@ export function GuideTarotSpreadsScreen() {
           <AuthorCard
             published="2026-08-07"
             lastUpdated="2026-11-16"
-            category="Spread Architecture"
-            readingTime="10 min read"
+            category={ui.category}
+            readingTime={`10 ${t("common.minRead")}`}
           />
         </div>
 
@@ -282,7 +312,7 @@ export function GuideTarotSpreadsScreen() {
             to="/"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
           >
-            ← Back home
+            {GUIDE_COMMON.backHome[language]}
           </Link>
         </div>
         <InArticleAd />

@@ -20,8 +20,13 @@ import { NamankCalculator } from "@/components/namank/NamankCalculator";
 import { NamankMeaningsAccordion } from "@/components/namank/NamankMeaningsAccordion";
 import { NAMANK_EXAMPLES, NAMANK_FAQS, NAMANK_UPDATED } from "@/data/namank";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getNamankLocale } from "@/locales/guides-num-i18n";
 
 export function NamankCalculatorScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getNamankLocale(language);
   const [openMeaning, setOpenMeaning] = useState<string | undefined>(undefined);
 
   function handleViewMeaning(value: number) {
@@ -34,10 +39,10 @@ export function NamankCalculatorScreen() {
 
   return (
     <ArticleLayout
-      crumbs={[{ label: "Namank Calculator" }]}
-      eyebrow="Numerology Calculator"
-      title="Namank Calculator – Calculate Your Name Number"
-      intro="Namank (also called your Name Number) comes from the letters of your full name using the Chaldean numerology system, not your date of birth. Enter your name below for an instant calculation, a transparent breakdown of the maths, and a full guide to what your number means."
+      crumbs={[{ label: loc.calcCrumb }]}
+      eyebrow={loc.calcEyebrow}
+      title={loc.calcTitle}
+      intro={loc.calcIntro}
       url={`${SITE_URL}/namank-calculator`}
       updated={NAMANK_UPDATED}
       readingMinutes={10}
@@ -50,14 +55,14 @@ export function NamankCalculatorScreen() {
     >
       <section aria-labelledby="calculator-heading" className="scroll-mt-24">
         <h2 id="calculator-heading" className="sr-only">
-          Namank Calculator
+          {loc.calcCrumb}
         </h2>
         <NamankCalculator onViewMeaning={handleViewMeaning} />
       </section>
 
       <ContentSection
         id="what-is-namank"
-        title="What is Namank?"
+        title={loc.secWhatIs}
         icon={BookOpen}
         paragraphs={[
           "Namank, also known as the Name Number, is a core figure in numerological tradition, calculated by adding together the Chaldean numerical values of every letter in a person's name and reducing the total to a single digit (or Master Number). Where Mulank and Bhagyank are drawn from the date of birth, Namank comes entirely from the letters of the name.",
@@ -68,7 +73,7 @@ export function NamankCalculatorScreen() {
 
       <ContentSection
         id="how-calculated"
-        title="How is Namank Calculated?"
+        title={loc.secHowCalc}
         icon={Calculator}
         paragraphs={[
           "The method: write out the full name, look up each letter's Chaldean value, and add every value together. If the result is more than one digit, add those digits together again, and repeat, until a single digit remains. The one exception is if an intermediate sum lands on 11 or 22: tradition holds that these Master Numbers are preserved rather than reduced further. Note that in the Chaldean system, no letter is assigned the value 9: it can only appear as a reduced total.",
@@ -78,26 +83,30 @@ export function NamankCalculatorScreen() {
           {NAMANK_EXAMPLES.map((ex) => (
             <GlassCard key={ex.name} className="p-5">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{ex.label}</p>
-              <p className="mt-2 font-display text-sm text-foreground/90">Name: {ex.name}</p>
+              <p className="mt-2 font-display text-sm text-foreground/90">
+                {t("calcUi.nameLabel")} {ex.name}
+              </p>
               <div className="mt-2 space-y-1 font-mono text-xs text-muted-foreground">
                 <p>
                   {ex.digits} {ex.firstSum}
                 </p>
                 {ex.finalSum && <p>{ex.finalSum}</p>}
               </div>
-              <p className="mt-3 font-display text-sm text-[var(--gold)]">Namank = {ex.result}</p>
+              <p className="mt-3 font-display text-sm text-[var(--gold)]">
+                {loc.hubCrumb} = {ex.result}
+              </p>
             </GlassCard>
           ))}
         </div>
       </ContentSection>
 
-      <ContentSection id="meanings" title="Namank Number Meanings" icon={Sparkles}>
+      <ContentSection id="meanings" title={loc.secMeanings} icon={Sparkles}>
         <NamankMeaningsAccordion openValue={openMeaning} onOpenValueChange={setOpenMeaning} />
       </ContentSection>
 
       <ContentSection
         id="namank-vs-mulank-bhagyank"
-        title="Namank vs Mulank vs Bhagyank: What's the Difference?"
+        title={loc.secVs}
         icon={Compass}
         paragraphs={[
           "These are the three numbers people most often mix up, and the difference comes down to what each is calculated from. Mulank (the birth, driver or psychic number) uses only the day of birth. Bhagyank (the destiny or life path number) uses the complete date of birth: day, month and year together.",
@@ -109,13 +118,13 @@ export function NamankCalculatorScreen() {
           to="/bhagyank-calculator"
           className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium text-[var(--gold)] hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
         >
-          Explore the free Bhagyank Calculator →
+          {loc.exploreOtherCalc}
         </Link>
       </ContentSection>
 
       <ContentSection
         id="namank-career"
-        title="Namank and Career"
+        title={loc.secCareer}
         icon={Briefcase}
         paragraphs={[
           "Numerological tradition associates each Namank number with broad career tendencies: 1s toward founding and leading, 8s toward business and finance, 6s toward caregiving and service professions, and so on, as detailed number-by-number above. These associations come from centuries of numerological practice, not from labour-market data or psychometric research, and should be read as prompts for reflection rather than a career test.",
@@ -125,7 +134,7 @@ export function NamankCalculatorScreen() {
 
       <ContentSection
         id="namank-relationships"
-        title="Namank and Relationships"
+        title={loc.secRelationships}
         icon={Heart}
         paragraphs={[
           "In numerological tradition, comparing two people's Namank numbers is sometimes used as a lens on relationship dynamics, where two name vibrations might naturally align, and where they might create friction that takes conscious effort to navigate. A 1 and a 2, for instance, are traditionally described as a study in contrasts: independence meeting a need for partnership.",
@@ -135,7 +144,7 @@ export function NamankCalculatorScreen() {
 
       <ContentSection
         id="namank-name-changes"
-        title="Namank and Name Changes"
+        title={loc.secExtra}
         icon={RouteIcon}
         paragraphs={[
           "Because Namank depends entirely on spelling, it's the one of the three core numbers that can be deliberately adjusted: some numerology practitioners recommend small spelling changes to a name (adding or dropping a letter) to shift the resulting Namank toward a number believed to be more favourable.",
@@ -143,7 +152,7 @@ export function NamankCalculatorScreen() {
         ]}
       />
 
-      <ContentSection id="faq" title="Frequently Asked Questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={NAMANK_FAQS} />
       </ContentSection>
 
@@ -151,36 +160,36 @@ export function NamankCalculatorScreen() {
         links={[
           {
             to: "/bhagyank-calculator",
-            label: "Bhagyank (Destiny Number) Calculator",
-            blurb: "Uses your complete date of birth for a broader life-path reading.",
+            label: t("numerologyLanding2.cta"),
+            blurb: t("numerologyLanding.step2Body"),
           },
           {
             to: "/numerology/mulank",
             label: "Mulank (Birth Number) Guide",
-            blurb: "The core numerology number calculated from your day of birth alone.",
+            blurb: t("numerologyLanding.step1Body"),
           },
           {
             to: "/numerology",
-            label: "Free Mulank & Personal Year Calculator",
-            blurb: "Enter your date of birth for your Mulank, Personal Year and Personal Month.",
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb: "Digit reduction, master numbers and the maths behind every number here.",
+            label: "Mulank & Numerology Guide",
+            blurb: t("numerologyLanding.subtitle"),
           },
           {
             to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: "The tarot archetypes that mirror each numerology number.",
+            label: t("tarotUi.all78Cards"),
+            blurb: t("tarotHub.intro"),
           },
         ]}
       />
 
       <CTASection
-        title="Curious what your birth numbers add?"
-        body="Namank shows what your name projects. Pair it with your Mulank and Bhagyank for a fuller, free numerology reading."
-        ctaLabel="Open the Bhagyank calculator"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/bhagyank-calculator"
       />
     </ArticleLayout>

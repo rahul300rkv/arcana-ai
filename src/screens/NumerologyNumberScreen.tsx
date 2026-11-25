@@ -29,14 +29,19 @@ import type { MulankBhagyankProfile } from "@/data/mulank-bhagyank-pairs";
 import { MulankArticle } from "@/components/content/MulankArticle";
 import { MulankBhagyankPairScreen } from "@/screens/MulankBhagyankPairScreen";
 import { SITE_URL } from "@/lib/site";
-
-const VERDICT_LABEL = {
-  high: "Highly compatible",
-  medium: "Workable",
-  growth: "Growth pairing",
-} as const;
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getNumerologyNumUi } from "@/locales/guides-num-i18n";
+import {
+  getLocalizedCardNameBySlug,
+  getLocalizedElement,
+  getLocalizedPlanet,
+} from "@/locales/card-terms";
 
 export function NumerologyNumberScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getNumerologyNumUi(language);
   const data = useLoaderData({ strict: false }) as {
     page?: NumerologyPage;
     mulank?: MulankPage;
@@ -51,9 +56,19 @@ export function NumerologyNumberScreen() {
   const next =
     index >= 0 && index < NUMEROLOGY_PAGES.length - 1 ? NUMEROLOGY_PAGES[index + 1] : undefined;
 
-  const headingTitle = page.isMaster
-    ? `${page.label}: ${page.archetype}`
-    : `Life Path Number ${page.number}: ${page.archetype}`;
+  const verdictLabel = {
+    high: t("calcUi.highlyCompat"),
+    medium: t("calcUi.workable"),
+    growth: t("calcUi.growthPair"),
+  } as const;
+
+  const localizedLabel = page.isMaster
+    ? `${ui.masterWord} ${page.number}`
+    : `${ui.lifePathWord} ${page.number}`;
+  const headingTitle = `${localizedLabel}: ${page.archetype}`;
+  const localizedTarot = getLocalizedCardNameBySlug(page.tarotSlug, page.tarotCard, language);
+  const localizedPlanet = getLocalizedPlanet(page.planet, language);
+  const localizedElement = getLocalizedElement(page.element, language);
   const highMatches = page.compatibility
     .filter((c) => c.verdict === "high")
     .map((c) => c.number)
@@ -61,8 +76,8 @@ export function NumerologyNumberScreen() {
 
   return (
     <ArticleLayout
-      crumbs={[{ label: "Numerology", to: "/numerology" }, { label: page.label }]}
-      eyebrow={page.isMaster ? "Master Number" : `Life Path Number ${page.number}`}
+      crumbs={[{ label: BREADCRUMB_LABELS.numerology[language], to: "/numerology" }, { label: localizedLabel }]}
+      eyebrow={localizedLabel}
       title={headingTitle}
       intro={page.hero}
       url={`${SITE_URL}${path}`}
@@ -80,40 +95,40 @@ export function NumerologyNumberScreen() {
           className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-7"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)]">
-            Quick Meaning &amp; Formula
+            {ui.quickMeaningKicker}
           </p>
           <h2 id="quick-summary-heading" className="mt-1 font-display text-xl text-foreground sm:text-2xl">
-            What Does {page.isMaster ? page.label : `Life Path Number ${page.number}`} Mean?
+            {ui.whatDoesMeanPrefix} {localizedLabel}{ui.whatDoesMeanSuffix ? ` ${ui.whatDoesMeanSuffix}` : ""}
           </h2>
           <p className="mt-3 text-base leading-relaxed text-foreground/90">{page.quickAnswer}</p>
 
           <dl className="mt-5 grid gap-4 border-t border-white/10 pt-5 text-sm sm:grid-cols-2">
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                How to calculate
+                {t("calcUi.howCalc")}
               </dt>
               <dd className="mt-1 leading-relaxed text-muted-foreground">{page.calculationNote}</dd>
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Key profile
+                {ui.keyProfile}
               </dt>
               <dd className="mt-1 leading-relaxed text-muted-foreground">
-                Ruling Planet: <strong className="text-foreground">{page.planet}</strong>
+                {t("calcUi.rulingPlanet")}: <strong className="text-foreground">{localizedPlanet}</strong>
                 {highMatches ? (
                   <>
                     {" "}
-                    · Best Matches:{" "}
+                    · {ui.bestMatches}{" "}
                     <strong className="text-foreground tabular-nums">{highMatches}</strong>
                   </>
                 ) : null}{" "}
-                · Tarot:{" "}
+                · {t("nav.tarot")}:{" "}
                 <Link
                   to="/tarot/$slug"
                   params={{ slug: page.tarotSlug }}
                   className="text-[var(--gold)] hover:underline"
                 >
-                  {page.tarotCard}
+                  {localizedTarot}
                 </Link>
               </dd>
             </div>
@@ -124,7 +139,7 @@ export function NumerologyNumberScreen() {
               to="/numerology"
               className="font-semibold text-[var(--gold)] underline underline-offset-4 hover:opacity-85"
             >
-              Check Your Life Path &amp; Mulank Free →
+              {ui.checkFreeLink}
             </Link>
             {!page.isMaster && (
               <Link
@@ -132,44 +147,44 @@ export function NumerologyNumberScreen() {
                 params={{ slug: `mulank-${page.number}` }}
                 className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
               >
-                Compare with Mulank {page.number} (Birth Day Number) →
+                {ui.compareMulankPrefix} {page.number} →
               </Link>
             )}
           </div>
         </section>
       }
     >
-      <ContentSection id="correspondences" title="Number at a glance" icon={Compass}>
+      <ContentSection id="correspondences" title={t("calcUi.numberAtGlance")} icon={Compass}>
         <InfoGrid
           items={[
-            { label: "Number", value: String(page.number) },
-            { label: "Archetype", value: page.archetype },
-            { label: "Ruling planet", value: page.planet },
-            { label: "Element", value: page.element },
-            { label: "Tarot archetype", value: page.tarotCard },
-            { label: "Lucky colours", value: page.luckyColours.join(", ") },
-            { label: "Lucky days", value: page.luckyDays.join(", ") },
-            { label: "Lucky numbers", value: page.luckyNumbers.join(", ") },
-            { label: "Type", value: page.isMaster ? "Master Number" : "Root Number" },
+            { label: BREADCRUMB_LABELS.numerology[language], value: String(page.number) },
+            { label: t("tarotUi.archetype"), value: page.archetype },
+            { label: t("calcUi.rulingPlanet"), value: localizedPlanet },
+            { label: t("tarotUi.element"), value: localizedElement },
+            { label: ui.tarotArchetype.replace(/:\s*$/, ""), value: localizedTarot },
+            { label: t("calcUi.luckyColours"), value: page.luckyColours.join(", ") },
+            { label: t("calcUi.luckyDays"), value: page.luckyDays.join(", ") },
+            { label: t("calcUi.luckyNumbers"), value: page.luckyNumbers.join(", ") },
+            { label: t("tarotUi.arcana"), value: page.isMaster ? t("calcUi.masterNumber") : ui.rootNumWord },
           ]}
         />
       </ContentSection>
 
       <ContentSection
         id="meaning"
-        title={page.isMaster ? `${page.label} meaning` : `Life Path Number ${page.number} meaning`}
+        title={`${localizedLabel} ${ui.meaningSuffix}`.trim()}
         icon={BookOpen}
         paragraphs={page.meaning}
       />
       <ContentSection
         id="personality"
-        title="Personality traits"
+        title={ui.personalityTraits}
         icon={Sparkles}
         paragraphs={page.personality}
       >
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg text-[var(--gold)]">Strengths</h3>
+            <h3 className="font-display text-lg text-[var(--gold)]">{t("calcUi.strengths")}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.strengths.map((s) => (
                 <li key={s} className="flex gap-2">
@@ -180,7 +195,7 @@ export function NumerologyNumberScreen() {
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Challenges</h3>
+            <h3 className="font-display text-lg">{t("calcUi.challenges")}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.weaknesses.map((s) => (
                 <li key={s} className="flex gap-2">
@@ -193,7 +208,7 @@ export function NumerologyNumberScreen() {
         </div>
       </ContentSection>
 
-      <ContentSection id="career" title="Career and work" icon={Briefcase} paragraphs={page.career}>
+      <ContentSection id="career" title={t("calcUi.careerWork")} icon={Briefcase} paragraphs={page.career}>
         <div className="flex flex-wrap gap-2">
           {page.careerPaths.map((c) => (
             <span key={c} className="rounded-full glass px-3 py-1 text-xs text-muted-foreground">
@@ -205,33 +220,33 @@ export function NumerologyNumberScreen() {
 
       <ContentSection
         id="relationships"
-        title="Love and relationships"
+        title={t("calcUi.loveRel")}
         icon={HeartHandshake}
         paragraphs={page.relationships}
       />
       <ContentSection
         id="marriage"
-        title="Marriage and family"
+        title={t("calcUi.marriageFamily")}
         icon={Users}
         paragraphs={page.marriage}
       />
-      <ContentSection id="money" title="Money and finances" icon={Coins} paragraphs={page.money} />
+      <ContentSection id="money" title={t("calcUi.moneyFin")} icon={Coins} paragraphs={page.money} />
       <ContentSection
         id="health"
-        title="Health and wellbeing"
+        title={t("tarotUi.healthHeading")}
         icon={HeartPulse}
         paragraphs={page.health}
       />
       <ContentSection
         id="spiritual"
-        title="Spiritual path"
+        title={t("calcUi.spiritualPath")}
         icon={MoonStar}
         paragraphs={page.spiritual}
       />
 
       <ContentSection
         id="compatibility"
-        title="Compatibility with other numbers"
+        title={t("calcUi.compatNumbers")}
         icon={HeartHandshake}
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -253,17 +268,17 @@ export function NumerologyNumberScreen() {
             const cardBody = (
               <GlassCard className="h-full p-5 transition-colors hover:border-[color:var(--gold)]/45">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-display text-base">Number {c.number}</h3>
+                  <h3 className="font-display text-base">{c.number}</h3>
                   <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
-                    {VERDICT_LABEL[c.verdict]}
+                    {verdictLabel[c.verdict]}
                   </span>
                 </div>
                 <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
                 {targetSlug && (
                   <span className="mt-3 inline-block text-xs font-semibold text-[var(--gold)]">
                     {!page.isMaster && singleDigit
-                      ? `Explore ${page.number} × ${singleDigit} pair →`
-                      : `Read Number ${c.number} guide →`}
+                      ? `${ui.explorePair} (${page.number} × ${singleDigit})`
+                      : `${ui.readNumberGuide} (${c.number})`}
                   </span>
                 )}
               </GlassCard>
@@ -285,7 +300,7 @@ export function NumerologyNumberScreen() {
         </div>
       </ContentSection>
 
-      <ContentSection id="lessons" title="Life lessons" icon={Lightbulb}>
+      <ContentSection id="lessons" title={t("calcUi.lifeLessons")} icon={Lightbulb}>
         <ul className="space-y-3">
           {page.lifeLessons.map((l, i) => (
             <li key={i} className="flex gap-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
@@ -299,7 +314,7 @@ export function NumerologyNumberScreen() {
         </ul>
       </ContentSection>
 
-      <ContentSection id="famous" title="Famous people with this number" icon={Users}>
+      <ContentSection id="famous" title={t("calcUi.famousPeople")} icon={Users}>
         <div className="flex flex-wrap gap-2">
           {page.famous.map((f) => (
             <span key={f} className="rounded-full glass px-3 py-1 text-xs text-muted-foreground">
@@ -309,10 +324,10 @@ export function NumerologyNumberScreen() {
         </div>
       </ContentSection>
 
-      <ContentSection id="practice" title="Journal and affirmation" icon={NotebookPen}>
+      <ContentSection id="practice" title={t("calcUi.journalAffirm")} icon={NotebookPen}>
         <div className="grid gap-4 md:grid-cols-2">
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Journal prompts</h3>
+            <h3 className="font-display text-lg">{ui.journalPrompts}</h3>
             <ul className="mt-3 space-y-2 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
               {page.journalPrompts.map((p, i) => (
                 <li key={i} className="flex gap-2">
@@ -323,18 +338,18 @@ export function NumerologyNumberScreen() {
             </ul>
           </GlassCard>
           <GlassCard className="p-6">
-            <h3 className="font-display text-lg">Affirmation</h3>
+            <h3 className="font-display text-lg">{ui.affirmation}</h3>
             <p className="mt-3 text-base sm:text-[15px] italic leading-relaxed text-foreground/90">
               “{page.affirmation}”
             </p>
             <p className="mt-4 text-base sm:text-sm text-muted-foreground">
-              Tarot archetype:{" "}
+              {ui.tarotArchetype}{" "}
               <Link
                 to="/tarot/$slug"
                 params={{ slug: page.tarotSlug }}
                 className="text-[var(--gold)] hover:underline"
               >
-                {page.tarotCard}
+                {localizedTarot}
               </Link>
             </p>
           </GlassCard>
@@ -342,19 +357,19 @@ export function NumerologyNumberScreen() {
       </ContentSection>
 
       <RelatedCards
-        title="Related numbers"
+        title={t("calcUi.relatedNumbers")}
         items={page.relatedSlugs
           .map((slug) => getNumerologyPage(slug))
           .filter((p): p is NumerologyPage => Boolean(p))
           .map((p) => ({
             slug: p.slug,
-            name: p.label,
+            name: p.isMaster ? `${ui.masterWord} ${p.number}` : `${ui.lifePathWord} ${p.number}`,
             subtitle: p.archetype,
             base: "/numerology/$slug" as const,
           }))}
       />
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={page.faqs} />
       </ContentSection>
 
@@ -362,33 +377,33 @@ export function NumerologyNumberScreen() {
         links={[
           {
             to: "/numerology",
-            label: "Interactive Mulank calculator",
-            blurb: `Compute your exact Personal Year cycle alongside ${page.label} influences.`,
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/numerology/compatibility",
-            label: "Mulank × Bhagyank 81-Pair Matrix",
-            blurb: "See how every Birth Number interacts with every Destiny Number.",
+            label: t("calcUi.compatHubCrumb"),
+            blurb: ui.compatIntro,
           },
           {
             to: "/bhagyank-calculator",
-            label: "Bhagyank (Destiny Number) calculator",
-            blurb: "Check your full-date Destiny Number and compare it with your Mulank.",
+            label: t("numerologyLanding2.cta"),
+            blurb: t("numerologyLanding.step2Body"),
           },
           {
             to: "/namank-calculator",
-            label: "Chaldean Namank calculator",
-            blurb: "See how your full name vibration harmonizes with your birth numbers.",
+            label: t("numerologyLanding3.cta"),
+            blurb: t("numerologyLanding.step3Body"),
           },
           {
             to: "/guide/mulank-vs-bhagyank",
-            label: "Mulank vs. Bhagyank guide",
-            blurb: "Understand daily birth temperament vs. full-date life direction.",
+            label: `${BREADCRUMB_LABELS.mulank[language]} × ${BREADCRUMB_LABELS.bhagyank[language]}`,
+            blurb: t("numerologyLanding.subtitle"),
           },
           {
             to: "/tarot",
-            label: `Explore ${page.tarotCard} & deck`,
-            blurb: `Connect ${page.label}'s lessons with Rider–Waite–Smith tarot symbolism.`,
+            label: localizedTarot,
+            blurb: t("tarotHub.intro"),
           },
         ]}
       />
@@ -396,15 +411,29 @@ export function NumerologyNumberScreen() {
       <PrevNextNav
         base="/numerology/$slug"
         hubTo="/numerology"
-        hubLabel="All numerology numbers"
-        prev={prev ? { slug: prev.slug, label: prev.label } : undefined}
-        next={next ? { slug: next.slug, label: next.label } : undefined}
+        hubLabel={t("calcUi.allNumbers")}
+        prev={
+          prev
+            ? {
+                slug: prev.slug,
+                label: prev.isMaster ? `${ui.masterWord} ${prev.number}` : `${ui.lifePathWord} ${prev.number}`,
+              }
+            : undefined
+        }
+        next={
+          next
+            ? {
+                slug: next.slug,
+                label: next.isMaster ? `${ui.masterWord} ${next.number}` : `${ui.lifePathWord} ${next.number}`,
+              }
+            : undefined
+        }
       />
 
       <CTASection
-        title={`Compute your ${page.label} chart`}
-        body={`Combine ${page.label} tendencies with your current Personal Year and Month directly inside the instant calculator.`}
-        ctaLabel="Open the free calculator"
+        title={localizedLabel}
+        body={t("numerologyLanding.subtitle")}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/numerology"
       />
     </ArticleLayout>

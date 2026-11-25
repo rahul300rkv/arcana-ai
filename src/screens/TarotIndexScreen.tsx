@@ -16,6 +16,12 @@ import { TAROT_PAGES } from "@/data/tarot";
 import { NUMEROLOGY_PAGES } from "@/data/numerology";
 import { getBcp47, useLanguage, useTranslate } from "@/lib/i18n";
 import { localizePath } from "@/locales";
+import {
+  getLocalizedArcana,
+  getLocalizedCardNameBySlug,
+  getLocalizedSuit,
+} from "@/locales/card-terms";
+import { getNumerologyNumUi } from "@/locales/guides-num-i18n";
 import { cn } from "@/lib/utils";
 
 export const TAROT_HUB_FAQS = [
@@ -46,6 +52,7 @@ type FilterKey = "all" | "major" | "wands" | "cups" | "swords" | "pentacles";
 export function TarotIndexScreen() {
   const t = useTranslate();
   const [language] = useLanguage();
+  const numUi = getNumerologyNumUi(language);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<FilterKey>("all");
 
@@ -129,13 +136,15 @@ export function TarotIndexScreen() {
       if (filter === "major" && p.arcana !== "major") return false;
       if (filter !== "all" && filter !== "major" && p.suit !== filter) return false;
       if (!q) return true;
+      const locName = getLocalizedCardNameBySlug(p.slug, p.name, language).toLowerCase();
       return (
         p.name.toLowerCase().includes(q) ||
+        locName.includes(q) ||
         p.cardKeywords.some((k) => k.toLowerCase().includes(q)) ||
         p.archetype.toLowerCase().includes(q)
       );
     });
-  }, [query, filter]);
+  }, [query, filter, language]);
 
   return (
     <div className="relative min-h-dvh">
@@ -282,27 +291,34 @@ export function TarotIndexScreen() {
         </div>
 
         <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {cards.map((p) => (
-            <li key={p.slug}>
-              <Link to="/tarot/$slug" params={{ slug: p.slug }} className="block h-full">
-                <GlassCard className="h-full p-3">
-                  <img
-                    src={p.image}
-                    alt={`${p.name} (${p.arcana === "major" ? "Major Arcana" : `${p.suit ? p.suit.charAt(0).toUpperCase() + p.suit.slice(1) : "Minor"} Suit`}) Rider-Waite-Smith tarot card illustration: ${p.cardKeywords.slice(0, 3).join(", ")}`}
-                    loading="lazy"
-                    decoding="async"
-                    width={200}
-                    height={300}
-                    className="aspect-[2/3] w-full rounded-lg object-cover"
-                  />
-                  <h2 className="mt-3 font-display text-sm sm:text-base">{p.name}</h2>
-                  <p className="mt-1 line-clamp-2 text-[11px] text-muted-foreground">
-                    {p.cardKeywords.join(", ")}
-                  </p>
-                </GlassCard>
-              </Link>
-            </li>
-          ))}
+          {cards.map((p) => {
+            const locName = getLocalizedCardNameBySlug(p.slug, p.name, language);
+            const locCategory =
+              p.arcana === "major"
+                ? getLocalizedArcana("major", language)
+                : getLocalizedSuit(p.suit, language);
+            return (
+              <li key={p.slug}>
+                <Link to="/tarot/$slug" params={{ slug: p.slug }} className="block h-full">
+                  <GlassCard className="h-full p-3">
+                    <img
+                      src={p.image}
+                      alt={`${locName} (${locCategory})`}
+                      loading="lazy"
+                      decoding="async"
+                      width={200}
+                      height={300}
+                      className="aspect-[2/3] w-full rounded-lg object-cover"
+                    />
+                    <h2 className="mt-3 font-display text-sm sm:text-base">{locName}</h2>
+                    <p className="mt-1 line-clamp-2 text-[11px] text-muted-foreground">
+                      {p.cardKeywords.join(", ")}
+                    </p>
+                  </GlassCard>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {cards.length === 0 && (
@@ -316,16 +332,24 @@ export function TarotIndexScreen() {
             {t("tarotHub.numbersHeading")}
           </h2>
           <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {NUMEROLOGY_PAGES.map((n) => (
-              <li key={n.slug}>
-                <Link to="/numerology/$slug" params={{ slug: n.slug }}>
-                  <GlassCard className="p-4">
-                    <span className="block font-display text-lg text-[var(--gold)]">{n.label}</span>
-                    <span className="mt-1 block text-xs text-muted-foreground">{n.archetype}</span>
-                  </GlassCard>
-                </Link>
-              </li>
-            ))}
+            {NUMEROLOGY_PAGES.map((n) => {
+              const numVal = n.slug.replace("master-number-", "").replace("life-path-", "");
+              const locNumLabel = n.slug.startsWith("master-")
+                ? `${numUi.masterWord} ${numVal}`
+                : `${numUi.lifePathWord} ${numVal}`;
+              return (
+                <li key={n.slug}>
+                  <Link to="/numerology/$slug" params={{ slug: n.slug }}>
+                    <GlassCard className="p-4">
+                      <span className="block font-display text-lg text-[var(--gold)]">
+                        {locNumLabel}
+                      </span>
+                      <span className="mt-1 block text-xs text-muted-foreground">{n.archetype}</span>
+                    </GlassCard>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
 

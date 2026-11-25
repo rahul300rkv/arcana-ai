@@ -7,9 +7,11 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getGuideVsLocale } from "@/locales/guides-num-i18n";
 
 const PATH = "/guide/mulank-vs-bhagyank";
-const TITLE = "Mulank vs Bhagyank: Numerology in Indian Tradition";
 const UPDATED = "2026-08-14";
 
 const FAQS = [
@@ -40,37 +42,17 @@ const FAQS = [
   },
 ];
 
-const COMPARE = [
-  {
-    label: "Full name",
-    mulank: "Mulank (Moolank): Birth Number / Root Number",
-    bhagyank: "Bhagyank: Destiny Number / Fate Number",
-  },
-  {
-    label: "Calculated from",
-    mulank: "Day of birth only",
-    bhagyank: "Full date of birth (day + month + year)",
-  },
-  {
-    label: "Governs",
-    mulank: "Instinctive personality, natural temperament",
-    bhagyank: "Life path, destiny, long-term direction",
-  },
-  {
-    label: "Changes over a lifetime?",
-    mulank: "No. Fixed for life",
-    bhagyank: "No. Fixed for life",
-  },
-  { label: "Western equivalent", mulank: "No exact match", bhagyank: "Life Path Number" },
-];
-
 export function GuideMulankVsBhagyankScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getGuideVsLocale(language);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Mulank vs Bhagyank" }]}
-      eyebrow="Numerology · Indian Tradition"
-      title={TITLE}
-      intro="Indian numerology reads two core numbers from your birth date: Mulank, your instinctive personality, and Bhagyank, your life direction. Here's exactly how each is calculated and what they mean together."
+      crumbs={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: loc.crumb }]}
+      eyebrow={loc.eyebrow}
+      title={loc.title}
+      intro={loc.intro}
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={11}
@@ -81,7 +63,7 @@ export function GuideMulankVsBhagyankScreen() {
         </GlassCard>
       }
     >
-      <ContentSection id="tradition" title="Numerology in the Indian tradition" icon={BookOpen}>
+      <ContentSection id="tradition" title={loc.secTradition} icon={BookOpen}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Indian numerology, rooted in Vedic and later Pythagorean-influenced systems popularised
           across South Asia, treats a birth date as a compact code containing two distinct layers of
@@ -99,36 +81,31 @@ export function GuideMulankVsBhagyankScreen() {
         </p>
       </ContentSection>
 
-      <ContentSection id="mulank" title="Mulank: the birth number" icon={Calculator}>
+      <ContentSection id="mulank" title={loc.secMulank} icon={Calculator}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Mulank, sometimes spelled Moolank, uses only your day of birth: nothing else. If you were
           born on a single-digit day (1 through 9), that's already your Mulank. If you were born on
           a double-digit day (10 through 31), you reduce it to one digit.
         </p>
         <GlassCard className="mt-4 p-5">
-          <h3 className="font-display text-base">Worked example</h3>
+          <h3 className="font-display text-base">{loc.workedExample}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born on the 28th: 2 + 8 = 10, then 1 + 0 = 1. Mulank ={" "}
-            <strong className="text-foreground/90">1</strong>.
+            28 → 2 + 8 = 10 → 1 + 0 = 1 · {BREADCRUMB_LABELS.mulank[language]} ={" "}
+            <strong className="text-foreground/90">1</strong>
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born on the 6th: no reduction needed. Mulank ={" "}
-            <strong className="text-foreground/90">6</strong>.
+            6 → {BREADCRUMB_LABELS.mulank[language]} ={" "}
+            <strong className="text-foreground/90">6</strong>
           </p>
         </GlassCard>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Because it draws only from the birth day, Mulank is considered the number closest to your
-          instinctive, unfiltered self: how you react before you've had time to think, your natural
-          strengths, and the traits people notice about you almost immediately. Every number 1
-          through 9 has a detailed profile on AstroFree's{" "}
           <Link to="/numerology/mulank" className="text-[var(--gold)] hover:underline">
-            complete Mulank guide
+            {BREADCRUMB_LABELS.mulank[language]} (1–9) →
           </Link>
-          , including ruling planet, element, and compatibility.
         </p>
       </ContentSection>
 
-      <ContentSection id="bhagyank" title="Bhagyank: the destiny number" icon={Compass}>
+      <ContentSection id="bhagyank" title={loc.secBhagyank} icon={Compass}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Bhagyank draws from your entire date of birth (day, month, and year together) and is
           reduced the same way, digit by digit, until one number remains. Because it incorporates
@@ -137,33 +114,31 @@ export function GuideMulankVsBhagyankScreen() {
           major decisions tend to push you toward.
         </p>
         <GlassCard className="mt-4 p-5">
-          <h3 className="font-display text-base">Worked example</h3>
+          <h3 className="font-display text-base">{loc.workedExample}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Born 28 November 1994: add every digit: 2+8+1+1+1+9+9+4 = 35, then 3+5 = 8. Bhagyank ={" "}
-            <strong className="text-foreground/90">8</strong>.
+            28 / 11 / 1994 → 2+8+1+1+1+9+9+4 = 35 → 3+5 = 8 · {BREADCRUMB_LABELS.bhagyank[language]} ={" "}
+            <strong className="text-foreground/90">8</strong>
           </p>
         </GlassCard>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          You can calculate your own instantly with AstroFree's free{" "}
           <Link to="/bhagyank-calculator" className="text-[var(--gold)] hover:underline">
-            Bhagyank calculator
+            {t("numerologyLanding2.cta")} →
           </Link>
-          , which also flags master numbers automatically.
         </p>
       </ContentSection>
 
-      <ContentSection id="comparison" title="Mulank vs Bhagyank, side by side" icon={Scale}>
+      <ContentSection id="comparison" title={loc.secCompare} icon={Scale}>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[480px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-white/10 text-left text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                <th className="py-2 pr-4">Aspect</th>
-                <th className="py-2 pr-4 text-[var(--gold)]">Mulank</th>
-                <th className="py-2">Bhagyank</th>
+                <th className="py-2 pr-4">{loc.colAspect}</th>
+                <th className="py-2 pr-4 text-[var(--gold)]">{loc.colMulank}</th>
+                <th className="py-2">{loc.colBhagyank}</th>
               </tr>
             </thead>
             <tbody>
-              {COMPARE.map((row) => (
+              {loc.rows.map((row) => (
                 <tr key={row.label} className="border-b border-white/5">
                   <td className="py-3 pr-4 text-foreground/90">{row.label}</td>
                   <td className="py-3 pr-4 text-muted-foreground">{row.mulank}</td>
@@ -175,7 +150,7 @@ export function GuideMulankVsBhagyankScreen() {
         </div>
       </ContentSection>
 
-      <ContentSection id="reading-together" title="Reading them together" icon={Sparkles}>
+      <ContentSection id="reading-together" title={loc.secTogether} icon={Sparkles}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           A complete Indian numerology profile always considers Mulank and Bhagyank as a pair, not a
           choice between them. Think of Mulank as your default operating mode and Bhagyank as the
@@ -198,15 +173,13 @@ export function GuideMulankVsBhagyankScreen() {
           ))}
         </ul>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          If you want to see how your name number interacts with both, AstroFree's{" "}
           <Link to="/namank-calculator" className="text-[var(--gold)] hover:underline">
-            Namank calculator
-          </Link>{" "}
-          adds that third layer.
+            {t("numerologyLanding3.cta")} →
+          </Link>
         </p>
       </ContentSection>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={FAQS} />
       </ContentSection>
 
@@ -214,31 +187,31 @@ export function GuideMulankVsBhagyankScreen() {
         links={[
           {
             to: "/numerology/mulank",
-            label: "The complete Mulank guide",
-            blurb: "All nine Mulank numbers explained: traits, career, love, and remedies.",
+            label: `${BREADCRUMB_LABELS.mulank[language]} (1–9)`,
+            blurb: t("numerologyLanding.step1Body"),
           },
           {
             to: "/bhagyank-calculator",
-            label: "Free Bhagyank calculator",
-            blurb: "Get your destiny number instantly from your full date of birth.",
+            label: t("numerologyLanding2.cta"),
+            blurb: t("numerologyLanding.step2Body"),
           },
           {
             to: "/guide/numerology",
-            label: "Mulank numerology guide",
-            blurb: "How Personal Year and Personal Month are calculated from your Mulank.",
+            label: `${BREADCRUMB_LABELS.guides[language]} · ${BREADCRUMB_LABELS.numerology[language]}`,
+            blurb: t("numerologyLanding.subtitle"),
           },
           {
             to: "/numerology",
-            label: "Free numerology calculator",
-            blurb: "Get your Mulank, Personal Year and Personal Month in seconds.",
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
         ]}
       />
 
       <CTASection
-        title="Calculate your Mulank and Bhagyank together"
-        body="Get both numbers instantly, mapped to their meanings and tarot archetypes: free, no signup required."
-        ctaLabel="Open the free calculator"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={loc.ctaLabel}
         to="/numerology"
       />
     </ArticleLayout>

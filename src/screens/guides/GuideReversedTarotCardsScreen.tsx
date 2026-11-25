@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "@/components/LocalizedLink";
 import {
   RotateCcw,
@@ -15,12 +16,15 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { REVERSED_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
+import { getLocalizedCardNameBySlug } from "@/locales/card-terms";
 
 const PATH = "/what-do-reversed-tarot-cards-mean";
-const TITLE = "What Do Reversed Tarot Cards Mean?";
 const UPDATED = "2026-11-18";
 
-const FAQS = [
+const FAQS_EN = [
   {
     question: "Does a reversed card always mean something negative?",
     answer:
@@ -49,36 +53,30 @@ const FAQS = [
   },
 ];
 
-const APPROACHES = [
-  {
-    title: "Blocked energy",
-    detail:
-      "The upright theme wants to move forward but meets resistance: hesitation, missing preparation, or a boundary bottleneck. A reversed Magician often signals untapped skills or scattered focus rather than an inability to act.",
-  },
-  {
-    title: "Internalized meaning",
-    detail:
-      "Instead of playing out visibly around you, the card's energy turns inward into private processing, emotion, or reflection. A reversed Three of Cups often points to quiet gratitude or guarded social energy rather than a public party.",
-  },
-  {
-    title: "Delay & timing friction",
-    detail:
-      "The answer is 'not yet' rather than a permanent rejection. A reversed Six of Wands or Wheel of Fortune marks momentum that simply needs patience, clearer timing, or one unresolved step finished first.",
-  },
-  {
-    title: "Shadow aspect (excess or deficiency)",
-    detail:
-      "The upright quality tips too far or fades too thin. A reversed Emperor may warn against rigid control or lack of structure, while a reversed Devil signals breaking free from an unhealthy attachment.",
-  },
-];
-
 export function GuideReversedTarotCardsScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = REVERSED_GUIDE_I18N[language];
+
+  const faqs = useMemo(() => {
+    if (language === "en") return FAQS_EN;
+    return [
+      { question: loc.secWhatChanges, answer: loc.whatChangesParas.join(" ") },
+      {
+        question: loc.secFourLenses,
+        answer: loc.approaches.map((a) => `${a.title}: ${a.detail}`).join(" "),
+      },
+      { question: loc.secMethod, answer: loc.steps.join(" ") },
+      { question: loc.secShouldI, answer: loc.shouldIPara },
+    ];
+  }, [language, loc]);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Reversed Tarot Cards" }]}
-      eyebrow="Tarot · Interpretation"
-      title={TITLE}
-      intro="A reversed card isn't a different card with a scary new meaning: it's the same card, viewed through one of four practical lenses. Here's how to tell which one applies."
+      crumbs={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: loc.crumb }]}
+      eyebrow={loc.eyebrow}
+      title={loc.title}
+      intro={loc.intro}
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={9}
@@ -89,33 +87,28 @@ export function GuideReversedTarotCardsScreen() {
         </GlassCard>
       }
     >
-      <ContentSection id="what-changes" title="What a reversal actually changes" icon={BookOpen}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          When a card is drawn upside down, its core theme doesn't disappear or flip into its exact
-          opposite: that's a common misconception that leads new readers to treat every reversal as
-          bad news. Instead, a reversal usually adjusts <em>how</em> the card's energy is showing
-          up: turned inward instead of outward, delayed instead of active, or expressed as excess or
-          deficiency rather than balance.
-        </p>
+      <ContentSection id="what-changes" title={loc.secWhatChanges} icon={BookOpen}>
+        {loc.whatChangesParas.map((para, i) => (
+          <p
+            key={para}
+            className={`${i > 0 ? "mt-4 " : ""}text-sm leading-relaxed text-muted-foreground sm:text-base`}
+          >
+            {para}
+          </p>
+        ))}
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Think of the upright meaning as the card's default setting, and the reversal as a modifier
-          applied on top of it, not a replacement. That's why the fastest way to learn reversed
-          meanings is to know the upright meaning cold first; the reversal almost always makes sense
-          once you understand what it's a variation of. AstroFree's full{" "}
           <Link to="/guide/tarot-card-meanings" className="text-[var(--gold)] hover:underline">
-            tarot card meanings reference
-          </Link>{" "}
-          lists both upright and reversed meanings for all 78 cards side by side.
+            {t("guideHub.g1Title")} →
+          </Link>
         </p>
       </ContentSection>
 
-      <ContentSection id="four-lenses" title="The four common interpretations" icon={Layers}>
+      <ContentSection id="four-lenses" title={loc.secFourLenses} icon={Layers}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Most reversed cards fall into one of four categories. Working through them in order,
-          fastest fit first, is a reliable way to land on a consistent interpretation:
+          {loc.approachesIntro}
         </p>
         <div className="mt-4 space-y-4">
-          {APPROACHES.map((a, i) => (
+          {loc.approaches.map((a, i) => (
             <GlassCard key={a.title} className="p-5">
               <h3 className="font-display text-lg">
                 {i + 1}. {a.title}
@@ -128,17 +121,11 @@ export function GuideReversedTarotCardsScreen() {
 
       <ContentSection
         id="method"
-        title="A repeatable method for reading a reversal"
+        title={loc.secMethod}
         icon={ListChecks}
       >
         <ol className="mt-2 space-y-3">
-          {[
-            "Recall the upright meaning first, in plain language, before anything else.",
-            "Ask which of the four lenses (blocked, internal, shadow, unlearned lesson) fits the context of the question best: don't default to the same lens for every card.",
-            'Check the position it landed in. A reversed card in a "past" slot often just describes something that has already resolved or faded, while the same reversal in an "outcome" position is more of a live warning.',
-            "Weigh it against the surrounding cards. Several reversals clustered together often points to one root blockage affecting the whole spread, rather than several unrelated problems.",
-            "Only after all of that, consider whether the situation is genuinely negative: most reversals describe friction or delay, not disaster.",
-          ].map((step, i) => (
+          {loc.steps.map((step, i) => (
             <li key={step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span className="font-display text-base text-[var(--gold)]">{i + 1}.</span>
               {step}
@@ -147,80 +134,64 @@ export function GuideReversedTarotCardsScreen() {
         </ol>
       </ContentSection>
 
-      <ContentSection id="examples" title="Worked examples" icon={Compass}>
+      <ContentSection id="examples" title={loc.secExamples} icon={Compass}>
         <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              card: "The Tower, reversed",
-              read: "Rather than a sudden collapse, this often describes a crisis you saw coming and prepared for, or disruption you're actively resisting: delaying the fall rather than avoiding the lesson.",
-            },
-            {
-              card: "Two of Cups, reversed",
-              read: "A connection that's imbalanced, one-sided, or going through miscommunication: the upright's mutual harmony is present in intent but not yet in practice.",
-            },
-            {
-              card: "Ten of Pentacles, reversed",
-              read: "Family or financial stability that feels fragile, or success that hasn't reached the wider family yet: the foundation described upright is still being built.",
-            },
-            {
-              card: "The Sun, reversed",
-              read: "Joy or success delayed or dimmed rather than absent: often read as temporary low confidence rather than the reversal of good fortune.",
-            },
-          ].map((e) => (
-            <GlassCard key={e.card} className="p-5">
-              <h3 className="font-display text-base text-[var(--gold)]">{e.card}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.read}</p>
-            </GlassCard>
-          ))}
+          {loc.examples.map((e) => {
+            const cardName = getLocalizedCardNameBySlug(e.slug, e.slug, language);
+            return (
+              <GlassCard key={e.slug} className="p-5">
+                <h3 className="font-display text-base text-[var(--gold)]">
+                  {cardName} · {t("tarotUi.reversed")}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.read}</p>
+              </GlassCard>
+            );
+          })}
         </div>
       </ContentSection>
 
-      <ContentSection id="should-i" title="Should you read reversals at all?" icon={ShieldQuestion}>
+      <ContentSection id="should-i" title={loc.secShouldI} icon={ShieldQuestion}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          There's no rule that says you must. Reading every card upright is a legitimate, widely
-          used approach: it simplifies interpretation and is often recommended for beginners still
-          building fluency with the 78 upright meanings covered in AstroFree's{" "}
+          {loc.shouldIPara}{" "}
           <Link to="/guide/tarot-for-beginners" className="text-[var(--gold)] hover:underline">
-            beginner's guide
+            {t("guideHub.g4Title")} →
           </Link>
-          . Once those feel automatic, adding reversals is simply a way to add nuance, not a more
-          "advanced" or "correct" way to read.
         </p>
       </ContentSection>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
-        <FAQAccordion items={FAQS} />
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
+        <FAQAccordion items={faqs} />
       </ContentSection>
 
       <KeepExploring
         links={[
           {
             to: "/major-arcana-tarot-cards-meanings",
-            label: "Major Arcana 22-card table",
-            blurb: "See upright and reversed keywords for all 22 Major Arcana cards.",
+            label: t("guideHub.g6Title"),
+            blurb: t("guideHub.g6Body"),
           },
           {
             to: "/yes-no-tarot",
-            label: "Free Yes or No Tarot Oracle",
-            blurb: "See how reversed pulls affect Yes, No, and Maybe oracle answers.",
+            label: t("tarotHub.rt4Title"),
+            blurb: t("tarotHub.rt4Body"),
           },
           {
             to: "/career-tarot-reading",
-            label: "Free Career Tarot Spread",
-            blurb: "Pull a 3-card work spread with live upright & reversed interpretations.",
+            label: t("tarotHub.rt5Title"),
+            blurb: t("tarotHub.rt5Body"),
           },
           {
             to: "/guide/tarot-for-beginners",
-            label: "Complete guide to tarot for beginners",
-            blurb: "Start here if upright meanings still feel unfamiliar.",
+            label: t("guideHub.g4Title"),
+            blurb: t("guideHub.g4Body"),
           },
         ]}
       />
 
       <CTASection
-        title="See reversed meanings in a live reading"
-        body="Draw a free spread and get an instant explanation of every card (upright or reversed) in plain language."
-        ctaLabel="Start a free reading"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={loc.ctaLabel}
         to="/reading"
       />
     </ArticleLayout>

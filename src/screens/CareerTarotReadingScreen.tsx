@@ -6,26 +6,14 @@ import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
 import { ReadingLanding } from "@/components/tarot/ReadingLanding";
 import { CAREER_CONFIG } from "@/data/tarot-landings";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { drawCards, getCardById } from "@/lib/tarot/engine";
-import type { DrawnCard, TarotCard as TarotCardType } from "@/lib/tarot/types";
-
-const CAREER_POSITIONS = [
-  {
-    key: "obstacle",
-    label: "1 · Current Role / Obstacle",
-    subtitle: "What defines your current work stance or friction",
-  },
-  {
-    key: "action",
-    label: "2 · Action to Take",
-    subtitle: "The strategic move or mindset most likely to unlock progress",
-  },
-  {
-    key: "outcome",
-    label: "3 · Career Outcome",
-    subtitle: "Where momentum points over the coming weeks",
-  },
-] as const;
+import type { DrawnCard } from "@/lib/tarot/types";
+import { getLocalizedCardNameBySlug } from "@/locales/card-terms";
+import {
+  buildLocalizedCareerNote,
+  getCareerUi,
+} from "@/locales/spreads-i18n";
 
 const LIFE_PATH_CAREERS = [
   {
@@ -100,32 +88,10 @@ function cardSlug(name: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-function buildCareerPositionNote(
-  card: TarotCardType,
-  reversed: boolean,
-  positionIndex: number,
-): string {
-  const base = card.careerMeaning;
-  const fin = card.financeMeaning;
-  if (!reversed) {
-    if (positionIndex === 0) {
-      return `In your current role, ${card.name} upright highlights ${card.uprightMeaning.toLowerCase()}. ${base}.`;
-    }
-    if (positionIndex === 1) {
-      return `Your strategic next step is guided by ${card.name}: ${base}. Keep practical track of ${fin.toLowerCase()}.`;
-    }
-    return `If you follow through on this momentum, ${card.name} upright points to an outcome shaped by ${card.uprightMeaning.toLowerCase()}. ${fin}.`;
-  }
-  if (positionIndex === 0) {
-    return `Reversed in your current position, ${card.name} warns of ${card.reversedMeaning.toLowerCase()}: an internal block or stalled workflow asking for honest recalibration before pushing harder.`;
-  }
-  if (positionIndex === 1) {
-    return `${card.name} reversed advises slowing down to address ${card.reversedMeaning.toLowerCase()} first. Tighten details around ${fin.toLowerCase()} before committing.`;
-  }
-  return `Reversed in Career Outcome, ${card.name} signals temporary delay or lessons around ${card.reversedMeaning.toLowerCase()}. Resolving the middle action unlocks steadier progress.`;
-}
-
 function InteractiveCareerSpread() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getCareerUi(language);
   const [question, setQuestion] = useState("");
   const [drawn, setDrawn] = useState<DrawnCard[] | null>(null);
   const [revealed, setRevealed] = useState<boolean[]>([false, false, false]);
@@ -158,10 +124,10 @@ function InteractiveCareerSpread() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-            Interactive 3-Card Spread
+            {ui.kicker}
           </p>
           <h2 className="mt-1 font-display text-2xl text-foreground sm:text-3xl">
-            Draw Your Career Tarot Reading
+            {ui.heading}
           </h2>
         </div>
         <Link
@@ -169,32 +135,29 @@ function InteractiveCareerSpread() {
           search={{ spread: "career" }}
           className="text-xs font-medium text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
         >
-          Open 4-Card AI Career Reading →
+          {ui.aiLink}
         </Link>
       </div>
 
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Pull three cards for <strong className="text-foreground">Current Role / Obstacle</strong>,{" "}
-        <strong className="text-foreground">Action to Take</strong>, and{" "}
-        <strong className="text-foreground">Career Outcome</strong>. Tap any card to reveal it
-        instantly in your browser.
+        {ui.sub}
       </p>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <label htmlFor="career-question" className="sr-only">
-          Your career or money question (optional)
+          {t("tarotUi.focusedQuestion")}
         </label>
         <input
           id="career-question"
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Optional question (e.g., Should I pitch for the promotion this quarter?)"
+          placeholder={t("tarotUi.careerPlaceholder")}
           className="min-h-[48px] flex-1 rounded-full border border-white/15 bg-white/[0.04] px-5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-[color:var(--gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]/30"
         />
         <GoldButton size="lg" onClick={handleDraw} className="min-h-[48px] shrink-0">
           <Sparkles className="h-4 w-4" aria-hidden />
-          {drawn ? "Shuffle & Draw Again" : "Draw 3 Career Cards"}
+          {drawn ? t("tarotUi.shuffleDraw") : t("tarotUi.draw3Career")}
         </GoldButton>
       </div>
 
@@ -202,19 +165,19 @@ function InteractiveCareerSpread() {
         <div className="mt-7 space-y-6">
           {question.trim() && (
             <p className="text-sm italic text-muted-foreground">
-              Focused question: “{question.trim()}”
+              {t("tarotUi.focusedQuestion")} “{question.trim()}”
             </p>
           )}
 
           {!allRevealed && (
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-muted-foreground">
-              <span>Tap each card to flip it, or reveal all three together.</span>
+              <span>{t("tarotUi.tapOrRevealAll")}</span>
               <button
                 type="button"
                 onClick={handleRevealAll}
                 className="min-h-[40px] rounded-full border border-[color-mix(in_oklab,var(--gold)_45%,transparent)] px-4 py-1.5 text-xs font-semibold text-[color:var(--gold)] transition-colors hover:bg-[color:var(--gold)]/10"
               >
-                Reveal all 3 cards
+                {t("tarotUi.revealAll3")}
               </button>
             </div>
           )}
@@ -222,9 +185,11 @@ function InteractiveCareerSpread() {
           <div className="grid gap-6 sm:grid-cols-3">
             {drawn.map((draw, i) => {
               const card = getCardById(draw.cardId);
-              const pos = CAREER_POSITIONS[i];
+              const pos = ui.positions[i];
               if (!card || !pos) return null;
               const isRevealed = revealed[i];
+              const slug = cardSlug(card.name);
+              const locName = getLocalizedCardNameBySlug(slug, card.name, language);
               return (
                 <div
                   key={`${draw.cardId}-${i}`}
@@ -245,7 +210,7 @@ function InteractiveCareerSpread() {
                   {isRevealed ? (
                     <div className="mt-4 flex flex-1 flex-col justify-between space-y-3 text-center">
                       <div>
-                        <p className="font-display text-lg text-foreground">{card.name}</p>
+                        <p className="font-display text-lg text-foreground">{locName}</p>
                         <span
                           className={`mt-1 inline-block rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest ${
                             draw.reversed
@@ -253,23 +218,23 @@ function InteractiveCareerSpread() {
                               : "border-[color-mix(in_oklab,var(--gold)_50%,transparent)] text-[color:var(--gold)]"
                           }`}
                         >
-                          {draw.reversed ? "Reversed" : "Upright"}
+                          {draw.reversed ? t("tarotUi.reversed") : t("tarotUi.upright")}
                         </span>
                         <p className="mt-3 text-left text-sm leading-relaxed text-muted-foreground">
-                          {buildCareerPositionNote(card, draw.reversed, i)}
+                          {buildLocalizedCareerNote(card, draw.reversed, i, language)}
                         </p>
                       </div>
                       <Link
                         to="/tarot/$slug"
-                        params={{ slug: cardSlug(card.name) }}
+                        params={{ slug }}
                         className="inline-block text-xs font-medium text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
                       >
-                        Full {card.name} Career Meaning →
+                        {ui.fullMeaningPrefix} ({locName})
                       </Link>
                     </div>
                   ) : (
                     <p className="mt-4 text-center text-xs text-muted-foreground">
-                      Tap card to reveal
+                      {t("tarotUi.tapReveal")}
                     </p>
                   )}
                 </div>
@@ -281,16 +246,13 @@ function InteractiveCareerSpread() {
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[color-mix(in_oklab,var(--aurora-1)_40%,transparent)] bg-[color-mix(in_oklab,var(--aurora-1)_10%,transparent)] p-4 text-sm">
               <div className="flex items-start gap-2.5 text-foreground/90">
                 <RefreshCw className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--aurora-1)]" aria-hidden />
-                <span>
-                  You drew a <strong>reversed card</strong> in this career spread: reversals highlight
-                  blocked momentum, burnout cues, or hidden workplace resistance rather than flat bad luck.
-                </span>
+                <span>{ui.reversedAlert}</span>
               </div>
               <Link
                 to="/what-do-reversed-tarot-cards-mean"
                 className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"
               >
-                Read: What Do Reversed Cards Mean? →
+                {ui.reversedGuideLink}
               </Link>
             </div>
           )}
@@ -302,7 +264,7 @@ function InteractiveCareerSpread() {
               className="inline-flex min-h-[44px] items-center gap-1.5 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
               <RotateCcw className="h-3.5 w-3.5" aria-hidden />
-              Clear table
+              {t("tarotUi.clearTable")}
             </button>
           </div>
         </div>
@@ -312,37 +274,38 @@ function InteractiveCareerSpread() {
 }
 
 function LifePathCareerTable() {
+  const [language] = useLanguage();
+  const ui = getCareerUi(language);
+  const t = useTranslate();
   return (
     <section aria-labelledby="life-path-career-heading">
       <div className="flex items-center gap-2 text-[color:var(--gold)]">
         <Briefcase className="h-4 w-4" aria-hidden />
         <p className="text-xs font-semibold uppercase tracking-[0.22em]">
-          Tarot × Vedic Numerology Cross-Reference
+          {ui.tableEyebrow}
         </p>
       </div>
       <h2
         id="life-path-career-heading"
         className="mt-2 font-display text-2xl aurora-text sm:text-3xl"
       >
-        Life Path Numbers 1–9 &amp; Career Paths
+        {ui.tableHeading}
       </h2>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-        Want to pair your career spread with long-term vocational alignment? Find your Destiny / Life
-        Path number in our{" "}
+        {ui.tableSub}{" "}
         <Link to="/numerology" className="text-[color:var(--gold)] hover:underline">
-          Mulank &amp; Bhagyank Calculator
-        </Link>{" "}
-        and match it against the roles where each number builds durable momentum.
+          {t("numerologyLanding2.cta")}
+        </Link>
       </p>
 
       <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead>
             <tr className="border-b border-white/10 bg-white/[0.04] text-xs uppercase tracking-[0.16em] text-[color:var(--gold)]">
-              <th className="px-4 py-3.5">Life Path</th>
-              <th className="px-4 py-3.5">Career Archetype</th>
-              <th className="px-4 py-3.5">Strong Career Paths</th>
-              <th className="px-4 py-3.5">Work &amp; Money Edge</th>
+              <th className="px-4 py-3.5">{ui.colLifePath}</th>
+              <th className="px-4 py-3.5">{ui.colArchetype}</th>
+              <th className="px-4 py-3.5">{ui.colCareers}</th>
+              <th className="px-4 py-3.5">{ui.colStrength}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/10">
@@ -354,7 +317,7 @@ function LifePathCareerTable() {
                     params={{ slug: row.slug }}
                     className="text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
                   >
-                    Life Path {row.num}
+                    {ui.lifePathWord} {row.num}
                   </Link>
                 </td>
                 <td className="px-4 py-3.5 font-medium text-foreground">{row.archetype}</td>

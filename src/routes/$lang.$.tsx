@@ -5,6 +5,22 @@ import { LocaleProvider } from "@/lib/language";
 import { buildContentJsonLd, buildContentMeta, buildPageJsonLd } from "@/lib/content-seo";
 import { SITE_URL } from "@/lib/site";
 import { getAllHreflangLinks, getLocaleByPrefix, localizePath } from "@/locales";
+import type { LocaleCode } from "@/locales/types";
+import {
+  BREADCRUMB_LABELS,
+  getLocalizedCardSeo,
+  getLocalizedComboSeo,
+  getLocalizedNumerologySeo,
+  getLocalizedStaticSeo,
+} from "@/locales/pages-seo";
+import {
+  getLocalizedArcana,
+  getLocalizedCardName,
+  getLocalizedCardNameBySlug,
+  getLocalizedElement,
+  getLocalizedPlanet,
+  getLocalizedSuit,
+} from "@/locales/card-terms";
 import type { SpreadId } from "@/lib/tarot/types";
 
 const VALID_SPREADS = new Set<string>([
@@ -373,6 +389,89 @@ function normalizeSplat(raw: string | undefined): string {
   return (raw ?? "").replace(/^\/+|\/+$/g, "");
 }
 
+function getAppOrLegalSeo(sub: string, lang: LocaleCode) {
+  switch (sub) {
+    case "privacy":
+      return {
+        title: `${t("lfooter.w6", lang)} | AstroFree`,
+        description: t("seo.about.desc", lang),
+        section: t("lfooter.w6", lang),
+        crumbTitle: t("lfooter.w6", lang),
+      };
+    case "terms":
+      return {
+        title: `${t("lfooter.w7", lang)} | AstroFree`,
+        description: t("seo.about.desc", lang),
+        section: t("lfooter.w7", lang),
+        crumbTitle: t("lfooter.w7", lang),
+      };
+    case "disclaimer":
+      return {
+        title: `${t("disclaimer.title", lang)} | AstroFree`,
+        description: t("disclaimer.s1Body", lang),
+        section: t("disclaimer.title", lang),
+        crumbTitle: t("disclaimer.title", lang),
+      };
+    case "editorial-policy":
+      return {
+        title: `${t("editorial.title", lang)} | AstroFree`,
+        description: t("editorial.s1Body", lang),
+        section: t("editorial.title", lang),
+        crumbTitle: t("editorial.title", lang),
+      };
+    case "cookie-policy":
+      return {
+        title: `${t("cookies.title", lang)} | AstroFree`,
+        description: t("cookies.s1Body", lang),
+        section: t("cookies.title", lang),
+        crumbTitle: t("cookies.title", lang),
+      };
+    case "contact": {
+      const label = `${t("contact.title1", lang)} ${t("contact.title2", lang)}`.trim();
+      return {
+        title: `${label} | AstroFree`,
+        description: t("contact.sub", lang),
+        crumbTitle: t("contact.crumb", lang),
+      };
+    }
+    case "dashboard":
+      return {
+        title: `${t("nav.dashboard", lang)} | AstroFree`,
+        description: t("dashboard.subtitle", lang),
+        crumbTitle: t("nav.dashboard", lang),
+      };
+    case "journal":
+      return {
+        title: `${t("nav.journal", lang)} | AstroFree`,
+        description: t("journal.sub", lang),
+        crumbTitle: t("nav.journal", lang),
+      };
+    case "profile":
+      return {
+        title: `${t("nav.profile", lang)} | AstroFree`,
+        description: t("profile.localNote", lang),
+        crumbTitle: t("nav.profile", lang),
+      };
+    case "settings":
+      return {
+        title: `${t("settings.title", lang)} | AstroFree`,
+        description: t("settings.subtitle", lang),
+        crumbTitle: t("settings.title", lang),
+      };
+    case "reading/question":
+    case "reading/shuffle":
+    case "reading/reveal":
+    case "reading/result":
+      return {
+        title: t("seo.reading.title", lang),
+        description: t("seo.reading.desc", lang),
+        crumbTitle: t("nav.readings", lang),
+      };
+    default:
+      return null;
+  }
+}
+
 export const Route = createFileRoute("/$lang/$" as any)({
   validateSearch: (s: Record<string, unknown>) => ({
     spread:
@@ -392,20 +491,23 @@ export const Route = createFileRoute("/$lang/$" as any)({
     const sub = normalizeSplat(params._splat);
     if (!sub) throw notFound();
 
+    const code = locale.meta.code;
     const staticLoader = STATIC_SCREEN_LOADERS[sub];
     if (staticLoader) {
       await loadScreen(sub, staticLoader);
       const seo = STATIC_SCREEN_SEO[sub];
-      const titleSuffix = ` (${locale.meta.nativeName})`;
+      const lseo = getLocalizedStaticSeo(sub, code) ?? getAppOrLegalSeo(sub, code);
+      const resolvedTitle = lseo?.title ?? (seo ? seo.title : t("seo.home.title", code));
       return {
         locale,
         kind: "static" as const,
         sub,
         screenKey: sub,
-        title: seo ? `${seo.title}${titleSuffix}` : t("seo.home.title", locale.meta.code),
-        description: seo ? seo.description : t("seo.home.desc", locale.meta.code),
+        title: resolvedTitle,
+        description: lseo?.description ?? (seo ? seo.description : t("seo.home.desc", code)),
         keywords: seo?.keywords ?? ["astrofree", locale.meta.englishName, sub],
-        section: seo?.section,
+        section: lseo?.section ?? seo?.section,
+        crumbTitle: lseo?.crumbTitle ?? resolvedTitle.replace(/\s*\|.*$/, ""),
       };
     }
 
@@ -420,14 +522,17 @@ export const Route = createFileRoute("/$lang/$" as any)({
         ]);
         const combo = getTarotCombination(slug);
         if (combo) {
+          const cseo = getLocalizedComboSeo(combo, code);
           return {
             locale,
             kind: "tarot-combo" as const,
             sub,
             screenKey: "__tarot_combo__",
             combo,
-            title: `${combo.title} (${locale.meta.nativeName})`,
-            description: combo.description,
+            title: cseo.title,
+            description: cseo.description,
+            section: cseo.section,
+            pairTitle: cseo.pairTitle,
             keywords: [...combo.keywords, locale.meta.englishName],
           };
         }
@@ -445,14 +550,18 @@ export const Route = createFileRoute("/$lang/$" as any)({
         ]);
         const page = getTarotPage(slug);
         if (page) {
+          const tseo = getLocalizedCardSeo(page, code);
           return {
             locale,
             kind: "tarot-card" as const,
             sub,
             screenKey: "__tarot_card__",
             page,
-            title: `${page.title} (${locale.meta.nativeName})`,
-            description: page.description,
+            title: tseo.title,
+            description: tseo.description,
+            section: tseo.section,
+            cardName: tseo.cardName,
+            arcanaLabel: tseo.arcanaLabel,
             keywords: [...page.keywords, locale.meta.englishName],
           };
         }
@@ -473,6 +582,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
           ]);
         const pair = getMulankBhagyankPair(slug);
         if (pair) {
+          const nseo = getLocalizedNumerologySeo("pair", pair, code);
           return {
             locale,
             kind: "numerology" as const,
@@ -481,13 +591,16 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair,
             mulank: undefined,
             page: undefined,
-            title: `${pair.title} (${locale.meta.nativeName})`,
-            description: pair.description,
+            title: nseo.title,
+            description: nseo.description,
+            section: nseo.section,
+            crumbName: nseo.crumbName,
             keywords: [...pair.keywords, locale.meta.englishName],
           };
         }
         const mulank = getMulankPage(slug);
         if (mulank) {
+          const nseo = getLocalizedNumerologySeo("mulank", mulank, code);
           return {
             locale,
             kind: "numerology" as const,
@@ -496,13 +609,16 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair: undefined,
             mulank,
             page: undefined,
-            title: `${mulank.title} (${locale.meta.nativeName})`,
-            description: mulank.description,
+            title: nseo.title,
+            description: nseo.description,
+            section: nseo.section,
+            crumbName: nseo.crumbName,
             keywords: [...mulank.keywords, locale.meta.englishName],
           };
         }
         const page = getNumerologyPage(slug);
         if (page) {
+          const nseo = getLocalizedNumerologySeo("numerology", page, code);
           return {
             locale,
             kind: "numerology" as const,
@@ -511,8 +627,10 @@ export const Route = createFileRoute("/$lang/$" as any)({
             pair: undefined,
             mulank: undefined,
             page,
-            title: `${page.title} (${locale.meta.nativeName})`,
-            description: page.description,
+            title: nseo.title,
+            description: nseo.description,
+            section: nseo.section,
+            crumbName: nseo.crumbName,
             keywords: [...page.keywords, locale.meta.englishName],
           };
         }
@@ -533,7 +651,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
     if (!locale || !sub) {
       return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     }
-    const code = locale.meta.code;
+    const code = locale.meta.code as LocaleCode;
     const basePath = `/${sub}`;
     const path = localizePath(basePath, code);
     const title = loaderData?.title ?? "AstroFree";
@@ -546,6 +664,11 @@ export const Route = createFileRoute("/$lang/$" as any)({
     if (loaderData?.kind === "tarot-card" && loaderData.page) {
       const p = loaderData.page;
       image = p.image;
+      const cardName = loaderData.cardName ?? getLocalizedCardNameBySlug(p.slug, p.name, code);
+      const arcanaLabel = loaderData.arcanaLabel ?? getLocalizedArcana(p.arcana, code);
+      const suitLabel = p.suit ? getLocalizedSuit(p.suit, code) : "";
+      const elLabel = getLocalizedElement(p.element, code);
+      const plLabel = getLocalizedPlanet(p.planet, code);
       jsonLd = buildContentJsonLd({
         path,
         title,
@@ -554,25 +677,29 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: p.updated,
         inLanguage: locale.meta.bcp47,
         homeLabel,
-        section: p.arcanaLabel,
+        section: arcanaLabel,
         keywords: p.keywords,
         about: [
-          p.name,
-          p.arcanaLabel,
-          ...(p.suit ? [p.suitLabel] : []),
-          p.element,
-          p.planet,
-          "Rider-Waite-Smith Tarot",
+          cardName,
+          arcanaLabel,
+          ...(suitLabel ? [suitLabel] : []),
+          elLabel,
+          plLabel,
+          t("nav.tarot", code),
         ],
         crumbs: [
           { name: t("nav.tarot", code), path: localizePath("/tarot", code) },
-          { name: p.name, path },
+          { name: cardName, path },
         ],
         faqs: p.faqs,
       });
     } else if (loaderData?.kind === "tarot-combo" && loaderData.combo) {
       const c = loaderData.combo;
       image = c.cardA.image;
+      const nameA = getLocalizedCardNameBySlug(c.cardASlug, c.cardA.name, code);
+      const nameB = getLocalizedCardNameBySlug(c.cardBSlug, c.cardB.name, code);
+      const section = loaderData.section ?? BREADCRUMB_LABELS.combinations[code];
+      const pairTitle = loaderData.pairTitle ?? `${nameA} + ${nameB}`;
       jsonLd = buildContentJsonLd({
         path,
         title,
@@ -581,21 +708,24 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: c.updated,
         inLanguage: locale.meta.bcp47,
         homeLabel,
-        section: "Tarot Combinations",
+        section,
         keywords: c.keywords,
-        about: [c.cardA.name, c.cardB.name, "Tarot Card Combinations"],
+        about: [nameA, nameB, section],
         crumbs: [
           { name: t("nav.tarot", code), path: localizePath("/tarot", code) },
-          { name: "Combinations", path: localizePath("/tarot/combinations", code) },
-          { name: `${c.cardA.name} + ${c.cardB.name}`, path },
+          { name: BREADCRUMB_LABELS.combinations[code], path: localizePath("/tarot/combinations", code) },
+          { name: pairTitle, path },
         ],
         faqs: c.faqs,
       });
     } else if (loaderData?.kind === "numerology") {
       const item = loaderData.pair ?? loaderData.mulank ?? loaderData.page;
-      const itemName = loaderData.pair
-        ? `Mulank ${loaderData.pair.mulank} × Bhagyank ${loaderData.pair.bhagyank}`
-        : (item?.label ?? sub);
+      const itemName =
+        loaderData.crumbName ??
+        (loaderData.pair
+          ? `${BREADCRUMB_LABELS.mulank[code]} ${loaderData.pair.mulank} × ${BREADCRUMB_LABELS.bhagyank[code]} ${loaderData.pair.bhagyank}`
+          : (item?.label ?? sub));
+      const section = loaderData.section ?? BREADCRUMB_LABELS.numerology[code];
       jsonLd = buildContentJsonLd({
         path,
         title,
@@ -603,9 +733,9 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: item?.updated ?? "2026-11-19",
         inLanguage: locale.meta.bcp47,
         homeLabel,
-        section: "Vedic Numerology (Ank Shastra)",
+        section,
         keywords: item?.keywords,
-        about: [itemName, "Vedic Numerology (Ank Shastra)", "Mulank", "Bhagyank"],
+        about: [itemName, section, BREADCRUMB_LABELS.mulank[code], BREADCRUMB_LABELS.bhagyank[code]],
         crumbs: [
           { name: t("numerology.navLabel", code), path: localizePath("/numerology", code) },
           { name: itemName, path },
@@ -621,7 +751,7 @@ export const Route = createFileRoute("/$lang/$" as any)({
         homeLabel,
         keywords: loaderData?.keywords,
         about: loaderData?.section ? [loaderData.section, "AstroFree"] : undefined,
-        crumbs: [{ name: title.replace(/\s*\|.*$/, ""), path }],
+        crumbs: [{ name: loaderData?.crumbTitle ?? title.replace(/\s*\|.*$/, ""), path }],
         article: loaderData?.section
           ? { updated: "2026-11-24", section: loaderData.section }
           : undefined,

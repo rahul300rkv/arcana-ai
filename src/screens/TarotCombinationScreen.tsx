@@ -8,7 +8,6 @@ import {
   HeartHandshake,
   HelpCircle,
   Lightbulb,
-  Sparkles,
   Sun,
 } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
@@ -22,11 +21,23 @@ import {
   getCombinationsForCard,
   type TarotCombinationProfile,
 } from "@/data/tarot-combinations";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
+import { getLocalizedCardNameBySlug, getLocalizedElement } from "@/locales/card-terms";
+import { COMBOS_I18N } from "@/locales/guides-tarot-i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
 
 export function TarotCombinationScreen() {
   const { combo } = useLoaderData({ strict: false }) as { combo: TarotCombinationProfile };
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = COMBOS_I18N[language];
   const path = `/tarot/combinations/${combo.slug}`;
+
+  const locNameA = getLocalizedCardNameBySlug(combo.cardASlug, combo.cardA.name, language);
+  const locNameB = getLocalizedCardNameBySlug(combo.cardBSlug, combo.cardB.name, language);
+  const locElemA = getLocalizedElement(combo.cardA.element, language);
+  const locElemB = getLocalizedElement(combo.cardB.element, language);
 
   const related = Array.from(
     new Map(
@@ -42,12 +53,12 @@ export function TarotCombinationScreen() {
   return (
     <ArticleLayout
       crumbs={[
-        { label: "Tarot", to: "/tarot" },
-        { label: "Combinations", to: "/tarot/combinations" },
-        { label: `${combo.cardA.name} + ${combo.cardB.name}` },
+        { label: t("nav.tarot"), to: "/tarot" },
+        { label: BREADCRUMB_LABELS.combinations[language], to: "/tarot/combinations" },
+        { label: `${locNameA} + ${locNameB}` },
       ]}
-      eyebrow={`Tarot Combination · ${combo.themeBadge}`}
-      title={combo.headline}
+      eyebrow={`${ui.pairEyebrowPrefix} · ${combo.themeBadge}`}
+      title={language === "en" ? combo.headline : `${locNameA} + ${locNameB} — ${combo.themeBadge}`}
       intro={combo.quickSummary}
       url={`${SITE_URL}${path}`}
       updated={combo.updated}
@@ -85,24 +96,24 @@ export function TarotCombinationScreen() {
       }
       afterHeader={
         <section
-          aria-label="Card pair summary"
+          aria-label={ui.pairSummaryAria}
           className="rounded-2xl border border-[color:var(--gold)]/35 bg-white/[0.03] p-5 sm:p-6"
         >
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--gold)]">
-              Combined Yes or No: {combo.yesNoCombined.label}
+              {t("calcUi.combinedYesNo")} {combo.yesNoCombined.label}
             </span>
             <Link
               to="/tarot/combinations"
               className="text-xs font-semibold text-[color:var(--gold)] underline underline-offset-4"
             >
-              Compare Other Card Pairs →
+              {ui.compareOther}
             </Link>
           </div>
           <dl className="mt-4 grid gap-4 text-sm sm:grid-cols-2">
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                {combo.cardA.name} ({combo.cardA.element})
+                {locNameA} ({locElemA})
               </dt>
               <dd className="mt-1 text-foreground">
                 {combo.cardA.uprightKeywords.join(", ")}
@@ -112,12 +123,12 @@ export function TarotCombinationScreen() {
                 params={{ slug: combo.cardASlug }}
                 className="mt-1 inline-block text-xs text-[color:var(--gold)] hover:underline"
               >
-                Full {combo.cardA.name} Meaning →
+                {locNameA} →
               </Link>
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                {combo.cardB.name} ({combo.cardB.element})
+                {locNameB} ({locElemB})
               </dt>
               <dd className="mt-1 text-foreground">
                 {combo.cardB.uprightKeywords.join(", ")}
@@ -127,7 +138,7 @@ export function TarotCombinationScreen() {
                 params={{ slug: combo.cardBSlug }}
                 className="mt-1 inline-block text-xs text-[color:var(--gold)] hover:underline"
               >
-                Full {combo.cardB.name} Meaning →
+                {locNameB} →
               </Link>
             </div>
           </dl>
@@ -136,12 +147,12 @@ export function TarotCombinationScreen() {
     >
       <ContentSection
         id="combined-meaning"
-        title={`What ${combo.cardA.name} and ${combo.cardB.name} mean together`}
+        title={`${locNameA} + ${locNameB} (${ui.meanTogetherSuffix})`}
         icon={BookOpen}
         paragraphs={combo.combinedMeaning}
       />
 
-      <ContentSection id="card-of-the-day-pair" title="Card of the Day pairing message" icon={Sun}>
+      <ContentSection id="card-of-the-day-pair" title={ui.cardOfDayPairTitle} icon={Sun}>
         <GlassCard className="p-6">
           <p className="text-base leading-relaxed text-foreground/90">{combo.cardOfTheDayNote}</p>
         </GlassCard>
@@ -149,21 +160,21 @@ export function TarotCombinationScreen() {
 
       <ContentSection
         id="love"
-        title="Love, feelings & relationships"
+        title={t("tarotUi.loveHeading")}
         icon={HeartHandshake}
         paragraphs={combo.loveMeaning}
       />
 
       <ContentSection
         id="career"
-        title="Career, decisions & finances"
+        title={t("tarotUi.careerHeading")}
         icon={Briefcase}
         paragraphs={combo.careerMeaning}
       />
 
       <ContentSection
         id="yes-no"
-        title={`Combined Yes or No verdict: ${combo.yesNoCombined.label}`}
+        title={`${t("calcUi.combinedYesNo")} ${combo.yesNoCombined.label}`}
         icon={Compass}
       >
         <GlassCard className="p-6">
@@ -174,7 +185,7 @@ export function TarotCombinationScreen() {
         </GlassCard>
       </ContentSection>
 
-      <ContentSection id="advice" title="Practical guidance from this pairing" icon={Lightbulb}>
+      <ContentSection id="advice" title={t("calcUi.practicalGuidance")} icon={Lightbulb}>
         <ul className="space-y-3">
           {combo.advice.map((item) => (
             <li key={item} className="flex gap-3 text-base sm:text-[15px] leading-relaxed text-muted-foreground">
@@ -188,7 +199,7 @@ export function TarotCombinationScreen() {
       {related.length > 0 && (
         <section aria-labelledby="related-combos-heading" className="scroll-mt-24">
           <h2 id="related-combos-heading" className="font-display text-2xl aurora-text sm:text-3xl">
-            Related card combinations
+            {t("calcUi.relatedCombos")}
           </h2>
           <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => (
@@ -204,11 +215,12 @@ export function TarotCombinationScreen() {
                         {r.themeBadge}
                       </span>
                       <span className="mt-1 block font-display text-base text-foreground">
-                        {r.cardA.name} + {r.cardB.name}
+                        {getLocalizedCardNameBySlug(r.cardASlug, r.cardA.name, language)} +{" "}
+                        {getLocalizedCardNameBySlug(r.cardBSlug, r.cardB.name, language)}
                       </span>
                     </div>
                     <span className="mt-3 inline-flex items-center gap-1 text-xs text-[color:var(--gold)]">
-                      Read pair <ArrowRight className="h-3 w-3" aria-hidden />
+                      {t("calcUi.readCombo")} <ArrowRight className="h-3 w-3" aria-hidden />
                     </span>
                   </GlassCard>
                 </Link>
@@ -218,7 +230,7 @@ export function TarotCombinationScreen() {
         </section>
       )}
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={combo.faqs} />
       </ContentSection>
 
@@ -226,31 +238,31 @@ export function TarotCombinationScreen() {
         links={[
           {
             to: "/tarot/combinations",
-            label: "78×78 Combination Explorer",
-            blurb: "Test any two cards from the deck interactively.",
+            label: t("calcUi.comboCrumb"),
+            blurb: t("calcUi.comboHeading"),
           },
           {
             to: "/tarot/one-card",
-            label: "Card of the Day Draw",
-            blurb: "Draw a live daily anchor card with instant guidance.",
+            label: t("tarotHub.rt1Title"),
+            blurb: t("tarotHub.rt1Body"),
           },
           {
             to: "/yes-no-tarot",
-            label: "Free Yes or No Oracle",
-            blurb: "Pull a direct single-card answer for your question.",
+            label: t("tarotHub.rt4Title"),
+            blurb: t("tarotHub.rt4Body"),
           },
           {
             to: "/numerology/compatibility",
-            label: "Mulank × Bhagyank Compatibility",
-            blurb: "Compare Vedic birth and destiny numbers across 81 pairs.",
+            label: BREADCRUMB_LABELS.compatibility[language],
+            blurb: t("calcUi.compatHeading"),
           },
         ]}
       />
 
       <CTASection
-        title="Draw a live spread around this question"
-        body="See how these archetypes land across past, present, and outcome positions in a free AI tarot reading."
-        ctaLabel="Start free tarot reading"
+        title={ui.ctaPairTitle}
+        body={ui.ctaPairBody}
+        ctaLabel={t("tarotUi.startFreeReading")}
         to="/reading"
       />
     </ArticleLayout>

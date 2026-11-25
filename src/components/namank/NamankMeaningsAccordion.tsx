@@ -5,8 +5,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { NAMANK_MEANINGS, type NamankMeaning } from "@/data/namank";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getNamankLocale } from "@/locales/guides-num-i18n";
 
 function MeaningBlock({ m }: { m: NamankMeaning }) {
+  const [lang] = useLanguage();
+  const t = useTranslate();
+  const nmUi = getNamankLocale(lang);
+
   return (
     <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
       <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">{m.archetype}</p>
@@ -14,7 +20,7 @@ function MeaningBlock({ m }: { m: NamankMeaning }) {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <h4 className="font-display text-sm text-foreground/90">Personality</h4>
+          <h4 className="font-display text-sm text-foreground/90">{nmUi.personality}</h4>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {m.personality.map((p) => (
               <li key={p}>{p}</li>
@@ -22,7 +28,7 @@ function MeaningBlock({ m }: { m: NamankMeaning }) {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm text-foreground/90">Strengths</h4>
+          <h4 className="font-display text-sm text-foreground/90">{t("calcUi.strengths")}</h4>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {m.strengths.map((s) => (
               <li key={s}>{s}</li>
@@ -30,7 +36,7 @@ function MeaningBlock({ m }: { m: NamankMeaning }) {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm text-foreground/90">Challenges</h4>
+          <h4 className="font-display text-sm text-foreground/90">{t("calcUi.challenges")}</h4>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {m.challenges.map((c) => (
               <li key={c}>{c}</li>
@@ -38,7 +44,7 @@ function MeaningBlock({ m }: { m: NamankMeaning }) {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm text-foreground/90">Career tendencies</h4>
+          <h4 className="font-display text-sm text-foreground/90">{t("calcUi.careerWork")}</h4>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {m.career.map((c) => (
               <li key={c}>{c}</li>
@@ -48,19 +54,19 @@ function MeaningBlock({ m }: { m: NamankMeaning }) {
       </div>
 
       <div>
-        <h4 className="font-display text-sm text-foreground/90">Relationships</h4>
+        <h4 className="font-display text-sm text-foreground/90">{t("calcUi.loveRel")}</h4>
         <p className="mt-2">{m.relationships}</p>
       </div>
       <div>
-        <h4 className="font-display text-sm text-foreground/90">Financial tendencies</h4>
+        <h4 className="font-display text-sm text-foreground/90">{t("calcUi.moneyFin")}</h4>
         <p className="mt-2">{m.financial}</p>
       </div>
       <div>
-        <h4 className="font-display text-sm text-foreground/90">Life purpose</h4>
+        <h4 className="font-display text-sm text-foreground/90">{t("calcUi.spiritualPath")}</h4>
         <p className="mt-2">{m.lifePurpose}</p>
       </div>
       <div>
-        <h4 className="font-display text-sm text-foreground/90">Practical guidance</h4>
+        <h4 className="font-display text-sm text-foreground/90">{t("calcUi.practicalGuidance")}</h4>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           {m.guidance.map((g) => (
             <li key={g}>{g}</li>
@@ -81,10 +87,13 @@ interface Props {
 }
 
 export function NamankMeaningsAccordion({ openValue, onOpenValueChange }: Props) {
+  const [lang] = useLanguage();
+  const nmUi = getNamankLocale(lang);
+
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="font-display text-lg text-foreground/90 sm:text-xl">Namank 1–9</h3>
+        <h3 className="font-display text-lg text-foreground/90 sm:text-xl">{nmUi.numbers1to9}</h3>
         <Accordion
           type="single"
           collapsible
@@ -119,7 +128,7 @@ export function NamankMeaningsAccordion({ openValue, onOpenValueChange }: Props)
 
       <div>
         <h3 className="font-display text-lg text-foreground/90 sm:text-xl">
-          Master Numbers: 11, 22
+          {nmUi.masterHeader}
         </h3>
         <Accordion
           type="single"

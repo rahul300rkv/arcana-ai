@@ -6,15 +6,16 @@ import { GoldButton } from "@/components/arcana/GoldButton";
 import { TarotCard } from "@/components/tarot/TarotCard";
 import { ReadingLanding } from "@/components/tarot/ReadingLanding";
 import { YES_NO_CONFIG } from "@/data/tarot-landings";
+import { useLanguage, useTranslate } from "@/lib/i18n";
 import { drawCards, getCardById } from "@/lib/tarot/engine";
 import {
   getReversedYesNo,
   getUprightYesNo,
-  getYesNoExplanation,
-  YES_NO_LABEL,
   type YesNo,
 } from "@/lib/tarot/yesNo";
 import type { DrawnCard } from "@/lib/tarot/types";
+import { getLocalizedCardNameBySlug } from "@/locales/card-terms";
+import { getLocalizedYesNoExplanation, getYesNoUi } from "@/locales/spreads-i18n";
 
 const BADGE_CLASSES: Record<YesNo, string> = {
   yes: "border-emerald-400/60 bg-emerald-500/20 text-emerald-200",
@@ -30,6 +31,9 @@ function cardSlug(name: string): string {
 }
 
 function InteractiveYesNoOracle() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const ui = getYesNoUi(language);
   const [question, setQuestion] = useState("");
   const [drawn, setDrawn] = useState<DrawnCard | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -51,18 +55,28 @@ function InteractiveYesNoOracle() {
       ? getReversedYesNo(drawn.cardId)
       : getUprightYesNo(drawn.cardId)
     : null;
+  const verdictLabel =
+    verdict === "yes"
+      ? t("tarotUi.yes")
+      : verdict === "no"
+        ? t("tarotUi.no")
+        : t("tarotUi.maybe");
   const explanation =
-    card && drawn && verdict ? getYesNoExplanation(card, drawn.reversed, verdict) : null;
+    card && drawn && verdict
+      ? getLocalizedYesNoExplanation(card, drawn.reversed, verdict, language, verdictLabel)
+      : null;
+  const slug = card ? cardSlug(card.name) : "";
+  const locCardName = card ? getLocalizedCardNameBySlug(slug, card.name, language) : "";
 
   return (
     <GlassCard className="p-6 sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--gold)]">
-            Universe Oracle · Single-Card Pull
+            {ui.kicker}
           </p>
           <h2 className="mt-1 font-display text-2xl text-foreground sm:text-3xl">
-            Ask the Universe for a Yes, No, or Maybe
+            {ui.heading}
           </h2>
         </div>
         <Link
@@ -70,30 +84,29 @@ function InteractiveYesNoOracle() {
           search={{ spread: "single" }}
           className="text-xs font-medium text-[color:var(--gold)] underline underline-offset-4 hover:opacity-80"
         >
-          Open AI-Guided Pull →
+          {ui.aiLink}
         </Link>
       </div>
 
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        Hold one direct yes-or-no question in mind, then pull a single card from the 78-card deck
-        to reveal your instant directional verdict and two-sentence guidance.
+        {ui.sub}
       </p>
 
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <label htmlFor="yesno-question" className="sr-only">
-          Your yes or no question (optional)
+          {ui.questionPrefix}
         </label>
         <input
           id="yesno-question"
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Optional yes/no question (e.g., Is now the right time to make this move?)"
+          placeholder={t("tarotUi.yesNoPlaceholder")}
           className="min-h-[48px] flex-1 rounded-full border border-white/15 bg-white/[0.04] px-5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-[color:var(--gold)] focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]/30"
         />
         <GoldButton size="lg" onClick={handleAskUniverse} className="min-h-[48px] shrink-0">
           <Sparkles className="h-4 w-4" aria-hidden />
-          {drawn ? "Draw Another Card" : "Ask the Universe / Draw a Card"}
+          {drawn ? t("tarotUi.drawAnother") : t("tarotUi.askUniverse")}
         </GoldButton>
       </div>
 
@@ -111,7 +124,7 @@ function InteractiveYesNoOracle() {
           <div className="space-y-4">
             {question.trim() && (
               <p className="text-sm italic text-muted-foreground">
-                Question: “{question.trim()}”
+                {ui.questionPrefix} “{question.trim()}”
               </p>
             )}
 
@@ -119,7 +132,7 @@ function InteractiveYesNoOracle() {
               <span
                 className={`inline-flex items-center rounded-full border px-5 py-1.5 font-display text-2xl font-bold uppercase tracking-[0.14em] ${BADGE_CLASSES[verdict]}`}
               >
-                {YES_NO_LABEL[verdict]}
+                {verdictLabel}
               </span>
               <span
                 className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${
@@ -128,7 +141,7 @@ function InteractiveYesNoOracle() {
                     : "border-[color-mix(in_oklab,var(--gold)_45%,transparent)] text-[color:var(--gold)]"
                 }`}
               >
-                {card.name} · {drawn.reversed ? "Reversed" : "Upright"}
+                {locCardName} · {drawn.reversed ? t("tarotUi.reversed") : t("tarotUi.upright")}
               </span>
             </div>
 
@@ -137,12 +150,12 @@ function InteractiveYesNoOracle() {
             {drawn.reversed && (
               <p className="flex flex-wrap items-center gap-2 rounded-xl border border-[color-mix(in_oklab,var(--aurora-1)_38%,transparent)] bg-[color-mix(in_oklab,var(--aurora-1)_10%,transparent)] px-3.5 py-2.5 text-xs text-foreground/90">
                 <RefreshCw className="h-3.5 w-3.5 shrink-0 text-[color:var(--aurora-1)]" aria-hidden />
-                <span>Pulled reversed: check</span>
+                <span>{ui.revNotice}</span>
                 <Link
                   to="/what-do-reversed-tarot-cards-mean"
                   className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"
                 >
-                  What Do Reversed Tarot Cards Mean?
+                  {ui.revLink}
                 </Link>
               </p>
             )}
@@ -150,10 +163,10 @@ function InteractiveYesNoOracle() {
             <div className="flex flex-wrap items-center gap-5 pt-1 text-xs">
               <Link
                 to="/tarot/$slug"
-                params={{ slug: cardSlug(card.name) }}
+                params={{ slug }}
                 className="font-semibold text-[color:var(--gold)] underline underline-offset-4 hover:opacity-85"
               >
-                Read full {card.name} meaning →
+                {ui.fullMeaningPrefix} ({locCardName})
               </Link>
               <button
                 type="button"
@@ -161,7 +174,7 @@ function InteractiveYesNoOracle() {
                 className="inline-flex min-h-[40px] items-center gap-1.5 text-muted-foreground underline underline-offset-4 hover:text-foreground"
               >
                 <RotateCcw className="h-3.5 w-3.5" aria-hidden />
-                Clear oracle
+                {t("tarotUi.clearOracle")}
               </button>
             </div>
           </div>

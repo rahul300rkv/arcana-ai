@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "@/components/LocalizedLink";
 import { Cross, ListChecks, Compass, ShieldQuestion, HelpCircle, BookOpen } from "@/components/icons";
 import { ArticleLayout } from "@/components/content/ArticleLayout";
@@ -7,85 +8,15 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { CELTIC_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
+import type { TranslationKey } from "@/locales";
 
 const PATH = "/guide/celtic-cross-guide";
-const TITLE = "10-Card Celtic Cross Tarot Spread: Step-by-Step Guide";
 const UPDATED = "2026-11-18";
 
-const POSITIONS = [
-  {
-    n: 1,
-    name: "Present",
-    meaning: "The heart of the matter",
-    detail:
-      "Placed in the centre, this card names the core energy of the situation right now: the thing the whole reading is really about, even if the question was framed differently.",
-  },
-  {
-    n: 2,
-    name: "Challenge",
-    meaning: "What crosses you",
-    detail:
-      'Laid across the first card. This is the main obstacle or tension in the situation, not necessarily a "bad" card, since sometimes the challenge is a positive force you haven\'t fully accepted yet.',
-  },
-  {
-    n: 3,
-    name: "Foundation",
-    meaning: "The root beneath",
-    detail:
-      "Placed below the first two. This shows the deeper cause: a past pattern, belief, or event the current situation is actually built on.",
-  },
-  {
-    n: 4,
-    name: "Recent Past",
-    meaning: "What is passing away",
-    detail:
-      "Placed to the left. An influence that's fading out of relevance but shaped how you arrived here: recently resolved, or in the process of resolving.",
-  },
-  {
-    n: 5,
-    name: "Crown",
-    meaning: "What is possible",
-    detail:
-      "Placed above the centre. The best realistic outcome available if things continue on their current course, or the conscious goal you're aiming at.",
-  },
-  {
-    n: 6,
-    name: "Near Future",
-    meaning: "What is approaching",
-    detail:
-      "Placed to the right. What's likely to happen in the coming days or weeks: the most immediate, actionable card in the spread.",
-  },
-  {
-    n: 7,
-    name: "Self",
-    meaning: "How you see yourself",
-    detail:
-      'First of the four "staff" cards, placed in a vertical line beside the cross. Your current mindset and self-perception going into this situation.',
-  },
-  {
-    n: 8,
-    name: "Environment",
-    meaning: "Outside influences",
-    detail:
-      "The people, circumstances, and external pressures around you: factors affecting the outcome that are largely outside your control.",
-  },
-  {
-    n: 9,
-    name: "Hopes & Fears",
-    meaning: "What you hope for and fear",
-    detail:
-      "Often the most emotionally revealing card. Hope and fear frequently point to the same underlying thing, just approached from opposite directions.",
-  },
-  {
-    n: 10,
-    name: "Outcome",
-    meaning: "The final direction",
-    detail:
-      "The card at the top of the staff. The likely resolution if every other card's energy plays out as shown: a direction, not an unchangeable certainty.",
-  },
-];
-
-const FAQS = [
+const FAQS_EN = [
   {
     question: "How long does a Celtic Cross reading take?",
     answer:
@@ -119,12 +50,46 @@ const FAQS = [
 ];
 
 export function GuideCelticCrossScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = CELTIC_GUIDE_I18N[language];
+
+  const positions = useMemo(
+    () =>
+      Array.from({ length: 10 }, (_, idx) => ({
+        n: idx + 1,
+        name: t(`spread.celtic.p${idx}Name` as TranslationKey),
+        meaning: t(`spread.celtic.p${idx}Meaning` as TranslationKey),
+        detail: loc.positionDetails[idx] ?? "",
+      })),
+    [t, loc.positionDetails],
+  );
+
+  const faqs = useMemo(() => {
+    if (language === "en") return FAQS_EN;
+    return [
+      { question: loc.summaryTitle, answer: loc.summaryBody },
+      {
+        question: loc.secLayout,
+        answer: `${loc.crossTitle}: ${loc.crossDesc} ${loc.staffTitle}: ${loc.staffDesc}`,
+      },
+      {
+        question: loc.secHowToRead,
+        answer: loc.howToReadSteps.join(" "),
+      },
+      {
+        question: loc.secMistakes,
+        answer: loc.mistakesList.join(" "),
+      },
+    ];
+  }, [language, loc]);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Celtic Cross Guide" }]}
-      eyebrow="Tarot · 10-Card Spreads"
-      title={TITLE}
-      intro="The Celtic Cross is the classic 10 card tarot spread: ten fixed positions covering the present, the challenge crossing you, past roots, outside influences, and likely outcome. Here is how to lay and read all ten positions."
+      crumbs={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: loc.crumb }]}
+      eyebrow={loc.eyebrow}
+      title={loc.title}
+      intro={loc.intro}
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={11}
@@ -140,87 +105,70 @@ export function GuideCelticCrossScreen() {
           className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-7"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--gold)]">
-            Quick Summary · 10 Card Tarot Spread
+            {loc.summaryKicker}
           </p>
           <h2 id="celtic-summary-heading" className="mt-1 font-display text-xl text-foreground sm:text-2xl">
-            What Is a 10-Card Tarot Spread?
+            {loc.summaryTitle}
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            The <strong className="text-foreground">Celtic Cross</strong> is the standard 10-card tarot
-            spread used for layered questions about love, career, and major life transitions. Six
-            cards form the <strong className="text-foreground">Cross</strong> (Present, Challenge,
-            Past, Recent/Root, Conscious Goal, Near Future) and four form the{" "}
-            <strong className="text-foreground">Staff</strong> (Self, Environment, Hopes &amp; Fears,
-            Outcome).
+            {loc.summaryBody}
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4 text-sm">
             <Link
               to="/tarot/celtic-cross"
               className="font-semibold text-[var(--gold)] underline underline-offset-4 hover:opacity-85"
             >
-              Try the Free Online 10-Card Celtic Cross Spread →
+              {loc.tryOnline}
             </Link>
             <Link
               to="/tarot/three-card"
               className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
-              Need a faster pull? Try the 3 Card Tarot Spread →
+              {loc.tryThreeCard}
             </Link>
           </div>
         </section>
       }
     >
-      <ContentSection id="what-is-it" title="What the Celtic Cross is for" icon={BookOpen}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The Celtic Cross is a ten-card spread built to cover a situation from every angle: what's
-          happening now, what's causing it, what's fading, what's approaching, how you see yourself,
-          what's happening around you, and where it's all likely headed. It's the spread most
-          readers reach for when a question is too layered for a Three Card pull: a career
-          crossroads, a complicated relationship, or any decision with a lot of moving parts.
-        </p>
+      <ContentSection id="what-is-it" title={loc.secWhatIsIt} icon={BookOpen}>
+        {loc.whatIsItParas.map((para, i) => (
+          <p
+            key={para}
+            className={`${i > 0 ? "mt-4 " : ""}text-sm leading-relaxed text-muted-foreground sm:text-base`}
+          >
+            {para}
+          </p>
+        ))}
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Because it's detailed, it rewards preparation more than any other common spread. A vague
-          question ("What does my future hold?") tends to produce a scattered, hard-to-interpret
-          Celtic Cross, while a focused one ("What do I need to understand about this job
-          opportunity?") gives all ten positions something specific to answer. If you haven't laid a
-          spread before, AstroFree's{" "}
           <Link to="/guide/tarot-for-beginners" className="text-[var(--gold)] hover:underline">
-            beginner's guide
-          </Link>{" "}
-          covers simpler spreads worth trying first.
+            {t("guideHub.g4Title")} →
+          </Link>
         </p>
       </ContentSection>
 
-      <ContentSection id="layout" title="The layout: two halves" icon={ListChecks}>
+      <ContentSection id="layout" title={loc.secLayout} icon={ListChecks}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The ten cards split into two visual groups. The first six form a cross in the centre: the
-          situation itself, its challenge, its roots, and its immediate trajectory. The last four
-          are laid in a vertical line beside it, called the "staff": your inner state, your
-          environment, your hopes and fears, and the likely outcome.
+          {loc.layoutIntro}
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <GlassCard className="p-5">
-            <h3 className="font-display text-base text-[var(--gold)]">The Cross (positions 1–6)</h3>
+            <h3 className="font-display text-base text-[var(--gold)]">{loc.crossTitle}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Present, Challenge, Foundation, Recent Past, Crown, Near Future: the situation's
-              anatomy: what it is, what's blocking it, where it came from, and what's just ahead.
+              {loc.crossDesc}
             </p>
           </GlassCard>
           <GlassCard className="p-5">
-            <h3 className="font-display text-base text-[var(--gold)]">
-              The Staff (positions 7–10)
-            </h3>
+            <h3 className="font-display text-base text-[var(--gold)]">{loc.staffTitle}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Self, Environment, Hopes &amp; Fears, Outcome: the human side: how you're approaching
-              this, what's around you, what you're emotionally invested in, and where it's heading.
+              {loc.staffDesc}
             </p>
           </GlassCard>
         </div>
       </ContentSection>
 
-      <ContentSection id="positions" title="All ten positions, in order" icon={Compass}>
+      <ContentSection id="positions" title={loc.secPositions} icon={Compass}>
         <div className="space-y-4">
-          {POSITIONS.map((p) => (
+          {positions.map((p) => (
             <GlassCard key={p.n} className="p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="font-display text-lg">
@@ -236,19 +184,12 @@ export function GuideCelticCrossScreen() {
         </div>
       </ContentSection>
 
-      <ContentSection id="how-to-read" title="How to read it as one answer" icon={ListChecks}>
+      <ContentSection id="how-to-read" title={loc.secHowToRead} icon={ListChecks}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Reading ten cards individually is easy; the real skill is weaving them into one coherent
-          answer. A reliable method:
+          {loc.howToReadIntro}
         </p>
         <ol className="mt-4 space-y-3">
-          {[
-            "Read the Cross first (positions 1–6) as a self-contained mini-story: situation, obstacle, root cause, what's fading, best-case ceiling, what's imminent.",
-            "Read the Staff (positions 7–10) as the human context around that story: your mindset, your environment, your emotional stakes, and the likely direction.",
-            "Scan all ten for repetition: the same suit appearing three or more times often names the real domain of the reading (emotional, financial, mental, or a matter of action), regardless of what the original question focused on.",
-            "Pay special attention when Challenge (2) and Outcome (10) seem to disagree: that tension is often the single most useful insight the spread offers.",
-            "Summarise the whole spread in one sentence before you finish. If you can't, the question was likely too broad, and a follow-up reading with a narrower question will read more clearly.",
-          ].map((step, i) => (
+          {loc.howToReadSteps.map((step, i) => (
             <li key={step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span className="font-display text-base text-[var(--gold)]">{i + 1}.</span>
               {step}
@@ -257,14 +198,9 @@ export function GuideCelticCrossScreen() {
         </ol>
       </ContentSection>
 
-      <ContentSection id="mistakes" title="Common mistakes with this spread" icon={ShieldQuestion}>
+      <ContentSection id="mistakes" title={loc.secMistakes} icon={ShieldQuestion}>
         <ul className="mt-2 space-y-3">
-          {[
-            "Asking a question so broad that no single position has anything specific to answer.",
-            "Treating position 10 (Outcome) as fixed and ignoring the other nine: it's the end of a chain the earlier cards explain, not an isolated prediction.",
-            "Skipping the Foundation card (3) because it feels less exciting than Outcome: it's often the card that explains why the same issue keeps recurring.",
-            "Rushing straight to reversed-card interpretations before understanding each card's upright meaning in its position first.",
-          ].map((m) => (
+          {loc.mistakesList.map((m) => (
             <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span
                 aria-hidden
@@ -276,39 +212,39 @@ export function GuideCelticCrossScreen() {
         </ul>
       </ContentSection>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
-        <FAQAccordion items={FAQS} />
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
+        <FAQAccordion items={faqs} />
       </ContentSection>
 
       <KeepExploring
         links={[
           {
             to: "/guide/tarot-spreads",
-            label: "All tarot spreads explained",
-            blurb: "From Single Card to the Celtic Cross and the twelve-card Year Ahead.",
+            label: t("guideHub.g2Title"),
+            blurb: t("guideHub.g2Body"),
           },
           {
             to: "/guide/tarot-for-beginners",
-            label: "Complete guide to tarot for beginners",
-            blurb: "Start with simpler spreads before tackling the Celtic Cross.",
+            label: t("guideHub.g4Title"),
+            blurb: t("guideHub.g4Body"),
           },
           {
             to: "/what-do-reversed-tarot-cards-mean",
-            label: "What do reversed tarot cards mean?",
-            blurb: "A practical method for reading reversals in any position.",
+            label: t("guideHub.g5Title"),
+            blurb: t("guideHub.g5Body"),
           },
           {
             to: "/tarot/celtic-cross",
-            label: "Free 10-Card Celtic Cross Spread",
-            blurb: "Draw all ten positions online and get an instant, position-by-position AI reading.",
+            label: t("tarotHub.rt6Title"),
+            blurb: t("tarotHub.rt6Body"),
           },
         ]}
       />
 
       <CTASection
-        title="Try a guided 10-card Celtic Cross reading"
-        body="Draw all ten positions and get an instant, plain-language explanation of each card and how they connect."
-        ctaLabel="Open the 10-Card Spread"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={loc.ctaLabel}
         to="/tarot/celtic-cross"
       />
     </ArticleLayout>

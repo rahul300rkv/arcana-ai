@@ -8,14 +8,21 @@ import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { NAMANK_MEANINGS, NAMANK_HUB_FAQS, NAMANK_UPDATED } from "@/data/namank";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getNamankLocale } from "@/locales/guides-num-i18n";
 
 export function NamankHubScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getNamankLocale(language);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Numerology", to: "/numerology" }, { label: "Namank" }]}
-      eyebrow="Numerology Guide"
-      title="Namank: your name number, explained"
-      intro="Namank (also called the Name Number) is derived from the letters of your full name using the Chaldean numerology system. It describes the energy your name carries and how it shapes both your personality and how others perceive you. This guide covers how to calculate it and what each name number 1–9 represents."
+      crumbs={[{ label: BREADCRUMB_LABELS.numerology[language], to: "/numerology" }, { label: loc.hubCrumb }]}
+      eyebrow={loc.hubEyebrow}
+      title={loc.hubTitle}
+      intro={loc.hubIntro}
       url={`${SITE_URL}/numerology/namank`}
       updated={NAMANK_UPDATED}
       readingMinutes={10}
@@ -28,7 +35,7 @@ export function NamankHubScreen() {
     >
       <ContentSection
         id="what-is-namank"
-        title="What is Namank?"
+        title={loc.secWhatIs}
         icon={BookOpen}
         paragraphs={[
           "Namank is the single digit you get by adding together the numerical values of each letter in your full name, using the Chaldean system of numerology. In this system, each letter A through Z is assigned a value from 1 to 8, and the digits are then reduced until a single number remains.",
@@ -39,7 +46,7 @@ export function NamankHubScreen() {
 
       <ContentSection
         id="how-to-calculate"
-        title="How to calculate your Namank"
+        title={loc.secHowCalc}
         icon={Calculator}
         paragraphs={[
           "In Chaldean numerology, each letter of the alphabet has a numerical value. Write your full name and assign each letter its number, then add all the numbers together. If the total is more than one digit, add those digits until one digit remains.",
@@ -56,7 +63,7 @@ export function NamankHubScreen() {
               <div>S=3, M=4, I=1, T=4, H=5 = 17</div>
               <div className="border-t border-[var(--gold)] pt-2">18 + 17 = 35</div>
               <div>3 + 5 = 8</div>
-              <p className="mt-3 font-display text-lg aurora-text">Namank: 8</p>
+              <p className="mt-3 font-display text-lg aurora-text">{loc.hubCrumb}: 8</p>
             </div>
           </GlassCard>
 
@@ -69,7 +76,7 @@ export function NamankHubScreen() {
               <div>D=4, O=7, E=5 = 16</div>
               <div className="border-t border-[var(--gold)] pt-2">12 + 16 = 28</div>
               <div>2 + 8 = 10 → 1 + 0 = 1</div>
-              <p className="mt-3 font-display text-lg aurora-text">Namank: 1</p>
+              <p className="mt-3 font-display text-lg aurora-text">{loc.hubCrumb}: 1</p>
             </div>
           </GlassCard>
         </div>
@@ -77,11 +84,11 @@ export function NamankHubScreen() {
           to="/namank-calculator"
           className="mt-6 inline-flex min-h-12 items-center text-sm text-[var(--gold)] hover:underline"
         >
-          Calculate your Namank automatically →
+          {t("calcUi.openFreeCalc")} →
         </Link>
       </ContentSection>
 
-      <ContentSection id="all-numbers" title="All Namank numbers 1–9" icon={Compass}>
+      <ContentSection id="all-numbers" title={loc.secAllNumbers} icon={Compass}>
         <ul className="grid gap-4 sm:grid-cols-2">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
             const meaning = NAMANK_MEANINGS[num];
@@ -108,7 +115,7 @@ export function NamankHubScreen() {
 
       <ContentSection
         id="how-to-use"
-        title="How to use your name number"
+        title={loc.secHowToUse}
         icon={Sparkles}
         paragraphs={[
           "Your Namank is one layer of your numerology chart. Unlike your Bhagyank, which never changes (it's tied to your birth date), your Namank can shift if you legally change your name, which is why some people use numerology to choose names that align with specific intentions.",
@@ -117,7 +124,7 @@ export function NamankHubScreen() {
         ]}
       />
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={NAMANK_HUB_FAQS} />
       </ContentSection>
 
@@ -125,36 +132,36 @@ export function NamankHubScreen() {
         links={[
           {
             to: "/namank-calculator",
-            label: "Free Namank calculator",
-            blurb: "Enter your full name to calculate your Name Number instantly.",
+            label: loc.calcCrumb,
+            blurb: loc.calcIntro,
           },
           {
             to: "/numerology/mulank",
-            label: "Mulank (Birth Number) guide",
-            blurb: "Discover how the day of your birth shapes your everyday personality.",
+            label: `${BREADCRUMB_LABELS.mulank[language]} (1–9)`,
+            blurb: t("numerologyLanding.step1Body"),
           },
           {
             to: "/numerology/bhagyank",
-            label: "Bhagyank (Destiny Number) guide",
-            blurb: "Learn about your broader Life Path and long-term direction.",
+            label: `${BREADCRUMB_LABELS.bhagyank[language]} (1–33)`,
+            blurb: t("numerologyLanding.step2Body"),
           },
           {
             to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb: "The maths and philosophy behind digit reduction and number meanings.",
+            label: `${BREADCRUMB_LABELS.guides[language]} · ${BREADCRUMB_LABELS.numerology[language]}`,
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/numerology",
-            label: "Free numerology calculator",
-            blurb: "Get your complete numerology profile: Mulank, Personal Year, and more.",
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
         ]}
       />
 
       <CTASection
-        title="Discover your name number"
-        body="Enter your full name to calculate your Namank and learn what your name's vibration says about your personality and presentation."
-        ctaLabel="Open the free calculator"
+        title={loc.hubCtaTitle}
+        body={loc.hubCtaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/namank-calculator"
       />
     </ArticleLayout>

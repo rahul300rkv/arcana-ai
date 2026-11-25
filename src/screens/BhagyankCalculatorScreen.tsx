@@ -20,8 +20,13 @@ import { BhagyankCalculator } from "@/components/bhagyank/BhagyankCalculator";
 import { BhagyankMeaningsAccordion } from "@/components/bhagyank/BhagyankMeaningsAccordion";
 import { BHAGYANK_EXAMPLES, BHAGYANK_FAQS, BHAGYANK_UPDATED } from "@/data/bhagyank";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getBhagyankLocale } from "@/locales/guides-num-i18n";
 
 export function BhagyankCalculatorScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getBhagyankLocale(language);
   const [openMeaning, setOpenMeaning] = useState<string | undefined>(undefined);
 
   function handleViewMeaning(value: number) {
@@ -34,10 +39,10 @@ export function BhagyankCalculatorScreen() {
 
   return (
     <ArticleLayout
-      crumbs={[{ label: "Bhagyank Calculator" }]}
-      eyebrow="Numerology Calculator"
-      title="Bhagyank Calculator – Calculate Your Destiny Number"
-      intro="Bhagyank (also called your Destiny Number or Life Path Number) comes from your complete date of birth, not just the day. Enter your birthdate below for an instant calculation, a transparent breakdown of the maths, and a full guide to what your number means."
+      crumbs={[{ label: loc.calcCrumb }]}
+      eyebrow={loc.calcEyebrow}
+      title={loc.calcTitle}
+      intro={loc.calcIntro}
       url={`${SITE_URL}/bhagyank-calculator`}
       updated={BHAGYANK_UPDATED}
       readingMinutes={11}
@@ -50,14 +55,14 @@ export function BhagyankCalculatorScreen() {
     >
       <section aria-labelledby="calculator-heading" className="scroll-mt-24">
         <h2 id="calculator-heading" className="sr-only">
-          Bhagyank Calculator
+          {loc.calcCrumb}
         </h2>
         <BhagyankCalculator onViewMeaning={handleViewMeaning} />
       </section>
 
       <ContentSection
         id="what-is-bhagyank"
-        title="What is Bhagyank?"
+        title={loc.secWhatIs}
         icon={BookOpen}
         paragraphs={[
           "Bhagyank, also known as the Destiny Number or Life Path Number, is a core figure in numerological tradition, calculated by reducing every digit of your complete date of birth (day, month and year together) to a single number. Where Mulank looks only at the day you were born, Bhagyank is read as a wider signature drawn from your whole birthdate.",
@@ -68,7 +73,7 @@ export function BhagyankCalculatorScreen() {
 
       <ContentSection
         id="how-calculated"
-        title="How is Bhagyank Calculated?"
+        title={loc.secHowCalc}
         icon={Calculator}
         paragraphs={[
           "The method is simple: write out your date of birth as day, month, and full four-digit year, then add together every individual digit. If the result is more than one digit, add those digits together again, and repeat, until you reach a single digit. The one exception is if an intermediate sum lands on 11, 22, or 33: tradition holds that these Master Numbers are preserved rather than reduced further.",
@@ -79,7 +84,7 @@ export function BhagyankCalculatorScreen() {
             <GlassCard key={ex.dob} className="p-5">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{ex.label}</p>
               <p className="mt-2 font-display text-sm text-foreground/90">
-                Date of Birth: {ex.dob}
+                {t("calcUi.yourDob")}: {ex.dob}
               </p>
               <div className="mt-2 space-y-1 font-mono text-xs text-muted-foreground">
                 <p>
@@ -87,19 +92,21 @@ export function BhagyankCalculatorScreen() {
                 </p>
                 {ex.finalSum && <p>{ex.finalSum}</p>}
               </div>
-              <p className="mt-3 font-display text-sm text-[var(--gold)]">Bhagyank = {ex.result}</p>
+              <p className="mt-3 font-display text-sm text-[var(--gold)]">
+                {loc.hubCrumb} = {ex.result}
+              </p>
             </GlassCard>
           ))}
         </div>
       </ContentSection>
 
-      <ContentSection id="meanings" title="Bhagyank Number Meanings" icon={Sparkles}>
+      <ContentSection id="meanings" title={loc.secMeanings} icon={Sparkles}>
         <BhagyankMeaningsAccordion openValue={openMeaning} onOpenValueChange={setOpenMeaning} />
       </ContentSection>
 
       <ContentSection
         id="bhagyank-vs-mulank"
-        title="Bhagyank vs Mulank: What's the Difference?"
+        title={loc.secVs}
         icon={Compass}
         paragraphs={[
           "Mulank and Bhagyank are the two numbers people most often confuse, and the difference comes down to which part of your date of birth is used. Mulank (also called the birth, driver, or psychic number) is calculated from your day of birth alone. If you were born on the 23rd of any month, your Mulank is 5 (2 + 3), regardless of the month or year.",
@@ -111,13 +118,13 @@ export function BhagyankCalculatorScreen() {
           to="/numerology/mulank"
           className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium text-[var(--gold)] hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)]"
         >
-          Explore the free Mulank Calculator →
+          {loc.exploreOtherCalc}
         </Link>
       </ContentSection>
 
       <ContentSection
         id="bhagyank-career"
-        title="Bhagyank and Career"
+        title={loc.secCareer}
         icon={Briefcase}
         paragraphs={[
           "Numerological tradition associates each Bhagyank number with a broad set of career tendencies: 1s toward founding and leading, 8s toward business and finance, 6s toward caregiving and service professions, and so on, as detailed number-by-number above. These associations come from centuries of numerological practice, not from labour-market data or psychometric research, and should be read as prompts for reflection rather than a career test.",
@@ -127,7 +134,7 @@ export function BhagyankCalculatorScreen() {
 
       <ContentSection
         id="bhagyank-relationships"
-        title="Bhagyank and Relationships"
+        title={loc.secRelationships}
         icon={Heart}
         paragraphs={[
           "In numerological tradition, comparing two people's Bhagyank numbers is sometimes used as a lens on relationship dynamics, where two paths might naturally align, and where they might create friction that takes conscious effort to navigate. A 1 and a 2, for instance, are traditionally described as a study in contrasts: independence meeting a need for partnership.",
@@ -137,7 +144,7 @@ export function BhagyankCalculatorScreen() {
 
       <ContentSection
         id="bhagyank-life-path"
-        title="Bhagyank and Life Path"
+        title={loc.secExtra}
         icon={RouteIcon}
         paragraphs={[
           "Bhagyank is the term used in Indian numerology; 'Life Path Number' is the term most Western numerologists use. They're commonly compared because both are typically derived by reducing a complete date of birth to a single digit, but the traditions developed separately, and calculation conventions (such as how and when Master Numbers are preserved) can differ between systems and even between individual practitioners. Treat the comparison as a useful reference point rather than a strict equivalence.",
@@ -145,7 +152,7 @@ export function BhagyankCalculatorScreen() {
         ]}
       />
 
-      <ContentSection id="faq" title="Frequently Asked Questions" icon={HelpCircle}>
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
         <FAQAccordion items={BHAGYANK_FAQS} />
       </ContentSection>
 
@@ -154,30 +161,30 @@ export function BhagyankCalculatorScreen() {
           {
             to: "/numerology/mulank",
             label: "Mulank (Birth Number) Guide",
-            blurb: "The other core numerology number: calculated from your day of birth alone.",
+            blurb: t("numerologyLanding.step1Body"),
           },
           {
             to: "/numerology",
-            label: "Free Mulank & Personal Year Calculator",
-            blurb: "Enter your date of birth for your Mulank, Personal Year and Personal Month.",
+            label: t("numerology.title"),
+            blurb: t("numerology.subtitle"),
           },
           {
             to: "/guide/numerology",
-            label: "How numerology is calculated",
-            blurb: "Digit reduction, master numbers and the maths behind every number here.",
+            label: "Mulank & Numerology Guide",
+            blurb: t("numerologyLanding.subtitle"),
           },
           {
             to: "/tarot",
-            label: "All 78 tarot card meanings",
-            blurb: "The tarot archetypes that mirror each numerology number.",
+            label: t("tarotUi.all78Cards"),
+            blurb: t("tarotHub.intro"),
           },
         ]}
       />
 
       <CTASection
-        title="Curious what Mulank adds to the picture?"
-        body="Bhagyank shows the broader path. Pair it with your Mulank and Personal Year for a fuller, free numerology reading."
-        ctaLabel="Open the Mulank calculator"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={t("calcUi.openFreeCalc")}
         to="/numerology"
       />
     </ArticleLayout>

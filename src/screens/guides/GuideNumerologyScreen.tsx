@@ -23,25 +23,17 @@ import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { KeepExploring } from "@/components/content/KeepExploring";
 import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+import { getBcp47, useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { getGuideNumerologyLocale, type GuideNumLocale } from "@/locales/guides-num-i18n";
+import { getLocalizedCardName } from "@/locales/card-terms";
 
 const NUMBERS: RootNumber[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const KEYWORDS: Record<RootNumber, string> = {
-  1: "initiation, leadership, independence",
-  2: "intuition, patience, partnership",
-  3: "expression, creativity, growth",
-  4: "structure, discipline, foundations",
-  5: "change, freedom, discovery",
-  6: "relationships, responsibility, harmony",
-  7: "reflection, study, inner work",
-  8: "consequence, power, material reward",
-  9: "completion, release, closing a cycle",
-};
-
-const PACING_META: Record<Pacing, { label: string; icon: typeof Zap; tint: string }> = {
-  active: { label: "Active", icon: Zap, tint: "var(--gold)" },
-  reflective: { label: "Reflective", icon: Moon, tint: "var(--aurora-2)" },
-  harmony: { label: "Harmony", icon: Heart, tint: "var(--aurora-1)" },
+const PACING_STYLE: Record<Pacing, { icon: typeof Zap; tint: string }> = {
+  active: { icon: Zap, tint: "var(--gold)" },
+  reflective: { icon: Moon, tint: "var(--aurora-2)" },
+  harmony: { icon: Heart, tint: "var(--aurora-1)" },
 };
 
 function clampInt(value: string, min: number, max: number): number {
@@ -85,26 +77,28 @@ function MathStep({
   result,
   archetype,
   pacing,
+  pacingLabels,
 }: {
   label: string;
   expression: string;
   result: RootNumber;
   archetype: string;
   pacing?: Pacing;
+  pacingLabels: Record<Pacing, string>;
 }) {
-  const meta = pacing ? PACING_META[pacing] : null;
+  const meta = pacing ? PACING_STYLE[pacing] : null;
   return (
     <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-4">
       <div className="flex items-center justify-between">
         <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
           {label}
         </span>
-        {meta && (
+        {meta && pacing && (
           <span
             className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[10px] uppercase tracking-widest"
             style={{ color: `color-mix(in oklab, ${meta.tint} 85%, white)` }}
           >
-            <meta.icon className="h-3 w-3" /> {meta.label}
+            <meta.icon className="h-3 w-3" /> {pacingLabels[pacing]}
           </span>
         )}
       </div>
@@ -122,7 +116,13 @@ function MathStep({
   );
 }
 
-function InteractiveExample() {
+function InteractiveExample({
+  loc,
+  lang,
+}: {
+  loc: GuideNumLocale;
+  lang: ReturnType<typeof useLanguage>[0];
+}) {
   const [day, setDay] = useState(22);
   const [month, setMonth] = useState(7);
   const [targetYear, setTargetYear] = useState(2027);
@@ -167,9 +167,9 @@ function InteractiveExample() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-                Try it live
+                {loc.tryLive}
               </p>
-              <h3 className="mt-1 font-display text-2xl sm:text-3xl">Interactive worked example</h3>
+              <h3 className="mt-1 font-display text-2xl sm:text-3xl">{loc.interactiveTitle}</h3>
             </div>
             <button
               onClick={() => {
@@ -180,26 +180,25 @@ function InteractiveExample() {
               }}
               className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-[color-mix(in_oklab,var(--gold)_40%,transparent)] hover:text-foreground"
             >
-              <RotateCcw className="h-3.5 w-3.5" /> Reset
+              <RotateCcw className="h-3.5 w-3.5" /> {loc.reset}
             </button>
           </div>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Pick a birth day and month, plus a target year and month. Watch how the numbers reduce
-            and which archetypes appear.
+            {loc.interactiveSub}
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <NumberInput label="Birth day" value={day} min={1} max={31} onChange={setDay} />
-            <NumberInput label="Birth month" value={month} min={1} max={12} onChange={setMonth} />
+            <NumberInput label={loc.birthDay} value={day} min={1} max={31} onChange={setDay} />
+            <NumberInput label={loc.birthMonth} value={month} min={1} max={12} onChange={setMonth} />
             <NumberInput
-              label="Target year"
+              label={loc.targetYear}
               value={targetYear}
               min={1900}
               max={2100}
               onChange={setTargetYear}
             />
             <NumberInput
-              label="Target month"
+              label={loc.targetMonth}
               value={targetMonth}
               min={1}
               max={12}
@@ -218,23 +217,26 @@ function InteractiveExample() {
                 className="grid gap-3"
               >
                 <MathStep
-                  label="Mulank (root number)"
-                  expression={`reduce(${day} digits) = ${String(day).split("").join(" + ")}`}
+                  label={loc.mulankRoot}
+                  expression={`${day} → ${String(day).split("").join(" + ")}`}
                   result={mulank}
-                  archetype={ARCHETYPES[mulank]}
+                  archetype={getLocalizedCardName(ARCHETYPES[mulank], lang)}
+                  pacingLabels={loc.pacingLabels}
                 />
                 <MathStep
-                  label="Personal Year"
+                  label={loc.personalYear}
                   expression={`${day} + ${month} + ${targetYear} = ${personalYearSum}`}
                   result={personalYear}
-                  archetype={ARCHETYPES[personalYear]}
+                  archetype={getLocalizedCardName(ARCHETYPES[personalYear], lang)}
+                  pacingLabels={loc.pacingLabels}
                 />
                 <MathStep
-                  label="Personal Month"
+                  label={loc.personalMonth}
                   expression={`${personalYear} + ${targetMonth} = ${personalMonthSum}`}
                   result={personalMonth}
-                  archetype={ARCHETYPES[personalMonth]}
+                  archetype={getLocalizedCardName(ARCHETYPES[personalMonth], lang)}
                   pacing={PACING[personalMonth]}
+                  pacingLabels={loc.pacingLabels}
                 />
               </motion.div>
             </AnimatePresence>
@@ -267,12 +269,14 @@ function StepCard({
   step,
   icon: Icon,
   title,
+  workedLabel,
   children,
   example,
 }: {
   step: string;
   icon: typeof Calculator;
   title: string;
+  workedLabel: string;
   children: React.ReactNode;
   example: React.ReactNode;
 }) {
@@ -304,7 +308,7 @@ function StepCard({
             <div className="mt-3 text-sm leading-relaxed text-muted-foreground">{children}</div>
             <div className="mt-4 rounded-xl border border-white/10 bg-[linear-gradient(140deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))] p-4">
               <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-[color-mix(in_oklab,var(--gold)_75%,white)]">
-                <Sparkles className="h-3 w-3" /> Worked example
+                <Sparkles className="h-3 w-3" /> {workedLabel}
               </div>
               <div className="mt-2 font-mono text-sm text-foreground/90">{example}</div>
             </div>
@@ -316,42 +320,61 @@ function StepCard({
 }
 
 export function GuideNumerologyScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = getGuideNumerologyLocale(language);
+  const dateFmt = useMemo(
+    () =>
+      new Intl.DateTimeFormat(getBcp47(language), {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      }),
+    [language],
+  );
+  const publishedDate = dateFmt.format(new Date("2026-08-07T00:00:00Z"));
+  const updatedDate = dateFmt.format(new Date("2026-11-16T00:00:00Z"));
+  const emperorName = getLocalizedCardName("The Emperor", language);
+  const empressName = getLocalizedCardName("The Empress", language);
+  const priestessName = getLocalizedCardName("The High Priestess", language);
+  const magicianName = getLocalizedCardName("The Magician", language);
+
   return (
     <div className="relative min-h-dvh overflow-hidden">
       <AuroraBackground />
       <LandingNav />
       <main className="relative mx-auto max-w-4xl px-4 pb-24 pt-36">
         <Breadcrumb
-          items={[{ label: "Guides", to: "/guide" }, { label: "Mulank Numerology Guide" }]}
+          items={[
+            { label: BREADCRUMB_LABELS.guides[language], to: "/guide" },
+            { label: loc.crumb },
+          ]}
         />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Free guide</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{loc.eyebrow}</p>
           <h1 className="mt-2 font-display text-4xl sm:text-6xl">
-            Mulank numerology, <span className="aurora-text">explained</span>
+            {loc.titlePrefix} <span className="aurora-text">{loc.titleAccent}</span>
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Mulank numerology reduces your birth date to a set of single-digit numbers: 1 through 9
-           : each mapped to a Major Arcana tarot archetype. Unlike sun-sign astrology, it doesn't
-            need your birth time or location, just the date. This guide walks through exactly how
-            each number is calculated, with worked examples, so you can check the math yourself or
-            just understand what AstroFree's{" "}
+            {loc.introPrefix}{" "}
             <Link to="/numerology" className="underline underline-offset-4 hover:text-foreground">
-              free Mulank calculator
+              {loc.introLink}
             </Link>{" "}
-            is doing behind the scenes.
+            {loc.introSuffix}
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
               <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-              Published <time dateTime="2026-08-07">7 August 2026</time>
+              {t("common.published")} <time dateTime="2026-08-07">{publishedDate}</time>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <CalendarClock className="h-3.5 w-3.5" aria-hidden />
-              Last updated <time dateTime="2026-11-16">16 November 2026</time>
+              {t("common.lastUpdated")} <time dateTime="2026-11-16">{updatedDate}</time>
             </span>
           </div>
         </motion.div>
@@ -374,13 +397,11 @@ export function GuideNumerologyScreen() {
             />
             <div className="relative">
               <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-                The core rule
+                {loc.coreRuleKicker}
               </p>
-              <h2 className="mt-1 font-display text-2xl sm:text-3xl">The reduction rule</h2>
+              <h2 className="mt-1 font-display text-2xl sm:text-3xl">{loc.reductionTitle}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Every calculation below comes down to the same operation: add up the digits, and if
-                the result is more than one digit, add those digits again: repeat until you're left
-                with a single digit from 1 to 9.
+                {loc.reductionBody}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3 font-mono text-sm">
                 <span className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2">
@@ -405,82 +426,80 @@ export function GuideNumerologyScreen() {
 
         <div className="mt-8 grid gap-5">
           <StepCard
-            step="Step 1"
+            step={loc.step1Label}
             icon={Calculator}
-            title="Mulank (root number)"
+            title={loc.step1Title}
+            workedLabel={loc.workedExample}
             example={
               <>
-                Born on the <span className="text-foreground">22nd</span> → 2 + 2 = 4.
+                <span className="text-foreground">22</span> → 2 + 2 = 4
                 <div className="mt-1 text-foreground/80">
-                  Mulank = <span className="gold-text">4</span> → The Emperor.
+                  {BREADCRUMB_LABELS.mulank[language]} = <span className="gold-text">4</span> →{" "}
+                  {emperorName}
                 </div>
               </>
             }
           >
-            Your Mulank is the reduction of the day you were born: nothing else. It captures your
-            core operating mode: how you instinctively think and react, independent of any
-            particular year.
+            {loc.step1Body}
           </StepCard>
 
           <StepCard
-            step="Step 2"
+            step={loc.step2Label}
             icon={CalendarDays}
-            title="Personal Year"
+            title={loc.step2Title}
+            workedLabel={loc.workedExample}
             example={
               <>
-                Born <span className="text-foreground">July 22</span>, asking about{" "}
-                <span className="text-foreground">2026</span> → 22 + 7 + 2026 = 2055 → 2+0+5+5 = 12
-                → 1+2 = 3.
+                <span className="text-foreground">22 / 07 / 2026</span> → 22 + 7 + 2026 = 2055 →
+                2+0+5+5 = 12 → 1+2 = 3
                 <div className="mt-1 text-foreground/80">
-                  Personal Year = <span className="gold-text">3</span> → The Empress.
+                  {loc.personalYear} = <span className="gold-text">3</span> → {empressName}
                 </div>
               </>
             }
           >
-            Add your birth day and birth month to whichever calendar year you're asking about, then
-            reduce. It describes the overarching theme running through that year: a cycle, not a
-            fixed trait.
+            {loc.step2Body}
           </StepCard>
 
           <StepCard
-            step="Step 3"
+            step={loc.step3Label}
             icon={CalendarClock}
-            title="Personal Month"
+            title={loc.step3Title}
+            workedLabel={loc.workedExample}
             example={
               <>
-                Personal Year <span className="text-foreground">3</span>, asking about{" "}
-                <span className="text-foreground">August</span> (month 8) → 3 + 8 = 11 → 1+1 = 2.
+                {loc.personalYear} <span className="text-foreground">3</span> +{" "}
+                <span className="text-foreground">08</span> → 3 + 8 = 11 → 1+1 = 2
                 <div className="mt-1 text-foreground/80">
-                  Personal Month = <span className="gold-text">2</span> → The High Priestess.
+                  {loc.personalMonth} = <span className="gold-text">2</span> → {priestessName}
                 </div>
               </>
             }
           >
-            Narrow the yearly theme down to a specific 30-day window. Add the calendar month's
-            number (January = 1 … December = 12) to your Personal Year, then reduce.
+            {loc.step3Body}
           </StepCard>
         </div>
 
-        <InteractiveExample />
+        <InteractiveExample loc={loc} lang={language} />
 
         <section className="mt-16">
           <div className="flex items-center gap-3">
             <div className="h-px w-8 bg-[linear-gradient(to_right,transparent,color-mix(in_oklab,var(--gold)_60%,transparent))]" />
             <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-              9 archetypes
+              {loc.archetypesEye}
             </p>
           </div>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">
-            <span className="gold-text">What each number means</span>
+            <span className="gold-text">{loc.archetypesTitle}</span>
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Whether it's your Mulank, Personal Year, or Personal Month, the number itself always
-            maps to the same archetype and general theme: only the layer it's describing changes.
+            {loc.archetypesSub}
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {NUMBERS.map((n, i) => {
-              const meta = PACING_META[PACING[n]];
+              const pacingKey = PACING[n];
+              const meta = PACING_STYLE[pacingKey];
               const Icon = meta.icon;
               return (
                 <motion.div
@@ -494,17 +513,19 @@ export function GuideNumerologyScreen() {
                     <div className="flex items-start gap-4">
                       <NumberGlyph n={n} />
                       <div className="min-w-0 flex-1">
-                        <div className="font-display text-lg text-foreground">{ARCHETYPES[n]}</div>
+                        <div className="font-display text-lg text-foreground">
+                          {getLocalizedCardName(ARCHETYPES[n], language)}
+                        </div>
                         <div
                           className="mt-1 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[10px] uppercase tracking-widest"
                           style={{ color: `color-mix(in oklab, ${meta.tint} 85%, white)` }}
                         >
-                          <Icon className="h-3 w-3" /> {meta.label}
+                          <Icon className="h-3 w-3" /> {loc.pacingLabels[pacingKey]}
                         </div>
                       </div>
                     </div>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {KEYWORDS[n]}
+                      {loc.keywords[n]}
                     </p>
                   </GlassCard>
                 </motion.div>
@@ -517,28 +538,22 @@ export function GuideNumerologyScreen() {
           <div className="flex items-center gap-3">
             <div className="h-px w-8 bg-[linear-gradient(to_right,transparent,color-mix(in_oklab,var(--gold)_60%,transparent))]" />
             <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-              Monthly rhythm
+              {loc.monthlyEye}
             </p>
           </div>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">
-            <span className="gold-text">The pacing system</span>
+            <span className="gold-text">{loc.pacingTitle}</span>
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            For a Personal Month specifically, each number also carries a pacing signal: a
-            practical cue for what kind of energy the month favors.
+            {loc.pacingSub}
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {(["active", "reflective", "harmony"] as Pacing[]).map((p) => {
-              const meta = PACING_META[p];
+              const meta = PACING_STYLE[p];
               const Icon = meta.icon;
               const nums = NUMBERS.filter((n) => PACING[n] === p);
-              const body =
-                p === "active"
-                  ? "Good timing for action, starting projects, networking, and bold moves."
-                  : p === "reflective"
-                    ? "Good timing for planning, organizing, auditing, and wrapping up loose ends."
-                    : "Good timing for home, relationships, and lasting commitments.";
+              const body = loc.pacingBodies[p];
               return (
                 <GlassCard key={p} className="relative overflow-hidden">
                   <div
@@ -551,7 +566,7 @@ export function GuideNumerologyScreen() {
                       className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] uppercase tracking-widest"
                       style={{ color: `color-mix(in oklab, ${meta.tint} 85%, white)` }}
                     >
-                      <Icon className="h-3 w-3" /> {meta.label}
+                      <Icon className="h-3 w-3" /> {loc.pacingLabels[p]}
                     </div>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {nums.map((n) => (
@@ -574,11 +589,9 @@ export function GuideNumerologyScreen() {
         <section className="mt-16 space-y-6">
           <GlassCard className="p-6 sm:p-8 space-y-4">
             <p className="text-[10px] uppercase tracking-[0.3em] text-[color-mix(in_oklab,var(--gold)_80%,white)]">
-              Historical context
+              {loc.rootsEye}
             </p>
-            <h2 className="font-display text-2xl sm:text-3xl">
-              Vedic Roots of Mulank in Indian Tradition
-            </h2>
+            <h2 className="font-display text-2xl sm:text-3xl">{loc.rootsTitle}</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
               In traditional Indian numerology (Ank Shastra), numbers are never treated as dry
               arithmetic; each single digit from 1 through 9 corresponds to one of the nine classical
@@ -590,37 +603,29 @@ export function GuideNumerologyScreen() {
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Pairing Vedic root numbers with Major Arcana tarot archetypes bridges two symbolic
-              languages that share an astonishing structural harmony. For instance, Mulank 1 aligns
-              naturally with The Magician (focused initiative and will), Mulank 2 with The High
-              Priestess (receptivity and inner knowing), and Mulank 4 with The Emperor (structure and
-              steadfast discipline).
+              languages that share an astonishing structural harmony: Mulank 1 aligns with{" "}
+              {magicianName}, Mulank 2 with {priestessName}, and Mulank 4 with {emperorName}.
             </p>
           </GlassCard>
 
           <GlassCard className="p-6 sm:p-8 space-y-4">
-            <h2 className="font-display text-2xl sm:text-3xl">
-              How Mulank, Personal Year, and Personal Month Work Together
-            </h2>
+            <h2 className="font-display text-2xl sm:text-3xl">{loc.togetherTitle}</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Think of your three core numerology numbers like weather layered over climate. Your{" "}
-              <strong className="text-foreground">Mulank</strong> is your permanent psychological
-              climate: it never changes across your lifetime. Your{" "}
-              <strong className="text-foreground">Personal Year</strong> describes the annual season
-              you are walking through from January to December, explaining why certain themes (like
-              career rebuilding in a Year 4 or quiet study in a Year 7) suddenly take center stage.
+              <strong className="text-foreground">{loc.mulankRoot}</strong> is your permanent
+              psychological climate: it never changes across your lifetime. Your{" "}
+              <strong className="text-foreground">{loc.personalYear}</strong> describes the annual
+              season you are walking through from January to December.
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Your <strong className="text-foreground">Personal Month</strong> narrows that seasonal
-              arc down to a 30-day window. When a naturally bold Mulank 1 enters a reflective Personal
-              Month 7, friction often arises if you try to force rapid external launches; noticing the
-              monthly rhythm encourages strategic preparation instead of burnout.
+              Your <strong className="text-foreground">{loc.personalMonth}</strong> narrows that
+              seasonal arc down to a 30-day window so you can align bold starts or quiet study with
+              monthly energy.
             </p>
           </GlassCard>
 
           <GlassCard className="p-6 sm:p-8 space-y-4">
-            <h2 className="font-display text-2xl sm:text-3xl">
-              Common Calculation Mistakes to Avoid
-            </h2>
+            <h2 className="font-display text-2xl sm:text-3xl">{loc.mistakesTitle}</h2>
             <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground list-disc pl-5">
               <li>
                 <strong className="text-foreground">Confusing Mulank with Bhagyank:</strong> Mulank
@@ -658,14 +663,13 @@ export function GuideNumerologyScreen() {
               }}
             />
             <div className="relative py-6">
-              <h3 className="font-display text-2xl sm:text-3xl">Skip the manual math</h3>
+              <h3 className="font-display text-2xl sm:text-3xl">{loc.skipTitle}</h3>
               <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-                Enter your birth date and get your full Mulank, Personal Year, and Personal Month,
-                free with no signup.
+                {loc.skipBody}
               </p>
               <div className="mt-5 flex justify-center">
                 <Link to="/numerology">
-                  <GoldButton>Calculate your Mulank</GoldButton>
+                  <GoldButton>{loc.skipBtn}</GoldButton>
                 </Link>
               </div>
             </div>
@@ -673,48 +677,15 @@ export function GuideNumerologyScreen() {
         </motion.div>
 
         <div className="mt-14">
-          <KeepExploring
-            links={[
-              {
-                to: "/numerology/mulank",
-                label: "Complete Mulank (1–9) Hub",
-                blurb: "Traits, Navagraha planets, dates, and compatibility for every birth number.",
-              },
-              {
-                to: "/numerology/bhagyank",
-                label: "Bhagyank (Destiny Number) Guide",
-                blurb: "Understand full-date destiny paths from 1–9 and Master Numbers 11, 22, 33.",
-              },
-              {
-                to: "/numerology/namank",
-                label: "Namank & Chaldean Alphabet Guide",
-                blurb: "Learn how name-letter values shape outward energy and reputation.",
-              },
-              {
-                to: "/numerology/compatibility",
-                label: "Mulank × Bhagyank 81-Pair Matrix",
-                blurb: "Check exact Navagraha planetary synergy across all 81 Vedic pairs.",
-              },
-              {
-                to: "/bhagyank-calculator",
-                label: "Free Bhagyank Calculator",
-                blurb: "Calculate your Destiny Number automatically with reduction steps.",
-              },
-              {
-                to: "/tarot",
-                label: "All 78 Tarot Card Meanings",
-                blurb: "Connect your Vedic ruling numbers with Major Arcana tarot archetypes.",
-              },
-            ]}
-          />
+          <KeepExploring links={loc.keepLinks as any} />
         </div>
 
         <div className="mt-12">
           <AuthorCard
             published="2026-08-07"
             lastUpdated="2026-11-16"
-            category="Vedic Numerology"
-            readingTime="9 min read"
+            category={loc.category}
+            readingTime={`9 ${t("common.minRead")}`}
           />
         </div>
 
@@ -723,13 +694,13 @@ export function GuideNumerologyScreen() {
             to="/"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
           >
-            ← Back home
+            {loc.backHome}
           </Link>
           <Link
             to="/guide/mulank-vs-bhagyank"
             className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
           >
-            Mulank vs Bhagyank: how the two numbers differ →
+            {loc.vsLink}
           </Link>
         </div>
         <InArticleAd />

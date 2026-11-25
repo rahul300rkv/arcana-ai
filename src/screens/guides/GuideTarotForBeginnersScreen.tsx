@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "@/components/LocalizedLink";
 import {
   BookOpen,
@@ -16,12 +17,14 @@ import { KeepExploring } from "@/components/content/KeepExploring";
 import { CTASection } from "@/components/content/CTASection";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { SITE_URL } from "@/lib/site";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { BREADCRUMB_LABELS } from "@/locales/pages-seo";
+import { BEGINNERS_GUIDE_I18N } from "@/locales/guides-tarot-i18n";
 
 const PATH = "/guide/tarot-for-beginners";
-const TITLE = "Complete Guide to Tarot Reading for Beginners";
 const UPDATED = "2026-08-14";
 
-const FAQS = [
+const FAQS_EN = [
   {
     question: "Do I need a special deck to start reading tarot?",
     answer:
@@ -50,12 +53,26 @@ const FAQS = [
 ];
 
 export function GuideTarotForBeginnersScreen() {
+  const [language] = useLanguage();
+  const t = useTranslate();
+  const loc = BEGINNERS_GUIDE_I18N[language];
+
+  const faqs = useMemo(() => {
+    if (language === "en") return FAQS_EN;
+    return [
+      { question: t("tarotHub.faq3Q"), answer: t("tarotHub.faq3A") },
+      { question: t("guideHub.faq4Q"), answer: t("guideHub.faq4A") },
+      { question: loc.secDeck, answer: loc.suits.map((s) => `${s.name} (${s.element}): ${s.domain}`).join(" · ") },
+      { question: t("tarotHub.faq4Q"), answer: t("tarotHub.faq4A") },
+    ];
+  }, [language, t, loc]);
+
   return (
     <ArticleLayout
-      crumbs={[{ label: "Guides", to: "/guide" }, { label: "Tarot for Beginners" }]}
-      eyebrow="Tarot · Beginner's Guide"
-      title={TITLE}
-      intro="Everything you need to draw your first card with confidence: the deck, the shuffle, your first spreads, and a repeatable method for interpreting what you see instead of guessing."
+      crumbs={[{ label: BREADCRUMB_LABELS.guides[language], to: "/guide" }, { label: loc.crumb }]}
+      eyebrow={loc.eyebrow}
+      title={loc.title}
+      intro={loc.intro}
       url={`${SITE_URL}${PATH}`}
       updated={UPDATED}
       readingMinutes={14}
@@ -66,243 +83,202 @@ export function GuideTarotForBeginnersScreen() {
         </GlassCard>
       }
     >
-      <ContentSection id="what-is-tarot" title="What tarot actually is" icon={BookOpen}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A tarot deck is a set of 78 illustrated cards split into two families: the 22 Major Arcana
-          and the 56 Minor Arcana. Each card carries a fixed core meaning: built from its imagery,
-          numerology, and elemental associations, but that meaning shifts depending on the question
-          asked, the position it lands in within a spread, and the cards drawn beside it. Learning
-          tarot is really learning two things at once: a vocabulary of 78 symbols, and a method for
-          reading them together as a sentence rather than in isolation.
-        </p>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Historically, tarot began as a 15th-century Italian card game before its symbolism was
-          adopted for divination in the 18th century. Whether you approach it as a spiritual
-          practice, a reflection tool, or simply an engaging way to structure your thinking about a
-          decision, the mechanics are identical: shuffle, draw, and interpret. This guide walks
-          through all three in the order a beginner actually needs them.
-        </p>
+      <ContentSection id="what-is-tarot" title={loc.secWhat} icon={BookOpen}>
+        {language === "en" ? (
+          <>
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              A tarot deck is a set of 78 illustrated cards split into two families: the 22 Major Arcana
+              and the 56 Minor Arcana. Each card carries a fixed core meaning: built from its imagery,
+              numerology, and elemental associations, but that meaning shifts depending on the question
+              asked, the position it lands in within a spread, and the cards drawn beside it. Learning
+              tarot is really learning two things at once: a vocabulary of 78 symbols, and a method for
+              reading them together as a sentence rather than in isolation.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Historically, tarot began as a 15th-century Italian card game before its symbolism was
+              adopted for divination in the 18th century. Whether you approach it as a spiritual
+              practice, a reflection tool, or simply an engaging way to structure your thinking about a
+              decision, the mechanics are identical: shuffle, draw, and interpret. This guide walks
+              through all three in the order a beginner actually needs them.
+            </p>
+          </>
+        ) : (
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            {t("tarotHub.t2Body")}
+          </p>
+        )}
       </ContentSection>
 
-      <ContentSection id="deck-structure" title="Understanding the deck" icon={Layers}>
+      <ContentSection id="deck-structure" title={loc.secDeck} icon={Layers}>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The <strong className="text-foreground/90">Major Arcana</strong> (numbered 0 through 21,
-          from The Fool to The World) represent significant life themes, turning points, lessons,
-          and archetypal forces that tend to describe the bigger picture of a reading. When several
-          Major Arcana appear in one spread, it's usually a sign the question touches something
-          consequential rather than day-to-day.
-        </p>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          The <strong className="text-foreground/90">Minor Arcana</strong> cover the everyday: the
-          texture of daily life, small decisions, and short-term influences. They're split into four
-          suits, each tied to an element and a life domain:
+          {t("tarotHub.t2Body")}
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {[
-            { suit: "Wands", element: "Fire", domain: "Ambition, action, creativity, passion" },
-            { suit: "Cups", element: "Water", domain: "Emotion, relationships, intuition" },
-            { suit: "Swords", element: "Air", domain: "Thought, conflict, communication, truth" },
-            {
-              suit: "Pentacles",
-              element: "Earth",
-              domain: "Money, career, health, the material world",
-            },
-          ].map((s) => (
-            <div key={s.suit} className="rounded-lg border border-white/10 p-3 text-sm">
+          {loc.suits.map((s) => (
+            <div key={s.name} className="rounded-lg border border-white/10 p-3 text-sm">
               <span className="font-display text-foreground">
-                {s.suit} <span className="text-xs text-muted-foreground">· {s.element}</span>
+                {s.name} <span className="text-xs text-muted-foreground">· {s.element}</span>
               </span>
               <p className="mt-1 text-xs text-muted-foreground">{s.domain}</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Within each suit, cards Ace through 10 describe a situation unfolding in stages, and the
-          four court cards (Page, Knight, Queen, King) represent people, personality styles, or a
-          particular way of approaching the suit's theme: sometimes you, sometimes someone else in
-          the question.
-        </p>
+        {language === "en" && (
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Within each suit, cards Ace through 10 describe a situation unfolding in stages, and the
+            four court cards (Page, Knight, Queen, King) represent people, personality styles, or a
+            particular way of approaching the suit&apos;s theme: sometimes you, sometimes someone else in
+            the question.
+          </p>
+        )}
       </ContentSection>
 
-      <ContentSection id="getting-ready" title="Setting up your first reading" icon={Hand}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          You don't need candles or a ritual to get a useful reading, but a few habits make the
-          practice more consistent and easier to trust:
-        </p>
-        <ul className="mt-4 space-y-3">
-          {[
-            'Write your question down before you shuffle, in specific rather than yes/no terms: "What do I need to understand about this job offer?" gives more to work with than "Should I take the job?"',
-            "Shuffle for as long as feels right, cutting the deck once or twice. There's no required number of shuffles.",
-            "Draw with your non-dominant hand if that ritual helps you feel present, but it makes no difference to the outcome: pick what keeps you focused.",
-            "Read cards in the order you laid them, not the order that feels most dramatic. Skipping around breaks the narrative a spread is built to tell.",
-            "Keep a simple reading journal: the question, the cards, and what you thought at the time. Beginners improve fastest by comparing early interpretations to how things actually played out.",
-          ].map((tip) => (
-            <li key={tip} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span
-                aria-hidden
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
-              />
-              {tip}
-            </li>
-          ))}
-        </ul>
+      <ContentSection id="getting-ready" title={loc.secReady} icon={Hand}>
+        {language === "en" ? (
+          <>
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              You don&apos;t need candles or a ritual to get a useful reading, but a few habits make the
+              practice more consistent and easier to trust:
+            </p>
+            <ul className="mt-4 space-y-3">
+              {[
+                'Write your question down before you shuffle, in specific rather than yes/no terms: "What do I need to understand about this job offer?" gives more to work with than "Should I take the job?"',
+                "Shuffle for as long as feels right, cutting the deck once or twice. There's no required number of shuffles.",
+                "Draw with your non-dominant hand if that ritual helps you feel present, but it makes no difference to the outcome: pick what keeps you focused.",
+                "Read cards in the order you laid them, not the order that feels most dramatic. Skipping around breaks the narrative a spread is built to tell.",
+                "Keep a simple reading journal: the question, the cards, and what you thought at the time. Beginners improve fastest by comparing early interpretations to how things actually played out.",
+              ].map((tip) => (
+                <li key={tip} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+                  />
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            {t("reading.questionSub")} {t("reading.shuffleSub")}
+          </p>
+        )}
       </ContentSection>
 
-      <ContentSection id="first-spreads" title="Your first three spreads" icon={ListChecks}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Start small. Complex spreads like the Celtic Cross are worth learning once the basics feel
-          automatic, but they overwhelm most beginners before that point.
-        </p>
-        <div className="mt-4 space-y-4">
+      <ContentSection id="first-spreads" title={loc.secSpreads} icon={ListChecks}>
+        <div className="space-y-4">
           <GlassCard className="p-5">
-            <h3 className="font-display text-lg">1. Single Card</h3>
+            <h3 className="font-display text-lg">{loc.spreadTitles[0]}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Draw one card each morning, or in answer to a focused question. This is the fastest
-              way to learn what each card feels like on its own, without the added complexity of a
-              layout.
+              {t("tarotHub.rt1Body")} {t("spread.single.desc")}
             </p>
           </GlassCard>
           <GlassCard className="p-5">
-            <h3 className="font-display text-lg">2. Three Card (Past · Present · Future)</h3>
+            <h3 className="font-display text-lg">{loc.spreadTitles[1]}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Draw three cards left to right. The first shows what led to the current situation, the
-              second the present energy, the third where things are heading if nothing changes. This
-              is where you start practicing how cards relate to each other, not just individually.
+              {t("tarotHub.rt2Body")} {t("spread.three.desc")}
             </p>
           </GlassCard>
           <GlassCard className="p-5">
-            <h3 className="font-display text-lg">3. Situation · Action · Outcome</h3>
+            <h3 className="font-display text-lg">{loc.spreadTitles[2]}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              A close variant better suited to decisions: the first card names what's really going
-              on, the second suggests what to do about it, the third shows the likely result of
-              taking that action. This spread is a natural bridge toward the more detailed spreads
-              covered in AstroFree's{" "}
+              {t("spread.career.desc")}{" "}
               <Link to="/guide/tarot-spreads" className="text-[var(--gold)] hover:underline">
-                full spreads guide
+                {t("guideHub.g2Title")} →
               </Link>
-              .
             </p>
           </GlassCard>
         </div>
       </ContentSection>
 
-      <ContentSection id="interpreting" title="How to actually interpret a card" icon={Compass}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Memorising 78 keyword lists is the slow way to learn tarot, and it produces readings that
-          sound like a dictionary rather than a message. A more durable method is to work through
-          four layers, in order, every time you look at a card:
-        </p>
-        <ol className="mt-4 space-y-3">
-          {[
-            {
-              step: "Look before you label",
-              detail:
-                'Notice what\'s actually happening in the image before recalling the "official" meaning: the number of figures, their posture, the weather, the objects in their hands. The Rider–Waite–Smith deck was designed so the picture alone carries most of the meaning.',
-            },
-            {
-              step: "Place it in position",
-              detail:
-                'The same card means something different in a "past" slot than in an "outcome" slot. Always read the position\'s job first, then let the card answer that specific question.',
-            },
-            {
-              step: "Read it against its neighbours",
-              detail:
-                "A card rarely stands alone. A frightening card next to gentle, supportive ones reads very differently than the same card surrounded by conflict. Look for repeated suits, numbers, or elements across the spread: that repetition is usually the real message.",
-            },
-            {
-              step: "Connect it to the question",
-              detail:
-                'Bring the interpretation back to the specific question you asked. A generic keyword like "change" only becomes useful once you ask: change in what, exactly, and starting when?',
-            },
-          ].map((s, i) => (
-            <li key={s.step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+      <ContentSection id="interpreting" title={loc.secInterp} icon={Compass}>
+        <ol className="mt-2 space-y-3">
+          {loc.interpSteps.map((step, i) => (
+            <li key={step} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
               <span className="font-display text-base text-[var(--gold)]">{i + 1}.</span>
-              <span>
-                <span className="text-foreground/90">{s.step}.</span> {s.detail}
-              </span>
+              <span className="text-foreground/90">{step}</span>
             </li>
           ))}
         </ol>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Reversed cards (drawn upside down) add a fifth layer once you're ready for it: see{" "}
           <Link to="/what-do-reversed-tarot-cards-mean" className="text-[var(--gold)] hover:underline">
-            AstroFree's guide to reversed tarot cards
-          </Link>{" "}
-          for how to work them into this same four-step process.
-        </p>
-      </ContentSection>
-
-      <ContentSection id="common-mistakes" title="Common beginner mistakes" icon={ShieldQuestion}>
-        <ul className="mt-2 space-y-3">
-          {[
-            "Treating every card in isolation instead of as part of a sentence the whole spread is telling.",
-            "Panicking at cards like Death or The Tower: both describe transformation and disruption, not literal endings, and are among the most misunderstood cards in the deck.",
-            "Re-asking the same question repeatedly until a preferred answer appears. One clear question, one reading, is more reliable than five contradictory ones.",
-            "Skipping the court cards because they feel harder: they're often the fastest way to identify who else is involved in a situation.",
-            "Reading for others before feeling settled reading for yourself. Confidence with your own spreads transfers directly to reading anyone else's.",
-          ].map((m) => (
-            <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-              <span
-                aria-hidden
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
-              />
-              {m}
-            </li>
-          ))}
-        </ul>
-      </ContentSection>
-
-      <ContentSection id="practice" title="Building the habit" icon={Sparkles}>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Tarot reading is a skill built through repetition, not a fact set memorised once. A daily
-          single-card pull, logged in a short journal, will teach you more in a month than an
-          afternoon spent trying to memorise all 78 meanings at once. Once single cards feel
-          natural, move to three-card spreads, then to the more structured layouts like the{" "}
-          <Link to="/guide/celtic-cross-guide" className="text-[var(--gold)] hover:underline">
-            Celtic Cross
+            {t("guideHub.g5Title")} →
           </Link>
-          . If you'd rather practice with guided prompts and instant card meanings while you learn,
-          AstroFree's{" "}
-          <Link to="/reading" className="text-[var(--gold)] hover:underline">
-            free AI tarot reading
-          </Link>{" "}
-          tool walks you through a live spread and explains each card as it's drawn.
         </p>
       </ContentSection>
 
-      <ContentSection id="faq" title="Frequently asked questions" icon={HelpCircle}>
-        <FAQAccordion items={FAQS} />
+      <ContentSection id="common-mistakes" title={loc.secMistakes} icon={ShieldQuestion}>
+        {language === "en" ? (
+          <ul className="mt-2 space-y-3">
+            {[
+              "Treating every card in isolation instead of as part of a sentence the whole spread is telling.",
+              "Panicking at cards like Death or The Tower: both describe transformation and disruption, not literal endings, and are among the most misunderstood cards in the deck.",
+              "Re-asking the same question repeatedly until a preferred answer appears. One clear question, one reading, is more reliable than five contradictory ones.",
+              "Skipping the court cards because they feel harder: they're often the fastest way to identify who else is involved in a situation.",
+              "Reading for others before feeling settled reading for yourself. Confidence with your own spreads transfers directly to reading anyone else's.",
+            ].map((m) => (
+              <li key={m} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                <span
+                  aria-hidden
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+                />
+                {m}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            {t("reading.reversedNotice")}
+          </p>
+        )}
+      </ContentSection>
+
+      <ContentSection id="practice" title={loc.secPractice} icon={Sparkles}>
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {loc.ctaBody}{" "}
+          <Link to="/guide/celtic-cross-guide" className="text-[var(--gold)] hover:underline">
+            {t("guideHub.g7Title")}
+          </Link>{" "}
+          ·{" "}
+          <Link to="/reading" className="text-[var(--gold)] hover:underline">
+            {t("tarotUi.freeAiReading")} →
+          </Link>
+        </p>
+      </ContentSection>
+
+      <ContentSection id="faq" title={t("common.faqHeading")} icon={HelpCircle}>
+        <FAQAccordion items={faqs} />
       </ContentSection>
 
       <KeepExploring
         links={[
           {
             to: "/major-arcana-tarot-cards-meanings",
-            label: "22 Major Arcana explained",
-            blurb: "Every Major Arcana card with real-life examples of how it tends to show up.",
+            label: t("guideHub.g6Title"),
+            blurb: t("guideHub.g6Body"),
           },
           {
             to: "/what-do-reversed-tarot-cards-mean",
-            label: "What do reversed tarot cards mean?",
-            blurb: "A practical method for reading upside-down cards without guessing.",
+            label: t("guideHub.g5Title"),
+            blurb: t("guideHub.g5Body"),
           },
           {
             to: "/guide/tarot-spreads",
-            label: "Tarot spreads explained",
-            blurb: "From Single Card to the ten-position Celtic Cross, position by position.",
+            label: t("guideHub.g2Title"),
+            blurb: t("guideHub.g2Body"),
           },
           {
             to: "/guide/tarot-card-meanings",
-            label: "All 78 tarot card meanings",
-            blurb: "The full reference library: upright and reversed meanings for every card.",
+            label: t("guideHub.g1Title"),
+            blurb: t("guideHub.g1Body"),
           },
         ]}
       />
 
       <CTASection
-        title="Practice with a free guided reading"
-        body="Draw a live spread and get an instant, plain-language interpretation of every card: a fast way to put this guide into practice."
-        ctaLabel="Start a free reading"
+        title={loc.ctaTitle}
+        body={loc.ctaBody}
+        ctaLabel={loc.ctaLabel}
         to="/reading"
       />
     </ArticleLayout>

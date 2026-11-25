@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { TarotCard } from "@/lib/tarot/types";
+import { useLanguage, useTranslate } from "@/lib/i18n";
+import { getLocalizedArcana, getLocalizedCardName, getLocalizedSuit } from "@/locales/card-terms";
 
 export type CardFrontCard = Pick<TarotCard, "id" | "name" | "arcana" | "image" | "keywords"> & {
   suit?: TarotCard["suit"];
@@ -18,14 +20,15 @@ export function CardFront({
   className?: string;
   eager?: boolean;
 }) {
-
+  const [lang] = useLanguage();
+  const t = useTranslate();
+  const localName = getLocalizedCardName(card.name, lang);
+  const arcanaLabel = getLocalizedArcana(card.arcana, lang);
   const suitLabel =
-    card.arcana === "major"
-      ? "Major Arcana"
-      : `${card.suit ? card.suit.charAt(0).toUpperCase() + card.suit.slice(1) : "Minor"} Minor Arcana`;
-  const orientation = reversed ? ", reversed" : "";
+    card.arcana === "major" ? arcanaLabel : `${getLocalizedSuit(card.suit, lang)} · ${arcanaLabel}`;
+  const orientation = reversed ? ` (${t("tarotUi.reversed")})` : "";
   const themes = card.keywords.slice(0, 3).join(", ");
-  const altText = `${card.name}${orientation} (${suitLabel}) Rider–Waite–Smith tarot card illustration${themes ? ` symbolizing ${themes}` : ""}`;
+  const altText = `${localName}${orientation} (${suitLabel})${themes ? ` — ${themes}` : ""}`;
 
   return (
     <div
@@ -43,7 +46,7 @@ export function CardFront({
         )}
       >
         <div className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {card.arcana === "major" ? "Major Arcana" : card.suit}
+          {card.arcana === "major" ? arcanaLabel : getLocalizedSuit(card.suit, lang)}
         </div>
         <div className="relative overflow-hidden rounded-lg bg-[radial-gradient(80%_60%_at_50%_40%,color-mix(in_oklab,var(--aurora-1)_50%,transparent),transparent_70%)]">
           <img
@@ -58,7 +61,7 @@ export function CardFront({
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(26,5,11,0.8))] mix-blend-multiply" />
         </div>
-        <div className="text-center font-display text-sm tracking-wide">{card.name}</div>
+        <div className="text-center font-display text-sm tracking-wide">{localName}</div>
       </div>
 
     </div>
