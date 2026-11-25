@@ -38,6 +38,17 @@ export const Route = createFileRoute("/tarot/$slug")({
               description: page.description,
               image: page.image,
               updated: page.updated,
+              section: page.arcanaLabel,
+              keywords: page.keywords,
+              about: [
+                page.name,
+                page.arcanaLabel,
+                ...(page.suit ? [page.suitLabel] : []),
+                page.element,
+                page.planet,
+                page.zodiac,
+                "Rider-Waite-Smith Tarot",
+              ],
               crumbs: [
                 { name: "Tarot Card Meanings", path: "/tarot" },
                 { name: page.name, path },

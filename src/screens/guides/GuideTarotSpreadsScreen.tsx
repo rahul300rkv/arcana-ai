@@ -7,6 +7,7 @@ import { GlassCard } from "@/components/arcana/GlassCard";
 import { SPREAD_LIST } from "@/lib/tarot/spreads";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
+import { KeepExploring } from "@/components/content/KeepExploring";
 import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
 
@@ -229,6 +230,43 @@ export function GuideTarotSpreadsScreen() {
             <FAQAccordion items={SPREADS_FAQS} />
           </div>
         </section>
+
+        <div className="mt-12">
+          <KeepExploring
+            links={[
+              {
+                to: "/tarot/one-card",
+                label: "One Card Daily Pull",
+                blurb: "Fast daily energy check-in or focused reflection card.",
+              },
+              {
+                to: "/tarot/three-card",
+                label: "Three Card Spread",
+                blurb: "Past, Present, and Future or Situation, Challenge, Advice.",
+              },
+              {
+                to: "/tarot/celtic-cross",
+                label: "10-Card Celtic Cross Spread",
+                blurb: "Deep multi-angle spread for complex turning points.",
+              },
+              {
+                to: "/guide/celtic-cross-guide",
+                label: "Celtic Cross Position Guide",
+                blurb: "Detailed breakdown of Cross (1–6) and Staff (7–10) slots.",
+              },
+              {
+                to: "/tarot/combinations",
+                label: "Tarot Card Combinations",
+                blurb: "Learn how neighboring cards modify one another in any layout.",
+              },
+              {
+                to: "/yes-no-tarot",
+                label: "Free Yes or No Oracle",
+                blurb: "Get an instant Yes, No, or Maybe answer from a live pull.",
+              },
+            ]}
+          />
+        </div>
 
         <div className="mt-12">
           <AuthorCard

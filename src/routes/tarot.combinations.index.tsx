@@ -42,6 +42,17 @@ export const Route = createFileRoute("/tarot/combinations/")({
             title: TITLE,
             description: DESCRIPTION,
             updated: loaderData?.updated ?? "2026-11-19",
+            section: "Tarot Combinations",
+            keywords: [
+              "tarot card combinations",
+              "tarot combination meanings",
+              "two card tarot spread meanings",
+            ],
+            about: [
+              "Tarot Card Combinations",
+              "Rider-Waite-Smith Tarot",
+              "Two-Card Tarot Synthesis",
+            ],
             crumbs: [
               { name: "Tarot", path: "/tarot" },
               { name: "Combinations", path: PATH },

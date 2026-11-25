@@ -20,6 +20,8 @@ import { GoldButton } from "@/components/arcana/GoldButton";
 import { ARCHETYPES, PACING, reduceToSingleDigit } from "@/lib/numerology/engine";
 import type { RootNumber, Pacing } from "@/lib/numerology/types";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
+import { KeepExploring } from "@/components/content/KeepExploring";
+import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
 
 const NUMBERS: RootNumber[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -669,6 +671,52 @@ export function GuideNumerologyScreen() {
             </div>
           </GlassCard>
         </motion.div>
+
+        <div className="mt-14">
+          <KeepExploring
+            links={[
+              {
+                to: "/numerology/mulank",
+                label: "Complete Mulank (1–9) Hub",
+                blurb: "Traits, Navagraha planets, dates, and compatibility for every birth number.",
+              },
+              {
+                to: "/numerology/bhagyank",
+                label: "Bhagyank (Destiny Number) Guide",
+                blurb: "Understand full-date destiny paths from 1–9 and Master Numbers 11, 22, 33.",
+              },
+              {
+                to: "/numerology/namank",
+                label: "Namank & Chaldean Alphabet Guide",
+                blurb: "Learn how name-letter values shape outward energy and reputation.",
+              },
+              {
+                to: "/numerology/compatibility",
+                label: "Mulank × Bhagyank 81-Pair Matrix",
+                blurb: "Check exact Navagraha planetary synergy across all 81 Vedic pairs.",
+              },
+              {
+                to: "/bhagyank-calculator",
+                label: "Free Bhagyank Calculator",
+                blurb: "Calculate your Destiny Number automatically with reduction steps.",
+              },
+              {
+                to: "/tarot",
+                label: "All 78 Tarot Card Meanings",
+                blurb: "Connect your Vedic ruling numbers with Major Arcana tarot archetypes.",
+              },
+            ]}
+          />
+        </div>
+
+        <div className="mt-12">
+          <AuthorCard
+            published="2026-08-07"
+            lastUpdated="2026-11-16"
+            category="Vedic Numerology"
+            readingTime="9 min read"
+          />
+        </div>
 
         <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2">
           <Link

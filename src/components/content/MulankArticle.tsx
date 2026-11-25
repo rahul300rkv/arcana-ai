@@ -189,15 +189,25 @@ export function MulankArticle({ page }: { page: MulankPage }) {
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {page.compatibility.map((c) => (
-            <GlassCard key={`${c.verdict}-${c.number}`} className="p-5">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-base">Mulank {c.number}</h3>
-                <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
-                  {VERDICT_LABEL[c.verdict]}
+            <Link
+              key={`${c.verdict}-${c.number}`}
+              to="/numerology/$slug"
+              params={{ slug: `mulank-${c.number}` }}
+              className="block h-full"
+            >
+              <GlassCard className="h-full p-5 transition-colors hover:border-[color:var(--gold)]/45">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="font-display text-base">Mulank {c.number}</h3>
+                  <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {VERDICT_LABEL[c.verdict]}
+                  </span>
+                </div>
+                <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
+                <span className="mt-3 inline-block text-xs font-semibold text-[var(--gold)]">
+                  Explore Mulank {c.number} →
                 </span>
-              </div>
-              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-            </GlassCard>
+              </GlassCard>
+            </Link>
           ))}
         </div>
       </ContentSection>
@@ -331,9 +341,19 @@ export function MulankArticle({ page }: { page: MulankPage }) {
             blurb: `Compare ${page.label} with all nine birth-day archetypes side by side.`,
           },
           {
-            to: "/numerology",
-            label: "Instant Mulank calculator",
-            blurb: `Verify ${page.label} alongside your full Bhagyank and current Personal Year.`,
+            to: "/numerology/compatibility",
+            label: "Mulank × Bhagyank 81-Pair Matrix",
+            blurb: `See how ${page.label} interacts with every Destiny Number 1 through 9.`,
+          },
+          {
+            to: "/bhagyank-calculator",
+            label: "Free Bhagyank calculator",
+            blurb: "Compute your full-date Destiny Number and pair it with your Mulank.",
+          },
+          {
+            to: "/namank-calculator",
+            label: "Chaldean Namank calculator",
+            blurb: "Check how your name's vibration supports your Mulank energy.",
           },
           {
             to: "/guide/mulank-vs-bhagyank",

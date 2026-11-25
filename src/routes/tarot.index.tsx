@@ -60,9 +60,19 @@ export const Route = createFileRoute("/tarot/")({
           "@type": "CollectionPage",
           name: TITLE,
           description: DESCRIPTION,
+          inLanguage: "en",
           datePublished: "2026-07-15",
           dateModified: "2026-11-16",
           url: `${SITE_URL}/tarot`,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          publisher: { "@id": `${SITE_URL}/#organization` },
+          publishingPrinciples: `${SITE_URL}/editorial-policy`,
+          about: [
+            { "@type": "Thing", name: "Tarot card meanings" },
+            { "@type": "Thing", name: "Rider-Waite-Smith tarot" },
+            { "@type": "Thing", name: "Major Arcana" },
+            { "@type": "Thing", name: "Minor Arcana" },
+          ],
           hasPart: (loaderData?.cards ?? []).map((p) => ({
             "@type": "Article",
             headline: p.name,
@@ -75,6 +85,7 @@ export const Route = createFileRoute("/tarot/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          inLanguage: "en",
           mainEntity: TAROT_FAQS.map((f) => ({
             "@type": "Question",
             name: f.question,

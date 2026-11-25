@@ -554,6 +554,16 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: p.updated,
         inLanguage: locale.meta.bcp47,
         homeLabel,
+        section: p.arcanaLabel,
+        keywords: p.keywords,
+        about: [
+          p.name,
+          p.arcanaLabel,
+          ...(p.suit ? [p.suitLabel] : []),
+          p.element,
+          p.planet,
+          "Rider-Waite-Smith Tarot",
+        ],
         crumbs: [
           { name: t("nav.tarot", code), path: localizePath("/tarot", code) },
           { name: p.name, path },
@@ -571,6 +581,9 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: c.updated,
         inLanguage: locale.meta.bcp47,
         homeLabel,
+        section: "Tarot Combinations",
+        keywords: c.keywords,
+        about: [c.cardA.name, c.cardB.name, "Tarot Card Combinations"],
         crumbs: [
           { name: t("nav.tarot", code), path: localizePath("/tarot", code) },
           { name: "Combinations", path: localizePath("/tarot/combinations", code) },
@@ -590,6 +603,9 @@ export const Route = createFileRoute("/$lang/$" as any)({
         updated: item?.updated ?? "2026-11-19",
         inLanguage: locale.meta.bcp47,
         homeLabel,
+        section: "Vedic Numerology (Ank Shastra)",
+        keywords: item?.keywords,
+        about: [itemName, "Vedic Numerology (Ank Shastra)", "Mulank", "Bhagyank"],
         crumbs: [
           { name: t("numerology.navLabel", code), path: localizePath("/numerology", code) },
           { name: itemName, path },
@@ -603,6 +619,8 @@ export const Route = createFileRoute("/$lang/$" as any)({
         description,
         inLanguage: locale.meta.bcp47,
         homeLabel,
+        keywords: loaderData?.keywords,
+        about: loaderData?.section ? [loaderData.section, "AstroFree"] : undefined,
         crumbs: [{ name: title.replace(/\s*\|.*$/, ""), path }],
         article: loaderData?.section
           ? { updated: "2026-11-24", section: loaderData.section }

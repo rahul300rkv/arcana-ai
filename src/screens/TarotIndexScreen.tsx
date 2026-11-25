@@ -10,6 +10,7 @@ import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { ContentSection } from "@/components/content/ContentSection";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+import { AuthorCard } from "@/components/AuthorCard";
 import { Input } from "@/components/ui/input";
 import { TAROT_PAGES } from "@/data/tarot";
 import { NUMEROLOGY_PAGES } from "@/data/numerology";
@@ -367,6 +368,15 @@ export function TarotIndexScreen() {
         <ContentSection id="faq" title={t("common.faqHeading")} className="mt-16">
           <FAQAccordion items={faqs} />
         </ContentSection>
+
+        <div className="mt-12">
+          <AuthorCard
+            published="2026-07-15"
+            lastUpdated="2026-11-16"
+            category={t("tarotHub.crumb")}
+            readingTime={`12 ${t("common.minRead")}`}
+          />
+        </div>
 
         <InArticleAd />
       </main>

@@ -42,6 +42,18 @@ export const Route = createFileRoute("/numerology/compatibility")({
             title: TITLE,
             description: DESCRIPTION,
             updated: loaderData?.updated ?? "2026-11-19",
+            section: "Vedic Numerology Compatibility",
+            keywords: [
+              "mulank bhagyank compatibility",
+              "81 numerology combinations",
+              "vedic compatibility chart",
+            ],
+            about: [
+              "Mulank (Birth Number)",
+              "Bhagyank (Destiny Number)",
+              "Navagraha Planetary Friendship",
+              "Vedic Numerology (Ank Shastra)",
+            ],
             crumbs: [
               { name: "Numerology", path: "/numerology" },
               { name: "Compatibility Matrix", path: PATH },

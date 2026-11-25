@@ -10,8 +10,10 @@ import { DECK } from "@/lib/tarot/engine";
 import type { TarotCard } from "@/lib/tarot/types";
 import { Breadcrumb } from "@/components/content/Breadcrumb";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
+import { KeepExploring } from "@/components/content/KeepExploring";
 import { AuthorCard } from "@/components/AuthorCard";
 import { InArticleAd } from "@/components/ads/InArticleAd";
+import { slugify } from "@/data/tarot";
 
 const MEANINGS_FAQS = [
   {
@@ -89,7 +91,13 @@ function CardEntry({ card }: { card: TarotCard; index?: number }) {
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="font-display text-xl sm:text-2xl">
-                <span className="aurora-text">{card.name}</span>
+                <Link
+                  to="/tarot/$slug"
+                  params={{ slug: slugify(card.name) }}
+                  className="aurora-text hover:underline"
+                >
+                  {card.name}
+                </Link>
               </h3>
               <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 {card.arcana === "major"
@@ -134,6 +142,15 @@ function CardEntry({ card }: { card: TarotCard; index?: number }) {
               <MetaRow icon={Coins} label="Finances" value={card.financeMeaning} />
               <MetaRow icon={Flame} label="Spirituality" value={card.spiritualityMeaning} />
             </dl>
+            <div className="mt-3 pt-2 border-t border-white/10">
+              <Link
+                to="/tarot/$slug"
+                params={{ slug: slugify(card.name) }}
+                className="text-xs font-semibold text-[var(--gold)] hover:underline"
+              >
+                Full {card.name} upright, reversed &amp; Yes/No meaning →
+              </Link>
+            </div>
           </div>
         </div>
       </GlassCard>
@@ -317,6 +334,38 @@ export function GuideTarotCardMeaningsScreen() {
           <h2 className="font-display text-2xl sm:text-3xl">Frequently asked questions</h2>
           <FAQAccordion items={MEANINGS_FAQS} />
         </section>
+
+        <div className="mt-12">
+          <KeepExploring
+            links={[
+              {
+                to: "/tarot",
+                label: "Interactive 78-Card Directory",
+                blurb: "Filter cards by Major Arcana or suit and search keywords instantly.",
+              },
+              {
+                to: "/tarot/combinations",
+                label: "Tarot Card Combinations",
+                blurb: "See how any two cards modify each other in love, work, and Yes/No.",
+              },
+              {
+                to: "/major-arcana-tarot-cards-meanings",
+                label: "22 Major Arcana Meanings",
+                blurb: "Deep dive into the Fool's Journey stages with real-world examples.",
+              },
+              {
+                to: "/what-do-reversed-tarot-cards-mean",
+                label: "Reversed Tarot Cards Guide",
+                blurb: "Learn the four practical lenses for reading upside-down cards.",
+              },
+              {
+                to: "/guide/tarot-spreads",
+                label: "Tarot Spreads Guide",
+                blurb: "Compare Single Card, Three Card, Love, Career, and Celtic Cross spreads.",
+              },
+            ]}
+          />
+        </div>
 
         <div className="mt-12">
           <AuthorCard

@@ -446,6 +446,109 @@ export function TarotCardScreen() {
         </ContentSection>
       )}
 
+      {(() => {
+        const sameClusterPeers = TAROT_PAGES.filter((p) => {
+          if (p.slug === page.slug || page.relatedSlugs.includes(p.slug)) return false;
+          return page.suit ? p.suit === page.suit : p.arcana === "major";
+        }).slice(0, 6);
+
+        const cardNumber = card?.number;
+        const rootNumber =
+          typeof cardNumber === "number" && cardNumber > 0
+            ? cardNumber === 11
+              ? 11
+              : ((cardNumber - 1) % 9) + 1
+            : null;
+        const numerologySlug =
+          rootNumber === 11
+            ? "master-number-11"
+            : rootNumber
+              ? `life-path-${rootNumber}`
+              : null;
+        const mulankSlug =
+          rootNumber && rootNumber >= 1 && rootNumber <= 9 ? `mulank-${rootNumber}` : null;
+
+        return (
+          <ContentSection
+            id="topical-cluster"
+            title={`${page.arcana === "major" ? "Major Arcana" : page.suitLabel} cluster & numerology bridge`}
+            icon={Compass}
+          >
+            <div className="grid gap-4 md:grid-cols-2">
+              <GlassCard className="p-5 space-y-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+                  Explore {page.arcana === "major" ? "Major Arcana" : `${page.suitLabel} (${page.element})`}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {sameClusterPeers.map((peer) => (
+                    <Link
+                      key={peer.slug}
+                      to="/tarot/$slug"
+                      params={{ slug: peer.slug }}
+                      className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1 text-xs text-foreground/90 transition-colors hover:border-[var(--gold)]/55 hover:text-[var(--gold)]"
+                    >
+                      {peer.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-x-4 gap-y-2 pt-1 text-xs text-muted-foreground">
+                  <Link
+                    to={
+                      page.suit
+                        ? (`/guide/tarot-card-meanings#${page.suit}` as any)
+                        : "/major-arcana-tarot-cards-meanings"
+                    }
+                    className="text-[var(--gold)] underline underline-offset-4"
+                  >
+                    {page.suit ? `${page.suitLabel} quick guide` : "All 22 Major Arcana meanings"} →
+                  </Link>
+                  <Link to="/guide/tarot-spreads" className="underline underline-offset-4 hover:text-foreground">
+                    Spreads guide
+                  </Link>
+                </div>
+              </GlassCard>
+
+              <GlassCard className="p-5 space-y-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--aurora-1)]">
+                  Tarot × Vedic Numerology Bridge
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {numerologySlug
+                    ? `${page.name} carries the energetic vibration of ${rootNumber === 11 ? "Master Number 11" : `Number ${rootNumber}`} alongside its ${page.element} element and ${page.planet} rulership.`
+                    : `${page.name} opens the Major Arcana cycle at 0 — pure unconditioned potential before numerical manifestation.`}
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
+                  {numerologySlug && (
+                    <Link
+                      to="/numerology/$slug"
+                      params={{ slug: numerologySlug }}
+                      className="font-semibold text-[var(--gold)] underline underline-offset-4"
+                    >
+                      {rootNumber === 11 ? "Master Number 11" : `Life Path ${rootNumber}`} Meaning →
+                    </Link>
+                  )}
+                  {mulankSlug && (
+                    <Link
+                      to="/numerology/$slug"
+                      params={{ slug: mulankSlug }}
+                      className="font-semibold text-foreground/90 underline underline-offset-4 hover:text-[var(--gold)]"
+                    >
+                      Mulank {rootNumber} Profile →
+                    </Link>
+                  )}
+                  <Link
+                    to="/numerology/compatibility"
+                    className="text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                  >
+                    Mulank × Bhagyank 81 Pairs
+                  </Link>
+                </div>
+              </GlassCard>
+            </div>
+          </ContentSection>
+        );
+      })()}
+
       <KeepExploring
         links={[
           {

@@ -50,11 +50,19 @@ export const Route = createFileRoute("/numerology/")({
           "@type": "WebApplication",
           name: "Mulank & Bhagyank Calculator",
           url: PAGE_URL,
+          inLanguage: "en",
           datePublished: "2026-07-15",
           dateModified: "2026-11-18",
           applicationCategory: "LifestyleApplication",
           operatingSystem: "Any",
           description: PAGE_DESC,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          publisher: { "@id": `${SITE_URL}/#organization` },
+          about: [
+            { "@type": "Thing", name: "Vedic Numerology (Ank Shastra)" },
+            { "@type": "Thing", name: "Mulank (Birth Number)" },
+            { "@type": "Thing", name: "Bhagyank (Destiny Number)" },
+          ],
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }),
       },
@@ -63,6 +71,7 @@ export const Route = createFileRoute("/numerology/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          inLanguage: "en",
           mainEntity: [
             {
               "@type": "Question",

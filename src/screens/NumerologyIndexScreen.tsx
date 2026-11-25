@@ -21,6 +21,7 @@ import { AppShell } from "@/components/app/AppShell";
 import { GlassCard } from "@/components/arcana/GlassCard";
 import { GoldButton } from "@/components/arcana/GoldButton";
 import { ShareButtons } from "@/components/content/ShareButtons";
+import { AuthorCard } from "@/components/AuthorCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -1590,6 +1591,26 @@ export function NumerologyIndexScreen() {
                 title: t("numHub.rel6Title"),
                 body: t("numHub.rel6Body"),
               },
+              {
+                to: "/numerology/compatibility" as const,
+                title: t("lfooter.n3"),
+                body: t("mulankHub.bannerMatrix"),
+              },
+              {
+                to: "/numerology/mulank" as const,
+                title: t("lhome.triad1Title"),
+                body: t("lhome.triad1Body"),
+              },
+              {
+                to: "/numerology/bhagyank" as const,
+                title: t("lhome.triad2Title"),
+                body: t("lhome.triad2Body"),
+              },
+              {
+                to: "/numerology/namank" as const,
+                title: t("lhome.triad3Title"),
+                body: t("lhome.triad3Body"),
+              },
             ].map((item) => (
               <Link
                 key={item.title}
@@ -1603,6 +1624,13 @@ export function NumerologyIndexScreen() {
             ))}
           </div>
         </div>
+
+        <AuthorCard
+          published="2026-07-15"
+          lastUpdated="2026-11-18"
+          category={t("numHub.headerKicker")}
+          readingTime={`14 ${t("common.minRead")}`}
+        />
       </section>
     </AppShell>
   );

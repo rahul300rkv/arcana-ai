@@ -44,6 +44,15 @@ export const Route = createFileRoute("/numerology/$slug")({
                 title: pair.title,
                 description: pair.description,
                 updated: pair.updated,
+                section: "Vedic Numerology Compatibility",
+                keywords: pair.keywords,
+                about: [
+                  `Mulank ${pair.mulank}`,
+                  `Bhagyank ${pair.bhagyank}`,
+                  pair.mulankPlanet,
+                  pair.bhagyankPlanet,
+                  "Vedic Numerology (Ank Shastra)",
+                ],
                 crumbs: [
                   { name: "Numerology", path: "/numerology" },
                   { name: "Compatibility Matrix", path: "/numerology/compatibility" },
@@ -58,7 +67,6 @@ export const Route = createFileRoute("/numerology/$slug")({
     }
     if (mulank) {
       const mPath = `/numerology/${params.slug}`;
-      const hiPath = `/hi/numerology/${params.slug}`;
       return {
         meta: buildContentMeta({
           path: mPath,
@@ -79,6 +87,15 @@ export const Route = createFileRoute("/numerology/$slug")({
                 title: mulank.title,
                 description: mulank.description,
                 updated: mulank.updated,
+                section: "Vedic Numerology (Mulank)",
+                keywords: mulank.keywords,
+                about: [
+                  mulank.label,
+                  mulank.planet,
+                  mulank.tarotCard,
+                  "Mulank (Birth Number)",
+                  "Vedic Numerology (Ank Shastra)",
+                ],
                 crumbs: [
                   { name: "Numerology", path: "/numerology" },
                   { name: "Mulank", path: "/numerology/mulank" },
@@ -115,6 +132,15 @@ export const Route = createFileRoute("/numerology/$slug")({
               title: page.title,
               description: page.description,
               updated: page.updated,
+              section: page.isMaster ? "Master Numbers" : "Life Path & Bhagyank Numerology",
+              keywords: page.keywords,
+              about: [
+                page.label,
+                page.planet,
+                page.tarotCard,
+                "Numerology",
+                "Life Path Number",
+              ],
               crumbs: [
                 { name: "Numerology", path: "/numerology" },
                 { name: page.label, path },

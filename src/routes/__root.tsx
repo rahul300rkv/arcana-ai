@@ -134,6 +134,21 @@ export const Route = createRootRoute({
           description:
             "AstroFree is India's first free AI tarot card reading app, with free Mulank, Bhagyank and Namank numerology calculators.",
           slogan: "Ancient Wisdom. Modern Intelligence.",
+          publishingPrinciples: `${SITE_URL}/editorial-policy`,
+          knowsAbout: [
+            "Tarot card meanings",
+            "Rider-Waite-Smith tarot",
+            "Celtic Cross tarot spread",
+            "Vedic numerology (Ank Shastra)",
+            "Mulank (Birth Number)",
+            "Bhagyank (Destiny Number)",
+            "Chaldean Namank",
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "Editorial & Support",
+            url: `${SITE_URL}/contact`,
+          },
           foundingLocation: {
             "@type": "Place",
             name: "India",

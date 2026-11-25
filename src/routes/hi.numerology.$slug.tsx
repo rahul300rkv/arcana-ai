@@ -74,6 +74,9 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
                 updated: page.updated,
                 inLanguage: "hi",
                 homeLabel: "मुख्य पृष्ठ",
+                section: "वैदिक अंक शास्त्र (मूलांक)",
+                keywords: page.keywords,
+                about: [page.label, "मूलांक", "अंक शास्त्र", "Vedic Numerology"],
                 crumbs: [
                   { name: "हिंदी केंद्र", path: "/hi" },
                   { name: "मूलांक", path: "/hi/numerology/mulank" },
@@ -93,6 +96,9 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
     }
     const path = `/hi/numerology/${params.slug}`;
     const enPath = `/numerology/${params.slug}`;
+    const label = pair
+      ? `Mulank ${pair.mulank} × Bhagyank ${pair.bhagyank}`
+      : (numPage?.label ?? params.slug);
     return {
       meta: buildContentMeta({
         path,
@@ -104,6 +110,32 @@ export const Route = createFileRoute("/hi/numerology/$slug")({
       links: [
         { rel: "canonical", href: `${SITE_URL}${path}` },
         ...getAllHreflangLinks(enPath, SITE_URL),
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            buildContentJsonLd({
+              path,
+              title: fallback.title,
+              description: fallback.description,
+              updated: fallback.updated,
+              inLanguage: "hi",
+              homeLabel: "मुख्य पृष्ठ",
+              section: pair ? "Vedic Numerology Compatibility" : "Life Path Numerology",
+              keywords: fallback.keywords,
+              about: pair
+                ? [`Mulank ${pair.mulank}`, `Bhagyank ${pair.bhagyank}`, "Vedic Numerology"]
+                : [label, "Numerology", "Life Path Number"],
+              crumbs: [
+                { name: "हिंदी केंद्र", path: "/hi" },
+                { name: "अंक शास्त्र", path: "/hi/numerology" },
+                { name: label, path },
+              ],
+              faqs: fallback.faqs,
+            }),
+          ),
+        },
       ],
     };
   },

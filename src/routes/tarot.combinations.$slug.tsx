@@ -38,6 +38,16 @@ export const Route = createFileRoute("/tarot/combinations/$slug")({
               description: combo.description,
               image: combo.cardA.image,
               updated: combo.updated,
+              section: "Tarot Combinations",
+              keywords: combo.keywords,
+              about: [
+                combo.cardA.name,
+                combo.cardB.name,
+                `${combo.cardA.name} and ${combo.cardB.name}`,
+                "Tarot Card Combinations",
+                combo.cardA.element,
+                combo.cardB.element,
+              ],
               crumbs: [
                 { name: "Tarot", path: "/tarot" },
                 { name: "Combinations", path: "/tarot/combinations" },

@@ -235,17 +235,53 @@ export function NumerologyNumberScreen() {
         icon={HeartHandshake}
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          {page.compatibility.map((c) => (
-            <GlassCard key={c.number} className="p-5">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-base">Number {c.number}</h3>
-                <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
-                  {VERDICT_LABEL[c.verdict]}
-                </span>
-              </div>
-              <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
-            </GlassCard>
-          ))}
+          {page.compatibility.map((c) => {
+            const singleDigit = /^[1-9]$/.test(c.number.trim()) ? Number(c.number.trim()) : null;
+            const masterSlug =
+              c.number.trim() === "11"
+                ? "master-number-11"
+                : c.number.trim() === "22"
+                  ? "master-number-22"
+                  : null;
+            const targetSlug =
+              !page.isMaster && singleDigit && page.number >= 1 && page.number <= 9
+                ? `mulank-${page.number}-bhagyank-${singleDigit}`
+                : singleDigit
+                  ? `life-path-${singleDigit}`
+                  : masterSlug;
+
+            const cardBody = (
+              <GlassCard className="h-full p-5 transition-colors hover:border-[color:var(--gold)]/45">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="font-display text-base">Number {c.number}</h3>
+                  <span className="rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {VERDICT_LABEL[c.verdict]}
+                  </span>
+                </div>
+                <p className="mt-2 text-base sm:text-sm leading-relaxed text-muted-foreground">{c.note}</p>
+                {targetSlug && (
+                  <span className="mt-3 inline-block text-xs font-semibold text-[var(--gold)]">
+                    {!page.isMaster && singleDigit
+                      ? `Explore ${page.number} × ${singleDigit} pair →`
+                      : `Read Number ${c.number} guide →`}
+                  </span>
+                )}
+              </GlassCard>
+            );
+
+            return targetSlug ? (
+              <Link
+                key={c.number}
+                to="/numerology/$slug"
+                params={{ slug: targetSlug }}
+                className="block h-full"
+              >
+                {cardBody}
+              </Link>
+            ) : (
+              <div key={c.number}>{cardBody}</div>
+            );
+          })}
         </div>
       </ContentSection>
 
@@ -330,19 +366,29 @@ export function NumerologyNumberScreen() {
             blurb: `Compute your exact Personal Year cycle alongside ${page.label} influences.`,
           },
           {
-            to: "/guide/numerology",
-            label: "Digit-reduction method",
-            blurb: "Step-by-step arithmetic behind Life Path, Expression, and master reductions.",
+            to: "/numerology/compatibility",
+            label: "Mulank × Bhagyank 81-Pair Matrix",
+            blurb: "See how every Birth Number interacts with every Destiny Number.",
+          },
+          {
+            to: "/bhagyank-calculator",
+            label: "Bhagyank (Destiny Number) calculator",
+            blurb: "Check your full-date Destiny Number and compare it with your Mulank.",
+          },
+          {
+            to: "/namank-calculator",
+            label: "Chaldean Namank calculator",
+            blurb: "See how your full name vibration harmonizes with your birth numbers.",
+          },
+          {
+            to: "/guide/mulank-vs-bhagyank",
+            label: "Mulank vs. Bhagyank guide",
+            blurb: "Understand daily birth temperament vs. full-date life direction.",
           },
           {
             to: "/tarot",
             label: `Explore ${page.tarotCard} & deck`,
             blurb: `Connect ${page.label}'s lessons with Rider–Waite–Smith tarot symbolism.`,
-          },
-          {
-            to: "/guide",
-            label: "Study archive",
-            blurb: "Spread architecture, reversed cards, and traditional synthesis.",
           },
         ]}
       />

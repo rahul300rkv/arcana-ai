@@ -10,21 +10,43 @@ All core features are completely free with no paywall, credit card, or account r
 - [Free Tarot Reading App](https://astrofree.vercel.app/reading): Draw cards interactively and receive AI-guided tarot interpretations.
 - [Celtic Cross 10-Card Tarot Spread](https://astrofree.vercel.app/tarot/celtic-cross): Instant 10-card spread with position breakdown and upright/reversed analysis.
 - [Three-Card Tarot Spread](https://astrofree.vercel.app/tarot/three-card): Past, Present, Future interactive 3-card reading.
+- [One-Card Daily Tarot](https://astrofree.vercel.app/tarot/one-card): Single-card daily focus draw and reflection.
+- [Love & Relationship Tarot](https://astrofree.vercel.app/tarot/love): Spreads and card meanings focused on romance, partnerships, and compatibility.
 - [Career Tarot Reading](https://astrofree.vercel.app/career-tarot-reading): 3-card career & finances pull plus Life Path 1–9 career guide.
 - [Yes or No Tarot Oracle](https://astrofree.vercel.app/yes-no-tarot): Instant Yes, No, or Maybe single-card oracle answer.
 - [Mulank & Bhagyank Calculator](https://astrofree.vercel.app/numerology): Free Vedic numerology calculator by date of birth with 1–31 lookup tables.
-
-## Tarot & Numerology Pillars
-
-- [Major Arcana Meanings (All 22 Cards)](https://astrofree.vercel.app/major-arcana-tarot-cards-meanings): Complete Major Arcana table and The Fool's Journey stages.
-- [All 78 Tarot Cards & Card of the Day](https://astrofree.vercel.app/tarot): Upright, reversed, love, career, and Card of the Day meanings for all 78 cards.
-- [Reversed Tarot Cards Guide](https://astrofree.vercel.app/what-do-reversed-tarot-cards-mean): How to interpret upside-down cards in spreads.
 - [Bhagyank Calculator](https://astrofree.vercel.app/bhagyank-calculator): Destiny number calculator by full date of birth.
 - [Namank Calculator](https://astrofree.vercel.app/namank-calculator): Chaldean name numerology calculator.
+
+## Tarot Topical Hubs & Guides
+
+- [All 78 Tarot Cards & Card of the Day](https://astrofree.vercel.app/tarot): Upright, reversed, love, career, and Card of the Day meanings for all 78 cards.
+- [Tarot Card Combinations Library](https://astrofree.vercel.app/tarot/combinations): Meanings and synthesis patterns for key two-card tarot pairings.
+- [Major Arcana Meanings (All 22 Cards)](https://astrofree.vercel.app/major-arcana-tarot-cards-meanings): Complete Major Arcana table and The Fool's Journey stages.
+- [Reversed Tarot Cards Guide](https://astrofree.vercel.app/what-do-reversed-tarot-cards-mean): How to interpret upside-down cards in spreads.
+- [Tarot Study Guides Library](https://astrofree.vercel.app/guide): Hub of beginner and advanced tarot and numerology tutorials.
+- [Tarot for Beginners Guide](https://astrofree.vercel.app/guide/tarot-for-beginners): Step-by-step introduction to reading tarot cards and framing questions.
+- [Tarot Spreads Guide](https://astrofree.vercel.app/guide/tarot-spreads): How to choose and structure spreads from 1 card to 10 cards.
+- [Celtic Cross Spread Guide](https://astrofree.vercel.app/guide/celtic-cross-guide): Deep dive into every position of the 10-card Celtic Cross layout.
+- [Complete Tarot Card Meanings Reference](https://astrofree.vercel.app/guide/tarot-card-meanings): Quick-reference guide covering all 78 Rider-Waite-Smith cards.
+
+## Vedic Numerology Topical Hubs & Guides
+
+- [Mulank (Root Number) Hub](https://astrofree.vercel.app/numerology/mulank): Complete overview of Mulank 1–9, planetary rulers, and birth date chart.
+- [Bhagyank (Destiny Number) Hub](https://astrofree.vercel.app/numerology/bhagyank): How full-date Bhagyank shapes life direction and career path.
+- [Namank (Name Number) Hub](https://astrofree.vercel.app/numerology/namank): Chaldean letter values and name vibration analysis.
+- [81 Mulank x Bhagyank Compatibility Matrix](https://astrofree.vercel.app/numerology/compatibility): All 81 Birth Number and Destiny Number pairings explained.
 - [Mulank vs Bhagyank Guide](https://astrofree.vercel.app/guide/mulank-vs-bhagyank): Difference between Birth Number and Destiny Number.
+- [Vedic Numerology Study Guide](https://astrofree.vercel.app/guide/numerology): Comprehensive guide to Ank Shastra, Life Path numbers, Master Numbers 11 & 22, and Chaldean name math.
+- [Hindi Numerology Hub](https://astrofree.vercel.app/hi/numerology): Complete Hindi Mulank, Bhagyank, and Namank resources.
 
-## About & Trust
+## Multilingual Coverage
 
+All guides, card meanings, spreads, and calculators are available across 13 languages (`/hi`, `/hinglish`, `/bn`, `/te`, `/mr`, `/ta`, `/gu`, `/kn`, `/ml`, `/pa`, `/or`, `/as`) with `hreflang` annotations and localized sitemap URLs at `https://astrofree.vercel.app/sitemap.xml`.
+
+## Editorial Standards, About & Trust
+
+- [Editorial Policy & Methodology](https://astrofree.vercel.app/editorial-policy)
 - [About AstroFree](https://astrofree.vercel.app/about)
 - [Contact](https://astrofree.vercel.app/contact)
 - [Privacy Policy](https://astrofree.vercel.app/privacy)
